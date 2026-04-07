@@ -19,6 +19,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public int? MaxResults { get; set; }
         /// <summary>The mode property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequest_mode? Mode { get; set; }
+        /// <summary>The output_mode property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequest_output_mode? OutputMode { get; set; }
         /// <summary>The query property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -42,6 +44,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             AdditionalData = new Dictionary<string, object>();
             Mode = global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequest_mode.People;
+            OutputMode = global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequest_output_mode.Csv;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -63,6 +66,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             {
                 { "max_results", n => { MaxResults = n.GetIntValue(); } },
                 { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequest_mode>(); } },
+                { "output_mode", n => { OutputMode = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequest_output_mode>(); } },
                 { "query", n => { Query = n.GetStringValue(); } },
                 { "search_id", n => { SearchId = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequest.StartAgenticSearchRequest_search_id>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequest.StartAgenticSearchRequest_search_id.CreateFromDiscriminatorValue); } },
             };
@@ -76,6 +80,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("max_results", MaxResults);
             writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequest_mode>("mode", Mode);
+            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequest_output_mode>("output_mode", OutputMode);
             writer.WriteStringValue("query", Query);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequest.StartAgenticSearchRequest_search_id>("search_id", SearchId);
             writer.WriteAdditionalData(AdditionalData);

@@ -6,8 +6,50 @@ using Microsoft.Kiota.Serialization.Form;
 using Microsoft.Kiota.Serialization.Json;
 using Microsoft.Kiota.Serialization.Multipart;
 using Microsoft.Kiota.Serialization.Text;
+using Soenneker.Sixtyfour.OpenApiClient.Api;
 using Soenneker.Sixtyfour.OpenApiClient.Chat;
+using Soenneker.Sixtyfour.OpenApiClient.CompanyIntelligence;
+using Soenneker.Sixtyfour.OpenApiClient.CompanyIntelligenceAsync;
+using Soenneker.Sixtyfour.OpenApiClient.EnrichCompany;
+using Soenneker.Sixtyfour.OpenApiClient.EnrichCompanyAsync;
+using Soenneker.Sixtyfour.OpenApiClient.EnrichCompanyV2;
+using Soenneker.Sixtyfour.OpenApiClient.EnrichCompanyV2Async;
+using Soenneker.Sixtyfour.OpenApiClient.EnrichLead;
+using Soenneker.Sixtyfour.OpenApiClient.EnrichLeadAsync;
+using Soenneker.Sixtyfour.OpenApiClient.EnrichLinkedin;
+using Soenneker.Sixtyfour.OpenApiClient.FindEmail;
+using Soenneker.Sixtyfour.OpenApiClient.FindEmailAsync;
+using Soenneker.Sixtyfour.OpenApiClient.FindEmailBulk;
+using Soenneker.Sixtyfour.OpenApiClient.FindEmailBulkAsync;
+using Soenneker.Sixtyfour.OpenApiClient.FindEmailV2;
+using Soenneker.Sixtyfour.OpenApiClient.FindEmailV2Async;
+using Soenneker.Sixtyfour.OpenApiClient.FindEmailV2Bulk;
+using Soenneker.Sixtyfour.OpenApiClient.FindEmailV2BulkAsync;
+using Soenneker.Sixtyfour.OpenApiClient.FindPhone;
+using Soenneker.Sixtyfour.OpenApiClient.FindPhoneAsync;
+using Soenneker.Sixtyfour.OpenApiClient.FindPhoneBulk;
+using Soenneker.Sixtyfour.OpenApiClient.FindPhoneBulkAsync;
+using Soenneker.Sixtyfour.OpenApiClient.FindPhoneV2;
+using Soenneker.Sixtyfour.OpenApiClient.FindPhoneV2Async;
+using Soenneker.Sixtyfour.OpenApiClient.FindPhoneV2Bulk;
+using Soenneker.Sixtyfour.OpenApiClient.FindPhoneV2BulkAsync;
+using Soenneker.Sixtyfour.OpenApiClient.GetLinkedin;
+using Soenneker.Sixtyfour.OpenApiClient.JobStatus;
 using Soenneker.Sixtyfour.OpenApiClient.OrgChart;
+using Soenneker.Sixtyfour.OpenApiClient.PeopleIntelligence;
+using Soenneker.Sixtyfour.OpenApiClient.PeopleIntelligenceAsync;
+using Soenneker.Sixtyfour.OpenApiClient.QaAgent;
+using Soenneker.Sixtyfour.OpenApiClient.QaAgentAsync;
+using Soenneker.Sixtyfour.OpenApiClient.ResearchAgent;
+using Soenneker.Sixtyfour.OpenApiClient.ResearchAgentAsync;
+using Soenneker.Sixtyfour.OpenApiClient.ReverseEmail;
+using Soenneker.Sixtyfour.OpenApiClient.ReverseEmailAsync;
+using Soenneker.Sixtyfour.OpenApiClient.ReverseEmailBulk;
+using Soenneker.Sixtyfour.OpenApiClient.ReverseEmailBulkAsync;
+using Soenneker.Sixtyfour.OpenApiClient.ReversePhone;
+using Soenneker.Sixtyfour.OpenApiClient.ReversePhoneAsync;
+using Soenneker.Sixtyfour.OpenApiClient.ReversePhoneBulk;
+using Soenneker.Sixtyfour.OpenApiClient.ReversePhoneBulkAsync;
 using Soenneker.Sixtyfour.OpenApiClient.Search;
 using Soenneker.Sixtyfour.OpenApiClient.Workflows;
 using System.Collections.Generic;
@@ -22,15 +64,225 @@ namespace Soenneker.Sixtyfour.OpenApiClient
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SixtyfourOpenApiClient : BaseRequestBuilder
     {
+        /// <summary>The api property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.Api.ApiRequestBuilder Api
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.Api.ApiRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The chat property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Chat.ChatRequestBuilder Chat
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.Chat.ChatRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The companyIntelligence property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.CompanyIntelligence.CompanyIntelligenceRequestBuilder CompanyIntelligence
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.CompanyIntelligence.CompanyIntelligenceRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The companyIntelligenceAsync property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.CompanyIntelligenceAsync.CompanyIntelligenceAsyncRequestBuilder CompanyIntelligenceAsync
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.CompanyIntelligenceAsync.CompanyIntelligenceAsyncRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The enrichCompany property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.EnrichCompany.EnrichCompanyRequestBuilder EnrichCompany
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.EnrichCompany.EnrichCompanyRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The enrichCompanyAsync property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.EnrichCompanyAsync.EnrichCompanyAsyncRequestBuilder EnrichCompanyAsync
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.EnrichCompanyAsync.EnrichCompanyAsyncRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The enrichCompanyV2 property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.EnrichCompanyV2.EnrichCompanyV2RequestBuilder EnrichCompanyV2
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.EnrichCompanyV2.EnrichCompanyV2RequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The enrichCompanyV2Async property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.EnrichCompanyV2Async.EnrichCompanyV2AsyncRequestBuilder EnrichCompanyV2Async
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.EnrichCompanyV2Async.EnrichCompanyV2AsyncRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The enrichLead property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.EnrichLead.EnrichLeadRequestBuilder EnrichLead
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.EnrichLead.EnrichLeadRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The enrichLeadAsync property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.EnrichLeadAsync.EnrichLeadAsyncRequestBuilder EnrichLeadAsync
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.EnrichLeadAsync.EnrichLeadAsyncRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The enrichLinkedin property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.EnrichLinkedin.EnrichLinkedinRequestBuilder EnrichLinkedin
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.EnrichLinkedin.EnrichLinkedinRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The findEmail property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.FindEmail.FindEmailRequestBuilder FindEmail
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.FindEmail.FindEmailRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The findEmailAsync property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.FindEmailAsync.FindEmailAsyncRequestBuilder FindEmailAsync
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.FindEmailAsync.FindEmailAsyncRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The findEmailBulk property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.FindEmailBulk.FindEmailBulkRequestBuilder FindEmailBulk
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.FindEmailBulk.FindEmailBulkRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The findEmailBulkAsync property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.FindEmailBulkAsync.FindEmailBulkAsyncRequestBuilder FindEmailBulkAsync
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.FindEmailBulkAsync.FindEmailBulkAsyncRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The findEmailV2 property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.FindEmailV2.FindEmailV2RequestBuilder FindEmailV2
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.FindEmailV2.FindEmailV2RequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The findEmailV2Async property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.FindEmailV2Async.FindEmailV2AsyncRequestBuilder FindEmailV2Async
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.FindEmailV2Async.FindEmailV2AsyncRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The findEmailV2Bulk property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.FindEmailV2Bulk.FindEmailV2BulkRequestBuilder FindEmailV2Bulk
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.FindEmailV2Bulk.FindEmailV2BulkRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The findEmailV2BulkAsync property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.FindEmailV2BulkAsync.FindEmailV2BulkAsyncRequestBuilder FindEmailV2BulkAsync
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.FindEmailV2BulkAsync.FindEmailV2BulkAsyncRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The findPhone property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.FindPhone.FindPhoneRequestBuilder FindPhone
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.FindPhone.FindPhoneRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The findPhoneAsync property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.FindPhoneAsync.FindPhoneAsyncRequestBuilder FindPhoneAsync
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.FindPhoneAsync.FindPhoneAsyncRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The findPhoneBulk property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.FindPhoneBulk.FindPhoneBulkRequestBuilder FindPhoneBulk
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.FindPhoneBulk.FindPhoneBulkRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The findPhoneBulkAsync property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.FindPhoneBulkAsync.FindPhoneBulkAsyncRequestBuilder FindPhoneBulkAsync
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.FindPhoneBulkAsync.FindPhoneBulkAsyncRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The findPhoneV2 property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.FindPhoneV2.FindPhoneV2RequestBuilder FindPhoneV2
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.FindPhoneV2.FindPhoneV2RequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The findPhoneV2Async property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.FindPhoneV2Async.FindPhoneV2AsyncRequestBuilder FindPhoneV2Async
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.FindPhoneV2Async.FindPhoneV2AsyncRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The findPhoneV2Bulk property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.FindPhoneV2Bulk.FindPhoneV2BulkRequestBuilder FindPhoneV2Bulk
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.FindPhoneV2Bulk.FindPhoneV2BulkRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The findPhoneV2BulkAsync property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.FindPhoneV2BulkAsync.FindPhoneV2BulkAsyncRequestBuilder FindPhoneV2BulkAsync
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.FindPhoneV2BulkAsync.FindPhoneV2BulkAsyncRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The getLinkedin property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.GetLinkedin.GetLinkedinRequestBuilder GetLinkedin
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.GetLinkedin.GetLinkedinRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The jobStatus property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.JobStatus.JobStatusRequestBuilder JobStatus
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.JobStatus.JobStatusRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The orgChart property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.OrgChart.OrgChartRequestBuilder OrgChart
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.OrgChart.OrgChartRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The peopleIntelligence property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.PeopleIntelligence.PeopleIntelligenceRequestBuilder PeopleIntelligence
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.PeopleIntelligence.PeopleIntelligenceRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The peopleIntelligenceAsync property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.PeopleIntelligenceAsync.PeopleIntelligenceAsyncRequestBuilder PeopleIntelligenceAsync
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.PeopleIntelligenceAsync.PeopleIntelligenceAsyncRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The qaAgent property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.QaAgent.QaAgentRequestBuilder QaAgent
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.QaAgent.QaAgentRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The qaAgentAsync property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.QaAgentAsync.QaAgentAsyncRequestBuilder QaAgentAsync
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.QaAgentAsync.QaAgentAsyncRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The researchAgent property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.ResearchAgent.ResearchAgentRequestBuilder ResearchAgent
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.ResearchAgent.ResearchAgentRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The researchAgentAsync property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.ResearchAgentAsync.ResearchAgentAsyncRequestBuilder ResearchAgentAsync
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.ResearchAgentAsync.ResearchAgentAsyncRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The reverseEmail property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.ReverseEmail.ReverseEmailRequestBuilder ReverseEmail
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.ReverseEmail.ReverseEmailRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The reverseEmailAsync property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.ReverseEmailAsync.ReverseEmailAsyncRequestBuilder ReverseEmailAsync
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.ReverseEmailAsync.ReverseEmailAsyncRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The reverseEmailBulk property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.ReverseEmailBulk.ReverseEmailBulkRequestBuilder ReverseEmailBulk
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.ReverseEmailBulk.ReverseEmailBulkRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The reverseEmailBulkAsync property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.ReverseEmailBulkAsync.ReverseEmailBulkAsyncRequestBuilder ReverseEmailBulkAsync
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.ReverseEmailBulkAsync.ReverseEmailBulkAsyncRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The reversePhone property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.ReversePhone.ReversePhoneRequestBuilder ReversePhone
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.ReversePhone.ReversePhoneRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The reversePhoneAsync property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.ReversePhoneAsync.ReversePhoneAsyncRequestBuilder ReversePhoneAsync
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.ReversePhoneAsync.ReversePhoneAsyncRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The reversePhoneBulk property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.ReversePhoneBulk.ReversePhoneBulkRequestBuilder ReversePhoneBulk
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.ReversePhoneBulk.ReversePhoneBulkRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The reversePhoneBulkAsync property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.ReversePhoneBulkAsync.ReversePhoneBulkAsyncRequestBuilder ReversePhoneBulkAsync
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.ReversePhoneBulkAsync.ReversePhoneBulkAsyncRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The search property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Search.SearchRequestBuilder Search
