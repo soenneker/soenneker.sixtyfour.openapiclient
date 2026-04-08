@@ -8,6 +8,7 @@ using Soenneker.Sixtyfour.OpenApiClient.Workflows.Blocks;
 using Soenneker.Sixtyfour.OpenApiClient.Workflows.Cancel;
 using Soenneker.Sixtyfour.OpenApiClient.Workflows.Create_workflow;
 using Soenneker.Sixtyfour.OpenApiClient.Workflows.Delete_workflow;
+using Soenneker.Sixtyfour.OpenApiClient.Workflows.Interactive;
 using Soenneker.Sixtyfour.OpenApiClient.Workflows.Item;
 using Soenneker.Sixtyfour.OpenApiClient.Workflows.Run;
 using Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs;
@@ -44,6 +45,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows
         public global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Delete_workflow.Delete_workflowRequestBuilder Delete_workflow
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Delete_workflow.Delete_workflowRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The interactive property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Interactive.InteractiveRequestBuilder Interactive
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Interactive.InteractiveRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The run property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Run.RunRequestBuilder Run

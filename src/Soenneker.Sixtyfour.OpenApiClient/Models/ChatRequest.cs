@@ -14,6 +14,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The is_onboarding property</summary>
+        public bool? IsOnboarding { get; set; }
         /// <summary>The messages property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -95,6 +97,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "is_onboarding", n => { IsOnboarding = n.GetBoolValue(); } },
                 { "messages", n => { Messages = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatRequest_messages>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatRequest_messages.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "page_context", n => { PageContext = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.PageContext>(global::Soenneker.Sixtyfour.OpenApiClient.Models.PageContext.CreateFromDiscriminatorValue); } },
                 { "page_data", n => { PageData = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
@@ -111,6 +114,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("is_onboarding", IsOnboarding);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatRequest_messages>("messages", Messages);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.PageContext>("page_context", PageContext);
             writer.WriteObjectValue<UntypedNode>("page_data", PageData);
