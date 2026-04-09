@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Api.Usage
         {
         }
         /// <summary>
-        /// Get usage statistics for the current API key.time_window: Optional time window in seconds (default: 3600 = 1 hour)
+        /// Get usage statistics for the current machine credential.time_window: Optional time window in seconds (default: 3600 = 1 hour)
         /// </summary>
         /// <returns>A <see cref="UntypedNode"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Api.Usage
             return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get usage statistics for the current API key.time_window: Optional time window in seconds (default: 3600 = 1 hour)
+        /// Get usage statistics for the current machine credential.time_window: Optional time window in seconds (default: 3600 = 1 hour)
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,7 +85,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Api.Usage
             return new global::Soenneker.Sixtyfour.OpenApiClient.Api.Usage.UsageRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Get usage statistics for the current API key.time_window: Optional time window in seconds (default: 3600 = 1 hour)
+        /// Get usage statistics for the current machine credential.time_window: Optional time window in seconds (default: 3600 = 1 hour)
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class UsageRequestBuilderGetQueryParameters 

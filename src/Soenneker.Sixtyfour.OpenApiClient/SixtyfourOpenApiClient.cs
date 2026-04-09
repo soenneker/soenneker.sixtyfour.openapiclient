@@ -35,6 +35,7 @@ using Soenneker.Sixtyfour.OpenApiClient.FindPhoneV2Bulk;
 using Soenneker.Sixtyfour.OpenApiClient.FindPhoneV2BulkAsync;
 using Soenneker.Sixtyfour.OpenApiClient.GetLinkedin;
 using Soenneker.Sixtyfour.OpenApiClient.JobStatus;
+using Soenneker.Sixtyfour.OpenApiClient.Oauth;
 using Soenneker.Sixtyfour.OpenApiClient.OrgChart;
 using Soenneker.Sixtyfour.OpenApiClient.PeopleIntelligence;
 using Soenneker.Sixtyfour.OpenApiClient.PeopleIntelligenceAsync;
@@ -51,6 +52,7 @@ using Soenneker.Sixtyfour.OpenApiClient.ReversePhoneAsync;
 using Soenneker.Sixtyfour.OpenApiClient.ReversePhoneBulk;
 using Soenneker.Sixtyfour.OpenApiClient.ReversePhoneBulkAsync;
 using Soenneker.Sixtyfour.OpenApiClient.Search;
+using Soenneker.Sixtyfour.OpenApiClient.WellKnown;
 using Soenneker.Sixtyfour.OpenApiClient.Workflows;
 using System.Collections.Generic;
 using System.IO;
@@ -209,6 +211,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.JobStatus.JobStatusRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The oauth property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.Oauth.OauthRequestBuilder Oauth
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.Oauth.OauthRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The orgChart property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.OrgChart.OrgChartRequestBuilder OrgChart
         {
@@ -288,6 +295,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient
         public global::Soenneker.Sixtyfour.OpenApiClient.Search.SearchRequestBuilder Search
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.Search.SearchRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The wellKnown property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.WellKnown.WellKnownRequestBuilder WellKnown
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.WellKnown.WellKnownRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The workflows property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Workflows.WorkflowsRequestBuilder Workflows
