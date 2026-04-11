@@ -6,6 +6,7 @@ using Microsoft.Kiota.Abstractions;
 using Soenneker.Sixtyfour.OpenApiClient.Chat.Approval;
 using Soenneker.Sixtyfour.OpenApiClient.Chat.History;
 using Soenneker.Sixtyfour.OpenApiClient.Chat.Session;
+using Soenneker.Sixtyfour.OpenApiClient.Chat.Settings;
 using Soenneker.Sixtyfour.OpenApiClient.Chat.Stop;
 using Soenneker.Sixtyfour.OpenApiClient.Models;
 using System.Collections.Generic;
@@ -35,6 +36,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Chat
         public global::Soenneker.Sixtyfour.OpenApiClient.Chat.Session.SessionRequestBuilder Session
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.Chat.Session.SessionRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The settings property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.Chat.Settings.SettingsRequestBuilder Settings
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.Chat.Settings.SettingsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The stop property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Chat.Stop.StopRequestBuilder Stop
