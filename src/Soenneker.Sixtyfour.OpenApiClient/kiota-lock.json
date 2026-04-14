@@ -2,7 +2,7 @@
   "descriptionHash": "CCB0BF29E9BEDBE4FAA6DB77361DFB63635F3D232576B1975A618AA952D6BB6DC574A18EE030C3C6D47727CAA8E80AFB798DA61468318DDFADC7E14036754AF8",
   "descriptionLocation": "../../openapi.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.31.0",
+  "kiotaVersion": "1.31.1",
   "clientClassName": "SixtyfourOpenApiClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "Soenneker.Sixtyfour.OpenApiClient",
