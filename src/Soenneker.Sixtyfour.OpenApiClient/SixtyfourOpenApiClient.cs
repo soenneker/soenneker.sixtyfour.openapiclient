@@ -35,6 +35,7 @@ using Soenneker.Sixtyfour.OpenApiClient.FindPhoneV2Bulk;
 using Soenneker.Sixtyfour.OpenApiClient.FindPhoneV2BulkAsync;
 using Soenneker.Sixtyfour.OpenApiClient.GetLinkedin;
 using Soenneker.Sixtyfour.OpenApiClient.JobStatus;
+using Soenneker.Sixtyfour.OpenApiClient.Me;
 using Soenneker.Sixtyfour.OpenApiClient.Oauth;
 using Soenneker.Sixtyfour.OpenApiClient.OrgChart;
 using Soenneker.Sixtyfour.OpenApiClient.PeopleIntelligence;
@@ -210,6 +211,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient
         public global::Soenneker.Sixtyfour.OpenApiClient.JobStatus.JobStatusRequestBuilder JobStatus
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.JobStatus.JobStatusRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The me property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.Me.MeRequestBuilder Me
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.Me.MeRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The oauth property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Oauth.OauthRequestBuilder Oauth
