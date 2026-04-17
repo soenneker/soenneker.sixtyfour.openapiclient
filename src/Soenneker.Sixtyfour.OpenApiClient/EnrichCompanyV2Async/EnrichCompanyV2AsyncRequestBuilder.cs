@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.EnrichCompanyV2Async
         {
         }
         /// <summary>
-        /// Enrich Company Async Endpoint
+        /// Enrich Company V2 Async Endpoint
         /// </summary>
         /// <returns>A <see cref="UntypedNode"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.EnrichCompanyV2Async
             return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Enrich Company Async Endpoint
+        /// Enrich Company V2 Async Endpoint
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
