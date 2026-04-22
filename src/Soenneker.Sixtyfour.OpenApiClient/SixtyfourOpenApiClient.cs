@@ -53,6 +53,7 @@ using Soenneker.Sixtyfour.OpenApiClient.ReversePhoneAsync;
 using Soenneker.Sixtyfour.OpenApiClient.ReversePhoneBulk;
 using Soenneker.Sixtyfour.OpenApiClient.ReversePhoneBulkAsync;
 using Soenneker.Sixtyfour.OpenApiClient.Search;
+using Soenneker.Sixtyfour.OpenApiClient.Webhooks;
 using Soenneker.Sixtyfour.OpenApiClient.WellKnown;
 using Soenneker.Sixtyfour.OpenApiClient.Workflows;
 using System.Collections.Generic;
@@ -301,6 +302,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient
         public global::Soenneker.Sixtyfour.OpenApiClient.Search.SearchRequestBuilder Search
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.Search.SearchRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The webhooks property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.WebhooksRequestBuilder Webhooks
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.WebhooksRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The wellKnown property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.WellKnown.WellKnownRequestBuilder WellKnown

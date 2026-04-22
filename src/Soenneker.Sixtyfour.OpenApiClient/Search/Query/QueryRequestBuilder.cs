@@ -22,7 +22,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Query
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public QueryRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/search/query", pathParameters)
+        public QueryRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/search/query{?user_id*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Query
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public QueryRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/search/query", rawUrl)
+        public QueryRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/search/query{?user_id*}", rawUrl)
         {
         }
         /// <summary>
@@ -43,11 +43,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Query
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest body, Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Search.Query.QueryRequestBuilder.QueryRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest body, Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Search.Query.QueryRequestBuilder.QueryRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -66,11 +66,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Query
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest body, Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Search.Query.QueryRequestBuilder.QueryRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest body, Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Search.Query.QueryRequestBuilder.QueryRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -88,6 +88,23 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Query
         public global::Soenneker.Sixtyfour.OpenApiClient.Search.Query.QueryRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Sixtyfour.OpenApiClient.Search.Query.QueryRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// Unified search query endpoint — accepts structured filters, LLM output, or search_id.Replaces both /start-filter-search and /browse with a single endpoint.Provide exactly one query source: simple_filters, filters, parsed_query, or search_id.Use cursor alone for pagination continuation.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class QueryRequestBuilderPostQueryParameters 
+        {
+            /// <summary>Supabase user UUID forwarded by the WebApp proxy when the caller is org-API-key-authenticated but the request originates from a logged-in dashboard user. Used to set search_history.user_id so subsequent getSearchById/replay authorization checks succeed. Ignored when auth.user_uuid is already populated (JWT auth). Validated against auth.org_id before being trusted — a forwarded UUID from a different org is rejected 403 (prevents API-key holders from forging another org&apos;s user UUID into their search_history rows).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("user_id")]
+            public string? UserId { get; set; }
+#nullable restore
+#else
+            [QueryParameter("user_id")]
+            public string UserId { get; set; }
+#endif
         }
     }
 }

@@ -23,6 +23,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest.SearchQueryRequest_cursor Cursor { get; set; }
 #endif
+        /// <summary>List of person publicIds to exclude from results via must_not terms filter. People-mode only. Threaded into the canonical compiler so the emitted DSL matches the WebApp TS OpenSearchQueryBuilder&apos;s `excludeIds` option byte-for-byte. Honored on both the NL `query` branch and the people `parsed_query` / `search_id` compile branch.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest.SearchQueryRequest_exclude_public_ids? ExcludePublicIds { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest.SearchQueryRequest_exclude_public_ids ExcludePublicIds { get; set; }
+#endif
         /// <summary>The filters property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -31,6 +39,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public UntypedNode Filters { get; set; }
 #endif
+        /// <summary>Whether to expand the parsed location filter to nearby areas via PostGIS radius lookup. People-mode NL `query` branch only. Mirrors WebApp&apos;s `locationExpansionEnabled`.</summary>
+        public bool? LocationExpansionEnabled { get; set; }
+        /// <summary>Radius in miles for the PostGIS location expansion. Ignored when location_expansion_enabled is false. Mirrors WebApp&apos;s `locationExpansionRadiusMiles` (which clamps to the same range).</summary>
+        public int? LocationExpansionRadiusMiles { get; set; }
         /// <summary>The max_results property</summary>
         public int? MaxResults { get; set; }
         /// <summary>Search mode. Inferred from DB when using search_id and not explicitly set.</summary>
@@ -44,6 +56,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #nullable restore
 #else
         public UntypedNode ParsedQuery { get; set; }
+#endif
+        /// <summary>Natural-language query. When set, runs the canonical NL pipeline (parse + field expansion + location expansion + compile) on the main_backend search subsystem and returns the same FilterSearchResponse shape as other inputs. Mutually exclusive with simple_filters / filters / parsed_query / search_id. People-mode only until the company port lands. Requires SEARCH_QUERY_IMPL=canonical (the default).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest.SearchQueryRequest_query? Query { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest.SearchQueryRequest_query Query { get; set; }
 #endif
         /// <summary>The search_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -88,11 +108,15 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "cursor", n => { Cursor = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest.SearchQueryRequest_cursor>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest.SearchQueryRequest_cursor.CreateFromDiscriminatorValue); } },
+                { "exclude_public_ids", n => { ExcludePublicIds = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest.SearchQueryRequest_exclude_public_ids>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest.SearchQueryRequest_exclude_public_ids.CreateFromDiscriminatorValue); } },
                 { "filters", n => { Filters = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "location_expansion_enabled", n => { LocationExpansionEnabled = n.GetBoolValue(); } },
+                { "location_expansion_radius_miles", n => { LocationExpansionRadiusMiles = n.GetIntValue(); } },
                 { "max_results", n => { MaxResults = n.GetIntValue(); } },
                 { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest_mode>(); } },
                 { "page_size", n => { PageSize = n.GetIntValue(); } },
                 { "parsed_query", n => { ParsedQuery = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "query", n => { Query = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest.SearchQueryRequest_query>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest.SearchQueryRequest_query.CreateFromDiscriminatorValue); } },
                 { "search_id", n => { SearchId = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest.SearchQueryRequest_search_id>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest.SearchQueryRequest_search_id.CreateFromDiscriminatorValue); } },
                 { "simple_filters", n => { SimpleFilters = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
             };
@@ -105,11 +129,15 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest.SearchQueryRequest_cursor>("cursor", Cursor);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest.SearchQueryRequest_exclude_public_ids>("exclude_public_ids", ExcludePublicIds);
             writer.WriteObjectValue<UntypedNode>("filters", Filters);
+            writer.WriteBoolValue("location_expansion_enabled", LocationExpansionEnabled);
+            writer.WriteIntValue("location_expansion_radius_miles", LocationExpansionRadiusMiles);
             writer.WriteIntValue("max_results", MaxResults);
             writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest_mode>("mode", Mode);
             writer.WriteIntValue("page_size", PageSize);
             writer.WriteObjectValue<UntypedNode>("parsed_query", ParsedQuery);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest.SearchQueryRequest_query>("query", Query);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest.SearchQueryRequest_search_id>("search_id", SearchId);
             writer.WriteObjectValue<UntypedNode>("simple_filters", SimpleFilters);
             writer.WriteAdditionalData(AdditionalData);
@@ -179,6 +207,142 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 }
                 else {
                     writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest_cursorMember1>(null, SearchQueryRequestCursorMember1);
+                }
+            }
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest_exclude_public_idsMember1"/>, List&lt;string&gt;
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class SearchQueryRequest_exclude_public_ids : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest_exclude_public_idsMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest_exclude_public_idsMember1? SearchQueryRequestExcludePublicIdsMember1 { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest_exclude_public_idsMember1 SearchQueryRequestExcludePublicIdsMember1 { get; set; }
+#endif
+            /// <summary>Composed type representation for type List&lt;string&gt;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public List<string>? String { get; set; }
+#nullable restore
+#else
+            public List<string> String { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest.SearchQueryRequest_exclude_public_ids"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest.SearchQueryRequest_exclude_public_ids CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest.SearchQueryRequest_exclude_public_ids();
+                if(parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
+                {
+                    result.String = stringValue;
+                }
+                else {
+                    result.SearchQueryRequestExcludePublicIdsMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest_exclude_public_idsMember1();
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(SearchQueryRequestExcludePublicIdsMember1 != null)
+                {
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(SearchQueryRequestExcludePublicIdsMember1);
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(String != null)
+                {
+                    writer.WriteCollectionOfPrimitiveValues<string>(null, String);
+                }
+                else {
+                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest_exclude_public_idsMember1>(null, SearchQueryRequestExcludePublicIdsMember1);
+                }
+            }
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest_queryMember1"/>, <see cref="string"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class SearchQueryRequest_query : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest_queryMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest_queryMember1? SearchQueryRequestQueryMember1 { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest_queryMember1 SearchQueryRequestQueryMember1 { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? String { get; set; }
+#nullable restore
+#else
+            public string String { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest.SearchQueryRequest_query"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest.SearchQueryRequest_query CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest.SearchQueryRequest_query();
+                if(parseNode.GetStringValue() is string stringValue)
+                {
+                    result.String = stringValue;
+                }
+                else {
+                    result.SearchQueryRequestQueryMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest_queryMember1();
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(SearchQueryRequestQueryMember1 != null)
+                {
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(SearchQueryRequestQueryMember1);
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(String != null)
+                {
+                    writer.WriteStringValue(null, String);
+                }
+                else {
+                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest_queryMember1>(null, SearchQueryRequestQueryMember1);
                 }
             }
         }
