@@ -59,6 +59,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_max_pages MaxPages { get; set; }
 #endif
+        /// <summary>Original natural-language search string the caller submitted via the `query` field, echoed verbatim. Useful for callers that need to redisplay the user&apos;s original phrasing alongside the structured filters. Null when the search was submitted via structured inputs rather than natural language.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_natural_language_query? NaturalLanguageQuery { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_natural_language_query NaturalLanguageQuery { get; set; }
+#endif
         /// <summary>The next_cursor property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -90,6 +98,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_page_size PageSize { get; set; }
+#endif
+        /// <summary>Structured representation of the search filters applied. Mirrors the shape accepted by the request `parsed_query` field, so callers can round-trip a search through this response back into a follow-up request without re-parsing. Populated when the request used the natural-language `query` input or any other input that produces a structured filter set; null for raw-DSL or simple-filter inputs that have no LLM-output equivalent.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public UntypedNode? ParsedQuery { get; set; }
+#nullable restore
+#else
+        public UntypedNode ParsedQuery { get; set; }
 #endif
         /// <summary>Maximum additional rows still available under max_results after this page.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -130,6 +146,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_search_id SearchId { get; set; }
+#endif
+        /// <summary>Total number of OpenSearch matches across all pages, capped at track_total_hits=50000. Populated for people-mode responses where the OpenSearch hits.total.value is meaningful for pagination UX (e.g. &quot;Page 5 of ~17&quot;). Null for company direct-filter / cursor continuation flows that do not surface a stable total.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_total_available? TotalAvailable { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_total_available TotalAvailable { get; set; }
 #endif
         /// <summary>Final total page count once pagination is exhausted; omitted while has_more=true.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -173,15 +197,18 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "has_more", n => { HasMore = n.GetBoolValue(); } },
                 { "json_download_url", n => { JsonDownloadUrl = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_json_download_url>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_json_download_url.CreateFromDiscriminatorValue); } },
                 { "max_pages", n => { MaxPages = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_max_pages>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_max_pages.CreateFromDiscriminatorValue); } },
+                { "natural_language_query", n => { NaturalLanguageQuery = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_natural_language_query>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_natural_language_query.CreateFromDiscriminatorValue); } },
                 { "next_cursor", n => { NextCursor = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_next_cursor>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_next_cursor.CreateFromDiscriminatorValue); } },
                 { "page_count", n => { PageCount = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_page_count>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_page_count.CreateFromDiscriminatorValue); } },
                 { "page_number", n => { PageNumber = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_page_number>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_page_number.CreateFromDiscriminatorValue); } },
                 { "page_size", n => { PageSize = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_page_size>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_page_size.CreateFromDiscriminatorValue); } },
+                { "parsed_query", n => { ParsedQuery = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "remaining_results", n => { RemainingResults = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_remaining_results>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_remaining_results.CreateFromDiscriminatorValue); } },
                 { "request_duration_ms", n => { RequestDurationMs = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_request_duration_ms>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_request_duration_ms.CreateFromDiscriminatorValue); } },
                 { "resource_handle_id", n => { ResourceHandleId = n.GetStringValue(); } },
                 { "results", n => { Results = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_results>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_results.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "search_id", n => { SearchId = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_search_id>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_search_id.CreateFromDiscriminatorValue); } },
+                { "total_available", n => { TotalAvailable = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_total_available>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_total_available.CreateFromDiscriminatorValue); } },
                 { "total_pages", n => { TotalPages = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_total_pages>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_total_pages.CreateFromDiscriminatorValue); } },
                 { "total_results", n => { TotalResults = n.GetIntValue(); } },
             };
@@ -200,15 +227,18 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteBoolValue("has_more", HasMore);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_json_download_url>("json_download_url", JsonDownloadUrl);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_max_pages>("max_pages", MaxPages);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_natural_language_query>("natural_language_query", NaturalLanguageQuery);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_next_cursor>("next_cursor", NextCursor);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_page_count>("page_count", PageCount);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_page_number>("page_number", PageNumber);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_page_size>("page_size", PageSize);
+            writer.WriteObjectValue<UntypedNode>("parsed_query", ParsedQuery);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_remaining_results>("remaining_results", RemainingResults);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_request_duration_ms>("request_duration_ms", RequestDurationMs);
             writer.WriteStringValue("resource_handle_id", ResourceHandleId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_results>("results", Results);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_search_id>("search_id", SearchId);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_total_available>("total_available", TotalAvailable);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_total_pages>("total_pages", TotalPages);
             writer.WriteIntValue("total_results", TotalResults);
             writer.WriteAdditionalData(AdditionalData);
@@ -532,6 +562,74 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 }
                 else {
                     writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_max_pagesMember1>(null, FilterSearchResponseMaxPagesMember1);
+                }
+            }
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_natural_language_queryMember1"/>, <see cref="string"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class FilterSearchResponse_natural_language_query : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_natural_language_queryMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_natural_language_queryMember1? FilterSearchResponseNaturalLanguageQueryMember1 { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_natural_language_queryMember1 FilterSearchResponseNaturalLanguageQueryMember1 { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? String { get; set; }
+#nullable restore
+#else
+            public string String { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_natural_language_query"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_natural_language_query CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_natural_language_query();
+                if(parseNode.GetStringValue() is string stringValue)
+                {
+                    result.String = stringValue;
+                }
+                else {
+                    result.FilterSearchResponseNaturalLanguageQueryMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_natural_language_queryMember1();
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(FilterSearchResponseNaturalLanguageQueryMember1 != null)
+                {
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(FilterSearchResponseNaturalLanguageQueryMember1);
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(String != null)
+                {
+                    writer.WriteStringValue(null, String);
+                }
+                else {
+                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_natural_language_queryMember1>(null, FilterSearchResponseNaturalLanguageQueryMember1);
                 }
             }
         }
@@ -978,6 +1076,68 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 }
                 else {
                     writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_search_idMember1>(null, FilterSearchResponseSearchIdMember1);
+                }
+            }
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_total_availableMember1"/>, <see cref="int"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class FilterSearchResponse_total_available : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_total_availableMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_total_availableMember1? FilterSearchResponseTotalAvailableMember1 { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_total_availableMember1 FilterSearchResponseTotalAvailableMember1 { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="int"/></summary>
+            public int? Integer { get; set; }
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_total_available"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_total_available CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_total_available();
+                if(parseNode.GetIntValue() is int integerValue)
+                {
+                    result.Integer = integerValue;
+                }
+                else {
+                    result.FilterSearchResponseTotalAvailableMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_total_availableMember1();
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(FilterSearchResponseTotalAvailableMember1 != null)
+                {
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(FilterSearchResponseTotalAvailableMember1);
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(Integer != null)
+                {
+                    writer.WriteIntValue(null, Integer);
+                }
+                else {
+                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_total_availableMember1>(null, FilterSearchResponseTotalAvailableMember1);
                 }
             }
         }
