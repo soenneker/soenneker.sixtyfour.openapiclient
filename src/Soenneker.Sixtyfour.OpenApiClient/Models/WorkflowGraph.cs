@@ -8,14 +8,14 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// Represents a workflow as a directed graph with blocks and edges.
+    /// A workflow expressed as a directed graph of blocks and edges.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WorkflowGraph : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The blocks property</summary>
+        /// <summary>All blocks in the workflow.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.Block>? Blocks { get; set; }
@@ -23,7 +23,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.Block> Blocks { get; set; }
 #endif
-        /// <summary>The edges property</summary>
+        /// <summary>Edges defining the execution order between blocks.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowEdge>? Edges { get; set; }

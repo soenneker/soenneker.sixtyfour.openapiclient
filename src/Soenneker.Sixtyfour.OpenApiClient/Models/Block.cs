@@ -7,14 +7,15 @@ using System.IO;
 using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
+    /// <summary>
+    /// A single step inside a workflow.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class Block : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The block_id property</summary>
+        /// <summary>Stable block identifier; non-UUID values are normalized server-side.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.Block.Block_block_id? BlockId { get; set; }
@@ -22,7 +23,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.Block.Block_block_id BlockId { get; set; }
 #endif
-        /// <summary>The block_name property</summary>
+        /// <summary>Registered block type name (e.g. &apos;enrich_lead&apos;, &apos;find_email&apos;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? BlockName { get; set; }
@@ -30,7 +31,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string BlockName { get; set; }
 #endif
-        /// <summary>The block_type property</summary>
+        /// <summary>Category of block (e.g. &apos;source&apos;, &apos;enrich&apos;, &apos;output&apos;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? BlockType { get; set; }
@@ -38,9 +39,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string BlockType { get; set; }
 #endif
-        /// <summary>The sequence_number property</summary>
+        /// <summary>Position of the block in the workflow execution order.</summary>
         public int? SequenceNumber { get; set; }
-        /// <summary>The specs property</summary>
+        /// <summary>Block-specific configuration; shape depends on `block_name`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.Block_specs? Specs { get; set; }

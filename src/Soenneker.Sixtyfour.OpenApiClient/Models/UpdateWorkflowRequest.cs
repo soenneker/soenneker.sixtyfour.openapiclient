@@ -14,7 +14,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The workflow_definition property</summary>
+        /// <summary>Replacement workflow graph.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowGraph? WorkflowDefinition { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowGraph WorkflowDefinition { get; set; }
 #endif
-        /// <summary>The workflow_description property</summary>
+        /// <summary>New workflow description.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateWorkflowRequest.UpdateWorkflowRequest_workflow_description? WorkflowDescription { get; set; }
@@ -30,7 +30,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateWorkflowRequest.UpdateWorkflowRequest_workflow_description WorkflowDescription { get; set; }
 #endif
-        /// <summary>The workflow_name property</summary>
+        /// <summary>New workflow name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateWorkflowRequest.UpdateWorkflowRequest_workflow_name? WorkflowName { get; set; }

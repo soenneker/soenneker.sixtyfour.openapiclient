@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Download
         {
         }
         /// <summary>
-        /// Generate a signed download URL for a search result.Takes a resource handle ID and returns a signed URL valid for 15 minutes.The resource handle must belong to the user&apos;s organization.Returns:    DownloadSignedUrlResponse with signed URL, bucket, and path
+        /// Generate a 15-minute signed download URL for a search result.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DownloadSignedUrlResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Download
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.DownloadSignedUrlResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.DownloadSignedUrlResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Generate a signed download URL for a search result.Takes a resource handle ID and returns a signed URL valid for 15 minutes.The resource handle must belong to the user&apos;s organization.Returns:    DownloadSignedUrlResponse with signed URL, bucket, and path
+        /// Generate a 15-minute signed download URL for a search result.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,7 +85,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Download
             return new global::Soenneker.Sixtyfour.OpenApiClient.Search.Download.DownloadRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Generate a signed download URL for a search result.Takes a resource handle ID and returns a signed URL valid for 15 minutes.The resource handle must belong to the user&apos;s organization.Returns:    DownloadSignedUrlResponse with signed URL, bucket, and path
+        /// Generate a 15-minute signed download URL for a search result.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class DownloadRequestBuilderGetQueryParameters 

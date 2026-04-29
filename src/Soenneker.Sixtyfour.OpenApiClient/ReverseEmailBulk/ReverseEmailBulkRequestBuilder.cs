@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.ReverseEmailBulk
         {
         }
         /// <summary>
-        /// Reverse Email Bulk Endpoint
+        /// Resolve people from a batch of email addresses in one call.
         /// </summary>
         /// <returns>A <see cref="UntypedNode"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.ReverseEmailBulk
             return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Reverse Email Bulk Endpoint
+        /// Resolve people from a batch of email addresses in one call.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

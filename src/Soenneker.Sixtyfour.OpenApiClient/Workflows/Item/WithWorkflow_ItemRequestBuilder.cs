@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Item
         {
         }
         /// <summary>
-        /// Retrieve a workflow&apos;s details including its block graph definition.Returns the workflow name, description, status, and complete block configuration.
+        /// Retrieve a workflow&apos;s full details, including its block graph definition.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve a workflow&apos;s details including its block graph definition.Returns the workflow name, description, status, and complete block configuration.
+        /// Retrieve a workflow&apos;s full details, including its block graph definition.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

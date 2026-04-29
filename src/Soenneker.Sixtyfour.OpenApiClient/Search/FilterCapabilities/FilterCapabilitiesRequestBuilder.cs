@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.FilterCapabilities
         {
         }
         /// <summary>
-        /// Return mapping-derived DSL capabilities for filter-search clients.
+        /// Get the fields, operators, and limits supported by filter search.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchCapabilitiesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.FilterCapabilities
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchCapabilitiesResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchCapabilitiesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Return mapping-derived DSL capabilities for filter-search clients.
+        /// Get the fields, operators, and limits supported by filter search.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,7 +85,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.FilterCapabilities
             return new global::Soenneker.Sixtyfour.OpenApiClient.Search.FilterCapabilities.FilterCapabilitiesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Return mapping-derived DSL capabilities for filter-search clients.
+        /// Get the fields, operators, and limits supported by filter search.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class FilterCapabilitiesRequestBuilderGetQueryParameters 

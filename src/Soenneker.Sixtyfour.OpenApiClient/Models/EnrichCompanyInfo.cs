@@ -14,7 +14,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The benchmark property</summary>
+        /// <summary>Include timing and quality benchmark data in the response.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo.EnrichCompanyInfo_benchmark? Benchmark { get; set; }
@@ -22,11 +22,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo.EnrichCompanyInfo_benchmark Benchmark { get; set; }
 #endif
-        /// <summary>The find_people property</summary>
+        /// <summary>If true, also discover key people at the company.</summary>
         public bool? FindPeople { get; set; }
-        /// <summary>The full_org_chart property</summary>
+        /// <summary>If true, return the full org chart instead of a focused list.</summary>
         public bool? FullOrgChart { get; set; }
-        /// <summary>The lead_struct property</summary>
+        /// <summary>Output schema for each discovered person when find_people=true.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UntypedNode? LeadStruct { get; set; }
@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public UntypedNode LeadStruct { get; set; }
 #endif
-        /// <summary>The max_iterations property</summary>
+        /// <summary>Maximum research iterations the agent may run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo.EnrichCompanyInfo_max_iterations? MaxIterations { get; set; }
@@ -42,7 +42,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo.EnrichCompanyInfo_max_iterations MaxIterations { get; set; }
 #endif
-        /// <summary>The people_focus_prompt property</summary>
+        /// <summary>Natural-language description of which people to surface when find_people=true.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo.EnrichCompanyInfo_people_focus_prompt? PeopleFocusPrompt { get; set; }
@@ -50,7 +50,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo.EnrichCompanyInfo_people_focus_prompt PeopleFocusPrompt { get; set; }
 #endif
-        /// <summary>The research_plan property</summary>
+        /// <summary>Optional natural-language plan that guides the research agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo.EnrichCompanyInfo_research_plan? ResearchPlan { get; set; }
@@ -58,7 +58,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo.EnrichCompanyInfo_research_plan ResearchPlan { get; set; }
 #endif
-        /// <summary>The struct property</summary>
+        /// <summary>Mapping of output field name to natural-language description of what to extract.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo_struct? Struct { get; set; }
@@ -66,7 +66,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo_struct Struct { get; set; }
 #endif
-        /// <summary>The target_company property</summary>
+        /// <summary>Company identifiers (e.g. company_name, domain, linkedin).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo_target_company? TargetCompany { get; set; }
@@ -74,7 +74,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo_target_company TargetCompany { get; set; }
 #endif
-        /// <summary>The tier property</summary>
+        /// <summary>Quality and cost tier for the research agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo.EnrichCompanyInfo_tier? Tier { get; set; }
@@ -82,7 +82,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo.EnrichCompanyInfo_tier Tier { get; set; }
 #endif
-        /// <summary>The webhook_url property</summary>
+        /// <summary>HTTPS URL that receives the result payload when the async job completes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo.EnrichCompanyInfo_webhook_url? WebhookUrl { get; set; }

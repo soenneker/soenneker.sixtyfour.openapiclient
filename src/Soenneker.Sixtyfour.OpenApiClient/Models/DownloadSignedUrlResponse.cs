@@ -15,7 +15,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The bucket property</summary>
+        /// <summary>Storage bucket containing the file.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Bucket { get; set; }
@@ -23,7 +23,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string Bucket { get; set; }
 #endif
-        /// <summary>The path property</summary>
+        /// <summary>Object path within the bucket.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Path { get; set; }
@@ -31,7 +31,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string Path { get; set; }
 #endif
-        /// <summary>The url property</summary>
+        /// <summary>Signed download URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Url { get; set; }

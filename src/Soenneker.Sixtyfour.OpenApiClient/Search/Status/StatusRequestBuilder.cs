@@ -18,6 +18,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Status
         /// <summary>Gets an item from the Soenneker.Sixtyfour.OpenApiClient.search.status.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Search.Status.Item.WithTask_ItemRequestBuilder"/></returns>
+        [Obsolete("")]
         public global::Soenneker.Sixtyfour.OpenApiClient.Search.Status.Item.WithTask_ItemRequestBuilder this[string position]
         {
             get

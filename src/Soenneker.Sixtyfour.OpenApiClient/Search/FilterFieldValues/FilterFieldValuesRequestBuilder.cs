@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.FilterFieldValues
         {
         }
         /// <summary>
-        /// Return top values by count for a single filter-search field.
+        /// Get the top values by count for a single filter-search field.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesResponse"/></returns>
         /// <param name="body">Request for top values of a single field.</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.FilterFieldValues
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Return top values by count for a single filter-search field.
+        /// Get the top values by count for a single filter-search field.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Request for top values of a single field.</param>

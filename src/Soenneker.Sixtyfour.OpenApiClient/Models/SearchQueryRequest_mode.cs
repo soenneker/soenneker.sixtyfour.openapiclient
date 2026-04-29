@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
-    /// <summary>Search mode. Inferred from DB when using search_id and not explicitly set.</summary>
+    /// <summary>Search mode; inferred from DB when using `search_id`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum SearchQueryRequest_mode
     {

@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Run
         {
         }
         /// <summary>
-        /// Execute a workflow and return a job ID for tracking.workflow_id must be provided as a query parameter.Optional parameters (in request body):- specs_override: Override the specs of the first block in the workflow (useful for dynamic inputs)- webhook_payload: Provide input data for workflows starting with &apos;webhook&apos; block (API key auth only)Workflows starting with &apos;read_csv&apos; cannot be triggered via API.View the &quot;Workflow API Reference&quot; in the workflow editor (in the menu left of the run button) to see how to override specs
+        /// Start a workflow run and return a job ID for tracking. Supports per-run spec overrides via `specs_override` and webhook input via `webhook_payload`. Workflows starting with `read_csv` cannot be triggered via API.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunStartedResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Run
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunStartedResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunStartedResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Execute a workflow and return a job ID for tracking.workflow_id must be provided as a query parameter.Optional parameters (in request body):- specs_override: Override the specs of the first block in the workflow (useful for dynamic inputs)- webhook_payload: Provide input data for workflows starting with &apos;webhook&apos; block (API key auth only)Workflows starting with &apos;read_csv&apos; cannot be triggered via API.View the &quot;Workflow API Reference&quot; in the workflow editor (in the menu left of the run button) to see how to override specs
+        /// Start a workflow run and return a job ID for tracking. Supports per-run spec overrides via `specs_override` and webhook input via `webhook_payload`. Workflows starting with `read_csv` cannot be triggered via API.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -90,7 +90,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Run
             return new global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Run.RunRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Execute a workflow and return a job ID for tracking.workflow_id must be provided as a query parameter.Optional parameters (in request body):- specs_override: Override the specs of the first block in the workflow (useful for dynamic inputs)- webhook_payload: Provide input data for workflows starting with &apos;webhook&apos; block (API key auth only)Workflows starting with &apos;read_csv&apos; cannot be triggered via API.View the &quot;Workflow API Reference&quot; in the workflow editor (in the menu left of the run button) to see how to override specs
+        /// Start a workflow run and return a job ID for tracking. Supports per-run spec overrides via `specs_override` and webhook input via `webhook_payload`. Workflows starting with `read_csv` cannot be triggered via API.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class RunRequestBuilderPostQueryParameters 

@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.OrgChart.Full
         {
         }
         /// <summary>
-        /// Org Chart Full Endpoint
+        /// Build the complete organizational structure for a target company.
         /// </summary>
         /// <returns>A <see cref="UntypedNode"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.OrgChart.Full
             return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Org Chart Full Endpoint
+        /// Build the complete organizational structure for a target company.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

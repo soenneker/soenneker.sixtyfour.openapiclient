@@ -15,7 +15,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The message property</summary>
+        /// <summary>Human-readable status message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Message { get; set; }
@@ -23,7 +23,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string Message { get; set; }
 #endif
-        /// <summary>The status property</summary>
+        /// <summary>Initial task status, typically &apos;queued&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Status { get; set; }
@@ -31,7 +31,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string Status { get; set; }
 #endif
-        /// <summary>The task_id property</summary>
+        /// <summary>Async task ID; poll for status with this value.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TaskId { get; set; }

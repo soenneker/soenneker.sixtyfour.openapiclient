@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.QaAgentAsync
         {
         }
         /// <summary>
-        /// Qa Agent Async Endpoint
+        /// Run a research agent that answers a question about a person or company; returns a job ID to poll.
         /// </summary>
         /// <returns>A <see cref="UntypedNode"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.QaAgentAsync
             return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Qa Agent Async Endpoint
+        /// Run a research agent that answers a question about a person or company; returns a job ID to poll.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.ReversePhoneBulk
         {
         }
         /// <summary>
-        /// Reverse Phone Bulk Endpoint
+        /// Resolve people from a batch of phone numbers in one call.
         /// </summary>
         /// <returns>A <see cref="UntypedNode"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.ReversePhoneBulk
             return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Reverse Phone Bulk Endpoint
+        /// Resolve people from a batch of phone numbers in one call.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

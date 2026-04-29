@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Live_status
         {
         }
         /// <summary>
-        /// Get live status for a workflow run.
+        /// Get the live status and per-block progress for a workflow run.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Live_status
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get live status for a workflow run.
+        /// Get the live status and per-block progress for a workflow run.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

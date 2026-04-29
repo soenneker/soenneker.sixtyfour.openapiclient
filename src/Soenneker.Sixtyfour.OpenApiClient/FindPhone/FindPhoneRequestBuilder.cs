@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.FindPhone
         {
         }
         /// <summary>
-        /// Find Phone Endpoint
+        /// Find a single person&apos;s phone number.
         /// </summary>
         /// <returns>A <see cref="UntypedNode"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.FindPhone
             return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Find Phone Endpoint
+        /// Find a single person&apos;s phone number.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

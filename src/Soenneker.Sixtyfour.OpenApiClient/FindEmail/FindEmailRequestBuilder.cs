@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.FindEmail
         {
         }
         /// <summary>
-        /// Find Email Endpoint
+        /// Find a single person&apos;s email address.
         /// </summary>
         /// <returns>A <see cref="UntypedNode"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.FindEmail
             return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Find Email Endpoint
+        /// Find a single person&apos;s email address.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

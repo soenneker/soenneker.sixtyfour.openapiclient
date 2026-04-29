@@ -14,9 +14,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The created_at property</summary>
+        /// <summary>Timestamp when the record was created.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
-        /// <summary>The description property</summary>
+        /// <summary>Workflow description.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.WorkflowResponse_description? Description { get; set; }
@@ -24,7 +24,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.WorkflowResponse_description Description { get; set; }
 #endif
-        /// <summary>The id property</summary>
+        /// <summary>Workflow identifier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Id { get; set; }
@@ -32,7 +32,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The last_run_date property</summary>
+        /// <summary>Timestamp of the most recent run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.WorkflowResponse_last_run_date? LastRunDate { get; set; }
@@ -40,7 +40,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.WorkflowResponse_last_run_date LastRunDate { get; set; }
 #endif
-        /// <summary>The name property</summary>
+        /// <summary>Workflow name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }
@@ -48,7 +48,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The org_id property</summary>
+        /// <summary>Organization that owns the workflow.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.WorkflowResponse_org_id? OrgId { get; set; }
@@ -56,7 +56,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.WorkflowResponse_org_id OrgId { get; set; }
 #endif
-        /// <summary>The status property</summary>
+        /// <summary>Lifecycle status of the workflow definition (e.g. draft, ready).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Status { get; set; }
@@ -64,7 +64,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string Status { get; set; }
 #endif
-        /// <summary>The step property</summary>
+        /// <summary>Current authoring step in the builder UI.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Step { get; set; }
@@ -72,9 +72,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string Step { get; set; }
 #endif
-        /// <summary>The updated_at property</summary>
+        /// <summary>Timestamp when the record was last updated.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
-        /// <summary>The user_uuid property</summary>
+        /// <summary>User who created the workflow.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.WorkflowResponse_user_uuid? UserUuid { get; set; }
@@ -82,7 +82,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.WorkflowResponse_user_uuid UserUuid { get; set; }
 #endif
-        /// <summary>The workflow_definition property</summary>
+        /// <summary>Workflow graph; included on detail responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowGraph? WorkflowDefinition { get; set; }

@@ -15,11 +15,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The max_results property</summary>
+        /// <summary>Maximum number of results to return across pages.</summary>
         public int? MaxResults { get; set; }
-        /// <summary>Search mode. Inferred from DB when not explicitly set.</summary>
+        /// <summary>Search mode; inferred from DB when not set.</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.SaveSearchRequest_mode? Mode { get; set; }
-        /// <summary>The parsed_query property</summary>
+        /// <summary>Structured filter set returned by a previous search.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UntypedNode? ParsedQuery { get; set; }
@@ -27,7 +27,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public UntypedNode ParsedQuery { get; set; }
 #endif
-        /// <summary>The search_id property</summary>
+        /// <summary>Search history ID returned by a previous search.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.SaveSearchRequest.SaveSearchRequest_search_id? SearchId { get; set; }

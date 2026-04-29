@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Delete_workflow
         {
         }
         /// <summary>
-        /// Delete a workflow by ID.This permanently removes the workflow definition. Any existing workflow runs will remain in history.
+        /// Permanently delete a workflow definition. Existing run history is preserved.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Delete_workflow
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete a workflow by ID.This permanently removes the workflow definition. Any existing workflow runs will remain in history.
+        /// Permanently delete a workflow definition. Existing run history is preserved.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,7 +85,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Delete_workflow
             return new global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Delete_workflow.Delete_workflowRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Delete a workflow by ID.This permanently removes the workflow definition. Any existing workflow runs will remain in history.
+        /// Permanently delete a workflow definition. Existing run history is preserved.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Delete_workflowRequestBuilderPostQueryParameters 

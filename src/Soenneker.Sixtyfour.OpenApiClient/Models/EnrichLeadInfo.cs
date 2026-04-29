@@ -14,7 +14,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The benchmark property</summary>
+        /// <summary>Include timing and quality benchmark data in the response.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_benchmark? Benchmark { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_benchmark Benchmark { get; set; }
 #endif
-        /// <summary>The lead_info property</summary>
+        /// <summary>Lead identifiers (e.g. name, email, company, linkedin).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_lead_info? LeadInfo { get; set; }
@@ -30,7 +30,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_lead_info LeadInfo { get; set; }
 #endif
-        /// <summary>The max_iterations property</summary>
+        /// <summary>Maximum research iterations the agent may run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_max_iterations? MaxIterations { get; set; }
@@ -38,7 +38,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_max_iterations MaxIterations { get; set; }
 #endif
-        /// <summary>The research_plan property</summary>
+        /// <summary>Optional natural-language plan that guides the research agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_research_plan? ResearchPlan { get; set; }
@@ -46,7 +46,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_research_plan ResearchPlan { get; set; }
 #endif
-        /// <summary>The struct property</summary>
+        /// <summary>Mapping of output field name to natural-language description of what to extract.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UntypedNode? Struct { get; set; }
@@ -54,7 +54,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public UntypedNode Struct { get; set; }
 #endif
-        /// <summary>The tier property</summary>
+        /// <summary>Quality and cost tier for the research agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_tier? Tier { get; set; }
@@ -62,7 +62,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_tier Tier { get; set; }
 #endif
-        /// <summary>The webhook_url property</summary>
+        /// <summary>HTTPS URL that receives the result payload when the async job completes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_webhook_url? WebhookUrl { get; set; }

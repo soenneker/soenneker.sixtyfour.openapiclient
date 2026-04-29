@@ -15,9 +15,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The count property</summary>
+        /// <summary>Document count for this value within the scoped query.</summary>
         public int? Count { get; set; }
-        /// <summary>The filter_snippet property</summary>
+        /// <summary>Ready-to-merge filter clause that selects this value.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UntypedNode? FilterSnippet { get; set; }
@@ -25,9 +25,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public UntypedNode FilterSnippet { get; set; }
 #endif
-        /// <summary>The percent_of_scope property</summary>
+        /// <summary>Share (0-1) of scoped documents matching this value.</summary>
         public double? PercentOfScope { get; set; }
-        /// <summary>The value property</summary>
+        /// <summary>Field value; null bucket represents missing values.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValue.FilterFieldValuesValue_value? Value { get; set; }

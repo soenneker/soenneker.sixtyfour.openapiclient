@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.FindEmailBulk
         {
         }
         /// <summary>
-        /// Find Email Bulk Endpoint
+        /// Find email addresses for a batch of leads in one call.
         /// </summary>
         /// <returns>A <see cref="UntypedNode"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.FindEmailBulk
             return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Find Email Bulk Endpoint
+        /// Find email addresses for a batch of leads in one call.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

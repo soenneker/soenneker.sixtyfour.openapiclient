@@ -95,7 +95,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows
         {
         }
         /// <summary>
-        /// List all workflows for the authenticated organization.Returns a lightweight list of workflows without workflow_definition.Use GET /workflows/{workflow_id} to retrieve the full workflow with its definition.
+        /// List all workflows in the organization. Returns lightweight metadata without block definitions; use `GET /workflows/{workflow_id}` for the full definition.
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -119,7 +119,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// List all workflows for the authenticated organization.Returns a lightweight list of workflows without workflow_definition.Use GET /workflows/{workflow_id} to retrieve the full workflow with its definition.
+        /// List all workflows in the organization. Returns lightweight metadata without block definitions; use `GET /workflows/{workflow_id}` for the full definition.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

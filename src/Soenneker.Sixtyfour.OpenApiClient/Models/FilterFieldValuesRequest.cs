@@ -15,7 +15,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The field property</summary>
+        /// <summary>Canonical field path to aggregate values for.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Field { get; set; }
@@ -23,7 +23,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string Field { get; set; }
 #endif
-        /// <summary>The filters property</summary>
+        /// <summary>Raw OpenSearch DSL filters that scope the aggregation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UntypedNode? Filters { get; set; }
@@ -31,9 +31,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public UntypedNode Filters { get; set; }
 #endif
-        /// <summary>The mode property</summary>
+        /// <summary>Search mode: &apos;people&apos; or &apos;company&apos;.</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesRequest_mode? Mode { get; set; }
-        /// <summary>The simple_filters property</summary>
+        /// <summary>MongoDB-style filters that scope the aggregation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UntypedNode? SimpleFilters { get; set; }
@@ -41,7 +41,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public UntypedNode SimpleFilters { get; set; }
 #endif
-        /// <summary>The top_k property</summary>
+        /// <summary>Maximum number of top values to return.</summary>
         public int? TopK { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesRequest"/> and sets the default values.

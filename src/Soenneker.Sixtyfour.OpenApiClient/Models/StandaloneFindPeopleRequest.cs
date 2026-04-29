@@ -14,7 +14,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The company_member_id property</summary>
+        /// <summary>Internal numeric LinkedIn company member ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFindPeopleRequest.StandaloneFindPeopleRequest_company_member_id? CompanyMemberId { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFindPeopleRequest.StandaloneFindPeopleRequest_company_member_id CompanyMemberId { get; set; }
 #endif
-        /// <summary>The company_name property</summary>
+        /// <summary>Target company name. Used to disambiguate when a LinkedIn handle is ambiguous.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFindPeopleRequest.StandaloneFindPeopleRequest_company_name? CompanyName { get; set; }
@@ -30,9 +30,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFindPeopleRequest.StandaloneFindPeopleRequest_company_name CompanyName { get; set; }
 #endif
-        /// <summary>The include_resolution_debug property</summary>
+        /// <summary>Include company-resolution debug metadata in the response.</summary>
         public bool? IncludeResolutionDebug { get; set; }
-        /// <summary>The linkedin_company_url property</summary>
+        /// <summary>Full LinkedIn company URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFindPeopleRequest.StandaloneFindPeopleRequest_linkedin_company_url? LinkedinCompanyUrl { get; set; }
@@ -40,7 +40,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFindPeopleRequest.StandaloneFindPeopleRequest_linkedin_company_url LinkedinCompanyUrl { get; set; }
 #endif
-        /// <summary>The linkedin_public_id property</summary>
+        /// <summary>LinkedIn public ID for the company (e.g. &apos;sixtyfour-ai&apos;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFindPeopleRequest.StandaloneFindPeopleRequest_linkedin_public_id? LinkedinPublicId { get; set; }
@@ -48,9 +48,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFindPeopleRequest.StandaloneFindPeopleRequest_linkedin_public_id LinkedinPublicId { get; set; }
 #endif
-        /// <summary>The max_iterations property</summary>
+        /// <summary>Maximum research iterations the agent may run.</summary>
         public int? MaxIterations { get; set; }
-        /// <summary>The max_results property</summary>
+        /// <summary>Maximum number of people returned across all pages.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFindPeopleRequest.StandaloneFindPeopleRequest_max_results? MaxResults { get; set; }
@@ -58,7 +58,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFindPeopleRequest.StandaloneFindPeopleRequest_max_results MaxResults { get; set; }
 #endif
-        /// <summary>The people_focus_prompt property</summary>
+        /// <summary>Natural-language description of which people to find (e.g. &apos;engineering leaders&apos;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PeopleFocusPrompt { get; set; }

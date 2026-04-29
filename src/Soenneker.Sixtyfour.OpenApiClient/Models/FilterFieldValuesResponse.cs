@@ -15,7 +15,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The aggregation_field property</summary>
+        /// <summary>Underlying field used for the terms aggregation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesResponse.FilterFieldValuesResponse_aggregation_field? AggregationField { get; set; }
@@ -23,7 +23,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesResponse.FilterFieldValuesResponse_aggregation_field AggregationField { get; set; }
 #endif
-        /// <summary>The canonical_field property</summary>
+        /// <summary>Canonical field path used for aggregation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CanonicalField { get; set; }
@@ -31,7 +31,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string CanonicalField { get; set; }
 #endif
-        /// <summary>The field property</summary>
+        /// <summary>Field requested by the caller.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Field { get; set; }
@@ -39,9 +39,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string Field { get; set; }
 #endif
-        /// <summary>The mode property</summary>
+        /// <summary>Search mode: &apos;people&apos; or &apos;company&apos;.</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesResponse_mode? Mode { get; set; }
-        /// <summary>The nested_path property</summary>
+        /// <summary>Nested path, if any.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesResponse.FilterFieldValuesResponse_nested_path? NestedPath { get; set; }
@@ -49,9 +49,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesResponse.FilterFieldValuesResponse_nested_path NestedPath { get; set; }
 #endif
-        /// <summary>True if this field is the recommended choice for simple exact-match queries over its related nested counterpart.</summary>
+        /// <summary>Recommended for simple exact-match queries over its nested counterpart.</summary>
         public bool? PreferredForExactMatch { get; set; }
-        /// <summary>Other field paths representing the same concept (e.g., flat counterpart of a nested field).</summary>
+        /// <summary>Other field paths representing the same concept (e.g. flat counterpart of nested).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? RelatedFields { get; set; }
@@ -59,7 +59,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public List<string> RelatedFields { get; set; }
 #endif
-        /// <summary>The request_duration_ms property</summary>
+        /// <summary>Server-side request duration in milliseconds.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesResponse.FilterFieldValuesResponse_request_duration_ms? RequestDurationMs { get; set; }
@@ -67,13 +67,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesResponse.FilterFieldValuesResponse_request_duration_ms RequestDurationMs { get; set; }
 #endif
-        /// <summary>The supports_exact_filter_snippet property</summary>
+        /// <summary>Whether the response includes deterministic filter snippets.</summary>
         public bool? SupportsExactFilterSnippet { get; set; }
-        /// <summary>The supports_top_values property</summary>
+        /// <summary>Whether this field supports top-values aggregation.</summary>
         public bool? SupportsTopValues { get; set; }
-        /// <summary>The total_scoped_documents property</summary>
+        /// <summary>Total documents matched by the scoped query.</summary>
         public int? TotalScopedDocuments { get; set; }
-        /// <summary>The values property</summary>
+        /// <summary>Top values ordered by count.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValue>? Values { get; set; }
@@ -81,7 +81,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValue> Values { get; set; }
 #endif
-        /// <summary>The value_type property</summary>
+        /// <summary>Aggregation target type (keyword, long, etc.).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ValueType { get; set; }

@@ -14,7 +14,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The linkedin_url property</summary>
+        /// <summary>Full LinkedIn profile or company URL to enrich.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LinkedinUrl { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string LinkedinUrl { get; set; }
 #endif
-        /// <summary>The model_override property</summary>
+        /// <summary>Override the default LLM used for extraction.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.LinkedInEnrichRequest.LinkedInEnrichRequest_model_override? ModelOverride { get; set; }
@@ -30,7 +30,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.LinkedInEnrichRequest.LinkedInEnrichRequest_model_override ModelOverride { get; set; }
 #endif
-        /// <summary>The struct property</summary>
+        /// <summary>Mapping of output field name to natural-language description of what to extract.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UntypedNode? Struct { get; set; }

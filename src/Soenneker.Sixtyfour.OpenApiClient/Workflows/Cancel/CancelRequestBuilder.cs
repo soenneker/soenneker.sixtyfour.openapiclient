@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Cancel
         {
         }
         /// <summary>
-        /// Cancel an in-progress workflow run.Sends a cancellation signal to the workflow execution. If the workflow has already completed,failed, or been cancelled, returns the current status without changes.
+        /// Cancel an in-progress workflow run.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowCancelResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Cancel
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowCancelResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowCancelResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Cancel an in-progress workflow run.Sends a cancellation signal to the workflow execution. If the workflow has already completed,failed, or been cancelled, returns the current status without changes.
+        /// Cancel an in-progress workflow run.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -90,7 +90,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Cancel
             return new global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Cancel.CancelRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Cancel an in-progress workflow run.Sends a cancellation signal to the workflow execution. If the workflow has already completed,failed, or been cancelled, returns the current status without changes.
+        /// Cancel an in-progress workflow run.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class CancelRequestBuilderPostQueryParameters 

@@ -15,7 +15,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The close_time property</summary>
+        /// <summary>Timestamp when the task finished.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_close_time? CloseTime { get; set; }
@@ -23,7 +23,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_close_time CloseTime { get; set; }
 #endif
-        /// <summary>The current_phase property</summary>
+        /// <summary>Current pipeline phase index.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_current_phase? CurrentPhase { get; set; }
@@ -31,7 +31,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_current_phase CurrentPhase { get; set; }
 #endif
-        /// <summary>The error property</summary>
+        /// <summary>Error message if the operation failed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_error? Error { get; set; }
@@ -39,7 +39,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_error Error { get; set; }
 #endif
-        /// <summary>The exported_count property</summary>
+        /// <summary>Number of results actually exported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_exported_count? ExportedCount { get; set; }
@@ -47,7 +47,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_exported_count ExportedCount { get; set; }
 #endif
-        /// <summary>The iterations property</summary>
+        /// <summary>Per-iteration debug data emitted by the agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_iterations? Iterations { get; set; }
@@ -55,7 +55,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_iterations Iterations { get; set; }
 #endif
-        /// <summary>The progress_message property</summary>
+        /// <summary>Human-readable progress message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_progress_message? ProgressMessage { get; set; }
@@ -63,7 +63,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_progress_message ProgressMessage { get; set; }
 #endif
-        /// <summary>The resource_handle_id property</summary>
+        /// <summary>Handle for downloading exported results.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_resource_handle_id? ResourceHandleId { get; set; }
@@ -71,7 +71,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_resource_handle_id ResourceHandleId { get; set; }
 #endif
-        /// <summary>The search_id property</summary>
+        /// <summary>Search history ID returned by a previous search.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_search_id? SearchId { get; set; }
@@ -79,7 +79,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_search_id SearchId { get; set; }
 #endif
-        /// <summary>The start_time property</summary>
+        /// <summary>Timestamp when the task started.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? StartTime { get; set; }
@@ -87,7 +87,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string StartTime { get; set; }
 #endif
-        /// <summary>The status property</summary>
+        /// <summary>Current status (e.g. queued, running, completed, failed).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Status { get; set; }
@@ -95,7 +95,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string Status { get; set; }
 #endif
-        /// <summary>The task_id property</summary>
+        /// <summary>Async task ID being queried.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TaskId { get; set; }
@@ -103,7 +103,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string TaskId { get; set; }
 #endif
-        /// <summary>The total_results property</summary>
+        /// <summary>Total results found.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_total_results? TotalResults { get; set; }

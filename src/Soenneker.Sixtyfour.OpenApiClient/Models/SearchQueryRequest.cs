@@ -15,7 +15,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The cursor property</summary>
+        /// <summary>Opaque pagination cursor returned by a previous response.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest.SearchQueryRequest_cursor? Cursor { get; set; }
@@ -23,7 +23,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest.SearchQueryRequest_cursor Cursor { get; set; }
 #endif
-        /// <summary>List of person publicIds to exclude from results via must_not terms filter. People-mode only. Threaded into the canonical compiler so the emitted DSL matches the WebApp TS OpenSearchQueryBuilder&apos;s `excludeIds` option byte-for-byte. Honored on both the NL `query` branch and the people `parsed_query` / `search_id` compile branch.</summary>
+        /// <summary>LinkedIn publicIds to exclude from results via must_not. People-mode only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest.SearchQueryRequest_exclude_public_ids? ExcludePublicIds { get; set; }
@@ -31,7 +31,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest.SearchQueryRequest_exclude_public_ids ExcludePublicIds { get; set; }
 #endif
-        /// <summary>The filters property</summary>
+        /// <summary>Raw OpenSearch DSL filters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UntypedNode? Filters { get; set; }
@@ -39,17 +39,17 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public UntypedNode Filters { get; set; }
 #endif
-        /// <summary>Whether to expand the parsed location filter to nearby areas via PostGIS radius lookup. People-mode NL `query` branch only. Mirrors WebApp&apos;s `locationExpansionEnabled`.</summary>
+        /// <summary>Expand the parsed location filter to nearby areas via PostGIS radius. People-mode `query` branch only.</summary>
         public bool? LocationExpansionEnabled { get; set; }
-        /// <summary>Radius in miles for the PostGIS location expansion. Ignored when location_expansion_enabled is false. Mirrors WebApp&apos;s `locationExpansionRadiusMiles` (which clamps to the same range).</summary>
+        /// <summary>Radius (miles) for PostGIS location expansion. Ignored when expansion is disabled.</summary>
         public int? LocationExpansionRadiusMiles { get; set; }
-        /// <summary>The max_results property</summary>
+        /// <summary>Maximum number of results to return across pages.</summary>
         public int? MaxResults { get; set; }
-        /// <summary>Search mode. Inferred from DB when using search_id and not explicitly set.</summary>
+        /// <summary>Search mode; inferred from DB when using `search_id`.</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest_mode? Mode { get; set; }
-        /// <summary>The page_size property</summary>
+        /// <summary>Number of results per page (1-100).</summary>
         public int? PageSize { get; set; }
-        /// <summary>The parsed_query property</summary>
+        /// <summary>Structured filter set returned by a previous search.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UntypedNode? ParsedQuery { get; set; }
@@ -57,7 +57,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public UntypedNode ParsedQuery { get; set; }
 #endif
-        /// <summary>Natural-language query. When set, runs the canonical NL pipeline (parse + field expansion + location expansion + compile) on the main_backend search subsystem and returns the same FilterSearchResponse shape as other inputs. Mutually exclusive with simple_filters / filters / parsed_query / search_id. People-mode only until the company port lands. Requires SEARCH_QUERY_IMPL=canonical (the default).</summary>
+        /// <summary>Natural-language query. Mutually exclusive with simple_filters / filters / parsed_query / search_id. People-mode only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest.SearchQueryRequest_query? Query { get; set; }
@@ -65,7 +65,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest.SearchQueryRequest_query Query { get; set; }
 #endif
-        /// <summary>The search_id property</summary>
+        /// <summary>Search history ID returned by a previous search.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest.SearchQueryRequest_search_id? SearchId { get; set; }
@@ -73,7 +73,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest.SearchQueryRequest_search_id SearchId { get; set; }
 #endif
-        /// <summary>The simple_filters property</summary>
+        /// <summary>MongoDB-style filters; the API translates them to DSL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UntypedNode? SimpleFilters { get; set; }

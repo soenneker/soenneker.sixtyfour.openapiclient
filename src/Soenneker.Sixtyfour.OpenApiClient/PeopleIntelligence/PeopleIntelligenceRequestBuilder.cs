@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.PeopleIntelligence
         {
         }
         /// <summary>
-        /// People Intelligence Endpoint
+        /// Find and enrich a single person.
         /// </summary>
         /// <returns>A <see cref="UntypedNode"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.PeopleIntelligence
             return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// People Intelligence Endpoint
+        /// Find and enrich a single person.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

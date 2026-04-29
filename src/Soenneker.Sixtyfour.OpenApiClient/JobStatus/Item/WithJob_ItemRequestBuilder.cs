@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.JobStatus.Item
         {
         }
         /// <summary>
-        /// Job Status
+        /// Poll the status of an async job and retrieve results when complete.
         /// </summary>
         /// <returns>A <see cref="UntypedNode"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.JobStatus.Item
             return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Job Status
+        /// Poll the status of an async job and retrieve results when complete.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

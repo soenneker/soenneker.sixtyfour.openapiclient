@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Blocks
         {
         }
         /// <summary>
-        /// Get information about all available workflow blocks.Returns block names, processing types, specs schemas, and pricingfor documentation purposes.
+        /// List all workflow block types with their input specs schemas.
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockInfoResponse&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -58,7 +58,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Blocks
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// Get information about all available workflow blocks.Returns block names, processing types, specs schemas, and pricingfor documentation purposes.
+        /// List all workflow block types with their input specs schemas.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

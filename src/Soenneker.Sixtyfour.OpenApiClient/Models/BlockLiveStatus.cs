@@ -15,7 +15,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The block_id property</summary>
+        /// <summary>Block identifier within the workflow.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_block_id? BlockId { get; set; }
@@ -23,7 +23,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_block_id BlockId { get; set; }
 #endif
-        /// <summary>The block_name property</summary>
+        /// <summary>Registered block type name (e.g. &apos;enrich_lead&apos;, &apos;find_email&apos;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? BlockName { get; set; }
@@ -31,7 +31,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string BlockName { get; set; }
 #endif
-        /// <summary>The completed_at property</summary>
+        /// <summary>Timestamp when execution finished.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_completed_at? CompletedAt { get; set; }
@@ -39,7 +39,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_completed_at CompletedAt { get; set; }
 #endif
-        /// <summary>The current_step property</summary>
+        /// <summary>Human-readable description of the current sub-step.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_current_step? CurrentStep { get; set; }
@@ -47,7 +47,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_current_step CurrentStep { get; set; }
 #endif
-        /// <summary>The error_message property</summary>
+        /// <summary>Error message if the operation failed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_error_message? ErrorMessage { get; set; }
@@ -55,7 +55,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_error_message ErrorMessage { get; set; }
 #endif
-        /// <summary>The estimated_total_count property</summary>
+        /// <summary>Estimated total when an exact count isn&apos;t yet known.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_estimated_total_count? EstimatedTotalCount { get; set; }
@@ -63,7 +63,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_estimated_total_count EstimatedTotalCount { get; set; }
 #endif
-        /// <summary>The last_updated property</summary>
+        /// <summary>Timestamp of the last status update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LastUpdated { get; set; }
@@ -71,7 +71,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string LastUpdated { get; set; }
 #endif
-        /// <summary>Metrics for a block execution.</summary>
+        /// <summary>Per-block execution metrics.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockMetrics? Metrics { get; set; }
@@ -79,7 +79,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockMetrics Metrics { get; set; }
 #endif
-        /// <summary>The previous_block_ids property</summary>
+        /// <summary>IDs of upstream blocks that feed into this one.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_previous_block_ids? PreviousBlockIds { get; set; }
@@ -87,13 +87,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_previous_block_ids PreviousBlockIds { get; set; }
 #endif
-        /// <summary>The processed_count property</summary>
+        /// <summary>Number of items processed so far.</summary>
         public int? ProcessedCount { get; set; }
-        /// <summary>The progress_percentage property</summary>
+        /// <summary>Block progress (0-100).</summary>
         public double? ProgressPercentage { get; set; }
-        /// <summary>The sequence_number property</summary>
+        /// <summary>Position of the block in the workflow execution order.</summary>
         public int? SequenceNumber { get; set; }
-        /// <summary>The started_at property</summary>
+        /// <summary>Timestamp when execution started.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_started_at? StartedAt { get; set; }
@@ -101,7 +101,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_started_at StartedAt { get; set; }
 #endif
-        /// <summary>The status property</summary>
+        /// <summary>Block status: pending, running, completed, or failed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Status { get; set; }
@@ -109,7 +109,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string Status { get; set; }
 #endif
-        /// <summary>The total_count property</summary>
+        /// <summary>Total number of items to process.</summary>
         public int? TotalCount { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus"/> and sets the default values.

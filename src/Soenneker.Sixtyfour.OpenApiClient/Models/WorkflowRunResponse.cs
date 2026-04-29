@@ -15,7 +15,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The blocks property</summary>
+        /// <summary>Per-block detail; usually null in list responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UntypedNode? Blocks { get; set; }
@@ -23,9 +23,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public UntypedNode Blocks { get; set; }
 #endif
-        /// <summary>The blocks_count property</summary>
+        /// <summary>Number of blocks in the workflow at run time.</summary>
         public int? BlocksCount { get; set; }
-        /// <summary>The completed_at property</summary>
+        /// <summary>Timestamp when execution finished.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponse.WorkflowRunResponse_completed_at? CompletedAt { get; set; }
@@ -33,7 +33,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponse.WorkflowRunResponse_completed_at CompletedAt { get; set; }
 #endif
-        /// <summary>The created_at property</summary>
+        /// <summary>Timestamp when the record was created.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponse.WorkflowRunResponse_created_at? CreatedAt { get; set; }
@@ -41,7 +41,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponse.WorkflowRunResponse_created_at CreatedAt { get; set; }
 #endif
-        /// <summary>The duration_ms property</summary>
+        /// <summary>Total run duration in milliseconds.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponse.WorkflowRunResponse_duration_ms? DurationMs { get; set; }
@@ -49,7 +49,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponse.WorkflowRunResponse_duration_ms DurationMs { get; set; }
 #endif
-        /// <summary>The error_message property</summary>
+        /// <summary>Error message if the operation failed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponse.WorkflowRunResponse_error_message? ErrorMessage { get; set; }
@@ -57,7 +57,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponse.WorkflowRunResponse_error_message ErrorMessage { get; set; }
 #endif
-        /// <summary>The job_id property</summary>
+        /// <summary>Job (run) identifier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? JobId { get; set; }
@@ -65,7 +65,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string JobId { get; set; }
 #endif
-        /// <summary>The metrics property</summary>
+        /// <summary>Aggregate run metrics (rows in/out, costs, etc.).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UntypedNode? Metrics { get; set; }
@@ -73,7 +73,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public UntypedNode Metrics { get; set; }
 #endif
-        /// <summary>The queued_at property</summary>
+        /// <summary>Timestamp when the run was enqueued.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponse.WorkflowRunResponse_queued_at? QueuedAt { get; set; }
@@ -81,7 +81,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponse.WorkflowRunResponse_queued_at QueuedAt { get; set; }
 #endif
-        /// <summary>The started_at property</summary>
+        /// <summary>Timestamp when execution started.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponse.WorkflowRunResponse_started_at? StartedAt { get; set; }
@@ -89,7 +89,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponse.WorkflowRunResponse_started_at StartedAt { get; set; }
 #endif
-        /// <summary>The status property</summary>
+        /// <summary>Current status (e.g. queued, running, completed, failed).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Status { get; set; }
@@ -97,7 +97,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string Status { get; set; }
 #endif
-        /// <summary>The status_reason property</summary>
+        /// <summary>Short reason explaining the current status.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponse.WorkflowRunResponse_status_reason? StatusReason { get; set; }
@@ -105,7 +105,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponse.WorkflowRunResponse_status_reason StatusReason { get; set; }
 #endif
-        /// <summary>The step property</summary>
+        /// <summary>Current authoring step from the workflow.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponse.WorkflowRunResponse_step? Step { get; set; }
@@ -113,7 +113,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponse.WorkflowRunResponse_step Step { get; set; }
 #endif
-        /// <summary>The updated_at property</summary>
+        /// <summary>Timestamp when the record was last updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponse.WorkflowRunResponse_updated_at? UpdatedAt { get; set; }
@@ -121,7 +121,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponse.WorkflowRunResponse_updated_at UpdatedAt { get; set; }
 #endif
-        /// <summary>The user_id property</summary>
+        /// <summary>User who created the workflow.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponse.WorkflowRunResponse_user_id? UserId { get; set; }
@@ -129,7 +129,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponse.WorkflowRunResponse_user_id UserId { get; set; }
 #endif
-        /// <summary>The workflow_id property</summary>
+        /// <summary>Workflow identifier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? WorkflowId { get; set; }
@@ -137,7 +137,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string WorkflowId { get; set; }
 #endif
-        /// <summary>The workflow_name property</summary>
+        /// <summary>Workflow name at the time of the run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? WorkflowName { get; set; }

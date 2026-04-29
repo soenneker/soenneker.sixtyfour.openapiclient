@@ -47,7 +47,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs
         {
         }
         /// <summary>
-        /// List workflow runs for the user&apos;s organization.Returns a list of workflow execution history, sorted by most recent first (by queued_at).Status parameter options:- &apos;running&apos;: Only running workflows- &apos;completed&apos;: Only successfully completed workflows- &apos;cancelled&apos;: Only cancelled workflows- None (omit parameter): Returns all workflows regardless of statusWorkflow ID parameter:- If provided, only returns runs for that specific workflow- Verifies the workflow exists and the caller has access to it- None (omit parameter): Returns runs for all workflows in the organization
+        /// List recent workflow runs for the organization, sorted by most recent first. Optionally filter by `status` (`running`, `completed`, `cancelled`, or `active` for queued+running) and `workflow_id`.
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponse&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -71,7 +71,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// List workflow runs for the user&apos;s organization.Returns a list of workflow execution history, sorted by most recent first (by queued_at).Status parameter options:- &apos;running&apos;: Only running workflows- &apos;completed&apos;: Only successfully completed workflows- &apos;cancelled&apos;: Only cancelled workflows- None (omit parameter): Returns all workflows regardless of statusWorkflow ID parameter:- If provided, only returns runs for that specific workflow- Verifies the workflow exists and the caller has access to it- None (omit parameter): Returns runs for all workflows in the organization
+        /// List recent workflow runs for the organization, sorted by most recent first. Optionally filter by `status` (`running`, `completed`, `cancelled`, or `active` for queued+running) and `workflow_id`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -99,7 +99,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs
             return new global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.RunsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List workflow runs for the user&apos;s organization.Returns a list of workflow execution history, sorted by most recent first (by queued_at).Status parameter options:- &apos;running&apos;: Only running workflows- &apos;completed&apos;: Only successfully completed workflows- &apos;cancelled&apos;: Only cancelled workflows- None (omit parameter): Returns all workflows regardless of statusWorkflow ID parameter:- If provided, only returns runs for that specific workflow- Verifies the workflow exists and the caller has access to it- None (omit parameter): Returns runs for all workflows in the organization
+        /// List recent workflow runs for the organization, sorted by most recent first. Optionally filter by `status` (`running`, `completed`, `cancelled`, or `active` for queued+running) and `workflow_id`.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class RunsRequestBuilderGetQueryParameters 

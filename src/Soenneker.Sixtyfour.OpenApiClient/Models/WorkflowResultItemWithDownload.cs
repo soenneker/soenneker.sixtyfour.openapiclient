@@ -8,14 +8,14 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// Workflow result file with signed download URL.
+    /// Workflow result file with a signed download URL.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WorkflowResultItemWithDownload : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The block_number property</summary>
+        /// <summary>Block sequence number that produced the file.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_block_number? BlockNumber { get; set; }
@@ -23,7 +23,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_block_number BlockNumber { get; set; }
 #endif
-        /// <summary>The content_type property</summary>
+        /// <summary>MIME type of the file.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_content_type? ContentType { get; set; }
@@ -31,7 +31,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_content_type ContentType { get; set; }
 #endif
-        /// <summary>The created_at property</summary>
+        /// <summary>Timestamp when the record was created.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_created_at? CreatedAt { get; set; }
@@ -39,9 +39,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_created_at CreatedAt { get; set; }
 #endif
-        /// <summary>The download_expires_in_seconds property</summary>
+        /// <summary>Seconds until `download_url` expires.</summary>
         public int? DownloadExpiresInSeconds { get; set; }
-        /// <summary>The download_url property</summary>
+        /// <summary>Signed download URL; null if signing failed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_download_url? DownloadUrl { get; set; }
@@ -49,7 +49,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_download_url DownloadUrl { get; set; }
 #endif
-        /// <summary>The filename property</summary>
+        /// <summary>Result file name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Filename { get; set; }
@@ -57,7 +57,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string Filename { get; set; }
 #endif
-        /// <summary>The message property</summary>
+        /// <summary>Error or status message, if any.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_message? Message { get; set; }
@@ -65,7 +65,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_message Message { get; set; }
 #endif
-        /// <summary>The results property</summary>
+        /// <summary>Inline rows when the file is small enough to embed; otherwise null.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_results? Results { get; set; }
@@ -73,9 +73,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_results Results { get; set; }
 #endif
-        /// <summary>The row_count property</summary>
+        /// <summary>Number of rows in the file.</summary>
         public int? RowCount { get; set; }
-        /// <summary>The storage_bucket property</summary>
+        /// <summary>Storage bucket containing the file.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? StorageBucket { get; set; }

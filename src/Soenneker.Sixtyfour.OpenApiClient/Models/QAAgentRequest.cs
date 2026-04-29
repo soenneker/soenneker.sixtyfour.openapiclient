@@ -14,7 +14,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The data property</summary>
+        /// <summary>Lead or record to evaluate against the qualification criteria.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.QAAgentRequest_data? Data { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.QAAgentRequest_data Data { get; set; }
 #endif
-        /// <summary>The max_tool_calls property</summary>
+        /// <summary>Maximum tool calls the agent may make per evaluation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.QAAgentRequest.QAAgentRequest_max_tool_calls? MaxToolCalls { get; set; }
@@ -30,7 +30,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.QAAgentRequest.QAAgentRequest_max_tool_calls MaxToolCalls { get; set; }
 #endif
-        /// <summary>The qualification_criteria property</summary>
+        /// <summary>List of criteria the agent will score the data against.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.QualificationCriteria>? QualificationCriteria { get; set; }
@@ -38,7 +38,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.QualificationCriteria> QualificationCriteria { get; set; }
 #endif
-        /// <summary>The references property</summary>
+        /// <summary>Optional reference URLs the agent may use as evidence.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.QAAgentRequest.QAAgentRequest_references? References { get; set; }
@@ -46,7 +46,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.QAAgentRequest.QAAgentRequest_references References { get; set; }
 #endif
-        /// <summary>The struct property</summary>
+        /// <summary>Mapping of extra output fields and their descriptions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UntypedNode? Struct { get; set; }
@@ -54,7 +54,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public UntypedNode Struct { get; set; }
 #endif
-        /// <summary>The webhook_url property</summary>
+        /// <summary>HTTPS URL that receives the result payload when the async job completes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.QAAgentRequest.QAAgentRequest_webhook_url? WebhookUrl { get; set; }

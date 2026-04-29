@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.StartDeepSearch
         {
         }
         /// <summary>
-        /// Start a deep search using a natural language query and returns task_id for status polling.Returns:    StartAgenticSearchResponse with task_id, status, message
+        /// Start a deep, agentic search from a natural language query. Returns a task ID to poll.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchResponse"/></returns>
         /// <param name="body">Request to start an agentic search workflow.</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.StartDeepSearch
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Start a deep search using a natural language query and returns task_id for status polling.Returns:    StartAgenticSearchResponse with task_id, status, message
+        /// Start a deep, agentic search from a natural language query. Returns a task ID to poll.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Request to start an agentic search workflow.</param>

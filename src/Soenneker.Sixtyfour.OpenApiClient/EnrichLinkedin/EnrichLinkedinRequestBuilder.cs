@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.EnrichLinkedin
         {
         }
         /// <summary>
-        /// Fast LinkedIn profile enrichment endpoint.Fetches the LinkedIn profile and uses a cheap Fireworks model to extractstructured fields in a single LLM call. Target runtime &lt; 10 seconds.
+        /// Fetch a LinkedIn profile and extract structured fields in a single LLM call.
         /// </summary>
         /// <returns>A <see cref="UntypedNode"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.EnrichLinkedin
             return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Fast LinkedIn profile enrichment endpoint.Fetches the LinkedIn profile and uses a cheap Fireworks model to extractstructured fields in a single LLM call. Target runtime &lt; 10 seconds.
+        /// Fetch a LinkedIn profile and extract structured fields in a single LLM call.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

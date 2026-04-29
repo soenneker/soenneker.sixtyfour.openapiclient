@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Create_workflow
         {
         }
         /// <summary>
-        /// Create a new workflow with a specified block graph definition.The workflow definition includes a list of blocks and edges that define the data processing pipeline.All workflows are validated before creation to ensure block compatibility and correct configuration.
+        /// Create a new workflow from a block graph definition.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Create_workflow
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a new workflow with a specified block graph definition.The workflow definition includes a list of blocks and edges that define the data processing pipeline.All workflows are validated before creation to ensure block compatibility and correct configuration.
+        /// Create a new workflow from a block graph definition.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -15,13 +15,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The max_results property</summary>
+        /// <summary>Maximum number of results to return across pages.</summary>
         public int? MaxResults { get; set; }
-        /// <summary>The mode property</summary>
+        /// <summary>Search mode: &apos;people&apos; or &apos;company&apos;.</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequest_mode? Mode { get; set; }
-        /// <summary>The output_mode property</summary>
+        /// <summary>Output mode: &apos;csv&apos; to export, &apos;query_only&apos; to return parsed query only.</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequest_output_mode? OutputMode { get; set; }
-        /// <summary>The query property</summary>
+        /// <summary>Natural-language search query.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Query { get; set; }
@@ -29,7 +29,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string Query { get; set; }
 #endif
-        /// <summary>The search_id property</summary>
+        /// <summary>Optional client-supplied search ID for idempotent retries.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequest.StartAgenticSearchRequest_search_id? SearchId { get; set; }

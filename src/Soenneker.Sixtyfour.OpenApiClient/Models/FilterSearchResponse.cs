@@ -15,7 +15,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The csv_download_url property</summary>
+        /// <summary>Signed URL to download results as CSV.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_csv_download_url? CsvDownloadUrl { get; set; }
@@ -23,7 +23,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_csv_download_url CsvDownloadUrl { get; set; }
 #endif
-        /// <summary>The cursor_expires_in_seconds property</summary>
+        /// <summary>Seconds until `next_cursor` expires.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_cursor_expires_in_seconds? CursorExpiresInSeconds { get; set; }
@@ -31,7 +31,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_cursor_expires_in_seconds CursorExpiresInSeconds { get; set; }
 #endif
-        /// <summary>The download_expires_in_seconds property</summary>
+        /// <summary>Seconds until the download URLs expire.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_download_expires_in_seconds? DownloadExpiresInSeconds { get; set; }
@@ -39,11 +39,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_download_expires_in_seconds DownloadExpiresInSeconds { get; set; }
 #endif
-        /// <summary>Legacy export count. For company direct-filter mode this is always 0.</summary>
+        /// <summary>Legacy export count; always 0 for company direct-filter mode.</summary>
         public int? ExportedCount { get; set; }
-        /// <summary>True when another page is available via next_cursor.</summary>
+        /// <summary>True when another page is available via `next_cursor`.</summary>
         public bool? HasMore { get; set; }
-        /// <summary>The json_download_url property</summary>
+        /// <summary>Signed URL to download results as JSON.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_json_download_url? JsonDownloadUrl { get; set; }
@@ -59,7 +59,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_max_pages MaxPages { get; set; }
 #endif
-        /// <summary>Original natural-language search string the caller submitted via the `query` field, echoed verbatim. Useful for callers that need to redisplay the user&apos;s original phrasing alongside the structured filters. Null when the search was submitted via structured inputs rather than natural language.</summary>
+        /// <summary>Original natural-language query echoed verbatim, if any.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_natural_language_query? NaturalLanguageQuery { get; set; }
@@ -67,7 +67,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_natural_language_query NaturalLanguageQuery { get; set; }
 #endif
-        /// <summary>The next_cursor property</summary>
+        /// <summary>Cursor to fetch the next page; null when exhausted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_next_cursor? NextCursor { get; set; }
@@ -75,7 +75,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_next_cursor NextCursor { get; set; }
 #endif
-        /// <summary>Number of results returned in this response page.</summary>
+        /// <summary>Number of results in this response page.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_page_count? PageCount { get; set; }
@@ -83,7 +83,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_page_count PageCount { get; set; }
 #endif
-        /// <summary>1-based page number for company cursor pagination.</summary>
+        /// <summary>1-based page number (company pagination).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_page_number? PageNumber { get; set; }
@@ -91,7 +91,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_page_number PageNumber { get; set; }
 #endif
-        /// <summary>Requested page size for company cursor pagination.</summary>
+        /// <summary>Number of results per page (1-100).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_page_size? PageSize { get; set; }
@@ -99,7 +99,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_page_size PageSize { get; set; }
 #endif
-        /// <summary>Structured representation of the search filters applied. Mirrors the shape accepted by the request `parsed_query` field, so callers can round-trip a search through this response back into a follow-up request without re-parsing. Populated when the request used the natural-language `query` input or any other input that produces a structured filter set; null for raw-DSL or simple-filter inputs that have no LLM-output equivalent.</summary>
+        /// <summary>Structured filter set echoed back; round-trippable into a follow-up request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UntypedNode? ParsedQuery { get; set; }
@@ -107,7 +107,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public UntypedNode ParsedQuery { get; set; }
 #endif
-        /// <summary>Maximum additional rows still available under max_results after this page.</summary>
+        /// <summary>Rows still available under max_results after this page.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_remaining_results? RemainingResults { get; set; }
@@ -115,7 +115,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_remaining_results RemainingResults { get; set; }
 #endif
-        /// <summary>The request_duration_ms property</summary>
+        /// <summary>Server-side request duration in milliseconds.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_request_duration_ms? RequestDurationMs { get; set; }
@@ -123,7 +123,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_request_duration_ms RequestDurationMs { get; set; }
 #endif
-        /// <summary>The resource_handle_id property</summary>
+        /// <summary>Legacy export handle. Empty for company direct-filter mode.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ResourceHandleId { get; set; }
@@ -131,7 +131,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string ResourceHandleId { get; set; }
 #endif
-        /// <summary>Rows returned for the current response.</summary>
+        /// <summary>Rows returned for the current page.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_results>? Results { get; set; }
@@ -139,7 +139,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_results> Results { get; set; }
 #endif
-        /// <summary>Search history ID. Use with /search/export to export results or /search/query to re-run.</summary>
+        /// <summary>Search history ID; reuse with /search/query or /search/export.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_search_id? SearchId { get; set; }
@@ -147,7 +147,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_search_id SearchId { get; set; }
 #endif
-        /// <summary>Total number of OpenSearch matches across all pages, capped at track_total_hits=50000. Populated for people-mode responses where the OpenSearch hits.total.value is meaningful for pagination UX (e.g. &quot;Page 5 of ~17&quot;). Null for company direct-filter / cursor continuation flows that do not surface a stable total.</summary>
+        /// <summary>Total OpenSearch matches across pages (capped at 50000); people-mode only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_total_available? TotalAvailable { get; set; }
@@ -155,7 +155,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_total_available TotalAvailable { get; set; }
 #endif
-        /// <summary>Final total page count once pagination is exhausted; omitted while has_more=true.</summary>
+        /// <summary>Final total page count; omitted while `has_more` is true.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_total_pages? TotalPages { get; set; }
@@ -163,7 +163,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_total_pages TotalPages { get; set; }
 #endif
-        /// <summary>Rows returned so far in the search flow (cumulative for company pagination).</summary>
+        /// <summary>Rows returned so far (cumulative for company pagination).</summary>
         public int? TotalResults { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse"/> and sets the default values.

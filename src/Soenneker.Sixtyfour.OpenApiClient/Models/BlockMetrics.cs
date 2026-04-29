@@ -8,14 +8,14 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// Metrics for a block execution.
+    /// Per-block execution metrics.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BlockMetrics : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The dataframe_type property</summary>
+        /// <summary>Logical row type produced (e.g. LEAD, COMPANY).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DataframeType { get; set; }
@@ -23,7 +23,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string DataframeType { get; set; }
 #endif
-        /// <summary>The processed_count property</summary>
+        /// <summary>Number of items processed so far.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockMetrics.BlockMetrics_processed_count? ProcessedCount { get; set; }
@@ -31,9 +31,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockMetrics.BlockMetrics_processed_count ProcessedCount { get; set; }
 #endif
-        /// <summary>The row_count property</summary>
+        /// <summary>Total rows produced by the block.</summary>
         public int? RowCount { get; set; }
-        /// <summary>The total_count property</summary>
+        /// <summary>Total number of items to process.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockMetrics.BlockMetrics_total_count? TotalCount { get; set; }

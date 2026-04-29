@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.StartFilterSearch
         {
         }
         /// <summary>
-        /// Run a synchronous search using pre-built structured filters.Callers provide filters directly. Uses a guarded raw query DSL envelope,returns JSON rows, and supports cursor pagination.Returns:    FilterSearchResponse with page-oriented JSON results + cursor metadata.
+        /// Run a synchronous structured-filter search and return matching rows with cursor pagination.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse"/></returns>
         /// <param name="body">Request to start a filter-based search (no LLM step).</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.StartFilterSearch
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Run a synchronous search using pre-built structured filters.Callers provide filters directly. Uses a guarded raw query DSL envelope,returns JSON rows, and supports cursor pagination.Returns:    FilterSearchResponse with page-oriented JSON results + cursor metadata.
+        /// Run a synchronous structured-filter search and return matching rows with cursor pagination.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Request to start a filter-based search (no LLM step).</param>

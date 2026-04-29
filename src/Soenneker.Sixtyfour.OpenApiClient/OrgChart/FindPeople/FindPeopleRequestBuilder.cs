@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.OrgChart.FindPeople
         {
         }
         /// <summary>
-        /// Org Chart Find People Endpoint
+        /// Find specific people at a target company based on organizational structure.
         /// </summary>
         /// <returns>A <see cref="UntypedNode"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.OrgChart.FindPeople
             return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Org Chart Find People Endpoint
+        /// Find specific people at a target company based on organizational structure.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

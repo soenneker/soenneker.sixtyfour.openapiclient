@@ -14,7 +14,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The id property</summary>
+        /// <summary>Optional pre-generated workflow ID supplied by the client.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateWorkflowRequest.CreateWorkflowRequest_id? Id { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateWorkflowRequest.CreateWorkflowRequest_id Id { get; set; }
 #endif
-        /// <summary>Represents a workflow as a directed graph with blocks and edges.</summary>
+        /// <summary>Workflow definition as a graph of blocks and edges.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowGraph? WorkflowDefinition { get; set; }
@@ -30,7 +30,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowGraph WorkflowDefinition { get; set; }
 #endif
-        /// <summary>The workflow_description property</summary>
+        /// <summary>Human-readable workflow description.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? WorkflowDescription { get; set; }
@@ -38,7 +38,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string WorkflowDescription { get; set; }
 #endif
-        /// <summary>The workflow_name property</summary>
+        /// <summary>Human-readable workflow name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? WorkflowName { get; set; }

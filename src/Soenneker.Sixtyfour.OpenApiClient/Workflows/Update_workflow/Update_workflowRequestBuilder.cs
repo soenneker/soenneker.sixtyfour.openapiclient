@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Update_workflow
         {
         }
         /// <summary>
-        /// Update an existing workflow&apos;s name, description, or block definition.If the workflow doesn&apos;t exist, it will be created (upsert behavior). All workflow updates are validatedto ensure block compatibility before saving.
+        /// Update a workflow&apos;s name, description, or block definition. Creates the workflow if it doesn&apos;t exist.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Update_workflow
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update an existing workflow&apos;s name, description, or block definition.If the workflow doesn&apos;t exist, it will be created (upsert behavior). All workflow updates are validatedto ensure block compatibility before saving.
+        /// Update a workflow&apos;s name, description, or block definition. Creates the workflow if it doesn&apos;t exist.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -90,7 +90,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Update_workflow
             return new global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Update_workflow.Update_workflowRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Update an existing workflow&apos;s name, description, or block definition.If the workflow doesn&apos;t exist, it will be created (upsert behavior). All workflow updates are validatedto ensure block compatibility before saving.
+        /// Update a workflow&apos;s name, description, or block definition. Creates the workflow if it doesn&apos;t exist.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Update_workflowRequestBuilderPostQueryParameters 

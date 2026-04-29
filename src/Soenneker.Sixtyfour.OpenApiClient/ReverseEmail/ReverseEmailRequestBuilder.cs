@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.ReverseEmail
         {
         }
         /// <summary>
-        /// Reverse Email Endpoint
+        /// Resolve a person from their email address.
         /// </summary>
         /// <returns>A <see cref="UntypedNode"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.ReverseEmail
             return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Reverse Email Endpoint
+        /// Resolve a person from their email address.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

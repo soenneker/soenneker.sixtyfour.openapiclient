@@ -15,7 +15,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The blocks property</summary>
+        /// <summary>Live status for each block in the run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus>? Blocks { get; set; }
@@ -23,7 +23,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus> Blocks { get; set; }
 #endif
-        /// <summary>The completed_at property</summary>
+        /// <summary>Timestamp when execution finished.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_completed_at? CompletedAt { get; set; }
@@ -31,9 +31,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_completed_at CompletedAt { get; set; }
 #endif
-        /// <summary>The completed_blocks property</summary>
+        /// <summary>Number of blocks that have finished.</summary>
         public int? CompletedBlocks { get; set; }
-        /// <summary>The current_block property</summary>
+        /// <summary>Name of the block currently executing.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_current_block? CurrentBlock { get; set; }
@@ -41,7 +41,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_current_block CurrentBlock { get; set; }
 #endif
-        /// <summary>The current_block_sequence property</summary>
+        /// <summary>Sequence number of the block currently executing.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_current_block_sequence? CurrentBlockSequence { get; set; }
@@ -49,7 +49,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_current_block_sequence CurrentBlockSequence { get; set; }
 #endif
-        /// <summary>The estimation_blocked_by property</summary>
+        /// <summary>Block name preventing a full progress estimate, if any.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_estimation_blocked_by? EstimationBlockedBy { get; set; }
@@ -57,7 +57,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_estimation_blocked_by EstimationBlockedBy { get; set; }
 #endif
-        /// <summary>The last_updated property</summary>
+        /// <summary>Timestamp of the last status update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LastUpdated { get; set; }
@@ -65,9 +65,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string LastUpdated { get; set; }
 #endif
-        /// <summary>The overall_progress_percentage property</summary>
+        /// <summary>Overall run progress (0-100).</summary>
         public double? OverallProgressPercentage { get; set; }
-        /// <summary>The overall_status property</summary>
+        /// <summary>Overall run status: queued, running, completed, or failed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OverallStatus { get; set; }
@@ -75,7 +75,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string OverallStatus { get; set; }
 #endif
-        /// <summary>The run_id property</summary>
+        /// <summary>Workflow run identifier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RunId { get; set; }
@@ -83,7 +83,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string RunId { get; set; }
 #endif
-        /// <summary>The started_at property</summary>
+        /// <summary>Timestamp when execution started.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_started_at? StartedAt { get; set; }
@@ -91,9 +91,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_started_at StartedAt { get; set; }
 #endif
-        /// <summary>The total_blocks property</summary>
+        /// <summary>Total number of blocks in the workflow.</summary>
         public int? TotalBlocks { get; set; }
-        /// <summary>The workflow_id property</summary>
+        /// <summary>Workflow identifier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? WorkflowId { get; set; }

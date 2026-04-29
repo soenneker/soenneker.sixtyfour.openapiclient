@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Results.Download
         {
         }
         /// <summary>
-        /// List workflow run results with signed download URLs.The signed URLs expire after 15 minutes.Use format=&apos;json&apos; to get JSON results (requires the workflow to have been run with save_json=true).
+        /// List a workflow run&apos;s results with 15-minute signed download URLs. Use `format=json` for JSON results (requires the run to have used `save_json=true`).
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -58,7 +58,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Results.Download
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// List workflow run results with signed download URLs.The signed URLs expire after 15 minutes.Use format=&apos;json&apos; to get JSON results (requires the workflow to have been run with save_json=true).
+        /// List a workflow run&apos;s results with 15-minute signed download URLs. Use `format=json` for JSON results (requires the run to have used `save_json=true`).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -86,7 +86,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Results.Download
             return new global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Results.DownloadLinks.DownloadLinksRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List workflow run results with signed download URLs.The signed URLs expire after 15 minutes.Use format=&apos;json&apos; to get JSON results (requires the workflow to have been run with save_json=true).
+        /// List a workflow run&apos;s results with 15-minute signed download URLs. Use `format=json` for JSON results (requires the run to have used `save_json=true`).
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class DownloadLinksRequestBuilderGetQueryParameters 

@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.ReverseEmailAsync
         {
         }
         /// <summary>
-        /// Reverse Email Async Endpoint
+        /// Resolve a person from their email address; returns a job ID to poll.
         /// </summary>
         /// <returns>A <see cref="UntypedNode"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.ReverseEmailAsync
             return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Reverse Email Async Endpoint
+        /// Resolve a person from their email address; returns a job ID to poll.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

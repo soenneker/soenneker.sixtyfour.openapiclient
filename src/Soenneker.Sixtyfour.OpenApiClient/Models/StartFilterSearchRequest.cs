@@ -15,7 +15,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The cursor property</summary>
+        /// <summary>Opaque pagination cursor returned by a previous response.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequest.StartFilterSearchRequest_cursor? Cursor { get; set; }
@@ -23,7 +23,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequest.StartFilterSearchRequest_cursor Cursor { get; set; }
 #endif
-        /// <summary>The filters property</summary>
+        /// <summary>Raw OpenSearch DSL filters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UntypedNode? Filters { get; set; }
@@ -31,15 +31,15 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public UntypedNode Filters { get; set; }
 #endif
-        /// <summary>The max_results property</summary>
+        /// <summary>Maximum number of results to return across pages.</summary>
         public int? MaxResults { get; set; }
-        /// <summary>Search mode: &apos;company&apos; or &apos;people&apos;.</summary>
+        /// <summary>Search mode: &apos;people&apos; or &apos;company&apos;.</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequest_mode? Mode { get; set; }
-        /// <summary>The page_size property</summary>
+        /// <summary>Number of results per page (1-100).</summary>
         public int? PageSize { get; set; }
-        /// <summary>The save_json property</summary>
+        /// <summary>Also save results as JSON in addition to CSV.</summary>
         public bool? SaveJson { get; set; }
-        /// <summary>The simple_filters property</summary>
+        /// <summary>MongoDB-style filters that the API translates to DSL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UntypedNode? SimpleFilters { get; set; }
