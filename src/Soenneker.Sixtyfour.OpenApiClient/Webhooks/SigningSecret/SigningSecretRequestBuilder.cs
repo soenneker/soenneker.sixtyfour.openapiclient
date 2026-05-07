@@ -44,7 +44,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.SigningSecret400Error">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.SigningSecret401Error">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.SigningSecret500Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -57,7 +60,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
+                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.SigningSecret400Error.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.SigningSecret401Error.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.SigningSecret500Error.CreateFromDiscriminatorValue },
             };
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -67,7 +73,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SigningSecretMetaResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.SigningSecret400Error">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.SigningSecret401Error">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.SigningSecret500Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.SigningSecretMetaResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -80,7 +89,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
+                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.SigningSecret400Error.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.SigningSecret401Error.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.SigningSecret500Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.SigningSecretMetaResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.SigningSecretMetaResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -90,7 +102,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateSigningSecretResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.CreateSigningSecretResponse400Error">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.CreateSigningSecretResponse401Error">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.CreateSigningSecretResponse500Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateSigningSecretResponse?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -103,7 +118,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret
             var requestInfo = ToPostRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
+                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.CreateSigningSecretResponse400Error.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.CreateSigningSecretResponse401Error.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.CreateSigningSecretResponse500Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateSigningSecretResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateSigningSecretResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

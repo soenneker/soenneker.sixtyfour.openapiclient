@@ -58,6 +58,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Me.SlackLinks
         /// <returns>A List&lt;global::Soenneker.Sixtyfour.OpenApiClient.Models.SlackLink&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Me.SlackLinks.SlackLinks400Error">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Me.SlackLinks.SlackLinks401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Me.SlackLinks.SlackLinks500Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<List<global::Soenneker.Sixtyfour.OpenApiClient.Models.SlackLink>?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -68,7 +72,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Me.SlackLinks
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.SlackLink>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.SlackLink.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Me.SlackLinks.SlackLinks400Error.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Me.SlackLinks.SlackLinks401Error.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Me.SlackLinks.SlackLinks500Error.CreateFromDiscriminatorValue },
+            };
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.SlackLink>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.SlackLink.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
         }
         /// <summary>

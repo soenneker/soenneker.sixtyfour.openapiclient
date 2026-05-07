@@ -39,7 +39,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Me.SlackLinks.Item.Item
         /// <returns>A <see cref="UntypedNode"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Me.SlackLinks.Item.Item.WithSlack_user_400Error">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Me.SlackLinks.Item.Item.WithSlack_user_401Error">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Me.SlackLinks.Item.Item.WithSlack_user_500Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<UntypedNode?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -52,7 +55,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Me.SlackLinks.Item.Item
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
+                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Me.SlackLinks.Item.Item.WithSlack_user_400Error.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Me.SlackLinks.Item.Item.WithSlack_user_401Error.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Me.SlackLinks.Item.Item.WithSlack_user_500Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

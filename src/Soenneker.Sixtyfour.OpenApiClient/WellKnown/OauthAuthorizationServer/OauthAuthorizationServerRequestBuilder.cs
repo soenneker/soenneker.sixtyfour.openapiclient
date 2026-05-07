@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Sixtyfour.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -38,6 +39,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.WellKnown.OauthAuthorizationServer
         /// <returns>A <see cref="UntypedNode"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.WellKnown.OauthAuthorizationServer.OauthAuthorizationServer400Error">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.WellKnown.OauthAuthorizationServer.OauthAuthorizationServer401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.WellKnown.OauthAuthorizationServer.OauthAuthorizationServer500Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<UntypedNode?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -48,7 +53,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.WellKnown.OauthAuthorizationServer
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "400", global::Soenneker.Sixtyfour.OpenApiClient.WellKnown.OauthAuthorizationServer.OauthAuthorizationServer400Error.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Sixtyfour.OpenApiClient.WellKnown.OauthAuthorizationServer.OauthAuthorizationServer401Error.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Sixtyfour.OpenApiClient.WellKnown.OauthAuthorizationServer.OauthAuthorizationServer500Error.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Oauth Authorization Server Metadata

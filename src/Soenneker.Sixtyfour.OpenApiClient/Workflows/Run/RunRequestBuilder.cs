@@ -40,7 +40,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Run
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Run.WorkflowRunStartedResponse400Error">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Run.WorkflowRunStartedResponse401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Run.WorkflowRunStartedResponse403Error">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Run.WorkflowRunStartedResponse404Error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Run.WorkflowRunStartedResponse409Error">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Run.WorkflowRunStartedResponse500Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunStartedResponse?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.Body_run_workflow_workflows_run_post body, Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Run.RunRequestBuilder.RunRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -54,7 +60,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Run
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
+                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Run.WorkflowRunStartedResponse400Error.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Run.WorkflowRunStartedResponse401Error.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Run.WorkflowRunStartedResponse403Error.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Run.WorkflowRunStartedResponse404Error.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Run.WorkflowRunStartedResponse409Error.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Run.WorkflowRunStartedResponse500Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunStartedResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunStartedResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

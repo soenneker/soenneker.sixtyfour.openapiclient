@@ -39,7 +39,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Interactive.Item.Finish
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FinishInteractiveResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Interactive.Item.Finish.FinishInteractiveResponse400Error">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Interactive.Item.Finish.FinishInteractiveResponse401Error">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Interactive.Item.Finish.FinishInteractiveResponse500Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.FinishInteractiveResponse?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -52,7 +55,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Interactive.Item.Finish
             var requestInfo = ToPostRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
+                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Interactive.Item.Finish.FinishInteractiveResponse400Error.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Interactive.Item.Finish.FinishInteractiveResponse401Error.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Interactive.Item.Finish.FinishInteractiveResponse500Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.FinishInteractiveResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.FinishInteractiveResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

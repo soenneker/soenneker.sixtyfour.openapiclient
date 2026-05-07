@@ -100,7 +100,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows
         /// <returns>A List&lt;global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Workflows400Error">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Workflows401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Workflows403Error">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Workflows404Error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Workflows409Error">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Workflows500Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<List<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse>?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -113,7 +119,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
+                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Workflows400Error.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Workflows401Error.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Workflows403Error.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Workflows404Error.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Workflows409Error.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Workflows500Error.CreateFromDiscriminatorValue },
             };
             var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();

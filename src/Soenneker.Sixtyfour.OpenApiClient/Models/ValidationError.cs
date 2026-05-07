@@ -14,7 +14,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The ctx property</summary>
+        /// <summary>Optional error context.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidationError_ctx? Ctx { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidationError_ctx Ctx { get; set; }
 #endif
-        /// <summary>The input property</summary>
+        /// <summary>The offending input value (any type, may be null).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UntypedNode? Input { get; set; }
@@ -30,7 +30,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public UntypedNode Input { get; set; }
 #endif
-        /// <summary>The loc property</summary>
+        /// <summary>Path to the field that failed validation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Loc { get; set; }
@@ -38,7 +38,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public List<string> Loc { get; set; }
 #endif
-        /// <summary>The msg property</summary>
+        /// <summary>Human-readable error message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Msg { get; set; }
@@ -46,7 +46,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string Msg { get; set; }
 #endif
-        /// <summary>The type property</summary>
+        /// <summary>Error code (e.g. &apos;missing&apos;, &apos;value_error&apos;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Type { get; set; }

@@ -40,7 +40,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.ReversePhoneAsync
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.ReversePhoneAsync.ReversePhoneAsync400Error">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.ReversePhoneAsync.ReversePhoneAsync401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.ReversePhoneAsync.ReversePhoneAsync402Error">When receiving a 402 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.ReversePhoneAsync.ReversePhoneAsync403Error">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.ReversePhoneAsync.ReversePhoneAsync404Error">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.ReversePhoneAsync.ReversePhoneAsync429Error">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.ReversePhoneAsync.ReversePhoneAsync500Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<UntypedNode?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -54,7 +61,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.ReversePhoneAsync
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
+                { "400", global::Soenneker.Sixtyfour.OpenApiClient.ReversePhoneAsync.ReversePhoneAsync400Error.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Sixtyfour.OpenApiClient.ReversePhoneAsync.ReversePhoneAsync401Error.CreateFromDiscriminatorValue },
+                { "402", global::Soenneker.Sixtyfour.OpenApiClient.ReversePhoneAsync.ReversePhoneAsync402Error.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Sixtyfour.OpenApiClient.ReversePhoneAsync.ReversePhoneAsync403Error.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Sixtyfour.OpenApiClient.ReversePhoneAsync.ReversePhoneAsync404Error.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Sixtyfour.OpenApiClient.ReversePhoneAsync.ReversePhoneAsync429Error.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Sixtyfour.OpenApiClient.ReversePhoneAsync.ReversePhoneAsync500Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

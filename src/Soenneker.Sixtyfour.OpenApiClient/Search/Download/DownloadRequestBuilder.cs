@@ -39,7 +39,18 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Download
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DownloadSignedUrlResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Search.Download.DownloadSignedUrlResponse400Error">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Search.Download.DownloadSignedUrlResponse401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Search.Download.DownloadSignedUrlResponse402Error">When receiving a 402 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Search.Download.DownloadSignedUrlResponse403Error">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Search.Download.DownloadSignedUrlResponse404Error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Search.Download.DownloadSignedUrlResponse409Error">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Search.Download.DownloadSignedUrlResponse429Error">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Search.Download.DownloadSignedUrlResponse500Error">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Search.Download.DownloadSignedUrlResponse502Error">When receiving a 502 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Search.Download.DownloadSignedUrlResponse503Error">When receiving a 503 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Search.Download.DownloadSignedUrlResponse504Error">When receiving a 504 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.DownloadSignedUrlResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Search.Download.DownloadRequestBuilder.DownloadRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -52,7 +63,18 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Download
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
+                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Search.Download.DownloadSignedUrlResponse400Error.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Search.Download.DownloadSignedUrlResponse401Error.CreateFromDiscriminatorValue },
+                { "402", global::Soenneker.Sixtyfour.OpenApiClient.Search.Download.DownloadSignedUrlResponse402Error.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Sixtyfour.OpenApiClient.Search.Download.DownloadSignedUrlResponse403Error.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Sixtyfour.OpenApiClient.Search.Download.DownloadSignedUrlResponse404Error.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Sixtyfour.OpenApiClient.Search.Download.DownloadSignedUrlResponse409Error.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Sixtyfour.OpenApiClient.Search.Download.DownloadSignedUrlResponse429Error.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Search.Download.DownloadSignedUrlResponse500Error.CreateFromDiscriminatorValue },
+                { "502", global::Soenneker.Sixtyfour.OpenApiClient.Search.Download.DownloadSignedUrlResponse502Error.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.Sixtyfour.OpenApiClient.Search.Download.DownloadSignedUrlResponse503Error.CreateFromDiscriminatorValue },
+                { "504", global::Soenneker.Sixtyfour.OpenApiClient.Search.Download.DownloadSignedUrlResponse504Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.DownloadSignedUrlResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.DownloadSignedUrlResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
