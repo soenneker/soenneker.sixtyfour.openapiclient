@@ -57,6 +57,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string Filename { get; set; }
 #endif
+        /// <summary>File size in bytes (uncompressed), when known.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_file_size? FileSize { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_file_size FileSize { get; set; }
+#endif
         /// <summary>Error or status message, if any.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -113,6 +121,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_created_at>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_created_at.CreateFromDiscriminatorValue); } },
                 { "download_expires_in_seconds", n => { DownloadExpiresInSeconds = n.GetIntValue(); } },
                 { "download_url", n => { DownloadUrl = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_download_url>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_download_url.CreateFromDiscriminatorValue); } },
+                { "file_size", n => { FileSize = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_file_size>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_file_size.CreateFromDiscriminatorValue); } },
                 { "filename", n => { Filename = n.GetStringValue(); } },
                 { "message", n => { Message = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_message>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_message.CreateFromDiscriminatorValue); } },
                 { "results", n => { Results = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_results>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_results.CreateFromDiscriminatorValue); } },
@@ -133,6 +142,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteIntValue("download_expires_in_seconds", DownloadExpiresInSeconds);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_download_url>("download_url", DownloadUrl);
             writer.WriteStringValue("filename", Filename);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_file_size>("file_size", FileSize);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_message>("message", Message);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_results>("results", Results);
             writer.WriteIntValue("row_count", RowCount);
@@ -402,6 +412,68 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 }
                 else {
                     writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_download_urlMember1>(null, WorkflowResultItemWithDownloadDownloadUrlMember1);
+                }
+            }
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_file_sizeMember1"/>, <see cref="int"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class WorkflowResultItemWithDownload_file_size : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="int"/></summary>
+            public int? Integer { get; set; }
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_file_sizeMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_file_sizeMember1? WorkflowResultItemWithDownloadFileSizeMember1 { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_file_sizeMember1 WorkflowResultItemWithDownloadFileSizeMember1 { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_file_size"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_file_size CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_file_size();
+                if(parseNode.GetIntValue() is int integerValue)
+                {
+                    result.Integer = integerValue;
+                }
+                else {
+                    result.WorkflowResultItemWithDownloadFileSizeMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_file_sizeMember1();
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(WorkflowResultItemWithDownloadFileSizeMember1 != null)
+                {
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(WorkflowResultItemWithDownloadFileSizeMember1);
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(Integer != null)
+                {
+                    writer.WriteIntValue(null, Integer);
+                }
+                else {
+                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_file_sizeMember1>(null, WorkflowResultItemWithDownloadFileSizeMember1);
                 }
             }
         }
