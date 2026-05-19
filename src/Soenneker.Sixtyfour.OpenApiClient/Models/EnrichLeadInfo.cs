@@ -14,14 +14,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Include timing and quality benchmark data in the response.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_benchmark? Benchmark { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_benchmark Benchmark { get; set; }
-#endif
         /// <summary>Lead identifiers (e.g. name, email, company, linkedin).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -29,14 +21,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_lead_info LeadInfo { get; set; }
-#endif
-        /// <summary>Maximum research iterations the agent may run.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_max_iterations? MaxIterations { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_max_iterations MaxIterations { get; set; }
 #endif
         /// <summary>Optional natural-language plan that guides the research agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -95,9 +79,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "benchmark", n => { Benchmark = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_benchmark>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_benchmark.CreateFromDiscriminatorValue); } },
                 { "lead_info", n => { LeadInfo = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_lead_info>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_lead_info.CreateFromDiscriminatorValue); } },
-                { "max_iterations", n => { MaxIterations = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_max_iterations>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_max_iterations.CreateFromDiscriminatorValue); } },
                 { "research_plan", n => { ResearchPlan = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_research_plan>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_research_plan.CreateFromDiscriminatorValue); } },
                 { "struct", n => { Struct = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "tier", n => { Tier = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_tier>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_tier.CreateFromDiscriminatorValue); } },
@@ -111,138 +93,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_benchmark>("benchmark", Benchmark);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_lead_info>("lead_info", LeadInfo);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_max_iterations>("max_iterations", MaxIterations);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_research_plan>("research_plan", ResearchPlan);
             writer.WriteObjectValue<UntypedNode>("struct", Struct);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_tier>("tier", Tier);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_webhook_url>("webhook_url", WebhookUrl);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="bool"/>, <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_benchmarkMember1"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class EnrichLeadInfo_benchmark : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="bool"/></summary>
-            public bool? Boolean { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_benchmarkMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_benchmarkMember1? EnrichLeadInfoBenchmarkMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_benchmarkMember1 EnrichLeadInfoBenchmarkMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_benchmark"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_benchmark CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_benchmark();
-                if(parseNode.GetBoolValue() is bool booleanValue)
-                {
-                    result.Boolean = booleanValue;
-                }
-                else {
-                    result.EnrichLeadInfoBenchmarkMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_benchmarkMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(EnrichLeadInfoBenchmarkMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(EnrichLeadInfoBenchmarkMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Boolean != null)
-                {
-                    writer.WriteBoolValue(null, Boolean);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_benchmarkMember1>(null, EnrichLeadInfoBenchmarkMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_max_iterationsMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class EnrichLeadInfo_max_iterations : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_max_iterationsMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_max_iterationsMember1? EnrichLeadInfoMaxIterationsMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_max_iterationsMember1 EnrichLeadInfoMaxIterationsMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_max_iterations"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_max_iterations CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_max_iterations();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.EnrichLeadInfoMaxIterationsMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_max_iterationsMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(EnrichLeadInfoMaxIterationsMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(EnrichLeadInfoMaxIterationsMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_max_iterationsMember1>(null, EnrichLeadInfoMaxIterationsMember1);
-                }
-            }
         }
         /// <summary>
         /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_research_planMember1"/>, <see cref="string"/>

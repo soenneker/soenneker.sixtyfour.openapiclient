@@ -14,14 +14,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The benchmark property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest.ResearchAgentRequest_benchmark? Benchmark { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest.ResearchAgentRequest_benchmark Benchmark { get; set; }
-#endif
         /// <summary>The input_data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -29,14 +21,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest_input_data InputData { get; set; }
-#endif
-        /// <summary>The max_iterations property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest.ResearchAgentRequest_max_iterations? MaxIterations { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest.ResearchAgentRequest_max_iterations MaxIterations { get; set; }
 #endif
         /// <summary>The research_plan property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -87,9 +71,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "benchmark", n => { Benchmark = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest.ResearchAgentRequest_benchmark>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest.ResearchAgentRequest_benchmark.CreateFromDiscriminatorValue); } },
                 { "input_data", n => { InputData = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest_input_data>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest_input_data.CreateFromDiscriminatorValue); } },
-                { "max_iterations", n => { MaxIterations = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest.ResearchAgentRequest_max_iterations>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest.ResearchAgentRequest_max_iterations.CreateFromDiscriminatorValue); } },
                 { "research_plan", n => { ResearchPlan = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest.ResearchAgentRequest_research_plan>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest.ResearchAgentRequest_research_plan.CreateFromDiscriminatorValue); } },
                 { "struct", n => { Struct = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "webhook_url", n => { WebhookUrl = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest.ResearchAgentRequest_webhook_url>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest.ResearchAgentRequest_webhook_url.CreateFromDiscriminatorValue); } },
@@ -102,137 +84,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest.ResearchAgentRequest_benchmark>("benchmark", Benchmark);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest_input_data>("input_data", InputData);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest.ResearchAgentRequest_max_iterations>("max_iterations", MaxIterations);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest.ResearchAgentRequest_research_plan>("research_plan", ResearchPlan);
             writer.WriteObjectValue<UntypedNode>("struct", Struct);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest.ResearchAgentRequest_webhook_url>("webhook_url", WebhookUrl);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="bool"/>, <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest_benchmarkMember1"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ResearchAgentRequest_benchmark : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="bool"/></summary>
-            public bool? Boolean { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest_benchmarkMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest_benchmarkMember1? ResearchAgentRequestBenchmarkMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest_benchmarkMember1 ResearchAgentRequestBenchmarkMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest.ResearchAgentRequest_benchmark"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest.ResearchAgentRequest_benchmark CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest.ResearchAgentRequest_benchmark();
-                if(parseNode.GetBoolValue() is bool booleanValue)
-                {
-                    result.Boolean = booleanValue;
-                }
-                else {
-                    result.ResearchAgentRequestBenchmarkMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest_benchmarkMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ResearchAgentRequestBenchmarkMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ResearchAgentRequestBenchmarkMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Boolean != null)
-                {
-                    writer.WriteBoolValue(null, Boolean);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest_benchmarkMember1>(null, ResearchAgentRequestBenchmarkMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest_max_iterationsMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ResearchAgentRequest_max_iterations : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest_max_iterationsMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest_max_iterationsMember1? ResearchAgentRequestMaxIterationsMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest_max_iterationsMember1 ResearchAgentRequestMaxIterationsMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest.ResearchAgentRequest_max_iterations"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest.ResearchAgentRequest_max_iterations CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest.ResearchAgentRequest_max_iterations();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.ResearchAgentRequestMaxIterationsMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest_max_iterationsMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ResearchAgentRequestMaxIterationsMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ResearchAgentRequestMaxIterationsMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest_max_iterationsMember1>(null, ResearchAgentRequestMaxIterationsMember1);
-                }
-            }
         }
         /// <summary>
         /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest_research_planMember1"/>, <see cref="string"/>

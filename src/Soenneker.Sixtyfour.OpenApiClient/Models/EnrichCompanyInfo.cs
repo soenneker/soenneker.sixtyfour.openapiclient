@@ -14,14 +14,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Include timing and quality benchmark data in the response.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo.EnrichCompanyInfo_benchmark? Benchmark { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo.EnrichCompanyInfo_benchmark Benchmark { get; set; }
-#endif
         /// <summary>If true, also discover key people at the company.</summary>
         public bool? FindPeople { get; set; }
         /// <summary>If true, return the full org chart instead of a focused list.</summary>
@@ -33,14 +25,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #nullable restore
 #else
         public UntypedNode LeadStruct { get; set; }
-#endif
-        /// <summary>Maximum research iterations the agent may run.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo.EnrichCompanyInfo_max_iterations? MaxIterations { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo.EnrichCompanyInfo_max_iterations MaxIterations { get; set; }
 #endif
         /// <summary>Natural-language description of which people to surface when find_people=true.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -115,11 +99,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "benchmark", n => { Benchmark = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo.EnrichCompanyInfo_benchmark>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo.EnrichCompanyInfo_benchmark.CreateFromDiscriminatorValue); } },
                 { "find_people", n => { FindPeople = n.GetBoolValue(); } },
                 { "full_org_chart", n => { FullOrgChart = n.GetBoolValue(); } },
                 { "lead_struct", n => { LeadStruct = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "max_iterations", n => { MaxIterations = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo.EnrichCompanyInfo_max_iterations>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo.EnrichCompanyInfo_max_iterations.CreateFromDiscriminatorValue); } },
                 { "people_focus_prompt", n => { PeopleFocusPrompt = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo.EnrichCompanyInfo_people_focus_prompt>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo.EnrichCompanyInfo_people_focus_prompt.CreateFromDiscriminatorValue); } },
                 { "research_plan", n => { ResearchPlan = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo.EnrichCompanyInfo_research_plan>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo.EnrichCompanyInfo_research_plan.CreateFromDiscriminatorValue); } },
                 { "struct", n => { Struct = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo_struct>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo_struct.CreateFromDiscriminatorValue); } },
@@ -135,11 +117,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo.EnrichCompanyInfo_benchmark>("benchmark", Benchmark);
             writer.WriteBoolValue("find_people", FindPeople);
             writer.WriteBoolValue("full_org_chart", FullOrgChart);
             writer.WriteObjectValue<UntypedNode>("lead_struct", LeadStruct);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo.EnrichCompanyInfo_max_iterations>("max_iterations", MaxIterations);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo.EnrichCompanyInfo_people_focus_prompt>("people_focus_prompt", PeopleFocusPrompt);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo.EnrichCompanyInfo_research_plan>("research_plan", ResearchPlan);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo_struct>("struct", Struct);
@@ -147,130 +127,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo.EnrichCompanyInfo_tier>("tier", Tier);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo.EnrichCompanyInfo_webhook_url>("webhook_url", WebhookUrl);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="bool"/>, <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo_benchmarkMember1"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class EnrichCompanyInfo_benchmark : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="bool"/></summary>
-            public bool? Boolean { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo_benchmarkMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo_benchmarkMember1? EnrichCompanyInfoBenchmarkMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo_benchmarkMember1 EnrichCompanyInfoBenchmarkMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo.EnrichCompanyInfo_benchmark"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo.EnrichCompanyInfo_benchmark CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo.EnrichCompanyInfo_benchmark();
-                if(parseNode.GetBoolValue() is bool booleanValue)
-                {
-                    result.Boolean = booleanValue;
-                }
-                else {
-                    result.EnrichCompanyInfoBenchmarkMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo_benchmarkMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(EnrichCompanyInfoBenchmarkMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(EnrichCompanyInfoBenchmarkMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Boolean != null)
-                {
-                    writer.WriteBoolValue(null, Boolean);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo_benchmarkMember1>(null, EnrichCompanyInfoBenchmarkMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo_max_iterationsMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class EnrichCompanyInfo_max_iterations : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo_max_iterationsMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo_max_iterationsMember1? EnrichCompanyInfoMaxIterationsMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo_max_iterationsMember1 EnrichCompanyInfoMaxIterationsMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo.EnrichCompanyInfo_max_iterations"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo.EnrichCompanyInfo_max_iterations CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo.EnrichCompanyInfo_max_iterations();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.EnrichCompanyInfoMaxIterationsMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo_max_iterationsMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(EnrichCompanyInfoMaxIterationsMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(EnrichCompanyInfoMaxIterationsMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo_max_iterationsMember1>(null, EnrichCompanyInfoMaxIterationsMember1);
-                }
-            }
         }
         /// <summary>
         /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo_people_focus_promptMember1"/>, <see cref="string"/>
