@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Run
         {
         }
         /// <summary>
-        /// Start a workflow run and return a job ID for tracking. Supports per-run spec overrides via `specs_override` and webhook input via `webhook_payload`. Workflows starting with `read_csv` cannot be triggered via API.
+        /// Start a workflow run and return a job ID for tracking.Supports per-run spec overrides via `specs_override` and webhook input via`webhook_payload`. API-triggered `read_csv` workflows must provide`specs_override.resource_handle_id` from `/storage/csv/upload`.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunStartedResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -71,7 +71,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Run
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunStartedResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunStartedResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Start a workflow run and return a job ID for tracking. Supports per-run spec overrides via `specs_override` and webhook input via `webhook_payload`. Workflows starting with `read_csv` cannot be triggered via API.
+        /// Start a workflow run and return a job ID for tracking.Supports per-run spec overrides via `specs_override` and webhook input via`webhook_payload`. API-triggered `read_csv` workflows must provide`specs_override.resource_handle_id` from `/storage/csv/upload`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -102,7 +102,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Run
             return new global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Run.RunRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Start a workflow run and return a job ID for tracking. Supports per-run spec overrides via `specs_override` and webhook input via `webhook_payload`. Workflows starting with `read_csv` cannot be triggered via API.
+        /// Start a workflow run and return a job ID for tracking.Supports per-run spec overrides via `specs_override` and webhook input via`webhook_payload`. API-triggered `read_csv` workflows must provide`specs_override.resource_handle_id` from `/storage/csv/upload`.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class RunRequestBuilderPostQueryParameters 
