@@ -52,7 +52,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Query
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Search.Query.FilterSearchResponse502Error">When receiving a 502 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Search.Query.FilterSearchResponse503Error">When receiving a 503 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Search.Query.FilterSearchResponse504Error">When receiving a 504 status code</exception>
-        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -87,7 +86,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Query
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Unified search query request — replaces both /start-filter-search and /browse.</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToPostRequestInformation(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
@@ -109,7 +107,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Query
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Search.Query.QueryRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        [Obsolete("")]
         public global::Soenneker.Sixtyfour.OpenApiClient.Search.Query.QueryRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Sixtyfour.OpenApiClient.Search.Query.QueryRequestBuilder(rawUrl, RequestAdapter);

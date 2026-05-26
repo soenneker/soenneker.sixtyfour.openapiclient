@@ -57,6 +57,7 @@ using Soenneker.Sixtyfour.OpenApiClient.StructBuilder;
 using Soenneker.Sixtyfour.OpenApiClient.Webhooks;
 using Soenneker.Sixtyfour.OpenApiClient.WellKnown;
 using Soenneker.Sixtyfour.OpenApiClient.Workflows;
+using Soenneker.Sixtyfour.OpenApiClient.Workspaces;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -323,6 +324,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient
         public global::Soenneker.Sixtyfour.OpenApiClient.Workflows.WorkflowsRequestBuilder Workflows
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.Workflows.WorkflowsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The workspaces property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.Workspaces.WorkspacesRequestBuilder Workspaces
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.Workspaces.WorkspacesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.SixtyfourOpenApiClient"/> and sets the default values.
