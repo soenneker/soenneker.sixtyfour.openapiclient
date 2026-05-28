@@ -18,27 +18,15 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Signed URL to download results as CSV.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_csv_download_url? CsvDownloadUrl { get; set; }
+        public string? CsvDownloadUrl { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_csv_download_url CsvDownloadUrl { get; set; }
+        public string CsvDownloadUrl { get; set; }
 #endif
         /// <summary>Seconds until `next_cursor` expires.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_cursor_expires_in_seconds? CursorExpiresInSeconds { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_cursor_expires_in_seconds CursorExpiresInSeconds { get; set; }
-#endif
+        public int? CursorExpiresInSeconds { get; set; }
         /// <summary>Seconds until the download URLs expire.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_download_expires_in_seconds? DownloadExpiresInSeconds { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_download_expires_in_seconds DownloadExpiresInSeconds { get; set; }
-#endif
+        public int? DownloadExpiresInSeconds { get; set; }
         /// <summary>Legacy export count; always 0 for company direct-filter mode.</summary>
         public int? ExportedCount { get; set; }
         /// <summary>True when another page is available via `next_cursor`.</summary>
@@ -46,83 +34,47 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Signed URL to download results as JSON.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_json_download_url? JsonDownloadUrl { get; set; }
+        public string? JsonDownloadUrl { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_json_download_url JsonDownloadUrl { get; set; }
+        public string JsonDownloadUrl { get; set; }
 #endif
         /// <summary>Upper bound on pages based on max_results and page_size.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_max_pages? MaxPages { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_max_pages MaxPages { get; set; }
-#endif
+        public int? MaxPages { get; set; }
         /// <summary>Original natural-language query echoed verbatim, if any.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_natural_language_query? NaturalLanguageQuery { get; set; }
+        public string? NaturalLanguageQuery { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_natural_language_query NaturalLanguageQuery { get; set; }
+        public string NaturalLanguageQuery { get; set; }
 #endif
         /// <summary>Cursor to fetch the next page; null when exhausted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_next_cursor? NextCursor { get; set; }
+        public string? NextCursor { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_next_cursor NextCursor { get; set; }
+        public string NextCursor { get; set; }
 #endif
         /// <summary>Number of results in this response page.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_page_count? PageCount { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_page_count PageCount { get; set; }
-#endif
+        public int? PageCount { get; set; }
         /// <summary>1-based page number (company pagination).</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_page_number? PageNumber { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_page_number PageNumber { get; set; }
-#endif
+        public int? PageNumber { get; set; }
         /// <summary>Number of results per page (1-100).</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_page_size? PageSize { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_page_size PageSize { get; set; }
-#endif
+        public int? PageSize { get; set; }
         /// <summary>Structured filter set echoed back; round-trippable into a follow-up request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? ParsedQuery { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_parsed_query? ParsedQuery { get; set; }
 #nullable restore
 #else
-        public UntypedNode ParsedQuery { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_parsed_query ParsedQuery { get; set; }
 #endif
         /// <summary>Rows still available under max_results after this page.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_remaining_results? RemainingResults { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_remaining_results RemainingResults { get; set; }
-#endif
+        public int? RemainingResults { get; set; }
         /// <summary>Server-side request duration in milliseconds.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_request_duration_ms? RequestDurationMs { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_request_duration_ms RequestDurationMs { get; set; }
-#endif
+        public int? RequestDurationMs { get; set; }
         /// <summary>Legacy export handle. Empty for company direct-filter mode.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -142,27 +94,15 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Search history ID; reuse with /search/query or /search/export.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_search_id? SearchId { get; set; }
+        public string? SearchId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_search_id SearchId { get; set; }
+        public string SearchId { get; set; }
 #endif
         /// <summary>Total OpenSearch matches across pages (capped at 50000); people-mode only.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_total_available? TotalAvailable { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_total_available TotalAvailable { get; set; }
-#endif
+        public int? TotalAvailable { get; set; }
         /// <summary>Final total page count; omitted while `has_more` is true.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_total_pages? TotalPages { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_total_pages TotalPages { get; set; }
-#endif
+        public int? TotalPages { get; set; }
         /// <summary>Rows returned so far (cumulative for company pagination).</summary>
         public int? TotalResults { get; set; }
         /// <summary>
@@ -190,26 +130,26 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "csv_download_url", n => { CsvDownloadUrl = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_csv_download_url>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_csv_download_url.CreateFromDiscriminatorValue); } },
-                { "cursor_expires_in_seconds", n => { CursorExpiresInSeconds = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_cursor_expires_in_seconds>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_cursor_expires_in_seconds.CreateFromDiscriminatorValue); } },
-                { "download_expires_in_seconds", n => { DownloadExpiresInSeconds = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_download_expires_in_seconds>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_download_expires_in_seconds.CreateFromDiscriminatorValue); } },
+                { "csv_download_url", n => { CsvDownloadUrl = n.GetStringValue(); } },
+                { "cursor_expires_in_seconds", n => { CursorExpiresInSeconds = n.GetIntValue(); } },
+                { "download_expires_in_seconds", n => { DownloadExpiresInSeconds = n.GetIntValue(); } },
                 { "exported_count", n => { ExportedCount = n.GetIntValue(); } },
                 { "has_more", n => { HasMore = n.GetBoolValue(); } },
-                { "json_download_url", n => { JsonDownloadUrl = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_json_download_url>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_json_download_url.CreateFromDiscriminatorValue); } },
-                { "max_pages", n => { MaxPages = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_max_pages>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_max_pages.CreateFromDiscriminatorValue); } },
-                { "natural_language_query", n => { NaturalLanguageQuery = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_natural_language_query>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_natural_language_query.CreateFromDiscriminatorValue); } },
-                { "next_cursor", n => { NextCursor = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_next_cursor>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_next_cursor.CreateFromDiscriminatorValue); } },
-                { "page_count", n => { PageCount = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_page_count>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_page_count.CreateFromDiscriminatorValue); } },
-                { "page_number", n => { PageNumber = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_page_number>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_page_number.CreateFromDiscriminatorValue); } },
-                { "page_size", n => { PageSize = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_page_size>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_page_size.CreateFromDiscriminatorValue); } },
-                { "parsed_query", n => { ParsedQuery = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "remaining_results", n => { RemainingResults = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_remaining_results>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_remaining_results.CreateFromDiscriminatorValue); } },
-                { "request_duration_ms", n => { RequestDurationMs = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_request_duration_ms>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_request_duration_ms.CreateFromDiscriminatorValue); } },
+                { "json_download_url", n => { JsonDownloadUrl = n.GetStringValue(); } },
+                { "max_pages", n => { MaxPages = n.GetIntValue(); } },
+                { "natural_language_query", n => { NaturalLanguageQuery = n.GetStringValue(); } },
+                { "next_cursor", n => { NextCursor = n.GetStringValue(); } },
+                { "page_count", n => { PageCount = n.GetIntValue(); } },
+                { "page_number", n => { PageNumber = n.GetIntValue(); } },
+                { "page_size", n => { PageSize = n.GetIntValue(); } },
+                { "parsed_query", n => { ParsedQuery = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_parsed_query>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_parsed_query.CreateFromDiscriminatorValue); } },
+                { "remaining_results", n => { RemainingResults = n.GetIntValue(); } },
+                { "request_duration_ms", n => { RequestDurationMs = n.GetIntValue(); } },
                 { "resource_handle_id", n => { ResourceHandleId = n.GetStringValue(); } },
                 { "results", n => { Results = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_results>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_results.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "search_id", n => { SearchId = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_search_id>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_search_id.CreateFromDiscriminatorValue); } },
-                { "total_available", n => { TotalAvailable = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_total_available>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_total_available.CreateFromDiscriminatorValue); } },
-                { "total_pages", n => { TotalPages = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_total_pages>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_total_pages.CreateFromDiscriminatorValue); } },
+                { "search_id", n => { SearchId = n.GetStringValue(); } },
+                { "total_available", n => { TotalAvailable = n.GetIntValue(); } },
+                { "total_pages", n => { TotalPages = n.GetIntValue(); } },
                 { "total_results", n => { TotalResults = n.GetIntValue(); } },
             };
         }
@@ -220,988 +160,28 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_csv_download_url>("csv_download_url", CsvDownloadUrl);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_cursor_expires_in_seconds>("cursor_expires_in_seconds", CursorExpiresInSeconds);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_download_expires_in_seconds>("download_expires_in_seconds", DownloadExpiresInSeconds);
+            writer.WriteStringValue("csv_download_url", CsvDownloadUrl);
+            writer.WriteIntValue("cursor_expires_in_seconds", CursorExpiresInSeconds);
+            writer.WriteIntValue("download_expires_in_seconds", DownloadExpiresInSeconds);
             writer.WriteIntValue("exported_count", ExportedCount);
             writer.WriteBoolValue("has_more", HasMore);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_json_download_url>("json_download_url", JsonDownloadUrl);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_max_pages>("max_pages", MaxPages);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_natural_language_query>("natural_language_query", NaturalLanguageQuery);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_next_cursor>("next_cursor", NextCursor);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_page_count>("page_count", PageCount);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_page_number>("page_number", PageNumber);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_page_size>("page_size", PageSize);
-            writer.WriteObjectValue<UntypedNode>("parsed_query", ParsedQuery);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_remaining_results>("remaining_results", RemainingResults);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_request_duration_ms>("request_duration_ms", RequestDurationMs);
+            writer.WriteStringValue("json_download_url", JsonDownloadUrl);
+            writer.WriteIntValue("max_pages", MaxPages);
+            writer.WriteStringValue("natural_language_query", NaturalLanguageQuery);
+            writer.WriteStringValue("next_cursor", NextCursor);
+            writer.WriteIntValue("page_count", PageCount);
+            writer.WriteIntValue("page_number", PageNumber);
+            writer.WriteIntValue("page_size", PageSize);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_parsed_query>("parsed_query", ParsedQuery);
+            writer.WriteIntValue("remaining_results", RemainingResults);
+            writer.WriteIntValue("request_duration_ms", RequestDurationMs);
             writer.WriteStringValue("resource_handle_id", ResourceHandleId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_results>("results", Results);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_search_id>("search_id", SearchId);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_total_available>("total_available", TotalAvailable);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_total_pages>("total_pages", TotalPages);
+            writer.WriteStringValue("search_id", SearchId);
+            writer.WriteIntValue("total_available", TotalAvailable);
+            writer.WriteIntValue("total_pages", TotalPages);
             writer.WriteIntValue("total_results", TotalResults);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_csv_download_urlMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class FilterSearchResponse_csv_download_url : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_csv_download_urlMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_csv_download_urlMember1? FilterSearchResponseCsvDownloadUrlMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_csv_download_urlMember1 FilterSearchResponseCsvDownloadUrlMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_csv_download_url"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_csv_download_url CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_csv_download_url();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.FilterSearchResponseCsvDownloadUrlMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_csv_download_urlMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(FilterSearchResponseCsvDownloadUrlMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(FilterSearchResponseCsvDownloadUrlMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_csv_download_urlMember1>(null, FilterSearchResponseCsvDownloadUrlMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_cursor_expires_in_secondsMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class FilterSearchResponse_cursor_expires_in_seconds : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_cursor_expires_in_secondsMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_cursor_expires_in_secondsMember1? FilterSearchResponseCursorExpiresInSecondsMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_cursor_expires_in_secondsMember1 FilterSearchResponseCursorExpiresInSecondsMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_cursor_expires_in_seconds"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_cursor_expires_in_seconds CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_cursor_expires_in_seconds();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.FilterSearchResponseCursorExpiresInSecondsMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_cursor_expires_in_secondsMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(FilterSearchResponseCursorExpiresInSecondsMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(FilterSearchResponseCursorExpiresInSecondsMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_cursor_expires_in_secondsMember1>(null, FilterSearchResponseCursorExpiresInSecondsMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_download_expires_in_secondsMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class FilterSearchResponse_download_expires_in_seconds : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_download_expires_in_secondsMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_download_expires_in_secondsMember1? FilterSearchResponseDownloadExpiresInSecondsMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_download_expires_in_secondsMember1 FilterSearchResponseDownloadExpiresInSecondsMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_download_expires_in_seconds"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_download_expires_in_seconds CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_download_expires_in_seconds();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.FilterSearchResponseDownloadExpiresInSecondsMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_download_expires_in_secondsMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(FilterSearchResponseDownloadExpiresInSecondsMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(FilterSearchResponseDownloadExpiresInSecondsMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_download_expires_in_secondsMember1>(null, FilterSearchResponseDownloadExpiresInSecondsMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_json_download_urlMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class FilterSearchResponse_json_download_url : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_json_download_urlMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_json_download_urlMember1? FilterSearchResponseJsonDownloadUrlMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_json_download_urlMember1 FilterSearchResponseJsonDownloadUrlMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_json_download_url"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_json_download_url CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_json_download_url();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.FilterSearchResponseJsonDownloadUrlMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_json_download_urlMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(FilterSearchResponseJsonDownloadUrlMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(FilterSearchResponseJsonDownloadUrlMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_json_download_urlMember1>(null, FilterSearchResponseJsonDownloadUrlMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_max_pagesMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class FilterSearchResponse_max_pages : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_max_pagesMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_max_pagesMember1? FilterSearchResponseMaxPagesMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_max_pagesMember1 FilterSearchResponseMaxPagesMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_max_pages"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_max_pages CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_max_pages();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.FilterSearchResponseMaxPagesMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_max_pagesMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(FilterSearchResponseMaxPagesMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(FilterSearchResponseMaxPagesMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_max_pagesMember1>(null, FilterSearchResponseMaxPagesMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_natural_language_queryMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class FilterSearchResponse_natural_language_query : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_natural_language_queryMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_natural_language_queryMember1? FilterSearchResponseNaturalLanguageQueryMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_natural_language_queryMember1 FilterSearchResponseNaturalLanguageQueryMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_natural_language_query"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_natural_language_query CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_natural_language_query();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.FilterSearchResponseNaturalLanguageQueryMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_natural_language_queryMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(FilterSearchResponseNaturalLanguageQueryMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(FilterSearchResponseNaturalLanguageQueryMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_natural_language_queryMember1>(null, FilterSearchResponseNaturalLanguageQueryMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_next_cursorMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class FilterSearchResponse_next_cursor : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_next_cursorMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_next_cursorMember1? FilterSearchResponseNextCursorMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_next_cursorMember1 FilterSearchResponseNextCursorMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_next_cursor"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_next_cursor CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_next_cursor();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.FilterSearchResponseNextCursorMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_next_cursorMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(FilterSearchResponseNextCursorMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(FilterSearchResponseNextCursorMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_next_cursorMember1>(null, FilterSearchResponseNextCursorMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_page_countMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class FilterSearchResponse_page_count : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_page_countMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_page_countMember1? FilterSearchResponsePageCountMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_page_countMember1 FilterSearchResponsePageCountMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_page_count"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_page_count CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_page_count();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.FilterSearchResponsePageCountMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_page_countMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(FilterSearchResponsePageCountMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(FilterSearchResponsePageCountMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_page_countMember1>(null, FilterSearchResponsePageCountMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_page_numberMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class FilterSearchResponse_page_number : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_page_numberMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_page_numberMember1? FilterSearchResponsePageNumberMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_page_numberMember1 FilterSearchResponsePageNumberMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_page_number"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_page_number CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_page_number();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.FilterSearchResponsePageNumberMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_page_numberMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(FilterSearchResponsePageNumberMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(FilterSearchResponsePageNumberMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_page_numberMember1>(null, FilterSearchResponsePageNumberMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_page_sizeMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class FilterSearchResponse_page_size : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_page_sizeMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_page_sizeMember1? FilterSearchResponsePageSizeMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_page_sizeMember1 FilterSearchResponsePageSizeMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_page_size"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_page_size CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_page_size();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.FilterSearchResponsePageSizeMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_page_sizeMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(FilterSearchResponsePageSizeMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(FilterSearchResponsePageSizeMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_page_sizeMember1>(null, FilterSearchResponsePageSizeMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_remaining_resultsMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class FilterSearchResponse_remaining_results : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_remaining_resultsMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_remaining_resultsMember1? FilterSearchResponseRemainingResultsMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_remaining_resultsMember1 FilterSearchResponseRemainingResultsMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_remaining_results"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_remaining_results CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_remaining_results();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.FilterSearchResponseRemainingResultsMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_remaining_resultsMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(FilterSearchResponseRemainingResultsMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(FilterSearchResponseRemainingResultsMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_remaining_resultsMember1>(null, FilterSearchResponseRemainingResultsMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_request_duration_msMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class FilterSearchResponse_request_duration_ms : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_request_duration_msMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_request_duration_msMember1? FilterSearchResponseRequestDurationMsMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_request_duration_msMember1 FilterSearchResponseRequestDurationMsMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_request_duration_ms"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_request_duration_ms CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_request_duration_ms();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.FilterSearchResponseRequestDurationMsMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_request_duration_msMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(FilterSearchResponseRequestDurationMsMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(FilterSearchResponseRequestDurationMsMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_request_duration_msMember1>(null, FilterSearchResponseRequestDurationMsMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_search_idMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class FilterSearchResponse_search_id : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_search_idMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_search_idMember1? FilterSearchResponseSearchIdMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_search_idMember1 FilterSearchResponseSearchIdMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_search_id"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_search_id CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_search_id();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.FilterSearchResponseSearchIdMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_search_idMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(FilterSearchResponseSearchIdMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(FilterSearchResponseSearchIdMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_search_idMember1>(null, FilterSearchResponseSearchIdMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_total_availableMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class FilterSearchResponse_total_available : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_total_availableMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_total_availableMember1? FilterSearchResponseTotalAvailableMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_total_availableMember1 FilterSearchResponseTotalAvailableMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_total_available"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_total_available CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_total_available();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.FilterSearchResponseTotalAvailableMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_total_availableMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(FilterSearchResponseTotalAvailableMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(FilterSearchResponseTotalAvailableMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_total_availableMember1>(null, FilterSearchResponseTotalAvailableMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_total_pagesMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class FilterSearchResponse_total_pages : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_total_pagesMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_total_pagesMember1? FilterSearchResponseTotalPagesMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_total_pagesMember1 FilterSearchResponseTotalPagesMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_total_pages"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_total_pages CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.FilterSearchResponse_total_pages();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.FilterSearchResponseTotalPagesMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_total_pagesMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(FilterSearchResponseTotalPagesMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(FilterSearchResponseTotalPagesMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_total_pagesMember1>(null, FilterSearchResponseTotalPagesMember1);
-                }
-            }
         }
     }
 }

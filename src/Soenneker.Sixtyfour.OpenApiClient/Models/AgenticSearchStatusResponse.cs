@@ -18,66 +18,54 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Timestamp when the task finished.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_close_time? CloseTime { get; set; }
+        public string? CloseTime { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_close_time CloseTime { get; set; }
+        public string CloseTime { get; set; }
 #endif
         /// <summary>Current pipeline phase index.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_current_phase? CurrentPhase { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_current_phase CurrentPhase { get; set; }
-#endif
+        public int? CurrentPhase { get; set; }
         /// <summary>Error message if the operation failed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_error? Error { get; set; }
+        public string? Error { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_error Error { get; set; }
+        public string Error { get; set; }
 #endif
         /// <summary>Number of results actually exported.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_exported_count? ExportedCount { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_exported_count ExportedCount { get; set; }
-#endif
+        public int? ExportedCount { get; set; }
         /// <summary>Per-iteration debug data emitted by the agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_iterations? Iterations { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Iterations? Iterations { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_iterations Iterations { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Iterations Iterations { get; set; }
 #endif
         /// <summary>Human-readable progress message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_progress_message? ProgressMessage { get; set; }
+        public string? ProgressMessage { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_progress_message ProgressMessage { get; set; }
+        public string ProgressMessage { get; set; }
 #endif
         /// <summary>Handle for downloading exported results.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_resource_handle_id? ResourceHandleId { get; set; }
+        public string? ResourceHandleId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_resource_handle_id ResourceHandleId { get; set; }
+        public string ResourceHandleId { get; set; }
 #endif
         /// <summary>Search history ID returned by a previous search.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_search_id? SearchId { get; set; }
+        public string? SearchId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_search_id SearchId { get; set; }
+        public string SearchId { get; set; }
 #endif
         /// <summary>Timestamp when the task started.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -104,13 +92,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string TaskId { get; set; }
 #endif
         /// <summary>Total results found.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_total_results? TotalResults { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_total_results TotalResults { get; set; }
-#endif
+        public int? TotalResults { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse"/> and sets the default values.
         /// </summary>
@@ -136,18 +118,18 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "close_time", n => { CloseTime = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_close_time>(global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_close_time.CreateFromDiscriminatorValue); } },
-                { "current_phase", n => { CurrentPhase = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_current_phase>(global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_current_phase.CreateFromDiscriminatorValue); } },
-                { "error", n => { Error = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_error>(global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_error.CreateFromDiscriminatorValue); } },
-                { "exported_count", n => { ExportedCount = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_exported_count>(global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_exported_count.CreateFromDiscriminatorValue); } },
-                { "iterations", n => { Iterations = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_iterations>(global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_iterations.CreateFromDiscriminatorValue); } },
-                { "progress_message", n => { ProgressMessage = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_progress_message>(global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_progress_message.CreateFromDiscriminatorValue); } },
-                { "resource_handle_id", n => { ResourceHandleId = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_resource_handle_id>(global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_resource_handle_id.CreateFromDiscriminatorValue); } },
-                { "search_id", n => { SearchId = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_search_id>(global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_search_id.CreateFromDiscriminatorValue); } },
+                { "close_time", n => { CloseTime = n.GetStringValue(); } },
+                { "current_phase", n => { CurrentPhase = n.GetIntValue(); } },
+                { "error", n => { Error = n.GetStringValue(); } },
+                { "exported_count", n => { ExportedCount = n.GetIntValue(); } },
+                { "iterations", n => { Iterations = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Iterations>(global::Soenneker.Sixtyfour.OpenApiClient.Models.Iterations.CreateFromDiscriminatorValue); } },
+                { "progress_message", n => { ProgressMessage = n.GetStringValue(); } },
+                { "resource_handle_id", n => { ResourceHandleId = n.GetStringValue(); } },
+                { "search_id", n => { SearchId = n.GetStringValue(); } },
                 { "start_time", n => { StartTime = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "task_id", n => { TaskId = n.GetStringValue(); } },
-                { "total_results", n => { TotalResults = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_total_results>(global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_total_results.CreateFromDiscriminatorValue); } },
+                { "total_results", n => { TotalResults = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -157,613 +139,19 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_close_time>("close_time", CloseTime);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_current_phase>("current_phase", CurrentPhase);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_error>("error", Error);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_exported_count>("exported_count", ExportedCount);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_iterations>("iterations", Iterations);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_progress_message>("progress_message", ProgressMessage);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_resource_handle_id>("resource_handle_id", ResourceHandleId);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_search_id>("search_id", SearchId);
+            writer.WriteStringValue("close_time", CloseTime);
+            writer.WriteIntValue("current_phase", CurrentPhase);
+            writer.WriteStringValue("error", Error);
+            writer.WriteIntValue("exported_count", ExportedCount);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Iterations>("iterations", Iterations);
+            writer.WriteStringValue("progress_message", ProgressMessage);
+            writer.WriteStringValue("resource_handle_id", ResourceHandleId);
+            writer.WriteStringValue("search_id", SearchId);
             writer.WriteStringValue("start_time", StartTime);
             writer.WriteStringValue("status", Status);
             writer.WriteStringValue("task_id", TaskId);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_total_results>("total_results", TotalResults);
+            writer.WriteIntValue("total_results", TotalResults);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_close_timeMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AgenticSearchStatusResponse_close_time : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_close_timeMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_close_timeMember1? AgenticSearchStatusResponseCloseTimeMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_close_timeMember1 AgenticSearchStatusResponseCloseTimeMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_close_time"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_close_time CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_close_time();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.AgenticSearchStatusResponseCloseTimeMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_close_timeMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(AgenticSearchStatusResponseCloseTimeMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AgenticSearchStatusResponseCloseTimeMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_close_timeMember1>(null, AgenticSearchStatusResponseCloseTimeMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_current_phaseMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AgenticSearchStatusResponse_current_phase : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_current_phaseMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_current_phaseMember1? AgenticSearchStatusResponseCurrentPhaseMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_current_phaseMember1 AgenticSearchStatusResponseCurrentPhaseMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_current_phase"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_current_phase CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_current_phase();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.AgenticSearchStatusResponseCurrentPhaseMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_current_phaseMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(AgenticSearchStatusResponseCurrentPhaseMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AgenticSearchStatusResponseCurrentPhaseMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_current_phaseMember1>(null, AgenticSearchStatusResponseCurrentPhaseMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_errorMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AgenticSearchStatusResponse_error : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_errorMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_errorMember1? AgenticSearchStatusResponseErrorMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_errorMember1 AgenticSearchStatusResponseErrorMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_error"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_error CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_error();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.AgenticSearchStatusResponseErrorMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_errorMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(AgenticSearchStatusResponseErrorMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AgenticSearchStatusResponseErrorMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_errorMember1>(null, AgenticSearchStatusResponseErrorMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_exported_countMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AgenticSearchStatusResponse_exported_count : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_exported_countMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_exported_countMember1? AgenticSearchStatusResponseExportedCountMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_exported_countMember1 AgenticSearchStatusResponseExportedCountMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_exported_count"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_exported_count CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_exported_count();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.AgenticSearchStatusResponseExportedCountMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_exported_countMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(AgenticSearchStatusResponseExportedCountMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AgenticSearchStatusResponseExportedCountMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_exported_countMember1>(null, AgenticSearchStatusResponseExportedCountMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_iterationsMember2"/>, List&lt;global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_iterationsMember1&gt;
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AgenticSearchStatusResponse_iterations : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type List&lt;global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_iterationsMember1&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_iterationsMember1>? AgenticSearchStatusResponseIterationsMember1 { get; set; }
-#nullable restore
-#else
-            public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_iterationsMember1> AgenticSearchStatusResponseIterationsMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_iterationsMember2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_iterationsMember2? AgenticSearchStatusResponseIterationsMember2 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_iterationsMember2 AgenticSearchStatusResponseIterationsMember2 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_iterations"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_iterations CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_iterations();
-                if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_iterationsMember1>(global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_iterationsMember1.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_iterationsMember1> agenticSearchStatusResponseIterationsMember1Value)
-                {
-                    result.AgenticSearchStatusResponseIterationsMember1 = agenticSearchStatusResponseIterationsMember1Value;
-                }
-                else {
-                    result.AgenticSearchStatusResponseIterationsMember2 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_iterationsMember2();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(AgenticSearchStatusResponseIterationsMember2 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AgenticSearchStatusResponseIterationsMember2);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(AgenticSearchStatusResponseIterationsMember1 != null)
-                {
-                    writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_iterationsMember1>(null, AgenticSearchStatusResponseIterationsMember1);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_iterationsMember2>(null, AgenticSearchStatusResponseIterationsMember2);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_progress_messageMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AgenticSearchStatusResponse_progress_message : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_progress_messageMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_progress_messageMember1? AgenticSearchStatusResponseProgressMessageMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_progress_messageMember1 AgenticSearchStatusResponseProgressMessageMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_progress_message"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_progress_message CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_progress_message();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.AgenticSearchStatusResponseProgressMessageMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_progress_messageMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(AgenticSearchStatusResponseProgressMessageMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AgenticSearchStatusResponseProgressMessageMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_progress_messageMember1>(null, AgenticSearchStatusResponseProgressMessageMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_resource_handle_idMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AgenticSearchStatusResponse_resource_handle_id : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_resource_handle_idMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_resource_handle_idMember1? AgenticSearchStatusResponseResourceHandleIdMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_resource_handle_idMember1 AgenticSearchStatusResponseResourceHandleIdMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_resource_handle_id"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_resource_handle_id CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_resource_handle_id();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.AgenticSearchStatusResponseResourceHandleIdMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_resource_handle_idMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(AgenticSearchStatusResponseResourceHandleIdMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AgenticSearchStatusResponseResourceHandleIdMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_resource_handle_idMember1>(null, AgenticSearchStatusResponseResourceHandleIdMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_search_idMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AgenticSearchStatusResponse_search_id : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_search_idMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_search_idMember1? AgenticSearchStatusResponseSearchIdMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_search_idMember1 AgenticSearchStatusResponseSearchIdMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_search_id"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_search_id CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_search_id();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.AgenticSearchStatusResponseSearchIdMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_search_idMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(AgenticSearchStatusResponseSearchIdMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AgenticSearchStatusResponseSearchIdMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_search_idMember1>(null, AgenticSearchStatusResponseSearchIdMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_total_resultsMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AgenticSearchStatusResponse_total_results : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_total_resultsMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_total_resultsMember1? AgenticSearchStatusResponseTotalResultsMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_total_resultsMember1 AgenticSearchStatusResponseTotalResultsMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_total_results"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_total_results CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse.AgenticSearchStatusResponse_total_results();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.AgenticSearchStatusResponseTotalResultsMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_total_resultsMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(AgenticSearchStatusResponseTotalResultsMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AgenticSearchStatusResponseTotalResultsMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse_total_resultsMember1>(null, AgenticSearchStatusResponseTotalResultsMember1);
-                }
-            }
         }
     }
 }

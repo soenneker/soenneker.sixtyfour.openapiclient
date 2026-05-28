@@ -18,22 +18,22 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Opaque pagination cursor returned by a previous response.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequest.StartFilterSearchRequest_cursor? Cursor { get; set; }
+        public string? Cursor { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequest.StartFilterSearchRequest_cursor Cursor { get; set; }
+        public string Cursor { get; set; }
 #endif
         /// <summary>Raw OpenSearch DSL filters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Filters { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequest_filters? Filters { get; set; }
 #nullable restore
 #else
-        public UntypedNode Filters { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequest_filters Filters { get; set; }
 #endif
         /// <summary>Maximum number of results to return across pages.</summary>
         public int? MaxResults { get; set; }
-        /// <summary>Search mode: &apos;people&apos; or &apos;company&apos;.</summary>
+        /// <summary>&quot;Search mode: &apos;people&apos; or &apos;company&apos;.&quot;</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequest_mode? Mode { get; set; }
         /// <summary>Number of results per page (1-100).</summary>
         public int? PageSize { get; set; }
@@ -42,10 +42,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>MongoDB-style filters that the API translates to DSL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? SimpleFilters { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequest_simple_filters? SimpleFilters { get; set; }
 #nullable restore
 #else
-        public UntypedNode SimpleFilters { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequest_simple_filters SimpleFilters { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequest"/> and sets the default values.
@@ -73,13 +73,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "cursor", n => { Cursor = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequest.StartFilterSearchRequest_cursor>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequest.StartFilterSearchRequest_cursor.CreateFromDiscriminatorValue); } },
-                { "filters", n => { Filters = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "cursor", n => { Cursor = n.GetStringValue(); } },
+                { "filters", n => { Filters = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequest_filters>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequest_filters.CreateFromDiscriminatorValue); } },
                 { "max_results", n => { MaxResults = n.GetIntValue(); } },
                 { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequest_mode>(); } },
                 { "page_size", n => { PageSize = n.GetIntValue(); } },
                 { "save_json", n => { SaveJson = n.GetBoolValue(); } },
-                { "simple_filters", n => { SimpleFilters = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "simple_filters", n => { SimpleFilters = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequest_simple_filters>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequest_simple_filters.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -89,82 +89,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequest.StartFilterSearchRequest_cursor>("cursor", Cursor);
-            writer.WriteObjectValue<UntypedNode>("filters", Filters);
+            writer.WriteStringValue("cursor", Cursor);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequest_filters>("filters", Filters);
             writer.WriteIntValue("max_results", MaxResults);
             writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequest_mode>("mode", Mode);
             writer.WriteIntValue("page_size", PageSize);
             writer.WriteBoolValue("save_json", SaveJson);
-            writer.WriteObjectValue<UntypedNode>("simple_filters", SimpleFilters);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequest_simple_filters>("simple_filters", SimpleFilters);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequest_cursorMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StartFilterSearchRequest_cursor : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequest_cursorMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequest_cursorMember1? StartFilterSearchRequestCursorMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequest_cursorMember1 StartFilterSearchRequestCursorMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequest.StartFilterSearchRequest_cursor"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequest.StartFilterSearchRequest_cursor CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequest.StartFilterSearchRequest_cursor();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.StartFilterSearchRequestCursorMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequest_cursorMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(StartFilterSearchRequestCursorMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(StartFilterSearchRequestCursorMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequest_cursorMember1>(null, StartFilterSearchRequestCursorMember1);
-                }
-            }
         }
     }
 }

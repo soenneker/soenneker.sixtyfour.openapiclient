@@ -18,10 +18,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Block identifier within the workflow.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_block_id? BlockId { get; set; }
+        public string? BlockId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_block_id BlockId { get; set; }
+        public string BlockId { get; set; }
 #endif
         /// <summary>Registered block type name (e.g. &apos;enrich_lead&apos;, &apos;find_email&apos;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -34,35 +34,29 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Timestamp when execution finished.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_completed_at? CompletedAt { get; set; }
+        public string? CompletedAt { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_completed_at CompletedAt { get; set; }
+        public string CompletedAt { get; set; }
 #endif
         /// <summary>Human-readable description of the current sub-step.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_current_step? CurrentStep { get; set; }
+        public string? CurrentStep { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_current_step CurrentStep { get; set; }
+        public string CurrentStep { get; set; }
 #endif
         /// <summary>Error message if the operation failed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_error_message? ErrorMessage { get; set; }
+        public string? ErrorMessage { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_error_message ErrorMessage { get; set; }
+        public string ErrorMessage { get; set; }
 #endif
         /// <summary>Estimated total when an exact count isn&apos;t yet known.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_estimated_total_count? EstimatedTotalCount { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_estimated_total_count EstimatedTotalCount { get; set; }
-#endif
+        public int? EstimatedTotalCount { get; set; }
         /// <summary>Timestamp of the last status update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -71,7 +65,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string LastUpdated { get; set; }
 #endif
-        /// <summary>Per-block execution metrics.</summary>
+        /// <summary>Metrics for a block execution.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockMetrics? Metrics { get; set; }
@@ -82,10 +76,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>IDs of upstream blocks that feed into this one.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_previous_block_ids? PreviousBlockIds { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Previous_Block_Ids? PreviousBlockIds { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_previous_block_ids PreviousBlockIds { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Previous_Block_Ids PreviousBlockIds { get; set; }
 #endif
         /// <summary>Number of items processed so far.</summary>
         public int? ProcessedCount { get; set; }
@@ -96,12 +90,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Timestamp when execution started.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_started_at? StartedAt { get; set; }
+        public string? StartedAt { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_started_at StartedAt { get; set; }
+        public string StartedAt { get; set; }
 #endif
-        /// <summary>Block status: pending, running, completed, or failed.</summary>
+        /// <summary>&quot;Block status: pending, running, completed, or failed.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Status { get; set; }
@@ -136,19 +130,19 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "block_id", n => { BlockId = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_block_id>(global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_block_id.CreateFromDiscriminatorValue); } },
+                { "block_id", n => { BlockId = n.GetStringValue(); } },
                 { "block_name", n => { BlockName = n.GetStringValue(); } },
-                { "completed_at", n => { CompletedAt = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_completed_at>(global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_completed_at.CreateFromDiscriminatorValue); } },
-                { "current_step", n => { CurrentStep = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_current_step>(global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_current_step.CreateFromDiscriminatorValue); } },
-                { "error_message", n => { ErrorMessage = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_error_message>(global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_error_message.CreateFromDiscriminatorValue); } },
-                { "estimated_total_count", n => { EstimatedTotalCount = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_estimated_total_count>(global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_estimated_total_count.CreateFromDiscriminatorValue); } },
+                { "completed_at", n => { CompletedAt = n.GetStringValue(); } },
+                { "current_step", n => { CurrentStep = n.GetStringValue(); } },
+                { "error_message", n => { ErrorMessage = n.GetStringValue(); } },
+                { "estimated_total_count", n => { EstimatedTotalCount = n.GetIntValue(); } },
                 { "last_updated", n => { LastUpdated = n.GetStringValue(); } },
                 { "metrics", n => { Metrics = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockMetrics>(global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockMetrics.CreateFromDiscriminatorValue); } },
-                { "previous_block_ids", n => { PreviousBlockIds = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_previous_block_ids>(global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_previous_block_ids.CreateFromDiscriminatorValue); } },
+                { "previous_block_ids", n => { PreviousBlockIds = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Previous_Block_Ids>(global::Soenneker.Sixtyfour.OpenApiClient.Models.Previous_Block_Ids.CreateFromDiscriminatorValue); } },
                 { "processed_count", n => { ProcessedCount = n.GetIntValue(); } },
                 { "progress_percentage", n => { ProgressPercentage = n.GetDoubleValue(); } },
                 { "sequence_number", n => { SequenceNumber = n.GetIntValue(); } },
-                { "started_at", n => { StartedAt = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_started_at>(global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_started_at.CreateFromDiscriminatorValue); } },
+                { "started_at", n => { StartedAt = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "total_count", n => { TotalCount = n.GetIntValue(); } },
             };
@@ -160,492 +154,22 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_block_id>("block_id", BlockId);
+            writer.WriteStringValue("block_id", BlockId);
             writer.WriteStringValue("block_name", BlockName);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_completed_at>("completed_at", CompletedAt);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_current_step>("current_step", CurrentStep);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_error_message>("error_message", ErrorMessage);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_estimated_total_count>("estimated_total_count", EstimatedTotalCount);
+            writer.WriteStringValue("completed_at", CompletedAt);
+            writer.WriteStringValue("current_step", CurrentStep);
+            writer.WriteStringValue("error_message", ErrorMessage);
+            writer.WriteIntValue("estimated_total_count", EstimatedTotalCount);
             writer.WriteStringValue("last_updated", LastUpdated);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockMetrics>("metrics", Metrics);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_previous_block_ids>("previous_block_ids", PreviousBlockIds);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Previous_Block_Ids>("previous_block_ids", PreviousBlockIds);
             writer.WriteIntValue("processed_count", ProcessedCount);
             writer.WriteDoubleValue("progress_percentage", ProgressPercentage);
             writer.WriteIntValue("sequence_number", SequenceNumber);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_started_at>("started_at", StartedAt);
+            writer.WriteStringValue("started_at", StartedAt);
             writer.WriteStringValue("status", Status);
             writer.WriteIntValue("total_count", TotalCount);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_block_idMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class BlockLiveStatus_block_id : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_block_idMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_block_idMember1? BlockLiveStatusBlockIdMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_block_idMember1 BlockLiveStatusBlockIdMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_block_id"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_block_id CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_block_id();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.BlockLiveStatusBlockIdMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_block_idMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(BlockLiveStatusBlockIdMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(BlockLiveStatusBlockIdMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_block_idMember1>(null, BlockLiveStatusBlockIdMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_completed_atMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class BlockLiveStatus_completed_at : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_completed_atMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_completed_atMember1? BlockLiveStatusCompletedAtMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_completed_atMember1 BlockLiveStatusCompletedAtMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_completed_at"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_completed_at CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_completed_at();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.BlockLiveStatusCompletedAtMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_completed_atMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(BlockLiveStatusCompletedAtMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(BlockLiveStatusCompletedAtMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_completed_atMember1>(null, BlockLiveStatusCompletedAtMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_current_stepMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class BlockLiveStatus_current_step : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_current_stepMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_current_stepMember1? BlockLiveStatusCurrentStepMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_current_stepMember1 BlockLiveStatusCurrentStepMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_current_step"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_current_step CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_current_step();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.BlockLiveStatusCurrentStepMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_current_stepMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(BlockLiveStatusCurrentStepMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(BlockLiveStatusCurrentStepMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_current_stepMember1>(null, BlockLiveStatusCurrentStepMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_error_messageMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class BlockLiveStatus_error_message : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_error_messageMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_error_messageMember1? BlockLiveStatusErrorMessageMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_error_messageMember1 BlockLiveStatusErrorMessageMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_error_message"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_error_message CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_error_message();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.BlockLiveStatusErrorMessageMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_error_messageMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(BlockLiveStatusErrorMessageMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(BlockLiveStatusErrorMessageMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_error_messageMember1>(null, BlockLiveStatusErrorMessageMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_estimated_total_countMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class BlockLiveStatus_estimated_total_count : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_estimated_total_countMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_estimated_total_countMember1? BlockLiveStatusEstimatedTotalCountMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_estimated_total_countMember1 BlockLiveStatusEstimatedTotalCountMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_estimated_total_count"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_estimated_total_count CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_estimated_total_count();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.BlockLiveStatusEstimatedTotalCountMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_estimated_total_countMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(BlockLiveStatusEstimatedTotalCountMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(BlockLiveStatusEstimatedTotalCountMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_estimated_total_countMember1>(null, BlockLiveStatusEstimatedTotalCountMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_previous_block_idsMember1"/>, List&lt;string&gt;
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class BlockLiveStatus_previous_block_ids : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_previous_block_idsMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_previous_block_idsMember1? BlockLiveStatusPreviousBlockIdsMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_previous_block_idsMember1 BlockLiveStatusPreviousBlockIdsMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type List&lt;string&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public List<string>? String { get; set; }
-#nullable restore
-#else
-            public List<string> String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_previous_block_ids"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_previous_block_ids CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_previous_block_ids();
-                if(parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.BlockLiveStatusPreviousBlockIdsMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_previous_block_idsMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(BlockLiveStatusPreviousBlockIdsMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(BlockLiveStatusPreviousBlockIdsMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteCollectionOfPrimitiveValues<string>(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_previous_block_idsMember1>(null, BlockLiveStatusPreviousBlockIdsMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_started_atMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class BlockLiveStatus_started_at : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_started_atMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_started_atMember1? BlockLiveStatusStartedAtMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_started_atMember1 BlockLiveStatusStartedAtMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_started_at"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_started_at CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.BlockLiveStatus_started_at();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.BlockLiveStatusStartedAtMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_started_atMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(BlockLiveStatusStartedAtMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(BlockLiveStatusStartedAtMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus_started_atMember1>(null, BlockLiveStatusStartedAtMember1);
-                }
-            }
         }
     }
 }

@@ -39,10 +39,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Oauth.Clients.Item.Keys.Item
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.PublicKeyResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Oauth.Clients.Item.Keys.Item.PublicKeyResponse400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Oauth.Clients.Item.Keys.Item.PublicKeyResponse401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RevokeOauthClientKeyOauthClientsClientIdKeysKidDelete400">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RevokeOauthClientKeyOauthClientsClientIdKeysKidDelete401">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Oauth.Clients.Item.Keys.Item.PublicKeyResponse500Error">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RevokeOauthClientKeyOauthClientsClientIdKeysKidDelete500">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.PublicKeyResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -55,10 +55,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Oauth.Clients.Item.Keys.Item
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Oauth.Clients.Item.Keys.Item.PublicKeyResponse400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Oauth.Clients.Item.Keys.Item.PublicKeyResponse401Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.RevokeOauthClientKeyOauthClientsClientIdKeysKidDelete400.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.RevokeOauthClientKeyOauthClientsClientIdKeysKidDelete401.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Oauth.Clients.Item.Keys.Item.PublicKeyResponse500Error.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.RevokeOauthClientKeyOauthClientsClientIdKeysKidDelete500.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.PublicKeyResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.PublicKeyResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

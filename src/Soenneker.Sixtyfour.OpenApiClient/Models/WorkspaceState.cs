@@ -15,10 +15,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>The activeViewerKey property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceState.WorkspaceState_activeViewerKey? ActiveViewerKey { get; set; }
+        public string? ActiveViewerKey { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceState.WorkspaceState_activeViewerKey ActiveViewerKey { get; set; }
+        public string ActiveViewerKey { get; set; }
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -55,7 +55,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "activeViewerKey", n => { ActiveViewerKey = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceState.WorkspaceState_activeViewerKey>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceState.WorkspaceState_activeViewerKey.CreateFromDiscriminatorValue); } },
+                { "activeViewerKey", n => { ActiveViewerKey = n.GetStringValue(); } },
                 { "viewers", n => { Viewers = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.ViewerSpec>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ViewerSpec.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
@@ -66,77 +66,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceState.WorkspaceState_activeViewerKey>("activeViewerKey", ActiveViewerKey);
+            writer.WriteStringValue("activeViewerKey", ActiveViewerKey);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.ViewerSpec>("viewers", Viewers);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceState_activeViewerKeyMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WorkspaceState_activeViewerKey : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceState_activeViewerKeyMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceState_activeViewerKeyMember1? WorkspaceStateActiveViewerKeyMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceState_activeViewerKeyMember1 WorkspaceStateActiveViewerKeyMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceState.WorkspaceState_activeViewerKey"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceState.WorkspaceState_activeViewerKey CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceState.WorkspaceState_activeViewerKey();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.WorkspaceStateActiveViewerKeyMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceState_activeViewerKeyMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(WorkspaceStateActiveViewerKeyMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(WorkspaceStateActiveViewerKeyMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceState_activeViewerKeyMember1>(null, WorkspaceStateActiveViewerKeyMember1);
-                }
-            }
         }
     }
 }

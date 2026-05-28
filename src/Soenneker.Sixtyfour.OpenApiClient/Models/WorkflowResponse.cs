@@ -19,10 +19,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Workflow description.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.WorkflowResponse_description? Description { get; set; }
+        public string? Description { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.WorkflowResponse_description Description { get; set; }
+        public string Description { get; set; }
 #endif
         /// <summary>Workflow identifier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -33,13 +33,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string Id { get; set; }
 #endif
         /// <summary>Timestamp of the most recent run.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.WorkflowResponse_last_run_date? LastRunDate { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.WorkflowResponse_last_run_date LastRunDate { get; set; }
-#endif
+        public DateTimeOffset? LastRunDate { get; set; }
         /// <summary>Workflow name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -51,10 +45,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Organization that owns the workflow.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.WorkflowResponse_org_id? OrgId { get; set; }
+        public string? OrgId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.WorkflowResponse_org_id OrgId { get; set; }
+        public string OrgId { get; set; }
 #endif
         /// <summary>Lifecycle status of the workflow definition (e.g. draft, ready).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -77,10 +71,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>User who created the workflow.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.WorkflowResponse_user_uuid? UserUuid { get; set; }
+        public string? UserUuid { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.WorkflowResponse_user_uuid UserUuid { get; set; }
+        public string UserUuid { get; set; }
 #endif
         /// <summary>Workflow graph; included on detail responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -116,15 +110,15 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "description", n => { Description = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.WorkflowResponse_description>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.WorkflowResponse_description.CreateFromDiscriminatorValue); } },
+                { "description", n => { Description = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "last_run_date", n => { LastRunDate = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.WorkflowResponse_last_run_date>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.WorkflowResponse_last_run_date.CreateFromDiscriminatorValue); } },
+                { "last_run_date", n => { LastRunDate = n.GetDateTimeOffsetValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "org_id", n => { OrgId = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.WorkflowResponse_org_id>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.WorkflowResponse_org_id.CreateFromDiscriminatorValue); } },
+                { "org_id", n => { OrgId = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "step", n => { Step = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
-                { "user_uuid", n => { UserUuid = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.WorkflowResponse_user_uuid>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.WorkflowResponse_user_uuid.CreateFromDiscriminatorValue); } },
+                { "user_uuid", n => { UserUuid = n.GetStringValue(); } },
                 { "workflow_definition", n => { WorkflowDefinition = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowGraph>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowGraph.CreateFromDiscriminatorValue); } },
             };
         }
@@ -136,283 +130,17 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.WorkflowResponse_description>("description", Description);
+            writer.WriteStringValue("description", Description);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.WorkflowResponse_last_run_date>("last_run_date", LastRunDate);
+            writer.WriteDateTimeOffsetValue("last_run_date", LastRunDate);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.WorkflowResponse_org_id>("org_id", OrgId);
+            writer.WriteStringValue("org_id", OrgId);
             writer.WriteStringValue("status", Status);
             writer.WriteStringValue("step", Step);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.WorkflowResponse_user_uuid>("user_uuid", UserUuid);
+            writer.WriteStringValue("user_uuid", UserUuid);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowGraph>("workflow_definition", WorkflowDefinition);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse_descriptionMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WorkflowResponse_description : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse_descriptionMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse_descriptionMember1? WorkflowResponseDescriptionMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse_descriptionMember1 WorkflowResponseDescriptionMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.WorkflowResponse_description"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.WorkflowResponse_description CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.WorkflowResponse_description();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.WorkflowResponseDescriptionMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse_descriptionMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(WorkflowResponseDescriptionMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(WorkflowResponseDescriptionMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse_descriptionMember1>(null, WorkflowResponseDescriptionMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="DateTimeOffset"/>, <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse_last_run_dateMember1"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WorkflowResponse_last_run_date : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="DateTimeOffset"/></summary>
-            public DateTimeOffset? DateTimeOffset { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse_last_run_dateMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse_last_run_dateMember1? WorkflowResponseLastRunDateMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse_last_run_dateMember1 WorkflowResponseLastRunDateMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.WorkflowResponse_last_run_date"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.WorkflowResponse_last_run_date CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.WorkflowResponse_last_run_date();
-                if(parseNode.GetDateTimeOffsetValue() is DateTimeOffset dateTimeOffsetValue)
-                {
-                    result.DateTimeOffset = dateTimeOffsetValue;
-                }
-                else {
-                    result.WorkflowResponseLastRunDateMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse_last_run_dateMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(WorkflowResponseLastRunDateMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(WorkflowResponseLastRunDateMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(DateTimeOffset != null)
-                {
-                    writer.WriteDateTimeOffsetValue(null, DateTimeOffset);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse_last_run_dateMember1>(null, WorkflowResponseLastRunDateMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse_org_idMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WorkflowResponse_org_id : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse_org_idMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse_org_idMember1? WorkflowResponseOrgIdMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse_org_idMember1 WorkflowResponseOrgIdMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.WorkflowResponse_org_id"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.WorkflowResponse_org_id CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.WorkflowResponse_org_id();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.WorkflowResponseOrgIdMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse_org_idMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(WorkflowResponseOrgIdMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(WorkflowResponseOrgIdMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse_org_idMember1>(null, WorkflowResponseOrgIdMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse_user_uuidMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WorkflowResponse_user_uuid : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse_user_uuidMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse_user_uuidMember1? WorkflowResponseUserUuidMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse_user_uuidMember1 WorkflowResponseUserUuidMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.WorkflowResponse_user_uuid"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.WorkflowResponse_user_uuid CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.WorkflowResponse_user_uuid();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.WorkflowResponseUserUuidMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse_user_uuidMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(WorkflowResponseUserUuidMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(WorkflowResponseUserUuidMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse_user_uuidMember1>(null, WorkflowResponseUserUuidMember1);
-                }
-            }
         }
     }
 }

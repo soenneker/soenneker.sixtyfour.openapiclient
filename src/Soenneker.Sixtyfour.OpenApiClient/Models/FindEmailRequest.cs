@@ -22,25 +22,25 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest_lead Lead { get; set; }
 #endif
-        /// <summary>Email type to discover: &apos;PROFESSIONAL&apos; (work) or &apos;PERSONAL&apos;.</summary>
+        /// <summary>&quot;Email type to discover: &apos;PROFESSIONAL&apos; (work) or &apos;PERSONAL&apos;.&quot;</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest_mode? Mode { get; set; }
         /// <summary>Override the default provider waterfall by listing provider IDs in priority order.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest.FindEmailRequest_providers? Providers { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Providers? Providers { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest.FindEmailRequest_providers Providers { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Providers Providers { get; set; }
 #endif
         /// <summary>SMTP-verify each discovered email before returning it.</summary>
         public bool? VerifyEmails { get; set; }
         /// <summary>HTTPS URL that receives the result payload when the async job completes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest.FindEmailRequest_webhook_url? WebhookUrl { get; set; }
+        public string? WebhookUrl { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest.FindEmailRequest_webhook_url WebhookUrl { get; set; }
+        public string WebhookUrl { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest"/> and sets the default values.
@@ -70,9 +70,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             {
                 { "lead", n => { Lead = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest_lead>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest_lead.CreateFromDiscriminatorValue); } },
                 { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest_mode>(); } },
-                { "providers", n => { Providers = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest.FindEmailRequest_providers>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest.FindEmailRequest_providers.CreateFromDiscriminatorValue); } },
+                { "providers", n => { Providers = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Providers>(global::Soenneker.Sixtyfour.OpenApiClient.Models.Providers.CreateFromDiscriminatorValue); } },
                 { "verify_emails", n => { VerifyEmails = n.GetBoolValue(); } },
-                { "webhook_url", n => { WebhookUrl = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest.FindEmailRequest_webhook_url>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest.FindEmailRequest_webhook_url.CreateFromDiscriminatorValue); } },
+                { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -84,146 +84,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest_lead>("lead", Lead);
             writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest_mode>("mode", Mode);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest.FindEmailRequest_providers>("providers", Providers);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Providers>("providers", Providers);
             writer.WriteBoolValue("verify_emails", VerifyEmails);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest.FindEmailRequest_webhook_url>("webhook_url", WebhookUrl);
+            writer.WriteStringValue("webhook_url", WebhookUrl);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest_providersMember1"/>, List&lt;string&gt;
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class FindEmailRequest_providers : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest_providersMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest_providersMember1? FindEmailRequestProvidersMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest_providersMember1 FindEmailRequestProvidersMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type List&lt;string&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public List<string>? String { get; set; }
-#nullable restore
-#else
-            public List<string> String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest.FindEmailRequest_providers"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest.FindEmailRequest_providers CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest.FindEmailRequest_providers();
-                if(parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.FindEmailRequestProvidersMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest_providersMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(FindEmailRequestProvidersMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(FindEmailRequestProvidersMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteCollectionOfPrimitiveValues<string>(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest_providersMember1>(null, FindEmailRequestProvidersMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest_webhook_urlMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class FindEmailRequest_webhook_url : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest_webhook_urlMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest_webhook_urlMember1? FindEmailRequestWebhookUrlMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest_webhook_urlMember1 FindEmailRequestWebhookUrlMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest.FindEmailRequest_webhook_url"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest.FindEmailRequest_webhook_url CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest.FindEmailRequest_webhook_url();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.FindEmailRequestWebhookUrlMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest_webhook_urlMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(FindEmailRequestWebhookUrlMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(FindEmailRequestWebhookUrlMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest_webhook_urlMember1>(null, FindEmailRequestWebhookUrlMember1);
-                }
-            }
         }
     }
 }

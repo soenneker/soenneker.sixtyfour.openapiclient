@@ -13,13 +13,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     #pragma warning restore CS1591
     {
         /// <summary>The access_token_ttl_seconds property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.OAuthClientDetail_access_token_ttl_seconds? AccessTokenTtlSeconds { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.OAuthClientDetail_access_token_ttl_seconds AccessTokenTtlSeconds { get; set; }
-#endif
+        public int? AccessTokenTtlSeconds { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The client_id property</summary>
@@ -43,26 +37,20 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>The jwks_last_error property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.OAuthClientDetail_jwks_last_error? JwksLastError { get; set; }
+        public string? JwksLastError { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.OAuthClientDetail_jwks_last_error JwksLastError { get; set; }
+        public string JwksLastError { get; set; }
 #endif
         /// <summary>The jwks_last_validated_at property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.OAuthClientDetail_jwks_last_validated_at? JwksLastValidatedAt { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.OAuthClientDetail_jwks_last_validated_at JwksLastValidatedAt { get; set; }
-#endif
+        public DateTimeOffset? JwksLastValidatedAt { get; set; }
         /// <summary>The jwks_uri property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.OAuthClientDetail_jwks_uri? JwksUri { get; set; }
+        public string? JwksUri { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.OAuthClientDetail_jwks_uri JwksUri { get; set; }
+        public string JwksUri { get; set; }
 #endif
         /// <summary>The keys property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -73,13 +61,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.PublicKeyResponse> Keys { get; set; }
 #endif
         /// <summary>The last_used_at property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.OAuthClientDetail_last_used_at? LastUsedAt { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.OAuthClientDetail_last_used_at LastUsedAt { get; set; }
-#endif
+        public DateTimeOffset? LastUsedAt { get; set; }
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -133,15 +115,15 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "access_token_ttl_seconds", n => { AccessTokenTtlSeconds = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.OAuthClientDetail_access_token_ttl_seconds>(global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.OAuthClientDetail_access_token_ttl_seconds.CreateFromDiscriminatorValue); } },
+                { "access_token_ttl_seconds", n => { AccessTokenTtlSeconds = n.GetIntValue(); } },
                 { "client_id", n => { ClientId = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "jwks_last_error", n => { JwksLastError = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.OAuthClientDetail_jwks_last_error>(global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.OAuthClientDetail_jwks_last_error.CreateFromDiscriminatorValue); } },
-                { "jwks_last_validated_at", n => { JwksLastValidatedAt = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.OAuthClientDetail_jwks_last_validated_at>(global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.OAuthClientDetail_jwks_last_validated_at.CreateFromDiscriminatorValue); } },
-                { "jwks_uri", n => { JwksUri = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.OAuthClientDetail_jwks_uri>(global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.OAuthClientDetail_jwks_uri.CreateFromDiscriminatorValue); } },
+                { "jwks_last_error", n => { JwksLastError = n.GetStringValue(); } },
+                { "jwks_last_validated_at", n => { JwksLastValidatedAt = n.GetDateTimeOffsetValue(); } },
+                { "jwks_uri", n => { JwksUri = n.GetStringValue(); } },
                 { "keys", n => { Keys = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.PublicKeyResponse>(global::Soenneker.Sixtyfour.OpenApiClient.Models.PublicKeyResponse.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "last_used_at", n => { LastUsedAt = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.OAuthClientDetail_last_used_at>(global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.OAuthClientDetail_last_used_at.CreateFromDiscriminatorValue); } },
+                { "last_used_at", n => { LastUsedAt = n.GetDateTimeOffsetValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "org_id", n => { OrgId = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
@@ -156,343 +138,21 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.OAuthClientDetail_access_token_ttl_seconds>("access_token_ttl_seconds", AccessTokenTtlSeconds);
+            writer.WriteIntValue("access_token_ttl_seconds", AccessTokenTtlSeconds);
             writer.WriteStringValue("client_id", ClientId);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.OAuthClientDetail_jwks_last_error>("jwks_last_error", JwksLastError);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.OAuthClientDetail_jwks_last_validated_at>("jwks_last_validated_at", JwksLastValidatedAt);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.OAuthClientDetail_jwks_uri>("jwks_uri", JwksUri);
+            writer.WriteStringValue("jwks_last_error", JwksLastError);
+            writer.WriteDateTimeOffsetValue("jwks_last_validated_at", JwksLastValidatedAt);
+            writer.WriteStringValue("jwks_uri", JwksUri);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.PublicKeyResponse>("keys", Keys);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.OAuthClientDetail_last_used_at>("last_used_at", LastUsedAt);
+            writer.WriteDateTimeOffsetValue("last_used_at", LastUsedAt);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("org_id", OrgId);
             writer.WriteStringValue("status", Status);
             writer.WriteIntValue("token_version", TokenVersion);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail_access_token_ttl_secondsMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class OAuthClientDetail_access_token_ttl_seconds : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail_access_token_ttl_secondsMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail_access_token_ttl_secondsMember1? OAuthClientDetailAccessTokenTtlSecondsMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail_access_token_ttl_secondsMember1 OAuthClientDetailAccessTokenTtlSecondsMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.OAuthClientDetail_access_token_ttl_seconds"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.OAuthClientDetail_access_token_ttl_seconds CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.OAuthClientDetail_access_token_ttl_seconds();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.OAuthClientDetailAccessTokenTtlSecondsMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail_access_token_ttl_secondsMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(OAuthClientDetailAccessTokenTtlSecondsMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(OAuthClientDetailAccessTokenTtlSecondsMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail_access_token_ttl_secondsMember1>(null, OAuthClientDetailAccessTokenTtlSecondsMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail_jwks_last_errorMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class OAuthClientDetail_jwks_last_error : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail_jwks_last_errorMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail_jwks_last_errorMember1? OAuthClientDetailJwksLastErrorMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail_jwks_last_errorMember1 OAuthClientDetailJwksLastErrorMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.OAuthClientDetail_jwks_last_error"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.OAuthClientDetail_jwks_last_error CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.OAuthClientDetail_jwks_last_error();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.OAuthClientDetailJwksLastErrorMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail_jwks_last_errorMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(OAuthClientDetailJwksLastErrorMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(OAuthClientDetailJwksLastErrorMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail_jwks_last_errorMember1>(null, OAuthClientDetailJwksLastErrorMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="DateTimeOffset"/>, <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail_jwks_last_validated_atMember1"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class OAuthClientDetail_jwks_last_validated_at : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="DateTimeOffset"/></summary>
-            public DateTimeOffset? DateTimeOffset { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail_jwks_last_validated_atMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail_jwks_last_validated_atMember1? OAuthClientDetailJwksLastValidatedAtMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail_jwks_last_validated_atMember1 OAuthClientDetailJwksLastValidatedAtMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.OAuthClientDetail_jwks_last_validated_at"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.OAuthClientDetail_jwks_last_validated_at CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.OAuthClientDetail_jwks_last_validated_at();
-                if(parseNode.GetDateTimeOffsetValue() is DateTimeOffset dateTimeOffsetValue)
-                {
-                    result.DateTimeOffset = dateTimeOffsetValue;
-                }
-                else {
-                    result.OAuthClientDetailJwksLastValidatedAtMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail_jwks_last_validated_atMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(OAuthClientDetailJwksLastValidatedAtMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(OAuthClientDetailJwksLastValidatedAtMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(DateTimeOffset != null)
-                {
-                    writer.WriteDateTimeOffsetValue(null, DateTimeOffset);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail_jwks_last_validated_atMember1>(null, OAuthClientDetailJwksLastValidatedAtMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail_jwks_uriMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class OAuthClientDetail_jwks_uri : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail_jwks_uriMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail_jwks_uriMember1? OAuthClientDetailJwksUriMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail_jwks_uriMember1 OAuthClientDetailJwksUriMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.OAuthClientDetail_jwks_uri"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.OAuthClientDetail_jwks_uri CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.OAuthClientDetail_jwks_uri();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.OAuthClientDetailJwksUriMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail_jwks_uriMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(OAuthClientDetailJwksUriMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(OAuthClientDetailJwksUriMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail_jwks_uriMember1>(null, OAuthClientDetailJwksUriMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="DateTimeOffset"/>, <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail_last_used_atMember1"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class OAuthClientDetail_last_used_at : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="DateTimeOffset"/></summary>
-            public DateTimeOffset? DateTimeOffset { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail_last_used_atMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail_last_used_atMember1? OAuthClientDetailLastUsedAtMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail_last_used_atMember1 OAuthClientDetailLastUsedAtMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.OAuthClientDetail_last_used_at"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.OAuthClientDetail_last_used_at CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.OAuthClientDetail_last_used_at();
-                if(parseNode.GetDateTimeOffsetValue() is DateTimeOffset dateTimeOffsetValue)
-                {
-                    result.DateTimeOffset = dateTimeOffsetValue;
-                }
-                else {
-                    result.OAuthClientDetailLastUsedAtMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail_last_used_atMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(OAuthClientDetailLastUsedAtMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(OAuthClientDetailLastUsedAtMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(DateTimeOffset != null)
-                {
-                    writer.WriteDateTimeOffsetValue(null, DateTimeOffset);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail_last_used_atMember1>(null, OAuthClientDetailLastUsedAtMember1);
-                }
-            }
         }
     }
 }

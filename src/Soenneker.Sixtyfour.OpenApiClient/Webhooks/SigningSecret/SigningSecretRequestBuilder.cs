@@ -40,72 +40,73 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret
         {
         }
         /// <summary>
-        /// Revoke the active signing secret for the org.After this call, webhooks are delivered unsigned until a new secret iscreated.  This is intentional — we do not silently downgrade withoutthe customer taking an explicit action.Args:    auth: Injected auth context.
+        /// &quot;Revoke the active signing secret for the org.After this call, webhooks are delivered unsigned until a new secret iscreated.  This is intentional — we do not silently downgrade withoutthe customer taking an explicit action.Args:    auth: Injected auth context.&quot;
         /// </summary>
+        /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.SigningSecret400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.SigningSecret401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteSigningSecretWebhooksSigningSecretDelete400">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteSigningSecretWebhooksSigningSecretDelete401">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.SigningSecret500Error">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteSigningSecretWebhooksSigningSecretDelete500">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.SigningSecret400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.SigningSecret401Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteSigningSecretWebhooksSigningSecretDelete400.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteSigningSecretWebhooksSigningSecretDelete401.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.SigningSecret500Error.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteSigningSecretWebhooksSigningSecretDelete500.CreateFromDiscriminatorValue },
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Return metadata for the org&apos;s active signing secret, or null if none exists.Never returns plaintext or raw bytes.Args:    auth: Injected auth context.Returns:    Optional[SigningSecretMetaResponse]: Metadata, or null.
+        /// &quot;Return metadata for the org&apos;s active signing secret, or null if none exists.Never returns plaintext or raw bytes.Args:    auth: Injected auth context.Returns:    Optional[SigningSecretMetaResponse]: Metadata, or null.&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SigningSecretMetaResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseGetSigningSecretWebhooksSigningSecretGet"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.SigningSecret400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.SigningSecret401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetSigningSecretWebhooksSigningSecretGet400">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetSigningSecretWebhooksSigningSecretGet401">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.SigningSecret500Error">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetSigningSecretWebhooksSigningSecretGet500">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.SigningSecretMetaResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseGetSigningSecretWebhooksSigningSecretGet?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.SigningSecretMetaResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseGetSigningSecretWebhooksSigningSecretGet> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.SigningSecret400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.SigningSecret401Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetSigningSecretWebhooksSigningSecretGet400.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetSigningSecretWebhooksSigningSecretGet401.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.SigningSecret500Error.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetSigningSecretWebhooksSigningSecretGet500.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.SigningSecretMetaResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.SigningSecretMetaResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseGetSigningSecretWebhooksSigningSecretGet>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseGetSigningSecretWebhooksSigningSecretGet.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Mint a new signing secret for the org.The plaintext value is returned exactly once in this response.After this call, only the preview (``sk_whsec_••••…&lt;last4&gt;``) isever shown again. There is no reveal endpoint.Any existing active secret is revoked immediately before the new oneis inserted.  Use the ``/roll`` endpoint if you need an overlap window.Args:    auth: Injected auth context.Returns:    CreateSigningSecretResponse: Plaintext and metadata.
+        /// &quot;Mint a new signing secret for the org.The plaintext value is returned exactly once in this response.After this call, only the preview (``sk_whsec_••••…&lt;last4&gt;``) isever shown again. There is no reveal endpoint.Any existing active secret is revoked immediately before the new oneis inserted.  Use the ``/roll`` endpoint if you need an overlap window.Args:    auth: Injected auth context.Returns:    CreateSigningSecretResponse: Plaintext and metadata.&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateSigningSecretResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.CreateSigningSecretResponse400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.CreateSigningSecretResponse401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateSigningSecretWebhooksSigningSecretPost400">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateSigningSecretWebhooksSigningSecretPost401">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.CreateSigningSecretResponse500Error">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateSigningSecretWebhooksSigningSecretPost500">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateSigningSecretResponse?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -118,15 +119,15 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret
             var requestInfo = ToPostRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.CreateSigningSecretResponse400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.CreateSigningSecretResponse401Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateSigningSecretWebhooksSigningSecretPost400.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateSigningSecretWebhooksSigningSecretPost401.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.CreateSigningSecretResponse500Error.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateSigningSecretWebhooksSigningSecretPost500.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateSigningSecretResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateSigningSecretResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Revoke the active signing secret for the org.After this call, webhooks are delivered unsigned until a new secret iscreated.  This is intentional — we do not silently downgrade withoutthe customer taking an explicit action.Args:    auth: Injected auth context.
+        /// &quot;Revoke the active signing secret for the org.After this call, webhooks are delivered unsigned until a new secret iscreated.  This is intentional — we do not silently downgrade withoutthe customer taking an explicit action.Args:    auth: Injected auth context.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -145,7 +146,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret
             return requestInfo;
         }
         /// <summary>
-        /// Return metadata for the org&apos;s active signing secret, or null if none exists.Never returns plaintext or raw bytes.Args:    auth: Injected auth context.Returns:    Optional[SigningSecretMetaResponse]: Metadata, or null.
+        /// &quot;Return metadata for the org&apos;s active signing secret, or null if none exists.Never returns plaintext or raw bytes.Args:    auth: Injected auth context.Returns:    Optional[SigningSecretMetaResponse]: Metadata, or null.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -164,7 +165,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret
             return requestInfo;
         }
         /// <summary>
-        /// Mint a new signing secret for the org.The plaintext value is returned exactly once in this response.After this call, only the preview (``sk_whsec_••••…&lt;last4&gt;``) isever shown again. There is no reveal endpoint.Any existing active secret is revoked immediately before the new oneis inserted.  Use the ``/roll`` endpoint if you need an overlap window.Args:    auth: Injected auth context.Returns:    CreateSigningSecretResponse: Plaintext and metadata.
+        /// &quot;Mint a new signing secret for the org.The plaintext value is returned exactly once in this response.After this call, only the preview (``sk_whsec_••••…&lt;last4&gt;``) isever shown again. There is no reveal endpoint.Any existing active secret is revoked immediately before the new oneis inserted.  Use the ``/roll`` endpoint if you need an overlap window.Args:    auth: Injected auth context.Returns:    CreateSigningSecretResponse: Plaintext and metadata.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

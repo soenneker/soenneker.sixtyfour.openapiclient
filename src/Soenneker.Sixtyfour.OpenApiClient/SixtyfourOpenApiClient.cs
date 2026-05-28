@@ -12,8 +12,6 @@ using Soenneker.Sixtyfour.OpenApiClient.CompanyIntelligence;
 using Soenneker.Sixtyfour.OpenApiClient.CompanyIntelligenceAsync;
 using Soenneker.Sixtyfour.OpenApiClient.EnrichCompany;
 using Soenneker.Sixtyfour.OpenApiClient.EnrichCompanyAsync;
-using Soenneker.Sixtyfour.OpenApiClient.EnrichCompanyV2;
-using Soenneker.Sixtyfour.OpenApiClient.EnrichCompanyV2Async;
 using Soenneker.Sixtyfour.OpenApiClient.EnrichLead;
 using Soenneker.Sixtyfour.OpenApiClient.EnrichLeadAsync;
 using Soenneker.Sixtyfour.OpenApiClient.EnrichLinkedin;
@@ -21,18 +19,10 @@ using Soenneker.Sixtyfour.OpenApiClient.FindEmail;
 using Soenneker.Sixtyfour.OpenApiClient.FindEmailAsync;
 using Soenneker.Sixtyfour.OpenApiClient.FindEmailBulk;
 using Soenneker.Sixtyfour.OpenApiClient.FindEmailBulkAsync;
-using Soenneker.Sixtyfour.OpenApiClient.FindEmailV2;
-using Soenneker.Sixtyfour.OpenApiClient.FindEmailV2Async;
-using Soenneker.Sixtyfour.OpenApiClient.FindEmailV2Bulk;
-using Soenneker.Sixtyfour.OpenApiClient.FindEmailV2BulkAsync;
 using Soenneker.Sixtyfour.OpenApiClient.FindPhone;
 using Soenneker.Sixtyfour.OpenApiClient.FindPhoneAsync;
 using Soenneker.Sixtyfour.OpenApiClient.FindPhoneBulk;
 using Soenneker.Sixtyfour.OpenApiClient.FindPhoneBulkAsync;
-using Soenneker.Sixtyfour.OpenApiClient.FindPhoneV2;
-using Soenneker.Sixtyfour.OpenApiClient.FindPhoneV2Async;
-using Soenneker.Sixtyfour.OpenApiClient.FindPhoneV2Bulk;
-using Soenneker.Sixtyfour.OpenApiClient.FindPhoneV2BulkAsync;
 using Soenneker.Sixtyfour.OpenApiClient.GetLinkedin;
 using Soenneker.Sixtyfour.OpenApiClient.JobStatus;
 using Soenneker.Sixtyfour.OpenApiClient.Me;
@@ -100,16 +90,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.EnrichCompanyAsync.EnrichCompanyAsyncRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The enrichCompanyV2 property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.EnrichCompanyV2.EnrichCompanyV2RequestBuilder EnrichCompanyV2
-        {
-            get => new global::Soenneker.Sixtyfour.OpenApiClient.EnrichCompanyV2.EnrichCompanyV2RequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The enrichCompanyV2Async property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.EnrichCompanyV2Async.EnrichCompanyV2AsyncRequestBuilder EnrichCompanyV2Async
-        {
-            get => new global::Soenneker.Sixtyfour.OpenApiClient.EnrichCompanyV2Async.EnrichCompanyV2AsyncRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The enrichLead property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.EnrichLead.EnrichLeadRequestBuilder EnrichLead
         {
@@ -145,26 +125,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.FindEmailBulkAsync.FindEmailBulkAsyncRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The findEmailV2 property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.FindEmailV2.FindEmailV2RequestBuilder FindEmailV2
-        {
-            get => new global::Soenneker.Sixtyfour.OpenApiClient.FindEmailV2.FindEmailV2RequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The findEmailV2Async property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.FindEmailV2Async.FindEmailV2AsyncRequestBuilder FindEmailV2Async
-        {
-            get => new global::Soenneker.Sixtyfour.OpenApiClient.FindEmailV2Async.FindEmailV2AsyncRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The findEmailV2Bulk property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.FindEmailV2Bulk.FindEmailV2BulkRequestBuilder FindEmailV2Bulk
-        {
-            get => new global::Soenneker.Sixtyfour.OpenApiClient.FindEmailV2Bulk.FindEmailV2BulkRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The findEmailV2BulkAsync property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.FindEmailV2BulkAsync.FindEmailV2BulkAsyncRequestBuilder FindEmailV2BulkAsync
-        {
-            get => new global::Soenneker.Sixtyfour.OpenApiClient.FindEmailV2BulkAsync.FindEmailV2BulkAsyncRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The findPhone property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.FindPhone.FindPhoneRequestBuilder FindPhone
         {
@@ -184,26 +144,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient
         public global::Soenneker.Sixtyfour.OpenApiClient.FindPhoneBulkAsync.FindPhoneBulkAsyncRequestBuilder FindPhoneBulkAsync
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.FindPhoneBulkAsync.FindPhoneBulkAsyncRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The findPhoneV2 property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.FindPhoneV2.FindPhoneV2RequestBuilder FindPhoneV2
-        {
-            get => new global::Soenneker.Sixtyfour.OpenApiClient.FindPhoneV2.FindPhoneV2RequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The findPhoneV2Async property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.FindPhoneV2Async.FindPhoneV2AsyncRequestBuilder FindPhoneV2Async
-        {
-            get => new global::Soenneker.Sixtyfour.OpenApiClient.FindPhoneV2Async.FindPhoneV2AsyncRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The findPhoneV2Bulk property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.FindPhoneV2Bulk.FindPhoneV2BulkRequestBuilder FindPhoneV2Bulk
-        {
-            get => new global::Soenneker.Sixtyfour.OpenApiClient.FindPhoneV2Bulk.FindPhoneV2BulkRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The findPhoneV2BulkAsync property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.FindPhoneV2BulkAsync.FindPhoneV2BulkAsyncRequestBuilder FindPhoneV2BulkAsync
-        {
-            get => new global::Soenneker.Sixtyfour.OpenApiClient.FindPhoneV2BulkAsync.FindPhoneV2BulkAsyncRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The getLinkedin property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.GetLinkedin.GetLinkedinRequestBuilder GetLinkedin

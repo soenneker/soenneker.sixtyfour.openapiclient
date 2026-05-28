@@ -33,10 +33,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Path to the field that failed validation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Loc { get; set; }
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.UnionBranch>? Loc { get; set; }
 #nullable restore
 #else
-        public List<string> Loc { get; set; }
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.UnionBranch> Loc { get; set; }
 #endif
         /// <summary>Human-readable error message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -81,7 +81,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             {
                 { "ctx", n => { Ctx = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidationError_ctx>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidationError_ctx.CreateFromDiscriminatorValue); } },
                 { "input", n => { Input = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "loc", n => { Loc = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "loc", n => { Loc = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.UnionBranch>(global::Soenneker.Sixtyfour.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "msg", n => { Msg = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
@@ -95,7 +95,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidationError_ctx>("ctx", Ctx);
             writer.WriteObjectValue<UntypedNode>("input", Input);
-            writer.WriteCollectionOfPrimitiveValues<string>("loc", Loc);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.UnionBranch>("loc", Loc);
             writer.WriteStringValue("msg", Msg);
             writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);

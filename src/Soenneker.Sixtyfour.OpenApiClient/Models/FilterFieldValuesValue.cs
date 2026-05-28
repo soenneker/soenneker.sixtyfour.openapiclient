@@ -20,20 +20,20 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Ready-to-merge filter clause that selects this value.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? FilterSnippet { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValue_filter_snippet? FilterSnippet { get; set; }
 #nullable restore
 #else
-        public UntypedNode FilterSnippet { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValue_filter_snippet FilterSnippet { get; set; }
 #endif
         /// <summary>Share (0-1) of scoped documents matching this value.</summary>
         public double? PercentOfScope { get; set; }
         /// <summary>Field value; null bucket represents missing values.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValue.FilterFieldValuesValue_value? Value { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Value? Value { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValue.FilterFieldValuesValue_value Value { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Value Value { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValue"/> and sets the default values.
@@ -61,9 +61,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "count", n => { Count = n.GetIntValue(); } },
-                { "filter_snippet", n => { FilterSnippet = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "filter_snippet", n => { FilterSnippet = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValue_filter_snippet>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValue_filter_snippet.CreateFromDiscriminatorValue); } },
                 { "percent_of_scope", n => { PercentOfScope = n.GetDoubleValue(); } },
-                { "value", n => { Value = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValue.FilterFieldValuesValue_value>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValue.FilterFieldValuesValue_value.CreateFromDiscriminatorValue); } },
+                { "value", n => { Value = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Value>(global::Soenneker.Sixtyfour.OpenApiClient.Models.Value.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -74,108 +74,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("count", Count);
-            writer.WriteObjectValue<UntypedNode>("filter_snippet", FilterSnippet);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValue_filter_snippet>("filter_snippet", FilterSnippet);
             writer.WriteDoubleValue("percent_of_scope", PercentOfScope);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValue.FilterFieldValuesValue_value>("value", Value);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Value>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="bool"/>, <see cref="double"/>, <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValue_valueMember1"/>, <see cref="int"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class FilterFieldValuesValue_value : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="bool"/></summary>
-            public bool? Boolean { get; set; }
-            /// <summary>Composed type representation for type <see cref="double"/></summary>
-            public double? Double { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValue_valueMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValue_valueMember1? FilterFieldValuesValueValueMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValue_valueMember1 FilterFieldValuesValueValueMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValue.FilterFieldValuesValue_value"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValue.FilterFieldValuesValue_value CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValue.FilterFieldValuesValue_value();
-                if(parseNode.GetBoolValue() is bool booleanValue)
-                {
-                    result.Boolean = booleanValue;
-                }
-                else if(parseNode.GetDoubleValue() is double doubleValue)
-                {
-                    result.Double = doubleValue;
-                }
-                else if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.FilterFieldValuesValueValueMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValue_valueMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(FilterFieldValuesValueValueMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(FilterFieldValuesValueValueMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Boolean != null)
-                {
-                    writer.WriteBoolValue(null, Boolean);
-                }
-                else if(Double != null)
-                {
-                    writer.WriteDoubleValue(null, Double);
-                }
-                else if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValue_valueMember1>(null, FilterFieldValuesValueValueMember1);
-                }
-            }
         }
     }
 }

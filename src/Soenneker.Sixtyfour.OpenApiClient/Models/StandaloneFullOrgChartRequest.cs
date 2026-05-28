@@ -15,57 +15,45 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Internal numeric LinkedIn company member ID.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_company_member_id? CompanyMemberId { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_company_member_id CompanyMemberId { get; set; }
-#endif
+        public int? CompanyMemberId { get; set; }
         /// <summary>Target company name. Used to disambiguate when a LinkedIn handle is ambiguous.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_company_name? CompanyName { get; set; }
+        public string? CompanyName { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_company_name CompanyName { get; set; }
+        public string CompanyName { get; set; }
 #endif
         /// <summary>Opaque pagination cursor returned by a previous response.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_cursor? Cursor { get; set; }
+        public string? Cursor { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_cursor Cursor { get; set; }
+        public string Cursor { get; set; }
 #endif
         /// <summary>Include company-resolution debug metadata in the response.</summary>
         public bool? IncludeResolutionDebug { get; set; }
         /// <summary>Full LinkedIn company URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_linkedin_company_url? LinkedinCompanyUrl { get; set; }
+        public string? LinkedinCompanyUrl { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_linkedin_company_url LinkedinCompanyUrl { get; set; }
+        public string LinkedinCompanyUrl { get; set; }
 #endif
         /// <summary>LinkedIn public ID for the company (e.g. &apos;sixtyfour-ai&apos;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_linkedin_public_id? LinkedinPublicId { get; set; }
+        public string? LinkedinPublicId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_linkedin_public_id LinkedinPublicId { get; set; }
+        public string LinkedinPublicId { get; set; }
 #endif
         /// <summary>Maximum research iterations the agent may run.</summary>
         public int? MaxIterations { get; set; }
         /// <summary>Maximum number of people returned across all pages.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_max_results? MaxResults { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_max_results MaxResults { get; set; }
-#endif
+        public int? MaxResults { get; set; }
         /// <summary>1-based page number.</summary>
         public int? Page { get; set; }
         /// <summary>Number of results per page.</summary>
@@ -95,14 +83,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "company_member_id", n => { CompanyMemberId = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_company_member_id>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_company_member_id.CreateFromDiscriminatorValue); } },
-                { "company_name", n => { CompanyName = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_company_name>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_company_name.CreateFromDiscriminatorValue); } },
-                { "cursor", n => { Cursor = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_cursor>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_cursor.CreateFromDiscriminatorValue); } },
+                { "company_member_id", n => { CompanyMemberId = n.GetIntValue(); } },
+                { "company_name", n => { CompanyName = n.GetStringValue(); } },
+                { "cursor", n => { Cursor = n.GetStringValue(); } },
                 { "include_resolution_debug", n => { IncludeResolutionDebug = n.GetBoolValue(); } },
-                { "linkedin_company_url", n => { LinkedinCompanyUrl = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_linkedin_company_url>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_linkedin_company_url.CreateFromDiscriminatorValue); } },
-                { "linkedin_public_id", n => { LinkedinPublicId = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_linkedin_public_id>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_linkedin_public_id.CreateFromDiscriminatorValue); } },
+                { "linkedin_company_url", n => { LinkedinCompanyUrl = n.GetStringValue(); } },
+                { "linkedin_public_id", n => { LinkedinPublicId = n.GetStringValue(); } },
                 { "max_iterations", n => { MaxIterations = n.GetIntValue(); } },
-                { "max_results", n => { MaxResults = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_max_results>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_max_results.CreateFromDiscriminatorValue); } },
+                { "max_results", n => { MaxResults = n.GetIntValue(); } },
                 { "page", n => { Page = n.GetIntValue(); } },
                 { "page_size", n => { PageSize = n.GetIntValue(); } },
             };
@@ -114,413 +102,17 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_company_member_id>("company_member_id", CompanyMemberId);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_company_name>("company_name", CompanyName);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_cursor>("cursor", Cursor);
+            writer.WriteIntValue("company_member_id", CompanyMemberId);
+            writer.WriteStringValue("company_name", CompanyName);
+            writer.WriteStringValue("cursor", Cursor);
             writer.WriteBoolValue("include_resolution_debug", IncludeResolutionDebug);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_linkedin_company_url>("linkedin_company_url", LinkedinCompanyUrl);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_linkedin_public_id>("linkedin_public_id", LinkedinPublicId);
+            writer.WriteStringValue("linkedin_company_url", LinkedinCompanyUrl);
+            writer.WriteStringValue("linkedin_public_id", LinkedinPublicId);
             writer.WriteIntValue("max_iterations", MaxIterations);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_max_results>("max_results", MaxResults);
+            writer.WriteIntValue("max_results", MaxResults);
             writer.WriteIntValue("page", Page);
             writer.WriteIntValue("page_size", PageSize);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest_company_member_idMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StandaloneFullOrgChartRequest_company_member_id : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest_company_member_idMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest_company_member_idMember1? StandaloneFullOrgChartRequestCompanyMemberIdMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest_company_member_idMember1 StandaloneFullOrgChartRequestCompanyMemberIdMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_company_member_id"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_company_member_id CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_company_member_id();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.StandaloneFullOrgChartRequestCompanyMemberIdMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest_company_member_idMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(StandaloneFullOrgChartRequestCompanyMemberIdMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(StandaloneFullOrgChartRequestCompanyMemberIdMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest_company_member_idMember1>(null, StandaloneFullOrgChartRequestCompanyMemberIdMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest_company_nameMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StandaloneFullOrgChartRequest_company_name : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest_company_nameMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest_company_nameMember1? StandaloneFullOrgChartRequestCompanyNameMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest_company_nameMember1 StandaloneFullOrgChartRequestCompanyNameMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_company_name"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_company_name CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_company_name();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.StandaloneFullOrgChartRequestCompanyNameMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest_company_nameMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(StandaloneFullOrgChartRequestCompanyNameMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(StandaloneFullOrgChartRequestCompanyNameMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest_company_nameMember1>(null, StandaloneFullOrgChartRequestCompanyNameMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest_cursorMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StandaloneFullOrgChartRequest_cursor : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest_cursorMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest_cursorMember1? StandaloneFullOrgChartRequestCursorMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest_cursorMember1 StandaloneFullOrgChartRequestCursorMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_cursor"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_cursor CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_cursor();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.StandaloneFullOrgChartRequestCursorMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest_cursorMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(StandaloneFullOrgChartRequestCursorMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(StandaloneFullOrgChartRequestCursorMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest_cursorMember1>(null, StandaloneFullOrgChartRequestCursorMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest_linkedin_company_urlMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StandaloneFullOrgChartRequest_linkedin_company_url : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest_linkedin_company_urlMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest_linkedin_company_urlMember1? StandaloneFullOrgChartRequestLinkedinCompanyUrlMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest_linkedin_company_urlMember1 StandaloneFullOrgChartRequestLinkedinCompanyUrlMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_linkedin_company_url"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_linkedin_company_url CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_linkedin_company_url();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.StandaloneFullOrgChartRequestLinkedinCompanyUrlMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest_linkedin_company_urlMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(StandaloneFullOrgChartRequestLinkedinCompanyUrlMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(StandaloneFullOrgChartRequestLinkedinCompanyUrlMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest_linkedin_company_urlMember1>(null, StandaloneFullOrgChartRequestLinkedinCompanyUrlMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest_linkedin_public_idMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StandaloneFullOrgChartRequest_linkedin_public_id : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest_linkedin_public_idMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest_linkedin_public_idMember1? StandaloneFullOrgChartRequestLinkedinPublicIdMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest_linkedin_public_idMember1 StandaloneFullOrgChartRequestLinkedinPublicIdMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_linkedin_public_id"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_linkedin_public_id CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_linkedin_public_id();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.StandaloneFullOrgChartRequestLinkedinPublicIdMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest_linkedin_public_idMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(StandaloneFullOrgChartRequestLinkedinPublicIdMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(StandaloneFullOrgChartRequestLinkedinPublicIdMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest_linkedin_public_idMember1>(null, StandaloneFullOrgChartRequestLinkedinPublicIdMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest_max_resultsMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StandaloneFullOrgChartRequest_max_results : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest_max_resultsMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest_max_resultsMember1? StandaloneFullOrgChartRequestMaxResultsMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest_max_resultsMember1 StandaloneFullOrgChartRequestMaxResultsMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_max_results"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_max_results CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest.StandaloneFullOrgChartRequest_max_results();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.StandaloneFullOrgChartRequestMaxResultsMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest_max_resultsMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(StandaloneFullOrgChartRequestMaxResultsMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(StandaloneFullOrgChartRequestMaxResultsMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StandaloneFullOrgChartRequest_max_resultsMember1>(null, StandaloneFullOrgChartRequestMaxResultsMember1);
-                }
-            }
         }
     }
 }

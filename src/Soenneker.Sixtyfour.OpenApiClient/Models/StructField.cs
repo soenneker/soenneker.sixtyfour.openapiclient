@@ -33,10 +33,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>The subfields property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructSubField>? Subfields { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Subfields? Subfields { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructSubField> Subfields { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Subfields Subfields { get; set; }
 #endif
         /// <summary>The type property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.StructField_type? Type { get; set; }
@@ -67,7 +67,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             {
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "subfields", n => { Subfields = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructSubField>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StructSubField.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "subfields", n => { Subfields = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Subfields>(global::Soenneker.Sixtyfour.OpenApiClient.Models.Subfields.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructField_type>(); } },
             };
         }
@@ -80,7 +80,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("name", Name);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructSubField>("subfields", Subfields);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Subfields>("subfields", Subfields);
             writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructField_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

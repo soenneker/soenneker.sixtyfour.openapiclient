@@ -34,16 +34,16 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.Roll
         {
         }
         /// <summary>
-        /// Roll the signing secret with an optional overlap window.During the overlap window both secrets are used for signing socustomers can deploy updated verification code without dropped events.Pass ``expire_overlap_hours=0`` for an immediate roll — use thisif compromise is suspected.Args:    body: Roll request with ``expire_overlap_hours`` (default 24).    auth: Injected auth context.Returns:    RollSigningSecretResponse: New plaintext and metadata.
+        /// &quot;Roll the signing secret with an optional overlap window.During the overlap window both secrets are used for signing socustomers can deploy updated verification code without dropped events.Pass ``expire_overlap_hours=0`` for an immediate roll — use thisif compromise is suspected.Args:    body: Roll request with ``expire_overlap_hours`` (default 24).    auth: Injected auth context.Returns:    RollSigningSecretResponse: New plaintext and metadata.&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RollSigningSecretResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.Roll.RollSigningSecretResponse400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.Roll.RollSigningSecretResponse401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RollSigningSecretWebhooksSigningSecretRollPost400">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RollSigningSecretWebhooksSigningSecretRollPost401">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.Roll.RollSigningSecretResponse500Error">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RollSigningSecretWebhooksSigningSecretRollPost500">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.RollSigningSecretResponse?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.RollRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -57,15 +57,15 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.Roll
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.Roll.RollSigningSecretResponse400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.Roll.RollSigningSecretResponse401Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.RollSigningSecretWebhooksSigningSecretRollPost400.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.RollSigningSecretWebhooksSigningSecretRollPost401.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret.Roll.RollSigningSecretResponse500Error.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.RollSigningSecretWebhooksSigningSecretRollPost500.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.RollSigningSecretResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.RollSigningSecretResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Roll the signing secret with an optional overlap window.During the overlap window both secrets are used for signing socustomers can deploy updated verification code without dropped events.Pass ``expire_overlap_hours=0`` for an immediate roll — use thisif compromise is suspected.Args:    body: Roll request with ``expire_overlap_hours`` (default 24).    auth: Injected auth context.Returns:    RollSigningSecretResponse: New plaintext and metadata.
+        /// &quot;Roll the signing secret with an optional overlap window.During the overlap window both secrets are used for signing socustomers can deploy updated verification code without dropped events.Pass ``expire_overlap_hours=0`` for an immediate roll — use thisif compromise is suspected.Args:    body: Roll request with ``expire_overlap_hours`` (default 24).    auth: Injected auth context.Returns:    RollSigningSecretResponse: New plaintext and metadata.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

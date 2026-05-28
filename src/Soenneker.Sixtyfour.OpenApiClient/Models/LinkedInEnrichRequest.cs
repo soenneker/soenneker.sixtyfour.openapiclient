@@ -25,10 +25,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Mapping of output field name to natural-language description of what to extract.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Struct { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.LinkedInEnrichRequest_struct? Struct { get; set; }
 #nullable restore
 #else
-        public UntypedNode Struct { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.LinkedInEnrichRequest_struct Struct { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.LinkedInEnrichRequest"/> and sets the default values.
@@ -56,7 +56,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "linkedin_url", n => { LinkedinUrl = n.GetStringValue(); } },
-                { "struct", n => { Struct = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "struct", n => { Struct = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.LinkedInEnrichRequest_struct>(global::Soenneker.Sixtyfour.OpenApiClient.Models.LinkedInEnrichRequest_struct.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -67,7 +67,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("linkedin_url", LinkedinUrl);
-            writer.WriteObjectValue<UntypedNode>("struct", Struct);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.LinkedInEnrichRequest_struct>("struct", Struct);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

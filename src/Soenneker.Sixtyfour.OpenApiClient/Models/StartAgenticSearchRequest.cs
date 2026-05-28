@@ -17,9 +17,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Maximum number of results to return across pages.</summary>
         public int? MaxResults { get; set; }
-        /// <summary>Search mode: &apos;people&apos; or &apos;company&apos;.</summary>
+        /// <summary>&quot;Search mode: &apos;people&apos; or &apos;company&apos;.&quot;</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequest_mode? Mode { get; set; }
-        /// <summary>Output mode: &apos;csv&apos; to export, &apos;query_only&apos; to return parsed query only.</summary>
+        /// <summary>&quot;Output mode: &apos;csv&apos; to export, &apos;query_only&apos; to return parsed query only.&quot;</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequest_output_mode? OutputMode { get; set; }
         /// <summary>Natural-language search query.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -32,10 +32,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Optional client-supplied search ID for idempotent retries.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequest.StartAgenticSearchRequest_search_id? SearchId { get; set; }
+        public string? SearchId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequest.StartAgenticSearchRequest_search_id SearchId { get; set; }
+        public string SearchId { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequest"/> and sets the default values.
@@ -68,7 +68,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequest_mode>(); } },
                 { "output_mode", n => { OutputMode = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequest_output_mode>(); } },
                 { "query", n => { Query = n.GetStringValue(); } },
-                { "search_id", n => { SearchId = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequest.StartAgenticSearchRequest_search_id>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequest.StartAgenticSearchRequest_search_id.CreateFromDiscriminatorValue); } },
+                { "search_id", n => { SearchId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -82,76 +82,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequest_mode>("mode", Mode);
             writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequest_output_mode>("output_mode", OutputMode);
             writer.WriteStringValue("query", Query);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequest.StartAgenticSearchRequest_search_id>("search_id", SearchId);
+            writer.WriteStringValue("search_id", SearchId);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequest_search_idMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StartAgenticSearchRequest_search_id : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequest_search_idMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequest_search_idMember1? StartAgenticSearchRequestSearchIdMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequest_search_idMember1 StartAgenticSearchRequestSearchIdMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequest.StartAgenticSearchRequest_search_id"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequest.StartAgenticSearchRequest_search_id CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequest.StartAgenticSearchRequest_search_id();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.StartAgenticSearchRequestSearchIdMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequest_search_idMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(StartAgenticSearchRequestSearchIdMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(StartAgenticSearchRequestSearchIdMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequest_search_idMember1>(null, StartAgenticSearchRequestSearchIdMember1);
-                }
-            }
         }
     }
 }

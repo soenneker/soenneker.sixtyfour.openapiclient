@@ -16,38 +16,32 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Block sequence number that produced the file.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_block_number? BlockNumber { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_block_number BlockNumber { get; set; }
-#endif
+        public int? BlockNumber { get; set; }
         /// <summary>MIME type of the file.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_content_type? ContentType { get; set; }
+        public string? ContentType { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_content_type ContentType { get; set; }
+        public string ContentType { get; set; }
 #endif
         /// <summary>Timestamp when the record was created.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_created_at? CreatedAt { get; set; }
+        public string? CreatedAt { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_created_at CreatedAt { get; set; }
+        public string CreatedAt { get; set; }
 #endif
         /// <summary>Seconds until `download_url` expires.</summary>
         public int? DownloadExpiresInSeconds { get; set; }
         /// <summary>Signed download URL; null if signing failed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_download_url? DownloadUrl { get; set; }
+        public string? DownloadUrl { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_download_url DownloadUrl { get; set; }
+        public string DownloadUrl { get; set; }
 #endif
         /// <summary>Result file name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -58,28 +52,22 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string Filename { get; set; }
 #endif
         /// <summary>File size in bytes (uncompressed), when known.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_file_size? FileSize { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_file_size FileSize { get; set; }
-#endif
+        public int? FileSize { get; set; }
         /// <summary>Error or status message, if any.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_message? Message { get; set; }
+        public string? Message { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_message Message { get; set; }
+        public string Message { get; set; }
 #endif
         /// <summary>Inline rows when the file is small enough to embed; otherwise null.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_results? Results { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Results? Results { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_results Results { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Results Results { get; set; }
 #endif
         /// <summary>Number of rows in the file.</summary>
         public int? RowCount { get; set; }
@@ -116,15 +104,15 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "block_number", n => { BlockNumber = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_block_number>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_block_number.CreateFromDiscriminatorValue); } },
-                { "content_type", n => { ContentType = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_content_type>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_content_type.CreateFromDiscriminatorValue); } },
-                { "created_at", n => { CreatedAt = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_created_at>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_created_at.CreateFromDiscriminatorValue); } },
+                { "block_number", n => { BlockNumber = n.GetIntValue(); } },
+                { "content_type", n => { ContentType = n.GetStringValue(); } },
+                { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "download_expires_in_seconds", n => { DownloadExpiresInSeconds = n.GetIntValue(); } },
-                { "download_url", n => { DownloadUrl = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_download_url>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_download_url.CreateFromDiscriminatorValue); } },
-                { "file_size", n => { FileSize = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_file_size>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_file_size.CreateFromDiscriminatorValue); } },
+                { "download_url", n => { DownloadUrl = n.GetStringValue(); } },
+                { "file_size", n => { FileSize = n.GetIntValue(); } },
                 { "filename", n => { Filename = n.GetStringValue(); } },
-                { "message", n => { Message = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_message>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_message.CreateFromDiscriminatorValue); } },
-                { "results", n => { Results = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_results>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_results.CreateFromDiscriminatorValue); } },
+                { "message", n => { Message = n.GetStringValue(); } },
+                { "results", n => { Results = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Results>(global::Soenneker.Sixtyfour.OpenApiClient.Models.Results.CreateFromDiscriminatorValue); } },
                 { "row_count", n => { RowCount = n.GetIntValue(); } },
                 { "storage_bucket", n => { StorageBucket = n.GetStringValue(); } },
             };
@@ -136,482 +124,18 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_block_number>("block_number", BlockNumber);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_content_type>("content_type", ContentType);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_created_at>("created_at", CreatedAt);
+            writer.WriteIntValue("block_number", BlockNumber);
+            writer.WriteStringValue("content_type", ContentType);
+            writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteIntValue("download_expires_in_seconds", DownloadExpiresInSeconds);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_download_url>("download_url", DownloadUrl);
+            writer.WriteStringValue("download_url", DownloadUrl);
             writer.WriteStringValue("filename", Filename);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_file_size>("file_size", FileSize);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_message>("message", Message);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_results>("results", Results);
+            writer.WriteIntValue("file_size", FileSize);
+            writer.WriteStringValue("message", Message);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Results>("results", Results);
             writer.WriteIntValue("row_count", RowCount);
             writer.WriteStringValue("storage_bucket", StorageBucket);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_block_numberMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WorkflowResultItemWithDownload_block_number : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_block_numberMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_block_numberMember1? WorkflowResultItemWithDownloadBlockNumberMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_block_numberMember1 WorkflowResultItemWithDownloadBlockNumberMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_block_number"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_block_number CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_block_number();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.WorkflowResultItemWithDownloadBlockNumberMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_block_numberMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(WorkflowResultItemWithDownloadBlockNumberMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(WorkflowResultItemWithDownloadBlockNumberMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_block_numberMember1>(null, WorkflowResultItemWithDownloadBlockNumberMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_content_typeMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WorkflowResultItemWithDownload_content_type : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_content_typeMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_content_typeMember1? WorkflowResultItemWithDownloadContentTypeMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_content_typeMember1 WorkflowResultItemWithDownloadContentTypeMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_content_type"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_content_type CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_content_type();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.WorkflowResultItemWithDownloadContentTypeMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_content_typeMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(WorkflowResultItemWithDownloadContentTypeMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(WorkflowResultItemWithDownloadContentTypeMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_content_typeMember1>(null, WorkflowResultItemWithDownloadContentTypeMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_created_atMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WorkflowResultItemWithDownload_created_at : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_created_atMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_created_atMember1? WorkflowResultItemWithDownloadCreatedAtMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_created_atMember1 WorkflowResultItemWithDownloadCreatedAtMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_created_at"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_created_at CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_created_at();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.WorkflowResultItemWithDownloadCreatedAtMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_created_atMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(WorkflowResultItemWithDownloadCreatedAtMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(WorkflowResultItemWithDownloadCreatedAtMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_created_atMember1>(null, WorkflowResultItemWithDownloadCreatedAtMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_download_urlMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WorkflowResultItemWithDownload_download_url : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_download_urlMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_download_urlMember1? WorkflowResultItemWithDownloadDownloadUrlMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_download_urlMember1 WorkflowResultItemWithDownloadDownloadUrlMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_download_url"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_download_url CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_download_url();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.WorkflowResultItemWithDownloadDownloadUrlMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_download_urlMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(WorkflowResultItemWithDownloadDownloadUrlMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(WorkflowResultItemWithDownloadDownloadUrlMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_download_urlMember1>(null, WorkflowResultItemWithDownloadDownloadUrlMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_file_sizeMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WorkflowResultItemWithDownload_file_size : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_file_sizeMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_file_sizeMember1? WorkflowResultItemWithDownloadFileSizeMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_file_sizeMember1 WorkflowResultItemWithDownloadFileSizeMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_file_size"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_file_size CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_file_size();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.WorkflowResultItemWithDownloadFileSizeMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_file_sizeMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(WorkflowResultItemWithDownloadFileSizeMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(WorkflowResultItemWithDownloadFileSizeMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_file_sizeMember1>(null, WorkflowResultItemWithDownloadFileSizeMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_messageMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WorkflowResultItemWithDownload_message : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_messageMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_messageMember1? WorkflowResultItemWithDownloadMessageMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_messageMember1 WorkflowResultItemWithDownloadMessageMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_message"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_message CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_message();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.WorkflowResultItemWithDownloadMessageMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_messageMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(WorkflowResultItemWithDownloadMessageMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(WorkflowResultItemWithDownloadMessageMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_messageMember1>(null, WorkflowResultItemWithDownloadMessageMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_resultsMember2"/>, List&lt;global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_resultsMember1&gt;
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WorkflowResultItemWithDownload_results : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type List&lt;global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_resultsMember1&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_resultsMember1>? WorkflowResultItemWithDownloadResultsMember1 { get; set; }
-#nullable restore
-#else
-            public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_resultsMember1> WorkflowResultItemWithDownloadResultsMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_resultsMember2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_resultsMember2? WorkflowResultItemWithDownloadResultsMember2 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_resultsMember2 WorkflowResultItemWithDownloadResultsMember2 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_results"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_results CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.WorkflowResultItemWithDownload_results();
-                if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_resultsMember1>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_resultsMember1.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_resultsMember1> workflowResultItemWithDownloadResultsMember1Value)
-                {
-                    result.WorkflowResultItemWithDownloadResultsMember1 = workflowResultItemWithDownloadResultsMember1Value;
-                }
-                else {
-                    result.WorkflowResultItemWithDownloadResultsMember2 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_resultsMember2();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(WorkflowResultItemWithDownloadResultsMember2 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(WorkflowResultItemWithDownloadResultsMember2);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(WorkflowResultItemWithDownloadResultsMember1 != null)
-                {
-                    writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_resultsMember1>(null, WorkflowResultItemWithDownloadResultsMember1);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload_resultsMember2>(null, WorkflowResultItemWithDownloadResultsMember2);
-                }
-            }
         }
     }
 }

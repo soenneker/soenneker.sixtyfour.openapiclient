@@ -18,10 +18,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Field used for terms aggregation when supports_top_values is true.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability.FilterFieldCapability_aggregation_field? AggregationField { get; set; }
+        public string? AggregationField { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability.FilterFieldCapability_aggregation_field AggregationField { get; set; }
+        public string AggregationField { get; set; }
 #endif
         /// <summary>Canonical field path.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -42,10 +42,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Nested path, if any.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability.FilterFieldCapability_nested_path? NestedPath { get; set; }
+        public string? NestedPath { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability.FilterFieldCapability_nested_path NestedPath { get; set; }
+        public string NestedPath { get; set; }
 #endif
         /// <summary>Recommended for simple exact-match queries over its nested counterpart.</summary>
         public bool? PreferredForExactMatch { get; set; }
@@ -66,10 +66,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Sort target when it differs from field (e.g. text fields sort via .keyword).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability.FilterFieldCapability_sort_field? SortField { get; set; }
+        public string? SortField { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability.FilterFieldCapability_sort_field SortField { get; set; }
+        public string SortField { get; set; }
 #endif
         /// <summary>API can return deterministic exact filter snippets.</summary>
         public bool? SupportsExactFilterSnippet { get; set; }
@@ -108,15 +108,15 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "aggregation_field", n => { AggregationField = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability.FilterFieldCapability_aggregation_field>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability.FilterFieldCapability_aggregation_field.CreateFromDiscriminatorValue); } },
+                { "aggregation_field", n => { AggregationField = n.GetStringValue(); } },
                 { "field", n => { Field = n.GetStringValue(); } },
                 { "field_type", n => { FieldType = n.GetStringValue(); } },
-                { "nested_path", n => { NestedPath = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability.FilterFieldCapability_nested_path>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability.FilterFieldCapability_nested_path.CreateFromDiscriminatorValue); } },
+                { "nested_path", n => { NestedPath = n.GetStringValue(); } },
                 { "preferred_for_exact_match", n => { PreferredForExactMatch = n.GetBoolValue(); } },
                 { "queryable", n => { Queryable = n.GetBoolValue(); } },
                 { "rangeable", n => { Rangeable = n.GetBoolValue(); } },
                 { "related_fields", n => { RelatedFields = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "sort_field", n => { SortField = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability.FilterFieldCapability_sort_field>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability.FilterFieldCapability_sort_field.CreateFromDiscriminatorValue); } },
+                { "sort_field", n => { SortField = n.GetStringValue(); } },
                 { "sortable", n => { Sortable = n.GetBoolValue(); } },
                 { "supports_exact_filter_snippet", n => { SupportsExactFilterSnippet = n.GetBoolValue(); } },
                 { "supports_top_values", n => { SupportsTopValues = n.GetBoolValue(); } },
@@ -130,224 +130,20 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability.FilterFieldCapability_aggregation_field>("aggregation_field", AggregationField);
+            writer.WriteStringValue("aggregation_field", AggregationField);
             writer.WriteStringValue("field", Field);
             writer.WriteStringValue("field_type", FieldType);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability.FilterFieldCapability_nested_path>("nested_path", NestedPath);
+            writer.WriteStringValue("nested_path", NestedPath);
             writer.WriteBoolValue("preferred_for_exact_match", PreferredForExactMatch);
             writer.WriteBoolValue("queryable", Queryable);
             writer.WriteBoolValue("rangeable", Rangeable);
             writer.WriteCollectionOfPrimitiveValues<string>("related_fields", RelatedFields);
             writer.WriteBoolValue("sortable", Sortable);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability.FilterFieldCapability_sort_field>("sort_field", SortField);
+            writer.WriteStringValue("sort_field", SortField);
             writer.WriteBoolValue("supports_exact_filter_snippet", SupportsExactFilterSnippet);
             writer.WriteBoolValue("supports_top_values", SupportsTopValues);
             writer.WriteStringValue("value_type", ValueType);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability_aggregation_fieldMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class FilterFieldCapability_aggregation_field : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability_aggregation_fieldMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability_aggregation_fieldMember1? FilterFieldCapabilityAggregationFieldMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability_aggregation_fieldMember1 FilterFieldCapabilityAggregationFieldMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability.FilterFieldCapability_aggregation_field"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability.FilterFieldCapability_aggregation_field CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability.FilterFieldCapability_aggregation_field();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.FilterFieldCapabilityAggregationFieldMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability_aggregation_fieldMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(FilterFieldCapabilityAggregationFieldMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(FilterFieldCapabilityAggregationFieldMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability_aggregation_fieldMember1>(null, FilterFieldCapabilityAggregationFieldMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability_nested_pathMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class FilterFieldCapability_nested_path : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability_nested_pathMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability_nested_pathMember1? FilterFieldCapabilityNestedPathMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability_nested_pathMember1 FilterFieldCapabilityNestedPathMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability.FilterFieldCapability_nested_path"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability.FilterFieldCapability_nested_path CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability.FilterFieldCapability_nested_path();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.FilterFieldCapabilityNestedPathMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability_nested_pathMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(FilterFieldCapabilityNestedPathMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(FilterFieldCapabilityNestedPathMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability_nested_pathMember1>(null, FilterFieldCapabilityNestedPathMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability_sort_fieldMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class FilterFieldCapability_sort_field : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability_sort_fieldMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability_sort_fieldMember1? FilterFieldCapabilitySortFieldMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability_sort_fieldMember1 FilterFieldCapabilitySortFieldMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability.FilterFieldCapability_sort_field"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability.FilterFieldCapability_sort_field CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability.FilterFieldCapability_sort_field();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.FilterFieldCapabilitySortFieldMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability_sort_fieldMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(FilterFieldCapabilitySortFieldMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(FilterFieldCapabilitySortFieldMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability_sort_fieldMember1>(null, FilterFieldCapabilitySortFieldMember1);
-                }
-            }
         }
     }
 }

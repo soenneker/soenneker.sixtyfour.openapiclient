@@ -17,10 +17,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>The created_at property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary.ChatSessionSummary_created_at? CreatedAt { get; set; }
+        public string? CreatedAt { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary.ChatSessionSummary_created_at CreatedAt { get; set; }
+        public string CreatedAt { get; set; }
 #endif
         /// <summary>The has_unread property</summary>
         public bool? HasUnread { get; set; }
@@ -35,34 +35,34 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>The title property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary.ChatSessionSummary_title? Title { get; set; }
+        public string? Title { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary.ChatSessionSummary_title Title { get; set; }
+        public string Title { get; set; }
 #endif
         /// <summary>The updated_at property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary.ChatSessionSummary_updated_at? UpdatedAt { get; set; }
+        public string? UpdatedAt { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary.ChatSessionSummary_updated_at UpdatedAt { get; set; }
+        public string UpdatedAt { get; set; }
 #endif
         /// <summary>The workflow_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary.ChatSessionSummary_workflow_id? WorkflowId { get; set; }
+        public string? WorkflowId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary.ChatSessionSummary_workflow_id WorkflowId { get; set; }
+        public string WorkflowId { get; set; }
 #endif
         /// <summary>The workspace_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary.ChatSessionSummary_workspace_id? WorkspaceId { get; set; }
+        public string? WorkspaceId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary.ChatSessionSummary_workspace_id WorkspaceId { get; set; }
+        public string WorkspaceId { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary"/> and sets the default values.
@@ -89,13 +89,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "created_at", n => { CreatedAt = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary.ChatSessionSummary_created_at>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary.ChatSessionSummary_created_at.CreateFromDiscriminatorValue); } },
+                { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "has_unread", n => { HasUnread = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "title", n => { Title = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary.ChatSessionSummary_title>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary.ChatSessionSummary_title.CreateFromDiscriminatorValue); } },
-                { "updated_at", n => { UpdatedAt = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary.ChatSessionSummary_updated_at>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary.ChatSessionSummary_updated_at.CreateFromDiscriminatorValue); } },
-                { "workflow_id", n => { WorkflowId = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary.ChatSessionSummary_workflow_id>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary.ChatSessionSummary_workflow_id.CreateFromDiscriminatorValue); } },
-                { "workspace_id", n => { WorkspaceId = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary.ChatSessionSummary_workspace_id>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary.ChatSessionSummary_workspace_id.CreateFromDiscriminatorValue); } },
+                { "title", n => { Title = n.GetStringValue(); } },
+                { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
+                { "workflow_id", n => { WorkflowId = n.GetStringValue(); } },
+                { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -105,354 +105,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary.ChatSessionSummary_created_at>("created_at", CreatedAt);
+            writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteBoolValue("has_unread", HasUnread);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary.ChatSessionSummary_title>("title", Title);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary.ChatSessionSummary_updated_at>("updated_at", UpdatedAt);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary.ChatSessionSummary_workflow_id>("workflow_id", WorkflowId);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary.ChatSessionSummary_workspace_id>("workspace_id", WorkspaceId);
+            writer.WriteStringValue("title", Title);
+            writer.WriteStringValue("updated_at", UpdatedAt);
+            writer.WriteStringValue("workflow_id", WorkflowId);
+            writer.WriteStringValue("workspace_id", WorkspaceId);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary_created_atMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ChatSessionSummary_created_at : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary_created_atMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary_created_atMember1? ChatSessionSummaryCreatedAtMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary_created_atMember1 ChatSessionSummaryCreatedAtMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary.ChatSessionSummary_created_at"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary.ChatSessionSummary_created_at CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary.ChatSessionSummary_created_at();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.ChatSessionSummaryCreatedAtMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary_created_atMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ChatSessionSummaryCreatedAtMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ChatSessionSummaryCreatedAtMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary_created_atMember1>(null, ChatSessionSummaryCreatedAtMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary_titleMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ChatSessionSummary_title : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary_titleMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary_titleMember1? ChatSessionSummaryTitleMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary_titleMember1 ChatSessionSummaryTitleMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary.ChatSessionSummary_title"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary.ChatSessionSummary_title CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary.ChatSessionSummary_title();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.ChatSessionSummaryTitleMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary_titleMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ChatSessionSummaryTitleMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ChatSessionSummaryTitleMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary_titleMember1>(null, ChatSessionSummaryTitleMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary_updated_atMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ChatSessionSummary_updated_at : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary_updated_atMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary_updated_atMember1? ChatSessionSummaryUpdatedAtMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary_updated_atMember1 ChatSessionSummaryUpdatedAtMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary.ChatSessionSummary_updated_at"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary.ChatSessionSummary_updated_at CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary.ChatSessionSummary_updated_at();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.ChatSessionSummaryUpdatedAtMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary_updated_atMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ChatSessionSummaryUpdatedAtMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ChatSessionSummaryUpdatedAtMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary_updated_atMember1>(null, ChatSessionSummaryUpdatedAtMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary_workflow_idMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ChatSessionSummary_workflow_id : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary_workflow_idMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary_workflow_idMember1? ChatSessionSummaryWorkflowIdMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary_workflow_idMember1 ChatSessionSummaryWorkflowIdMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary.ChatSessionSummary_workflow_id"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary.ChatSessionSummary_workflow_id CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary.ChatSessionSummary_workflow_id();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.ChatSessionSummaryWorkflowIdMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary_workflow_idMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ChatSessionSummaryWorkflowIdMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ChatSessionSummaryWorkflowIdMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary_workflow_idMember1>(null, ChatSessionSummaryWorkflowIdMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary_workspace_idMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ChatSessionSummary_workspace_id : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary_workspace_idMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary_workspace_idMember1? ChatSessionSummaryWorkspaceIdMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary_workspace_idMember1 ChatSessionSummaryWorkspaceIdMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary.ChatSessionSummary_workspace_id"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary.ChatSessionSummary_workspace_id CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary.ChatSessionSummary_workspace_id();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.ChatSessionSummaryWorkspaceIdMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary_workspace_idMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ChatSessionSummaryWorkspaceIdMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ChatSessionSummaryWorkspaceIdMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary_workspace_idMember1>(null, ChatSessionSummaryWorkspaceIdMember1);
-                }
-            }
         }
     }
 }

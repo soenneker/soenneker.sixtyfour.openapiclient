@@ -25,34 +25,28 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Optional natural-language plan that guides the research agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_research_plan? ResearchPlan { get; set; }
+        public string? ResearchPlan { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_research_plan ResearchPlan { get; set; }
+        public string ResearchPlan { get; set; }
 #endif
         /// <summary>Mapping of output field name to natural-language description of what to extract.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Struct { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_struct? Struct { get; set; }
 #nullable restore
 #else
-        public UntypedNode Struct { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_struct Struct { get; set; }
 #endif
         /// <summary>Quality and cost tier for the research agent.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_tier? Tier { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_tier Tier { get; set; }
-#endif
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_tier? Tier { get; set; }
         /// <summary>HTTPS URL that receives the result payload when the async job completes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_webhook_url? WebhookUrl { get; set; }
+        public string? WebhookUrl { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_webhook_url WebhookUrl { get; set; }
+        public string WebhookUrl { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo"/> and sets the default values.
@@ -80,10 +74,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "lead_info", n => { LeadInfo = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_lead_info>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_lead_info.CreateFromDiscriminatorValue); } },
-                { "research_plan", n => { ResearchPlan = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_research_plan>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_research_plan.CreateFromDiscriminatorValue); } },
-                { "struct", n => { Struct = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "tier", n => { Tier = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_tier>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_tier.CreateFromDiscriminatorValue); } },
-                { "webhook_url", n => { WebhookUrl = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_webhook_url>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_webhook_url.CreateFromDiscriminatorValue); } },
+                { "research_plan", n => { ResearchPlan = n.GetStringValue(); } },
+                { "struct", n => { Struct = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_struct>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_struct.CreateFromDiscriminatorValue); } },
+                { "tier", n => { Tier = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_tier>(); } },
+                { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -94,215 +88,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_lead_info>("lead_info", LeadInfo);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_research_plan>("research_plan", ResearchPlan);
-            writer.WriteObjectValue<UntypedNode>("struct", Struct);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_tier>("tier", Tier);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_webhook_url>("webhook_url", WebhookUrl);
+            writer.WriteStringValue("research_plan", ResearchPlan);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_struct>("struct", Struct);
+            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_tier>("tier", Tier);
+            writer.WriteStringValue("webhook_url", WebhookUrl);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_research_planMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class EnrichLeadInfo_research_plan : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_research_planMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_research_planMember1? EnrichLeadInfoResearchPlanMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_research_planMember1 EnrichLeadInfoResearchPlanMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_research_plan"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_research_plan CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_research_plan();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.EnrichLeadInfoResearchPlanMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_research_planMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(EnrichLeadInfoResearchPlanMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(EnrichLeadInfoResearchPlanMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_research_planMember1>(null, EnrichLeadInfoResearchPlanMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_tierMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class EnrichLeadInfo_tier : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_tierMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_tierMember1? EnrichLeadInfoTierMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_tierMember1 EnrichLeadInfoTierMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_tier"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_tier CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_tier();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.EnrichLeadInfoTierMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_tierMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(EnrichLeadInfoTierMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(EnrichLeadInfoTierMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_tierMember1>(null, EnrichLeadInfoTierMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_webhook_urlMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class EnrichLeadInfo_webhook_url : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_webhook_urlMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_webhook_urlMember1? EnrichLeadInfoWebhookUrlMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_webhook_urlMember1 EnrichLeadInfoWebhookUrlMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_webhook_url"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_webhook_url CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo.EnrichLeadInfo_webhook_url();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.EnrichLeadInfoWebhookUrlMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_webhook_urlMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(EnrichLeadInfoWebhookUrlMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(EnrichLeadInfoWebhookUrlMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_webhook_urlMember1>(null, EnrichLeadInfoWebhookUrlMember1);
-                }
-            }
         }
     }
 }

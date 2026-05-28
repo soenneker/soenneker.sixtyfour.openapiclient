@@ -40,18 +40,18 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.FilterFieldValues
         /// <param name="body">Request for top values of a single field.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Search.FilterFieldValues.FilterFieldValuesResponse400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Search.FilterFieldValues.FilterFieldValuesResponse401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Search.FilterFieldValues.FilterFieldValuesResponse402Error">When receiving a 402 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Search.FilterFieldValues.FilterFieldValuesResponse403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Search.FilterFieldValues.FilterFieldValuesResponse404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Search.FilterFieldValues.FilterFieldValuesResponse409Error">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesEndpointSearchFilterFieldValuesPost400">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesEndpointSearchFilterFieldValuesPost401">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesEndpointSearchFilterFieldValuesPost402">When receiving a 402 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesEndpointSearchFilterFieldValuesPost403">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesEndpointSearchFilterFieldValuesPost404">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesEndpointSearchFilterFieldValuesPost409">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Search.FilterFieldValues.FilterFieldValuesResponse429Error">When receiving a 429 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Search.FilterFieldValues.FilterFieldValuesResponse500Error">When receiving a 500 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Search.FilterFieldValues.FilterFieldValuesResponse502Error">When receiving a 502 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Search.FilterFieldValues.FilterFieldValuesResponse503Error">When receiving a 503 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Search.FilterFieldValues.FilterFieldValuesResponse504Error">When receiving a 504 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesEndpointSearchFilterFieldValuesPost429">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesEndpointSearchFilterFieldValuesPost500">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesEndpointSearchFilterFieldValuesPost502">When receiving a 502 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesEndpointSearchFilterFieldValuesPost503">When receiving a 503 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesEndpointSearchFilterFieldValuesPost504">When receiving a 504 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesResponse?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -65,18 +65,18 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.FilterFieldValues
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Search.FilterFieldValues.FilterFieldValuesResponse400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Search.FilterFieldValues.FilterFieldValuesResponse401Error.CreateFromDiscriminatorValue },
-                { "402", global::Soenneker.Sixtyfour.OpenApiClient.Search.FilterFieldValues.FilterFieldValuesResponse402Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Sixtyfour.OpenApiClient.Search.FilterFieldValues.FilterFieldValuesResponse403Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Sixtyfour.OpenApiClient.Search.FilterFieldValues.FilterFieldValuesResponse404Error.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Sixtyfour.OpenApiClient.Search.FilterFieldValues.FilterFieldValuesResponse409Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesEndpointSearchFilterFieldValuesPost400.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesEndpointSearchFilterFieldValuesPost401.CreateFromDiscriminatorValue },
+                { "402", global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesEndpointSearchFilterFieldValuesPost402.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesEndpointSearchFilterFieldValuesPost403.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesEndpointSearchFilterFieldValuesPost404.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesEndpointSearchFilterFieldValuesPost409.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Sixtyfour.OpenApiClient.Search.FilterFieldValues.FilterFieldValuesResponse429Error.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Search.FilterFieldValues.FilterFieldValuesResponse500Error.CreateFromDiscriminatorValue },
-                { "502", global::Soenneker.Sixtyfour.OpenApiClient.Search.FilterFieldValues.FilterFieldValuesResponse502Error.CreateFromDiscriminatorValue },
-                { "503", global::Soenneker.Sixtyfour.OpenApiClient.Search.FilterFieldValues.FilterFieldValuesResponse503Error.CreateFromDiscriminatorValue },
-                { "504", global::Soenneker.Sixtyfour.OpenApiClient.Search.FilterFieldValues.FilterFieldValuesResponse504Error.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesEndpointSearchFilterFieldValuesPost429.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesEndpointSearchFilterFieldValuesPost500.CreateFromDiscriminatorValue },
+                { "502", global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesEndpointSearchFilterFieldValuesPost502.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesEndpointSearchFilterFieldValuesPost503.CreateFromDiscriminatorValue },
+                { "504", global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesEndpointSearchFilterFieldValuesPost504.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

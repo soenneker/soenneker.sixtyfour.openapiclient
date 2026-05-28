@@ -25,18 +25,18 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Override the default provider waterfall by listing provider IDs in priority order.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailRequest.ReverseEmailRequest_providers? Providers { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Providers? Providers { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailRequest.ReverseEmailRequest_providers Providers { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Providers Providers { get; set; }
 #endif
         /// <summary>HTTPS URL that receives the result payload when the async job completes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailRequest.ReverseEmailRequest_webhook_url? WebhookUrl { get; set; }
+        public string? WebhookUrl { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailRequest.ReverseEmailRequest_webhook_url WebhookUrl { get; set; }
+        public string WebhookUrl { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailRequest"/> and sets the default values.
@@ -64,8 +64,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "lead", n => { Lead = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailRequest_lead>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailRequest_lead.CreateFromDiscriminatorValue); } },
-                { "providers", n => { Providers = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailRequest.ReverseEmailRequest_providers>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailRequest.ReverseEmailRequest_providers.CreateFromDiscriminatorValue); } },
-                { "webhook_url", n => { WebhookUrl = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailRequest.ReverseEmailRequest_webhook_url>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailRequest.ReverseEmailRequest_webhook_url.CreateFromDiscriminatorValue); } },
+                { "providers", n => { Providers = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Providers>(global::Soenneker.Sixtyfour.OpenApiClient.Models.Providers.CreateFromDiscriminatorValue); } },
+                { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -76,145 +76,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailRequest_lead>("lead", Lead);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailRequest.ReverseEmailRequest_providers>("providers", Providers);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailRequest.ReverseEmailRequest_webhook_url>("webhook_url", WebhookUrl);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Providers>("providers", Providers);
+            writer.WriteStringValue("webhook_url", WebhookUrl);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailRequest_providersMember1"/>, List&lt;string&gt;
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ReverseEmailRequest_providers : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailRequest_providersMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailRequest_providersMember1? ReverseEmailRequestProvidersMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailRequest_providersMember1 ReverseEmailRequestProvidersMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type List&lt;string&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public List<string>? String { get; set; }
-#nullable restore
-#else
-            public List<string> String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailRequest.ReverseEmailRequest_providers"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailRequest.ReverseEmailRequest_providers CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailRequest.ReverseEmailRequest_providers();
-                if(parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.ReverseEmailRequestProvidersMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailRequest_providersMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ReverseEmailRequestProvidersMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ReverseEmailRequestProvidersMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteCollectionOfPrimitiveValues<string>(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailRequest_providersMember1>(null, ReverseEmailRequestProvidersMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailRequest_webhook_urlMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ReverseEmailRequest_webhook_url : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailRequest_webhook_urlMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailRequest_webhook_urlMember1? ReverseEmailRequestWebhookUrlMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailRequest_webhook_urlMember1 ReverseEmailRequestWebhookUrlMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailRequest.ReverseEmailRequest_webhook_url"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailRequest.ReverseEmailRequest_webhook_url CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailRequest.ReverseEmailRequest_webhook_url();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.ReverseEmailRequestWebhookUrlMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailRequest_webhook_urlMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ReverseEmailRequestWebhookUrlMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ReverseEmailRequestWebhookUrlMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailRequest_webhook_urlMember1>(null, ReverseEmailRequestWebhookUrlMember1);
-                }
-            }
         }
     }
 }

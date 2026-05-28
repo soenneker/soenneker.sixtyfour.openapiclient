@@ -18,10 +18,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Stable block identifier; non-UUID values are normalized server-side.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Block.Block_block_id? BlockId { get; set; }
+        public string? BlockId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Block.Block_block_id BlockId { get; set; }
+        public string BlockId { get; set; }
 #endif
         /// <summary>Registered block type name (e.g. &apos;enrich_lead&apos;, &apos;find_email&apos;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -74,7 +74,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "block_id", n => { BlockId = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Block.Block_block_id>(global::Soenneker.Sixtyfour.OpenApiClient.Models.Block.Block_block_id.CreateFromDiscriminatorValue); } },
+                { "block_id", n => { BlockId = n.GetStringValue(); } },
                 { "block_name", n => { BlockName = n.GetStringValue(); } },
                 { "block_type", n => { BlockType = n.GetStringValue(); } },
                 { "sequence_number", n => { SequenceNumber = n.GetIntValue(); } },
@@ -88,80 +88,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Block.Block_block_id>("block_id", BlockId);
+            writer.WriteStringValue("block_id", BlockId);
             writer.WriteStringValue("block_name", BlockName);
             writer.WriteStringValue("block_type", BlockType);
             writer.WriteIntValue("sequence_number", SequenceNumber);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Block_specs>("specs", Specs);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.Block_block_idMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Block_block_id : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.Block_block_idMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.Block_block_idMember1? BlockBlockIdMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.Block_block_idMember1 BlockBlockIdMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.Block.Block_block_id"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.Block.Block_block_id CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.Block.Block_block_id();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.BlockBlockIdMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.Block_block_idMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(BlockBlockIdMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(BlockBlockIdMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Block_block_idMember1>(null, BlockBlockIdMember1);
-                }
-            }
         }
     }
 }

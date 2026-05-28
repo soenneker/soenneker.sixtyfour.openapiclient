@@ -26,36 +26,30 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Timestamp when execution finished.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_completed_at? CompletedAt { get; set; }
+        public string? CompletedAt { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_completed_at CompletedAt { get; set; }
+        public string CompletedAt { get; set; }
 #endif
         /// <summary>Number of blocks that have finished.</summary>
         public int? CompletedBlocks { get; set; }
         /// <summary>Name of the block currently executing.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_current_block? CurrentBlock { get; set; }
+        public string? CurrentBlock { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_current_block CurrentBlock { get; set; }
+        public string CurrentBlock { get; set; }
 #endif
         /// <summary>Sequence number of the block currently executing.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_current_block_sequence? CurrentBlockSequence { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_current_block_sequence CurrentBlockSequence { get; set; }
-#endif
+        public int? CurrentBlockSequence { get; set; }
         /// <summary>Block name preventing a full progress estimate, if any.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_estimation_blocked_by? EstimationBlockedBy { get; set; }
+        public string? EstimationBlockedBy { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_estimation_blocked_by EstimationBlockedBy { get; set; }
+        public string EstimationBlockedBy { get; set; }
 #endif
         /// <summary>Timestamp of the last status update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -67,7 +61,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #endif
         /// <summary>Overall run progress (0-100).</summary>
         public double? OverallProgressPercentage { get; set; }
-        /// <summary>Overall run status: queued, running, completed, or failed.</summary>
+        /// <summary>&quot;Overall run status: queued, running, completed, or failed.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OverallStatus { get; set; }
@@ -86,10 +80,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Timestamp when execution started.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_started_at? StartedAt { get; set; }
+        public string? StartedAt { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_started_at StartedAt { get; set; }
+        public string StartedAt { get; set; }
 #endif
         /// <summary>Total number of blocks in the workflow.</summary>
         public int? TotalBlocks { get; set; }
@@ -127,16 +121,16 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "blocks", n => { Blocks = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus>(global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "completed_at", n => { CompletedAt = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_completed_at>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_completed_at.CreateFromDiscriminatorValue); } },
+                { "completed_at", n => { CompletedAt = n.GetStringValue(); } },
                 { "completed_blocks", n => { CompletedBlocks = n.GetIntValue(); } },
-                { "current_block", n => { CurrentBlock = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_current_block>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_current_block.CreateFromDiscriminatorValue); } },
-                { "current_block_sequence", n => { CurrentBlockSequence = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_current_block_sequence>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_current_block_sequence.CreateFromDiscriminatorValue); } },
-                { "estimation_blocked_by", n => { EstimationBlockedBy = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_estimation_blocked_by>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_estimation_blocked_by.CreateFromDiscriminatorValue); } },
+                { "current_block", n => { CurrentBlock = n.GetStringValue(); } },
+                { "current_block_sequence", n => { CurrentBlockSequence = n.GetIntValue(); } },
+                { "estimation_blocked_by", n => { EstimationBlockedBy = n.GetStringValue(); } },
                 { "last_updated", n => { LastUpdated = n.GetStringValue(); } },
                 { "overall_progress_percentage", n => { OverallProgressPercentage = n.GetDoubleValue(); } },
                 { "overall_status", n => { OverallStatus = n.GetStringValue(); } },
                 { "run_id", n => { RunId = n.GetStringValue(); } },
-                { "started_at", n => { StartedAt = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_started_at>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_started_at.CreateFromDiscriminatorValue); } },
+                { "started_at", n => { StartedAt = n.GetStringValue(); } },
                 { "total_blocks", n => { TotalBlocks = n.GetIntValue(); } },
                 { "workflow_id", n => { WorkflowId = n.GetStringValue(); } },
             };
@@ -149,353 +143,19 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatus>("blocks", Blocks);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_completed_at>("completed_at", CompletedAt);
+            writer.WriteStringValue("completed_at", CompletedAt);
             writer.WriteIntValue("completed_blocks", CompletedBlocks);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_current_block>("current_block", CurrentBlock);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_current_block_sequence>("current_block_sequence", CurrentBlockSequence);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_estimation_blocked_by>("estimation_blocked_by", EstimationBlockedBy);
+            writer.WriteStringValue("current_block", CurrentBlock);
+            writer.WriteIntValue("current_block_sequence", CurrentBlockSequence);
+            writer.WriteStringValue("estimation_blocked_by", EstimationBlockedBy);
             writer.WriteStringValue("last_updated", LastUpdated);
             writer.WriteDoubleValue("overall_progress_percentage", OverallProgressPercentage);
             writer.WriteStringValue("overall_status", OverallStatus);
             writer.WriteStringValue("run_id", RunId);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_started_at>("started_at", StartedAt);
+            writer.WriteStringValue("started_at", StartedAt);
             writer.WriteIntValue("total_blocks", TotalBlocks);
             writer.WriteStringValue("workflow_id", WorkflowId);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse_completed_atMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WorkflowLiveStatusResponse_completed_at : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse_completed_atMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse_completed_atMember1? WorkflowLiveStatusResponseCompletedAtMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse_completed_atMember1 WorkflowLiveStatusResponseCompletedAtMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_completed_at"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_completed_at CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_completed_at();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.WorkflowLiveStatusResponseCompletedAtMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse_completed_atMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(WorkflowLiveStatusResponseCompletedAtMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(WorkflowLiveStatusResponseCompletedAtMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse_completed_atMember1>(null, WorkflowLiveStatusResponseCompletedAtMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse_current_blockMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WorkflowLiveStatusResponse_current_block : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse_current_blockMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse_current_blockMember1? WorkflowLiveStatusResponseCurrentBlockMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse_current_blockMember1 WorkflowLiveStatusResponseCurrentBlockMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_current_block"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_current_block CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_current_block();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.WorkflowLiveStatusResponseCurrentBlockMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse_current_blockMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(WorkflowLiveStatusResponseCurrentBlockMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(WorkflowLiveStatusResponseCurrentBlockMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse_current_blockMember1>(null, WorkflowLiveStatusResponseCurrentBlockMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse_current_block_sequenceMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WorkflowLiveStatusResponse_current_block_sequence : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse_current_block_sequenceMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse_current_block_sequenceMember1? WorkflowLiveStatusResponseCurrentBlockSequenceMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse_current_block_sequenceMember1 WorkflowLiveStatusResponseCurrentBlockSequenceMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_current_block_sequence"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_current_block_sequence CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_current_block_sequence();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.WorkflowLiveStatusResponseCurrentBlockSequenceMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse_current_block_sequenceMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(WorkflowLiveStatusResponseCurrentBlockSequenceMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(WorkflowLiveStatusResponseCurrentBlockSequenceMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse_current_block_sequenceMember1>(null, WorkflowLiveStatusResponseCurrentBlockSequenceMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse_estimation_blocked_byMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WorkflowLiveStatusResponse_estimation_blocked_by : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse_estimation_blocked_byMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse_estimation_blocked_byMember1? WorkflowLiveStatusResponseEstimationBlockedByMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse_estimation_blocked_byMember1 WorkflowLiveStatusResponseEstimationBlockedByMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_estimation_blocked_by"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_estimation_blocked_by CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_estimation_blocked_by();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.WorkflowLiveStatusResponseEstimationBlockedByMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse_estimation_blocked_byMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(WorkflowLiveStatusResponseEstimationBlockedByMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(WorkflowLiveStatusResponseEstimationBlockedByMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse_estimation_blocked_byMember1>(null, WorkflowLiveStatusResponseEstimationBlockedByMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse_started_atMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WorkflowLiveStatusResponse_started_at : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse_started_atMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse_started_atMember1? WorkflowLiveStatusResponseStartedAtMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse_started_atMember1 WorkflowLiveStatusResponseStartedAtMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_started_at"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_started_at CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.WorkflowLiveStatusResponse_started_at();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.WorkflowLiveStatusResponseStartedAtMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse_started_atMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(WorkflowLiveStatusResponseStartedAtMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(WorkflowLiveStatusResponseStartedAtMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse_started_atMember1>(null, WorkflowLiveStatusResponseStartedAtMember1);
-                }
-            }
         }
     }
 }

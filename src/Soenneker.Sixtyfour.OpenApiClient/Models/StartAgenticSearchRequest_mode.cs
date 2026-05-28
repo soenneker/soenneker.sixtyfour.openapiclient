@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
-    /// <summary>Search mode: &apos;people&apos; or &apos;company&apos;.</summary>
+    /// <summary>&quot;Search mode: &apos;people&apos; or &apos;company&apos;.&quot;</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum StartAgenticSearchRequest_mode
     {

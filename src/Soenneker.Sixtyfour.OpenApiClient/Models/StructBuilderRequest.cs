@@ -17,13 +17,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>The allow_nested property</summary>
         public bool? AllowNested { get; set; }
         /// <summary>The block_type property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequest.StructBuilderRequest_block_type? BlockType { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequest.StructBuilderRequest_block_type BlockType { get; set; }
-#endif
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequest_block_type? BlockType { get; set; }
         /// <summary>Natural language description of the fields to generate</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -35,10 +29,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>The existing_struct property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructField>? ExistingStruct { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Existing_Struct? ExistingStruct { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructField> ExistingStruct { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Existing_Struct ExistingStruct { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequest"/> and sets the default values.
@@ -66,9 +60,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "allow_nested", n => { AllowNested = n.GetBoolValue(); } },
-                { "block_type", n => { BlockType = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequest.StructBuilderRequest_block_type>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequest.StructBuilderRequest_block_type.CreateFromDiscriminatorValue); } },
+                { "block_type", n => { BlockType = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequest_block_type>(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "existing_struct", n => { ExistingStruct = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructField>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StructField.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "existing_struct", n => { ExistingStruct = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Existing_Struct>(global::Soenneker.Sixtyfour.OpenApiClient.Models.Existing_Struct.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -79,78 +73,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("allow_nested", AllowNested);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequest.StructBuilderRequest_block_type>("block_type", BlockType);
+            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequest_block_type>("block_type", BlockType);
             writer.WriteStringValue("description", Description);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructField>("existing_struct", ExistingStruct);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Existing_Struct>("existing_struct", ExistingStruct);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequest_block_typeMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StructBuilderRequest_block_type : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequest_block_typeMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequest_block_typeMember1? StructBuilderRequestBlockTypeMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequest_block_typeMember1 StructBuilderRequestBlockTypeMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequest.StructBuilderRequest_block_type"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequest.StructBuilderRequest_block_type CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequest.StructBuilderRequest_block_type();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.StructBuilderRequestBlockTypeMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequest_block_typeMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(StructBuilderRequestBlockTypeMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(StructBuilderRequestBlockTypeMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequest_block_typeMember1>(null, StructBuilderRequestBlockTypeMember1);
-                }
-            }
         }
     }
 }
