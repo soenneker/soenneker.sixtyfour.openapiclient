@@ -30,6 +30,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequest_cache_config CacheConfig { get; set; }
 #endif
+        /// <summary>The result_formats property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Result_Formats? ResultFormats { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Result_Formats ResultFormats { get; set; }
+#endif
         /// <summary>The save_json property</summary>
         public bool? SaveJson { get; set; }
         /// <summary>The specs property</summary>
@@ -75,6 +83,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             {
                 { "block_name", n => { BlockName = n.GetStringValue(); } },
                 { "cache_config", n => { CacheConfig = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequest_cache_config>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequest_cache_config.CreateFromDiscriminatorValue); } },
+                { "result_formats", n => { ResultFormats = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Result_Formats>(global::Soenneker.Sixtyfour.OpenApiClient.Models.Result_Formats.CreateFromDiscriminatorValue); } },
                 { "save_json", n => { SaveJson = n.GetBoolValue(); } },
                 { "specs", n => { Specs = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequest_specs>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequest_specs.CreateFromDiscriminatorValue); } },
                 { "webhook_payload", n => { WebhookPayload = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequest_webhook_payload>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequest_webhook_payload.CreateFromDiscriminatorValue); } },
@@ -89,6 +98,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("block_name", BlockName);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequest_cache_config>("cache_config", CacheConfig);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Result_Formats>("result_formats", ResultFormats);
             writer.WriteBoolValue("save_json", SaveJson);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequest_specs>("specs", Specs);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequest_webhook_payload>("webhook_payload", WebhookPayload);

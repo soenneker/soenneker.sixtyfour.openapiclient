@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Results.Download
         {
         }
         /// <summary>
-        /// List a workflow run&apos;s results with 15-minute signed download URLs. Use `format=json` for JSON results (requires the run to have used `save_json=true`).
+        /// List a workflow run&apos;s results with 15-minute signed download URLs.
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Results.Download
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// List a workflow run&apos;s results with 15-minute signed download URLs. Use `format=json` for JSON results (requires the run to have used `save_json=true`).
+        /// List a workflow run&apos;s results with 15-minute signed download URLs.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -98,12 +98,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Results.Download
             return new global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Results.DownloadLinks.DownloadLinksRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List a workflow run&apos;s results with 15-minute signed download URLs. Use `format=json` for JSON results (requires the run to have used `save_json=true`).
+        /// List a workflow run&apos;s results with 15-minute signed download URLs.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class DownloadLinksRequestBuilderGetQueryParameters 
         {
-            /// <summary>&quot;Result format: &apos;csv&apos; or &apos;json&apos;&quot;</summary>
+            /// <summary>&quot;Result format: &apos;csv&apos;, &apos;json&apos;, or &apos;ndjson&apos;&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("format")]

@@ -22,7 +22,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Run
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RunRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/workflows/run?workflow_id={workflow_id}{&save_json*}", pathParameters)
+        public RunRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/workflows/run?workflow_id={workflow_id}{&result_formats*,save_json*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Run
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RunRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/workflows/run?workflow_id={workflow_id}{&save_json*}", rawUrl)
+        public RunRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/workflows/run?workflow_id={workflow_id}{&result_formats*,save_json*}", rawUrl)
         {
         }
         /// <summary>
@@ -107,6 +107,16 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Run
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class RunRequestBuilderPostQueryParameters 
         {
+            /// <summary>Result formats to save. Repeat the parameter for multiple values, e.g. result_formats=csv&amp;result_formats=ndjson.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("result_formats")]
+            public string? ResultFormats { get; set; }
+#nullable restore
+#else
+            [QueryParameter("result_formats")]
+            public string ResultFormats { get; set; }
+#endif
             /// <summary>Also save results as JSON</summary>
             [QueryParameter("save_json")]
             public bool? SaveJson { get; set; }

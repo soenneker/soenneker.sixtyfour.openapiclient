@@ -5021,6 +5021,22 @@
             }
           },
           {
+            "name": "result_formats",
+            "in": "query",
+            "description": "Result formats to save. Repeat the parameter for multiple values, e.g. result_formats=csv&result_formats=ndjson.",
+            "schema": {
+              "title": "Result Formats",
+              "type": "object",
+              "anyOf": [
+                {
+                  "type": "string"
+                }
+              ],
+              "description": "Result formats to save. Repeat the parameter for multiple values, e.g. result_formats=csv&result_formats=ndjson.",
+              "nullable": true
+            }
+          },
+          {
             "name": "x-api-key",
             "in": "header",
             "schema": {
@@ -5147,7 +5163,7 @@
           "Workflow"
         ],
         "summary": "List Run Result Downloads",
-        "description": "List a workflow run's results with 15-minute signed download URLs. Use `format=json` for JSON results (requires the run to have used `save_json=true`).",
+        "description": "List a workflow run's results with 15-minute signed download URLs.",
         "operationId": "list-run-results-with-download-links-workflows-runs-run-id-results-download-links-get",
         "parameters": [
           {
@@ -5163,11 +5179,11 @@
           {
             "name": "format",
             "in": "query",
-            "description": "\"Result format: 'csv' or 'json'\"",
+            "description": "\"Result format: 'csv', 'json', or 'ndjson'\"",
             "schema": {
               "title": "Format",
               "type": "string",
-              "description": "\"Result format: 'csv' or 'json'\"",
+              "description": "\"Result format: 'csv', 'json', or 'ndjson'\"",
               "default": "csv"
             }
           },
@@ -14973,6 +14989,16 @@
             "type": "boolean",
             "default": false
           },
+          "result_formats": {
+            "title": "Result Formats",
+            "type": "object",
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Result_Formats"
+              }
+            ],
+            "nullable": true
+          },
           "cache_config": {
             "title": "Cache Config",
             "type": "object",
@@ -20537,6 +20563,20 @@
         }
       },
       "Exclude_Public_Ids": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "Result_Formats": {
         "required": [
           "value"
         ],
