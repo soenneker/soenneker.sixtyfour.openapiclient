@@ -70,6 +70,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public ChatSessionSummary()
         {
             AdditionalData = new Dictionary<string, object>();
+            HasUnread = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

@@ -36,6 +36,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             AdditionalData = new Dictionary<string, object>();
             DataframeType = "LEAD";
+            RowCount = 0;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

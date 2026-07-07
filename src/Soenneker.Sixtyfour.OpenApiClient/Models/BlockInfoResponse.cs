@@ -26,10 +26,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>JSON Schema describing the block&apos;s `specs` payload.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockInfoResponse_specs_schema? SpecsSchema { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockInfoResponseSpecsSchemaProperty? SpecsSchema { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockInfoResponse_specs_schema SpecsSchema { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockInfoResponseSpecsSchemaProperty SpecsSchema { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockInfoResponse"/> and sets the default values.
@@ -57,7 +57,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "block_name", n => { BlockName = n.GetStringValue(); } },
-                { "specs_schema", n => { SpecsSchema = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockInfoResponse_specs_schema>(global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockInfoResponse_specs_schema.CreateFromDiscriminatorValue); } },
+                { "specs_schema", n => { SpecsSchema = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockInfoResponseSpecsSchemaProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockInfoResponseSpecsSchemaProperty.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -68,7 +68,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("block_name", BlockName);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockInfoResponse_specs_schema>("specs_schema", SpecsSchema);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockInfoResponseSpecsSchemaProperty>("specs_schema", SpecsSchema);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

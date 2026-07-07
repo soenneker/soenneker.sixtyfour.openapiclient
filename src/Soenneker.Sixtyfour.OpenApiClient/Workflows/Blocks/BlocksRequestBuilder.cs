@@ -39,13 +39,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Blocks
         /// <returns>A List&lt;global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockInfoResponse&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetAvailableBlocksWorkflowsBlocksGet400">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetAvailableBlocksWorkflowsBlocksGet401">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetAvailableBlocksWorkflowsBlocksGet403">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetAvailableBlocksWorkflowsBlocksGet404">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetAvailableBlocksWorkflowsBlocksGet409">When receiving a 409 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetAvailableBlocksWorkflowsBlocksGet500">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetAvailableBlocksWorkflowsBlocksGet400Response">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetAvailableBlocksWorkflowsBlocksGet401Response">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetAvailableBlocksWorkflowsBlocksGet403Response">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetAvailableBlocksWorkflowsBlocksGet404Response">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetAvailableBlocksWorkflowsBlocksGet409Response">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetAvailableBlocksWorkflowsBlocksGet500Response">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<List<global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockInfoResponse>?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -58,13 +58,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Blocks
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetAvailableBlocksWorkflowsBlocksGet400.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetAvailableBlocksWorkflowsBlocksGet401.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetAvailableBlocksWorkflowsBlocksGet403.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetAvailableBlocksWorkflowsBlocksGet404.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetAvailableBlocksWorkflowsBlocksGet409.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetAvailableBlocksWorkflowsBlocksGet500.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetAvailableBlocksWorkflowsBlocksGet400Response.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetAvailableBlocksWorkflowsBlocksGet401Response.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetAvailableBlocksWorkflowsBlocksGet403Response.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetAvailableBlocksWorkflowsBlocksGet404Response.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetAvailableBlocksWorkflowsBlocksGet409Response.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetAvailableBlocksWorkflowsBlocksGet500Response.CreateFromDiscriminatorValue },
             };
             var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockInfoResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockInfoResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();

@@ -30,6 +30,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public AgentSettingsResponse()
         {
             AdditionalData = new Dictionary<string, object>();
+            YoloMode = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

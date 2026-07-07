@@ -64,10 +64,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Inline rows when the file is small enough to embed; otherwise null.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Results? Results { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownloadResults? Results { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Results Results { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownloadResults Results { get; set; }
 #endif
         /// <summary>Number of rows in the file.</summary>
         public int? RowCount { get; set; }
@@ -85,6 +85,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public WorkflowResultItemWithDownload()
         {
             AdditionalData = new Dictionary<string, object>();
+            DownloadExpiresInSeconds = 900;
+            RowCount = 0;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -112,7 +114,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "file_size", n => { FileSize = n.GetIntValue(); } },
                 { "filename", n => { Filename = n.GetStringValue(); } },
                 { "message", n => { Message = n.GetStringValue(); } },
-                { "results", n => { Results = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Results>(global::Soenneker.Sixtyfour.OpenApiClient.Models.Results.CreateFromDiscriminatorValue); } },
+                { "results", n => { Results = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownloadResults>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownloadResults.CreateFromDiscriminatorValue); } },
                 { "row_count", n => { RowCount = n.GetIntValue(); } },
                 { "storage_bucket", n => { StorageBucket = n.GetStringValue(); } },
             };
@@ -132,7 +134,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteStringValue("filename", Filename);
             writer.WriteIntValue("file_size", FileSize);
             writer.WriteStringValue("message", Message);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Results>("results", Results);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownloadResults>("results", Results);
             writer.WriteIntValue("row_count", RowCount);
             writer.WriteStringValue("storage_bucket", StorageBucket);
             writer.WriteAdditionalData(AdditionalData);

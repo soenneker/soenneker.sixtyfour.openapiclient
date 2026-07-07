@@ -4,6 +4,8 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Sixtyfour.OpenApiClient.Search.DeepSearchStatus;
 using Soenneker.Sixtyfour.OpenApiClient.Search.Download;
+using Soenneker.Sixtyfour.OpenApiClient.Search.ExclusionLists;
+using Soenneker.Sixtyfour.OpenApiClient.Search.Export;
 using Soenneker.Sixtyfour.OpenApiClient.Search.FilterCapabilities;
 using Soenneker.Sixtyfour.OpenApiClient.Search.FilterFieldValues;
 using Soenneker.Sixtyfour.OpenApiClient.Search.GenerateTitle;
@@ -11,6 +13,7 @@ using Soenneker.Sixtyfour.OpenApiClient.Search.History;
 using Soenneker.Sixtyfour.OpenApiClient.Search.Query;
 using Soenneker.Sixtyfour.OpenApiClient.Search.StartDeepSearch;
 using Soenneker.Sixtyfour.OpenApiClient.Search.StartFilterSearch;
+using Soenneker.Sixtyfour.OpenApiClient.Search.Status;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -32,6 +35,16 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search
         public global::Soenneker.Sixtyfour.OpenApiClient.Search.Download.DownloadRequestBuilder Download
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.Search.Download.DownloadRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The exclusionLists property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.Search.ExclusionLists.ExclusionListsRequestBuilder ExclusionLists
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.Search.ExclusionLists.ExclusionListsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The export property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.Search.Export.ExportRequestBuilder Export
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.Search.Export.ExportRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The filterCapabilities property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Search.FilterCapabilities.FilterCapabilitiesRequestBuilder FilterCapabilities
@@ -67,6 +80,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search
         public global::Soenneker.Sixtyfour.OpenApiClient.Search.StartFilterSearch.StartFilterSearchRequestBuilder StartFilterSearch
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.Search.StartFilterSearch.StartFilterSearchRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The status property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.Search.Status.StatusRequestBuilder Status
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.Search.Status.StatusRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Search.SearchRequestBuilder"/> and sets the default values.

@@ -17,10 +17,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Replacement workflow graph.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowGraph? WorkflowDefinition { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateWorkflowRequestWorkflowDefinition? WorkflowDefinition { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowGraph WorkflowDefinition { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateWorkflowRequestWorkflowDefinition WorkflowDefinition { get; set; }
 #endif
         /// <summary>New workflow description.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,7 +63,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "workflow_definition", n => { WorkflowDefinition = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowGraph>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowGraph.CreateFromDiscriminatorValue); } },
+                { "workflow_definition", n => { WorkflowDefinition = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateWorkflowRequestWorkflowDefinition>(global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateWorkflowRequestWorkflowDefinition.CreateFromDiscriminatorValue); } },
                 { "workflow_description", n => { WorkflowDescription = n.GetStringValue(); } },
                 { "workflow_name", n => { WorkflowName = n.GetStringValue(); } },
             };
@@ -75,7 +75,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowGraph>("workflow_definition", WorkflowDefinition);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateWorkflowRequestWorkflowDefinition>("workflow_definition", WorkflowDefinition);
             writer.WriteStringValue("workflow_description", WorkflowDescription);
             writer.WriteStringValue("workflow_name", WorkflowName);
             writer.WriteAdditionalData(AdditionalData);

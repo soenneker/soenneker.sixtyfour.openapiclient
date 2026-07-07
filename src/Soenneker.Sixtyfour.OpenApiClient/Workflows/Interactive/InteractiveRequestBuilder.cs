@@ -23,14 +23,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Interactive
         }
         /// <summary>Gets an item from the Soenneker.Sixtyfour.OpenApiClient.workflows.interactive.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Interactive.Item.WithJob_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Interactive.Item.WithJob_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Interactive.Item.WithJobItemRequestBuilder"/></returns>
+        public global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Interactive.Item.WithJobItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("job_id", position);
-                return new global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Interactive.Item.WithJob_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("jobId", position);
+                return new global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Interactive.Item.WithJobItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

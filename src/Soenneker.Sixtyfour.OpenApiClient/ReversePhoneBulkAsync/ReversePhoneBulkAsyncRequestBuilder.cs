@@ -36,41 +36,41 @@ namespace Soenneker.Sixtyfour.OpenApiClient.ReversePhoneBulkAsync
         /// <summary>
         /// Resolve people from a batch of phone numbers; returns a job ID to poll.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.ReversePhoneBulkAsync.ReversePhoneBulkAsyncPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkAsyncEndpointReversePhoneBulkAsyncPost200ResponseResponseJson"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkAsyncEndpointReversePhoneBulkAsyncPost400">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkAsyncEndpointReversePhoneBulkAsyncPost401">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkAsyncEndpointReversePhoneBulkAsyncPost402">When receiving a 402 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkAsyncEndpointReversePhoneBulkAsyncPost403">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkAsyncEndpointReversePhoneBulkAsyncPost404">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkAsyncEndpointReversePhoneBulkAsyncPost429">When receiving a 429 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkAsyncEndpointReversePhoneBulkAsyncPost500">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkAsyncEndpointReversePhoneBulkAsyncPost400Response">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkAsyncEndpointReversePhoneBulkAsyncPost401Response">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkAsyncEndpointReversePhoneBulkAsyncPost402Response">When receiving a 402 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkAsyncEndpointReversePhoneBulkAsyncPost403Response">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkAsyncEndpointReversePhoneBulkAsyncPost404Response">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkAsyncEndpointReversePhoneBulkAsyncPost429Response">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkAsyncEndpointReversePhoneBulkAsyncPost500Response">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.ReversePhoneBulkAsync.ReversePhoneBulkAsyncPostResponse?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkAsyncEndpointReversePhoneBulkAsyncPost200ResponseResponseJson?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.ReversePhoneBulkAsync.ReversePhoneBulkAsyncPostResponse> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkAsyncEndpointReversePhoneBulkAsyncPost200ResponseResponseJson> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkAsyncEndpointReversePhoneBulkAsyncPost400.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkAsyncEndpointReversePhoneBulkAsyncPost401.CreateFromDiscriminatorValue },
-                { "402", global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkAsyncEndpointReversePhoneBulkAsyncPost402.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkAsyncEndpointReversePhoneBulkAsyncPost403.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkAsyncEndpointReversePhoneBulkAsyncPost404.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkAsyncEndpointReversePhoneBulkAsyncPost429.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkAsyncEndpointReversePhoneBulkAsyncPost500.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkAsyncEndpointReversePhoneBulkAsyncPost400Response.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkAsyncEndpointReversePhoneBulkAsyncPost401Response.CreateFromDiscriminatorValue },
+                { "402", global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkAsyncEndpointReversePhoneBulkAsyncPost402Response.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkAsyncEndpointReversePhoneBulkAsyncPost403Response.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkAsyncEndpointReversePhoneBulkAsyncPost404Response.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkAsyncEndpointReversePhoneBulkAsyncPost429Response.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkAsyncEndpointReversePhoneBulkAsyncPost500Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.ReversePhoneBulkAsync.ReversePhoneBulkAsyncPostResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.ReversePhoneBulkAsync.ReversePhoneBulkAsyncPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkAsyncEndpointReversePhoneBulkAsyncPost200ResponseResponseJson>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkAsyncEndpointReversePhoneBulkAsyncPost200ResponseResponseJson.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Resolve people from a batch of phone numbers; returns a job ID to poll.

@@ -17,18 +17,18 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Optional specs to override first block specs</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPost_specs_override? SpecsOverride { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPostSpecsOverride? SpecsOverride { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPost_specs_override SpecsOverride { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPostSpecsOverride SpecsOverride { get; set; }
 #endif
         /// <summary>For API key auth only - can be a list or dict</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPost_webhook_payload? WebhookPayload { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPostWebhookPayload? WebhookPayload { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPost_webhook_payload WebhookPayload { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPostWebhookPayload WebhookPayload { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPost"/> and sets the default values.
@@ -55,8 +55,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "specs_override", n => { SpecsOverride = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPost_specs_override>(global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPost_specs_override.CreateFromDiscriminatorValue); } },
-                { "webhook_payload", n => { WebhookPayload = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPost_webhook_payload>(global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPost_webhook_payload.CreateFromDiscriminatorValue); } },
+                { "specs_override", n => { SpecsOverride = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPostSpecsOverride>(global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPostSpecsOverride.CreateFromDiscriminatorValue); } },
+                { "webhook_payload", n => { WebhookPayload = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPostWebhookPayload>(global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPostWebhookPayload.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -66,8 +66,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPost_specs_override>("specs_override", SpecsOverride);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPost_webhook_payload>("webhook_payload", WebhookPayload);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPostSpecsOverride>("specs_override", SpecsOverride);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPostWebhookPayload>("webhook_payload", WebhookPayload);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

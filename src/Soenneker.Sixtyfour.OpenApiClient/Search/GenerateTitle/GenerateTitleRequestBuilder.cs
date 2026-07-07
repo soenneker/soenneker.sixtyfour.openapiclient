@@ -36,49 +36,49 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.GenerateTitle
         /// <summary>
         /// &quot;LLM-summarize a parsed_query into a short label for the SearchViewer.Returns ``{\&quot;title\&quot;: \&quot;...\&quot;}`` matching the legacy WebApp tRPC procedureso the existing useSearchTitle consumer&apos;s mutation response shape isunchanged.&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Search.GenerateTitle.GenerateTitlePostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost200Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost400">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost401">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost402">When receiving a 402 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost403">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost404">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost409">When receiving a 409 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost429">When receiving a 429 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost500">When receiving a 500 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost502">When receiving a 502 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost503">When receiving a 503 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost504">When receiving a 504 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost400Response">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost401Response">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost402Response">When receiving a 402 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost403Response">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost404Response">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost409Response">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost429Response">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost500Response">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost502Response">When receiving a 502 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost503Response">When receiving a 503 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost504Response">When receiving a 504 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Search.GenerateTitle.GenerateTitlePostResponse?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost200Response?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Search.GenerateTitle.GenerateTitlePostResponse> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost200Response> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost400.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost401.CreateFromDiscriminatorValue },
-                { "402", global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost402.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost403.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost404.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost409.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost429.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost500.CreateFromDiscriminatorValue },
-                { "502", global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost502.CreateFromDiscriminatorValue },
-                { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost503.CreateFromDiscriminatorValue },
-                { "504", global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost504.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost400Response.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost401Response.CreateFromDiscriminatorValue },
+                { "402", global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost402Response.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost403Response.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost404Response.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost409Response.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost429Response.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost500Response.CreateFromDiscriminatorValue },
+                { "502", global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost502Response.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost503Response.CreateFromDiscriminatorValue },
+                { "504", global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost504Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Search.GenerateTitle.GenerateTitlePostResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Search.GenerateTitle.GenerateTitlePostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost200Response>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;LLM-summarize a parsed_query into a short label for the SearchViewer.Returns ``{\&quot;title\&quot;: \&quot;...\&quot;}`` matching the legacy WebApp tRPC procedureso the existing useSearchTitle consumer&apos;s mutation response shape isunchanged.&quot;

@@ -24,16 +24,16 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string Id { get; set; }
 #endif
         /// <summary>The kind property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ViewerSpec_kind? Kind { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ViewerSpecKind? Kind { get; set; }
         /// <summary>The openedAt property</summary>
         public int? OpenedAt { get; set; }
         /// <summary>The state property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ViewerSpec_state? State { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ViewerSpecState? State { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ViewerSpec_state State { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ViewerSpecState State { get; set; }
 #endif
         /// <summary>The title property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -69,9 +69,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ViewerSpec_kind>(); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ViewerSpecKind>(); } },
                 { "openedAt", n => { OpenedAt = n.GetIntValue(); } },
-                { "state", n => { State = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ViewerSpec_state>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ViewerSpec_state.CreateFromDiscriminatorValue); } },
+                { "state", n => { State = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ViewerSpecState>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ViewerSpecState.CreateFromDiscriminatorValue); } },
                 { "title", n => { Title = n.GetStringValue(); } },
             };
         }
@@ -83,9 +83,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("id", Id);
-            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ViewerSpec_kind>("kind", Kind);
+            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ViewerSpecKind>("kind", Kind);
             writer.WriteIntValue("openedAt", OpenedAt);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ViewerSpec_state>("state", State);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ViewerSpecState>("state", State);
             writer.WriteStringValue("title", Title);
             writer.WriteAdditionalData(AdditionalData);
         }

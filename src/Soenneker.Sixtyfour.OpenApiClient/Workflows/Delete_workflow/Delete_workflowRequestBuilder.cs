@@ -39,13 +39,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Delete_workflow
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteWorkflowWorkflowsDeleteWorkflowPost400">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteWorkflowWorkflowsDeleteWorkflowPost401">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteWorkflowWorkflowsDeleteWorkflowPost403">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteWorkflowWorkflowsDeleteWorkflowPost404">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteWorkflowWorkflowsDeleteWorkflowPost409">When receiving a 409 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteWorkflowWorkflowsDeleteWorkflowPost500">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteWorkflowWorkflowsDeleteWorkflowPost400Response">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteWorkflowWorkflowsDeleteWorkflowPost401Response">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteWorkflowWorkflowsDeleteWorkflowPost403Response">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteWorkflowWorkflowsDeleteWorkflowPost404Response">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteWorkflowWorkflowsDeleteWorkflowPost409Response">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteWorkflowWorkflowsDeleteWorkflowPost500Response">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse?> PostAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Delete_workflow.Delete_workflowRequestBuilder.Delete_workflowRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -58,13 +58,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Delete_workflow
             var requestInfo = ToPostRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteWorkflowWorkflowsDeleteWorkflowPost400.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteWorkflowWorkflowsDeleteWorkflowPost401.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteWorkflowWorkflowsDeleteWorkflowPost403.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteWorkflowWorkflowsDeleteWorkflowPost404.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteWorkflowWorkflowsDeleteWorkflowPost409.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteWorkflowWorkflowsDeleteWorkflowPost500.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteWorkflowWorkflowsDeleteWorkflowPost400Response.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteWorkflowWorkflowsDeleteWorkflowPost401Response.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteWorkflowWorkflowsDeleteWorkflowPost403Response.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteWorkflowWorkflowsDeleteWorkflowPost404Response.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteWorkflowWorkflowsDeleteWorkflowPost409Response.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteWorkflowWorkflowsDeleteWorkflowPost500Response.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

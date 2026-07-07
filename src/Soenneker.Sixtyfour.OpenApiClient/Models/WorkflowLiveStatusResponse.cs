@@ -101,6 +101,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public WorkflowLiveStatusResponse()
         {
             AdditionalData = new Dictionary<string, object>();
+            CompletedBlocks = 0;
+            OverallProgressPercentage = 0.0;
+            TotalBlocks = 0;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

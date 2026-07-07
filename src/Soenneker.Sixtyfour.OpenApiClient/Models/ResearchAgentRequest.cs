@@ -17,10 +17,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>The input_data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest_input_data? InputData { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequestInputDataProperty? InputData { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest_input_data InputData { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequestInputDataProperty InputData { get; set; }
 #endif
         /// <summary>The research_plan property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -33,10 +33,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>The struct property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest_struct? Struct { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequestStruct? Struct { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest_struct Struct { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequestStruct Struct { get; set; }
 #endif
         /// <summary>The webhook_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -71,9 +71,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "input_data", n => { InputData = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest_input_data>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest_input_data.CreateFromDiscriminatorValue); } },
+                { "input_data", n => { InputData = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequestInputDataProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequestInputDataProperty.CreateFromDiscriminatorValue); } },
                 { "research_plan", n => { ResearchPlan = n.GetStringValue(); } },
-                { "struct", n => { Struct = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest_struct>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest_struct.CreateFromDiscriminatorValue); } },
+                { "struct", n => { Struct = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequestStruct>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequestStruct.CreateFromDiscriminatorValue); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
             };
         }
@@ -84,9 +84,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest_input_data>("input_data", InputData);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequestInputDataProperty>("input_data", InputData);
             writer.WriteStringValue("research_plan", ResearchPlan);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequest_struct>("struct", Struct);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResearchAgentRequestStruct>("struct", Struct);
             writer.WriteStringValue("webhook_url", WebhookUrl);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -22,6 +22,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public RollRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            ExpireOverlapHours = 24;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

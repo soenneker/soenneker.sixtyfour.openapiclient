@@ -17,20 +17,20 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Single lead to process. Provide any combination of name, email, company, linkedin, etc.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest_lead? Lead { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequestLeadProperty? Lead { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest_lead Lead { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequestLeadProperty Lead { get; set; }
 #endif
         /// <summary>&quot;Email type to discover: &apos;PROFESSIONAL&apos; (work) or &apos;PERSONAL&apos;.&quot;</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest_mode? Mode { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequestMode? Mode { get; set; }
         /// <summary>Override the default provider waterfall by listing provider IDs in priority order.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Providers? Providers { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequestProviders? Providers { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Providers Providers { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequestProviders Providers { get; set; }
 #endif
         /// <summary>SMTP-verify each discovered email before returning it.</summary>
         public bool? VerifyEmails { get; set; }
@@ -48,7 +48,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public FindEmailRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            Mode = global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest_mode.PROFESSIONAL;
+            VerifyEmails = true;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -68,9 +68,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "lead", n => { Lead = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest_lead>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest_lead.CreateFromDiscriminatorValue); } },
-                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest_mode>(); } },
-                { "providers", n => { Providers = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Providers>(global::Soenneker.Sixtyfour.OpenApiClient.Models.Providers.CreateFromDiscriminatorValue); } },
+                { "lead", n => { Lead = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequestLeadProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequestLeadProperty.CreateFromDiscriminatorValue); } },
+                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequestMode>(); } },
+                { "providers", n => { Providers = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequestProviders>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequestProviders.CreateFromDiscriminatorValue); } },
                 { "verify_emails", n => { VerifyEmails = n.GetBoolValue(); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
             };
@@ -82,9 +82,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest_lead>("lead", Lead);
-            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest_mode>("mode", Mode);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Providers>("providers", Providers);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequestLeadProperty>("lead", Lead);
+            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequestMode>("mode", Mode);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequestProviders>("providers", Providers);
             writer.WriteBoolValue("verify_emails", VerifyEmails);
             writer.WriteStringValue("webhook_url", WebhookUrl);
             writer.WriteAdditionalData(AdditionalData);

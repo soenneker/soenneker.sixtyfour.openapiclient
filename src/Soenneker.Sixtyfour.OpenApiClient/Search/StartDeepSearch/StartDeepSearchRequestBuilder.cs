@@ -40,18 +40,18 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.StartDeepSearch
         /// <param name="body">Request to start an agentic search workflow.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost400">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost401">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost402">When receiving a 402 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost403">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost404">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost409">When receiving a 409 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost429">When receiving a 429 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost500">When receiving a 500 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost502">When receiving a 502 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost503">When receiving a 503 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost504">When receiving a 504 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost400Response">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost401Response">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost402Response">When receiving a 402 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost403Response">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost404Response">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost409Response">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost429Response">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost500Response">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost502Response">When receiving a 502 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost503Response">When receiving a 503 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost504Response">When receiving a 504 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchResponse?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -65,18 +65,18 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.StartDeepSearch
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost400.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost401.CreateFromDiscriminatorValue },
-                { "402", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost402.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost403.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost404.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost409.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost429.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost500.CreateFromDiscriminatorValue },
-                { "502", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost502.CreateFromDiscriminatorValue },
-                { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost503.CreateFromDiscriminatorValue },
-                { "504", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost504.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost400Response.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost401Response.CreateFromDiscriminatorValue },
+                { "402", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost402Response.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost403Response.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost404Response.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost409Response.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost429Response.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost500Response.CreateFromDiscriminatorValue },
+                { "502", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost502Response.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost503Response.CreateFromDiscriminatorValue },
+                { "504", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchEndpointSearchStartDeepSearchPost504Response.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

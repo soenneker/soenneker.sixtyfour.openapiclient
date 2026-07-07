@@ -52,7 +52,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string MappingHash { get; set; }
 #endif
         /// <summary>Search mode these capabilities apply to.</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchCapabilitiesResponse_mode? Mode { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchCapabilitiesResponseMode? Mode { get; set; }
         /// <summary>Allowed nested.path values for nested query clauses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -64,10 +64,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Supported MongoDB-style operators for simple_filters input.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Simple_Query_Operators? SimpleQueryOperators { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchCapabilitiesResponseSimpleQueryOperators? SimpleQueryOperators { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Simple_Query_Operators SimpleQueryOperators { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchCapabilitiesResponseSimpleQueryOperators SimpleQueryOperators { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchCapabilitiesResponse"/> and sets the default values.
@@ -75,7 +75,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public FilterSearchCapabilitiesResponse()
         {
             AdditionalData = new Dictionary<string, object>();
-            Mode = global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchCapabilitiesResponse_mode.Company;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -101,9 +100,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "index_name", n => { IndexName = n.GetStringValue(); } },
                 { "limits", n => { Limits = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchLimits>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchLimits.CreateFromDiscriminatorValue); } },
                 { "mapping_hash", n => { MappingHash = n.GetStringValue(); } },
-                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchCapabilitiesResponse_mode>(); } },
+                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchCapabilitiesResponseMode>(); } },
                 { "nested_paths", n => { NestedPaths = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "simple_query_operators", n => { SimpleQueryOperators = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Simple_Query_Operators>(global::Soenneker.Sixtyfour.OpenApiClient.Models.Simple_Query_Operators.CreateFromDiscriminatorValue); } },
+                { "simple_query_operators", n => { SimpleQueryOperators = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchCapabilitiesResponseSimpleQueryOperators>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchCapabilitiesResponseSimpleQueryOperators.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -119,9 +118,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteStringValue("index_name", IndexName);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchLimits>("limits", Limits);
             writer.WriteStringValue("mapping_hash", MappingHash);
-            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchCapabilitiesResponse_mode>("mode", Mode);
+            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchCapabilitiesResponseMode>("mode", Mode);
             writer.WriteCollectionOfPrimitiveValues<string>("nested_paths", NestedPaths);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Simple_Query_Operators>("simple_query_operators", SimpleQueryOperators);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchCapabilitiesResponseSimpleQueryOperators>("simple_query_operators", SimpleQueryOperators);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

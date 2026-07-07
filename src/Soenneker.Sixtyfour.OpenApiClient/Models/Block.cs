@@ -44,10 +44,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Block-specific configuration; shape depends on `block_name`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Block_specs? Specs { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockSpecsProperty? Specs { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Block_specs Specs { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockSpecsProperty Specs { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.Block"/> and sets the default values.
@@ -78,7 +78,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "block_name", n => { BlockName = n.GetStringValue(); } },
                 { "block_type", n => { BlockType = n.GetStringValue(); } },
                 { "sequence_number", n => { SequenceNumber = n.GetIntValue(); } },
-                { "specs", n => { Specs = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Block_specs>(global::Soenneker.Sixtyfour.OpenApiClient.Models.Block_specs.CreateFromDiscriminatorValue); } },
+                { "specs", n => { Specs = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockSpecsProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockSpecsProperty.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -92,7 +92,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteStringValue("block_name", BlockName);
             writer.WriteStringValue("block_type", BlockType);
             writer.WriteIntValue("sequence_number", SequenceNumber);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Block_specs>("specs", Specs);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockSpecsProperty>("specs", Specs);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

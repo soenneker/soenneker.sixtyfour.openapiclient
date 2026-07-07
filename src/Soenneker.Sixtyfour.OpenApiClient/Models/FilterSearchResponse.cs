@@ -29,7 +29,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public int? DownloadExpiresInSeconds { get; set; }
         /// <summary>Legacy export count; always 0 for company direct-filter mode.</summary>
         public int? ExportedCount { get; set; }
-        /// <summary>True when another page is available via `next_cursor`.</summary>
+        /// <summary>True when another page is available via `next_cursor`. Always continue via the cursor; a short or empty page does NOT mean the results are exhausted.</summary>
         public bool? HasMore { get; set; }
         /// <summary>Signed URL to download results as JSON.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -57,19 +57,19 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string NextCursor { get; set; }
 #endif
-        /// <summary>Number of results in this response page.</summary>
+        /// <summary>Number of results in this response page. May be less than `page_size` (down to 0) while `has_more` is true, e.g. when exclusion filtering is active.</summary>
         public int? PageCount { get; set; }
         /// <summary>1-based page number (company pagination).</summary>
         public int? PageNumber { get; set; }
-        /// <summary>Number of results per page (1-100).</summary>
+        /// <summary>Maximum number of results per page (1-100). Pages may contain fewer rows while more results remain (e.g. with exclusion filtering); rely on `has_more`/`next_cursor`, never on page fullness.</summary>
         public int? PageSize { get; set; }
         /// <summary>Structured filter set echoed back; round-trippable into a follow-up request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_parsed_query? ParsedQuery { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseParsedQuery? ParsedQuery { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_parsed_query ParsedQuery { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseParsedQuery ParsedQuery { get; set; }
 #endif
         /// <summary>Rows still available under max_results after this page.</summary>
         public int? RemainingResults { get; set; }
@@ -86,12 +86,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Rows returned for the current page.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_results>? Results { get; set; }
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseResultsItemProperty>? Results { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_results> Results { get; set; }
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseResultsItemProperty> Results { get; set; }
 #endif
-        /// <summary>Search history ID; reuse with /search/query or /search/export.</summary>
+        /// <summary>Search history ID returned by a previous search. Replays only the query shape; pass exclusions again on this request if they should apply.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SearchId { get; set; }
@@ -99,7 +99,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string SearchId { get; set; }
 #endif
-        /// <summary>Total OpenSearch matches across pages (capped at 50000); people-mode only.</summary>
+        /// <summary>&quot;Total OpenSearch matches across pages (capped at 50000); people-mode only. Pre-exclusion: exclusion filtering does not reduce this count.&quot;</summary>
         public int? TotalAvailable { get; set; }
         /// <summary>Final total page count; omitted while `has_more` is true.</summary>
         public int? TotalPages { get; set; }
@@ -111,6 +111,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public FilterSearchResponse()
         {
             AdditionalData = new Dictionary<string, object>();
+            ExportedCount = 0;
+            HasMore = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -142,11 +144,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "page_count", n => { PageCount = n.GetIntValue(); } },
                 { "page_number", n => { PageNumber = n.GetIntValue(); } },
                 { "page_size", n => { PageSize = n.GetIntValue(); } },
-                { "parsed_query", n => { ParsedQuery = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_parsed_query>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_parsed_query.CreateFromDiscriminatorValue); } },
+                { "parsed_query", n => { ParsedQuery = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseParsedQuery>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseParsedQuery.CreateFromDiscriminatorValue); } },
                 { "remaining_results", n => { RemainingResults = n.GetIntValue(); } },
                 { "request_duration_ms", n => { RequestDurationMs = n.GetIntValue(); } },
                 { "resource_handle_id", n => { ResourceHandleId = n.GetStringValue(); } },
-                { "results", n => { Results = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_results>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_results.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "results", n => { Results = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseResultsItemProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseResultsItemProperty.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "search_id", n => { SearchId = n.GetStringValue(); } },
                 { "total_available", n => { TotalAvailable = n.GetIntValue(); } },
                 { "total_pages", n => { TotalPages = n.GetIntValue(); } },
@@ -172,11 +174,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteIntValue("page_count", PageCount);
             writer.WriteIntValue("page_number", PageNumber);
             writer.WriteIntValue("page_size", PageSize);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_parsed_query>("parsed_query", ParsedQuery);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseParsedQuery>("parsed_query", ParsedQuery);
             writer.WriteIntValue("remaining_results", RemainingResults);
             writer.WriteIntValue("request_duration_ms", RequestDurationMs);
             writer.WriteStringValue("resource_handle_id", ResourceHandleId);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse_results>("results", Results);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseResultsItemProperty>("results", Results);
             writer.WriteStringValue("search_id", SearchId);
             writer.WriteIntValue("total_available", TotalAvailable);
             writer.WriteIntValue("total_pages", TotalPages);

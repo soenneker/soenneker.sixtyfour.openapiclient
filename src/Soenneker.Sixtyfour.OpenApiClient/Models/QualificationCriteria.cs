@@ -40,6 +40,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public QualificationCriteria()
         {
             AdditionalData = new Dictionary<string, object>();
+            Weight = 1.0;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

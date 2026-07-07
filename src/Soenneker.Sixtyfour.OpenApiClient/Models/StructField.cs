@@ -30,16 +30,24 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
+        /// <summary>The options property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StructFieldOptions? Options { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StructFieldOptions Options { get; set; }
+#endif
         /// <summary>The subfields property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Subfields? Subfields { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StructFieldSubfields? Subfields { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Subfields Subfields { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StructFieldSubfields Subfields { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StructField_type? Type { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StructFieldType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StructField"/> and sets the default values.
         /// </summary>
@@ -67,8 +75,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             {
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "subfields", n => { Subfields = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Subfields>(global::Soenneker.Sixtyfour.OpenApiClient.Models.Subfields.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructField_type>(); } },
+                { "options", n => { Options = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructFieldOptions>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StructFieldOptions.CreateFromDiscriminatorValue); } },
+                { "subfields", n => { Subfields = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructFieldSubfields>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StructFieldSubfields.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructFieldType>(); } },
             };
         }
         /// <summary>
@@ -80,8 +89,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Subfields>("subfields", Subfields);
-            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructField_type>("type", Type);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructFieldOptions>("options", Options);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructFieldSubfields>("subfields", Subfields);
+            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructFieldType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

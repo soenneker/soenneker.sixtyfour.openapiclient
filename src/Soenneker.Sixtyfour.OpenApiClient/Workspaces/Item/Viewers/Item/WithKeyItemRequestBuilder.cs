@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Workspaces.Item.Viewers.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \workspaces\{workspace_id}\viewers\{key}
+    /// Builds and executes requests for operations under \workspaces\{workspaceId}\viewers\{key}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithKeyItemRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workspaces.Item.Viewers.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithKeyItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/workspaces/{workspace_id}/viewers/{key}", pathParameters)
+        public WithKeyItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/workspaces/{workspaceId}/viewers/{key}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workspaces.Item.Viewers.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithKeyItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/workspaces/{workspace_id}/viewers/{key}", rawUrl)
+        public WithKeyItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/workspaces/{workspaceId}/viewers/{key}", rawUrl)
         {
         }
         /// <summary>
@@ -39,10 +39,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workspaces.Item.Viewers.Item
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DismountViewerEndpointWorkspacesWorkspaceIdViewersKeyDelete400">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DismountViewerEndpointWorkspacesWorkspaceIdViewersKeyDelete401">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DismountViewerEndpointWorkspacesWorkspaceIdViewersKeyDelete500">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DismountViewerEndpointWorkspacesWorkspaceIdViewersKeyDelete400Response">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DismountViewerEndpointWorkspacesWorkspaceIdViewersKeyDelete401Response">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DismountViewerEndpointWorkspacesWorkspaceIdViewersKeyDelete403Response">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DismountViewerEndpointWorkspacesWorkspaceIdViewersKeyDelete500Response">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -55,10 +56,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workspaces.Item.Viewers.Item
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.DismountViewerEndpointWorkspacesWorkspaceIdViewersKeyDelete400.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.DismountViewerEndpointWorkspacesWorkspaceIdViewersKeyDelete401.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.DismountViewerEndpointWorkspacesWorkspaceIdViewersKeyDelete500.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.DismountViewerEndpointWorkspacesWorkspaceIdViewersKeyDelete400Response.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.DismountViewerEndpointWorkspacesWorkspaceIdViewersKeyDelete401Response.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.DismountViewerEndpointWorkspacesWorkspaceIdViewersKeyDelete403Response.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.DismountViewerEndpointWorkspacesWorkspaceIdViewersKeyDelete500Response.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -69,10 +71,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workspaces.Item.Viewers.Item
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.PatchViewerStateEndpointWorkspacesWorkspaceIdViewersKeyPatch400">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.PatchViewerStateEndpointWorkspacesWorkspaceIdViewersKeyPatch401">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.PatchViewerStateEndpointWorkspacesWorkspaceIdViewersKeyPatch500">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.PatchViewerStateEndpointWorkspacesWorkspaceIdViewersKeyPatch400Response">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.PatchViewerStateEndpointWorkspacesWorkspaceIdViewersKeyPatch401Response">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.PatchViewerStateEndpointWorkspacesWorkspaceIdViewersKeyPatch403Response">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.PatchViewerStateEndpointWorkspacesWorkspaceIdViewersKeyPatch500Response">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceResponse?> PatchAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.PatchViewerStateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -86,10 +89,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workspaces.Item.Viewers.Item
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.PatchViewerStateEndpointWorkspacesWorkspaceIdViewersKeyPatch400.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.PatchViewerStateEndpointWorkspacesWorkspaceIdViewersKeyPatch401.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.PatchViewerStateEndpointWorkspacesWorkspaceIdViewersKeyPatch500.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.PatchViewerStateEndpointWorkspacesWorkspaceIdViewersKeyPatch400Response.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.PatchViewerStateEndpointWorkspacesWorkspaceIdViewersKeyPatch401Response.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.PatchViewerStateEndpointWorkspacesWorkspaceIdViewersKeyPatch403Response.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.PatchViewerStateEndpointWorkspacesWorkspaceIdViewersKeyPatch500Response.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

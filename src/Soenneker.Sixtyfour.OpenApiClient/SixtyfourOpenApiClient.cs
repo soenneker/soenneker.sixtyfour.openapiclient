@@ -7,7 +7,9 @@ using Microsoft.Kiota.Serialization.Json;
 using Microsoft.Kiota.Serialization.Multipart;
 using Microsoft.Kiota.Serialization.Text;
 using Soenneker.Sixtyfour.OpenApiClient.Api;
+using Soenneker.Sixtyfour.OpenApiClient.BulkIntelligence;
 using Soenneker.Sixtyfour.OpenApiClient.Chat;
+using Soenneker.Sixtyfour.OpenApiClient.CheckBalance;
 using Soenneker.Sixtyfour.OpenApiClient.CompanyIntelligence;
 using Soenneker.Sixtyfour.OpenApiClient.CompanyIntelligenceAsync;
 using Soenneker.Sixtyfour.OpenApiClient.EnrichCompany;
@@ -27,7 +29,6 @@ using Soenneker.Sixtyfour.OpenApiClient.GetLinkedin;
 using Soenneker.Sixtyfour.OpenApiClient.JobStatus;
 using Soenneker.Sixtyfour.OpenApiClient.Me;
 using Soenneker.Sixtyfour.OpenApiClient.Oauth;
-using Soenneker.Sixtyfour.OpenApiClient.OrgChart;
 using Soenneker.Sixtyfour.OpenApiClient.PeopleIntelligence;
 using Soenneker.Sixtyfour.OpenApiClient.PeopleIntelligenceAsync;
 using Soenneker.Sixtyfour.OpenApiClient.QaAgent;
@@ -65,10 +66,20 @@ namespace Soenneker.Sixtyfour.OpenApiClient
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.Api.ApiRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The bulkIntelligence property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.BulkIntelligence.BulkIntelligenceRequestBuilder BulkIntelligence
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.BulkIntelligence.BulkIntelligenceRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The chat property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Chat.ChatRequestBuilder Chat
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.Chat.ChatRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The checkBalance property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.CheckBalance.CheckBalanceRequestBuilder CheckBalance
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.CheckBalance.CheckBalanceRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The companyIntelligence property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.CompanyIntelligence.CompanyIntelligenceRequestBuilder CompanyIntelligence
@@ -164,11 +175,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient
         public global::Soenneker.Sixtyfour.OpenApiClient.Oauth.OauthRequestBuilder Oauth
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.Oauth.OauthRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The orgChart property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.OrgChart.OrgChartRequestBuilder OrgChart
-        {
-            get => new global::Soenneker.Sixtyfour.OpenApiClient.OrgChart.OrgChartRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The peopleIntelligence property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.PeopleIntelligence.PeopleIntelligenceRequestBuilder PeopleIntelligence

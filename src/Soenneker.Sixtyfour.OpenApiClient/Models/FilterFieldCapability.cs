@@ -89,6 +89,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public FilterFieldCapability()
         {
             AdditionalData = new Dictionary<string, object>();
+            PreferredForExactMatch = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

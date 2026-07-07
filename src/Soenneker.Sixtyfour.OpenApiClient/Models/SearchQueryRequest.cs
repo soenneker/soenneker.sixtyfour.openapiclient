@@ -23,21 +23,37 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string Cursor { get; set; }
 #endif
-        /// <summary>LinkedIn publicIds to exclude from results via must_not. People-mode only.</summary>
+        /// <summary>&quot;Inline identifiers to exclude from results, applied as a post-filter. People mode: LinkedIn public IDs or profile URLs. Company mode: numeric LinkedIn company IDs, company URLs/slugs, or exact website domains (values that resolve to no or multiple companies are ignored). Max 1000.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Exclude_Public_Ids? ExcludePublicIds { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestExcludeEntityIds? ExcludeEntityIds { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Exclude_Public_Ids ExcludePublicIds { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestExcludeEntityIds ExcludeEntityIds { get; set; }
+#endif
+        /// <summary>Saved exclusion-list IDs to apply as a post-filter. Each list&apos;s entity type must match the search mode (person lists for people searches, company lists for company searches). Max 5.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestExcludeListIds? ExcludeListIds { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestExcludeListIds ExcludeListIds { get; set; }
+#endif
+        /// <summary>People-mode inline identifiers to exclude from results, applied as a post-filter. Accepts LinkedIn public IDs or profile URLs. For company searches, use `exclude_entity_ids`. Max 1000.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestExcludePublicIds? ExcludePublicIds { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestExcludePublicIds ExcludePublicIds { get; set; }
 #endif
         /// <summary>Raw OpenSearch DSL filters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest_filters? Filters { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestFilters? Filters { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest_filters Filters { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestFilters Filters { get; set; }
 #endif
         /// <summary>Expand the parsed location filter to nearby areas via PostGIS radius. People-mode `query` branch only.</summary>
         public bool? LocationExpansionEnabled { get; set; }
@@ -46,16 +62,16 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Maximum number of results to return across pages.</summary>
         public int? MaxResults { get; set; }
         /// <summary>Search mode; inferred from DB when using `search_id`.</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest_mode? Mode { get; set; }
-        /// <summary>Number of results per page (1-100).</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestMode? Mode { get; set; }
+        /// <summary>Maximum number of results per page (1-100). Pages may contain fewer rows while more results remain (e.g. with exclusion filtering); rely on `has_more`/`next_cursor`, never on page fullness.</summary>
         public int? PageSize { get; set; }
         /// <summary>Structured filter set returned by a previous search.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest_parsed_query? ParsedQuery { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestParsedQuery? ParsedQuery { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest_parsed_query ParsedQuery { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestParsedQuery ParsedQuery { get; set; }
 #endif
         /// <summary>Natural-language query. Mutually exclusive with simple_filters / filters / parsed_query / search_id. People-mode only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -65,7 +81,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string Query { get; set; }
 #endif
-        /// <summary>Search history ID returned by a previous search.</summary>
+        /// <summary>Search history ID returned by a previous search. Replays only the query shape; pass exclusions again on this request if they should apply.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SearchId { get; set; }
@@ -76,10 +92,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>MongoDB-style filters; the API translates them to DSL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest_simple_filters? SimpleFilters { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSimpleFilters? SimpleFilters { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest_simple_filters SimpleFilters { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSimpleFilters SimpleFilters { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest"/> and sets the default values.
@@ -87,7 +103,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public SearchQueryRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            Mode = global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest_mode.Company;
+            LocationExpansionEnabled = true;
+            LocationExpansionRadiusMiles = 10;
+            MaxResults = 1000;
+            PageSize = 10;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -108,17 +127,19 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "cursor", n => { Cursor = n.GetStringValue(); } },
-                { "exclude_public_ids", n => { ExcludePublicIds = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Exclude_Public_Ids>(global::Soenneker.Sixtyfour.OpenApiClient.Models.Exclude_Public_Ids.CreateFromDiscriminatorValue); } },
-                { "filters", n => { Filters = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest_filters>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest_filters.CreateFromDiscriminatorValue); } },
+                { "exclude_entity_ids", n => { ExcludeEntityIds = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestExcludeEntityIds>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestExcludeEntityIds.CreateFromDiscriminatorValue); } },
+                { "exclude_list_ids", n => { ExcludeListIds = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestExcludeListIds>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestExcludeListIds.CreateFromDiscriminatorValue); } },
+                { "exclude_public_ids", n => { ExcludePublicIds = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestExcludePublicIds>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestExcludePublicIds.CreateFromDiscriminatorValue); } },
+                { "filters", n => { Filters = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestFilters>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestFilters.CreateFromDiscriminatorValue); } },
                 { "location_expansion_enabled", n => { LocationExpansionEnabled = n.GetBoolValue(); } },
                 { "location_expansion_radius_miles", n => { LocationExpansionRadiusMiles = n.GetIntValue(); } },
                 { "max_results", n => { MaxResults = n.GetIntValue(); } },
-                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest_mode>(); } },
+                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestMode>(); } },
                 { "page_size", n => { PageSize = n.GetIntValue(); } },
-                { "parsed_query", n => { ParsedQuery = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest_parsed_query>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest_parsed_query.CreateFromDiscriminatorValue); } },
+                { "parsed_query", n => { ParsedQuery = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestParsedQuery>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestParsedQuery.CreateFromDiscriminatorValue); } },
                 { "query", n => { Query = n.GetStringValue(); } },
                 { "search_id", n => { SearchId = n.GetStringValue(); } },
-                { "simple_filters", n => { SimpleFilters = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest_simple_filters>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest_simple_filters.CreateFromDiscriminatorValue); } },
+                { "simple_filters", n => { SimpleFilters = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSimpleFilters>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSimpleFilters.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -129,17 +150,19 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("cursor", Cursor);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Exclude_Public_Ids>("exclude_public_ids", ExcludePublicIds);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest_filters>("filters", Filters);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestExcludeEntityIds>("exclude_entity_ids", ExcludeEntityIds);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestExcludeListIds>("exclude_list_ids", ExcludeListIds);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestExcludePublicIds>("exclude_public_ids", ExcludePublicIds);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestFilters>("filters", Filters);
             writer.WriteBoolValue("location_expansion_enabled", LocationExpansionEnabled);
             writer.WriteIntValue("location_expansion_radius_miles", LocationExpansionRadiusMiles);
             writer.WriteIntValue("max_results", MaxResults);
-            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest_mode>("mode", Mode);
+            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestMode>("mode", Mode);
             writer.WriteIntValue("page_size", PageSize);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest_parsed_query>("parsed_query", ParsedQuery);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestParsedQuery>("parsed_query", ParsedQuery);
             writer.WriteStringValue("query", Query);
             writer.WriteStringValue("search_id", SearchId);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest_simple_filters>("simple_filters", SimpleFilters);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSimpleFilters>("simple_filters", SimpleFilters);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

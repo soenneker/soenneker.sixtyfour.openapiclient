@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Live_status
 {
     /// <summary>
-    /// Builds and executes requests for operations under \workflows\runs\{run_id}\live_status
+    /// Builds and executes requests for operations under \workflows\runs\{runId}\live_status
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Live_statusRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Live_status
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Live_statusRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/workflows/runs/{run_id}/live_status", pathParameters)
+        public Live_statusRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/workflows/runs/{runId}/live_status", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Live_status
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Live_statusRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/workflows/runs/{run_id}/live_status", rawUrl)
+        public Live_statusRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/workflows/runs/{runId}/live_status", rawUrl)
         {
         }
         /// <summary>
@@ -39,13 +39,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Live_status
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet400">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet401">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet403">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet404">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet409">When receiving a 409 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet500">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet400Response">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet401Response">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet403Response">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet404Response">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet409Response">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet500Response">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -58,13 +58,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Live_status
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet400.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet401.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet403.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet404.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet409.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet500.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet400Response.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet401Response.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet403Response.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet404Response.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet409Response.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet500Response.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

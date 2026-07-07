@@ -17,10 +17,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Optional error context.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidationError_ctx? Ctx { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidationErrorCtxProperty? Ctx { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidationError_ctx Ctx { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidationErrorCtxProperty Ctx { get; set; }
 #endif
         /// <summary>The offending input value (any type, may be null).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -33,10 +33,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Path to the field that failed validation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.UnionBranch>? Loc { get; set; }
+        public List<string>? Loc { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.UnionBranch> Loc { get; set; }
+        public List<string> Loc { get; set; }
 #endif
         /// <summary>Human-readable error message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -79,9 +79,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "ctx", n => { Ctx = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidationError_ctx>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidationError_ctx.CreateFromDiscriminatorValue); } },
+                { "ctx", n => { Ctx = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidationErrorCtxProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidationErrorCtxProperty.CreateFromDiscriminatorValue); } },
                 { "input", n => { Input = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "loc", n => { Loc = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.UnionBranch>(global::Soenneker.Sixtyfour.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "loc", n => { Loc = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "msg", n => { Msg = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
@@ -93,9 +93,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidationError_ctx>("ctx", Ctx);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidationErrorCtxProperty>("ctx", Ctx);
             writer.WriteObjectValue<UntypedNode>("input", Input);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.UnionBranch>("loc", Loc);
+            writer.WriteCollectionOfPrimitiveValues<string>("loc", Loc);
             writer.WriteStringValue("msg", Msg);
             writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);

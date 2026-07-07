@@ -19,34 +19,34 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>The messages property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatRequest_messages>? Messages { get; set; }
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatRequestMessagesItemProperty>? Messages { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatRequest_messages> Messages { get; set; }
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatRequestMessagesItemProperty> Messages { get; set; }
 #endif
         /// <summary>The page_context property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.PageContext? PageContext { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatRequestPageContext? PageContext { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.PageContext PageContext { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatRequestPageContext PageContext { get; set; }
 #endif
         /// <summary>The page_data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatRequest_page_data? PageData { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatRequestPageData? PageData { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatRequest_page_data PageData { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatRequestPageData PageData { get; set; }
 #endif
         /// <summary>The search_rerun property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRerunRequest? SearchRerun { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatRequestSearchRerun? SearchRerun { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRerunRequest SearchRerun { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatRequestSearchRerun SearchRerun { get; set; }
 #endif
         /// <summary>The session_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -86,6 +86,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public ChatRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            IsOnboarding = false;
             Timezone = "UTC";
         }
         /// <summary>
@@ -107,10 +108,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "is_onboarding", n => { IsOnboarding = n.GetBoolValue(); } },
-                { "messages", n => { Messages = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatRequest_messages>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatRequest_messages.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "page_context", n => { PageContext = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.PageContext>(global::Soenneker.Sixtyfour.OpenApiClient.Models.PageContext.CreateFromDiscriminatorValue); } },
-                { "page_data", n => { PageData = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatRequest_page_data>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatRequest_page_data.CreateFromDiscriminatorValue); } },
-                { "search_rerun", n => { SearchRerun = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRerunRequest>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRerunRequest.CreateFromDiscriminatorValue); } },
+                { "messages", n => { Messages = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatRequestMessagesItemProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatRequestMessagesItemProperty.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "page_context", n => { PageContext = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatRequestPageContext>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatRequestPageContext.CreateFromDiscriminatorValue); } },
+                { "page_data", n => { PageData = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatRequestPageData>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatRequestPageData.CreateFromDiscriminatorValue); } },
+                { "search_rerun", n => { SearchRerun = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatRequestSearchRerun>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatRequestSearchRerun.CreateFromDiscriminatorValue); } },
                 { "session_id", n => { SessionId = n.GetStringValue(); } },
                 { "timezone", n => { Timezone = n.GetStringValue(); } },
                 { "workflow_id", n => { WorkflowId = n.GetStringValue(); } },
@@ -125,10 +126,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("is_onboarding", IsOnboarding);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatRequest_messages>("messages", Messages);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.PageContext>("page_context", PageContext);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatRequest_page_data>("page_data", PageData);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRerunRequest>("search_rerun", SearchRerun);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatRequestMessagesItemProperty>("messages", Messages);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatRequestPageContext>("page_context", PageContext);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatRequestPageData>("page_data", PageData);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatRequestSearchRerun>("search_rerun", SearchRerun);
             writer.WriteStringValue("session_id", SessionId);
             writer.WriteStringValue("timezone", Timezone);
             writer.WriteStringValue("workflow_id", WorkflowId);

@@ -1,8 +1,8 @@
 {
-  "descriptionHash": "E05B9BEA2AD51F9E13ED6C99BDCC0B73120EDF0A2876857E56DED80808CCE8D454FE1A8CA9FD570D7DD6009F29D595CEDE62AA17206F6DED08FAB9F88B01BF7D",
+  "descriptionHash": "4D8FD818639129272FA82E815DC96654CCABF53A3DFC7489F7EE0850E98B5566B5F51B733FF512E21482A00DDFB2DC18420C3815C2A8A958FA171774E0F5A295",
   "descriptionLocation": "../../fixed.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.31.1",
+  "kiotaVersion": "1.33.0",
   "clientClassName": "SixtyfourOpenApiClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "Soenneker.Sixtyfour.OpenApiClient",
@@ -30,5 +30,6 @@
   ],
   "includePatterns": [],
   "excludePatterns": [],
-  "disabledValidationRules": []
+  "disabledValidationRules": [],
+  "allowedExternalOrigins": []
 }

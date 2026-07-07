@@ -14,6 +14,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>If true, return confidence scores for each requested output field.</summary>
+        public bool? FieldConfidence { get; set; }
         /// <summary>If true, also discover key people at the company.</summary>
         public bool? FindPeople { get; set; }
         /// <summary>If true, return the full org chart instead of a focused list.</summary>
@@ -21,10 +23,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Output schema for each discovered person when find_people=true.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo_lead_struct? LeadStruct { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoLeadStruct? LeadStruct { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo_lead_struct LeadStruct { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoLeadStruct LeadStruct { get; set; }
 #endif
         /// <summary>Natural-language description of which people to surface when find_people=true.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -45,21 +47,21 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Mapping of output field name to natural-language description of what to extract.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo_struct? Struct { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoStructProperty? Struct { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo_struct Struct { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoStructProperty Struct { get; set; }
 #endif
         /// <summary>Company identifiers (e.g. company_name, domain, linkedin).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo_target_company? TargetCompany { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoTargetCompanyProperty? TargetCompany { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo_target_company TargetCompany { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoTargetCompanyProperty TargetCompany { get; set; }
 #endif
         /// <summary>Quality and cost tier for the research agent.</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo_tier? Tier { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoTier? Tier { get; set; }
         /// <summary>HTTPS URL that receives the result payload when the async job completes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -74,6 +76,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public EnrichCompanyInfo()
         {
             AdditionalData = new Dictionary<string, object>();
+            FindPeople = false;
+            FullOrgChart = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -93,14 +97,15 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "field_confidence", n => { FieldConfidence = n.GetBoolValue(); } },
                 { "find_people", n => { FindPeople = n.GetBoolValue(); } },
                 { "full_org_chart", n => { FullOrgChart = n.GetBoolValue(); } },
-                { "lead_struct", n => { LeadStruct = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo_lead_struct>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo_lead_struct.CreateFromDiscriminatorValue); } },
+                { "lead_struct", n => { LeadStruct = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoLeadStruct>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoLeadStruct.CreateFromDiscriminatorValue); } },
                 { "people_focus_prompt", n => { PeopleFocusPrompt = n.GetStringValue(); } },
                 { "research_plan", n => { ResearchPlan = n.GetStringValue(); } },
-                { "struct", n => { Struct = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo_struct>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo_struct.CreateFromDiscriminatorValue); } },
-                { "target_company", n => { TargetCompany = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo_target_company>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo_target_company.CreateFromDiscriminatorValue); } },
-                { "tier", n => { Tier = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo_tier>(); } },
+                { "struct", n => { Struct = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoStructProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoStructProperty.CreateFromDiscriminatorValue); } },
+                { "target_company", n => { TargetCompany = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoTargetCompanyProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoTargetCompanyProperty.CreateFromDiscriminatorValue); } },
+                { "tier", n => { Tier = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoTier>(); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
             };
         }
@@ -111,14 +116,15 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("field_confidence", FieldConfidence);
             writer.WriteBoolValue("find_people", FindPeople);
             writer.WriteBoolValue("full_org_chart", FullOrgChart);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo_lead_struct>("lead_struct", LeadStruct);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoLeadStruct>("lead_struct", LeadStruct);
             writer.WriteStringValue("people_focus_prompt", PeopleFocusPrompt);
             writer.WriteStringValue("research_plan", ResearchPlan);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo_struct>("struct", Struct);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo_target_company>("target_company", TargetCompany);
-            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo_tier>("tier", Tier);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoStructProperty>("struct", Struct);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoTargetCompanyProperty>("target_company", TargetCompany);
+            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoTier>("tier", Tier);
             writer.WriteStringValue("webhook_url", WebhookUrl);
             writer.WriteAdditionalData(AdditionalData);
         }

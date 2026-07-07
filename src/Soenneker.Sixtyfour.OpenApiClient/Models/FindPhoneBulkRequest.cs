@@ -17,18 +17,18 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>List of leads to process in one bulk request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindPhoneBulkRequest_leads>? Leads { get; set; }
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindPhoneBulkRequestLeadsItemProperty>? Leads { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindPhoneBulkRequest_leads> Leads { get; set; }
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindPhoneBulkRequestLeadsItemProperty> Leads { get; set; }
 #endif
         /// <summary>Override the default provider waterfall by listing provider IDs in priority order.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Providers? Providers { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FindPhoneBulkRequestProviders? Providers { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Providers Providers { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FindPhoneBulkRequestProviders Providers { get; set; }
 #endif
         /// <summary>HTTPS URL that receives the result payload when the async job completes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,8 +63,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "leads", n => { Leads = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindPhoneBulkRequest_leads>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FindPhoneBulkRequest_leads.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "providers", n => { Providers = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Providers>(global::Soenneker.Sixtyfour.OpenApiClient.Models.Providers.CreateFromDiscriminatorValue); } },
+                { "leads", n => { Leads = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindPhoneBulkRequestLeadsItemProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FindPhoneBulkRequestLeadsItemProperty.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "providers", n => { Providers = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindPhoneBulkRequestProviders>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FindPhoneBulkRequestProviders.CreateFromDiscriminatorValue); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
             };
         }
@@ -75,8 +75,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindPhoneBulkRequest_leads>("leads", Leads);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Providers>("providers", Providers);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindPhoneBulkRequestLeadsItemProperty>("leads", Leads);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindPhoneBulkRequestProviders>("providers", Providers);
             writer.WriteStringValue("webhook_url", WebhookUrl);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -19,18 +19,18 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>The generation_parts property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionMessagesResponse_generation_parts>? GenerationParts { get; set; }
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionMessagesResponseGenerationPartsItemProperty>? GenerationParts { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionMessagesResponse_generation_parts> GenerationParts { get; set; }
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionMessagesResponseGenerationPartsItemProperty> GenerationParts { get; set; }
 #endif
         /// <summary>The messages property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionMessagesResponse_messages>? Messages { get; set; }
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionMessagesResponseMessagesItemProperty>? Messages { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionMessagesResponse_messages> Messages { get; set; }
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionMessagesResponseMessagesItemProperty> Messages { get; set; }
 #endif
         /// <summary>The session_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -54,6 +54,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public ChatSessionMessagesResponse()
         {
             AdditionalData = new Dictionary<string, object>();
+            Generating = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -74,8 +75,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "generating", n => { Generating = n.GetBoolValue(); } },
-                { "generation_parts", n => { GenerationParts = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionMessagesResponse_generation_parts>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionMessagesResponse_generation_parts.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "messages", n => { Messages = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionMessagesResponse_messages>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionMessagesResponse_messages.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "generation_parts", n => { GenerationParts = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionMessagesResponseGenerationPartsItemProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionMessagesResponseGenerationPartsItemProperty.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "messages", n => { Messages = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionMessagesResponseMessagesItemProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionMessagesResponseMessagesItemProperty.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "session_id", n => { SessionId = n.GetStringValue(); } },
                 { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
             };
@@ -88,8 +89,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("generating", Generating);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionMessagesResponse_generation_parts>("generation_parts", GenerationParts);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionMessagesResponse_messages>("messages", Messages);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionMessagesResponseGenerationPartsItemProperty>("generation_parts", GenerationParts);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionMessagesResponseMessagesItemProperty>("messages", Messages);
             writer.WriteStringValue("session_id", SessionId);
             writer.WriteStringValue("workspace_id", WorkspaceId);
             writer.WriteAdditionalData(AdditionalData);

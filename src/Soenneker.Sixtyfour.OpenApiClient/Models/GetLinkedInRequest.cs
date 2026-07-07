@@ -30,6 +30,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public GetLinkedInRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            IncludeFresh = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

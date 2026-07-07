@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Oauth.Clients.Item.ValidateJwks
 {
     /// <summary>
-    /// Builds and executes requests for operations under \oauth\clients\{client_id}\validate-jwks
+    /// Builds and executes requests for operations under \oauth\clients\{clientId}\validate-jwks
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ValidateJwksRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Oauth.Clients.Item.ValidateJwks
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ValidateJwksRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/oauth/clients/{client_id}/validate-jwks", pathParameters)
+        public ValidateJwksRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/oauth/clients/{clientId}/validate-jwks", pathParameters)
         {
         }
         /// <summary>
@@ -30,37 +30,39 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Oauth.Clients.Item.ValidateJwks
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ValidateJwksRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/oauth/clients/{client_id}/validate-jwks", rawUrl)
+        public ValidateJwksRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/oauth/clients/{clientId}/validate-jwks", rawUrl)
         {
         }
         /// <summary>
         /// Validate Oauth Client Jwks
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Oauth.Clients.Item.ValidateJwks.ValidateJwksPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidateOAuthClientJwksOAuthClientsClientIdValidateJwksPost200ResponseResponseJson"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidateOauthClientJwksOauthClientsClientIdValidateJwksPost400">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidateOauthClientJwksOauthClientsClientIdValidateJwksPost401">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidateOauthClientJwksOauthClientsClientIdValidateJwksPost500">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidateOAuthClientJwksOAuthClientsClientIdValidateJwksPost400Response">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidateOAuthClientJwksOAuthClientsClientIdValidateJwksPost401Response">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidateOAuthClientJwksOAuthClientsClientIdValidateJwksPost403Response">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidateOAuthClientJwksOAuthClientsClientIdValidateJwksPost500Response">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Oauth.Clients.Item.ValidateJwks.ValidateJwksPostResponse?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidateOAuthClientJwksOAuthClientsClientIdValidateJwksPost200ResponseResponseJson?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Oauth.Clients.Item.ValidateJwks.ValidateJwksPostResponse> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidateOAuthClientJwksOAuthClientsClientIdValidateJwksPost200ResponseResponseJson> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidateOauthClientJwksOauthClientsClientIdValidateJwksPost400.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidateOauthClientJwksOauthClientsClientIdValidateJwksPost401.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidateOauthClientJwksOauthClientsClientIdValidateJwksPost500.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidateOAuthClientJwksOAuthClientsClientIdValidateJwksPost400Response.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidateOAuthClientJwksOAuthClientsClientIdValidateJwksPost401Response.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidateOAuthClientJwksOAuthClientsClientIdValidateJwksPost403Response.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidateOAuthClientJwksOAuthClientsClientIdValidateJwksPost500Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Oauth.Clients.Item.ValidateJwks.ValidateJwksPostResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Oauth.Clients.Item.ValidateJwks.ValidateJwksPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidateOAuthClientJwksOAuthClientsClientIdValidateJwksPost200ResponseResponseJson>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidateOAuthClientJwksOAuthClientsClientIdValidateJwksPost200ResponseResponseJson.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Validate Oauth Client Jwks

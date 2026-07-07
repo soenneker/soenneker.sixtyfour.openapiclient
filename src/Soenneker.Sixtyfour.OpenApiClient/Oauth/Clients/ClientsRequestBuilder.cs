@@ -20,14 +20,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Oauth.Clients
     {
         /// <summary>Gets an item from the Soenneker.Sixtyfour.OpenApiClient.oauth.clients.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Oauth.Clients.Item.WithClient_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Oauth.Clients.Item.WithClient_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Oauth.Clients.Item.WithClientItemRequestBuilder"/></returns>
+        public global::Soenneker.Sixtyfour.OpenApiClient.Oauth.Clients.Item.WithClientItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("client_id", position);
-                return new global::Soenneker.Sixtyfour.OpenApiClient.Oauth.Clients.Item.WithClient_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("clientId", position);
+                return new global::Soenneker.Sixtyfour.OpenApiClient.Oauth.Clients.Item.WithClientItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -52,10 +52,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Oauth.Clients
         /// <returns>A List&lt;global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListOauthClientsOauthClientsGet400">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListOauthClientsOauthClientsGet401">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListOauthClientsOauthClientsGet500">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListOAuthClientsOAuthClientsGet400Response">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListOAuthClientsOAuthClientsGet401Response">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListOAuthClientsOAuthClientsGet403Response">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListOAuthClientsOAuthClientsGet500Response">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<List<global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail>?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -68,10 +69,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Oauth.Clients
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListOauthClientsOauthClientsGet400.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListOauthClientsOauthClientsGet401.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListOauthClientsOauthClientsGet500.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListOAuthClientsOAuthClientsGet400Response.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListOAuthClientsOAuthClientsGet401Response.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListOAuthClientsOAuthClientsGet403Response.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListOAuthClientsOAuthClientsGet500Response.CreateFromDiscriminatorValue },
             };
             var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
@@ -83,10 +85,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Oauth.Clients
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateOauthClientOauthClientsPost400">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateOauthClientOauthClientsPost401">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateOauthClientOauthClientsPost500">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateOAuthClientOAuthClientsPost400Response">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateOAuthClientOAuthClientsPost401Response">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateOAuthClientOAuthClientsPost403Response">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateOAuthClientOAuthClientsPost500Response">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateOAuthClientRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -100,10 +103,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Oauth.Clients
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateOauthClientOauthClientsPost400.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateOauthClientOauthClientsPost401.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateOauthClientOauthClientsPost500.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateOAuthClientOAuthClientsPost400Response.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateOAuthClientOAuthClientsPost401Response.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateOAuthClientOAuthClientsPost403Response.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateOAuthClientOAuthClientsPost500Response.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthClientDetail.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

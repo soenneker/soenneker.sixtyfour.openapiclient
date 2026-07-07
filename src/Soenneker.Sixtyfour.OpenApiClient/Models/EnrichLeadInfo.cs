@@ -14,13 +14,15 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Lead identifiers (e.g. name, email, company, linkedin).</summary>
+        /// <summary>If true, return confidence scores for each requested output field.</summary>
+        public bool? FieldConfidence { get; set; }
+        /// <summary>Single lead to process. Provide any combination of name, email, company, linkedin, etc.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_lead_info? LeadInfo { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoLeadInfoProperty? LeadInfo { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_lead_info LeadInfo { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoLeadInfoProperty LeadInfo { get; set; }
 #endif
         /// <summary>Optional natural-language plan that guides the research agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -33,13 +35,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Mapping of output field name to natural-language description of what to extract.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_struct? Struct { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStruct? Struct { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_struct Struct { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStruct Struct { get; set; }
 #endif
         /// <summary>Quality and cost tier for the research agent.</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_tier? Tier { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoTier? Tier { get; set; }
         /// <summary>HTTPS URL that receives the result payload when the async job completes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -73,10 +75,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "lead_info", n => { LeadInfo = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_lead_info>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_lead_info.CreateFromDiscriminatorValue); } },
+                { "field_confidence", n => { FieldConfidence = n.GetBoolValue(); } },
+                { "lead_info", n => { LeadInfo = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoLeadInfoProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoLeadInfoProperty.CreateFromDiscriminatorValue); } },
                 { "research_plan", n => { ResearchPlan = n.GetStringValue(); } },
-                { "struct", n => { Struct = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_struct>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_struct.CreateFromDiscriminatorValue); } },
-                { "tier", n => { Tier = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_tier>(); } },
+                { "struct", n => { Struct = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStruct>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStruct.CreateFromDiscriminatorValue); } },
+                { "tier", n => { Tier = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoTier>(); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
             };
         }
@@ -87,10 +90,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_lead_info>("lead_info", LeadInfo);
+            writer.WriteBoolValue("field_confidence", FieldConfidence);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoLeadInfoProperty>("lead_info", LeadInfo);
             writer.WriteStringValue("research_plan", ResearchPlan);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_struct>("struct", Struct);
-            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo_tier>("tier", Tier);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStruct>("struct", Struct);
+            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoTier>("tier", Tier);
             writer.WriteStringValue("webhook_url", WebhookUrl);
             writer.WriteAdditionalData(AdditionalData);
         }

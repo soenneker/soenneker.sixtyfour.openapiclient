@@ -25,7 +25,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>The status property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateOAuthClientRequest_status? Status { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateOAuthClientRequestStatus? Status { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateOAuthClientRequest"/> and sets the default values.
         /// </summary>
@@ -53,7 +53,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             {
                 { "access_token_ttl_seconds", n => { AccessTokenTtlSeconds = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateOAuthClientRequest_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateOAuthClientRequestStatus>(); } },
             };
         }
         /// <summary>
@@ -65,7 +65,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("access_token_ttl_seconds", AccessTokenTtlSeconds);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateOAuthClientRequest_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateOAuthClientRequestStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

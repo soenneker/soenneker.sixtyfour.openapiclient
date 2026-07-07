@@ -20,20 +20,20 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Ready-to-merge filter clause that selects this value.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValue_filter_snippet? FilterSnippet { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValueFilterSnippet? FilterSnippet { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValue_filter_snippet FilterSnippet { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValueFilterSnippet FilterSnippet { get; set; }
 #endif
         /// <summary>Share (0-1) of scoped documents matching this value.</summary>
         public double? PercentOfScope { get; set; }
         /// <summary>Field value; null bucket represents missing values.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Value? Value { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValueValue? Value { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Value Value { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValueValue Value { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValue"/> and sets the default values.
@@ -61,9 +61,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "count", n => { Count = n.GetIntValue(); } },
-                { "filter_snippet", n => { FilterSnippet = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValue_filter_snippet>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValue_filter_snippet.CreateFromDiscriminatorValue); } },
+                { "filter_snippet", n => { FilterSnippet = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValueFilterSnippet>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValueFilterSnippet.CreateFromDiscriminatorValue); } },
                 { "percent_of_scope", n => { PercentOfScope = n.GetDoubleValue(); } },
-                { "value", n => { Value = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Value>(global::Soenneker.Sixtyfour.OpenApiClient.Models.Value.CreateFromDiscriminatorValue); } },
+                { "value", n => { Value = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValueValue>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValueValue.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -74,9 +74,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("count", Count);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValue_filter_snippet>("filter_snippet", FilterSnippet);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValueFilterSnippet>("filter_snippet", FilterSnippet);
             writer.WriteDoubleValue("percent_of_scope", PercentOfScope);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Value>("value", Value);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValueValue>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

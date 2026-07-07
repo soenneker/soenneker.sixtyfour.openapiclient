@@ -17,10 +17,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>The state property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.PatchViewerStateRequest_state? State { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.PatchViewerStateRequestStateProperty? State { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.PatchViewerStateRequest_state State { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.PatchViewerStateRequestStateProperty State { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.PatchViewerStateRequest"/> and sets the default values.
@@ -47,7 +47,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "state", n => { State = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.PatchViewerStateRequest_state>(global::Soenneker.Sixtyfour.OpenApiClient.Models.PatchViewerStateRequest_state.CreateFromDiscriminatorValue); } },
+                { "state", n => { State = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.PatchViewerStateRequestStateProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.PatchViewerStateRequestStateProperty.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.PatchViewerStateRequest_state>("state", State);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.PatchViewerStateRequestStateProperty>("state", State);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

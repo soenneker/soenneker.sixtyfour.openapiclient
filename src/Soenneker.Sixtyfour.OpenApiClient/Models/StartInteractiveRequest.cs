@@ -25,36 +25,36 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>The cache_config property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequest_cache_config? CacheConfig { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestCacheConfig? CacheConfig { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequest_cache_config CacheConfig { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestCacheConfig CacheConfig { get; set; }
 #endif
         /// <summary>The result_formats property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Result_Formats? ResultFormats { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestResultFormats? ResultFormats { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Result_Formats ResultFormats { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestResultFormats ResultFormats { get; set; }
 #endif
         /// <summary>The save_json property</summary>
         public bool? SaveJson { get; set; }
         /// <summary>The specs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequest_specs? Specs { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestSpecsProperty? Specs { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequest_specs Specs { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestSpecsProperty Specs { get; set; }
 #endif
         /// <summary>The webhook_payload property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequest_webhook_payload? WebhookPayload { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestWebhookPayload? WebhookPayload { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequest_webhook_payload WebhookPayload { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestWebhookPayload WebhookPayload { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequest"/> and sets the default values.
@@ -62,6 +62,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public StartInteractiveRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            SaveJson = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -82,11 +83,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "block_name", n => { BlockName = n.GetStringValue(); } },
-                { "cache_config", n => { CacheConfig = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequest_cache_config>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequest_cache_config.CreateFromDiscriminatorValue); } },
-                { "result_formats", n => { ResultFormats = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Result_Formats>(global::Soenneker.Sixtyfour.OpenApiClient.Models.Result_Formats.CreateFromDiscriminatorValue); } },
+                { "cache_config", n => { CacheConfig = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestCacheConfig>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestCacheConfig.CreateFromDiscriminatorValue); } },
+                { "result_formats", n => { ResultFormats = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestResultFormats>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestResultFormats.CreateFromDiscriminatorValue); } },
                 { "save_json", n => { SaveJson = n.GetBoolValue(); } },
-                { "specs", n => { Specs = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequest_specs>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequest_specs.CreateFromDiscriminatorValue); } },
-                { "webhook_payload", n => { WebhookPayload = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequest_webhook_payload>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequest_webhook_payload.CreateFromDiscriminatorValue); } },
+                { "specs", n => { Specs = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestSpecsProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestSpecsProperty.CreateFromDiscriminatorValue); } },
+                { "webhook_payload", n => { WebhookPayload = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestWebhookPayload>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestWebhookPayload.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -97,11 +98,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("block_name", BlockName);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequest_cache_config>("cache_config", CacheConfig);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Result_Formats>("result_formats", ResultFormats);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestCacheConfig>("cache_config", CacheConfig);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestResultFormats>("result_formats", ResultFormats);
             writer.WriteBoolValue("save_json", SaveJson);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequest_specs>("specs", Specs);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequest_webhook_payload>("webhook_payload", WebhookPayload);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestSpecsProperty>("specs", Specs);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestWebhookPayload>("webhook_payload", WebhookPayload);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -17,14 +17,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.JobStatus
     {
         /// <summary>Gets an item from the Soenneker.Sixtyfour.OpenApiClient.jobStatus.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.JobStatus.Item.WithJob_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Sixtyfour.OpenApiClient.JobStatus.Item.WithJob_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.JobStatus.Item.WithJobItemRequestBuilder"/></returns>
+        public global::Soenneker.Sixtyfour.OpenApiClient.JobStatus.Item.WithJobItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("job_id", position);
-                return new global::Soenneker.Sixtyfour.OpenApiClient.JobStatus.Item.WithJob_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("jobId", position);
+                return new global::Soenneker.Sixtyfour.OpenApiClient.JobStatus.Item.WithJobItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

@@ -17,10 +17,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>The answers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ApprovalRequest_answers? Answers { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ApprovalRequestAnswers? Answers { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ApprovalRequest_answers Answers { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ApprovalRequestAnswers Answers { get; set; }
 #endif
         /// <summary>The approval_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -73,7 +73,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "answers", n => { Answers = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ApprovalRequest_answers>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ApprovalRequest_answers.CreateFromDiscriminatorValue); } },
+                { "answers", n => { Answers = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ApprovalRequestAnswers>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ApprovalRequestAnswers.CreateFromDiscriminatorValue); } },
                 { "approval_id", n => { ApprovalId = n.GetStringValue(); } },
                 { "approved", n => { Approved = n.GetBoolValue(); } },
                 { "reason", n => { Reason = n.GetStringValue(); } },
@@ -87,7 +87,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ApprovalRequest_answers>("answers", Answers);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ApprovalRequestAnswers>("answers", Answers);
             writer.WriteStringValue("approval_id", ApprovalId);
             writer.WriteBoolValue("approved", Approved);
             writer.WriteStringValue("reason", Reason);

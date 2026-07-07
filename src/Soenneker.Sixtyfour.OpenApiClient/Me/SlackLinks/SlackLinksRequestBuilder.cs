@@ -26,14 +26,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Me.SlackLinks
         }
         /// <summary>Gets an item from the Soenneker.Sixtyfour.OpenApiClient.me.slackLinks.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Me.SlackLinks.Item.WithSlack_team_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Me.SlackLinks.Item.WithSlack_team_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Me.SlackLinks.Item.WithSlackTeamItemRequestBuilder"/></returns>
+        public global::Soenneker.Sixtyfour.OpenApiClient.Me.SlackLinks.Item.WithSlackTeamItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("slack_team_id", position);
-                return new global::Soenneker.Sixtyfour.OpenApiClient.Me.SlackLinks.Item.WithSlack_team_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("slackTeamId", position);
+                return new global::Soenneker.Sixtyfour.OpenApiClient.Me.SlackLinks.Item.WithSlackTeamItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -58,10 +58,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Me.SlackLinks
         /// <returns>A List&lt;global::Soenneker.Sixtyfour.OpenApiClient.Models.SlackLink&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMyLinksMeSlackLinksGet400">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMyLinksMeSlackLinksGet401">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMyLinksMeSlackLinksGet500">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMyLinksMeSlackLinksGet400Response">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMyLinksMeSlackLinksGet401Response">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMyLinksMeSlackLinksGet403Response">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMyLinksMeSlackLinksGet500Response">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<List<global::Soenneker.Sixtyfour.OpenApiClient.Models.SlackLink>?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -74,10 +75,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Me.SlackLinks
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMyLinksMeSlackLinksGet400.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMyLinksMeSlackLinksGet401.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMyLinksMeSlackLinksGet500.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMyLinksMeSlackLinksGet400Response.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMyLinksMeSlackLinksGet401Response.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMyLinksMeSlackLinksGet403Response.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMyLinksMeSlackLinksGet500Response.CreateFromDiscriminatorValue },
             };
             var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.SlackLink>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.SlackLink.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();

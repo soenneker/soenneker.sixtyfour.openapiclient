@@ -38,10 +38,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Per-iteration debug data emitted by the agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Iterations? Iterations { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponseIterations? Iterations { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Iterations Iterations { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponseIterations Iterations { get; set; }
 #endif
         /// <summary>Human-readable progress message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -59,7 +59,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string ResourceHandleId { get; set; }
 #endif
-        /// <summary>Search history ID returned by a previous search.</summary>
+        /// <summary>Search history ID returned by a previous search. Replays only the query shape; pass exclusions again on this request if they should apply.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SearchId { get; set; }
@@ -122,7 +122,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "current_phase", n => { CurrentPhase = n.GetIntValue(); } },
                 { "error", n => { Error = n.GetStringValue(); } },
                 { "exported_count", n => { ExportedCount = n.GetIntValue(); } },
-                { "iterations", n => { Iterations = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Iterations>(global::Soenneker.Sixtyfour.OpenApiClient.Models.Iterations.CreateFromDiscriminatorValue); } },
+                { "iterations", n => { Iterations = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponseIterations>(global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponseIterations.CreateFromDiscriminatorValue); } },
                 { "progress_message", n => { ProgressMessage = n.GetStringValue(); } },
                 { "resource_handle_id", n => { ResourceHandleId = n.GetStringValue(); } },
                 { "search_id", n => { SearchId = n.GetStringValue(); } },
@@ -143,7 +143,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteIntValue("current_phase", CurrentPhase);
             writer.WriteStringValue("error", Error);
             writer.WriteIntValue("exported_count", ExportedCount);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Iterations>("iterations", Iterations);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponseIterations>("iterations", Iterations);
             writer.WriteStringValue("progress_message", ProgressMessage);
             writer.WriteStringValue("resource_handle_id", ResourceHandleId);
             writer.WriteStringValue("search_id", SearchId);

@@ -40,7 +40,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string Field { get; set; }
 #endif
         /// <summary>&quot;Search mode: &apos;people&apos; or &apos;company&apos;.&quot;</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesResponse_mode? Mode { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesResponseMode? Mode { get; set; }
         /// <summary>Nested path, if any.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -89,7 +89,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public FilterFieldValuesResponse()
         {
             AdditionalData = new Dictionary<string, object>();
-            Mode = global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesResponse_mode.Company;
+            PreferredForExactMatch = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -112,7 +112,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "aggregation_field", n => { AggregationField = n.GetStringValue(); } },
                 { "canonical_field", n => { CanonicalField = n.GetStringValue(); } },
                 { "field", n => { Field = n.GetStringValue(); } },
-                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesResponse_mode>(); } },
+                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesResponseMode>(); } },
                 { "nested_path", n => { NestedPath = n.GetStringValue(); } },
                 { "preferred_for_exact_match", n => { PreferredForExactMatch = n.GetBoolValue(); } },
                 { "related_fields", n => { RelatedFields = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -134,7 +134,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteStringValue("aggregation_field", AggregationField);
             writer.WriteStringValue("canonical_field", CanonicalField);
             writer.WriteStringValue("field", Field);
-            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesResponse_mode>("mode", Mode);
+            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesResponseMode>("mode", Mode);
             writer.WriteStringValue("nested_path", NestedPath);
             writer.WriteBoolValue("preferred_for_exact_match", PreferredForExactMatch);
             writer.WriteCollectionOfPrimitiveValues<string>("related_fields", RelatedFields);

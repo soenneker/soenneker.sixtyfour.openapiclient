@@ -17,7 +17,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>The allow_nested property</summary>
         public bool? AllowNested { get; set; }
         /// <summary>The block_type property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequest_block_type? BlockType { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequestBlockType? BlockType { get; set; }
         /// <summary>Natural language description of the fields to generate</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -29,10 +29,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>The existing_struct property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Existing_Struct? ExistingStruct { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequestExistingStruct? ExistingStruct { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Existing_Struct ExistingStruct { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequestExistingStruct ExistingStruct { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequest"/> and sets the default values.
@@ -40,6 +40,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public StructBuilderRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            AllowNested = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -60,9 +61,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "allow_nested", n => { AllowNested = n.GetBoolValue(); } },
-                { "block_type", n => { BlockType = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequest_block_type>(); } },
+                { "block_type", n => { BlockType = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequestBlockType>(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "existing_struct", n => { ExistingStruct = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Existing_Struct>(global::Soenneker.Sixtyfour.OpenApiClient.Models.Existing_Struct.CreateFromDiscriminatorValue); } },
+                { "existing_struct", n => { ExistingStruct = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequestExistingStruct>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequestExistingStruct.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -73,9 +74,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("allow_nested", AllowNested);
-            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequest_block_type>("block_type", BlockType);
+            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequestBlockType>("block_type", BlockType);
             writer.WriteStringValue("description", Description);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Existing_Struct>("existing_struct", ExistingStruct);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequestExistingStruct>("existing_struct", ExistingStruct);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

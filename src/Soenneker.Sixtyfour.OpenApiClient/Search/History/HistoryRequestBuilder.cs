@@ -17,14 +17,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.History
     {
         /// <summary>Gets an item from the Soenneker.Sixtyfour.OpenApiClient.search.history.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Search.History.Item.WithSearch_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Search.History.Item.WithSearch_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Search.History.Item.WithSearchItemRequestBuilder"/></returns>
+        public global::Soenneker.Sixtyfour.OpenApiClient.Search.History.Item.WithSearchItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("search_id", position);
-                return new global::Soenneker.Sixtyfour.OpenApiClient.Search.History.Item.WithSearch_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("searchId", position);
+                return new global::Soenneker.Sixtyfour.OpenApiClient.Search.History.Item.WithSearchItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

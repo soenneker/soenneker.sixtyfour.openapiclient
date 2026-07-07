@@ -20,14 +20,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workspaces
     {
         /// <summary>Gets an item from the Soenneker.Sixtyfour.OpenApiClient.workspaces.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Workspaces.Item.WithWorkspace_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Workspaces.Item.WithWorkspace_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Workspaces.Item.WithWorkspaceItemRequestBuilder"/></returns>
+        public global::Soenneker.Sixtyfour.OpenApiClient.Workspaces.Item.WithWorkspaceItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("workspace_id", position);
-                return new global::Soenneker.Sixtyfour.OpenApiClient.Workspaces.Item.WithWorkspace_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("workspaceId", position);
+                return new global::Soenneker.Sixtyfour.OpenApiClient.Workspaces.Item.WithWorkspaceItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -52,10 +52,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workspaces
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateWorkspaceEndpointWorkspacesPost400">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateWorkspaceEndpointWorkspacesPost401">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateWorkspaceEndpointWorkspacesPost500">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateWorkspaceEndpointWorkspacesPost400Response">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateWorkspaceEndpointWorkspacesPost401Response">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateWorkspaceEndpointWorkspacesPost403Response">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateWorkspaceEndpointWorkspacesPost500Response">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceResponse?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -68,10 +69,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workspaces
             var requestInfo = ToPostRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateWorkspaceEndpointWorkspacesPost400.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateWorkspaceEndpointWorkspacesPost401.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateWorkspaceEndpointWorkspacesPost500.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateWorkspaceEndpointWorkspacesPost400Response.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateWorkspaceEndpointWorkspacesPost401Response.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateWorkspaceEndpointWorkspacesPost403Response.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateWorkspaceEndpointWorkspacesPost500Response.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

@@ -34,24 +34,24 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Query
         {
         }
         /// <summary>
-        /// &quot;Unified search query endpoint — accepts structured filters, LLM output, or search_id.Replaces both /start-filter-search and /browse with a single endpoint.Provide exactly one query source: simple_filters, filters, parsed_query, or search_id.Use cursor alone for pagination continuation.User attribution for ``search_history.user_id`` flows from``auth.effective_user_id``: JWT callers contribute their own``user_uuid``; machine callers contribute the ``X-Act-As-User`` headerwhen WebApp is proxying for a logged-in dashboard user (validated atthe auth dep against the caller&apos;s org).&quot;
+        /// &quot;Run a search query. Provide exactly one query source: simple_filters, filters, parsed_query, or search_id. For pagination, pass cursor alone.&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse"/></returns>
         /// <param name="body">Unified search query request — replaces both /start-filter-search and /browse.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost400">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost401">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost402">When receiving a 402 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost403">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost404">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost409">When receiving a 409 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost429">When receiving a 429 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost500">When receiving a 500 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost502">When receiving a 502 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost503">When receiving a 503 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost504">When receiving a 504 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost400Response">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost401Response">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost402Response">When receiving a 402 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost403Response">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost404Response">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost409Response">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost429Response">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost500Response">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost502Response">When receiving a 502 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost503Response">When receiving a 503 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost504Response">When receiving a 504 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -65,23 +65,23 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Query
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost400.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost401.CreateFromDiscriminatorValue },
-                { "402", global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost402.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost403.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost404.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost409.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost429.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost500.CreateFromDiscriminatorValue },
-                { "502", global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost502.CreateFromDiscriminatorValue },
-                { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost503.CreateFromDiscriminatorValue },
-                { "504", global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost504.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost400Response.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost401Response.CreateFromDiscriminatorValue },
+                { "402", global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost402Response.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost403Response.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost404Response.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost409Response.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost429Response.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost500Response.CreateFromDiscriminatorValue },
+                { "502", global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost502Response.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost503Response.CreateFromDiscriminatorValue },
+                { "504", global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost504Response.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Unified search query endpoint — accepts structured filters, LLM output, or search_id.Replaces both /start-filter-search and /browse with a single endpoint.Provide exactly one query source: simple_filters, filters, parsed_query, or search_id.Use cursor alone for pagination continuation.User attribution for ``search_history.user_id`` flows from``auth.effective_user_id``: JWT callers contribute their own``user_uuid``; machine callers contribute the ``X-Act-As-User`` headerwhen WebApp is proxying for a logged-in dashboard user (validated atthe auth dep against the caller&apos;s org).&quot;
+        /// &quot;Run a search query. Provide exactly one query source: simple_filters, filters, parsed_query, or search_id. For pagination, pass cursor alone.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Unified search query request — replaces both /start-filter-search and /browse.</param>

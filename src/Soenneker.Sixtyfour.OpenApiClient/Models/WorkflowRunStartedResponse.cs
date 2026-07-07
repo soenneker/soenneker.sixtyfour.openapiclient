@@ -20,10 +20,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Cache configuration; only set by the custom-cache endpoint.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunStartedResponse_cache_config? CacheConfig { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunStartedResponseCacheConfig? CacheConfig { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunStartedResponse_cache_config CacheConfig { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunStartedResponseCacheConfig CacheConfig { get; set; }
 #endif
         /// <summary>Job (run) identifier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -75,7 +75,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "already_started", n => { AlreadyStarted = n.GetBoolValue(); } },
-                { "cache_config", n => { CacheConfig = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunStartedResponse_cache_config>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunStartedResponse_cache_config.CreateFromDiscriminatorValue); } },
+                { "cache_config", n => { CacheConfig = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunStartedResponseCacheConfig>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunStartedResponseCacheConfig.CreateFromDiscriminatorValue); } },
                 { "job_id", n => { JobId = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "workflow_id", n => { WorkflowId = n.GetStringValue(); } },
@@ -89,7 +89,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("already_started", AlreadyStarted);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunStartedResponse_cache_config>("cache_config", CacheConfig);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunStartedResponseCacheConfig>("cache_config", CacheConfig);
             writer.WriteStringValue("job_id", JobId);
             writer.WriteStringValue("status", Status);
             writer.WriteStringValue("workflow_id", WorkflowId);

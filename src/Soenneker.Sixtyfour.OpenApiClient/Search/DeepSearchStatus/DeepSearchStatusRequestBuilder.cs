@@ -17,14 +17,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.DeepSearchStatus
     {
         /// <summary>Gets an item from the Soenneker.Sixtyfour.OpenApiClient.search.deepSearchStatus.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Search.DeepSearchStatus.Item.WithTask_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Search.DeepSearchStatus.Item.WithTask_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Search.DeepSearchStatus.Item.WithTaskItemRequestBuilder"/></returns>
+        public global::Soenneker.Sixtyfour.OpenApiClient.Search.DeepSearchStatus.Item.WithTaskItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("task_id", position);
-                return new global::Soenneker.Sixtyfour.OpenApiClient.Search.DeepSearchStatus.Item.WithTask_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("taskId", position);
+                return new global::Soenneker.Sixtyfour.OpenApiClient.Search.DeepSearchStatus.Item.WithTaskItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

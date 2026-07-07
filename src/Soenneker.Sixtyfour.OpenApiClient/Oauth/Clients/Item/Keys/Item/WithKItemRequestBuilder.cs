@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Oauth.Clients.Item.Keys.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \oauth\clients\{client_id}\keys\{kid}
+    /// Builds and executes requests for operations under \oauth\clients\{clientId}\keys\{kid}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithKItemRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Oauth.Clients.Item.Keys.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithKItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/oauth/clients/{client_id}/keys/{kid}", pathParameters)
+        public WithKItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/oauth/clients/{clientId}/keys/{kid}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Oauth.Clients.Item.Keys.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithKItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/oauth/clients/{client_id}/keys/{kid}", rawUrl)
+        public WithKItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/oauth/clients/{clientId}/keys/{kid}", rawUrl)
         {
         }
         /// <summary>
@@ -39,10 +39,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Oauth.Clients.Item.Keys.Item
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.PublicKeyResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RevokeOauthClientKeyOauthClientsClientIdKeysKidDelete400">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RevokeOauthClientKeyOauthClientsClientIdKeysKidDelete401">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RevokeOauthClientKeyOauthClientsClientIdKeysKidDelete500">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RevokeOAuthClientKeyOAuthClientsClientIdKeysKidDelete400Response">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RevokeOAuthClientKeyOAuthClientsClientIdKeysKidDelete401Response">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RevokeOAuthClientKeyOAuthClientsClientIdKeysKidDelete403Response">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RevokeOAuthClientKeyOAuthClientsClientIdKeysKidDelete500Response">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.PublicKeyResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -55,10 +56,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Oauth.Clients.Item.Keys.Item
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.RevokeOauthClientKeyOauthClientsClientIdKeysKidDelete400.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.RevokeOauthClientKeyOauthClientsClientIdKeysKidDelete401.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.RevokeOauthClientKeyOauthClientsClientIdKeysKidDelete500.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.RevokeOAuthClientKeyOAuthClientsClientIdKeysKidDelete400Response.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.RevokeOAuthClientKeyOAuthClientsClientIdKeysKidDelete401Response.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.RevokeOAuthClientKeyOAuthClientsClientIdKeysKidDelete403Response.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.RevokeOAuthClientKeyOAuthClientsClientIdKeysKidDelete500Response.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.PublicKeyResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.PublicKeyResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

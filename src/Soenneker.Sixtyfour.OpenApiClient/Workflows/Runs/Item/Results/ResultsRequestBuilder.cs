@@ -10,7 +10,7 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Results
 {
     /// <summary>
-    /// Builds and executes requests for operations under \workflows\runs\{run_id}\results
+    /// Builds and executes requests for operations under \workflows\runs\{runId}\results
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ResultsRequestBuilder : BaseRequestBuilder
@@ -25,7 +25,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Results
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ResultsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/workflows/runs/{run_id}/results", pathParameters)
+        public ResultsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/workflows/runs/{runId}/results", pathParameters)
         {
         }
         /// <summary>
@@ -33,7 +33,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Results
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ResultsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/workflows/runs/{run_id}/results", rawUrl)
+        public ResultsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/workflows/runs/{runId}/results", rawUrl)
         {
         }
     }

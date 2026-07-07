@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Workspaces.Item.StreamNamespace
 {
     /// <summary>
-    /// Builds and executes requests for operations under \workspaces\{workspace_id}\stream
+    /// Builds and executes requests for operations under \workspaces\{workspaceId}\stream
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class StreamRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workspaces.Item.StreamNamespace
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public StreamRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/workspaces/{workspace_id}/stream", pathParameters)
+        public StreamRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/workspaces/{workspaceId}/stream", pathParameters)
         {
         }
         /// <summary>
@@ -30,37 +30,39 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workspaces.Item.StreamNamespace
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public StreamRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/workspaces/{workspace_id}/stream", rawUrl)
+        public StreamRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/workspaces/{workspaceId}/stream", rawUrl)
         {
         }
         /// <summary>
         /// &quot;SSE stream of workspace_state_updated events.Order on connect (race-safe): authorize → subscribe → fetch snapshot →emit snapshot → drain. Subscribing before fetching means any mutationthat lands during the snapshot fetch sits on our queue and is emittedright after the snapshot. The WebApp reconciler is version-keyed andidempotent, so the duplicate-event case (snapshot version == queuedevent version) is a no-op.Reconnect uses the SSE id field (= last-seen version) as Last-Event-IDout of the box: EventSource clients re-supply it on the GET, but ourhandler does not consult it — instead, every connect re-emits thecurrent snapshot, which subsumes any events the client missed. Simplerand correct, with one duplicate event in the worst case.&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Workspaces.Item.StreamNamespace.StreamGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceStreamEndpointWorkspacesWorkspaceIdStreamGet200ResponseResponseJson"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceStreamEndpointWorkspacesWorkspaceIdStreamGet400">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceStreamEndpointWorkspacesWorkspaceIdStreamGet401">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceStreamEndpointWorkspacesWorkspaceIdStreamGet500">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceStreamEndpointWorkspacesWorkspaceIdStreamGet400Response">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceStreamEndpointWorkspacesWorkspaceIdStreamGet401Response">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceStreamEndpointWorkspacesWorkspaceIdStreamGet403Response">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceStreamEndpointWorkspacesWorkspaceIdStreamGet500Response">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Workspaces.Item.StreamNamespace.StreamGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceStreamEndpointWorkspacesWorkspaceIdStreamGet200ResponseResponseJson?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Workspaces.Item.StreamNamespace.StreamGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceStreamEndpointWorkspacesWorkspaceIdStreamGet200ResponseResponseJson> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceStreamEndpointWorkspacesWorkspaceIdStreamGet400.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceStreamEndpointWorkspacesWorkspaceIdStreamGet401.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceStreamEndpointWorkspacesWorkspaceIdStreamGet500.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceStreamEndpointWorkspacesWorkspaceIdStreamGet400Response.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceStreamEndpointWorkspacesWorkspaceIdStreamGet401Response.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceStreamEndpointWorkspacesWorkspaceIdStreamGet403Response.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceStreamEndpointWorkspacesWorkspaceIdStreamGet500Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Workspaces.Item.StreamNamespace.StreamGetResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Workspaces.Item.StreamNamespace.StreamGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceStreamEndpointWorkspacesWorkspaceIdStreamGet200ResponseResponseJson>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceStreamEndpointWorkspacesWorkspaceIdStreamGet200ResponseResponseJson.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;SSE stream of workspace_state_updated events.Order on connect (race-safe): authorize → subscribe → fetch snapshot →emit snapshot → drain. Subscribing before fetching means any mutationthat lands during the snapshot fetch sits on our queue and is emittedright after the snapshot. The WebApp reconciler is version-keyed andidempotent, so the duplicate-event case (snapshot version == queuedevent version) is a no-op.Reconnect uses the SSE id field (= last-seen version) as Last-Event-IDout of the box: EventSource clients re-supply it on the GET, but ourhandler does not consult it — instead, every connect re-emits thecurrent snapshot, which subsumes any events the client missed. Simplerand correct, with one duplicate event in the worst case.&quot;

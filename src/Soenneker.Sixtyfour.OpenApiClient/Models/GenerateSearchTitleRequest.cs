@@ -15,14 +15,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The entityMode property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleRequest_entityMode? EntityMode { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleRequestEntityMode? EntityMode { get; set; }
         /// <summary>The parsedQuery property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleRequest_parsedQuery? ParsedQuery { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleRequestParsedQueryProperty? ParsedQuery { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleRequest_parsedQuery ParsedQuery { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleRequestParsedQueryProperty ParsedQuery { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleRequest"/> and sets the default values.
@@ -30,7 +30,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public GenerateSearchTitleRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            EntityMode = global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleRequest_entityMode.People;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -50,8 +49,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "entityMode", n => { EntityMode = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleRequest_entityMode>(); } },
-                { "parsedQuery", n => { ParsedQuery = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleRequest_parsedQuery>(global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleRequest_parsedQuery.CreateFromDiscriminatorValue); } },
+                { "entityMode", n => { EntityMode = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleRequestEntityMode>(); } },
+                { "parsedQuery", n => { ParsedQuery = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleRequestParsedQueryProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleRequestParsedQueryProperty.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -61,8 +60,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleRequest_entityMode>("entityMode", EntityMode);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleRequest_parsedQuery>("parsedQuery", ParsedQuery);
+            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleRequestEntityMode>("entityMode", EntityMode);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleRequestParsedQueryProperty>("parsedQuery", ParsedQuery);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

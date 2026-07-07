@@ -17,18 +17,18 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>List of leads with `email` to reverse-lookup in one request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailBulkRequest_leads>? Leads { get; set; }
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailBulkRequestLeadsItemProperty>? Leads { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailBulkRequest_leads> Leads { get; set; }
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailBulkRequestLeadsItemProperty> Leads { get; set; }
 #endif
         /// <summary>Override the default provider waterfall by listing provider IDs in priority order.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Providers? Providers { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailBulkRequestProviders? Providers { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.Providers Providers { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailBulkRequestProviders Providers { get; set; }
 #endif
         /// <summary>HTTPS URL that receives the result payload when the async job completes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,8 +63,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "leads", n => { Leads = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailBulkRequest_leads>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailBulkRequest_leads.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "providers", n => { Providers = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Providers>(global::Soenneker.Sixtyfour.OpenApiClient.Models.Providers.CreateFromDiscriminatorValue); } },
+                { "leads", n => { Leads = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailBulkRequestLeadsItemProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailBulkRequestLeadsItemProperty.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "providers", n => { Providers = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailBulkRequestProviders>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailBulkRequestProviders.CreateFromDiscriminatorValue); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
             };
         }
@@ -75,8 +75,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailBulkRequest_leads>("leads", Leads);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.Providers>("providers", Providers);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailBulkRequestLeadsItemProperty>("leads", Leads);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailBulkRequestProviders>("providers", Providers);
             writer.WriteStringValue("webhook_url", WebhookUrl);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -33,10 +33,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>The specs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.AddBlockRequest_specs? Specs { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.AddBlockRequestSpecsProperty? Specs { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.AddBlockRequest_specs Specs { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.AddBlockRequestSpecsProperty Specs { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.AddBlockRequest"/> and sets the default values.
@@ -65,7 +65,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             {
                 { "block_name", n => { BlockName = n.GetStringValue(); } },
                 { "parent_block_id", n => { ParentBlockId = n.GetStringValue(); } },
-                { "specs", n => { Specs = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.AddBlockRequest_specs>(global::Soenneker.Sixtyfour.OpenApiClient.Models.AddBlockRequest_specs.CreateFromDiscriminatorValue); } },
+                { "specs", n => { Specs = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.AddBlockRequestSpecsProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.AddBlockRequestSpecsProperty.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -77,7 +77,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("block_name", BlockName);
             writer.WriteStringValue("parent_block_id", ParentBlockId);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.AddBlockRequest_specs>("specs", Specs);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.AddBlockRequestSpecsProperty>("specs", Specs);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

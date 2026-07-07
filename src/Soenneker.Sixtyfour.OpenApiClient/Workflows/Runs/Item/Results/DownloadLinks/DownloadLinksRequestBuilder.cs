@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Results.DownloadLinks
 {
     /// <summary>
-    /// Builds and executes requests for operations under \workflows\runs\{run_id}\results\download-links
+    /// Builds and executes requests for operations under \workflows\runs\{runId}\results\download-links
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DownloadLinksRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Results.Download
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DownloadLinksRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/workflows/runs/{run_id}/results/download-links{?format*}", pathParameters)
+        public DownloadLinksRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/workflows/runs/{runId}/results/download-links{?format*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Results.Download
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DownloadLinksRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/workflows/runs/{run_id}/results/download-links{?format*}", rawUrl)
+        public DownloadLinksRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/workflows/runs/{runId}/results/download-links{?format*}", rawUrl)
         {
         }
         /// <summary>
@@ -39,13 +39,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Results.Download
         /// <returns>A List&lt;global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet400">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet401">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet403">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet404">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet409">When receiving a 409 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet500">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet400Response">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet401Response">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet403Response">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet404Response">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet409Response">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet500Response">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<List<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload>?> GetAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Results.DownloadLinks.DownloadLinksRequestBuilder.DownloadLinksRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -58,13 +58,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Results.Download
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet400.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet401.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet403.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet404.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet409.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet500.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet400Response.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet401Response.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet403Response.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet404Response.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet409Response.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet500Response.CreateFromDiscriminatorValue },
             };
             var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
