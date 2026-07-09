@@ -43,6 +43,7 @@ using Soenneker.Sixtyfour.OpenApiClient.ReversePhone;
 using Soenneker.Sixtyfour.OpenApiClient.ReversePhoneAsync;
 using Soenneker.Sixtyfour.OpenApiClient.ReversePhoneBulk;
 using Soenneker.Sixtyfour.OpenApiClient.ReversePhoneBulkAsync;
+using Soenneker.Sixtyfour.OpenApiClient.Schedules;
 using Soenneker.Sixtyfour.OpenApiClient.Search;
 using Soenneker.Sixtyfour.OpenApiClient.StructBuilder;
 using Soenneker.Sixtyfour.OpenApiClient.Webhooks;
@@ -245,6 +246,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient
         public global::Soenneker.Sixtyfour.OpenApiClient.ReversePhoneBulkAsync.ReversePhoneBulkAsyncRequestBuilder ReversePhoneBulkAsync
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.ReversePhoneBulkAsync.ReversePhoneBulkAsyncRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The schedules property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.Schedules.SchedulesRequestBuilder Schedules
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.Schedules.SchedulesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The search property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Search.SearchRequestBuilder Search

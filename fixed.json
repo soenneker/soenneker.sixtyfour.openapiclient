@@ -13487,6 +13487,726 @@
           }
         }
       }
+    },
+    "/schedules": {
+      "post": {
+        "tags": [
+          "Workflow Schedules"
+        ],
+        "summary": "Create Schedule Endpoint",
+        "description": "Create a schedule and register its Temporal Schedule. Bound to the caller.",
+        "operationId": "CreateScheduleEndpointSchedulesPost",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateScheduleRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduleResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateScheduleEndpointSchedulesPost400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateScheduleEndpointSchedulesPost401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateScheduleEndpointSchedulesPost403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateScheduleEndpointSchedulesPost500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Workflow Schedules"
+        ],
+        "summary": "List Schedules Endpoint",
+        "description": "List the org\u0027s schedules (optionally filtered to one workflow).",
+        "operationId": "ListSchedulesEndpointSchedulesGet",
+        "parameters": [
+          {
+            "name": "workflow_id",
+            "in": "query",
+            "schema": {
+              "title": "Workflow Id",
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListSchedulesEndpointSchedulesGet200Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListSchedulesEndpointSchedulesGet400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListSchedulesEndpointSchedulesGet401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListSchedulesEndpointSchedulesGet403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListSchedulesEndpointSchedulesGet500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/schedules/disable-bound": {
+      "post": {
+        "tags": [
+          "Workflow Schedules"
+        ],
+        "summary": "Disable Bound Schedules Endpoint",
+        "description": "\u0022Proactively pause schedules whose bound principal was just revoked \u2014 call\nthis from the key-revocation / member-removal flow so the schedule stops\nimmediately (the fire-time check is the lazy safety net). Org-scoped.\n\nAdmin-gated: this pauses other members\u0027 schedules, so restrict it to\nadmin/owner dashboard users \u2014 otherwise any org member could mass-pause a\ncolleague\u0027s schedules by passing their created_by / an org api_key_id.\u0022",
+        "operationId": "DisableBoundSchedulesEndpointSchedulesDisableBoundPost",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DisableBoundRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisableBoundSchedulesEndpointSchedulesDisableBoundPost200Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisableBoundSchedulesEndpointSchedulesDisableBoundPost400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisableBoundSchedulesEndpointSchedulesDisableBoundPost401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisableBoundSchedulesEndpointSchedulesDisableBoundPost403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisableBoundSchedulesEndpointSchedulesDisableBoundPost500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/schedules/active-counts": {
+      "get": {
+        "tags": [
+          "Workflow Schedules"
+        ],
+        "summary": "Active Schedule Counts Endpoint",
+        "description": "Active-schedule count per workflow for the org \u2014 powers the workflows\nlist \u0022N active schedules\u0022 indicator. Declared before /{schedule_id} so the\nliteral path isn\u0027t captured as an id.",
+        "operationId": "ActiveScheduleCountsEndpointSchedulesActiveCountsGet",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActiveScheduleCountsEndpointSchedulesActiveCountsGet200Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActiveScheduleCountsEndpointSchedulesActiveCountsGet400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActiveScheduleCountsEndpointSchedulesActiveCountsGet401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActiveScheduleCountsEndpointSchedulesActiveCountsGet403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActiveScheduleCountsEndpointSchedulesActiveCountsGet500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/schedules/{scheduleId}": {
+      "get": {
+        "tags": [
+          "Workflow Schedules"
+        ],
+        "summary": "Get Schedule Endpoint",
+        "operationId": "GetScheduleEndpointSchedulesScheduleIdGet",
+        "parameters": [
+          {
+            "name": "scheduleId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Schedule Id",
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduleResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetScheduleEndpointSchedulesScheduleIdGet400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetScheduleEndpointSchedulesScheduleIdGet401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetScheduleEndpointSchedulesScheduleIdGet403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetScheduleEndpointSchedulesScheduleIdGet500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Workflow Schedules"
+        ],
+        "summary": "Update Schedule Endpoint",
+        "description": "Update a schedule. Reactivating a revoked schedule re-binds it to the\ncurrent caller (the \u0027re-own\u0027 / \u0027re-bind\u0027 action) and clears disabled_reason.",
+        "operationId": "UpdateScheduleEndpointSchedulesScheduleIdPatch",
+        "parameters": [
+          {
+            "name": "scheduleId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Schedule Id",
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateScheduleRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduleResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateScheduleEndpointSchedulesScheduleIdPatch400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateScheduleEndpointSchedulesScheduleIdPatch401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateScheduleEndpointSchedulesScheduleIdPatch403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateScheduleEndpointSchedulesScheduleIdPatch500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Workflow Schedules"
+        ],
+        "summary": "Delete Schedule Endpoint",
+        "operationId": "DeleteScheduleEndpointSchedulesScheduleIdDelete",
+        "parameters": [
+          {
+            "name": "scheduleId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Schedule Id",
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteScheduleEndpointSchedulesScheduleIdDelete200Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteScheduleEndpointSchedulesScheduleIdDelete400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteScheduleEndpointSchedulesScheduleIdDelete401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteScheduleEndpointSchedulesScheduleIdDelete403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteScheduleEndpointSchedulesScheduleIdDelete500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -14499,6 +15219,47 @@
           }
         }
       },
+      "CreateScheduleRequest": {
+        "title": "CreateScheduleRequest",
+        "required": [
+          "workflow_id",
+          "name",
+          "cron_expression"
+        ],
+        "type": "object",
+        "properties": {
+          "workflow_id": {
+            "title": "Workflow Id",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "maxLength": 120,
+            "minLength": 1,
+            "type": "string"
+          },
+          "cron_expression": {
+            "title": "Cron Expression",
+            "minLength": 1,
+            "type": "string",
+            "description": "Standard 5-field cron expression."
+          },
+          "timezone": {
+            "title": "Timezone",
+            "type": "string",
+            "description": "IANA timezone, e.g. America/Los_Angeles.",
+            "default": "UTC"
+          },
+          "description": {
+            "$ref": "#/components/schemas/CreateScheduleRequestDescription"
+          },
+          "is_active": {
+            "title": "Is Active",
+            "type": "boolean",
+            "default": true
+          }
+        }
+      },
       "CreateSigningSecretResponse": {
         "title": "CreateSigningSecretResponse",
         "required": [
@@ -14542,6 +15303,19 @@
             "$ref": "#/components/schemas/CreateWorkflowRequestId"
           }
         }
+      },
+      "DisableBoundRequest": {
+        "title": "DisableBoundRequest",
+        "type": "object",
+        "properties": {
+          "api_key_id": {
+            "$ref": "#/components/schemas/DisableBoundRequestApiKeyId"
+          },
+          "created_by": {
+            "$ref": "#/components/schemas/DisableBoundRequestCreatedBy"
+          }
+        },
+        "description": "Pause every active schedule bound to a revoked principal. Exactly one of\napi_key_id (key revoked) or created_by (user offboarded) is provided."
       },
       "DownloadSignedUrlResponse": {
         "title": "DownloadSignedUrlResponse",
@@ -15863,6 +16637,73 @@
         },
         "description": "Response for an async save/export request."
       },
+      "ScheduleResponse": {
+        "title": "ScheduleResponse",
+        "required": [
+          "id",
+          "workflow_id",
+          "name",
+          "cron_expression",
+          "timezone",
+          "is_active",
+          "created_at",
+          "updated_at"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "workflow_id": {
+            "title": "Workflow Id",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "description": {
+            "$ref": "#/components/schemas/ScheduleResponseDescription"
+          },
+          "cron_expression": {
+            "title": "Cron Expression",
+            "type": "string"
+          },
+          "timezone": {
+            "title": "Timezone",
+            "type": "string"
+          },
+          "is_active": {
+            "title": "Is Active",
+            "type": "boolean"
+          },
+          "disabled_reason": {
+            "$ref": "#/components/schemas/ScheduleResponseDisabledReason"
+          },
+          "created_by": {
+            "$ref": "#/components/schemas/ScheduleResponseCreatedBy"
+          },
+          "api_key_id": {
+            "$ref": "#/components/schemas/ScheduleResponseApiKeyId"
+          },
+          "next_run_times": {
+            "title": "Next Run Times",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": "string"
+          },
+          "updated_at": {
+            "title": "Updated At",
+            "type": "string"
+          }
+        }
+      },
       "SearchIdSource": {
         "title": "SearchIdSource",
         "required": [
@@ -16363,6 +17204,27 @@
           },
           "access_token_ttl_seconds": {
             "$ref": "#/components/schemas/UpdateOAuthClientRequestAccessTokenTtlSeconds"
+          }
+        }
+      },
+      "UpdateScheduleRequest": {
+        "title": "UpdateScheduleRequest",
+        "type": "object",
+        "properties": {
+          "name": {
+            "$ref": "#/components/schemas/UpdateScheduleRequestName"
+          },
+          "cron_expression": {
+            "$ref": "#/components/schemas/UpdateScheduleRequestCronExpression"
+          },
+          "timezone": {
+            "$ref": "#/components/schemas/UpdateScheduleRequestTimezone"
+          },
+          "description": {
+            "$ref": "#/components/schemas/UpdateScheduleRequestDescription"
+          },
+          "is_active": {
+            "$ref": "#/components/schemas/UpdateScheduleRequestIsActive"
           }
         }
       },
@@ -17351,10 +18213,25 @@
         "type": "string",
         "nullable": true
       },
+      "CreateScheduleRequestDescription": {
+        "title": "Description",
+        "type": "string",
+        "nullable": true
+      },
       "CreateWorkflowRequestId": {
         "title": "Id",
         "type": "string",
         "description": "Optional pre-generated workflow ID supplied by the client.",
+        "nullable": true
+      },
+      "DisableBoundRequestApiKeyId": {
+        "title": "Api Key Id",
+        "type": "integer",
+        "nullable": true
+      },
+      "DisableBoundRequestCreatedBy": {
+        "title": "Created By",
+        "type": "string",
         "nullable": true
       },
       "EnrichCompanyInfoPeopleFocusPrompt": {
@@ -18369,6 +19246,26 @@
         "description": "Saved exclusion-list IDs to apply as a post-filter. Each list\u0027s entity type must match the search mode (person lists for people searches, company lists for company searches). Max 5.",
         "nullable": true
       },
+      "ScheduleResponseDescription": {
+        "title": "Description",
+        "type": "string",
+        "nullable": true
+      },
+      "ScheduleResponseDisabledReason": {
+        "title": "Disabled Reason",
+        "type": "string",
+        "nullable": true
+      },
+      "ScheduleResponseCreatedBy": {
+        "title": "Created By",
+        "type": "string",
+        "nullable": true
+      },
+      "ScheduleResponseApiKeyId": {
+        "title": "Api Key Id",
+        "type": "integer",
+        "nullable": true
+      },
       "SearchIdSourceExcludePublicIds": {
         "title": "Exclude Public Ids",
         "type": "object",
@@ -18879,6 +19776,34 @@
         "minimum": 60.0,
         "exclusiveMinimum": false,
         "type": "integer",
+        "nullable": true
+      },
+      "UpdateScheduleRequestName": {
+        "title": "Name",
+        "maxLength": 120,
+        "minLength": 1,
+        "type": "string",
+        "nullable": true
+      },
+      "UpdateScheduleRequestCronExpression": {
+        "title": "Cron Expression",
+        "minLength": 1,
+        "type": "string",
+        "nullable": true
+      },
+      "UpdateScheduleRequestTimezone": {
+        "title": "Timezone",
+        "type": "string",
+        "nullable": true
+      },
+      "UpdateScheduleRequestDescription": {
+        "title": "Description",
+        "type": "string",
+        "nullable": true
+      },
+      "UpdateScheduleRequestIsActive": {
+        "title": "Is Active",
+        "type": "boolean",
         "nullable": true
       },
       "UpdateWorkflowRequestWorkflowName": {
@@ -24501,6 +25426,249 @@
           }
         }
       },
+      "CreateScheduleEndpointSchedulesPost400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "CreateScheduleEndpointSchedulesPost401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "CreateScheduleEndpointSchedulesPost403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "CreateScheduleEndpointSchedulesPost500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ResponseListSchedulesEndpointSchedulesGet": {
+        "title": "Response List Schedules Endpoint Schedules Get",
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/ScheduleResponse"
+        }
+      },
+      "ListSchedulesEndpointSchedulesGet400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ListSchedulesEndpointSchedulesGet401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ListSchedulesEndpointSchedulesGet403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ListSchedulesEndpointSchedulesGet500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ResponseDisableBoundSchedulesEndpointSchedulesDisableBoundPost": {
+        "title": "Response Disable Bound Schedules Endpoint Schedules Disable Bound Post",
+        "type": "object"
+      },
+      "DisableBoundSchedulesEndpointSchedulesDisableBoundPost400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "DisableBoundSchedulesEndpointSchedulesDisableBoundPost401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "DisableBoundSchedulesEndpointSchedulesDisableBoundPost403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "DisableBoundSchedulesEndpointSchedulesDisableBoundPost500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ResponseActiveScheduleCountsEndpointSchedulesActiveCountsGet": {
+        "title": "Response Active Schedule Counts Endpoint Schedules Active Counts Get",
+        "type": "object"
+      },
+      "ActiveScheduleCountsEndpointSchedulesActiveCountsGet400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ActiveScheduleCountsEndpointSchedulesActiveCountsGet401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ActiveScheduleCountsEndpointSchedulesActiveCountsGet403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ActiveScheduleCountsEndpointSchedulesActiveCountsGet500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetScheduleEndpointSchedulesScheduleIdGet400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetScheduleEndpointSchedulesScheduleIdGet401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetScheduleEndpointSchedulesScheduleIdGet403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetScheduleEndpointSchedulesScheduleIdGet500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "UpdateScheduleEndpointSchedulesScheduleIdPatch400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "UpdateScheduleEndpointSchedulesScheduleIdPatch401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "UpdateScheduleEndpointSchedulesScheduleIdPatch403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "UpdateScheduleEndpointSchedulesScheduleIdPatch500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ResponseDeleteScheduleEndpointSchedulesScheduleIdDelete": {
+        "title": "Response Delete Schedule Endpoint Schedules  Schedule Id  Delete",
+        "type": "object"
+      },
+      "DeleteScheduleEndpointSchedulesScheduleIdDelete400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "DeleteScheduleEndpointSchedulesScheduleIdDelete401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "DeleteScheduleEndpointSchedulesScheduleIdDelete403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "DeleteScheduleEndpointSchedulesScheduleIdDelete500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
       "BodyRunWorkflowWorkflowsRunPostWebhookPayloadBranch1": {
         "required": [
           "value"
@@ -24717,6 +25885,21 @@
         }
       },
       "UnlinkMeSlackLinksSlackTeamIdSlackUserIdDelete200ResponseResponseJson": {
+        "type": "object"
+      },
+      "ListSchedulesEndpointSchedulesGet200Response": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/ScheduleResponse"
+        }
+      },
+      "DisableBoundSchedulesEndpointSchedulesDisableBoundPost200Response": {
+        "type": "object"
+      },
+      "ActiveScheduleCountsEndpointSchedulesActiveCountsGet200Response": {
+        "type": "object"
+      },
+      "DeleteScheduleEndpointSchedulesScheduleIdDelete200Response": {
         "type": "object"
       },
       "JobStatusJobStatusJobIdGet200ResponseOneOf1": {
