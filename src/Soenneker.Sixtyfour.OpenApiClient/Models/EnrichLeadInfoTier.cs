@@ -23,5 +23,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         #pragma warning disable CS1591
         High,
         #pragma warning restore CS1591
+        [EnumMember(Value = "xhigh")]
+        #pragma warning disable CS1591
+        Xhigh,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "scout")]
+        #pragma warning disable CS1591
+        Scout,
+        #pragma warning restore CS1591
     }
 }
