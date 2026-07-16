@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="bool"/>, <see cref="double"/>, <see cref="int"/>, <see cref="string"/>
+    /// Composed type wrapper for classes <see cref="bool"/>, <see cref="double"/>, <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValueValueMember1"/>, <see cref="int"/>, <see cref="string"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class FilterFieldValuesValueValue : IComposedTypeWrapper, IParsable
@@ -17,6 +17,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public bool? Boolean { get; set; }
         /// <summary>Composed type representation for type <see cref="double"/></summary>
         public double? Double { get; set; }
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValueValueMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValueValueMember1? FilterFieldValuesValueValueMember1 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValueValueMember1 FilterFieldValuesValueValueMember1 { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="int"/></summary>
         public int? Integer { get; set; }
         /// <summary>Composed type representation for type <see cref="string"/></summary>
@@ -52,6 +60,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             {
                 result.String = stringValue;
             }
+            else {
+                result.FilterFieldValuesValueValueMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValueValueMember1();
+            }
             return result;
         }
         /// <summary>
@@ -60,6 +71,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
+            if(FilterFieldValuesValueValueMember1 != null)
+            {
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(FilterFieldValuesValueValueMember1);
+            }
             return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
@@ -84,6 +99,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             else if(String != null)
             {
                 writer.WriteStringValue(null, String);
+            }
+            else {
+                writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValueValueMember1>(null, FilterFieldValuesValueValueMember1);
             }
         }
     }

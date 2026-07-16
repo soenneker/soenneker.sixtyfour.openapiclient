@@ -5528,10 +5528,14 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                {
+                  "enum": [
+                    null
+                  ]
                 }
               ],
-              "description": "Result formats to save. Repeat the parameter for multiple values, e.g. result_formats=csv\u0026result_formats=ndjson.",
-              "nullable": true
+              "description": "Result formats to save. Repeat the parameter for multiple values, e.g. result_formats=csv\u0026result_formats=ndjson."
             }
           },
           {
@@ -14645,43 +14649,51 @@
                 },
                 "people_focus_prompt": {
                   "title": "People Focus Prompt",
-                  "type": "string",
                   "anyOf": [
                     {
                       "type": "string"
+                    },
+                    {
+                      "enum": [
+                        null
+                      ]
                     }
                   ],
                   "description": "Natural-language description of which people to surface when find_people=true.",
-                  "default": null,
-                  "nullable": true
+                  "default": null
                 },
                 "lead_struct": {
                   "title": "Lead Struct",
-                  "type": "object",
                   "anyOf": [
                     {
                       "type": "object"
+                    },
+                    {
+                      "enum": [
+                        null
+                      ]
                     }
                   ],
                   "description": "Output schema for each discovered person when find_people=true.",
-                  "default": null,
-                  "nullable": true
+                  "default": null
                 },
                 "research_plan": {
                   "title": "Research Plan",
-                  "type": "string",
                   "anyOf": [
                     {
                       "type": "string"
+                    },
+                    {
+                      "enum": [
+                        null
+                      ]
                     }
                   ],
                   "description": "Optional natural-language plan that guides the research agent.",
-                  "default": null,
-                  "nullable": true
+                  "default": null
                 },
                 "tier": {
                   "title": "Tier",
-                  "type": "string",
                   "anyOf": [
                     {
                       "enum": [
@@ -14713,11 +14725,15 @@
                           }
                         ]
                       }
+                    },
+                    {
+                      "enum": [
+                        null
+                      ]
                     }
                   ],
                   "description": "Quality and cost tier for the research agent.",
-                  "default": null,
-                  "nullable": true
+                  "default": null
                 },
                 "full_org_chart": {
                   "title": "Full Org Chart",
@@ -14727,60 +14743,72 @@
                 },
                 "webhook_url": {
                   "title": "Webhook Url",
-                  "type": "string",
                   "anyOf": [
                     {
                       "maxLength": 2083,
                       "minLength": 1,
                       "type": "string",
                       "format": "uri"
+                    },
+                    {
+                      "enum": [
+                        null
+                      ]
                     }
                   ],
                   "description": "Optional HTTPS webhook URL for completed results.",
-                  "default": null,
-                  "nullable": true
+                  "default": null
                 },
                 "field_confidence": {
                   "title": "Field Confidence",
-                  "type": "boolean",
                   "anyOf": [
                     {
                       "type": "boolean"
+                    },
+                    {
+                      "enum": [
+                        null
+                      ]
                     }
                   ],
                   "description": "If true, return confidence scores for each requested output field.",
-                  "default": null,
-                  "nullable": true
+                  "default": null
                 },
                 "columns": {
                   "title": "Columns",
-                  "type": "array",
                   "anyOf": [
                     {
                       "type": "array",
                       "items": {
                         "type": "string"
                       }
+                    },
+                    {
+                      "enum": [
+                        null
+                      ]
                     }
                   ],
                   "description": "Optional subset of uploaded columns to feed into the source block.",
-                  "default": null,
-                  "nullable": true
+                  "default": null
                 },
                 "result_formats": {
                   "title": "Result Formats",
-                  "type": "array",
                   "anyOf": [
                     {
                       "type": "array",
                       "items": {
                         "type": "string"
                       }
+                    },
+                    {
+                      "enum": [
+                        null
+                      ]
                     }
                   ],
                   "description": "Optional saved result formats.",
-                  "default": null,
-                  "nullable": true
+                  "default": null
                 },
                 "save_json": {
                   "title": "Save Json",
@@ -14820,31 +14848,36 @@
               "properties": {
                 "struct": {
                   "title": "Struct",
-                  "type": "object",
                   "anyOf": [
                     {
                       "type": "object"
+                    },
+                    {
+                      "enum": [
+                        null
+                      ]
                     }
                   ],
                   "description": "Mapping of output field name to natural-language description of what to extract.",
-                  "default": null,
-                  "nullable": true
+                  "default": null
                 },
                 "research_plan": {
                   "title": "Research Plan",
-                  "type": "string",
                   "anyOf": [
                     {
                       "type": "string"
+                    },
+                    {
+                      "enum": [
+                        null
+                      ]
                     }
                   ],
                   "description": "Optional natural-language plan that guides the research agent.",
-                  "default": null,
-                  "nullable": true
+                  "default": null
                 },
                 "tier": {
                   "title": "Tier",
-                  "type": "string",
                   "anyOf": [
                     {
                       "enum": [
@@ -14886,68 +14919,84 @@
                           }
                         ]
                       }
+                    },
+                    {
+                      "enum": [
+                        null
+                      ]
                     }
                   ],
                   "description": "Quality and cost tier for the research agent.",
-                  "default": null,
-                  "nullable": true
+                  "default": null
                 },
                 "webhook_url": {
                   "title": "Webhook Url",
-                  "type": "string",
                   "anyOf": [
                     {
                       "maxLength": 2083,
                       "minLength": 1,
                       "type": "string",
                       "format": "uri"
+                    },
+                    {
+                      "enum": [
+                        null
+                      ]
                     }
                   ],
                   "description": "Optional HTTPS webhook URL for completed results.",
-                  "default": null,
-                  "nullable": true
+                  "default": null
                 },
                 "field_confidence": {
                   "title": "Field Confidence",
-                  "type": "boolean",
                   "anyOf": [
                     {
                       "type": "boolean"
+                    },
+                    {
+                      "enum": [
+                        null
+                      ]
                     }
                   ],
                   "description": "If true, return confidence scores for each requested output field.",
-                  "default": null,
-                  "nullable": true
+                  "default": null
                 },
                 "columns": {
                   "title": "Columns",
-                  "type": "array",
                   "anyOf": [
                     {
                       "type": "array",
                       "items": {
                         "type": "string"
                       }
+                    },
+                    {
+                      "enum": [
+                        null
+                      ]
                     }
                   ],
                   "description": "Optional subset of uploaded columns to feed into the source block.",
-                  "default": null,
-                  "nullable": true
+                  "default": null
                 },
                 "result_formats": {
                   "title": "Result Formats",
-                  "type": "array",
                   "anyOf": [
                     {
                       "type": "array",
                       "items": {
                         "type": "string"
                       }
+                    },
+                    {
+                      "enum": [
+                        null
+                      ]
                     }
                   ],
                   "description": "Optional saved result formats.",
-                  "default": null,
-                  "nullable": true
+                  "default": null
                 },
                 "save_json": {
                   "title": "Save Json",
@@ -17764,9 +17813,7 @@
             "example": "missing"
           },
           "input": {
-            "description": "The offending input value (any type, may be null).",
-            "nullable": true,
-            "example": null
+            "$ref": "#/components/schemas/ValidationErrorInput"
           },
           "ctx": {
             "$ref": "#/components/schemas/ValidationErrorCtxProperty"
@@ -17872,10 +17919,14 @@
             "items": {
               "type": "object"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "Per-iteration debug data emitted by the agent.",
-        "nullable": true
+        "description": "Per-iteration debug data emitted by the agent."
       },
       "ApprovalRequestReason": {
         "title": "Reason",
@@ -17891,6 +17942,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -17899,7 +17955,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -17925,10 +17980,14 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "IDs of upstream blocks that feed into this one.",
-        "nullable": true
+        "description": "IDs of upstream blocks that feed into this one."
       },
       "BlockLiveStatusStartedAt": {
         "title": "Started At",
@@ -17986,6 +18045,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -17995,7 +18059,6 @@
           }
         },
         "description": "Optional specs to override first block specs",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -18012,6 +18075,11 @@
           },
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -18021,7 +18089,6 @@
           }
         },
         "description": "For API key auth only - can be a list or dict",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -18077,6 +18144,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/PageContext"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -18085,7 +18157,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -18102,6 +18173,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -18110,7 +18186,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -18123,6 +18198,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/SearchRerunRequest"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -18131,7 +18211,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -18254,6 +18333,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -18263,7 +18347,6 @@
           }
         },
         "description": "Output schema for each discovered person when find_people=true.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -18333,6 +18416,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -18342,7 +18430,6 @@
           }
         },
         "description": "Mapping of output field name to natural-language description of what to extract.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -18468,6 +18555,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -18477,7 +18569,6 @@
           }
         },
         "description": "Raw OpenSearch DSL filters that scope the aggregation.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -18491,6 +18582,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -18500,7 +18596,6 @@
           }
         },
         "description": "MongoDB-style filters that scope the aggregation.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -18538,10 +18633,14 @@
           },
           {
             "type": "boolean"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "Field value; null bucket represents missing values.",
-        "nullable": true
+        "description": "Field value; null bucket represents missing values."
       },
       "FilterFieldValuesValueFilterSnippet": {
         "title": "Filter Snippet",
@@ -18552,6 +18651,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -18561,7 +18665,6 @@
           }
         },
         "description": "Ready-to-merge filter clause that selects this value.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -18581,10 +18684,14 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "Supported MongoDB-style operators for simple_filters input.",
-        "nullable": true
+        "description": "Supported MongoDB-style operators for simple_filters input."
       },
       "FilterSearchResponseSearchId": {
         "title": "Search Id",
@@ -18679,6 +18786,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -18688,7 +18800,6 @@
           }
         },
         "description": "Structured filter set echoed back; round-trippable into a follow-up request.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -18708,10 +18819,14 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "Override the default provider waterfall by listing provider IDs in priority order.",
-        "nullable": true
+        "description": "Override the default provider waterfall by listing provider IDs in priority order."
       },
       "FindEmailBulkRequestWebhookUrl": {
         "title": "Webhook Url",
@@ -18731,10 +18846,14 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "Override the default provider waterfall by listing provider IDs in priority order.",
-        "nullable": true
+        "description": "Override the default provider waterfall by listing provider IDs in priority order."
       },
       "FindEmailRequestWebhookUrl": {
         "title": "Webhook Url",
@@ -18754,9 +18873,13 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "FindEmailV2BulkRequestWebhookUrl": {
         "title": "Webhook Url",
@@ -18775,9 +18898,13 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "FindEmailV2RequestWebhookUrl": {
         "title": "Webhook Url",
@@ -18796,10 +18923,14 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "Override the default provider waterfall by listing provider IDs in priority order.",
-        "nullable": true
+        "description": "Override the default provider waterfall by listing provider IDs in priority order."
       },
       "FindPhoneBulkRequestWebhookUrl": {
         "title": "Webhook Url",
@@ -18819,10 +18950,14 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "Override the default provider waterfall by listing provider IDs in priority order.",
-        "nullable": true
+        "description": "Override the default provider waterfall by listing provider IDs in priority order."
       },
       "FindPhoneRequestWebhookUrl": {
         "title": "Webhook Url",
@@ -18842,9 +18977,13 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "FindPhoneV2BulkRequestWebhookUrl": {
         "title": "Webhook Url",
@@ -18863,9 +19002,13 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "FindPhoneV2RequestWebhookUrl": {
         "title": "Webhook Url",
@@ -18890,6 +19033,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -18899,7 +19047,6 @@
           }
         },
         "description": "Mapping of output field name to natural-language description of what to extract.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -18919,6 +19066,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -18927,7 +19079,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -18997,10 +19148,14 @@
                 "type": "string"
               }
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "Optional reference URLs the agent may use as evidence.",
-        "nullable": true
+        "description": "Optional reference URLs the agent may use as evidence."
       },
       "QaAgentRequestStruct": {
         "title": "Struct",
@@ -19014,6 +19169,11 @@
             "additionalProperties": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -19023,7 +19183,6 @@
           }
         },
         "description": "Mapping of extra output fields and their descriptions.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -19063,6 +19222,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -19071,7 +19235,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -19104,10 +19267,14 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "Override the default provider waterfall by listing provider IDs in priority order.",
-        "nullable": true
+        "description": "Override the default provider waterfall by listing provider IDs in priority order."
       },
       "ReverseEmailBulkRequestWebhookUrl": {
         "title": "Webhook Url",
@@ -19127,10 +19294,14 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "Override the default provider waterfall by listing provider IDs in priority order.",
-        "nullable": true
+        "description": "Override the default provider waterfall by listing provider IDs in priority order."
       },
       "ReverseEmailRequestWebhookUrl": {
         "title": "Webhook Url",
@@ -19150,10 +19321,14 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "Override the default provider waterfall by listing provider IDs in priority order.",
-        "nullable": true
+        "description": "Override the default provider waterfall by listing provider IDs in priority order."
       },
       "ReversePhoneBulkRequestWebhookUrl": {
         "title": "Webhook Url",
@@ -19173,10 +19348,14 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "Override the default provider waterfall by listing provider IDs in priority order.",
-        "nullable": true
+        "description": "Override the default provider waterfall by listing provider IDs in priority order."
       },
       "ReversePhoneRequestWebhookUrl": {
         "title": "Webhook Url",
@@ -19202,6 +19381,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -19211,7 +19395,6 @@
           }
         },
         "description": "Structured filter set returned by a previous search.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -19226,10 +19409,14 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "People-mode inline identifiers to exclude from results, applied as a post-filter. Accepts LinkedIn public IDs or profile URLs. For company searches, use \u0060exclude_entity_ids\u0060. Max 1000.",
-        "nullable": true
+        "description": "People-mode inline identifiers to exclude from results, applied as a post-filter. Accepts LinkedIn public IDs or profile URLs. For company searches, use \u0060exclude_entity_ids\u0060. Max 1000."
       },
       "SaveSearchRequestExcludeEntityIds": {
         "title": "Exclude Entity Ids",
@@ -19241,10 +19428,14 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "\u0022Inline identifiers to exclude from results, applied as a post-filter. People mode: LinkedIn public IDs or profile URLs. Company mode: numeric LinkedIn company IDs, company URLs/slugs, or exact website domains (values that resolve to no or multiple companies are ignored). Max 1000.\u0022",
-        "nullable": true
+        "description": "\u0022Inline identifiers to exclude from results, applied as a post-filter. People mode: LinkedIn public IDs or profile URLs. Company mode: numeric LinkedIn company IDs, company URLs/slugs, or exact website domains (values that resolve to no or multiple companies are ignored). Max 1000.\u0022"
       },
       "SaveSearchRequestExcludeListIds": {
         "title": "Exclude List Ids",
@@ -19256,10 +19447,14 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "Saved exclusion-list IDs to apply as a post-filter. Each list\u0027s entity type must match the search mode (person lists for people searches, company lists for company searches). Max 5.",
-        "nullable": true
+        "description": "Saved exclusion-list IDs to apply as a post-filter. Each list\u0027s entity type must match the search mode (person lists for people searches, company lists for company searches). Max 5."
       },
       "ScheduleResponseDescription": {
         "title": "Description",
@@ -19291,10 +19486,14 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "Optional people-mode inline exclusions to re-apply while replaying the saved search. \u0060search_id\u0060 itself does not carry exclusions.",
-        "nullable": true
+        "description": "Optional people-mode inline exclusions to re-apply while replaying the saved search. \u0060search_id\u0060 itself does not carry exclusions."
       },
       "SearchIdSourceExcludeEntityIds": {
         "title": "Exclude Entity Ids",
@@ -19306,10 +19505,14 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "\u0022Optional inline exclusions to re-apply while replaying the saved search. People: LinkedIn public IDs/profile URLs. Companies: numeric company IDs, company URLs/slugs, or exact website domains.\u0022",
-        "nullable": true
+        "description": "\u0022Optional inline exclusions to re-apply while replaying the saved search. People: LinkedIn public IDs/profile URLs. Companies: numeric company IDs, company URLs/slugs, or exact website domains.\u0022"
       },
       "SearchIdSourceExcludeListIds": {
         "title": "Exclude List Ids",
@@ -19321,10 +19524,14 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "Optional saved exclusion lists to re-apply while replaying the saved search. \u0060search_id\u0060 itself does not carry exclusions.",
-        "nullable": true
+        "description": "Optional saved exclusion lists to re-apply while replaying the saved search. \u0060search_id\u0060 itself does not carry exclusions."
       },
       "SearchQueryRequestSimpleFilters": {
         "title": "Simple Filters",
@@ -19335,6 +19542,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -19344,7 +19556,6 @@
           }
         },
         "description": "MongoDB-style filters; the API translates them to DSL.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -19358,6 +19569,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -19367,7 +19583,6 @@
           }
         },
         "description": "Raw OpenSearch DSL filters.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -19381,6 +19596,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -19390,7 +19610,6 @@
           }
         },
         "description": "Structured filter set returned by a previous search.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -19423,10 +19642,14 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "People-mode inline identifiers to exclude from results, applied as a post-filter. Accepts LinkedIn public IDs or profile URLs. For company searches, use \u0060exclude_entity_ids\u0060. Max 1000.",
-        "nullable": true
+        "description": "People-mode inline identifiers to exclude from results, applied as a post-filter. Accepts LinkedIn public IDs or profile URLs. For company searches, use \u0060exclude_entity_ids\u0060. Max 1000."
       },
       "SearchQueryRequestExcludeEntityIds": {
         "title": "Exclude Entity Ids",
@@ -19438,10 +19661,14 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "\u0022Inline identifiers to exclude from results, applied as a post-filter. People mode: LinkedIn public IDs or profile URLs. Company mode: numeric LinkedIn company IDs, company URLs/slugs, or exact website domains (values that resolve to no or multiple companies are ignored). Max 1000.\u0022",
-        "nullable": true
+        "description": "\u0022Inline identifiers to exclude from results, applied as a post-filter. People mode: LinkedIn public IDs or profile URLs. Company mode: numeric LinkedIn company IDs, company URLs/slugs, or exact website domains (values that resolve to no or multiple companies are ignored). Max 1000.\u0022"
       },
       "SearchQueryRequestExcludeListIds": {
         "title": "Exclude List Ids",
@@ -19453,10 +19680,14 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "Saved exclusion-list IDs to apply as a post-filter. Each list\u0027s entity type must match the search mode (person lists for people searches, company lists for company searches). Max 5.",
-        "nullable": true
+        "description": "Saved exclusion-list IDs to apply as a post-filter. Each list\u0027s entity type must match the search mode (person lists for people searches, company lists for company searches). Max 5."
       },
       "SearchRerunRequestSearchId": {
         "title": "Search Id",
@@ -19472,9 +19703,13 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "SetActiveViewerRequestActiveViewerKey": {
         "title": "Activeviewerkey",
@@ -19508,10 +19743,14 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "People-mode inline identifiers to exclude from results, applied as a post-filter. Accepts LinkedIn public IDs or profile URLs. For company searches, use \u0060exclude_entity_ids\u0060. Max 1000.",
-        "nullable": true
+        "description": "People-mode inline identifiers to exclude from results, applied as a post-filter. Accepts LinkedIn public IDs or profile URLs. For company searches, use \u0060exclude_entity_ids\u0060. Max 1000."
       },
       "StartAgenticSearchRequestExcludeEntityIds": {
         "title": "Exclude Entity Ids",
@@ -19523,10 +19762,14 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "\u0022Inline identifiers to exclude from results, applied as a post-filter. People mode: LinkedIn public IDs or profile URLs. Company mode: numeric LinkedIn company IDs, company URLs/slugs, or exact website domains (values that resolve to no or multiple companies are ignored). Max 1000.\u0022",
-        "nullable": true
+        "description": "\u0022Inline identifiers to exclude from results, applied as a post-filter. People mode: LinkedIn public IDs or profile URLs. Company mode: numeric LinkedIn company IDs, company URLs/slugs, or exact website domains (values that resolve to no or multiple companies are ignored). Max 1000.\u0022"
       },
       "StartAgenticSearchRequestExcludeListIds": {
         "title": "Exclude List Ids",
@@ -19538,10 +19781,14 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "Saved exclusion-list IDs to apply as a post-filter. Each list\u0027s entity type must match the search mode (person lists for people searches, company lists for company searches). Max 5.",
-        "nullable": true
+        "description": "Saved exclusion-list IDs to apply as a post-filter. Each list\u0027s entity type must match the search mode (person lists for people searches, company lists for company searches). Max 5."
       },
       "StartFilterSearchRequestFilters": {
         "title": "Filters",
@@ -19552,6 +19799,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -19561,7 +19813,6 @@
           }
         },
         "description": "Raw OpenSearch DSL filters.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -19575,6 +19826,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -19584,7 +19840,6 @@
           }
         },
         "description": "MongoDB-style filters that the API translates to DSL.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -19607,6 +19862,11 @@
           },
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -19615,7 +19875,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -19632,9 +19891,13 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "StartInteractiveRequestCacheConfig": {
         "title": "Cache Config",
@@ -19645,6 +19908,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -19653,7 +19921,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -19667,9 +19934,13 @@
             "items": {
               "$ref": "#/components/schemas/StructField"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "StructBuilderRequestBlockType": {
         "title": "Block Type",
@@ -19726,9 +19997,13 @@
               "maxLength": 200,
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "StructFieldSubfields": {
         "title": "Subfields",
@@ -19739,9 +20014,13 @@
             "items": {
               "$ref": "#/components/schemas/StructSubField"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "StructSubFieldDescription": {
         "title": "Description",
@@ -19841,6 +20120,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/WorkflowGraph"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -19850,7 +20134,6 @@
           }
         },
         "description": "Replacement workflow graph.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -19885,6 +20168,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -19893,7 +20181,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -19967,6 +20254,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/WorkflowGraph"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -19976,7 +20268,6 @@
           }
         },
         "description": "Workflow graph; included on detail responses.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -20029,10 +20320,14 @@
             "items": {
               "type": "object"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "Inline rows when the file is small enough to embed; otherwise null.",
-        "nullable": true
+        "description": "Inline rows when the file is small enough to embed; otherwise null."
       },
       "WorkflowRunResponseStep": {
         "title": "Step",
@@ -20108,6 +20403,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -20117,7 +20417,6 @@
           }
         },
         "description": "Aggregate run metrics (rows in/out, costs, etc.).",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -20128,10 +20427,14 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "Per-block detail; usually null in list responses.",
-        "nullable": true
+        "description": "Per-block detail; usually null in list responses."
       },
       "WorkflowRunStartedResponseCacheConfig": {
         "title": "Cache Config",
@@ -20142,6 +20445,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -20151,7 +20459,6 @@
           }
         },
         "description": "Cache configuration; only set by the custom-cache endpoint.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -25297,6 +25604,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/SigningSecretMetaResponse"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -25305,7 +25617,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -26085,10 +26396,14 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "Source references used to produce the result.",
-        "nullable": true
+        "description": "Source references used to produce the result."
       },
       "JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultFindings": {
         "title": "Findings",
@@ -26099,10 +26414,14 @@
             "items": {
               "type": "object"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "Optional supporting findings produced by the enrichment agent.",
-        "nullable": true
+        "description": "Optional supporting findings produced by the enrichment agent."
       },
       "JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultFieldConfidence": {
         "title": "Field Confidence",
@@ -26110,10 +26429,14 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "Optional per-field confidence metadata.",
-        "nullable": true
+        "description": "Optional per-field confidence metadata."
       },
       "AddBlockRequestSpecsProperty": {
         "type": "object"
@@ -26208,6 +26531,14 @@
       },
       "StartInteractiveRequestSpecsProperty": {
         "type": "object"
+      },
+      "ValidationErrorInput": {
+        "type": "object",
+        "description": "The offending input value (any type, may be null).",
+        "example": null,
+        "unrecognizedKeywords": {
+          "nullable": true
+        }
       },
       "ValidationErrorCtxProperty": {
         "type": "object",
