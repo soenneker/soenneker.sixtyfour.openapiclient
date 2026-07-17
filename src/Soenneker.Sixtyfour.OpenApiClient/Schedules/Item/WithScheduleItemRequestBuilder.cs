@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules.Item
         {
         }
         /// <summary>
-        /// Delete Schedule Endpoint
+        /// Delete a schedule.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteScheduleEndpointSchedulesScheduleIdDelete200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteScheduleEndpointSchedulesScheduleIdDelete200Response>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteScheduleEndpointSchedulesScheduleIdDelete200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get Schedule Endpoint
+        /// Get a schedule.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ScheduleResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -96,7 +96,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ScheduleResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ScheduleResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update a schedule. Reactivating a revoked schedule re-binds it to thecurrent caller (the &apos;re-own&apos; / &apos;re-bind&apos; action) and clears disabled_reason.
+        /// Update a schedule. Reactivating a schedule that was auto-paused also transfers ownership.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ScheduleResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -129,7 +129,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ScheduleResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ScheduleResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete Schedule Endpoint
+        /// Delete a schedule.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -148,7 +148,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules.Item
             return requestInfo;
         }
         /// <summary>
-        /// Get Schedule Endpoint
+        /// Get a schedule.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -167,7 +167,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules.Item
             return requestInfo;
         }
         /// <summary>
-        /// Update a schedule. Reactivating a revoked schedule re-binds it to thecurrent caller (the &apos;re-own&apos; / &apos;re-bind&apos; action) and clears disabled_reason.
+        /// Update a schedule. Reactivating a schedule that was auto-paused also transfers ownership.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -13497,8 +13497,8 @@
         "tags": [
           "Workflow Schedules"
         ],
-        "summary": "Create Schedule Endpoint",
-        "description": "Create a schedule and register its Temporal Schedule. Bound to the caller.",
+        "summary": "Create Schedule",
+        "description": "Create a schedule. The schedule is bound to the creating user or API key.",
         "operationId": "CreateScheduleEndpointSchedulesPost",
         "parameters": [
           {
@@ -13599,8 +13599,8 @@
         "tags": [
           "Workflow Schedules"
         ],
-        "summary": "List Schedules Endpoint",
-        "description": "List the org\u0027s schedules (optionally filtered to one workflow).",
+        "summary": "List Schedules",
+        "description": "List all schedules for the organization.",
         "operationId": "ListSchedulesEndpointSchedulesGet",
         "parameters": [
           {
@@ -13703,7 +13703,7 @@
         "tags": [
           "Workflow Schedules"
         ],
-        "summary": "Disable Bound Schedules Endpoint",
+        "summary": "Disable Bound Schedules",
         "description": "\u0022Proactively pause schedules whose bound principal was just revoked \u2014 call\nthis from the key-revocation / member-removal flow so the schedule stops\nimmediately (the fire-time check is the lazy safety net). Org-scoped.\n\nAdmin-gated: this pauses other members\u0027 schedules, so restrict it to\nadmin/owner dashboard users \u2014 otherwise any org member could mass-pause a\ncolleague\u0027s schedules by passing their created_by / an org api_key_id.\u0022",
         "operationId": "DisableBoundSchedulesEndpointSchedulesDisableBoundPost",
         "parameters": [
@@ -13807,7 +13807,7 @@
         "tags": [
           "Workflow Schedules"
         ],
-        "summary": "Active Schedule Counts Endpoint",
+        "summary": "Active Schedule Counts",
         "description": "Active-schedule count per workflow for the org \u2014 powers the workflows\nlist \u0022N active schedules\u0022 indicator. Declared before /{schedule_id} so the\nliteral path isn\u0027t captured as an id.",
         "operationId": "ActiveScheduleCountsEndpointSchedulesActiveCountsGet",
         "parameters": [
@@ -13902,7 +13902,8 @@
         "tags": [
           "Workflow Schedules"
         ],
-        "summary": "Get Schedule Endpoint",
+        "summary": "Get Schedule",
+        "description": "Get a schedule.",
         "operationId": "GetScheduleEndpointSchedulesScheduleIdGet",
         "parameters": [
           {
@@ -14003,8 +14004,8 @@
         "tags": [
           "Workflow Schedules"
         ],
-        "summary": "Update Schedule Endpoint",
-        "description": "Update a schedule. Reactivating a revoked schedule re-binds it to the\ncurrent caller (the \u0027re-own\u0027 / \u0027re-bind\u0027 action) and clears disabled_reason.",
+        "summary": "Update Schedule",
+        "description": "Update a schedule. Reactivating a schedule that was auto-paused also transfers ownership.",
         "operationId": "UpdateScheduleEndpointSchedulesScheduleIdPatch",
         "parameters": [
           {
@@ -14114,7 +14115,8 @@
         "tags": [
           "Workflow Schedules"
         ],
-        "summary": "Delete Schedule Endpoint",
+        "summary": "Delete Schedule",
+        "description": "Delete a schedule.",
         "operationId": "DeleteScheduleEndpointSchedulesScheduleIdDelete",
         "parameters": [
           {
@@ -14211,10 +14213,401 @@
           }
         }
       }
+    },
+    "/google/sheets/status": {
+      "get": {
+        "tags": [
+          "google-sheets"
+        ],
+        "summary": "Google Sheets connection status",
+        "operationId": "GetStatusGoogleSheetsStatusGet",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StatusResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetStatusGoogleSheetsStatusGet400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetStatusGoogleSheetsStatusGet401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetStatusGoogleSheetsStatusGet403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetStatusGoogleSheetsStatusGet500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/google/sheets/connect": {
+      "post": {
+        "tags": [
+          "google-sheets"
+        ],
+        "summary": "Connect Google account",
+        "operationId": "ConnectGoogleSheetsConnectPost",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConnectRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StatusResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConnectGoogleSheetsConnectPost400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConnectGoogleSheetsConnectPost401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConnectGoogleSheetsConnectPost403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConnectGoogleSheetsConnectPost500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "google-sheets"
+        ],
+        "summary": "Disconnect Google account",
+        "operationId": "DisconnectGoogleSheetsConnectDelete",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisconnectGoogleSheetsConnectDelete400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisconnectGoogleSheetsConnectDelete401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisconnectGoogleSheetsConnectDelete403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisconnectGoogleSheetsConnectDelete500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/google/sheets/access-token": {
+      "post": {
+        "tags": [
+          "google-sheets"
+        ],
+        "summary": "Mint a short-lived Google access token",
+        "operationId": "AccessTokenGoogleSheetsAccessTokenPost",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccessTokenResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccessTokenGoogleSheetsAccessTokenPost400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccessTokenGoogleSheetsAccessTokenPost401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccessTokenGoogleSheetsAccessTokenPost403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccessTokenGoogleSheetsAccessTokenPost500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
+      "AccessTokenResponse": {
+        "title": "AccessTokenResponse",
+        "required": [
+          "access_token",
+          "expires_in"
+        ],
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "title": "Access Token",
+            "type": "string"
+          },
+          "expires_in": {
+            "title": "Expires In",
+            "type": "integer"
+          }
+        }
+      },
       "AddBlockRequest": {
         "title": "AddBlockRequest",
         "required": [
@@ -15214,6 +15607,24 @@
           },
           "link": {
             "$ref": "#/components/schemas/SlackLink"
+          }
+        }
+      },
+      "ConnectRequest": {
+        "title": "ConnectRequest",
+        "required": [
+          "code",
+          "redirect_uri"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "Code",
+            "type": "string"
+          },
+          "redirect_uri": {
+            "title": "Redirect Uri",
+            "type": "string"
           }
         }
       },
@@ -17128,6 +17539,22 @@
           "status": {
             "title": "Status",
             "type": "string"
+          }
+        }
+      },
+      "StatusResponse": {
+        "title": "StatusResponse",
+        "required": [
+          "connected"
+        ],
+        "type": "object",
+        "properties": {
+          "connected": {
+            "title": "Connected",
+            "type": "boolean"
+          },
+          "google_sub": {
+            "$ref": "#/components/schemas/StatusResponseGoogleSub"
           }
         }
       },
@@ -19924,6 +20351,11 @@
         "discriminator": {
           "propertyName": "type"
         }
+      },
+      "StatusResponseGoogleSub": {
+        "title": "Google Sub",
+        "type": "string",
+        "nullable": true
       },
       "StructBuilderRequestExistingStruct": {
         "title": "Existing Struct",
@@ -25995,6 +26427,134 @@
           }
         }
       },
+      "GetStatusGoogleSheetsStatusGet400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetStatusGoogleSheetsStatusGet401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetStatusGoogleSheetsStatusGet403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetStatusGoogleSheetsStatusGet500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ConnectGoogleSheetsConnectPost400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ConnectGoogleSheetsConnectPost401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ConnectGoogleSheetsConnectPost403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ConnectGoogleSheetsConnectPost500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "DisconnectGoogleSheetsConnectDelete400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "DisconnectGoogleSheetsConnectDelete401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "DisconnectGoogleSheetsConnectDelete403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "DisconnectGoogleSheetsConnectDelete500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "AccessTokenGoogleSheetsAccessTokenPost400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "AccessTokenGoogleSheetsAccessTokenPost401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "AccessTokenGoogleSheetsAccessTokenPost403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "AccessTokenGoogleSheetsAccessTokenPost500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
       "BodyRunWorkflowWorkflowsRunPostWebhookPayloadBranch1": {
         "required": [
           "value"
@@ -27267,6 +27827,10 @@
     {
       "name": "Workflow",
       "description": "Create, run, and manage enrichment workflows."
+    },
+    {
+      "name": "Workflow Schedules",
+      "description": "Create and manage recurring schedules for workflows."
     },
     {
       "name": "Account",

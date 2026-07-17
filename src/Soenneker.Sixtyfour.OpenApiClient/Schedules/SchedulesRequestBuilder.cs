@@ -59,7 +59,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules
         {
         }
         /// <summary>
-        /// List the org&apos;s schedules (optionally filtered to one workflow).
+        /// List all schedules for the organization.
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.Sixtyfour.OpenApiClient.Models.ScheduleResponse&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -91,7 +91,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// Create a schedule and register its Temporal Schedule. Bound to the caller.
+        /// Create a schedule. The schedule is bound to the creating user or API key.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ScheduleResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -124,7 +124,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ScheduleResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ScheduleResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List the org&apos;s schedules (optionally filtered to one workflow).
+        /// List all schedules for the organization.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -143,7 +143,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules
             return requestInfo;
         }
         /// <summary>
-        /// Create a schedule and register its Temporal Schedule. Bound to the caller.
+        /// Create a schedule. The schedule is bound to the creating user or API key.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -174,7 +174,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules
             return new global::Soenneker.Sixtyfour.OpenApiClient.Schedules.SchedulesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List the org&apos;s schedules (optionally filtered to one workflow).
+        /// List all schedules for the organization.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class SchedulesRequestBuilderGetQueryParameters 
