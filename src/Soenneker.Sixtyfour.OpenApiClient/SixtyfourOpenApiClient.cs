@@ -47,6 +47,7 @@ using Soenneker.Sixtyfour.OpenApiClient.ReversePhoneBulkAsync;
 using Soenneker.Sixtyfour.OpenApiClient.Schedules;
 using Soenneker.Sixtyfour.OpenApiClient.Search;
 using Soenneker.Sixtyfour.OpenApiClient.StructBuilder;
+using Soenneker.Sixtyfour.OpenApiClient.VerifyAge;
 using Soenneker.Sixtyfour.OpenApiClient.Webhooks;
 using Soenneker.Sixtyfour.OpenApiClient.WellKnown;
 using Soenneker.Sixtyfour.OpenApiClient.Workflows;
@@ -267,6 +268,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient
         public global::Soenneker.Sixtyfour.OpenApiClient.StructBuilder.StructBuilderRequestBuilder StructBuilder
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.StructBuilder.StructBuilderRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The verifyAge property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.VerifyAge.VerifyAgeRequestBuilder VerifyAge
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.VerifyAge.VerifyAgeRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The webhooks property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.WebhooksRequestBuilder Webhooks

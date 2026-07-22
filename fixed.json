@@ -14214,6 +14214,214 @@
         }
       }
     },
+    "/verify-age": {
+      "post": {
+        "tags": [
+          "Intelligence"
+        ],
+        "summary": "Verify Age",
+        "description": "Start an age verification. Returns a task_id to poll GET /verify-age/{task_id}.",
+        "operationId": "VerifyAgeVerifyAgePost",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VerifyAgeRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AsyncJobStartResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VerifyAgeVerifyAgePost400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VerifyAgeVerifyAgePost401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VerifyAgeVerifyAgePost403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VerifyAgeVerifyAgePost500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/verify-age/{taskId}": {
+      "get": {
+        "tags": [
+          "Intelligence"
+        ],
+        "summary": "Verify Age Status",
+        "description": "Poll an age verification. Returns {status} while running, and the clean\nage/DOB envelope once complete.",
+        "operationId": "VerifyAgeStatusVerifyAgeTaskIdGet",
+        "parameters": [
+          {
+            "name": "taskId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Task Id",
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VerifyAgeStatusVerifyAgeTaskIdGet200ResponseResponseJson"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VerifyAgeStatusVerifyAgeTaskIdGet400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VerifyAgeStatusVerifyAgeTaskIdGet401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VerifyAgeStatusVerifyAgeTaskIdGet403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VerifyAgeStatusVerifyAgeTaskIdGet500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/google/sheets/status": {
       "get": {
         "tags": [
@@ -17756,6 +17964,18 @@
           }
         }
       },
+      "VerifyAgeRequest": {
+        "title": "VerifyAgeRequest",
+        "required": [
+          "subject"
+        ],
+        "type": "object",
+        "properties": {
+          "subject": {
+            "$ref": "#/components/schemas/VerifyAgeRequestSubjectProperty"
+          }
+        }
+      },
       "ViewerSpec": {
         "title": "ViewerSpec",
         "required": [
@@ -21029,6 +21249,11 @@
       "StartInteractiveRequestSpecs": {
         "title": "Specs",
         "type": "object"
+      },
+      "VerifyAgeRequestSubject": {
+        "title": "Subject",
+        "type": "object",
+        "description": "The person to verify. Any identifiers you have (name, company, linkedin, email, location, etc.); more is better."
       },
       "ValidationErrorCtx": {
         "type": "object",
@@ -26427,6 +26652,73 @@
           }
         }
       },
+      "VerifyAgeVerifyAgePost400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "VerifyAgeVerifyAgePost401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "VerifyAgeVerifyAgePost403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "VerifyAgeVerifyAgePost500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "VerifyAgeStatusVerifyAgeTaskIdGet200Response": {
+        "type": "object"
+      },
+      "VerifyAgeStatusVerifyAgeTaskIdGet400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "VerifyAgeStatusVerifyAgeTaskIdGet401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "VerifyAgeStatusVerifyAgeTaskIdGet403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "VerifyAgeStatusVerifyAgeTaskIdGet500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
       "GetStatusGoogleSheetsStatusGet400Response": {
         "type": "object",
         "properties": {
@@ -26788,6 +27080,9 @@
       "DeleteScheduleEndpointSchedulesScheduleIdDelete200Response": {
         "type": "object"
       },
+      "VerifyAgeStatusVerifyAgeTaskIdGet200ResponseResponseJson": {
+        "type": "object"
+      },
       "JobStatusJobStatusJobIdGet200ResponseOneOf1": {
         "required": [
           "status",
@@ -27091,6 +27386,10 @@
       },
       "StartInteractiveRequestSpecsProperty": {
         "type": "object"
+      },
+      "VerifyAgeRequestSubjectProperty": {
+        "type": "object",
+        "description": "The person to verify. Any identifiers you have (name, company, linkedin, email, location, etc.); more is better."
       },
       "ValidationErrorInput": {
         "type": "object",
