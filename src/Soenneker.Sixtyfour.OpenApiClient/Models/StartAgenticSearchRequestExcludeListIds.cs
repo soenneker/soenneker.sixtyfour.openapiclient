@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// Saved exclusion-list IDs to apply as a post-filter. Each list&apos;s entity type must match the search mode (person lists for people searches, company lists for company searches). Max 5.
+    /// Saved exclusion-list IDs to apply as a post-filter. Each list&apos;s entity type must match the search mode (person lists for people searches, company lists for company searches). Max 5 (10 for organizations with extended exclusion limits).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class StartAgenticSearchRequestExcludeListIds : IAdditionalDataHolder, IParsable

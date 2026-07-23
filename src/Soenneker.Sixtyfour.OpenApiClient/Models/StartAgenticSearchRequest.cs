@@ -23,7 +23,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequestExcludeEntityIds ExcludeEntityIds { get; set; }
 #endif
-        /// <summary>Saved exclusion-list IDs to apply as a post-filter. Each list&apos;s entity type must match the search mode (person lists for people searches, company lists for company searches). Max 5.</summary>
+        /// <summary>Saved exclusion-list IDs to apply as a post-filter. Each list&apos;s entity type must match the search mode (person lists for people searches, company lists for company searches). Max 5 (10 for organizations with extended exclusion limits).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequestExcludeListIds? ExcludeListIds { get; set; }

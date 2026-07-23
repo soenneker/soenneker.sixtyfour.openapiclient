@@ -47,7 +47,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.VerifyAge
         {
         }
         /// <summary>
-        /// Start an age verification. Returns a task_id to poll GET /verify-age/{task_id}.
+        /// Start an age verification for a person. Returns a task_id to poll `GET /verify-age/{task_id}`.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.AsyncJobStartResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -80,7 +80,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.VerifyAge
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.AsyncJobStartResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.AsyncJobStartResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Start an age verification. Returns a task_id to poll GET /verify-age/{task_id}.
+        /// Start an age verification for a person. Returns a task_id to poll `GET /verify-age/{task_id}`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

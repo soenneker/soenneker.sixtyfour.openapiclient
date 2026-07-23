@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.VerifyAge.Item
         {
         }
         /// <summary>
-        /// Poll an age verification. Returns {status} while running, and the cleanage/DOB envelope once complete.
+        /// Poll an age verification job. Returns `{task_id, status}` while running or in aterminal non-completed state, and the age/DOB envelope once completed.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.VerifyAgeStatusVerifyAgeTaskIdGet200ResponseResponseJson"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.VerifyAge.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.VerifyAgeStatusVerifyAgeTaskIdGet200ResponseResponseJson>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.VerifyAgeStatusVerifyAgeTaskIdGet200ResponseResponseJson.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Poll an age verification. Returns {status} while running, and the cleanage/DOB envelope once complete.
+        /// Poll an age verification job. Returns `{task_id, status}` while running or in aterminal non-completed state, and the age/DOB envelope once completed.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

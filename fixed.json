@@ -8765,7 +8765,7 @@
           "Search"
         ],
         "summary": "Create Exclusion List Endpoint",
-        "description": "\u0022Create an exclusion list (asynchronous materialization).\n\nLists are immutable in v1: to change one, create a new list and delete\nthe old. Up to 20 active lists per organization.\u0022",
+        "description": "\u0022Create an exclusion list (asynchronous materialization).\n\nLists are immutable in v1: to change one, create a new list and delete\nthe old. Up to 20 active lists per organization (40 for organizations\nwith extended exclusion limits).\u0022",
         "operationId": "CreateExclusionListEndpointSearchExclusionListsPost",
         "parameters": [
           {
@@ -14219,8 +14219,8 @@
         "tags": [
           "Intelligence"
         ],
-        "summary": "Verify Age",
-        "description": "Start an age verification. Returns a task_id to poll GET /verify-age/{task_id}.",
+        "summary": "Age Verification",
+        "description": "Start an age verification for a person. Returns a task_id to poll \u0060GET /verify-age/{task_id}\u0060.",
         "operationId": "VerifyAgeVerifyAgePost",
         "parameters": [
           {
@@ -14323,8 +14323,8 @@
         "tags": [
           "Intelligence"
         ],
-        "summary": "Verify Age Status",
-        "description": "Poll an age verification. Returns {status} while running, and the clean\nage/DOB envelope once complete.",
+        "summary": "Age Verification Status",
+        "description": "Poll an age verification job. Returns \u0060{task_id, status}\u0060 while running or in a\nterminal non-completed state, and the age/DOB envelope once completed.",
         "operationId": "VerifyAgeStatusVerifyAgeTaskIdGet",
         "parameters": [
           {
@@ -20089,7 +20089,7 @@
         "type": "object",
         "anyOf": [
           {
-            "maxItems": 5,
+            "maxItems": 10,
             "type": "array",
             "items": {
               "type": "string"
@@ -20101,7 +20101,7 @@
             ]
           }
         ],
-        "description": "Saved exclusion-list IDs to apply as a post-filter. Each list\u0027s entity type must match the search mode (person lists for people searches, company lists for company searches). Max 5."
+        "description": "Saved exclusion-list IDs to apply as a post-filter. Each list\u0027s entity type must match the search mode (person lists for people searches, company lists for company searches). Max 5 (10 for organizations with extended exclusion limits)."
       },
       "ScheduleResponseDescription": {
         "title": "Description",
@@ -20166,7 +20166,7 @@
         "type": "object",
         "anyOf": [
           {
-            "maxItems": 5,
+            "maxItems": 10,
             "type": "array",
             "items": {
               "type": "string"
@@ -20322,7 +20322,7 @@
         "type": "object",
         "anyOf": [
           {
-            "maxItems": 5,
+            "maxItems": 10,
             "type": "array",
             "items": {
               "type": "string"
@@ -20334,7 +20334,7 @@
             ]
           }
         ],
-        "description": "Saved exclusion-list IDs to apply as a post-filter. Each list\u0027s entity type must match the search mode (person lists for people searches, company lists for company searches). Max 5."
+        "description": "Saved exclusion-list IDs to apply as a post-filter. Each list\u0027s entity type must match the search mode (person lists for people searches, company lists for company searches). Max 5 (10 for organizations with extended exclusion limits)."
       },
       "SearchRerunRequestSearchId": {
         "title": "Search Id",
@@ -20423,7 +20423,7 @@
         "type": "object",
         "anyOf": [
           {
-            "maxItems": 5,
+            "maxItems": 10,
             "type": "array",
             "items": {
               "type": "string"
@@ -20435,7 +20435,7 @@
             ]
           }
         ],
-        "description": "Saved exclusion-list IDs to apply as a post-filter. Each list\u0027s entity type must match the search mode (person lists for people searches, company lists for company searches). Max 5."
+        "description": "Saved exclusion-list IDs to apply as a post-filter. Each list\u0027s entity type must match the search mode (person lists for people searches, company lists for company searches). Max 5 (10 for organizations with extended exclusion limits)."
       },
       "StartFilterSearchRequestFilters": {
         "title": "Filters",
@@ -28134,6 +28134,10 @@
     {
       "name": "Account",
       "description": "Manage and inspect your account and credit balance."
+    },
+    {
+      "name": "Intelligence",
+      "description": "Verify identity attributes such as age using high-tier OSINT research."
     }
   ]
 }
