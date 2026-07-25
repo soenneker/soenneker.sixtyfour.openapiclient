@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// Pause every active schedule bound to a revoked principal. Exactly one ofapi_key_id (key revoked) or created_by (user offboarded) is provided.
+    /// Pause every active schedule bound to a revoked principal. Exactly one ofapi_key_id (key revoked) or created_by (user offboarded) is provided.created_by + team_id narrows to one team (member removed from ateam while remaining in the org).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DisableBoundRequest : IAdditionalDataHolder, IParsable
@@ -24,6 +24,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #nullable restore
 #else
         public string CreatedBy { get; set; }
+#endif
+        /// <summary>The team_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TeamId { get; set; }
+#nullable restore
+#else
+        public string TeamId { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DisableBoundRequest"/> and sets the default values.
@@ -52,6 +60,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             {
                 { "api_key_id", n => { ApiKeyId = n.GetIntValue(); } },
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
+                { "team_id", n => { TeamId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -63,6 +72,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("api_key_id", ApiKeyId);
             writer.WriteStringValue("created_by", CreatedBy);
+            writer.WriteStringValue("team_id", TeamId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

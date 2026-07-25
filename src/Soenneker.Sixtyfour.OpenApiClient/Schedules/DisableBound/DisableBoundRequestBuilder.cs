@@ -34,10 +34,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules.DisableBound
         {
         }
         /// <summary>
-        /// &quot;Proactively pause schedules whose bound principal was just revoked — callthis from the key-revocation / member-removal flow so the schedule stopsimmediately (the fire-time check is the lazy safety net). Org-scoped.Admin-gated: this pauses other members&apos; schedules, so restrict it toadmin/owner dashboard users — otherwise any org member could mass-pause acolleague&apos;s schedules by passing their created_by / an org api_key_id.&quot;
+        /// &quot;Proactively pause schedules whose bound principal was just revoked — callthis from the key-revocation / member-removal flow so the schedule stopsimmediately (the fire-time check is the lazy safety net). Org-scoped.Admin-gated: this pauses other members&apos; schedules, so restrict it toadmin/owner dashboard users — otherwise any org member could mass-pause acolleague&apos;s schedules by passing their created_by / an org api_key_id.The created_by + team_id form (member removed from ONE team)additionally accepts admins of that team — the persona doing theremoval — since their authority already covers removing the member.&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DisableBoundSchedulesEndpointSchedulesDisableBoundPost200Response"/></returns>
-        /// <param name="body">Pause every active schedule bound to a revoked principal. Exactly one ofapi_key_id (key revoked) or created_by (user offboarded) is provided.</param>
+        /// <param name="body">Pause every active schedule bound to a revoked principal. Exactly one ofapi_key_id (key revoked) or created_by (user offboarded) is provided.created_by + team_id narrows to one team (member removed from ateam while remaining in the org).</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DisableBoundSchedulesEndpointSchedulesDisableBoundPost400Response">When receiving a 400 status code</exception>
@@ -67,10 +67,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules.DisableBound
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.DisableBoundSchedulesEndpointSchedulesDisableBoundPost200Response>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.DisableBoundSchedulesEndpointSchedulesDisableBoundPost200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Proactively pause schedules whose bound principal was just revoked — callthis from the key-revocation / member-removal flow so the schedule stopsimmediately (the fire-time check is the lazy safety net). Org-scoped.Admin-gated: this pauses other members&apos; schedules, so restrict it toadmin/owner dashboard users — otherwise any org member could mass-pause acolleague&apos;s schedules by passing their created_by / an org api_key_id.&quot;
+        /// &quot;Proactively pause schedules whose bound principal was just revoked — callthis from the key-revocation / member-removal flow so the schedule stopsimmediately (the fire-time check is the lazy safety net). Org-scoped.Admin-gated: this pauses other members&apos; schedules, so restrict it toadmin/owner dashboard users — otherwise any org member could mass-pause acolleague&apos;s schedules by passing their created_by / an org api_key_id.The created_by + team_id form (member removed from ONE team)additionally accepts admins of that team — the persona doing theremoval — since their authority already covers removing the member.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">Pause every active schedule bound to a revoked principal. Exactly one ofapi_key_id (key revoked) or created_by (user offboarded) is provided.</param>
+        /// <param name="body">Pause every active schedule bound to a revoked principal. Exactly one ofapi_key_id (key revoked) or created_by (user offboarded) is provided.created_by + team_id narrows to one team (member removed from ateam while remaining in the org).</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

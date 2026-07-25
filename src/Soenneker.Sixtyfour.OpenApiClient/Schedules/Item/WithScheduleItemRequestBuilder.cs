@@ -96,7 +96,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ScheduleResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ScheduleResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update a schedule. Reactivating a schedule that was auto-paused also transfers ownership.
+        /// Update a schedule. Reactivating a revoked schedule re-binds it to thecurrent caller (the &apos;re-own&apos; / &apos;re-bind&apos; action) and clears disabled_reason.The schedule keeps its team across a re-bind — the fire-time checkpauses it again if the new owner can&apos;t act there.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ScheduleResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -167,7 +167,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules.Item
             return requestInfo;
         }
         /// <summary>
-        /// Update a schedule. Reactivating a schedule that was auto-paused also transfers ownership.
+        /// Update a schedule. Reactivating a revoked schedule re-binds it to thecurrent caller (the &apos;re-own&apos; / &apos;re-bind&apos; action) and clears disabled_reason.The schedule keeps its team across a re-bind — the fire-time checkpauses it again if the new owner can&apos;t act there.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -59,7 +59,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules
         {
         }
         /// <summary>
-        /// List all schedules for the organization.
+        /// List schedules — the caller&apos;s active team for members; the wholeorg for org admins and org-scoped credentials (optionally one workflow).
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.Sixtyfour.OpenApiClient.Models.ScheduleResponse&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -91,7 +91,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// Create a schedule. The schedule is bound to the creating user or API key.
+        /// Create a schedule and register its Temporal Schedule. Bound to the caller.The schedule lives in its WORKFLOW&apos;s team (runs bill + attributethere), so cross-team creation is blocked for non-admin members —404 to mask existence, matching the workflow list&apos;s partitioning.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ScheduleResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -124,7 +124,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ScheduleResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ScheduleResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List all schedules for the organization.
+        /// List schedules — the caller&apos;s active team for members; the wholeorg for org admins and org-scoped credentials (optionally one workflow).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -143,7 +143,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules
             return requestInfo;
         }
         /// <summary>
-        /// Create a schedule. The schedule is bound to the creating user or API key.
+        /// Create a schedule and register its Temporal Schedule. Bound to the caller.The schedule lives in its WORKFLOW&apos;s team (runs bill + attributethere), so cross-team creation is blocked for non-admin members —404 to mask existence, matching the workflow list&apos;s partitioning.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -174,7 +174,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules
             return new global::Soenneker.Sixtyfour.OpenApiClient.Schedules.SchedulesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List all schedules for the organization.
+        /// List schedules — the caller&apos;s active team for members; the wholeorg for org admins and org-scoped credentials (optionally one workflow).
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class SchedulesRequestBuilderGetQueryParameters 

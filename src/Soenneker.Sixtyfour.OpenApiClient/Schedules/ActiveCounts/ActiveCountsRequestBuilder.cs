@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules.ActiveCounts
         {
         }
         /// <summary>
-        /// Active-schedule count per workflow for the org — powers the workflowslist &quot;N active schedules&quot; indicator. Declared before /{schedule_id} so theliteral path isn&apos;t captured as an id.
+        /// Active-schedule count per workflow — powers the workflows list&quot;N active schedules&quot; indicator. Scoped to the caller&apos;s active team(for everyone, admins included) because the workflows list it decorates isitself team-partitioned. Declared before /{schedule_id} so theliteral path isn&apos;t captured as an id.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ActiveScheduleCountsEndpointSchedulesActiveCountsGet200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules.ActiveCounts
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ActiveScheduleCountsEndpointSchedulesActiveCountsGet200Response>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ActiveScheduleCountsEndpointSchedulesActiveCountsGet200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Active-schedule count per workflow for the org — powers the workflowslist &quot;N active schedules&quot; indicator. Declared before /{schedule_id} so theliteral path isn&apos;t captured as an id.
+        /// Active-schedule count per workflow — powers the workflows list&quot;N active schedules&quot; indicator. Scoped to the caller&apos;s active team(for everyone, admins included) because the workflows list it decorates isitself team-partitioned. Declared before /{schedule_id} so theliteral path isn&apos;t captured as an id.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

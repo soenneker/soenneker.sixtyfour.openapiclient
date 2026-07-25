@@ -13498,7 +13498,7 @@
           "Workflow Schedules"
         ],
         "summary": "Create Schedule",
-        "description": "Create a schedule. The schedule is bound to the creating user or API key.",
+        "description": "Create a schedule and register its Temporal Schedule. Bound to the caller.\n\nThe schedule lives in its WORKFLOW\u0027s team (runs bill \u002B attribute\nthere), so cross-team creation is blocked for non-admin members \u2014\n404 to mask existence, matching the workflow list\u0027s partitioning.",
         "operationId": "CreateScheduleEndpointSchedulesPost",
         "parameters": [
           {
@@ -13600,7 +13600,7 @@
           "Workflow Schedules"
         ],
         "summary": "List Schedules",
-        "description": "List all schedules for the organization.",
+        "description": "List schedules \u2014 the caller\u0027s active team for members; the whole\norg for org admins and org-scoped credentials (optionally one workflow).",
         "operationId": "ListSchedulesEndpointSchedulesGet",
         "parameters": [
           {
@@ -13704,7 +13704,7 @@
           "Workflow Schedules"
         ],
         "summary": "Disable Bound Schedules",
-        "description": "\u0022Proactively pause schedules whose bound principal was just revoked \u2014 call\nthis from the key-revocation / member-removal flow so the schedule stops\nimmediately (the fire-time check is the lazy safety net). Org-scoped.\n\nAdmin-gated: this pauses other members\u0027 schedules, so restrict it to\nadmin/owner dashboard users \u2014 otherwise any org member could mass-pause a\ncolleague\u0027s schedules by passing their created_by / an org api_key_id.\u0022",
+        "description": "\u0022Proactively pause schedules whose bound principal was just revoked \u2014 call\nthis from the key-revocation / member-removal flow so the schedule stops\nimmediately (the fire-time check is the lazy safety net). Org-scoped.\n\nAdmin-gated: this pauses other members\u0027 schedules, so restrict it to\nadmin/owner dashboard users \u2014 otherwise any org member could mass-pause a\ncolleague\u0027s schedules by passing their created_by / an org api_key_id.\nThe created_by \u002B team_id form (member removed from ONE team)\nadditionally accepts admins of that team \u2014 the persona doing the\nremoval \u2014 since their authority already covers removing the member.\u0022",
         "operationId": "DisableBoundSchedulesEndpointSchedulesDisableBoundPost",
         "parameters": [
           {
@@ -13808,7 +13808,7 @@
           "Workflow Schedules"
         ],
         "summary": "Active Schedule Counts",
-        "description": "Active-schedule count per workflow for the org \u2014 powers the workflows\nlist \u0022N active schedules\u0022 indicator. Declared before /{schedule_id} so the\nliteral path isn\u0027t captured as an id.",
+        "description": "Active-schedule count per workflow \u2014 powers the workflows list\n\u0022N active schedules\u0022 indicator. Scoped to the caller\u0027s active team\n(for everyone, admins included) because the workflows list it decorates is\nitself team-partitioned. Declared before /{schedule_id} so the\nliteral path isn\u0027t captured as an id.",
         "operationId": "ActiveScheduleCountsEndpointSchedulesActiveCountsGet",
         "parameters": [
           {
@@ -14005,7 +14005,7 @@
           "Workflow Schedules"
         ],
         "summary": "Update Schedule",
-        "description": "Update a schedule. Reactivating a schedule that was auto-paused also transfers ownership.",
+        "description": "Update a schedule. Reactivating a revoked schedule re-binds it to the\ncurrent caller (the \u0027re-own\u0027 / \u0027re-bind\u0027 action) and clears disabled_reason.\nThe schedule keeps its team across a re-bind \u2014 the fire-time check\npauses it again if the new owner can\u0027t act there.",
         "operationId": "UpdateScheduleEndpointSchedulesScheduleIdPatch",
         "parameters": [
           {
@@ -15986,9 +15986,12 @@
           },
           "created_by": {
             "$ref": "#/components/schemas/DisableBoundRequestCreatedBy"
+          },
+          "team_id": {
+            "$ref": "#/components/schemas/DisableBoundRequestTeamId"
           }
         },
-        "description": "Pause every active schedule bound to a revoked principal. Exactly one of\napi_key_id (key revoked) or created_by (user offboarded) is provided."
+        "description": "Pause every active schedule bound to a revoked principal. Exactly one of\napi_key_id (key revoked) or created_by (user offboarded) is provided.\ncreated_by \u002B team_id narrows to one team (member removed from a\nteam while remaining in the org)."
       },
       "DownloadSignedUrlResponse": {
         "title": "DownloadSignedUrlResponse",
@@ -17331,6 +17334,9 @@
           "workflow_id": {
             "title": "Workflow Id",
             "type": "string"
+          },
+          "team_id": {
+            "$ref": "#/components/schemas/ScheduleResponseTeamId"
           },
           "name": {
             "title": "Name",
@@ -18965,6 +18971,11 @@
         "type": "string",
         "nullable": true
       },
+      "DisableBoundRequestTeamId": {
+        "title": "Team Id",
+        "type": "string",
+        "nullable": true
+      },
       "EnrichCompanyInfoPeopleFocusPrompt": {
         "title": "People Focus Prompt",
         "type": "string",
@@ -20102,6 +20113,11 @@
           }
         ],
         "description": "Saved exclusion-list IDs to apply as a post-filter. Each list\u0027s entity type must match the search mode (person lists for people searches, company lists for company searches). Max 5 (10 for organizations with extended exclusion limits)."
+      },
+      "ScheduleResponseTeamId": {
+        "title": "Team Id",
+        "type": "string",
+        "nullable": true
       },
       "ScheduleResponseDescription": {
         "title": "Description",

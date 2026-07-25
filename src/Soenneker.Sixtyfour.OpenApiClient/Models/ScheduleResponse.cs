@@ -82,6 +82,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public List<string> NextRunTimes { get; set; }
 #endif
+        /// <summary>The team_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TeamId { get; set; }
+#nullable restore
+#else
+        public string TeamId { get; set; }
+#endif
         /// <summary>The timezone property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -141,6 +149,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "is_active", n => { IsActive = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "next_run_times", n => { NextRunTimes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "team_id", n => { TeamId = n.GetStringValue(); } },
                 { "timezone", n => { Timezone = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
                 { "workflow_id", n => { WorkflowId = n.GetStringValue(); } },
@@ -163,6 +172,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteBoolValue("is_active", IsActive);
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfPrimitiveValues<string>("next_run_times", NextRunTimes);
+            writer.WriteStringValue("team_id", TeamId);
             writer.WriteStringValue("timezone", Timezone);
             writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteStringValue("workflow_id", WorkflowId);
