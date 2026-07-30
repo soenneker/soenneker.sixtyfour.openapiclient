@@ -9,28 +9,18 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class ChatSessionSummary : IAdditionalDataHolder, IParsable
+    public partial class CreateSessionResponse : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The has_unread property</summary>
-        public bool? HasUnread { get; set; }
-        /// <summary>The id property</summary>
+        /// <summary>The session_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get; set; }
+        public string? SessionId { get; set; }
 #nullable restore
 #else
-        public string Id { get; set; }
-#endif
-        /// <summary>The started_at property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? StartedAt { get; set; }
-#nullable restore
-#else
-        public string StartedAt { get; set; }
+        public string SessionId { get; set; }
 #endif
         /// <summary>The title property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -57,23 +47,22 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string WorkspaceId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateSessionResponse"/> and sets the default values.
         /// </summary>
-        public ChatSessionSummary()
+        public CreateSessionResponse()
         {
             AdditionalData = new Dictionary<string, object>();
-            HasUnread = false;
             Title = "New chat";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateSessionResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateSessionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatSessionSummary();
+            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateSessionResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -83,9 +72,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "has_unread", n => { HasUnread = n.GetBoolValue(); } },
-                { "id", n => { Id = n.GetStringValue(); } },
-                { "started_at", n => { StartedAt = n.GetStringValue(); } },
+                { "session_id", n => { SessionId = n.GetStringValue(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
                 { "workflow_id", n => { WorkflowId = n.GetStringValue(); } },
                 { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
@@ -98,9 +85,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteBoolValue("has_unread", HasUnread);
-            writer.WriteStringValue("id", Id);
-            writer.WriteStringValue("started_at", StartedAt);
+            writer.WriteStringValue("session_id", SessionId);
             writer.WriteStringValue("title", Title);
             writer.WriteStringValue("workflow_id", WorkflowId);
             writer.WriteStringValue("workspace_id", WorkspaceId);

@@ -9574,6 +9574,109 @@
         }
       }
     },
+    "/chat/sessions": {
+      "post": {
+        "tags": [
+          "Chat"
+        ],
+        "summary": "Create Session Endpoint",
+        "operationId": "CreateSessionEndpointChatSessionsPost",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSessionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateSessionResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateSessionEndpointChatSessionsPost400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateSessionEndpointChatSessionsPost401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateSessionEndpointChatSessionsPost403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateSessionEndpointChatSessionsPost500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/chat/history": {
       "get": {
         "tags": [
@@ -9582,6 +9685,15 @@
         "summary": "Chat History Endpoint",
         "operationId": "ChatHistoryEndpointChatHistoryGet",
         "parameters": [
+          {
+            "name": "cursor",
+            "in": "query",
+            "schema": {
+              "title": "Cursor",
+              "type": "string",
+              "nullable": true
+            }
+          },
           {
             "name": "x-api-key",
             "in": "header",
@@ -9871,6 +9983,107 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/UpdateSessionEndpointChatSessionSessionIdPatch500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Chat"
+        ],
+        "summary": "Delete Session Endpoint",
+        "operationId": "DeleteSessionEndpointChatSessionSessionIdDelete",
+        "parameters": [
+          {
+            "name": "sessionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Session Id",
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteSessionEndpointChatSessionSessionIdDelete200ResponseResponseJson"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteSessionEndpointChatSessionSessionIdDelete400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteSessionEndpointChatSessionSessionIdDelete401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteSessionEndpointChatSessionSessionIdDelete403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteSessionEndpointChatSessionSessionIdDelete500Response"
                 },
                 "example": {
                   "detail": "Internal server error"
@@ -15658,6 +15871,11 @@
             "items": {
               "$ref": "#/components/schemas/ChatSessionSummary"
             }
+          },
+          "has_more": {
+            "title": "Has More",
+            "type": "boolean",
+            "default": false
           }
         }
       },
@@ -15752,7 +15970,9 @@
             "type": "string"
           },
           "title": {
-            "$ref": "#/components/schemas/ChatSessionSummaryTitle"
+            "title": "Title",
+            "type": "string",
+            "default": "New chat"
           },
           "workflow_id": {
             "$ref": "#/components/schemas/ChatSessionSummaryWorkflowId"
@@ -15760,11 +15980,8 @@
           "workspace_id": {
             "$ref": "#/components/schemas/ChatSessionSummaryWorkspaceId"
           },
-          "created_at": {
-            "$ref": "#/components/schemas/ChatSessionSummaryCreatedAt"
-          },
-          "updated_at": {
-            "$ref": "#/components/schemas/ChatSessionSummaryUpdatedAt"
+          "started_at": {
+            "$ref": "#/components/schemas/ChatSessionSummaryStartedAt"
           },
           "has_unread": {
             "title": "Has Unread",
@@ -15930,6 +16147,42 @@
             "title": "Is Active",
             "type": "boolean",
             "default": true
+          }
+        }
+      },
+      "CreateSessionRequest": {
+        "title": "CreateSessionRequest",
+        "type": "object",
+        "properties": {
+          "workflow_id": {
+            "$ref": "#/components/schemas/CreateSessionRequestWorkflowId"
+          },
+          "workspace_id": {
+            "$ref": "#/components/schemas/CreateSessionRequestWorkspaceId"
+          }
+        }
+      },
+      "CreateSessionResponse": {
+        "title": "CreateSessionResponse",
+        "required": [
+          "session_id"
+        ],
+        "type": "object",
+        "properties": {
+          "session_id": {
+            "title": "Session Id",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string",
+            "default": "New chat"
+          },
+          "workflow_id": {
+            "$ref": "#/components/schemas/CreateSessionResponseWorkflowId"
+          },
+          "workspace_id": {
+            "$ref": "#/components/schemas/CreateSessionResponseWorkspaceId"
           }
         }
       },
@@ -18876,11 +19129,6 @@
         "type": "string",
         "nullable": true
       },
-      "ChatSessionSummaryTitle": {
-        "title": "Title",
-        "type": "string",
-        "nullable": true
-      },
       "ChatSessionSummaryWorkflowId": {
         "title": "Workflow Id",
         "type": "string",
@@ -18891,13 +19139,8 @@
         "type": "string",
         "nullable": true
       },
-      "ChatSessionSummaryCreatedAt": {
-        "title": "Created At",
-        "type": "string",
-        "nullable": true
-      },
-      "ChatSessionSummaryUpdatedAt": {
-        "title": "Updated At",
+      "ChatSessionSummaryStartedAt": {
+        "title": "Started At",
         "type": "string",
         "nullable": true
       },
@@ -18952,6 +19195,26 @@
       },
       "CreateScheduleRequestDescription": {
         "title": "Description",
+        "type": "string",
+        "nullable": true
+      },
+      "CreateSessionRequestWorkflowId": {
+        "title": "Workflow Id",
+        "type": "string",
+        "nullable": true
+      },
+      "CreateSessionRequestWorkspaceId": {
+        "title": "Workspace Id",
+        "type": "string",
+        "nullable": true
+      },
+      "CreateSessionResponseWorkflowId": {
+        "title": "Workflow Id",
+        "type": "string",
+        "nullable": true
+      },
+      "CreateSessionResponseWorkspaceId": {
+        "title": "Workspace Id",
         "type": "string",
         "nullable": true
       },
@@ -25138,6 +25401,38 @@
           }
         }
       },
+      "CreateSessionEndpointChatSessionsPost400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "CreateSessionEndpointChatSessionsPost401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "CreateSessionEndpointChatSessionsPost403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "CreateSessionEndpointChatSessionsPost500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
       "ChatHistoryEndpointChatHistoryGet400Response": {
         "type": "object",
         "properties": {
@@ -25230,6 +25525,41 @@
         }
       },
       "UpdateSessionEndpointChatSessionSessionIdPatch500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "DeleteSessionEndpointChatSessionSessionIdDelete200Response": {
+        "type": "object"
+      },
+      "DeleteSessionEndpointChatSessionSessionIdDelete400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "DeleteSessionEndpointChatSessionSessionIdDelete401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "DeleteSessionEndpointChatSessionSessionIdDelete403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "DeleteSessionEndpointChatSessionSessionIdDelete500Response": {
         "type": "object",
         "properties": {
           "detail": {
@@ -27043,6 +27373,9 @@
         "type": "object"
       },
       "UpdateSessionEndpointChatSessionSessionIdPatch200ResponseResponseJson": {
+        "type": "object"
+      },
+      "DeleteSessionEndpointChatSessionSessionIdDelete200ResponseResponseJson": {
         "type": "object"
       },
       "MarkSessionReadEndpointChatSessionSessionIdReadPost200ResponseResponseJson": {
