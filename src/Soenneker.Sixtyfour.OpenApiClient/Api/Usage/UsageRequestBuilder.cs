@@ -36,7 +36,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Api.Usage
         /// <summary>
         /// &quot;Get usage statistics for the current machine credential.time_window: Optional time window in seconds (default: 3600 = 1 hour)&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetUsageStatsApiUsageGet200ResponseResponseJson"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetUsageStatsApiUsageGet200ResponseSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetUsageStatsApiUsageGet400Response">When receiving a 400 status code</exception>
@@ -49,11 +49,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Api.Usage
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetUsageStatsApiUsageGet500Response">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.GetUsageStatsApiUsageGet200ResponseResponseJson?> GetAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Api.Usage.UsageRequestBuilder.UsageRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.GetUsageStatsApiUsageGet200ResponseSchema?> GetAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Api.Usage.UsageRequestBuilder.UsageRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.GetUsageStatsApiUsageGet200ResponseResponseJson> GetAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Api.Usage.UsageRequestBuilder.UsageRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.GetUsageStatsApiUsageGet200ResponseSchema> GetAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Api.Usage.UsageRequestBuilder.UsageRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -68,7 +68,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Api.Usage
                 { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetUsageStatsApiUsageGet429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetUsageStatsApiUsageGet500Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.GetUsageStatsApiUsageGet200ResponseResponseJson>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.GetUsageStatsApiUsageGet200ResponseResponseJson.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.GetUsageStatsApiUsageGet200ResponseSchema>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.GetUsageStatsApiUsageGet200ResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Get usage statistics for the current machine credential.time_window: Optional time window in seconds (default: 3600 = 1 hour)&quot;

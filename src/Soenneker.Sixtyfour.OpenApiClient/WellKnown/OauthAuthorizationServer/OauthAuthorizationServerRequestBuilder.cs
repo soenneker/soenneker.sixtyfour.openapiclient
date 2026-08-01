@@ -36,7 +36,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.WellKnown.OauthAuthorizationServer
         /// <summary>
         /// Oauth Authorization Server Metadata
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthAuthorizationServerMetadataWellKnownOAuthAuthorizationServerGet200ResponseResponseJson"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthAuthorizationServerMetadataWellKnownOAuthAuthorizationServerGet200ResponseSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthAuthorizationServerMetadataWellKnownOAuthAuthorizationServerGet400Response">When receiving a 400 status code</exception>
@@ -46,11 +46,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.WellKnown.OauthAuthorizationServer
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthAuthorizationServerMetadataWellKnownOAuthAuthorizationServerGet500Response">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthAuthorizationServerMetadataWellKnownOAuthAuthorizationServerGet200ResponseResponseJson?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthAuthorizationServerMetadataWellKnownOAuthAuthorizationServerGet200ResponseSchema?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthAuthorizationServerMetadataWellKnownOAuthAuthorizationServerGet200ResponseResponseJson> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthAuthorizationServerMetadataWellKnownOAuthAuthorizationServerGet200ResponseSchema> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -62,7 +62,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.WellKnown.OauthAuthorizationServer
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthAuthorizationServerMetadataWellKnownOAuthAuthorizationServerGet500Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthAuthorizationServerMetadataWellKnownOAuthAuthorizationServerGet200ResponseResponseJson>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthAuthorizationServerMetadataWellKnownOAuthAuthorizationServerGet200ResponseResponseJson.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthAuthorizationServerMetadataWellKnownOAuthAuthorizationServerGet200ResponseSchema>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.OAuthAuthorizationServerMetadataWellKnownOAuthAuthorizationServerGet200ResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Oauth Authorization Server Metadata

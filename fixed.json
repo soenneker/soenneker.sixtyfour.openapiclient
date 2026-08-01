@@ -54,7 +54,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FindEmailBulkAsyncEndpointFindEmailBulkAsyncPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/FindEmailBulkAsyncEndpointFindEmailBulkAsyncPost200ResponseSchema"
                 }
               }
             }
@@ -197,7 +197,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FindEmailBulkEndpointFindEmailBulkPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/FindEmailBulkEndpointFindEmailBulkPost200ResponseSchema"
                 }
               }
             }
@@ -340,7 +340,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FindEmailAsyncEndpointFindEmailAsyncPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/FindEmailAsyncEndpointFindEmailAsyncPost200ResponseSchema"
                 }
               }
             }
@@ -483,7 +483,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FindEmailEndpointFindEmailPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/FindEmailEndpointFindEmailPost200ResponseSchema"
                 }
               }
             }
@@ -626,7 +626,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FindPhoneBulkAsyncEndpointFindPhoneBulkAsyncPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/FindPhoneBulkAsyncEndpointFindPhoneBulkAsyncPost200ResponseSchema"
                 }
               }
             }
@@ -769,7 +769,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FindPhoneBulkEndpointFindPhoneBulkPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/FindPhoneBulkEndpointFindPhoneBulkPost200ResponseSchema"
                 }
               }
             }
@@ -912,7 +912,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FindPhoneAsyncEndpointFindPhoneAsyncPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/FindPhoneAsyncEndpointFindPhoneAsyncPost200ResponseSchema"
                 }
               }
             }
@@ -1055,7 +1055,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FindPhoneEndpointFindPhonePost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/FindPhoneEndpointFindPhonePost200ResponseSchema"
                 }
               }
             }
@@ -1198,7 +1198,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ReverseEmailBulkAsyncEndpointReverseEmailBulkAsyncPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/ReverseEmailBulkAsyncEndpointReverseEmailBulkAsyncPost200ResponseSchema"
                 }
               }
             }
@@ -1341,7 +1341,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ReverseEmailBulkEndpointReverseEmailBulkPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/ReverseEmailBulkEndpointReverseEmailBulkPost200ResponseSchema"
                 }
               }
             }
@@ -1484,7 +1484,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ReverseEmailAsyncEndpointReverseEmailAsyncPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/ReverseEmailAsyncEndpointReverseEmailAsyncPost200ResponseSchema"
                 }
               }
             }
@@ -1627,7 +1627,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ReverseEmailEndpointReverseEmailPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/ReverseEmailEndpointReverseEmailPost200ResponseSchema"
                 }
               }
             }
@@ -1770,7 +1770,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ReversePhoneBulkAsyncEndpointReversePhoneBulkAsyncPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/ReversePhoneBulkAsyncEndpointReversePhoneBulkAsyncPost200ResponseSchema"
                 }
               }
             }
@@ -1913,7 +1913,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ReversePhoneBulkEndpointReversePhoneBulkPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/ReversePhoneBulkEndpointReversePhoneBulkPost200ResponseSchema"
                 }
               }
             }
@@ -2056,7 +2056,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ReversePhoneAsyncEndpointReversePhoneAsyncPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/ReversePhoneAsyncEndpointReversePhoneAsyncPost200ResponseSchema"
                 }
               }
             }
@@ -2199,7 +2199,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ReversePhoneEndpointReversePhonePost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/ReversePhoneEndpointReversePhonePost200ResponseSchema"
                 }
               }
             }
@@ -2483,7 +2483,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/EnrichLeadEndpointEnrichLeadPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/EnrichLeadEndpointEnrichLeadPost200ResponseSchema"
                 }
               }
             }
@@ -2767,7 +2767,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/EnrichCompanyEndpointEnrichCompanyPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/EnrichCompanyEndpointEnrichCompanyPost200ResponseSchema"
                 }
               }
             }
@@ -3053,7 +3053,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PeopleIntelligenceEndpointPeopleIntelligencePost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/PeopleIntelligenceEndpointPeopleIntelligencePost200ResponseSchema"
                 }
               }
             }
@@ -3339,7 +3339,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CompanyIntelligenceEndpointCompanyIntelligencePost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/CompanyIntelligenceEndpointCompanyIntelligencePost200ResponseSchema"
                 }
               }
             }
@@ -3481,7 +3481,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetLinkedinEndpointGetLinkedinPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/GetLinkedinEndpointGetLinkedinPost200ResponseSchema"
                 }
               }
             }
@@ -3767,7 +3767,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/QaAgentEndpointQaAgentPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/QaAgentEndpointQaAgentPost200ResponseSchema"
                 }
               }
             }
@@ -4051,7 +4051,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResearchAgentEndpointResearchAgentPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/ResearchAgentEndpointResearchAgentPost200ResponseSchema"
                 }
               }
             }
@@ -4401,7 +4401,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetUsageStatsApiUsageGet200ResponseResponseJson"
+                  "$ref": "#/components/schemas/GetUsageStatsApiUsageGet200ResponseSchema"
                 }
               }
             }
@@ -4678,7 +4678,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/EnrichLinkedinEndpointEnrichLinkedinPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/EnrichLinkedinEndpointEnrichLinkedinPost200ResponseSchema"
                 }
               }
             }
@@ -9195,7 +9195,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ChatEndpointChatPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/ChatEndpointChatPost200ResponseSchema"
                 }
               }
             }
@@ -9298,7 +9298,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/StopGenerationEndpointChatStopPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/StopGenerationEndpointChatStopPost200ResponseSchema"
                 }
               }
             }
@@ -9401,7 +9401,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApprovalEndpointChatApprovalPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/ApprovalEndpointChatApprovalPost200ResponseSchema"
                 }
               }
             }
@@ -9504,7 +9504,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ReconnectStreamEndpointChatSessionSessionIdStreamGet200ResponseResponseJson"
+                  "$ref": "#/components/schemas/ReconnectStreamEndpointChatSessionSessionIdStreamGet200ResponseSchema"
                 }
               }
             }
@@ -9923,7 +9923,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UpdateSessionEndpointChatSessionSessionIdPatch200ResponseResponseJson"
+                  "$ref": "#/components/schemas/UpdateSessionEndpointChatSessionSessionIdPatch200ResponseSchema"
                 }
               }
             }
@@ -10024,7 +10024,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DeleteSessionEndpointChatSessionSessionIdDelete200ResponseResponseJson"
+                  "$ref": "#/components/schemas/DeleteSessionEndpointChatSessionSessionIdDelete200ResponseSchema"
                 }
               }
             }
@@ -10127,7 +10127,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/MarkSessionReadEndpointChatSessionSessionIdReadPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/MarkSessionReadEndpointChatSessionSessionIdReadPost200ResponseSchema"
                 }
               }
             }
@@ -11079,7 +11079,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/WorkspaceStreamEndpointWorkspacesWorkspaceIdStreamGet200ResponseResponseJson"
+                  "$ref": "#/components/schemas/WorkspaceStreamEndpointWorkspacesWorkspaceIdStreamGet200ResponseSchema"
                 }
               }
             }
@@ -11162,7 +11162,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/OAuthAuthorizationServerMetadataWellKnownOAuthAuthorizationServerGet200ResponseResponseJson"
+                  "$ref": "#/components/schemas/OAuthAuthorizationServerMetadataWellKnownOAuthAuthorizationServerGet200ResponseSchema"
                 }
               }
             }
@@ -11254,7 +11254,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/OAuthTokenEndpointOAuthTokenPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/OAuthTokenEndpointOAuthTokenPost200ResponseSchema"
                 }
               }
             }
@@ -12191,7 +12191,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidateOAuthClientJwksOAuthClientsClientIdValidateJwksPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/ValidateOAuthClientJwksOAuthClientsClientIdValidateJwksPost200ResponseSchema"
                 }
               }
             }
@@ -13156,7 +13156,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UnlinkMeSlackLinksSlackTeamIdSlackUserIdDelete200ResponseResponseJson"
+                  "$ref": "#/components/schemas/UnlinkMeSlackLinksSlackTeamIdSlackUserIdDelete200ResponseSchema"
                 }
               }
             }
@@ -14565,7 +14565,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/VerifyAgeStatusVerifyAgeTaskIdGet200ResponseResponseJson"
+                  "$ref": "#/components/schemas/VerifyAgeStatusVerifyAgeTaskIdGet200ResponseSchema"
                 }
               }
             }
@@ -27240,79 +27240,79 @@
           }
         }
       },
-      "FindEmailBulkAsyncEndpointFindEmailBulkAsyncPost200ResponseResponseJson": {
+      "FindEmailBulkAsyncEndpointFindEmailBulkAsyncPost200ResponseSchema": {
         "type": "object"
       },
-      "FindEmailBulkEndpointFindEmailBulkPost200ResponseResponseJson": {
+      "FindEmailBulkEndpointFindEmailBulkPost200ResponseSchema": {
         "type": "object"
       },
-      "FindEmailAsyncEndpointFindEmailAsyncPost200ResponseResponseJson": {
+      "FindEmailAsyncEndpointFindEmailAsyncPost200ResponseSchema": {
         "type": "object"
       },
-      "FindEmailEndpointFindEmailPost200ResponseResponseJson": {
+      "FindEmailEndpointFindEmailPost200ResponseSchema": {
         "type": "object"
       },
-      "FindPhoneBulkAsyncEndpointFindPhoneBulkAsyncPost200ResponseResponseJson": {
+      "FindPhoneBulkAsyncEndpointFindPhoneBulkAsyncPost200ResponseSchema": {
         "type": "object"
       },
-      "FindPhoneBulkEndpointFindPhoneBulkPost200ResponseResponseJson": {
+      "FindPhoneBulkEndpointFindPhoneBulkPost200ResponseSchema": {
         "type": "object"
       },
-      "FindPhoneAsyncEndpointFindPhoneAsyncPost200ResponseResponseJson": {
+      "FindPhoneAsyncEndpointFindPhoneAsyncPost200ResponseSchema": {
         "type": "object"
       },
-      "FindPhoneEndpointFindPhonePost200ResponseResponseJson": {
+      "FindPhoneEndpointFindPhonePost200ResponseSchema": {
         "type": "object"
       },
-      "ReverseEmailBulkAsyncEndpointReverseEmailBulkAsyncPost200ResponseResponseJson": {
+      "ReverseEmailBulkAsyncEndpointReverseEmailBulkAsyncPost200ResponseSchema": {
         "type": "object"
       },
-      "ReverseEmailBulkEndpointReverseEmailBulkPost200ResponseResponseJson": {
+      "ReverseEmailBulkEndpointReverseEmailBulkPost200ResponseSchema": {
         "type": "object"
       },
-      "ReverseEmailAsyncEndpointReverseEmailAsyncPost200ResponseResponseJson": {
+      "ReverseEmailAsyncEndpointReverseEmailAsyncPost200ResponseSchema": {
         "type": "object"
       },
-      "ReverseEmailEndpointReverseEmailPost200ResponseResponseJson": {
+      "ReverseEmailEndpointReverseEmailPost200ResponseSchema": {
         "type": "object"
       },
-      "ReversePhoneBulkAsyncEndpointReversePhoneBulkAsyncPost200ResponseResponseJson": {
+      "ReversePhoneBulkAsyncEndpointReversePhoneBulkAsyncPost200ResponseSchema": {
         "type": "object"
       },
-      "ReversePhoneBulkEndpointReversePhoneBulkPost200ResponseResponseJson": {
+      "ReversePhoneBulkEndpointReversePhoneBulkPost200ResponseSchema": {
         "type": "object"
       },
-      "ReversePhoneAsyncEndpointReversePhoneAsyncPost200ResponseResponseJson": {
+      "ReversePhoneAsyncEndpointReversePhoneAsyncPost200ResponseSchema": {
         "type": "object"
       },
-      "ReversePhoneEndpointReversePhonePost200ResponseResponseJson": {
+      "ReversePhoneEndpointReversePhonePost200ResponseSchema": {
         "type": "object"
       },
-      "EnrichLeadEndpointEnrichLeadPost200ResponseResponseJson": {
+      "EnrichLeadEndpointEnrichLeadPost200ResponseSchema": {
         "type": "object"
       },
-      "EnrichCompanyEndpointEnrichCompanyPost200ResponseResponseJson": {
+      "EnrichCompanyEndpointEnrichCompanyPost200ResponseSchema": {
         "type": "object"
       },
-      "PeopleIntelligenceEndpointPeopleIntelligencePost200ResponseResponseJson": {
+      "PeopleIntelligenceEndpointPeopleIntelligencePost200ResponseSchema": {
         "type": "object"
       },
-      "CompanyIntelligenceEndpointCompanyIntelligencePost200ResponseResponseJson": {
+      "CompanyIntelligenceEndpointCompanyIntelligencePost200ResponseSchema": {
         "type": "object"
       },
-      "GetLinkedinEndpointGetLinkedinPost200ResponseResponseJson": {
+      "GetLinkedinEndpointGetLinkedinPost200ResponseSchema": {
         "type": "object"
       },
-      "QaAgentEndpointQaAgentPost200ResponseResponseJson": {
+      "QaAgentEndpointQaAgentPost200ResponseSchema": {
         "type": "object"
       },
-      "ResearchAgentEndpointResearchAgentPost200ResponseResponseJson": {
+      "ResearchAgentEndpointResearchAgentPost200ResponseSchema": {
         "type": "object"
       },
-      "GetUsageStatsApiUsageGet200ResponseResponseJson": {
+      "GetUsageStatsApiUsageGet200ResponseSchema": {
         "type": "object"
       },
-      "EnrichLinkedinEndpointEnrichLinkedinPost200ResponseResponseJson": {
+      "EnrichLinkedinEndpointEnrichLinkedinPost200ResponseSchema": {
         "type": "object"
       },
       "ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet200Response": {
@@ -27360,34 +27360,34 @@
       "DeleteExclusionListEndpointSearchExclusionListsListIdDelete200Response": {
         "type": "object"
       },
-      "ChatEndpointChatPost200ResponseResponseJson": {
+      "ChatEndpointChatPost200ResponseSchema": {
         "type": "object"
       },
-      "StopGenerationEndpointChatStopPost200ResponseResponseJson": {
+      "StopGenerationEndpointChatStopPost200ResponseSchema": {
         "type": "object"
       },
-      "ApprovalEndpointChatApprovalPost200ResponseResponseJson": {
+      "ApprovalEndpointChatApprovalPost200ResponseSchema": {
         "type": "object"
       },
-      "ReconnectStreamEndpointChatSessionSessionIdStreamGet200ResponseResponseJson": {
+      "ReconnectStreamEndpointChatSessionSessionIdStreamGet200ResponseSchema": {
         "type": "object"
       },
-      "UpdateSessionEndpointChatSessionSessionIdPatch200ResponseResponseJson": {
+      "UpdateSessionEndpointChatSessionSessionIdPatch200ResponseSchema": {
         "type": "object"
       },
-      "DeleteSessionEndpointChatSessionSessionIdDelete200ResponseResponseJson": {
+      "DeleteSessionEndpointChatSessionSessionIdDelete200ResponseSchema": {
         "type": "object"
       },
-      "MarkSessionReadEndpointChatSessionSessionIdReadPost200ResponseResponseJson": {
+      "MarkSessionReadEndpointChatSessionSessionIdReadPost200ResponseSchema": {
         "type": "object"
       },
-      "WorkspaceStreamEndpointWorkspacesWorkspaceIdStreamGet200ResponseResponseJson": {
+      "WorkspaceStreamEndpointWorkspacesWorkspaceIdStreamGet200ResponseSchema": {
         "type": "object"
       },
-      "OAuthAuthorizationServerMetadataWellKnownOAuthAuthorizationServerGet200ResponseResponseJson": {
+      "OAuthAuthorizationServerMetadataWellKnownOAuthAuthorizationServerGet200ResponseSchema": {
         "type": "object"
       },
-      "OAuthTokenEndpointOAuthTokenPost200ResponseResponseJson": {
+      "OAuthTokenEndpointOAuthTokenPost200ResponseSchema": {
         "type": "object"
       },
       "ListOAuthClientsOAuthClientsGet200Response": {
@@ -27402,7 +27402,7 @@
           "$ref": "#/components/schemas/PublicKeyResponse"
         }
       },
-      "ValidateOAuthClientJwksOAuthClientsClientIdValidateJwksPost200ResponseResponseJson": {
+      "ValidateOAuthClientJwksOAuthClientsClientIdValidateJwksPost200ResponseSchema": {
         "type": "object"
       },
       "ListMyLinksMeSlackLinksGet200Response": {
@@ -27411,7 +27411,7 @@
           "$ref": "#/components/schemas/SlackLink"
         }
       },
-      "UnlinkMeSlackLinksSlackTeamIdSlackUserIdDelete200ResponseResponseJson": {
+      "UnlinkMeSlackLinksSlackTeamIdSlackUserIdDelete200ResponseSchema": {
         "type": "object"
       },
       "ListSchedulesEndpointSchedulesGet200Response": {
@@ -27429,7 +27429,7 @@
       "DeleteScheduleEndpointSchedulesScheduleIdDelete200Response": {
         "type": "object"
       },
-      "VerifyAgeStatusVerifyAgeTaskIdGet200ResponseResponseJson": {
+      "VerifyAgeStatusVerifyAgeTaskIdGet200ResponseSchema": {
         "type": "object"
       },
       "JobStatusJobStatusJobIdGet200ResponseOneOf1": {

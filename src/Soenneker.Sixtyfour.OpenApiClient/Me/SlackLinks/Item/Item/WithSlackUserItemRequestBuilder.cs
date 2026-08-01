@@ -36,7 +36,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Me.SlackLinks.Item.Item
         /// <summary>
         /// Remove a linked Slack account. Only the owner can unlink.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.UnlinkMeSlackLinksSlackTeamIdSlackUserIdDelete200ResponseResponseJson"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.UnlinkMeSlackLinksSlackTeamIdSlackUserIdDelete200ResponseSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.UnlinkMeSlackLinksSlackTeamIdSlackUserIdDelete400Response">When receiving a 400 status code</exception>
@@ -46,11 +46,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Me.SlackLinks.Item.Item
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.UnlinkMeSlackLinksSlackTeamIdSlackUserIdDelete500Response">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.UnlinkMeSlackLinksSlackTeamIdSlackUserIdDelete200ResponseResponseJson?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.UnlinkMeSlackLinksSlackTeamIdSlackUserIdDelete200ResponseSchema?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.UnlinkMeSlackLinksSlackTeamIdSlackUserIdDelete200ResponseResponseJson> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.UnlinkMeSlackLinksSlackTeamIdSlackUserIdDelete200ResponseSchema> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -62,7 +62,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Me.SlackLinks.Item.Item
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.UnlinkMeSlackLinksSlackTeamIdSlackUserIdDelete500Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.UnlinkMeSlackLinksSlackTeamIdSlackUserIdDelete200ResponseResponseJson>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.UnlinkMeSlackLinksSlackTeamIdSlackUserIdDelete200ResponseResponseJson.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.UnlinkMeSlackLinksSlackTeamIdSlackUserIdDelete200ResponseSchema>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.UnlinkMeSlackLinksSlackTeamIdSlackUserIdDelete200ResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Remove a linked Slack account. Only the owner can unlink.

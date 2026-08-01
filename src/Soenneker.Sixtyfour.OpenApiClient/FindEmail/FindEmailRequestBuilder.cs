@@ -36,7 +36,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.FindEmail
         /// <summary>
         /// Find a single person&apos;s email address.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailEndpointFindEmailPost200ResponseResponseJson"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailEndpointFindEmailPost200ResponseSchema"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -50,11 +50,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.FindEmail
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailEndpointFindEmailPost500Response">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailEndpointFindEmailPost200ResponseResponseJson?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailEndpointFindEmailPost200ResponseSchema?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailEndpointFindEmailPost200ResponseResponseJson> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailEndpointFindEmailPost200ResponseSchema> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -70,7 +70,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.FindEmail
                 { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailEndpointFindEmailPost429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailEndpointFindEmailPost500Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailEndpointFindEmailPost200ResponseResponseJson>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailEndpointFindEmailPost200ResponseResponseJson.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailEndpointFindEmailPost200ResponseSchema>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailEndpointFindEmailPost200ResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Find a single person&apos;s email address.

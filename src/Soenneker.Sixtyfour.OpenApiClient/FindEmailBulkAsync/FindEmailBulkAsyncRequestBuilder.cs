@@ -36,7 +36,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.FindEmailBulkAsync
         /// <summary>
         /// Find email addresses for a batch of leads; returns a job ID to poll.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailBulkAsyncEndpointFindEmailBulkAsyncPost200ResponseResponseJson"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailBulkAsyncEndpointFindEmailBulkAsyncPost200ResponseSchema"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -50,11 +50,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.FindEmailBulkAsync
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailBulkAsyncEndpointFindEmailBulkAsyncPost500Response">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailBulkAsyncEndpointFindEmailBulkAsyncPost200ResponseResponseJson?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailBulkRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailBulkAsyncEndpointFindEmailBulkAsyncPost200ResponseSchema?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailBulkRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailBulkAsyncEndpointFindEmailBulkAsyncPost200ResponseResponseJson> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailBulkRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailBulkAsyncEndpointFindEmailBulkAsyncPost200ResponseSchema> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailBulkRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -70,7 +70,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.FindEmailBulkAsync
                 { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailBulkAsyncEndpointFindEmailBulkAsyncPost429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailBulkAsyncEndpointFindEmailBulkAsyncPost500Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailBulkAsyncEndpointFindEmailBulkAsyncPost200ResponseResponseJson>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailBulkAsyncEndpointFindEmailBulkAsyncPost200ResponseResponseJson.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailBulkAsyncEndpointFindEmailBulkAsyncPost200ResponseSchema>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailBulkAsyncEndpointFindEmailBulkAsyncPost200ResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Find email addresses for a batch of leads; returns a job ID to poll.
