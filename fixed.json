@@ -10094,6 +10094,109 @@
         }
       }
     },
+    "/chat/session/{sessionId}/engine": {
+      "get": {
+        "tags": [
+          "Chat"
+        ],
+        "summary": "Get Session Engine Endpoint",
+        "operationId": "GetSessionEngineEndpointChatSessionSessionIdEngineGet",
+        "parameters": [
+          {
+            "name": "sessionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Session Id",
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSessionEngineEndpointChatSessionSessionIdEngineGet200ResponseSchema"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSessionEngineEndpointChatSessionSessionIdEngineGet400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSessionEngineEndpointChatSessionSessionIdEngineGet401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSessionEngineEndpointChatSessionSessionIdEngineGet403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSessionEngineEndpointChatSessionSessionIdEngineGet500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/chat/session/{sessionId}/read": {
       "post": {
         "tags": [
@@ -25567,6 +25670,41 @@
           }
         }
       },
+      "GetSessionEngineEndpointChatSessionSessionIdEngineGet200Response": {
+        "type": "object"
+      },
+      "GetSessionEngineEndpointChatSessionSessionIdEngineGet400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetSessionEngineEndpointChatSessionSessionIdEngineGet401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetSessionEngineEndpointChatSessionSessionIdEngineGet403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetSessionEngineEndpointChatSessionSessionIdEngineGet500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
       "MarkSessionReadEndpointChatSessionSessionIdReadPost200Response": {
         "type": "object"
       },
@@ -27376,6 +27514,9 @@
         "type": "object"
       },
       "DeleteSessionEndpointChatSessionSessionIdDelete200ResponseSchema": {
+        "type": "object"
+      },
+      "GetSessionEngineEndpointChatSessionSessionIdEngineGet200ResponseSchema": {
         "type": "object"
       },
       "MarkSessionReadEndpointChatSessionSessionIdReadPost200ResponseSchema": {

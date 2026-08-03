@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Sixtyfour.OpenApiClient.Chat.Session.Item.Engine;
 using Soenneker.Sixtyfour.OpenApiClient.Chat.Session.Item.Read;
 using Soenneker.Sixtyfour.OpenApiClient.Chat.Session.Item.StreamNamespace;
 using Soenneker.Sixtyfour.OpenApiClient.Models;
@@ -19,6 +20,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Chat.Session.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithSessionItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The engine property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.Chat.Session.Item.Engine.EngineRequestBuilder Engine
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.Chat.Session.Item.Engine.EngineRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The read property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Chat.Session.Item.Read.ReadRequestBuilder Read
         {
