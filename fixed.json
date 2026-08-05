@@ -15166,10 +15166,14 @@
             "type": "boolean"
           },
           "block_id": {
-            "$ref": "#/components/schemas/AddBlockResponseBlockId"
+            "title": "Block Id",
+            "type": "string",
+            "nullable": true
           },
           "error": {
-            "$ref": "#/components/schemas/AddBlockResponseError"
+            "title": "Error",
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -15183,7 +15187,9 @@
             "default": false
           },
           "custom_prompt": {
-            "$ref": "#/components/schemas/AgentSettingsResponseCustomPrompt"
+            "title": "Custom Prompt",
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -15212,28 +15218,52 @@
             "description": "Timestamp when the task started."
           },
           "current_phase": {
-            "$ref": "#/components/schemas/AgenticSearchStatusResponseCurrentPhase"
+            "title": "Current Phase",
+            "type": "integer",
+            "description": "Current pipeline phase index.",
+            "nullable": true
           },
           "progress_message": {
-            "$ref": "#/components/schemas/AgenticSearchStatusResponseProgressMessage"
+            "title": "Progress Message",
+            "type": "string",
+            "description": "Human-readable progress message.",
+            "nullable": true
           },
           "close_time": {
-            "$ref": "#/components/schemas/AgenticSearchStatusResponseCloseTime"
+            "title": "Close Time",
+            "type": "string",
+            "description": "Timestamp when the task finished.",
+            "nullable": true
           },
           "resource_handle_id": {
-            "$ref": "#/components/schemas/AgenticSearchStatusResponseResourceHandleId"
+            "title": "Resource Handle Id",
+            "type": "string",
+            "description": "Handle for downloading exported results.",
+            "nullable": true
           },
           "total_results": {
-            "$ref": "#/components/schemas/AgenticSearchStatusResponseTotalResults"
+            "title": "Total Results",
+            "type": "integer",
+            "description": "Total results found.",
+            "nullable": true
           },
           "exported_count": {
-            "$ref": "#/components/schemas/AgenticSearchStatusResponseExportedCount"
+            "title": "Exported Count",
+            "type": "integer",
+            "description": "Number of results actually exported.",
+            "nullable": true
           },
           "error": {
-            "$ref": "#/components/schemas/AgenticSearchStatusResponseError"
+            "title": "Error",
+            "type": "string",
+            "description": "Error message if the operation failed.",
+            "nullable": true
           },
           "search_id": {
-            "$ref": "#/components/schemas/AgenticSearchStatusResponseSearchId"
+            "title": "Search Id",
+            "type": "string",
+            "description": "Search history ID returned by a previous search. Replays only the query shape; pass exclusions again on this request if they should apply.",
+            "nullable": true
           },
           "iterations": {
             "$ref": "#/components/schemas/AgenticSearchStatusResponseIterations"
@@ -15263,7 +15293,9 @@
             "type": "boolean"
           },
           "reason": {
-            "$ref": "#/components/schemas/ApprovalRequestReason"
+            "title": "Reason",
+            "type": "string",
+            "nullable": true
           },
           "answers": {
             "$ref": "#/components/schemas/ApprovalRequestAnswers"
@@ -15336,7 +15368,10 @@
             "$ref": "#/components/schemas/BlockSpecsProperty"
           },
           "block_id": {
-            "$ref": "#/components/schemas/BlockBlockId"
+            "title": "Block Id",
+            "type": "string",
+            "description": "Stable block identifier; non-UUID values are normalized server-side.",
+            "nullable": true
           }
         },
         "description": "A single step inside a workflow."
@@ -15372,7 +15407,10 @@
         "type": "object",
         "properties": {
           "block_id": {
-            "$ref": "#/components/schemas/BlockLiveStatusBlockId"
+            "title": "Block Id",
+            "type": "string",
+            "description": "Block identifier within the workflow.",
+            "nullable": true
           },
           "block_name": {
             "title": "Block Name",
@@ -15393,10 +15431,16 @@
             "description": "\u0022Block status: pending, running, completed, or failed.\u0022"
           },
           "started_at": {
-            "$ref": "#/components/schemas/BlockLiveStatusStartedAt"
+            "title": "Started At",
+            "type": "string",
+            "description": "Timestamp when execution started.",
+            "nullable": true
           },
           "completed_at": {
-            "$ref": "#/components/schemas/BlockLiveStatusCompletedAt"
+            "title": "Completed At",
+            "type": "string",
+            "description": "Timestamp when execution finished.",
+            "nullable": true
           },
           "progress_percentage": {
             "title": "Progress Percentage",
@@ -15405,7 +15449,10 @@
             "default": 0.0
           },
           "current_step": {
-            "$ref": "#/components/schemas/BlockLiveStatusCurrentStep"
+            "title": "Current Step",
+            "type": "string",
+            "description": "Human-readable description of the current sub-step.",
+            "nullable": true
           },
           "processed_count": {
             "title": "Processed Count",
@@ -15420,7 +15467,10 @@
             "default": 0
           },
           "estimated_total_count": {
-            "$ref": "#/components/schemas/BlockLiveStatusEstimatedTotalCount"
+            "title": "Estimated Total Count",
+            "type": "integer",
+            "description": "Estimated total when an exact count isn\u0027t yet known.",
+            "nullable": true
           },
           "last_updated": {
             "title": "Last Updated",
@@ -15428,7 +15478,10 @@
             "description": "Timestamp of the last status update."
           },
           "error_message": {
-            "$ref": "#/components/schemas/BlockLiveStatusErrorMessage"
+            "title": "Error Message",
+            "type": "string",
+            "description": "Error message if the operation failed.",
+            "nullable": true
           },
           "metrics": {
             "$ref": "#/components/schemas/BlockMetrics"
@@ -15453,10 +15506,16 @@
             "default": "LEAD"
           },
           "processed_count": {
-            "$ref": "#/components/schemas/BlockMetricsProcessedCount"
+            "title": "Processed Count",
+            "type": "integer",
+            "description": "Number of items processed so far.",
+            "nullable": true
           },
           "total_count": {
-            "$ref": "#/components/schemas/BlockMetricsTotalCount"
+            "title": "Total Count",
+            "type": "integer",
+            "description": "Total number of items to process.",
+            "nullable": true
           }
         },
         "description": "Metrics for a block execution."
@@ -15511,7 +15570,9 @@
             "type": "string"
           },
           "scope": {
-            "$ref": "#/components/schemas/BodyOAuthTokenEndpointOAuthTokenPostScope"
+            "title": "Scope",
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -15947,16 +16008,28 @@
             "description": "Job status, typically \u0027RUNNING\u0027."
           },
           "row_count": {
-            "$ref": "#/components/schemas/BulkIntelligenceStartedResponseRowCount"
+            "title": "Row Count",
+            "type": "integer",
+            "description": "Number of parsed input rows; omitted on idempotent replays.",
+            "nullable": true
           },
           "estimated_cost_cents": {
-            "$ref": "#/components/schemas/BulkIntelligenceStartedResponseEstimatedCostCents"
+            "title": "Estimated Cost Cents",
+            "type": "integer",
+            "description": "\u0022Estimated job cost in cents (rows \u00D7 per-row tier price). A floor: options like find_people can bill more. Omitted on idempotent replays. Returned when cost_units=cents.\u0022",
+            "nullable": true
           },
           "estimated_cost_credits": {
-            "$ref": "#/components/schemas/BulkIntelligenceStartedResponseEstimatedCostCredits"
+            "title": "Estimated Cost Credits",
+            "type": "number",
+            "description": "Estimated job cost in credits. Returned when cost_units=credits.",
+            "nullable": true
           },
           "already_started": {
-            "$ref": "#/components/schemas/BulkIntelligenceStartedResponseAlreadyStarted"
+            "title": "Already Started",
+            "type": "boolean",
+            "description": "True when the request was deduplicated via Idempotency-Key header.",
+            "nullable": true
           }
         },
         "description": "Response when a bulk intelligence job is started."
@@ -16001,13 +16074,20 @@
             }
           },
           "timezone": {
-            "$ref": "#/components/schemas/ChatRequestTimezone"
+            "title": "Timezone",
+            "type": "string",
+            "default": "UTC",
+            "nullable": true
           },
           "workflow_id": {
-            "$ref": "#/components/schemas/ChatRequestWorkflowId"
+            "title": "Workflow Id",
+            "type": "string",
+            "nullable": true
           },
           "workspace_id": {
-            "$ref": "#/components/schemas/ChatRequestWorkspaceId"
+            "title": "Workspace Id",
+            "type": "string",
+            "nullable": true
           },
           "page_context": {
             "$ref": "#/components/schemas/ChatRequestPageContext"
@@ -16038,7 +16118,9 @@
             "type": "string"
           },
           "workspace_id": {
-            "$ref": "#/components/schemas/ChatSessionMessagesResponseWorkspaceId"
+            "title": "Workspace Id",
+            "type": "string",
+            "nullable": true
           },
           "messages": {
             "title": "Messages",
@@ -16078,13 +16160,19 @@
             "default": "New chat"
           },
           "workflow_id": {
-            "$ref": "#/components/schemas/ChatSessionSummaryWorkflowId"
+            "title": "Workflow Id",
+            "type": "string",
+            "nullable": true
           },
           "workspace_id": {
-            "$ref": "#/components/schemas/ChatSessionSummaryWorkspaceId"
+            "title": "Workspace Id",
+            "type": "string",
+            "nullable": true
           },
           "started_at": {
-            "$ref": "#/components/schemas/ChatSessionSummaryStartedAt"
+            "title": "Started At",
+            "type": "string",
+            "nullable": true
           },
           "has_unread": {
             "title": "Has Unread",
@@ -16164,7 +16252,12 @@
         "type": "object",
         "properties": {
           "name": {
-            "$ref": "#/components/schemas/CreateExclusionListRequestName"
+            "title": "Name",
+            "maxLength": 120,
+            "minLength": 1,
+            "type": "string",
+            "description": "Required unless source.type is \u0027search_id\u0027 (defaults to a date-stamped name).",
+            "nullable": true
           },
           "entity_type": {
             "$ref": "#/components/schemas/CreateExclusionListRequestEntityType"
@@ -16208,7 +16301,9 @@
             "type": "string"
           },
           "jwks_uri": {
-            "$ref": "#/components/schemas/CreateOAuthClientRequestJwksUri"
+            "title": "Jwks Uri",
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -16244,7 +16339,9 @@
             "default": "UTC"
           },
           "description": {
-            "$ref": "#/components/schemas/CreateScheduleRequestDescription"
+            "title": "Description",
+            "type": "string",
+            "nullable": true
           },
           "is_active": {
             "title": "Is Active",
@@ -16258,10 +16355,14 @@
         "type": "object",
         "properties": {
           "workflow_id": {
-            "$ref": "#/components/schemas/CreateSessionRequestWorkflowId"
+            "title": "Workflow Id",
+            "type": "string",
+            "nullable": true
           },
           "workspace_id": {
-            "$ref": "#/components/schemas/CreateSessionRequestWorkspaceId"
+            "title": "Workspace Id",
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -16282,10 +16383,14 @@
             "default": "New chat"
           },
           "workflow_id": {
-            "$ref": "#/components/schemas/CreateSessionResponseWorkflowId"
+            "title": "Workflow Id",
+            "type": "string",
+            "nullable": true
           },
           "workspace_id": {
-            "$ref": "#/components/schemas/CreateSessionResponseWorkspaceId"
+            "title": "Workspace Id",
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -16329,7 +16434,10 @@
             "$ref": "#/components/schemas/WorkflowGraph"
           },
           "id": {
-            "$ref": "#/components/schemas/CreateWorkflowRequestId"
+            "title": "Id",
+            "type": "string",
+            "description": "Optional pre-generated workflow ID supplied by the client.",
+            "nullable": true
           }
         }
       },
@@ -16338,13 +16446,19 @@
         "type": "object",
         "properties": {
           "api_key_id": {
-            "$ref": "#/components/schemas/DisableBoundRequestApiKeyId"
+            "title": "Api Key Id",
+            "type": "integer",
+            "nullable": true
           },
           "created_by": {
-            "$ref": "#/components/schemas/DisableBoundRequestCreatedBy"
+            "title": "Created By",
+            "type": "string",
+            "nullable": true
           },
           "team_id": {
-            "$ref": "#/components/schemas/DisableBoundRequestTeamId"
+            "title": "Team Id",
+            "type": "string",
+            "nullable": true
           }
         },
         "description": "Pause every active schedule bound to a revoked principal. Exactly one of\napi_key_id (key revoked) or created_by (user offboarded) is provided.\ncreated_by \u002B team_id narrows to one team (member removed from a\nteam while remaining in the org)."
@@ -16394,13 +16508,19 @@
             "default": false
           },
           "people_focus_prompt": {
-            "$ref": "#/components/schemas/EnrichCompanyInfoPeopleFocusPrompt"
+            "title": "People Focus Prompt",
+            "type": "string",
+            "description": "Natural-language description of which people to surface when find_people=true.",
+            "nullable": true
           },
           "lead_struct": {
             "$ref": "#/components/schemas/EnrichCompanyInfoLeadStruct"
           },
           "research_plan": {
-            "$ref": "#/components/schemas/EnrichCompanyInfoResearchPlan"
+            "title": "Research Plan",
+            "type": "string",
+            "description": "Optional natural-language plan that guides the research agent.",
+            "nullable": true
           },
           "tier": {
             "$ref": "#/components/schemas/EnrichCompanyInfoTier"
@@ -16412,10 +16532,19 @@
             "default": false
           },
           "webhook_url": {
-            "$ref": "#/components/schemas/EnrichCompanyInfoWebhookUrl"
+            "title": "Webhook Url",
+            "maxLength": 2083,
+            "minLength": 1,
+            "type": "string",
+            "description": "HTTPS URL that receives the result payload when the async job completes.",
+            "format": "uri",
+            "nullable": true
           },
           "field_confidence": {
-            "$ref": "#/components/schemas/EnrichCompanyInfoFieldConfidence"
+            "title": "Field Confidence",
+            "type": "boolean",
+            "description": "If true, return confidence scores for each requested output field.",
+            "nullable": true
           },
           "target_company": {
             "$ref": "#/components/schemas/EnrichCompanyInfoTargetCompanyProperty"
@@ -16433,16 +16562,28 @@
             "$ref": "#/components/schemas/EnrichLeadInfoStruct"
           },
           "research_plan": {
-            "$ref": "#/components/schemas/EnrichLeadInfoResearchPlan"
+            "title": "Research Plan",
+            "type": "string",
+            "description": "Optional natural-language plan that guides the research agent.",
+            "nullable": true
           },
           "tier": {
             "$ref": "#/components/schemas/EnrichLeadInfoTier"
           },
           "webhook_url": {
-            "$ref": "#/components/schemas/EnrichLeadInfoWebhookUrl"
+            "title": "Webhook Url",
+            "maxLength": 2083,
+            "minLength": 1,
+            "type": "string",
+            "description": "HTTPS URL that receives the result payload when the async job completes.",
+            "format": "uri",
+            "nullable": true
           },
           "field_confidence": {
-            "$ref": "#/components/schemas/EnrichLeadInfoFieldConfidence"
+            "title": "Field Confidence",
+            "type": "boolean",
+            "description": "If true, return confidence scores for each requested output field.",
+            "nullable": true
           },
           "lead_info": {
             "$ref": "#/components/schemas/EnrichLeadInfoLeadInfoProperty"
@@ -16480,23 +16621,36 @@
             "description": "pending | materializing | ready | failed"
           },
           "size": {
-            "$ref": "#/components/schemas/ExclusionListResponseSize"
+            "title": "Size",
+            "type": "integer",
+            "description": "Unique member count once ready.",
+            "nullable": true
           },
           "source_type": {
             "title": "Source Type",
             "type": "string"
           },
           "source_total_available": {
-            "$ref": "#/components/schemas/ExclusionListResponseSourceTotalAvailable"
+            "title": "Source Total Available",
+            "type": "integer",
+            "description": "\u0022For search_id sources: the search\u0027s full match count \u2014 larger than \u0060size\u0060 when the capture was capped by max_results.\u0022",
+            "nullable": true
           },
           "id_column": {
-            "$ref": "#/components/schemas/ExclusionListResponseIdColumn"
+            "title": "Id Column",
+            "type": "string",
+            "nullable": true
           },
           "unresolved_count": {
-            "$ref": "#/components/schemas/ExclusionListResponseUnresolvedCount"
+            "title": "Unresolved Count",
+            "type": "integer",
+            "description": "\u0022Company lists: input values dropped because they resolved to no or multiple companies.\u0022",
+            "nullable": true
           },
           "error_message": {
-            "$ref": "#/components/schemas/ExclusionListResponseErrorMessage"
+            "title": "Error Message",
+            "type": "string",
+            "nullable": true
           },
           "created_at": {
             "title": "Created At",
@@ -16533,7 +16687,10 @@
             "description": "Source ES mapping type (e.g. text, keyword, long)."
           },
           "nested_path": {
-            "$ref": "#/components/schemas/FilterFieldCapabilityNestedPath"
+            "title": "Nested Path",
+            "type": "string",
+            "description": "Nested path, if any.",
+            "nullable": true
           },
           "queryable": {
             "title": "Queryable",
@@ -16551,10 +16708,16 @@
             "description": "Supports range operators (gt/gte/lt/lte)."
           },
           "sort_field": {
-            "$ref": "#/components/schemas/FilterFieldCapabilitySortField"
+            "title": "Sort Field",
+            "type": "string",
+            "description": "Sort target when it differs from field (e.g. text fields sort via .keyword).",
+            "nullable": true
           },
           "aggregation_field": {
-            "$ref": "#/components/schemas/FilterFieldCapabilityAggregationField"
+            "title": "Aggregation Field",
+            "type": "string",
+            "description": "Field used for terms aggregation when supports_top_values is true.",
+            "nullable": true
           },
           "value_type": {
             "title": "Value Type",
@@ -16646,10 +16809,16 @@
             "description": "Canonical field path used for aggregation."
           },
           "aggregation_field": {
-            "$ref": "#/components/schemas/FilterFieldValuesResponseAggregationField"
+            "title": "Aggregation Field",
+            "type": "string",
+            "description": "Underlying field used for the terms aggregation.",
+            "nullable": true
           },
           "nested_path": {
-            "$ref": "#/components/schemas/FilterFieldValuesResponseNestedPath"
+            "title": "Nested Path",
+            "type": "string",
+            "description": "Nested path, if any.",
+            "nullable": true
           },
           "value_type": {
             "title": "Value Type",
@@ -16686,7 +16855,10 @@
             "description": "Total documents matched by the scoped query."
           },
           "request_duration_ms": {
-            "$ref": "#/components/schemas/FilterFieldValuesResponseRequestDurationMs"
+            "title": "Request Duration Ms",
+            "type": "integer",
+            "description": "Server-side request duration in milliseconds.",
+            "nullable": true
           },
           "values": {
             "title": "Values",
@@ -16776,7 +16948,10 @@
             "description": "Epoch timestamp (ms) when these capabilities were derived."
           },
           "mapping_hash": {
-            "$ref": "#/components/schemas/FilterSearchCapabilitiesResponseMappingHash"
+            "title": "Mapping Hash",
+            "type": "string",
+            "description": "Hash of mapping metadata used to derive this capability snapshot.",
+            "nullable": true
           },
           "simple_query_operators": {
             "$ref": "#/components/schemas/FilterSearchCapabilitiesResponseSimpleQueryOperators"
@@ -16831,7 +17006,10 @@
         "type": "object",
         "properties": {
           "search_id": {
-            "$ref": "#/components/schemas/FilterSearchResponseSearchId"
+            "title": "Search Id",
+            "type": "string",
+            "description": "Search history ID returned by a previous search. Replays only the query shape; pass exclusions again on this request if they should apply.",
+            "nullable": true
           },
           "resource_handle_id": {
             "title": "Resource Handle Id",
@@ -16839,19 +17017,34 @@
             "description": "Legacy export handle. Empty for company direct-filter mode."
           },
           "csv_download_url": {
-            "$ref": "#/components/schemas/FilterSearchResponseCsvDownloadUrl"
+            "title": "Csv Download Url",
+            "type": "string",
+            "description": "Signed URL to download results as CSV.",
+            "nullable": true
           },
           "json_download_url": {
-            "$ref": "#/components/schemas/FilterSearchResponseJsonDownloadUrl"
+            "title": "Json Download Url",
+            "type": "string",
+            "description": "Signed URL to download results as JSON.",
+            "nullable": true
           },
           "next_cursor": {
-            "$ref": "#/components/schemas/FilterSearchResponseNextCursor"
+            "title": "Next Cursor",
+            "type": "string",
+            "description": "Cursor to fetch the next page; null when exhausted.",
+            "nullable": true
           },
           "cursor_expires_in_seconds": {
-            "$ref": "#/components/schemas/FilterSearchResponseCursorExpiresInSeconds"
+            "title": "Cursor Expires In Seconds",
+            "type": "integer",
+            "description": "Seconds until \u0060next_cursor\u0060 expires.",
+            "nullable": true
           },
           "request_duration_ms": {
-            "$ref": "#/components/schemas/FilterSearchResponseRequestDurationMs"
+            "title": "Request Duration Ms",
+            "type": "integer",
+            "description": "Server-side request duration in milliseconds.",
+            "nullable": true
           },
           "has_more": {
             "title": "Has More",
@@ -16860,25 +17053,46 @@
             "default": false
           },
           "page_size": {
-            "$ref": "#/components/schemas/FilterSearchResponsePageSize"
+            "title": "Page Size",
+            "type": "integer",
+            "description": "Maximum number of results per page (1-100). Pages may contain fewer rows while more results remain (e.g. with exclusion filtering); rely on \u0060has_more\u0060/\u0060next_cursor\u0060, never on page fullness.",
+            "nullable": true
           },
           "page_count": {
-            "$ref": "#/components/schemas/FilterSearchResponsePageCount"
+            "title": "Page Count",
+            "type": "integer",
+            "description": "Number of results in this response page. May be less than \u0060page_size\u0060 (down to 0) while \u0060has_more\u0060 is true, e.g. when exclusion filtering is active.",
+            "nullable": true
           },
           "page_number": {
-            "$ref": "#/components/schemas/FilterSearchResponsePageNumber"
+            "title": "Page Number",
+            "type": "integer",
+            "description": "1-based page number (company pagination).",
+            "nullable": true
           },
           "total_pages": {
-            "$ref": "#/components/schemas/FilterSearchResponseTotalPages"
+            "title": "Total Pages",
+            "type": "integer",
+            "description": "Final total page count; omitted while \u0060has_more\u0060 is true.",
+            "nullable": true
           },
           "max_pages": {
-            "$ref": "#/components/schemas/FilterSearchResponseMaxPages"
+            "title": "Max Pages",
+            "type": "integer",
+            "description": "Upper bound on pages based on max_results and page_size.",
+            "nullable": true
           },
           "remaining_results": {
-            "$ref": "#/components/schemas/FilterSearchResponseRemainingResults"
+            "title": "Remaining Results",
+            "type": "integer",
+            "description": "Rows still available under max_results after this page.",
+            "nullable": true
           },
           "download_expires_in_seconds": {
-            "$ref": "#/components/schemas/FilterSearchResponseDownloadExpiresInSeconds"
+            "title": "Download Expires In Seconds",
+            "type": "integer",
+            "description": "Seconds until the download URLs expire.",
+            "nullable": true
           },
           "total_results": {
             "title": "Total Results",
@@ -16886,7 +17100,10 @@
             "description": "Rows returned so far (cumulative for company pagination)."
           },
           "total_available": {
-            "$ref": "#/components/schemas/FilterSearchResponseTotalAvailable"
+            "title": "Total Available",
+            "type": "integer",
+            "description": "\u0022Total OpenSearch matches across pages (capped at 50000); people-mode only. Pre-exclusion: exclusion filtering does not reduce this count.\u0022",
+            "nullable": true
           },
           "exported_count": {
             "title": "Exported Count",
@@ -16906,7 +17123,10 @@
             "$ref": "#/components/schemas/FilterSearchResponseParsedQuery"
           },
           "natural_language_query": {
-            "$ref": "#/components/schemas/FilterSearchResponseNaturalLanguageQuery"
+            "title": "Natural Language Query",
+            "type": "string",
+            "description": "Original natural-language query echoed verbatim, if any.",
+            "nullable": true
           }
         },
         "description": "Response for a completed filter search."
@@ -16939,7 +17159,13 @@
             "$ref": "#/components/schemas/FindEmailBulkRequestProviders"
           },
           "webhook_url": {
-            "$ref": "#/components/schemas/FindEmailBulkRequestWebhookUrl"
+            "title": "Webhook Url",
+            "maxLength": 2083,
+            "minLength": 1,
+            "type": "string",
+            "description": "HTTPS URL that receives the result payload when the async job completes.",
+            "format": "uri",
+            "nullable": true
           }
         }
       },
@@ -16966,7 +17192,13 @@
             "$ref": "#/components/schemas/FindEmailRequestProviders"
           },
           "webhook_url": {
-            "$ref": "#/components/schemas/FindEmailRequestWebhookUrl"
+            "title": "Webhook Url",
+            "maxLength": 2083,
+            "minLength": 1,
+            "type": "string",
+            "description": "HTTPS URL that receives the result payload when the async job completes.",
+            "format": "uri",
+            "nullable": true
           }
         }
       },
@@ -16996,7 +17228,12 @@
             "$ref": "#/components/schemas/FindEmailV2BulkRequestProviders"
           },
           "webhook_url": {
-            "$ref": "#/components/schemas/FindEmailV2BulkRequestWebhookUrl"
+            "title": "Webhook Url",
+            "maxLength": 2083,
+            "minLength": 1,
+            "type": "string",
+            "format": "uri",
+            "nullable": true
           }
         }
       },
@@ -17022,7 +17259,12 @@
             "$ref": "#/components/schemas/FindEmailV2RequestProviders"
           },
           "webhook_url": {
-            "$ref": "#/components/schemas/FindEmailV2RequestWebhookUrl"
+            "title": "Webhook Url",
+            "maxLength": 2083,
+            "minLength": 1,
+            "type": "string",
+            "format": "uri",
+            "nullable": true
           }
         }
       },
@@ -17045,7 +17287,13 @@
             "$ref": "#/components/schemas/FindPhoneBulkRequestProviders"
           },
           "webhook_url": {
-            "$ref": "#/components/schemas/FindPhoneBulkRequestWebhookUrl"
+            "title": "Webhook Url",
+            "maxLength": 2083,
+            "minLength": 1,
+            "type": "string",
+            "description": "HTTPS URL that receives the result payload when the async job completes.",
+            "format": "uri",
+            "nullable": true
           }
         }
       },
@@ -17063,7 +17311,13 @@
             "$ref": "#/components/schemas/FindPhoneRequestProviders"
           },
           "webhook_url": {
-            "$ref": "#/components/schemas/FindPhoneRequestWebhookUrl"
+            "title": "Webhook Url",
+            "maxLength": 2083,
+            "minLength": 1,
+            "type": "string",
+            "description": "HTTPS URL that receives the result payload when the async job completes.",
+            "format": "uri",
+            "nullable": true
           }
         }
       },
@@ -17085,7 +17339,12 @@
             "$ref": "#/components/schemas/FindPhoneV2BulkRequestProviders"
           },
           "webhook_url": {
-            "$ref": "#/components/schemas/FindPhoneV2BulkRequestWebhookUrl"
+            "title": "Webhook Url",
+            "maxLength": 2083,
+            "minLength": 1,
+            "type": "string",
+            "format": "uri",
+            "nullable": true
           }
         }
       },
@@ -17103,7 +17362,12 @@
             "$ref": "#/components/schemas/FindPhoneV2RequestProviders"
           },
           "webhook_url": {
-            "$ref": "#/components/schemas/FindPhoneV2RequestWebhookUrl"
+            "title": "Webhook Url",
+            "maxLength": 2083,
+            "minLength": 1,
+            "type": "string",
+            "format": "uri",
+            "nullable": true
           }
         }
       },
@@ -17147,7 +17411,10 @@
             "type": "string"
           },
           "include_fresh": {
-            "$ref": "#/components/schemas/GetLinkedInRequestIncludeFresh"
+            "title": "Include Fresh",
+            "type": "boolean",
+            "default": false,
+            "nullable": true
           }
         }
       },
@@ -17222,7 +17489,10 @@
             "type": "string"
           },
           "title": {
-            "$ref": "#/components/schemas/MountViewerRequestTitle"
+            "title": "Title",
+            "maxLength": 200,
+            "type": "string",
+            "nullable": true
           },
           "state": {
             "$ref": "#/components/schemas/MountViewerRequestState"
@@ -17260,7 +17530,9 @@
             "type": "string"
           },
           "jwks_uri": {
-            "$ref": "#/components/schemas/OAuthClientDetailJwksUri"
+            "title": "Jwks Uri",
+            "type": "string",
+            "nullable": true
           },
           "status": {
             "title": "Status",
@@ -17271,16 +17543,26 @@
             "type": "integer"
           },
           "access_token_ttl_seconds": {
-            "$ref": "#/components/schemas/OAuthClientDetailAccessTokenTtlSeconds"
+            "title": "Access Token Ttl Seconds",
+            "type": "integer",
+            "nullable": true
           },
           "last_used_at": {
-            "$ref": "#/components/schemas/OAuthClientDetailLastUsedAt"
+            "title": "Last Used At",
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
           },
           "jwks_last_validated_at": {
-            "$ref": "#/components/schemas/OAuthClientDetailJwksLastValidatedAt"
+            "title": "Jwks Last Validated At",
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
           },
           "jwks_last_error": {
-            "$ref": "#/components/schemas/OAuthClientDetailJwksLastError"
+            "title": "Jwks Last Error",
+            "type": "string",
+            "nullable": true
           },
           "created_at": {
             "title": "Created At",
@@ -17306,16 +17588,24 @@
         "type": "object",
         "properties": {
           "pathname": {
-            "$ref": "#/components/schemas/PageContextPathname"
+            "title": "Pathname",
+            "type": "string",
+            "nullable": true
           },
           "entityType": {
-            "$ref": "#/components/schemas/PageContextEntityType"
+            "title": "Entitytype",
+            "type": "string",
+            "nullable": true
           },
           "entityId": {
-            "$ref": "#/components/schemas/PageContextEntityId"
+            "title": "Entityid",
+            "type": "string",
+            "nullable": true
           },
           "description": {
-            "$ref": "#/components/schemas/PageContextDescription"
+            "title": "Description",
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -17354,7 +17644,10 @@
             "format": "date-time"
           },
           "revoked_at": {
-            "$ref": "#/components/schemas/PublicKeyResponseRevokedAt"
+            "title": "Revoked At",
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
           }
         }
       },
@@ -17384,10 +17677,24 @@
             "$ref": "#/components/schemas/QaAgentRequestStruct"
           },
           "max_tool_calls": {
-            "$ref": "#/components/schemas/QaAgentRequestMaxToolCalls"
+            "title": "Max Tool Calls",
+            "maximum": 50.0,
+            "exclusiveMaximum": false,
+            "minimum": 1.0,
+            "exclusiveMinimum": false,
+            "type": "integer",
+            "description": "Maximum tool calls the agent may make per evaluation.",
+            "default": 10,
+            "nullable": true
           },
           "webhook_url": {
-            "$ref": "#/components/schemas/QaAgentRequestWebhookUrl"
+            "title": "Webhook Url",
+            "maxLength": 2083,
+            "minLength": 1,
+            "type": "string",
+            "description": "HTTPS URL that receives the result payload when the async job completes.",
+            "format": "uri",
+            "nullable": true
           }
         }
       },
@@ -17416,7 +17723,10 @@
             "default": 1.0
           },
           "threshold": {
-            "$ref": "#/components/schemas/QualificationCriteriaThreshold"
+            "title": "Threshold",
+            "type": "number",
+            "description": "Minimum score (0-1) required to pass this criterion.",
+            "nullable": true
           }
         }
       },
@@ -17434,10 +17744,17 @@
             "$ref": "#/components/schemas/ResearchAgentRequestStruct"
           },
           "research_plan": {
-            "$ref": "#/components/schemas/ResearchAgentRequestResearchPlan"
+            "title": "Research Plan",
+            "type": "string",
+            "nullable": true
           },
           "webhook_url": {
-            "$ref": "#/components/schemas/ResearchAgentRequestWebhookUrl"
+            "title": "Webhook Url",
+            "maxLength": 2083,
+            "minLength": 1,
+            "type": "string",
+            "format": "uri",
+            "nullable": true
           }
         }
       },
@@ -17471,7 +17788,10 @@
             "type": "string"
           },
           "id_column": {
-            "$ref": "#/components/schemas/ResourceHandleSourceIdColumn"
+            "title": "Id Column",
+            "type": "string",
+            "description": "\u0022CSV column containing entity identifiers. People: LinkedIn public IDs or profile URLs. Companies: numeric company IDs, LinkedIn company URLs/slugs, or exact website domains. Auto-detected when omitted.\u0022",
+            "nullable": true
           }
         },
         "description": "Build the list from an uploaded CSV (see POST /storage/csv/upload)."
@@ -17495,7 +17815,13 @@
             "$ref": "#/components/schemas/ReverseEmailBulkRequestProviders"
           },
           "webhook_url": {
-            "$ref": "#/components/schemas/ReverseEmailBulkRequestWebhookUrl"
+            "title": "Webhook Url",
+            "maxLength": 2083,
+            "minLength": 1,
+            "type": "string",
+            "description": "HTTPS URL that receives the result payload when the async job completes.",
+            "format": "uri",
+            "nullable": true
           }
         }
       },
@@ -17513,7 +17839,13 @@
             "$ref": "#/components/schemas/ReverseEmailRequestProviders"
           },
           "webhook_url": {
-            "$ref": "#/components/schemas/ReverseEmailRequestWebhookUrl"
+            "title": "Webhook Url",
+            "maxLength": 2083,
+            "minLength": 1,
+            "type": "string",
+            "description": "HTTPS URL that receives the result payload when the async job completes.",
+            "format": "uri",
+            "nullable": true
           }
         }
       },
@@ -17536,7 +17868,13 @@
             "$ref": "#/components/schemas/ReversePhoneBulkRequestProviders"
           },
           "webhook_url": {
-            "$ref": "#/components/schemas/ReversePhoneBulkRequestWebhookUrl"
+            "title": "Webhook Url",
+            "maxLength": 2083,
+            "minLength": 1,
+            "type": "string",
+            "description": "HTTPS URL that receives the result payload when the async job completes.",
+            "format": "uri",
+            "nullable": true
           }
         }
       },
@@ -17554,7 +17892,13 @@
             "$ref": "#/components/schemas/ReversePhoneRequestProviders"
           },
           "webhook_url": {
-            "$ref": "#/components/schemas/ReversePhoneRequestWebhookUrl"
+            "title": "Webhook Url",
+            "maxLength": 2083,
+            "minLength": 1,
+            "type": "string",
+            "description": "HTTPS URL that receives the result payload when the async job completes.",
+            "format": "uri",
+            "nullable": true
           }
         }
       },
@@ -17616,7 +17960,10 @@
         "type": "object",
         "properties": {
           "search_id": {
-            "$ref": "#/components/schemas/SaveSearchRequestSearchId"
+            "title": "Search Id",
+            "type": "string",
+            "description": "Search history ID returned by a previous search. Replays only the query shape; pass exclusions again on this request if they should apply.",
+            "nullable": true
           },
           "parsed_query": {
             "$ref": "#/components/schemas/SaveSearchRequestParsedQuery"
@@ -17692,14 +18039,18 @@
             "type": "string"
           },
           "team_id": {
-            "$ref": "#/components/schemas/ScheduleResponseTeamId"
+            "title": "Team Id",
+            "type": "string",
+            "nullable": true
           },
           "name": {
             "title": "Name",
             "type": "string"
           },
           "description": {
-            "$ref": "#/components/schemas/ScheduleResponseDescription"
+            "title": "Description",
+            "type": "string",
+            "nullable": true
           },
           "cron_expression": {
             "title": "Cron Expression",
@@ -17714,13 +18065,19 @@
             "type": "boolean"
           },
           "disabled_reason": {
-            "$ref": "#/components/schemas/ScheduleResponseDisabledReason"
+            "title": "Disabled Reason",
+            "type": "string",
+            "nullable": true
           },
           "created_by": {
-            "$ref": "#/components/schemas/ScheduleResponseCreatedBy"
+            "title": "Created By",
+            "type": "string",
+            "nullable": true
           },
           "api_key_id": {
-            "$ref": "#/components/schemas/ScheduleResponseApiKeyId"
+            "title": "Api Key Id",
+            "type": "integer",
+            "nullable": true
           },
           "next_run_times": {
             "title": "Next Run Times",
@@ -17802,13 +18159,22 @@
             "$ref": "#/components/schemas/SearchQueryRequestParsedQuery"
           },
           "search_id": {
-            "$ref": "#/components/schemas/SearchQueryRequestSearchId"
+            "title": "Search Id",
+            "type": "string",
+            "description": "Search history ID returned by a previous search. Replays only the query shape; pass exclusions again on this request if they should apply.",
+            "nullable": true
           },
           "query": {
-            "$ref": "#/components/schemas/SearchQueryRequestQuery"
+            "title": "Query",
+            "type": "string",
+            "description": "Natural-language query. Mutually exclusive with simple_filters / filters / parsed_query / search_id. People-mode only.",
+            "nullable": true
           },
           "cursor": {
-            "$ref": "#/components/schemas/SearchQueryRequestCursor"
+            "title": "Cursor",
+            "type": "string",
+            "description": "Opaque pagination cursor returned by a previous response.",
+            "nullable": true
           },
           "mode": {
             "$ref": "#/components/schemas/SearchQueryRequestMode"
@@ -17869,7 +18235,9 @@
             "default": "people"
           },
           "search_id": {
-            "$ref": "#/components/schemas/SearchRerunRequestSearchId"
+            "title": "Search Id",
+            "type": "string",
+            "nullable": true
           },
           "exclude_public_ids": {
             "$ref": "#/components/schemas/SearchRerunRequestExcludePublicIds"
@@ -17891,7 +18259,10 @@
         "type": "object",
         "properties": {
           "activeViewerKey": {
-            "$ref": "#/components/schemas/SetActiveViewerRequestActiveViewerKey"
+            "title": "Activeviewerkey",
+            "maxLength": 500,
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -17928,7 +18299,9 @@
             "type": "string"
           },
           "revoked_at": {
-            "$ref": "#/components/schemas/SigningSecretMetaResponseRevokedAt"
+            "title": "Revoked At",
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -17950,7 +18323,9 @@
             "type": "string"
           },
           "slack_email": {
-            "$ref": "#/components/schemas/SlackLinkSlackEmail"
+            "title": "Slack Email",
+            "type": "string",
+            "nullable": true
           },
           "created_at": {
             "title": "Created At",
@@ -17980,7 +18355,10 @@
             "default": 1000
           },
           "search_id": {
-            "$ref": "#/components/schemas/StartAgenticSearchRequestSearchId"
+            "title": "Search Id",
+            "type": "string",
+            "description": "Optional client-supplied search ID for idempotent retries.",
+            "nullable": true
           },
           "output_mode": {
             "$ref": "#/components/schemas/StartAgenticSearchRequestOutputMode"
@@ -18058,7 +18436,10 @@
             "default": false
           },
           "cursor": {
-            "$ref": "#/components/schemas/StartFilterSearchRequestCursor"
+            "title": "Cursor",
+            "type": "string",
+            "description": "Opaque pagination cursor returned by a previous response.",
+            "nullable": true
           }
         },
         "description": "Request to start a filter-based search (no LLM step)."
@@ -18124,7 +18505,9 @@
             "type": "boolean"
           },
           "google_sub": {
-            "$ref": "#/components/schemas/StatusResponseGoogleSub"
+            "title": "Google Sub",
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -18230,7 +18613,9 @@
             "$ref": "#/components/schemas/StructSubFieldType"
           },
           "description": {
-            "$ref": "#/components/schemas/StructSubFieldDescription"
+            "title": "Description",
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -18239,7 +18624,9 @@
         "type": "object",
         "properties": {
           "yolo_mode": {
-            "$ref": "#/components/schemas/UpdateAgentSettingsRequestYoloMode"
+            "title": "Yolo Mode",
+            "type": "boolean",
+            "nullable": true
           }
         }
       },
@@ -18248,13 +18635,23 @@
         "type": "object",
         "properties": {
           "name": {
-            "$ref": "#/components/schemas/UpdateOAuthClientRequestName"
+            "title": "Name",
+            "maxLength": 255,
+            "minLength": 1,
+            "type": "string",
+            "nullable": true
           },
           "status": {
             "$ref": "#/components/schemas/UpdateOAuthClientRequestStatus"
           },
           "access_token_ttl_seconds": {
-            "$ref": "#/components/schemas/UpdateOAuthClientRequestAccessTokenTtlSeconds"
+            "title": "Access Token Ttl Seconds",
+            "maximum": 86400.0,
+            "exclusiveMaximum": false,
+            "minimum": 60.0,
+            "exclusiveMinimum": false,
+            "type": "integer",
+            "nullable": true
           }
         }
       },
@@ -18263,19 +18660,32 @@
         "type": "object",
         "properties": {
           "name": {
-            "$ref": "#/components/schemas/UpdateScheduleRequestName"
+            "title": "Name",
+            "maxLength": 120,
+            "minLength": 1,
+            "type": "string",
+            "nullable": true
           },
           "cron_expression": {
-            "$ref": "#/components/schemas/UpdateScheduleRequestCronExpression"
+            "title": "Cron Expression",
+            "minLength": 1,
+            "type": "string",
+            "nullable": true
           },
           "timezone": {
-            "$ref": "#/components/schemas/UpdateScheduleRequestTimezone"
+            "title": "Timezone",
+            "type": "string",
+            "nullable": true
           },
           "description": {
-            "$ref": "#/components/schemas/UpdateScheduleRequestDescription"
+            "title": "Description",
+            "type": "string",
+            "nullable": true
           },
           "is_active": {
-            "$ref": "#/components/schemas/UpdateScheduleRequestIsActive"
+            "title": "Is Active",
+            "type": "boolean",
+            "nullable": true
           }
         }
       },
@@ -18297,10 +18707,16 @@
         "type": "object",
         "properties": {
           "workflow_name": {
-            "$ref": "#/components/schemas/UpdateWorkflowRequestWorkflowName"
+            "title": "Workflow Name",
+            "type": "string",
+            "description": "New workflow name.",
+            "nullable": true
           },
           "workflow_description": {
-            "$ref": "#/components/schemas/UpdateWorkflowRequestWorkflowDescription"
+            "title": "Workflow Description",
+            "type": "string",
+            "description": "New workflow description.",
+            "nullable": true
           },
           "workflow_definition": {
             "$ref": "#/components/schemas/UpdateWorkflowRequestWorkflowDefinition"
@@ -18319,10 +18735,17 @@
             "type": "string"
           },
           "kid": {
-            "$ref": "#/components/schemas/UploadPublicKeyRequestKid"
+            "title": "Kid",
+            "maxLength": 255,
+            "minLength": 1,
+            "type": "string",
+            "nullable": true
           },
           "algorithm": {
-            "$ref": "#/components/schemas/UploadPublicKeyRequestAlgorithm"
+            "title": "Algorithm",
+            "type": "string",
+            "default": "RS256",
+            "nullable": true
           }
         }
       },
@@ -18355,7 +18778,9 @@
             "type": "string"
           },
           "title": {
-            "$ref": "#/components/schemas/ViewerSpecTitle"
+            "title": "Title",
+            "type": "string",
+            "nullable": true
           },
           "openedAt": {
             "title": "Openedat",
@@ -18407,7 +18832,10 @@
             "description": "Destination block ID for this edge."
           },
           "condition": {
-            "$ref": "#/components/schemas/WorkflowEdgeCondition"
+            "title": "Condition",
+            "type": "string",
+            "description": "Reserved for future conditional branching.",
+            "nullable": true
           }
         },
         "description": "A directed edge connecting two blocks in a workflow graph."
@@ -18465,10 +18893,16 @@
             "description": "\u0022Overall run status: queued, running, completed, or failed.\u0022"
           },
           "current_block": {
-            "$ref": "#/components/schemas/WorkflowLiveStatusResponseCurrentBlock"
+            "title": "Current Block",
+            "type": "string",
+            "description": "Name of the block currently executing.",
+            "nullable": true
           },
           "current_block_sequence": {
-            "$ref": "#/components/schemas/WorkflowLiveStatusResponseCurrentBlockSequence"
+            "title": "Current Block Sequence",
+            "type": "integer",
+            "description": "Sequence number of the block currently executing.",
+            "nullable": true
           },
           "total_blocks": {
             "title": "Total Blocks",
@@ -18483,10 +18917,16 @@
             "default": 0
           },
           "started_at": {
-            "$ref": "#/components/schemas/WorkflowLiveStatusResponseStartedAt"
+            "title": "Started At",
+            "type": "string",
+            "description": "Timestamp when execution started.",
+            "nullable": true
           },
           "completed_at": {
-            "$ref": "#/components/schemas/WorkflowLiveStatusResponseCompletedAt"
+            "title": "Completed At",
+            "type": "string",
+            "description": "Timestamp when execution finished.",
+            "nullable": true
           },
           "last_updated": {
             "title": "Last Updated",
@@ -18509,7 +18949,10 @@
             "default": 0.0
           },
           "estimation_blocked_by": {
-            "$ref": "#/components/schemas/WorkflowLiveStatusResponseEstimationBlockedBy"
+            "title": "Estimation Blocked By",
+            "type": "string",
+            "description": "Block name preventing a full progress estimate, if any.",
+            "nullable": true
           }
         },
         "description": "Live status response for a single workflow run."
@@ -18532,10 +18975,16 @@
             "description": "Workflow identifier."
           },
           "user_uuid": {
-            "$ref": "#/components/schemas/WorkflowResponseUserUuid"
+            "title": "User Uuid",
+            "type": "string",
+            "description": "User who created the workflow.",
+            "nullable": true
           },
           "org_id": {
-            "$ref": "#/components/schemas/WorkflowResponseOrgId"
+            "title": "Org Id",
+            "type": "string",
+            "description": "Organization that owns the workflow.",
+            "nullable": true
           },
           "name": {
             "title": "Name",
@@ -18543,7 +18992,10 @@
             "description": "Workflow name."
           },
           "description": {
-            "$ref": "#/components/schemas/WorkflowResponseDescription"
+            "title": "Description",
+            "type": "string",
+            "description": "Workflow description.",
+            "nullable": true
           },
           "status": {
             "title": "Status",
@@ -18568,7 +19020,11 @@
             "format": "date-time"
           },
           "last_run_date": {
-            "$ref": "#/components/schemas/WorkflowResponseLastRunDate"
+            "title": "Last Run Date",
+            "type": "string",
+            "description": "Timestamp of the most recent run.",
+            "format": "date-time",
+            "nullable": true
           },
           "workflow_definition": {
             "$ref": "#/components/schemas/WorkflowResponseWorkflowDefinition"
@@ -18594,7 +19050,10 @@
             "description": "Storage bucket containing the file."
           },
           "file_size": {
-            "$ref": "#/components/schemas/WorkflowResultItemWithDownloadFileSize"
+            "title": "File Size",
+            "type": "integer",
+            "description": "File size in bytes (uncompressed), when known.",
+            "nullable": true
           },
           "row_count": {
             "title": "Row Count",
@@ -18603,19 +19062,34 @@
             "default": 0
           },
           "block_number": {
-            "$ref": "#/components/schemas/WorkflowResultItemWithDownloadBlockNumber"
+            "title": "Block Number",
+            "type": "integer",
+            "description": "Block sequence number that produced the file.",
+            "nullable": true
           },
           "created_at": {
-            "$ref": "#/components/schemas/WorkflowResultItemWithDownloadCreatedAt"
+            "title": "Created At",
+            "type": "string",
+            "description": "Timestamp when the record was created.",
+            "nullable": true
           },
           "message": {
-            "$ref": "#/components/schemas/WorkflowResultItemWithDownloadMessage"
+            "title": "Message",
+            "type": "string",
+            "description": "Error or status message, if any.",
+            "nullable": true
           },
           "content_type": {
-            "$ref": "#/components/schemas/WorkflowResultItemWithDownloadContentType"
+            "title": "Content Type",
+            "type": "string",
+            "description": "MIME type of the file.",
+            "nullable": true
           },
           "download_url": {
-            "$ref": "#/components/schemas/WorkflowResultItemWithDownloadDownloadUrl"
+            "title": "Download Url",
+            "type": "string",
+            "description": "Signed download URL; null if signing failed.",
+            "nullable": true
           },
           "download_expires_in_seconds": {
             "title": "Download Expires In Seconds",
@@ -18660,34 +19134,69 @@
             "description": "Current status (e.g. queued, running, completed, failed)."
           },
           "step": {
-            "$ref": "#/components/schemas/WorkflowRunResponseStep"
+            "title": "Step",
+            "type": "string",
+            "description": "Current authoring step from the workflow.",
+            "nullable": true
           },
           "user_id": {
-            "$ref": "#/components/schemas/WorkflowRunResponseUserId"
+            "title": "User Id",
+            "type": "string",
+            "description": "User who created the workflow.",
+            "nullable": true
           },
           "created_at": {
-            "$ref": "#/components/schemas/WorkflowRunResponseCreatedAt"
+            "title": "Created At",
+            "type": "string",
+            "description": "Timestamp when the record was created.",
+            "format": "date-time",
+            "nullable": true
           },
           "updated_at": {
-            "$ref": "#/components/schemas/WorkflowRunResponseUpdatedAt"
+            "title": "Updated At",
+            "type": "string",
+            "description": "Timestamp when the record was last updated.",
+            "format": "date-time",
+            "nullable": true
           },
           "queued_at": {
-            "$ref": "#/components/schemas/WorkflowRunResponseQueuedAt"
+            "title": "Queued At",
+            "type": "string",
+            "description": "Timestamp when the run was enqueued.",
+            "format": "date-time",
+            "nullable": true
           },
           "started_at": {
-            "$ref": "#/components/schemas/WorkflowRunResponseStartedAt"
+            "title": "Started At",
+            "type": "string",
+            "description": "Timestamp when execution started.",
+            "format": "date-time",
+            "nullable": true
           },
           "completed_at": {
-            "$ref": "#/components/schemas/WorkflowRunResponseCompletedAt"
+            "title": "Completed At",
+            "type": "string",
+            "description": "Timestamp when execution finished.",
+            "format": "date-time",
+            "nullable": true
           },
           "duration_ms": {
-            "$ref": "#/components/schemas/WorkflowRunResponseDurationMs"
+            "title": "Duration Ms",
+            "type": "integer",
+            "description": "Total run duration in milliseconds.",
+            "nullable": true
           },
           "status_reason": {
-            "$ref": "#/components/schemas/WorkflowRunResponseStatusReason"
+            "title": "Status Reason",
+            "type": "string",
+            "description": "Short reason explaining the current status.",
+            "nullable": true
           },
           "error_message": {
-            "$ref": "#/components/schemas/WorkflowRunResponseErrorMessage"
+            "title": "Error Message",
+            "type": "string",
+            "description": "Error message if the operation failed.",
+            "nullable": true
           },
           "metrics": {
             "$ref": "#/components/schemas/WorkflowRunResponseMetrics"
@@ -18732,7 +19241,10 @@
             "$ref": "#/components/schemas/WorkflowRunStartedResponseCacheConfig"
           },
           "already_started": {
-            "$ref": "#/components/schemas/WorkflowRunStartedResponseAlreadyStarted"
+            "title": "Already Started",
+            "type": "boolean",
+            "description": "True when the request was deduplicated via Idempotency-Key header.",
+            "nullable": true
           }
         },
         "description": "Response when a workflow run is started."
@@ -18791,7 +19303,9 @@
             }
           },
           "activeViewerKey": {
-            "$ref": "#/components/schemas/WorkspaceStateActiveViewerKey"
+            "title": "Activeviewerkey",
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -18856,69 +19370,6 @@
           ]
         }
       },
-      "AddBlockResponseBlockId": {
-        "title": "Block Id",
-        "type": "string",
-        "nullable": true
-      },
-      "AddBlockResponseError": {
-        "title": "Error",
-        "type": "string",
-        "nullable": true
-      },
-      "AgentSettingsResponseCustomPrompt": {
-        "title": "Custom Prompt",
-        "type": "string",
-        "nullable": true
-      },
-      "AgenticSearchStatusResponseCurrentPhase": {
-        "title": "Current Phase",
-        "type": "integer",
-        "description": "Current pipeline phase index.",
-        "nullable": true
-      },
-      "AgenticSearchStatusResponseProgressMessage": {
-        "title": "Progress Message",
-        "type": "string",
-        "description": "Human-readable progress message.",
-        "nullable": true
-      },
-      "AgenticSearchStatusResponseCloseTime": {
-        "title": "Close Time",
-        "type": "string",
-        "description": "Timestamp when the task finished.",
-        "nullable": true
-      },
-      "AgenticSearchStatusResponseResourceHandleId": {
-        "title": "Resource Handle Id",
-        "type": "string",
-        "description": "Handle for downloading exported results.",
-        "nullable": true
-      },
-      "AgenticSearchStatusResponseTotalResults": {
-        "title": "Total Results",
-        "type": "integer",
-        "description": "Total results found.",
-        "nullable": true
-      },
-      "AgenticSearchStatusResponseExportedCount": {
-        "title": "Exported Count",
-        "type": "integer",
-        "description": "Number of results actually exported.",
-        "nullable": true
-      },
-      "AgenticSearchStatusResponseError": {
-        "title": "Error",
-        "type": "string",
-        "description": "Error message if the operation failed.",
-        "nullable": true
-      },
-      "AgenticSearchStatusResponseSearchId": {
-        "title": "Search Id",
-        "type": "string",
-        "description": "Search history ID returned by a previous search. Replays only the query shape; pass exclusions again on this request if they should apply.",
-        "nullable": true
-      },
       "AgenticSearchStatusResponseIterations": {
         "title": "Iterations",
         "type": "object",
@@ -18937,49 +19388,6 @@
         ],
         "description": "Per-iteration debug data emitted by the agent."
       },
-      "ApprovalRequestReason": {
-        "title": "Reason",
-        "type": "string",
-        "nullable": true
-      },
-      "ApprovalRequestAnswers": {
-        "title": "Answers",
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "object"
-          },
-          {
-            "enum": [
-              null
-            ]
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type"
-        }
-      },
-      "BlockBlockId": {
-        "title": "Block Id",
-        "type": "string",
-        "description": "Stable block identifier; non-UUID values are normalized server-side.",
-        "nullable": true
-      },
-      "BlockLiveStatusBlockId": {
-        "title": "Block Id",
-        "type": "string",
-        "description": "Block identifier within the workflow.",
-        "nullable": true
-      },
       "BlockLiveStatusPreviousBlockIds": {
         "title": "Previous Block Ids",
         "type": "object",
@@ -18997,80 +19405,6 @@
           }
         ],
         "description": "IDs of upstream blocks that feed into this one."
-      },
-      "BlockLiveStatusStartedAt": {
-        "title": "Started At",
-        "type": "string",
-        "description": "Timestamp when execution started.",
-        "nullable": true
-      },
-      "BlockLiveStatusCompletedAt": {
-        "title": "Completed At",
-        "type": "string",
-        "description": "Timestamp when execution finished.",
-        "nullable": true
-      },
-      "BlockLiveStatusCurrentStep": {
-        "title": "Current Step",
-        "type": "string",
-        "description": "Human-readable description of the current sub-step.",
-        "nullable": true
-      },
-      "BlockLiveStatusEstimatedTotalCount": {
-        "title": "Estimated Total Count",
-        "type": "integer",
-        "description": "Estimated total when an exact count isn\u0027t yet known.",
-        "nullable": true
-      },
-      "BlockLiveStatusErrorMessage": {
-        "title": "Error Message",
-        "type": "string",
-        "description": "Error message if the operation failed.",
-        "nullable": true
-      },
-      "BlockMetricsProcessedCount": {
-        "title": "Processed Count",
-        "type": "integer",
-        "description": "Number of items processed so far.",
-        "nullable": true
-      },
-      "BlockMetricsTotalCount": {
-        "title": "Total Count",
-        "type": "integer",
-        "description": "Total number of items to process.",
-        "nullable": true
-      },
-      "BodyOAuthTokenEndpointOAuthTokenPostScope": {
-        "title": "Scope",
-        "type": "string",
-        "nullable": true
-      },
-      "BodyRunWorkflowWorkflowsRunPostSpecsOverride": {
-        "title": "Specs Override",
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "object"
-          },
-          {
-            "enum": [
-              null
-            ]
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "description": "Optional specs to override first block specs",
-        "discriminator": {
-          "propertyName": "type"
-        }
       },
       "BodyRunWorkflowWorkflowsRunPostWebhookPayload": {
         "title": "Webhook Payload",
@@ -19105,46 +19439,6 @@
           }
         }
       },
-      "BulkIntelligenceStartedResponseRowCount": {
-        "title": "Row Count",
-        "type": "integer",
-        "description": "Number of parsed input rows; omitted on idempotent replays.",
-        "nullable": true
-      },
-      "BulkIntelligenceStartedResponseEstimatedCostCents": {
-        "title": "Estimated Cost Cents",
-        "type": "integer",
-        "description": "\u0022Estimated job cost in cents (rows \u00D7 per-row tier price). A floor: options like find_people can bill more. Omitted on idempotent replays. Returned when cost_units=cents.\u0022",
-        "nullable": true
-      },
-      "BulkIntelligenceStartedResponseEstimatedCostCredits": {
-        "title": "Estimated Cost Credits",
-        "type": "number",
-        "description": "Estimated job cost in credits. Returned when cost_units=credits.",
-        "nullable": true
-      },
-      "BulkIntelligenceStartedResponseAlreadyStarted": {
-        "title": "Already Started",
-        "type": "boolean",
-        "description": "True when the request was deduplicated via Idempotency-Key header.",
-        "nullable": true
-      },
-      "ChatRequestTimezone": {
-        "title": "Timezone",
-        "type": "string",
-        "default": "UTC",
-        "nullable": true
-      },
-      "ChatRequestWorkflowId": {
-        "title": "Workflow Id",
-        "type": "string",
-        "nullable": true
-      },
-      "ChatRequestWorkspaceId": {
-        "title": "Workspace Id",
-        "type": "string",
-        "nullable": true
-      },
       "ChatRequestPageContext": {
         "required": [
           "type"
@@ -19171,32 +19465,6 @@
           "mapping": {
             "PageContext": "#/components/schemas/PageContext"
           }
-        }
-      },
-      "ChatRequestPageData": {
-        "title": "Page Data",
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "object"
-          },
-          {
-            "enum": [
-              null
-            ]
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type"
         }
       },
       "ChatRequestSearchRerun": {
@@ -19226,34 +19494,6 @@
             "SearchRerunRequest": "#/components/schemas/SearchRerunRequest"
           }
         }
-      },
-      "ChatSessionMessagesResponseWorkspaceId": {
-        "title": "Workspace Id",
-        "type": "string",
-        "nullable": true
-      },
-      "ChatSessionSummaryWorkflowId": {
-        "title": "Workflow Id",
-        "type": "string",
-        "nullable": true
-      },
-      "ChatSessionSummaryWorkspaceId": {
-        "title": "Workspace Id",
-        "type": "string",
-        "nullable": true
-      },
-      "ChatSessionSummaryStartedAt": {
-        "title": "Started At",
-        "type": "string",
-        "nullable": true
-      },
-      "CreateExclusionListRequestName": {
-        "title": "Name",
-        "maxLength": 120,
-        "minLength": 1,
-        "type": "string",
-        "description": "Required unless source.type is \u0027search_id\u0027 (defaults to a date-stamped name).",
-        "nullable": true
       },
       "CreateExclusionListRequestSource": {
         "title": "Source",
@@ -19291,357 +19531,6 @@
           }
         }
       },
-      "CreateOAuthClientRequestJwksUri": {
-        "title": "Jwks Uri",
-        "type": "string",
-        "nullable": true
-      },
-      "CreateScheduleRequestDescription": {
-        "title": "Description",
-        "type": "string",
-        "nullable": true
-      },
-      "CreateSessionRequestWorkflowId": {
-        "title": "Workflow Id",
-        "type": "string",
-        "nullable": true
-      },
-      "CreateSessionRequestWorkspaceId": {
-        "title": "Workspace Id",
-        "type": "string",
-        "nullable": true
-      },
-      "CreateSessionResponseWorkflowId": {
-        "title": "Workflow Id",
-        "type": "string",
-        "nullable": true
-      },
-      "CreateSessionResponseWorkspaceId": {
-        "title": "Workspace Id",
-        "type": "string",
-        "nullable": true
-      },
-      "CreateWorkflowRequestId": {
-        "title": "Id",
-        "type": "string",
-        "description": "Optional pre-generated workflow ID supplied by the client.",
-        "nullable": true
-      },
-      "DisableBoundRequestApiKeyId": {
-        "title": "Api Key Id",
-        "type": "integer",
-        "nullable": true
-      },
-      "DisableBoundRequestCreatedBy": {
-        "title": "Created By",
-        "type": "string",
-        "nullable": true
-      },
-      "DisableBoundRequestTeamId": {
-        "title": "Team Id",
-        "type": "string",
-        "nullable": true
-      },
-      "EnrichCompanyInfoPeopleFocusPrompt": {
-        "title": "People Focus Prompt",
-        "type": "string",
-        "description": "Natural-language description of which people to surface when find_people=true.",
-        "nullable": true
-      },
-      "EnrichCompanyInfoLeadStruct": {
-        "title": "Lead Struct",
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "object"
-          },
-          {
-            "enum": [
-              null
-            ]
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "description": "Output schema for each discovered person when find_people=true.",
-        "discriminator": {
-          "propertyName": "type"
-        }
-      },
-      "EnrichCompanyInfoResearchPlan": {
-        "title": "Research Plan",
-        "type": "string",
-        "description": "Optional natural-language plan that guides the research agent.",
-        "nullable": true
-      },
-      "EnrichCompanyInfoTier": {
-        "title": "Tier",
-        "enum": [
-          "low",
-          "micro",
-          "medium",
-          "high"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "Quality and cost tier for the research agent.",
-        "nullable": true,
-        "x-ms-enum": {
-          "name": "EnrichCompanyInfoTier",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "low",
-              "name": "Low"
-            },
-            {
-              "value": "micro",
-              "name": "Micro"
-            },
-            {
-              "value": "medium",
-              "name": "Medium"
-            },
-            {
-              "value": "high",
-              "name": "High"
-            }
-          ]
-        }
-      },
-      "EnrichCompanyInfoWebhookUrl": {
-        "title": "Webhook Url",
-        "maxLength": 2083,
-        "minLength": 1,
-        "type": "string",
-        "description": "HTTPS URL that receives the result payload when the async job completes.",
-        "format": "uri",
-        "nullable": true
-      },
-      "EnrichCompanyInfoFieldConfidence": {
-        "title": "Field Confidence",
-        "type": "boolean",
-        "description": "If true, return confidence scores for each requested output field.",
-        "nullable": true
-      },
-      "EnrichLeadInfoStruct": {
-        "title": "Struct",
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "object"
-          },
-          {
-            "enum": [
-              null
-            ]
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "description": "Mapping of output field name to natural-language description of what to extract.",
-        "discriminator": {
-          "propertyName": "type"
-        }
-      },
-      "EnrichLeadInfoResearchPlan": {
-        "title": "Research Plan",
-        "type": "string",
-        "description": "Optional natural-language plan that guides the research agent.",
-        "nullable": true
-      },
-      "EnrichLeadInfoTier": {
-        "title": "Tier",
-        "enum": [
-          "low",
-          "micro",
-          "medium",
-          "high",
-          "xhigh",
-          "scout"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "Quality and cost tier for the research agent.",
-        "nullable": true,
-        "x-ms-enum": {
-          "name": "EnrichLeadInfoTier",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "low",
-              "name": "Low"
-            },
-            {
-              "value": "micro",
-              "name": "Micro"
-            },
-            {
-              "value": "medium",
-              "name": "Medium"
-            },
-            {
-              "value": "high",
-              "name": "High"
-            },
-            {
-              "value": "xhigh",
-              "name": "Xhigh"
-            },
-            {
-              "value": "scout",
-              "name": "Scout"
-            }
-          ]
-        }
-      },
-      "EnrichLeadInfoWebhookUrl": {
-        "title": "Webhook Url",
-        "maxLength": 2083,
-        "minLength": 1,
-        "type": "string",
-        "description": "HTTPS URL that receives the result payload when the async job completes.",
-        "format": "uri",
-        "nullable": true
-      },
-      "EnrichLeadInfoFieldConfidence": {
-        "title": "Field Confidence",
-        "type": "boolean",
-        "description": "If true, return confidence scores for each requested output field.",
-        "nullable": true
-      },
-      "ExclusionListResponseSize": {
-        "title": "Size",
-        "type": "integer",
-        "description": "Unique member count once ready.",
-        "nullable": true
-      },
-      "ExclusionListResponseSourceTotalAvailable": {
-        "title": "Source Total Available",
-        "type": "integer",
-        "description": "\u0022For search_id sources: the search\u0027s full match count \u2014 larger than \u0060size\u0060 when the capture was capped by max_results.\u0022",
-        "nullable": true
-      },
-      "ExclusionListResponseIdColumn": {
-        "title": "Id Column",
-        "type": "string",
-        "nullable": true
-      },
-      "ExclusionListResponseUnresolvedCount": {
-        "title": "Unresolved Count",
-        "type": "integer",
-        "description": "\u0022Company lists: input values dropped because they resolved to no or multiple companies.\u0022",
-        "nullable": true
-      },
-      "ExclusionListResponseErrorMessage": {
-        "title": "Error Message",
-        "type": "string",
-        "nullable": true
-      },
-      "FilterFieldCapabilityNestedPath": {
-        "title": "Nested Path",
-        "type": "string",
-        "description": "Nested path, if any.",
-        "nullable": true
-      },
-      "FilterFieldCapabilitySortField": {
-        "title": "Sort Field",
-        "type": "string",
-        "description": "Sort target when it differs from field (e.g. text fields sort via .keyword).",
-        "nullable": true
-      },
-      "FilterFieldCapabilityAggregationField": {
-        "title": "Aggregation Field",
-        "type": "string",
-        "description": "Field used for terms aggregation when supports_top_values is true.",
-        "nullable": true
-      },
-      "FilterFieldValuesRequestFilters": {
-        "title": "Filters",
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "object"
-          },
-          {
-            "enum": [
-              null
-            ]
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "description": "Raw OpenSearch DSL filters that scope the aggregation.",
-        "discriminator": {
-          "propertyName": "type"
-        }
-      },
-      "FilterFieldValuesRequestSimpleFilters": {
-        "title": "Simple Filters",
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "object"
-          },
-          {
-            "enum": [
-              null
-            ]
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "description": "MongoDB-style filters that scope the aggregation.",
-        "discriminator": {
-          "propertyName": "type"
-        }
-      },
-      "FilterFieldValuesResponseAggregationField": {
-        "title": "Aggregation Field",
-        "type": "string",
-        "description": "Underlying field used for the terms aggregation.",
-        "nullable": true
-      },
-      "FilterFieldValuesResponseNestedPath": {
-        "title": "Nested Path",
-        "type": "string",
-        "description": "Nested path, if any.",
-        "nullable": true
-      },
-      "FilterFieldValuesResponseRequestDurationMs": {
-        "title": "Request Duration Ms",
-        "type": "integer",
-        "description": "Server-side request duration in milliseconds.",
-        "nullable": true
-      },
       "FilterFieldValuesValueValue": {
         "title": "Value",
         "type": "object",
@@ -19666,39 +19555,6 @@
         ],
         "description": "Field value; null bucket represents missing values."
       },
-      "FilterFieldValuesValueFilterSnippet": {
-        "title": "Filter Snippet",
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "object"
-          },
-          {
-            "enum": [
-              null
-            ]
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "description": "Ready-to-merge filter clause that selects this value.",
-        "discriminator": {
-          "propertyName": "type"
-        }
-      },
-      "FilterSearchCapabilitiesResponseMappingHash": {
-        "title": "Mapping Hash",
-        "type": "string",
-        "description": "Hash of mapping metadata used to derive this capability snapshot.",
-        "nullable": true
-      },
       "FilterSearchCapabilitiesResponseSimpleQueryOperators": {
         "title": "Simple Query Operators",
         "type": "object",
@@ -19716,123 +19572,6 @@
           }
         ],
         "description": "Supported MongoDB-style operators for simple_filters input."
-      },
-      "FilterSearchResponseSearchId": {
-        "title": "Search Id",
-        "type": "string",
-        "description": "Search history ID returned by a previous search. Replays only the query shape; pass exclusions again on this request if they should apply.",
-        "nullable": true
-      },
-      "FilterSearchResponseCsvDownloadUrl": {
-        "title": "Csv Download Url",
-        "type": "string",
-        "description": "Signed URL to download results as CSV.",
-        "nullable": true
-      },
-      "FilterSearchResponseJsonDownloadUrl": {
-        "title": "Json Download Url",
-        "type": "string",
-        "description": "Signed URL to download results as JSON.",
-        "nullable": true
-      },
-      "FilterSearchResponseNextCursor": {
-        "title": "Next Cursor",
-        "type": "string",
-        "description": "Cursor to fetch the next page; null when exhausted.",
-        "nullable": true
-      },
-      "FilterSearchResponseCursorExpiresInSeconds": {
-        "title": "Cursor Expires In Seconds",
-        "type": "integer",
-        "description": "Seconds until \u0060next_cursor\u0060 expires.",
-        "nullable": true
-      },
-      "FilterSearchResponseRequestDurationMs": {
-        "title": "Request Duration Ms",
-        "type": "integer",
-        "description": "Server-side request duration in milliseconds.",
-        "nullable": true
-      },
-      "FilterSearchResponsePageSize": {
-        "title": "Page Size",
-        "type": "integer",
-        "description": "Maximum number of results per page (1-100). Pages may contain fewer rows while more results remain (e.g. with exclusion filtering); rely on \u0060has_more\u0060/\u0060next_cursor\u0060, never on page fullness.",
-        "nullable": true
-      },
-      "FilterSearchResponsePageCount": {
-        "title": "Page Count",
-        "type": "integer",
-        "description": "Number of results in this response page. May be less than \u0060page_size\u0060 (down to 0) while \u0060has_more\u0060 is true, e.g. when exclusion filtering is active.",
-        "nullable": true
-      },
-      "FilterSearchResponsePageNumber": {
-        "title": "Page Number",
-        "type": "integer",
-        "description": "1-based page number (company pagination).",
-        "nullable": true
-      },
-      "FilterSearchResponseTotalPages": {
-        "title": "Total Pages",
-        "type": "integer",
-        "description": "Final total page count; omitted while \u0060has_more\u0060 is true.",
-        "nullable": true
-      },
-      "FilterSearchResponseMaxPages": {
-        "title": "Max Pages",
-        "type": "integer",
-        "description": "Upper bound on pages based on max_results and page_size.",
-        "nullable": true
-      },
-      "FilterSearchResponseRemainingResults": {
-        "title": "Remaining Results",
-        "type": "integer",
-        "description": "Rows still available under max_results after this page.",
-        "nullable": true
-      },
-      "FilterSearchResponseDownloadExpiresInSeconds": {
-        "title": "Download Expires In Seconds",
-        "type": "integer",
-        "description": "Seconds until the download URLs expire.",
-        "nullable": true
-      },
-      "FilterSearchResponseTotalAvailable": {
-        "title": "Total Available",
-        "type": "integer",
-        "description": "\u0022Total OpenSearch matches across pages (capped at 50000); people-mode only. Pre-exclusion: exclusion filtering does not reduce this count.\u0022",
-        "nullable": true
-      },
-      "FilterSearchResponseParsedQuery": {
-        "title": "Parsed Query",
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "object"
-          },
-          {
-            "enum": [
-              null
-            ]
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "description": "Structured filter set echoed back; round-trippable into a follow-up request.",
-        "discriminator": {
-          "propertyName": "type"
-        }
-      },
-      "FilterSearchResponseNaturalLanguageQuery": {
-        "title": "Natural Language Query",
-        "type": "string",
-        "description": "Original natural-language query echoed verbatim, if any.",
-        "nullable": true
       },
       "FindEmailBulkRequestProviders": {
         "title": "Providers",
@@ -19852,15 +19591,6 @@
         ],
         "description": "Override the default provider waterfall by listing provider IDs in priority order."
       },
-      "FindEmailBulkRequestWebhookUrl": {
-        "title": "Webhook Url",
-        "maxLength": 2083,
-        "minLength": 1,
-        "type": "string",
-        "description": "HTTPS URL that receives the result payload when the async job completes.",
-        "format": "uri",
-        "nullable": true
-      },
       "FindEmailRequestProviders": {
         "title": "Providers",
         "type": "object",
@@ -19879,15 +19609,6 @@
         ],
         "description": "Override the default provider waterfall by listing provider IDs in priority order."
       },
-      "FindEmailRequestWebhookUrl": {
-        "title": "Webhook Url",
-        "maxLength": 2083,
-        "minLength": 1,
-        "type": "string",
-        "description": "HTTPS URL that receives the result payload when the async job completes.",
-        "format": "uri",
-        "nullable": true
-      },
       "FindEmailV2BulkRequestProviders": {
         "title": "Providers",
         "type": "object",
@@ -19905,14 +19626,6 @@
           }
         ]
       },
-      "FindEmailV2BulkRequestWebhookUrl": {
-        "title": "Webhook Url",
-        "maxLength": 2083,
-        "minLength": 1,
-        "type": "string",
-        "format": "uri",
-        "nullable": true
-      },
       "FindEmailV2RequestProviders": {
         "title": "Providers",
         "type": "object",
@@ -19929,14 +19642,6 @@
             ]
           }
         ]
-      },
-      "FindEmailV2RequestWebhookUrl": {
-        "title": "Webhook Url",
-        "maxLength": 2083,
-        "minLength": 1,
-        "type": "string",
-        "format": "uri",
-        "nullable": true
       },
       "FindPhoneBulkRequestProviders": {
         "title": "Providers",
@@ -19956,15 +19661,6 @@
         ],
         "description": "Override the default provider waterfall by listing provider IDs in priority order."
       },
-      "FindPhoneBulkRequestWebhookUrl": {
-        "title": "Webhook Url",
-        "maxLength": 2083,
-        "minLength": 1,
-        "type": "string",
-        "description": "HTTPS URL that receives the result payload when the async job completes.",
-        "format": "uri",
-        "nullable": true
-      },
       "FindPhoneRequestProviders": {
         "title": "Providers",
         "type": "object",
@@ -19983,15 +19679,6 @@
         ],
         "description": "Override the default provider waterfall by listing provider IDs in priority order."
       },
-      "FindPhoneRequestWebhookUrl": {
-        "title": "Webhook Url",
-        "maxLength": 2083,
-        "minLength": 1,
-        "type": "string",
-        "description": "HTTPS URL that receives the result payload when the async job completes.",
-        "format": "uri",
-        "nullable": true
-      },
       "FindPhoneV2BulkRequestProviders": {
         "title": "Providers",
         "type": "object",
@@ -20009,14 +19696,6 @@
           }
         ]
       },
-      "FindPhoneV2BulkRequestWebhookUrl": {
-        "title": "Webhook Url",
-        "maxLength": 2083,
-        "minLength": 1,
-        "type": "string",
-        "format": "uri",
-        "nullable": true
-      },
       "FindPhoneV2RequestProviders": {
         "title": "Providers",
         "type": "object",
@@ -20033,132 +19712,6 @@
             ]
           }
         ]
-      },
-      "FindPhoneV2RequestWebhookUrl": {
-        "title": "Webhook Url",
-        "maxLength": 2083,
-        "minLength": 1,
-        "type": "string",
-        "format": "uri",
-        "nullable": true
-      },
-      "GetLinkedInRequestIncludeFresh": {
-        "title": "Include Fresh",
-        "type": "boolean",
-        "default": false,
-        "nullable": true
-      },
-      "LinkedInEnrichRequestStruct": {
-        "title": "Struct",
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "object"
-          },
-          {
-            "enum": [
-              null
-            ]
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "description": "Mapping of output field name to natural-language description of what to extract.",
-        "discriminator": {
-          "propertyName": "type"
-        }
-      },
-      "MountViewerRequestTitle": {
-        "title": "Title",
-        "maxLength": 200,
-        "type": "string",
-        "nullable": true
-      },
-      "MountViewerRequestState": {
-        "title": "State",
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "object"
-          },
-          {
-            "enum": [
-              null
-            ]
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type"
-        }
-      },
-      "OAuthClientDetailJwksUri": {
-        "title": "Jwks Uri",
-        "type": "string",
-        "nullable": true
-      },
-      "OAuthClientDetailAccessTokenTtlSeconds": {
-        "title": "Access Token Ttl Seconds",
-        "type": "integer",
-        "nullable": true
-      },
-      "OAuthClientDetailLastUsedAt": {
-        "title": "Last Used At",
-        "type": "string",
-        "format": "date-time",
-        "nullable": true
-      },
-      "OAuthClientDetailJwksLastValidatedAt": {
-        "title": "Jwks Last Validated At",
-        "type": "string",
-        "format": "date-time",
-        "nullable": true
-      },
-      "OAuthClientDetailJwksLastError": {
-        "title": "Jwks Last Error",
-        "type": "string",
-        "nullable": true
-      },
-      "PageContextPathname": {
-        "title": "Pathname",
-        "type": "string",
-        "nullable": true
-      },
-      "PageContextEntityType": {
-        "title": "Entitytype",
-        "type": "string",
-        "nullable": true
-      },
-      "PageContextEntityId": {
-        "title": "Entityid",
-        "type": "string",
-        "nullable": true
-      },
-      "PageContextDescription": {
-        "title": "Description",
-        "type": "string",
-        "nullable": true
-      },
-      "PublicKeyResponseRevokedAt": {
-        "title": "Revoked At",
-        "type": "string",
-        "format": "date-time",
-        "nullable": true
       },
       "QaAgentRequestReferences": {
         "title": "References",
@@ -20181,107 +19734,6 @@
         ],
         "description": "Optional reference URLs the agent may use as evidence."
       },
-      "QaAgentRequestStruct": {
-        "title": "Struct",
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
-          },
-          {
-            "enum": [
-              null
-            ]
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "description": "Mapping of extra output fields and their descriptions.",
-        "discriminator": {
-          "propertyName": "type"
-        }
-      },
-      "QaAgentRequestMaxToolCalls": {
-        "title": "Max Tool Calls",
-        "maximum": 50.0,
-        "exclusiveMaximum": false,
-        "minimum": 1.0,
-        "exclusiveMinimum": false,
-        "type": "integer",
-        "description": "Maximum tool calls the agent may make per evaluation.",
-        "default": 10,
-        "nullable": true
-      },
-      "QaAgentRequestWebhookUrl": {
-        "title": "Webhook Url",
-        "maxLength": 2083,
-        "minLength": 1,
-        "type": "string",
-        "description": "HTTPS URL that receives the result payload when the async job completes.",
-        "format": "uri",
-        "nullable": true
-      },
-      "QualificationCriteriaThreshold": {
-        "title": "Threshold",
-        "type": "number",
-        "description": "Minimum score (0-1) required to pass this criterion.",
-        "nullable": true
-      },
-      "ResearchAgentRequestStruct": {
-        "title": "Struct",
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "object"
-          },
-          {
-            "enum": [
-              null
-            ]
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type"
-        }
-      },
-      "ResearchAgentRequestResearchPlan": {
-        "title": "Research Plan",
-        "type": "string",
-        "nullable": true
-      },
-      "ResearchAgentRequestWebhookUrl": {
-        "title": "Webhook Url",
-        "maxLength": 2083,
-        "minLength": 1,
-        "type": "string",
-        "format": "uri",
-        "nullable": true
-      },
-      "ResourceHandleSourceIdColumn": {
-        "title": "Id Column",
-        "type": "string",
-        "description": "\u0022CSV column containing entity identifiers. People: LinkedIn public IDs or profile URLs. Companies: numeric company IDs, LinkedIn company URLs/slugs, or exact website domains. Auto-detected when omitted.\u0022",
-        "nullable": true
-      },
       "ReverseEmailBulkRequestProviders": {
         "title": "Providers",
         "type": "object",
@@ -20299,15 +19751,6 @@
           }
         ],
         "description": "Override the default provider waterfall by listing provider IDs in priority order."
-      },
-      "ReverseEmailBulkRequestWebhookUrl": {
-        "title": "Webhook Url",
-        "maxLength": 2083,
-        "minLength": 1,
-        "type": "string",
-        "description": "HTTPS URL that receives the result payload when the async job completes.",
-        "format": "uri",
-        "nullable": true
       },
       "ReverseEmailRequestProviders": {
         "title": "Providers",
@@ -20327,15 +19770,6 @@
         ],
         "description": "Override the default provider waterfall by listing provider IDs in priority order."
       },
-      "ReverseEmailRequestWebhookUrl": {
-        "title": "Webhook Url",
-        "maxLength": 2083,
-        "minLength": 1,
-        "type": "string",
-        "description": "HTTPS URL that receives the result payload when the async job completes.",
-        "format": "uri",
-        "nullable": true
-      },
       "ReversePhoneBulkRequestProviders": {
         "title": "Providers",
         "type": "object",
@@ -20354,15 +19788,6 @@
         ],
         "description": "Override the default provider waterfall by listing provider IDs in priority order."
       },
-      "ReversePhoneBulkRequestWebhookUrl": {
-        "title": "Webhook Url",
-        "maxLength": 2083,
-        "minLength": 1,
-        "type": "string",
-        "description": "HTTPS URL that receives the result payload when the async job completes.",
-        "format": "uri",
-        "nullable": true
-      },
       "ReversePhoneRequestProviders": {
         "title": "Providers",
         "type": "object",
@@ -20380,48 +19805,6 @@
           }
         ],
         "description": "Override the default provider waterfall by listing provider IDs in priority order."
-      },
-      "ReversePhoneRequestWebhookUrl": {
-        "title": "Webhook Url",
-        "maxLength": 2083,
-        "minLength": 1,
-        "type": "string",
-        "description": "HTTPS URL that receives the result payload when the async job completes.",
-        "format": "uri",
-        "nullable": true
-      },
-      "SaveSearchRequestSearchId": {
-        "title": "Search Id",
-        "type": "string",
-        "description": "Search history ID returned by a previous search. Replays only the query shape; pass exclusions again on this request if they should apply.",
-        "nullable": true
-      },
-      "SaveSearchRequestParsedQuery": {
-        "title": "Parsed Query",
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "object"
-          },
-          {
-            "enum": [
-              null
-            ]
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "description": "Structured filter set returned by a previous search.",
-        "discriminator": {
-          "propertyName": "type"
-        }
       },
       "SaveSearchRequestExcludePublicIds": {
         "title": "Exclude Public Ids",
@@ -20480,31 +19863,6 @@
         ],
         "description": "Saved exclusion-list IDs to apply as a post-filter. Each list\u0027s entity type must match the search mode (person lists for people searches, company lists for company searches). Max 5 (10 for organizations with extended exclusion limits)."
       },
-      "ScheduleResponseTeamId": {
-        "title": "Team Id",
-        "type": "string",
-        "nullable": true
-      },
-      "ScheduleResponseDescription": {
-        "title": "Description",
-        "type": "string",
-        "nullable": true
-      },
-      "ScheduleResponseDisabledReason": {
-        "title": "Disabled Reason",
-        "type": "string",
-        "nullable": true
-      },
-      "ScheduleResponseCreatedBy": {
-        "title": "Created By",
-        "type": "string",
-        "nullable": true
-      },
-      "ScheduleResponseApiKeyId": {
-        "title": "Api Key Id",
-        "type": "integer",
-        "nullable": true
-      },
       "SearchIdSourceExcludePublicIds": {
         "title": "Exclude Public Ids",
         "type": "object",
@@ -20561,105 +19919,6 @@
           }
         ],
         "description": "Optional saved exclusion lists to re-apply while replaying the saved search. \u0060search_id\u0060 itself does not carry exclusions."
-      },
-      "SearchQueryRequestSimpleFilters": {
-        "title": "Simple Filters",
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "object"
-          },
-          {
-            "enum": [
-              null
-            ]
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "description": "MongoDB-style filters; the API translates them to DSL.",
-        "discriminator": {
-          "propertyName": "type"
-        }
-      },
-      "SearchQueryRequestFilters": {
-        "title": "Filters",
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "object"
-          },
-          {
-            "enum": [
-              null
-            ]
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "description": "Raw OpenSearch DSL filters.",
-        "discriminator": {
-          "propertyName": "type"
-        }
-      },
-      "SearchQueryRequestParsedQuery": {
-        "title": "Parsed Query",
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "object"
-          },
-          {
-            "enum": [
-              null
-            ]
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "description": "Structured filter set returned by a previous search.",
-        "discriminator": {
-          "propertyName": "type"
-        }
-      },
-      "SearchQueryRequestSearchId": {
-        "title": "Search Id",
-        "type": "string",
-        "description": "Search history ID returned by a previous search. Replays only the query shape; pass exclusions again on this request if they should apply.",
-        "nullable": true
-      },
-      "SearchQueryRequestQuery": {
-        "title": "Query",
-        "type": "string",
-        "description": "Natural-language query. Mutually exclusive with simple_filters / filters / parsed_query / search_id. People-mode only.",
-        "nullable": true
-      },
-      "SearchQueryRequestCursor": {
-        "title": "Cursor",
-        "type": "string",
-        "description": "Opaque pagination cursor returned by a previous response.",
-        "nullable": true
       },
       "SearchQueryRequestExcludePublicIds": {
         "title": "Exclude Public Ids",
@@ -20718,11 +19977,6 @@
         ],
         "description": "Saved exclusion-list IDs to apply as a post-filter. Each list\u0027s entity type must match the search mode (person lists for people searches, company lists for company searches). Max 5 (10 for organizations with extended exclusion limits)."
       },
-      "SearchRerunRequestSearchId": {
-        "title": "Search Id",
-        "type": "string",
-        "nullable": true
-      },
       "SearchRerunRequestExcludePublicIds": {
         "title": "Exclude Public Ids",
         "type": "object",
@@ -20739,28 +19993,6 @@
             ]
           }
         ]
-      },
-      "SetActiveViewerRequestActiveViewerKey": {
-        "title": "Activeviewerkey",
-        "maxLength": 500,
-        "type": "string",
-        "nullable": true
-      },
-      "SigningSecretMetaResponseRevokedAt": {
-        "title": "Revoked At",
-        "type": "string",
-        "nullable": true
-      },
-      "SlackLinkSlackEmail": {
-        "title": "Slack Email",
-        "type": "string",
-        "nullable": true
-      },
-      "StartAgenticSearchRequestSearchId": {
-        "title": "Search Id",
-        "type": "string",
-        "description": "Optional client-supplied search ID for idempotent retries.",
-        "nullable": true
       },
       "StartAgenticSearchRequestExcludePublicIds": {
         "title": "Exclude Public Ids",
@@ -20819,66 +20051,6 @@
         ],
         "description": "Saved exclusion-list IDs to apply as a post-filter. Each list\u0027s entity type must match the search mode (person lists for people searches, company lists for company searches). Max 5 (10 for organizations with extended exclusion limits)."
       },
-      "StartFilterSearchRequestFilters": {
-        "title": "Filters",
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "object"
-          },
-          {
-            "enum": [
-              null
-            ]
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "description": "Raw OpenSearch DSL filters.",
-        "discriminator": {
-          "propertyName": "type"
-        }
-      },
-      "StartFilterSearchRequestSimpleFilters": {
-        "title": "Simple Filters",
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "object"
-          },
-          {
-            "enum": [
-              null
-            ]
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "description": "MongoDB-style filters that the API translates to DSL.",
-        "discriminator": {
-          "propertyName": "type"
-        }
-      },
-      "StartFilterSearchRequestCursor": {
-        "title": "Cursor",
-        "type": "string",
-        "description": "Opaque pagination cursor returned by a previous response.",
-        "nullable": true
-      },
       "StartInteractiveRequestWebhookPayload": {
         "title": "Webhook Payload",
         "required": [
@@ -20928,37 +20100,6 @@
           }
         ]
       },
-      "StartInteractiveRequestCacheConfig": {
-        "title": "Cache Config",
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "object"
-          },
-          {
-            "enum": [
-              null
-            ]
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type"
-        }
-      },
-      "StatusResponseGoogleSub": {
-        "title": "Google Sub",
-        "type": "string",
-        "nullable": true
-      },
       "StructBuilderRequestExistingStruct": {
         "title": "Existing Struct",
         "type": "object",
@@ -20975,50 +20116,6 @@
             ]
           }
         ]
-      },
-      "StructBuilderRequestBlockType": {
-        "title": "Block Type",
-        "enum": [
-          "lead_enrichment",
-          "company_enrichment",
-          "linkedin_enrichment",
-          "research_agent",
-          "webhook",
-          "transform_data"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "nullable": true,
-        "x-ms-enum": {
-          "name": "StructBuilderRequestBlockType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "lead_enrichment",
-              "name": "LeadEnrichment"
-            },
-            {
-              "value": "company_enrichment",
-              "name": "CompanyEnrichment"
-            },
-            {
-              "value": "linkedin_enrichment",
-              "name": "LinkedinEnrichment"
-            },
-            {
-              "value": "research_agent",
-              "name": "ResearchAgent"
-            },
-            {
-              "value": "webhook",
-              "name": "Webhook"
-            },
-            {
-              "value": "transform_data",
-              "name": "TransformData"
-            }
-          ]
-        }
       },
       "StructFieldOptions": {
         "title": "Options",
@@ -21056,96 +20153,6 @@
           }
         ]
       },
-      "StructSubFieldDescription": {
-        "title": "Description",
-        "type": "string",
-        "nullable": true
-      },
-      "UpdateAgentSettingsRequestYoloMode": {
-        "title": "Yolo Mode",
-        "type": "boolean",
-        "nullable": true
-      },
-      "UpdateOAuthClientRequestName": {
-        "title": "Name",
-        "maxLength": 255,
-        "minLength": 1,
-        "type": "string",
-        "nullable": true
-      },
-      "UpdateOAuthClientRequestStatus": {
-        "title": "Status",
-        "enum": [
-          "active",
-          "disabled"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "nullable": true,
-        "x-ms-enum": {
-          "name": "UpdateOAuthClientRequestStatus",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "active",
-              "name": "Active"
-            },
-            {
-              "value": "disabled",
-              "name": "Disabled"
-            }
-          ]
-        }
-      },
-      "UpdateOAuthClientRequestAccessTokenTtlSeconds": {
-        "title": "Access Token Ttl Seconds",
-        "maximum": 86400.0,
-        "exclusiveMaximum": false,
-        "minimum": 60.0,
-        "exclusiveMinimum": false,
-        "type": "integer",
-        "nullable": true
-      },
-      "UpdateScheduleRequestName": {
-        "title": "Name",
-        "maxLength": 120,
-        "minLength": 1,
-        "type": "string",
-        "nullable": true
-      },
-      "UpdateScheduleRequestCronExpression": {
-        "title": "Cron Expression",
-        "minLength": 1,
-        "type": "string",
-        "nullable": true
-      },
-      "UpdateScheduleRequestTimezone": {
-        "title": "Timezone",
-        "type": "string",
-        "nullable": true
-      },
-      "UpdateScheduleRequestDescription": {
-        "title": "Description",
-        "type": "string",
-        "nullable": true
-      },
-      "UpdateScheduleRequestIsActive": {
-        "title": "Is Active",
-        "type": "boolean",
-        "nullable": true
-      },
-      "UpdateWorkflowRequestWorkflowName": {
-        "title": "Workflow Name",
-        "type": "string",
-        "description": "New workflow name.",
-        "nullable": true
-      },
-      "UpdateWorkflowRequestWorkflowDescription": {
-        "title": "Workflow Description",
-        "type": "string",
-        "description": "New workflow description.",
-        "nullable": true
-      },
       "UpdateWorkflowRequestWorkflowDefinition": {
         "required": [
           "type"
@@ -21174,111 +20181,6 @@
             "WorkflowGraph": "#/components/schemas/WorkflowGraph"
           }
         }
-      },
-      "UploadPublicKeyRequestKid": {
-        "title": "Kid",
-        "maxLength": 255,
-        "minLength": 1,
-        "type": "string",
-        "nullable": true
-      },
-      "UploadPublicKeyRequestAlgorithm": {
-        "title": "Algorithm",
-        "type": "string",
-        "default": "RS256",
-        "nullable": true
-      },
-      "ViewerSpecTitle": {
-        "title": "Title",
-        "type": "string",
-        "nullable": true
-      },
-      "ViewerSpecState": {
-        "title": "State",
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "object"
-          },
-          {
-            "enum": [
-              null
-            ]
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type"
-        }
-      },
-      "WorkflowEdgeCondition": {
-        "title": "Condition",
-        "type": "string",
-        "description": "Reserved for future conditional branching.",
-        "nullable": true
-      },
-      "WorkflowLiveStatusResponseCurrentBlock": {
-        "title": "Current Block",
-        "type": "string",
-        "description": "Name of the block currently executing.",
-        "nullable": true
-      },
-      "WorkflowLiveStatusResponseCurrentBlockSequence": {
-        "title": "Current Block Sequence",
-        "type": "integer",
-        "description": "Sequence number of the block currently executing.",
-        "nullable": true
-      },
-      "WorkflowLiveStatusResponseStartedAt": {
-        "title": "Started At",
-        "type": "string",
-        "description": "Timestamp when execution started.",
-        "nullable": true
-      },
-      "WorkflowLiveStatusResponseCompletedAt": {
-        "title": "Completed At",
-        "type": "string",
-        "description": "Timestamp when execution finished.",
-        "nullable": true
-      },
-      "WorkflowLiveStatusResponseEstimationBlockedBy": {
-        "title": "Estimation Blocked By",
-        "type": "string",
-        "description": "Block name preventing a full progress estimate, if any.",
-        "nullable": true
-      },
-      "WorkflowResponseUserUuid": {
-        "title": "User Uuid",
-        "type": "string",
-        "description": "User who created the workflow.",
-        "nullable": true
-      },
-      "WorkflowResponseOrgId": {
-        "title": "Org Id",
-        "type": "string",
-        "description": "Organization that owns the workflow.",
-        "nullable": true
-      },
-      "WorkflowResponseDescription": {
-        "title": "Description",
-        "type": "string",
-        "description": "Workflow description.",
-        "nullable": true
-      },
-      "WorkflowResponseLastRunDate": {
-        "title": "Last Run Date",
-        "type": "string",
-        "description": "Timestamp of the most recent run.",
-        "format": "date-time",
-        "nullable": true
       },
       "WorkflowResponseWorkflowDefinition": {
         "required": [
@@ -21309,42 +20211,6 @@
           }
         }
       },
-      "WorkflowResultItemWithDownloadFileSize": {
-        "title": "File Size",
-        "type": "integer",
-        "description": "File size in bytes (uncompressed), when known.",
-        "nullable": true
-      },
-      "WorkflowResultItemWithDownloadBlockNumber": {
-        "title": "Block Number",
-        "type": "integer",
-        "description": "Block sequence number that produced the file.",
-        "nullable": true
-      },
-      "WorkflowResultItemWithDownloadCreatedAt": {
-        "title": "Created At",
-        "type": "string",
-        "description": "Timestamp when the record was created.",
-        "nullable": true
-      },
-      "WorkflowResultItemWithDownloadMessage": {
-        "title": "Message",
-        "type": "string",
-        "description": "Error or status message, if any.",
-        "nullable": true
-      },
-      "WorkflowResultItemWithDownloadContentType": {
-        "title": "Content Type",
-        "type": "string",
-        "description": "MIME type of the file.",
-        "nullable": true
-      },
-      "WorkflowResultItemWithDownloadDownloadUrl": {
-        "title": "Download Url",
-        "type": "string",
-        "description": "Signed download URL; null if signing failed.",
-        "nullable": true
-      },
       "WorkflowResultItemWithDownloadResults": {
         "title": "Results",
         "type": "object",
@@ -21363,98 +20229,6 @@
         ],
         "description": "Inline rows when the file is small enough to embed; otherwise null."
       },
-      "WorkflowRunResponseStep": {
-        "title": "Step",
-        "type": "string",
-        "description": "Current authoring step from the workflow.",
-        "nullable": true
-      },
-      "WorkflowRunResponseUserId": {
-        "title": "User Id",
-        "type": "string",
-        "description": "User who created the workflow.",
-        "nullable": true
-      },
-      "WorkflowRunResponseCreatedAt": {
-        "title": "Created At",
-        "type": "string",
-        "description": "Timestamp when the record was created.",
-        "format": "date-time",
-        "nullable": true
-      },
-      "WorkflowRunResponseUpdatedAt": {
-        "title": "Updated At",
-        "type": "string",
-        "description": "Timestamp when the record was last updated.",
-        "format": "date-time",
-        "nullable": true
-      },
-      "WorkflowRunResponseQueuedAt": {
-        "title": "Queued At",
-        "type": "string",
-        "description": "Timestamp when the run was enqueued.",
-        "format": "date-time",
-        "nullable": true
-      },
-      "WorkflowRunResponseStartedAt": {
-        "title": "Started At",
-        "type": "string",
-        "description": "Timestamp when execution started.",
-        "format": "date-time",
-        "nullable": true
-      },
-      "WorkflowRunResponseCompletedAt": {
-        "title": "Completed At",
-        "type": "string",
-        "description": "Timestamp when execution finished.",
-        "format": "date-time",
-        "nullable": true
-      },
-      "WorkflowRunResponseDurationMs": {
-        "title": "Duration Ms",
-        "type": "integer",
-        "description": "Total run duration in milliseconds.",
-        "nullable": true
-      },
-      "WorkflowRunResponseStatusReason": {
-        "title": "Status Reason",
-        "type": "string",
-        "description": "Short reason explaining the current status.",
-        "nullable": true
-      },
-      "WorkflowRunResponseErrorMessage": {
-        "title": "Error Message",
-        "type": "string",
-        "description": "Error message if the operation failed.",
-        "nullable": true
-      },
-      "WorkflowRunResponseMetrics": {
-        "title": "Metrics",
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "object"
-          },
-          {
-            "enum": [
-              null
-            ]
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "description": "Aggregate run metrics (rows in/out, costs, etc.).",
-        "discriminator": {
-          "propertyName": "type"
-        }
-      },
       "WorkflowRunResponseBlocks": {
         "title": "Blocks",
         "type": "object",
@@ -21469,44 +20243,6 @@
           }
         ],
         "description": "Per-block detail; usually null in list responses."
-      },
-      "WorkflowRunStartedResponseCacheConfig": {
-        "title": "Cache Config",
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "object"
-          },
-          {
-            "enum": [
-              null
-            ]
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "description": "Cache configuration; only set by the custom-cache endpoint.",
-        "discriminator": {
-          "propertyName": "type"
-        }
-      },
-      "WorkflowRunStartedResponseAlreadyStarted": {
-        "title": "Already Started",
-        "type": "boolean",
-        "description": "True when the request was deduplicated via Idempotency-Key header.",
-        "nullable": true
-      },
-      "WorkspaceStateActiveViewerKey": {
-        "title": "Activeviewerkey",
-        "type": "string",
-        "nullable": true
       },
       "ValidationErrorLocItem": {
         "type": "object",
@@ -21523,6 +20259,11 @@
         "title": "Specs",
         "type": "object"
       },
+      "ApprovalRequestAnswers": {
+        "title": "Answers",
+        "type": "object",
+        "nullable": true
+      },
       "BlockSpecs": {
         "title": "Specs",
         "type": "object",
@@ -21533,8 +20274,19 @@
         "type": "object",
         "description": "JSON Schema describing the block\u0027s \u0060specs\u0060 payload."
       },
+      "BodyRunWorkflowWorkflowsRunPostSpecsOverride": {
+        "title": "Specs Override",
+        "type": "object",
+        "description": "Optional specs to override first block specs",
+        "nullable": true
+      },
       "ChatRequestMessagesItem": {
         "type": "object"
+      },
+      "ChatRequestPageData": {
+        "title": "Page Data",
+        "type": "object",
+        "nullable": true
       },
       "ChatSessionMessagesResponseMessagesItem": {
         "type": "object"
@@ -21547,18 +20299,54 @@
         "type": "object",
         "description": "Mapping of output field name to natural-language description of what to extract."
       },
+      "EnrichCompanyInfoLeadStruct": {
+        "title": "Lead Struct",
+        "type": "object",
+        "description": "Output schema for each discovered person when find_people=true.",
+        "nullable": true
+      },
       "EnrichCompanyInfoTargetCompany": {
         "title": "Target Company",
         "type": "object",
         "description": "Company identifiers (e.g. company_name, domain, linkedin)."
+      },
+      "EnrichLeadInfoStruct": {
+        "title": "Struct",
+        "type": "object",
+        "description": "Mapping of output field name to natural-language description of what to extract.",
+        "nullable": true
       },
       "EnrichLeadInfoLeadInfo": {
         "title": "Lead Info",
         "type": "object",
         "description": "Single lead to process. Provide any combination of name, email, company, linkedin, etc."
       },
+      "FilterFieldValuesRequestFilters": {
+        "title": "Filters",
+        "type": "object",
+        "description": "Raw OpenSearch DSL filters that scope the aggregation.",
+        "nullable": true
+      },
+      "FilterFieldValuesRequestSimpleFilters": {
+        "title": "Simple Filters",
+        "type": "object",
+        "description": "MongoDB-style filters that scope the aggregation.",
+        "nullable": true
+      },
+      "FilterFieldValuesValueFilterSnippet": {
+        "title": "Filter Snippet",
+        "type": "object",
+        "description": "Ready-to-merge filter clause that selects this value.",
+        "nullable": true
+      },
       "FilterSearchResponseResultsItem": {
         "type": "object"
+      },
+      "FilterSearchResponseParsedQuery": {
+        "title": "Parsed Query",
+        "type": "object",
+        "description": "Structured filter set echoed back; round-trippable into a follow-up request.",
+        "nullable": true
       },
       "FindEmailBulkRequestLeadsItem": {
         "type": "object"
@@ -21595,6 +20383,17 @@
         "maxProperties": 50,
         "type": "object"
       },
+      "LinkedInEnrichRequestStruct": {
+        "title": "Struct",
+        "type": "object",
+        "description": "Mapping of output field name to natural-language description of what to extract.",
+        "nullable": true
+      },
+      "MountViewerRequestState": {
+        "title": "State",
+        "type": "object",
+        "nullable": true
+      },
       "PatchViewerStateRequestState": {
         "title": "State",
         "type": "object"
@@ -21604,9 +20403,23 @@
         "type": "object",
         "description": "Lead or record to evaluate against the qualification criteria."
       },
+      "QaAgentRequestStruct": {
+        "title": "Struct",
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Mapping of extra output fields and their descriptions.",
+        "nullable": true
+      },
       "ResearchAgentRequestInputData": {
         "title": "Input Data",
         "type": "object"
+      },
+      "ResearchAgentRequestStruct": {
+        "title": "Struct",
+        "type": "object",
+        "nullable": true
       },
       "ReverseEmailBulkRequestLeadsItem": {
         "type": "object"
@@ -21624,18 +20437,76 @@
         "type": "object",
         "description": "Single lead with at least a \u0060phone\u0060 field to reverse-lookup."
       },
+      "SaveSearchRequestParsedQuery": {
+        "title": "Parsed Query",
+        "type": "object",
+        "description": "Structured filter set returned by a previous search.",
+        "nullable": true
+      },
+      "SearchQueryRequestSimpleFilters": {
+        "title": "Simple Filters",
+        "type": "object",
+        "description": "MongoDB-style filters; the API translates them to DSL.",
+        "nullable": true
+      },
+      "SearchQueryRequestFilters": {
+        "title": "Filters",
+        "type": "object",
+        "description": "Raw OpenSearch DSL filters.",
+        "nullable": true
+      },
+      "SearchQueryRequestParsedQuery": {
+        "title": "Parsed Query",
+        "type": "object",
+        "description": "Structured filter set returned by a previous search.",
+        "nullable": true
+      },
       "SearchRerunRequestFilters": {
         "title": "Filters",
         "type": "object"
+      },
+      "StartFilterSearchRequestFilters": {
+        "title": "Filters",
+        "type": "object",
+        "description": "Raw OpenSearch DSL filters.",
+        "nullable": true
+      },
+      "StartFilterSearchRequestSimpleFilters": {
+        "title": "Simple Filters",
+        "type": "object",
+        "description": "MongoDB-style filters that the API translates to DSL.",
+        "nullable": true
       },
       "StartInteractiveRequestSpecs": {
         "title": "Specs",
         "type": "object"
       },
+      "StartInteractiveRequestCacheConfig": {
+        "title": "Cache Config",
+        "type": "object",
+        "nullable": true
+      },
       "VerifyAgeRequestSubject": {
         "title": "Subject",
         "type": "object",
         "description": "The person to verify. Any identifiers you have (name, company, linkedin, email, location, etc.); more is better."
+      },
+      "ViewerSpecState": {
+        "title": "State",
+        "type": "object",
+        "nullable": true
+      },
+      "WorkflowRunResponseMetrics": {
+        "title": "Metrics",
+        "type": "object",
+        "description": "Aggregate run metrics (rows in/out, costs, etc.).",
+        "nullable": true
+      },
+      "WorkflowRunStartedResponseCacheConfig": {
+        "title": "Cache Config",
+        "type": "object",
+        "description": "Cache configuration; only set by the custom-cache endpoint.",
+        "nullable": true
       },
       "ValidationErrorCtx": {
         "type": "object",
@@ -27735,21 +26606,6 @@
           }
         }
       },
-      "JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultReferences": {
-        "title": "References",
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "object"
-          },
-          {
-            "enum": [
-              null
-            ]
-          }
-        ],
-        "description": "Source references used to produce the result."
-      },
       "JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultFindings": {
         "title": "Findings",
         "type": "object",
@@ -27767,21 +26623,6 @@
           }
         ],
         "description": "Optional supporting findings produced by the enrichment agent."
-      },
-      "JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultFieldConfidence": {
-        "title": "Field Confidence",
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "object"
-          },
-          {
-            "enum": [
-              null
-            ]
-          }
-        ],
-        "description": "Optional per-field confidence metadata."
       },
       "AddBlockRequestSpecsProperty": {
         "type": "object"
@@ -27918,6 +26759,18 @@
         "type": "object",
         "description": "Requested enrichment fields and extracted values."
       },
+      "JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultReferences": {
+        "title": "References",
+        "type": "object",
+        "description": "Source references used to produce the result.",
+        "nullable": true
+      },
+      "JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultFieldConfidence": {
+        "title": "Field Confidence",
+        "type": "object",
+        "description": "Optional per-field confidence metadata.",
+        "nullable": true
+      },
       "CreateExclusionListRequestEntityType": {
         "title": "Entity Type",
         "enum": [
@@ -27937,6 +26790,86 @@
             {
               "value": "company",
               "name": "Company"
+            }
+          ]
+        }
+      },
+      "EnrichCompanyInfoTier": {
+        "title": "Tier",
+        "enum": [
+          "low",
+          "micro",
+          "medium",
+          "high"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Quality and cost tier for the research agent.",
+        "nullable": true,
+        "x-ms-enum": {
+          "name": "EnrichCompanyInfoTier",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "low",
+              "name": "Low"
+            },
+            {
+              "value": "micro",
+              "name": "Micro"
+            },
+            {
+              "value": "medium",
+              "name": "Medium"
+            },
+            {
+              "value": "high",
+              "name": "High"
+            }
+          ]
+        }
+      },
+      "EnrichLeadInfoTier": {
+        "title": "Tier",
+        "enum": [
+          "low",
+          "micro",
+          "medium",
+          "high",
+          "xhigh",
+          "scout"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Quality and cost tier for the research agent.",
+        "nullable": true,
+        "x-ms-enum": {
+          "name": "EnrichLeadInfoTier",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "low",
+              "name": "Low"
+            },
+            {
+              "value": "micro",
+              "name": "Micro"
+            },
+            {
+              "value": "medium",
+              "name": "Medium"
+            },
+            {
+              "value": "high",
+              "name": "High"
+            },
+            {
+              "value": "xhigh",
+              "name": "Xhigh"
+            },
+            {
+              "value": "scout",
+              "name": "Scout"
             }
           ]
         }
@@ -28278,6 +27211,50 @@
           ]
         }
       },
+      "StructBuilderRequestBlockType": {
+        "title": "Block Type",
+        "enum": [
+          "lead_enrichment",
+          "company_enrichment",
+          "linkedin_enrichment",
+          "research_agent",
+          "webhook",
+          "transform_data"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "nullable": true,
+        "x-ms-enum": {
+          "name": "StructBuilderRequestBlockType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "lead_enrichment",
+              "name": "LeadEnrichment"
+            },
+            {
+              "value": "company_enrichment",
+              "name": "CompanyEnrichment"
+            },
+            {
+              "value": "linkedin_enrichment",
+              "name": "LinkedinEnrichment"
+            },
+            {
+              "value": "research_agent",
+              "name": "ResearchAgent"
+            },
+            {
+              "value": "webhook",
+              "name": "Webhook"
+            },
+            {
+              "value": "transform_data",
+              "name": "TransformData"
+            }
+          ]
+        }
+      },
       "StructFieldType": {
         "title": "Type",
         "enum": [
@@ -28410,6 +27387,30 @@
             {
               "value": "dict",
               "name": "Dict"
+            }
+          ]
+        }
+      },
+      "UpdateOAuthClientRequestStatus": {
+        "title": "Status",
+        "enum": [
+          "active",
+          "disabled"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "nullable": true,
+        "x-ms-enum": {
+          "name": "UpdateOAuthClientRequestStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "active",
+              "name": "Active"
+            },
+            {
+              "value": "disabled",
+              "name": "Disabled"
             }
           ]
         }
