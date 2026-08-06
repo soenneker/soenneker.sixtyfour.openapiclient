@@ -17127,6 +17127,9 @@
             "type": "string",
             "description": "Original natural-language query echoed verbatim, if any.",
             "nullable": true
+          },
+          "company_filter_truncated": {
+            "$ref": "#/components/schemas/FilterSearchResponseCompanyFilterTruncated"
           }
         },
         "description": "Response for a completed filter search."
@@ -20346,6 +20349,15 @@
         "title": "Parsed Query",
         "type": "object",
         "description": "Structured filter set echoed back; round-trippable into a follow-up request.",
+        "nullable": true
+      },
+      "FilterSearchResponseCompanyFilterTruncated": {
+        "title": "Company Filter Truncated",
+        "type": "object",
+        "additionalProperties": {
+          "type": "integer"
+        },
+        "description": "\u0022Present when company filters matched more companies than the resolver expansion cap. \\\u0022total_matched\\\u0022: positive filters truncated \u2014 results cover people at the largest matching employers only. \\\u0022excluded_total_matched\\\u0022: a not-filter truncated \u2014 only the largest matching employers are excluded, so people at smaller excluded companies may still appear.\u0022",
         "nullable": true
       },
       "FindEmailBulkRequestLeadsItem": {

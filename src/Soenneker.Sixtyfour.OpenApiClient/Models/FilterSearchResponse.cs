@@ -15,6 +15,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>&quot;Present when company filters matched more companies than the resolver expansion cap. \&quot;total_matched\&quot;: positive filters truncated — results cover people at the largest matching employers only. \&quot;excluded_total_matched\&quot;: a not-filter truncated — only the largest matching employers are excluded, so people at smaller excluded companies may still appear.&quot;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseCompanyFilterTruncated? CompanyFilterTruncated { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseCompanyFilterTruncated CompanyFilterTruncated { get; set; }
+#endif
         /// <summary>Signed URL to download results as CSV.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -132,6 +140,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "company_filter_truncated", n => { CompanyFilterTruncated = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseCompanyFilterTruncated>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseCompanyFilterTruncated.CreateFromDiscriminatorValue); } },
                 { "csv_download_url", n => { CsvDownloadUrl = n.GetStringValue(); } },
                 { "cursor_expires_in_seconds", n => { CursorExpiresInSeconds = n.GetIntValue(); } },
                 { "download_expires_in_seconds", n => { DownloadExpiresInSeconds = n.GetIntValue(); } },
@@ -162,6 +171,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseCompanyFilterTruncated>("company_filter_truncated", CompanyFilterTruncated);
             writer.WriteStringValue("csv_download_url", CsvDownloadUrl);
             writer.WriteIntValue("cursor_expires_in_seconds", CursorExpiresInSeconds);
             writer.WriteIntValue("download_expires_in_seconds", DownloadExpiresInSeconds);
