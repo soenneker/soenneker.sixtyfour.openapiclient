@@ -7,45 +7,46 @@ using System.IO;
 using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
+    /// <summary>
+    /// JSON body for POST /workflows/run (workflow_id/save_json/etc. stay query params).
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class BodyRunWorkflowWorkflowsRunPost : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class RunWorkflowBody : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Optional specs to override first block specs</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPostSpecsOverride? SpecsOverride { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodySpecsOverride? SpecsOverride { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPostSpecsOverride SpecsOverride { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodySpecsOverride SpecsOverride { get; set; }
 #endif
         /// <summary>For API key auth only - can be a list or dict</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPostWebhookPayload? WebhookPayload { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayload? WebhookPayload { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPostWebhookPayload WebhookPayload { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayload WebhookPayload { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPost"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBody"/> and sets the default values.
         /// </summary>
-        public BodyRunWorkflowWorkflowsRunPost()
+        public RunWorkflowBody()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPost"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPost CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPost();
+            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,8 +56,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "specs_override", n => { SpecsOverride = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPostSpecsOverride>(global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPostSpecsOverride.CreateFromDiscriminatorValue); } },
-                { "webhook_payload", n => { WebhookPayload = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPostWebhookPayload>(global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPostWebhookPayload.CreateFromDiscriminatorValue); } },
+                { "specs_override", n => { SpecsOverride = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodySpecsOverride>(global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodySpecsOverride.CreateFromDiscriminatorValue); } },
+                { "webhook_payload", n => { WebhookPayload = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayload>(global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayload.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -66,8 +67,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPostSpecsOverride>("specs_override", SpecsOverride);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPostWebhookPayload>("webhook_payload", WebhookPayload);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodySpecsOverride>("specs_override", SpecsOverride);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayload>("webhook_payload", WebhookPayload);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

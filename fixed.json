@@ -5552,7 +5552,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/BodyRunWorkflowWorkflowsRunPost"
+                "$ref": "#/components/schemas/RunWorkflowBody"
               }
             }
           }
@@ -5988,7 +5988,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CancelWorkflowRunWorkflowsCancelPostRequestRequestBody"
+                "$ref": "#/components/schemas/CancelWorkflowBody"
               }
             }
           }
@@ -15576,18 +15576,6 @@
           }
         }
       },
-      "BodyRunWorkflowWorkflowsRunPost": {
-        "title": "Body_run_workflow_workflows_run_post",
-        "type": "object",
-        "properties": {
-          "specs_override": {
-            "$ref": "#/components/schemas/BodyRunWorkflowWorkflowsRunPostSpecsOverride"
-          },
-          "webhook_payload": {
-            "$ref": "#/components/schemas/BodyRunWorkflowWorkflowsRunPostWebhookPayload"
-          }
-        }
-      },
       "BodyStartCompanyBulkIntelligenceWorkflowBulkIntelligenceCompanyPost": {
         "title": "Body_start_company_bulk_intelligence_workflow_bulk_intelligence_company_post",
         "required": [
@@ -16033,6 +16021,19 @@
           }
         },
         "description": "Response when a bulk intelligence job is started."
+      },
+      "CancelWorkflowBody": {
+        "title": "CancelWorkflowBody",
+        "type": "object",
+        "properties": {
+          "job_id": {
+            "title": "Job Id",
+            "type": "string",
+            "description": "Run job_id to cancel",
+            "nullable": true
+          }
+        },
+        "description": "JSON body for POST /workflows/cancel; job_id may also come from the query param."
       },
       "ChatHistoryResponse": {
         "title": "ChatHistoryResponse",
@@ -17936,6 +17937,19 @@
           }
         }
       },
+      "RunWorkflowBody": {
+        "title": "RunWorkflowBody",
+        "type": "object",
+        "properties": {
+          "specs_override": {
+            "$ref": "#/components/schemas/RunWorkflowBodySpecsOverride"
+          },
+          "webhook_payload": {
+            "$ref": "#/components/schemas/RunWorkflowBodyWebhookPayload"
+          }
+        },
+        "description": "JSON body for POST /workflows/run (workflow_id/save_json/etc. stay query params)."
+      },
       "SaveInteractiveRequest": {
         "title": "SaveInteractiveRequest",
         "required": [
@@ -18195,6 +18209,9 @@
             "type": "integer",
             "description": "Maximum number of results to return across pages.",
             "default": 1000
+          },
+          "output_shape": {
+            "$ref": "#/components/schemas/SearchQueryRequestOutputShape"
           },
           "exclude_public_ids": {
             "$ref": "#/components/schemas/SearchQueryRequestExcludePublicIds"
@@ -19409,39 +19426,6 @@
         ],
         "description": "IDs of upstream blocks that feed into this one."
       },
-      "BodyRunWorkflowWorkflowsRunPostWebhookPayload": {
-        "title": "Webhook Payload",
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "anyOf": [
-          {
-            "$ref": "#/components/schemas/BodyRunWorkflowWorkflowsRunPostWebhookPayloadBranch1"
-          },
-          {
-            "type": "object"
-          },
-          {
-            "enum": [
-              null
-            ]
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "description": "For API key auth only - can be a list or dict",
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "BodyRunWorkflowWorkflowsRunPostWebhookPayload_1": "#/components/schemas/BodyRunWorkflowWorkflowsRunPostWebhookPayloadBranch1"
-          }
-        }
-      },
       "ChatRequestPageContext": {
         "required": [
           "type"
@@ -19808,6 +19792,39 @@
           }
         ],
         "description": "Override the default provider waterfall by listing provider IDs in priority order."
+      },
+      "RunWorkflowBodyWebhookPayload": {
+        "title": "Webhook Payload",
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/RunWorkflowBodyWebhookPayloadBranch1"
+          },
+          {
+            "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "description": "For API key auth only - can be a list or dict",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "RunWorkflowBodyWebhookPayload_1": "#/components/schemas/RunWorkflowBodyWebhookPayloadBranch1"
+          }
+        }
       },
       "SaveSearchRequestExcludePublicIds": {
         "title": "Exclude Public Ids",
@@ -20277,12 +20294,6 @@
         "type": "object",
         "description": "JSON Schema describing the block\u0027s \u0060specs\u0060 payload."
       },
-      "BodyRunWorkflowWorkflowsRunPostSpecsOverride": {
-        "title": "Specs Override",
-        "type": "object",
-        "description": "Optional specs to override first block specs",
-        "nullable": true
-      },
       "ChatRequestMessagesItem": {
         "type": "object"
       },
@@ -20448,6 +20459,12 @@
         "title": "Lead",
         "type": "object",
         "description": "Single lead with at least a \u0060phone\u0060 field to reverse-lookup."
+      },
+      "RunWorkflowBodySpecsOverride": {
+        "title": "Specs Override",
+        "type": "object",
+        "description": "Optional specs to override first block specs",
+        "nullable": true
       },
       "SaveSearchRequestParsedQuery": {
         "title": "Parsed Query",
@@ -22870,10 +22887,6 @@
             "type": "string"
           }
         }
-      },
-      "CancelWorkflowRunWorkflowsCancelPostRequest": {
-        "title": "Body",
-        "type": "object"
       },
       "CancelWorkflowRunWorkflowsCancelPost400Response": {
         "type": "object",
@@ -26214,7 +26227,7 @@
           }
         }
       },
-      "BodyRunWorkflowWorkflowsRunPostWebhookPayloadBranch1": {
+      "RunWorkflowBodyWebhookPayloadBranch1": {
         "required": [
           "value"
         ],
@@ -26223,7 +26236,7 @@
           "value": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/BodyRunWorkflowWorkflowsRunPostWebhookPayloadBranch1ValueItem"
+              "$ref": "#/components/schemas/RunWorkflowBodyWebhookPayloadBranch1ValueItem"
             }
           }
         }
@@ -26347,9 +26360,6 @@
         "items": {
           "$ref": "#/components/schemas/WorkflowRunResponse"
         }
-      },
-      "CancelWorkflowRunWorkflowsCancelPostRequestRequestBody": {
-        "type": "object"
       },
       "ListWorkflowsWorkflowsGet200Response": {
         "type": "array",
@@ -26746,7 +26756,7 @@
         "type": "object",
         "description": "Optional error context."
       },
-      "BodyRunWorkflowWorkflowsRunPostWebhookPayloadBranch1ValueItem": {
+      "RunWorkflowBodyWebhookPayloadBranch1ValueItem": {
         "type": "object"
       },
       "StartInteractiveRequestWebhookPayloadBranch1ValueItem": {
@@ -27147,6 +27157,30 @@
             {
               "value": "company",
               "name": "Company"
+            }
+          ]
+        }
+      },
+      "SearchQueryRequestOutputShape": {
+        "title": "Output Shape",
+        "enum": [
+          "raw",
+          "workflow"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Return raw OpenSearch rows or canonical workflow LEAD/COMPANY rows. The selected shape is retained by cursor continuations.",
+        "x-ms-enum": {
+          "name": "SearchQueryRequestOutputShape",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "raw",
+              "name": "Raw"
+            },
+            {
+              "value": "workflow",
+              "name": "Workflow"
             }
           ]
         }

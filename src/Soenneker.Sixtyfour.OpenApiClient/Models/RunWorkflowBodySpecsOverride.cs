@@ -11,26 +11,26 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     /// Optional specs to override first block specs
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class BodyRunWorkflowWorkflowsRunPostSpecsOverride : IAdditionalDataHolder, IParsable
+    public partial class RunWorkflowBodySpecsOverride : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPostSpecsOverride"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodySpecsOverride"/> and sets the default values.
         /// </summary>
-        public BodyRunWorkflowWorkflowsRunPostSpecsOverride()
+        public RunWorkflowBodySpecsOverride()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPostSpecsOverride"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodySpecsOverride"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPostSpecsOverride CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodySpecsOverride CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPostSpecsOverride();
+            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodySpecsOverride();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -63,6 +63,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public int? MaxResults { get; set; }
         /// <summary>Search mode; inferred from DB when using `search_id`.</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestMode? Mode { get; set; }
+        /// <summary>Return raw OpenSearch rows or canonical workflow LEAD/COMPANY rows. The selected shape is retained by cursor continuations.</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestOutputShape? OutputShape { get; set; }
         /// <summary>Maximum number of results per page (1-100). Pages may contain fewer rows while more results remain (e.g. with exclusion filtering); rely on `has_more`/`next_cursor`, never on page fullness.</summary>
         public int? PageSize { get; set; }
         /// <summary>Structured filter set returned by a previous search.</summary>
@@ -135,6 +137,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "location_expansion_radius_miles", n => { LocationExpansionRadiusMiles = n.GetIntValue(); } },
                 { "max_results", n => { MaxResults = n.GetIntValue(); } },
                 { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestMode>(); } },
+                { "output_shape", n => { OutputShape = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestOutputShape>(); } },
                 { "page_size", n => { PageSize = n.GetIntValue(); } },
                 { "parsed_query", n => { ParsedQuery = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestParsedQuery>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestParsedQuery.CreateFromDiscriminatorValue); } },
                 { "query", n => { Query = n.GetStringValue(); } },
@@ -158,6 +161,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteIntValue("location_expansion_radius_miles", LocationExpansionRadiusMiles);
             writer.WriteIntValue("max_results", MaxResults);
             writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestMode>("mode", Mode);
+            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestOutputShape>("output_shape", OutputShape);
             writer.WriteIntValue("page_size", PageSize);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestParsedQuery>("parsed_query", ParsedQuery);
             writer.WriteStringValue("query", Query);

@@ -37,7 +37,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Cancel
         /// Cancel an in-progress workflow run.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowCancelResponse"/></returns>
-        /// <param name="body">The request body</param>
+        /// <param name="body">JSON body for POST /workflows/cancel; job_id may also come from the query param.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelWorkflowRunWorkflowsCancelPost400Response">When receiving a 400 status code</exception>
@@ -49,11 +49,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Cancel
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelWorkflowRunWorkflowsCancelPost500Response">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowCancelResponse?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelWorkflowRunWorkflowsCancelPostRequestRequestBody body, Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Cancel.CancelRequestBuilder.CancelRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowCancelResponse?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelWorkflowBody body, Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Cancel.CancelRequestBuilder.CancelRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowCancelResponse> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelWorkflowRunWorkflowsCancelPostRequestRequestBody body, Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Cancel.CancelRequestBuilder.CancelRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowCancelResponse> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelWorkflowBody body, Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Cancel.CancelRequestBuilder.CancelRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -74,15 +74,15 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Cancel
         /// Cancel an in-progress workflow run.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">The request body</param>
+        /// <param name="body">JSON body for POST /workflows/cancel; job_id may also come from the query param.</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelWorkflowRunWorkflowsCancelPostRequestRequestBody body, Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Cancel.CancelRequestBuilder.CancelRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelWorkflowBody body, Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Cancel.CancelRequestBuilder.CancelRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelWorkflowRunWorkflowsCancelPostRequestRequestBody body, Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Cancel.CancelRequestBuilder.CancelRequestBuilderPostQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelWorkflowBody body, Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Cancel.CancelRequestBuilder.CancelRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

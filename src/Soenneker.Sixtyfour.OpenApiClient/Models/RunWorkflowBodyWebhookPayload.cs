@@ -11,7 +11,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     /// For API key auth only - can be a list or dict
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class BodyRunWorkflowWorkflowsRunPostWebhookPayload : IAdditionalDataHolder, IParsable
+    public partial class RunWorkflowBodyWebhookPayload : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -26,27 +26,27 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPostWebhookPayloadBranch1ValueItem>? Value { get; set; }
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayloadBranch1ValueItem>? Value { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPostWebhookPayloadBranch1ValueItem> Value { get; set; }
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayloadBranch1ValueItem> Value { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPostWebhookPayload"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayload"/> and sets the default values.
         /// </summary>
-        public BodyRunWorkflowWorkflowsRunPostWebhookPayload()
+        public RunWorkflowBodyWebhookPayload()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPostWebhookPayload"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayload"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPostWebhookPayload CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayload CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPostWebhookPayload();
+            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayload();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -57,7 +57,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "type", n => { Type = n.GetStringValue(); } },
-                { "value", n => { Value = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPostWebhookPayloadBranch1ValueItem>(global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPostWebhookPayloadBranch1ValueItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayloadBranch1ValueItem>(global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayloadBranch1ValueItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -68,7 +68,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("type", Type);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.BodyRunWorkflowWorkflowsRunPostWebhookPayloadBranch1ValueItem>("value", Value);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayloadBranch1ValueItem>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
