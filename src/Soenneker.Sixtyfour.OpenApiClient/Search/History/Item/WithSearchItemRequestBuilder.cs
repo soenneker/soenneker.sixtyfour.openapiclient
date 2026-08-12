@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.History.Item
         {
         }
         /// <summary>
-        /// Return a single normalized search_history row scoped to the caller&apos;sorg. SearchViewer reads ``response.search.{query,parsed_query,search_mode}``to seed its hydration. Returns 404 (never 403) on cross-org IDs so theendpoint is not an existence oracle.
+        /// Return a decrypted saved-search envelope to its owner or active team.Returns 404 (never 403) for inaccessible IDs so the endpoint is not anexistence oracle. ``parsed_query`` includes durable replay metadata neededfor hydration, while server-only ranking metadata remains private.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetSearchHistoryRowEndpointSearchHistorySearchIdGet200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -79,7 +79,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.History.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.GetSearchHistoryRowEndpointSearchHistorySearchIdGet200Response>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.GetSearchHistoryRowEndpointSearchHistorySearchIdGet200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Return a single normalized search_history row scoped to the caller&apos;sorg. SearchViewer reads ``response.search.{query,parsed_query,search_mode}``to seed its hydration. Returns 404 (never 403) on cross-org IDs so theendpoint is not an existence oracle.
+        /// Return a decrypted saved-search envelope to its owner or active team.Returns 404 (never 403) for inaccessible IDs so the endpoint is not anexistence oracle. ``parsed_query`` includes durable replay metadata neededfor hydration, while server-only ranking metadata remains private.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

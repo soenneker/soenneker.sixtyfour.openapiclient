@@ -6599,6 +6599,414 @@
         }
       }
     },
+    "/search/lookalike": {
+      "post": {
+        "tags": [
+          "Search"
+        ],
+        "summary": "Start Lookalike Search (Async)",
+        "description": "Resolve seeds and start the async lookalike workflow.",
+        "operationId": "StartLookalikeSearchEndpointSearchLookalikePost",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StartLookalikeSearchRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StartLookalikeSearchResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StartLookalikeSearchEndpointSearchLookalikePost400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StartLookalikeSearchEndpointSearchLookalikePost401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forwarded user_id does not belong to caller\u0027s organization.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StartLookalikeSearchEndpointSearchLookalikePost403Response"
+                },
+                "example": {
+                  "detail": "Forwarded user_id does not belong to your organization."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StartLookalikeSearchEndpointSearchLookalikePost500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Insufficient credits or no active subscription for this organization.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StartLookalikeSearchEndpointSearchLookalikePost402Response"
+                },
+                "example": {
+                  "detail": "Insufficient API credits"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StartLookalikeSearchEndpointSearchLookalikePost429Response"
+                },
+                "example": {
+                  "detail": "Rate limit exceeded"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Search task or export file not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StartLookalikeSearchEndpointSearchLookalikePost404Response"
+                },
+                "example": {
+                  "detail": "Search not found or has no parsed_query."
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Export workflow already running for this search.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StartLookalikeSearchEndpointSearchLookalikePost409Response"
+                },
+                "example": {
+                  "detail": "Export workflow is already running for this search."
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Upstream search backend returned an error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StartLookalikeSearchEndpointSearchLookalikePost502Response"
+                },
+                "example": {
+                  "detail": "NL upstream transport error: connection reset by peer"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Search backend is not configured or unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StartLookalikeSearchEndpointSearchLookalikePost503Response"
+                },
+                "example": {
+                  "detail": "Company search backend endpoint is not configured"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "Upstream search backend timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StartLookalikeSearchEndpointSearchLookalikePost504Response"
+                },
+                "example": {
+                  "detail": "Field values request timed out"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/search/lookalike/{taskId}": {
+      "get": {
+        "tags": [
+          "Search"
+        ],
+        "summary": "Lookalike Search Status",
+        "description": "Poll lookalike progress and return generated filters on completion.",
+        "operationId": "LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet",
+        "parameters": [
+          {
+            "name": "taskId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Task Id",
+              "type": "string"
+            }
+          },
+          {
+            "name": "include_filters",
+            "in": "query",
+            "schema": {
+              "title": "Include Filters",
+              "type": "boolean",
+              "default": true
+            }
+          },
+          {
+            "name": "include_analysis",
+            "in": "query",
+            "schema": {
+              "title": "Include Analysis",
+              "type": "boolean",
+              "default": true
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LookalikeSearchStatusResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forwarded user_id does not belong to caller\u0027s organization.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet403Response"
+                },
+                "example": {
+                  "detail": "Forwarded user_id does not belong to your organization."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Insufficient credits or no active subscription for this organization.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet402Response"
+                },
+                "example": {
+                  "detail": "Insufficient API credits"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet429Response"
+                },
+                "example": {
+                  "detail": "Rate limit exceeded"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Search task or export file not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet404Response"
+                },
+                "example": {
+                  "detail": "Search not found or has no parsed_query."
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Export workflow already running for this search.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet409Response"
+                },
+                "example": {
+                  "detail": "Export workflow is already running for this search."
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Upstream search backend returned an error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet502Response"
+                },
+                "example": {
+                  "detail": "NL upstream transport error: connection reset by peer"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Search backend is not configured or unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet503Response"
+                },
+                "example": {
+                  "detail": "Company search backend endpoint is not configured"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "Upstream search backend timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet504Response"
+                },
+                "example": {
+                  "detail": "Field values request timed out"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/search/start-deep-search": {
       "post": {
         "tags": [
@@ -8180,7 +8588,7 @@
           "Search"
         ],
         "summary": "Get Search History Row Endpoint",
-        "description": "Return a single normalized search_history row scoped to the caller\u0027s\norg. SearchViewer reads \u0060\u0060response.search.{query,parsed_query,search_mode}\u0060\u0060\nto seed its hydration. Returns 404 (never 403) on cross-org IDs so the\nendpoint is not an existence oracle.",
+        "description": "Return a decrypted saved-search envelope to its owner or active team.\n\nReturns 404 (never 403) for inaccessible IDs so the endpoint is not an\nexistence oracle. \u0060\u0060parsed_query\u0060\u0060 includes durable replay metadata needed\nfor hydration, while server-only ranking metadata remains private.",
         "operationId": "GetSearchHistoryRowEndpointSearchHistorySearchIdGet",
         "parameters": [
           {
@@ -17422,6 +17830,53 @@
           }
         }
       },
+      "IdentityResolutionDiagnostics": {
+        "title": "IdentityResolutionDiagnostics",
+        "type": "object",
+        "properties": {
+          "exact_matches": {
+            "title": "Exact Matches",
+            "minimum": 0.0,
+            "type": "integer",
+            "default": 0
+          },
+          "similarity_matches": {
+            "title": "Similarity Matches",
+            "minimum": 0.0,
+            "type": "integer",
+            "default": 0
+          },
+          "dropped_below_threshold": {
+            "title": "Dropped Below Threshold",
+            "minimum": 0.0,
+            "type": "integer",
+            "default": 0
+          },
+          "ambiguous_matches": {
+            "title": "Ambiguous Matches",
+            "minimum": 0.0,
+            "type": "integer",
+            "default": 0
+          },
+          "duplicates_removed": {
+            "title": "Duplicates Removed",
+            "minimum": 0.0,
+            "type": "integer",
+            "default": 0
+          },
+          "average_confidence": {
+            "title": "Average Confidence",
+            "maximum": 1.0,
+            "exclusiveMaximum": false,
+            "minimum": 0.0,
+            "exclusiveMinimum": false,
+            "type": "number",
+            "description": "Average accepted heuristic similarity-match score; 1.0 for an exact-only cohort.",
+            "nullable": true
+          }
+        },
+        "description": "Aggregate identity-resolution outcomes without retaining seed PII."
+      },
       "InlineEntityIdsSource": {
         "title": "InlineEntityIdsSource",
         "required": [
@@ -17473,6 +17928,74 @@
           },
           "struct": {
             "$ref": "#/components/schemas/LinkedInEnrichRequestStruct"
+          }
+        }
+      },
+      "LookalikeSearchStatusResponse": {
+        "title": "LookalikeSearchStatusResponse",
+        "required": [
+          "task_id",
+          "status",
+          "start_time"
+        ],
+        "type": "object",
+        "properties": {
+          "task_id": {
+            "title": "Task Id",
+            "type": "string"
+          },
+          "status": {
+            "title": "Status",
+            "type": "string"
+          },
+          "start_time": {
+            "title": "Start Time",
+            "type": "string"
+          },
+          "close_time": {
+            "title": "Close Time",
+            "type": "string",
+            "nullable": true
+          },
+          "search_id": {
+            "title": "Search Id",
+            "type": "string",
+            "nullable": true
+          },
+          "current_phase": {
+            "title": "Current Phase",
+            "type": "integer",
+            "nullable": true
+          },
+          "progress_message": {
+            "title": "Progress Message",
+            "type": "string",
+            "nullable": true
+          },
+          "total_results": {
+            "title": "Total Results",
+            "type": "integer",
+            "nullable": true
+          },
+          "filters": {
+            "$ref": "#/components/schemas/LookalikeSearchStatusResponseFilters"
+          },
+          "analysis": {
+            "$ref": "#/components/schemas/LookalikeSearchStatusResponseAnalysis"
+          },
+          "seed_diagnostics": {
+            "$ref": "#/components/schemas/LookalikeSearchStatusResponseSeedDiagnostics"
+          },
+          "excluded_public_ids": {
+            "$ref": "#/components/schemas/LookalikeSearchStatusResponseExcludedPublicIds"
+          },
+          "warnings": {
+            "$ref": "#/components/schemas/LookalikeSearchStatusResponseWarnings"
+          },
+          "error": {
+            "title": "Error",
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -18274,6 +18797,61 @@
           }
         }
       },
+      "SeedDiagnostics": {
+        "title": "SeedDiagnostics",
+        "required": [
+          "seed_type",
+          "supplied",
+          "parsed",
+          "resolved",
+          "skipped",
+          "analyzed"
+        ],
+        "type": "object",
+        "properties": {
+          "seed_type": {
+            "$ref": "#/components/schemas/SeedDiagnosticsSeedType"
+          },
+          "supplied": {
+            "title": "Supplied",
+            "type": "integer"
+          },
+          "parsed": {
+            "title": "Parsed",
+            "type": "integer"
+          },
+          "resolved": {
+            "title": "Resolved",
+            "type": "integer"
+          },
+          "skipped": {
+            "title": "Skipped",
+            "type": "integer"
+          },
+          "analyzed": {
+            "title": "Analyzed",
+            "type": "integer"
+          },
+          "errors": {
+            "title": "Errors",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "warnings": {
+            "title": "Warnings",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "identity_resolution": {
+            "$ref": "#/components/schemas/IdentityResolutionDiagnostics"
+          }
+        },
+        "description": "Accounting for how an input seed set became analyzable profiles."
+      },
       "SetActiveViewerRequest": {
         "title": "SetActiveViewerRequest",
         "type": "object",
@@ -18513,6 +19091,67 @@
           }
         }
       },
+      "StartLookalikeSearchRequest": {
+        "title": "StartLookalikeSearchRequest",
+        "type": "object",
+        "properties": {
+          "csv_resource_handle_id": {
+            "title": "Csv Resource Handle Id",
+            "type": "string",
+            "description": "Resource handle returned by POST /storage/csv/upload.",
+            "nullable": true
+          },
+          "linkedin_urls": {
+            "$ref": "#/components/schemas/StartLookalikeSearchRequestLinkedinUrls"
+          },
+          "guidance": {
+            "title": "Guidance",
+            "maxLength": 2000,
+            "type": "string",
+            "description": "Optional natural-language guidance for cohort analysis.",
+            "nullable": true
+          },
+          "analysis_sample_size": {
+            "title": "Analysis Sample Size",
+            "maximum": 100.0,
+            "minimum": 1.0,
+            "type": "integer",
+            "description": "How many representative resolved profiles to analyze.",
+            "default": 100
+          }
+        },
+        "description": "Start a lookalike audience search from exactly one seed source."
+      },
+      "StartLookalikeSearchResponse": {
+        "title": "StartLookalikeSearchResponse",
+        "required": [
+          "task_id",
+          "search_id",
+          "status",
+          "seed_diagnostics"
+        ],
+        "type": "object",
+        "properties": {
+          "task_id": {
+            "title": "Task Id",
+            "type": "string",
+            "description": "Async task ID; poll GET /search/lookalike/{task_id}."
+          },
+          "search_id": {
+            "title": "Search Id",
+            "type": "string",
+            "description": "Canonical search-history ID."
+          },
+          "status": {
+            "title": "Status",
+            "type": "string",
+            "description": "Initial task status."
+          },
+          "seed_diagnostics": {
+            "$ref": "#/components/schemas/SeedDiagnostics"
+          }
+        }
+      },
       "StatusResponse": {
         "title": "StatusResponse",
         "required": [
@@ -18603,6 +19242,7 @@
           },
           "description": {
             "title": "Description",
+            "maxLength": 10000,
             "type": "string"
           },
           "type": {
@@ -19700,6 +20340,68 @@
           }
         ]
       },
+      "LookalikeSearchStatusResponseSeedDiagnostics": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/SeedDiagnostics"
+          },
+          {
+            "enum": [
+              null
+            ]
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "SeedDiagnostics": "#/components/schemas/SeedDiagnostics"
+          }
+        }
+      },
+      "LookalikeSearchStatusResponseExcludedPublicIds": {
+        "title": "Excluded Public Ids",
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "enum": [
+              null
+            ]
+          }
+        ]
+      },
+      "LookalikeSearchStatusResponseWarnings": {
+        "title": "Warnings",
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "enum": [
+              null
+            ]
+          }
+        ]
+      },
       "QaAgentRequestReferences": {
         "title": "References",
         "type": "object",
@@ -20120,6 +20822,26 @@
           }
         ]
       },
+      "StartLookalikeSearchRequestLinkedinUrls": {
+        "title": "Linkedin Urls",
+        "type": "object",
+        "anyOf": [
+          {
+            "maxItems": 1000,
+            "type": "array",
+            "items": {
+              "maxLength": 500,
+              "type": "string"
+            }
+          },
+          {
+            "enum": [
+              null
+            ]
+          }
+        ],
+        "description": "LinkedIn profile URLs to seed from (max 1,000)."
+      },
       "StructBuilderRequestExistingStruct": {
         "title": "Existing Struct",
         "type": "object",
@@ -20410,6 +21132,16 @@
         "title": "Struct",
         "type": "object",
         "description": "Mapping of output field name to natural-language description of what to extract.",
+        "nullable": true
+      },
+      "LookalikeSearchStatusResponseFilters": {
+        "title": "Filters",
+        "type": "object",
+        "nullable": true
+      },
+      "LookalikeSearchStatusResponseAnalysis": {
+        "title": "Analysis",
+        "type": "object",
         "nullable": true
       },
       "MountViewerRequestState": {
@@ -23135,6 +23867,182 @@
         }
       },
       "GetWorkflowWorkflowsWorkflowIdGet409Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "StartLookalikeSearchEndpointSearchLookalikePost400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "StartLookalikeSearchEndpointSearchLookalikePost401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "StartLookalikeSearchEndpointSearchLookalikePost403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "StartLookalikeSearchEndpointSearchLookalikePost500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "StartLookalikeSearchEndpointSearchLookalikePost402Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "StartLookalikeSearchEndpointSearchLookalikePost429Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "StartLookalikeSearchEndpointSearchLookalikePost404Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "StartLookalikeSearchEndpointSearchLookalikePost409Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "StartLookalikeSearchEndpointSearchLookalikePost502Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "StartLookalikeSearchEndpointSearchLookalikePost503Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "StartLookalikeSearchEndpointSearchLookalikePost504Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet402Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet429Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet404Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet409Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet502Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet503Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet504Response": {
         "type": "object",
         "properties": {
           "detail": {
@@ -27181,6 +28089,29 @@
             {
               "value": "workflow",
               "name": "Workflow"
+            }
+          ]
+        }
+      },
+      "SeedDiagnosticsSeedType": {
+        "title": "Seed Type",
+        "enum": [
+          "csv",
+          "linkedin_urls"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "SeedDiagnosticsSeedType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "csv",
+              "name": "Csv"
+            },
+            {
+              "value": "linkedin_urls",
+              "name": "LinkedinUrls"
             }
           ]
         }
