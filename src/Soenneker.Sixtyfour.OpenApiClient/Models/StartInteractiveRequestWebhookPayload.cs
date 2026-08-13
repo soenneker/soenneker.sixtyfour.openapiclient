@@ -7,36 +7,36 @@ using System.IO;
 using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
+    /// <summary>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestWebhookPayloadBranch1"/>, <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestWebhookPayloadMember1"/>, <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestWebhookPayloadMember2"/>
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class StartInteractiveRequestWebhookPayload : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class StartInteractiveRequestWebhookPayload : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Union discriminator</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestWebhookPayloadBranch1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Type { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestWebhookPayloadBranch1? StartInteractiveRequestWebhookPayloadBranch1 { get; set; }
 #nullable restore
 #else
-        public string Type { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestWebhookPayloadBranch1 StartInteractiveRequestWebhookPayloadBranch1 { get; set; }
 #endif
-        /// <summary>The value property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestWebhookPayloadMember1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestWebhookPayloadBranch1ValueItem>? Value { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestWebhookPayloadMember1? StartInteractiveRequestWebhookPayloadMember1 { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestWebhookPayloadBranch1ValueItem> Value { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestWebhookPayloadMember1 StartInteractiveRequestWebhookPayloadMember1 { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestWebhookPayload"/> and sets the default values.
-        /// </summary>
-        public StartInteractiveRequestWebhookPayload()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestWebhookPayloadMember2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestWebhookPayloadMember2? StartInteractiveRequestWebhookPayloadMember2 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestWebhookPayloadMember2 StartInteractiveRequestWebhookPayloadMember2 { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -45,7 +45,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public static global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestWebhookPayload CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestWebhookPayload();
+            var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestWebhookPayload();
+            result.StartInteractiveRequestWebhookPayloadBranch1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestWebhookPayloadBranch1();
+            result.StartInteractiveRequestWebhookPayloadMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestWebhookPayloadMember1();
+            result.StartInteractiveRequestWebhookPayloadMember2 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestWebhookPayloadMember2();
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -53,11 +57,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(StartInteractiveRequestWebhookPayloadBranch1 != null || StartInteractiveRequestWebhookPayloadMember1 != null || StartInteractiveRequestWebhookPayloadMember2 != null)
             {
-                { "type", n => { Type = n.GetStringValue(); } },
-                { "value", n => { Value = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestWebhookPayloadBranch1ValueItem>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestWebhookPayloadBranch1ValueItem.CreateFromDiscriminatorValue)?.AsList(); } },
-            };
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(StartInteractiveRequestWebhookPayloadBranch1, StartInteractiveRequestWebhookPayloadMember1, StartInteractiveRequestWebhookPayloadMember2);
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -66,9 +70,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("type", Type);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestWebhookPayloadBranch1ValueItem>("value", Value);
-            writer.WriteAdditionalData(AdditionalData);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInteractiveRequestWebhookPayloadBranch1>(null, StartInteractiveRequestWebhookPayloadBranch1, StartInteractiveRequestWebhookPayloadMember1, StartInteractiveRequestWebhookPayloadMember2);
         }
     }
 }

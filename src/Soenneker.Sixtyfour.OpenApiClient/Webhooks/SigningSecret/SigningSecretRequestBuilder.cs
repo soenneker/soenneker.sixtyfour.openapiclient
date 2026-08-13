@@ -73,7 +73,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret
         /// <summary>
         /// &quot;Return metadata for the org&apos;s active signing secret, or null if none exists.Never returns plaintext or raw bytes.This metadata read is intentionally available to any org member; create,roll, and delete remain admin-only because they return or invalidatesigning material.Args:    auth: Injected auth context.Returns:    Optional[SigningSecretMetaResponse]: Metadata, or null.&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseGetSigningSecretWebhooksSigningSecretGet"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SigningSecretMetaResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetSigningSecretWebhooksSigningSecretGet400Response">When receiving a 400 status code</exception>
@@ -83,11 +83,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetSigningSecretWebhooksSigningSecretGet500Response">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseGetSigningSecretWebhooksSigningSecretGet?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.SigningSecretMetaResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseGetSigningSecretWebhooksSigningSecretGet> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.SigningSecretMetaResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -99,7 +99,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Webhooks.SigningSecret
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetSigningSecretWebhooksSigningSecretGet500Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseGetSigningSecretWebhooksSigningSecretGet>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseGetSigningSecretWebhooksSigningSecretGet.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.SigningSecretMetaResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.SigningSecretMetaResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Mint a new signing secret for the org.The plaintext value is returned exactly once in this response.After this call, only the preview (``sk_whsec_••••…&lt;last4&gt;``) isever shown again. There is no reveal endpoint.Any existing active secret is revoked immediately before the new oneis inserted.  Use the ``/roll`` endpoint if you need an overlap window.Args:    auth: Injected auth context.Returns:    CreateSigningSecretResponse: Plaintext and metadata.&quot;

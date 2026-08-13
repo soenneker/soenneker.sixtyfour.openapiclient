@@ -29,10 +29,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>The existing_struct property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequestExistingStruct? ExistingStruct { get; set; }
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructField>? ExistingStruct { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequestExistingStruct ExistingStruct { get; set; }
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructField> ExistingStruct { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequest"/> and sets the default values.
@@ -63,7 +63,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "allow_nested", n => { AllowNested = n.GetBoolValue(); } },
                 { "block_type", n => { BlockType = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequestBlockType>(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "existing_struct", n => { ExistingStruct = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequestExistingStruct>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequestExistingStruct.CreateFromDiscriminatorValue); } },
+                { "existing_struct", n => { ExistingStruct = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructField>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StructField.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -76,7 +76,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteBoolValue("allow_nested", AllowNested);
             writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequestBlockType>("block_type", BlockType);
             writer.WriteStringValue("description", Description);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequestExistingStruct>("existing_struct", ExistingStruct);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructField>("existing_struct", ExistingStruct);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

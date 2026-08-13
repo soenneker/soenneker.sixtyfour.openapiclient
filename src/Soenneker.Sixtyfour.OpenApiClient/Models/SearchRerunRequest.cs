@@ -9,7 +9,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class ChatRequestSearchRerun : IAdditionalDataHolder, IParsable
+    public partial class SearchRerunRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -50,18 +50,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string SearchType { get; set; }
 #endif
-        /// <summary>Union discriminator</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatRequestSearchRerun"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRerunRequest"/> and sets the default values.
         /// </summary>
-        public ChatRequestSearchRerun()
+        public SearchRerunRequest()
         {
             AdditionalData = new Dictionary<string, object>();
             LocationExpansionEnabled = true;
@@ -71,12 +63,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatRequestSearchRerun"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRerunRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatRequestSearchRerun CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRerunRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.ChatRequestSearchRerun();
+            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRerunRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -92,7 +84,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "location_expansion_radius_miles", n => { LocationExpansionRadiusMiles = n.GetIntValue(); } },
                 { "search_id", n => { SearchId = n.GetStringValue(); } },
                 { "search_type", n => { SearchType = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -108,7 +99,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteIntValue("location_expansion_radius_miles", LocationExpansionRadiusMiles);
             writer.WriteStringValue("search_id", SearchId);
             writer.WriteStringValue("search_type", SearchType);
-            writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

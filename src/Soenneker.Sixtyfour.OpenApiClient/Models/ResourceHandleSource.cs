@@ -32,7 +32,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string ResourceHandleId { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ResourceHandleSource_type? Type { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Type { get; set; }
+#nullable restore
+#else
+        public string Type { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ResourceHandleSource"/> and sets the default values.
         /// </summary>
@@ -60,7 +66,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             {
                 { "id_column", n => { IdColumn = n.GetStringValue(); } },
                 { "resource_handle_id", n => { ResourceHandleId = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResourceHandleSource_type>(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -72,7 +78,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("id_column", IdColumn);
             writer.WriteStringValue("resource_handle_id", ResourceHandleId);
-            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResourceHandleSource_type>("type", Type);
+            writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

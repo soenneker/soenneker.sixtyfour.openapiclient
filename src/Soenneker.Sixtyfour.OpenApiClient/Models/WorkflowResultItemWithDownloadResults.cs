@@ -8,20 +8,27 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// Inline rows when the file is small enough to embed; otherwise null.
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownloadResultsMember2"/>, List&lt;global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownloadResultsMember1&gt;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class WorkflowResultItemWithDownloadResults : IAdditionalDataHolder, IParsable
+    public partial class WorkflowResultItemWithDownloadResults : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownloadResults"/> and sets the default values.
-        /// </summary>
-        public WorkflowResultItemWithDownloadResults()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
+        /// <summary>Composed type representation for type List&lt;global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownloadResultsMember1&gt;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownloadResultsMember1>? WorkflowResultItemWithDownloadResultsMember1 { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownloadResultsMember1> WorkflowResultItemWithDownloadResultsMember1 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownloadResultsMember2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownloadResultsMember2? WorkflowResultItemWithDownloadResultsMember2 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownloadResultsMember2 WorkflowResultItemWithDownloadResultsMember2 { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -30,7 +37,15 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public static global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownloadResults CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownloadResults();
+            var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownloadResults();
+            if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownloadResultsMember1>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownloadResultsMember1.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownloadResultsMember1> workflowResultItemWithDownloadResultsMember1Value)
+            {
+                result.WorkflowResultItemWithDownloadResultsMember1 = workflowResultItemWithDownloadResultsMember1Value;
+            }
+            else {
+                result.WorkflowResultItemWithDownloadResultsMember2 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownloadResultsMember2();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -38,9 +53,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(WorkflowResultItemWithDownloadResultsMember2 != null)
             {
-            };
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(WorkflowResultItemWithDownloadResultsMember2);
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -49,7 +66,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteAdditionalData(AdditionalData);
+            if(WorkflowResultItemWithDownloadResultsMember1 != null)
+            {
+                writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownloadResultsMember1>(null, WorkflowResultItemWithDownloadResultsMember1);
+            }
+            else {
+                writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownloadResultsMember2>(null, WorkflowResultItemWithDownloadResultsMember2);
+            }
         }
     }
 }

@@ -65,7 +65,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string LastUpdated { get; set; }
 #endif
-        /// <summary>Metrics for a block execution.</summary>
+        /// <summary>Per-block execution metrics.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockMetrics? Metrics { get; set; }

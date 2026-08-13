@@ -8,20 +8,27 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// Optional reference URLs the agent may use as evidence.
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestReferencesMember2"/>, List&lt;global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestReferencesMember1&gt;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class QaAgentRequestReferences : IAdditionalDataHolder, IParsable
+    public partial class QaAgentRequestReferences : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestReferences"/> and sets the default values.
-        /// </summary>
-        public QaAgentRequestReferences()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
+        /// <summary>Composed type representation for type List&lt;global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestReferencesMember1&gt;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestReferencesMember1>? QaAgentRequestReferencesMember1 { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestReferencesMember1> QaAgentRequestReferencesMember1 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestReferencesMember2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestReferencesMember2? QaAgentRequestReferencesMember2 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestReferencesMember2 QaAgentRequestReferencesMember2 { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -30,7 +37,15 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public static global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestReferences CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestReferences();
+            var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestReferences();
+            if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestReferencesMember1>(global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestReferencesMember1.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestReferencesMember1> qaAgentRequestReferencesMember1Value)
+            {
+                result.QaAgentRequestReferencesMember1 = qaAgentRequestReferencesMember1Value;
+            }
+            else {
+                result.QaAgentRequestReferencesMember2 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestReferencesMember2();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -38,9 +53,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(QaAgentRequestReferencesMember2 != null)
             {
-            };
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(QaAgentRequestReferencesMember2);
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -49,7 +66,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteAdditionalData(AdditionalData);
+            if(QaAgentRequestReferencesMember1 != null)
+            {
+                writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestReferencesMember1>(null, QaAgentRequestReferencesMember1);
+            }
+            else {
+                writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestReferencesMember2>(null, QaAgentRequestReferencesMember2);
+            }
         }
     }
 }

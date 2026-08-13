@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.4",
+  "openapi": "3.1.2",
   "info": {
     "title": "Sixtyfour API",
     "description": "Intelligence API for People and Entities. Deploy AI agents that investigate, resolve identities, map relationships, and surface risk signals",
@@ -34,8 +34,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -177,8 +179,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -320,8 +324,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -463,8 +469,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -606,8 +614,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -749,8 +759,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -892,8 +904,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -1035,8 +1049,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -1178,8 +1194,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -1321,8 +1339,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -1464,8 +1484,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -1607,8 +1629,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -1750,8 +1774,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -1893,8 +1919,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -2036,8 +2064,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -2179,8 +2209,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -2321,8 +2353,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -2463,8 +2497,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -2605,8 +2641,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -2747,8 +2785,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -2890,8 +2930,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -3033,8 +3075,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -3176,8 +3220,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -3319,8 +3365,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -3461,8 +3509,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -3604,8 +3654,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -3747,8 +3799,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -3889,8 +3943,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -4031,8 +4087,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -4191,8 +4249,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -4380,9 +4440,11 @@
             "in": "query",
             "schema": {
               "title": "Time Window",
-              "type": "integer",
-              "default": 3600,
-              "nullable": true
+              "type": [
+                "null",
+                "integer"
+              ],
+              "default": 3600
             }
           },
           {
@@ -4390,8 +4452,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -4524,8 +4588,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -4658,8 +4724,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -4810,9 +4878,11 @@
             "description": "Optional idempotency key for retry-safe bulk submissions.",
             "schema": {
               "title": "Idempotency-Key",
-              "type": "string",
-              "description": "Optional idempotency key for retry-safe bulk submissions.",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "Optional idempotency key for retry-safe bulk submissions."
             }
           },
           {
@@ -4820,8 +4890,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -4959,9 +5031,11 @@
             "description": "Optional idempotency key for retry-safe bulk submissions.",
             "schema": {
               "title": "Idempotency-Key",
-              "type": "string",
-              "description": "Optional idempotency key for retry-safe bulk submissions.",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "Optional idempotency key for retry-safe bulk submissions."
             }
           },
           {
@@ -4969,8 +5043,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -5099,8 +5175,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -5238,8 +5316,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -5368,8 +5448,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -5530,9 +5612,7 @@
                   }
                 },
                 {
-                  "enum": [
-                    null
-                  ]
+                  "type": "null"
                 }
               ],
               "description": "Result formats to save. Repeat the parameter for multiple values, e.g. result_formats=csv\u0026result_formats=ndjson."
@@ -5543,8 +5623,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -5694,8 +5776,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -5816,9 +5900,11 @@
             "description": "Filter by status or use \u0027active\u0027 for queued\u002Brunning",
             "schema": {
               "title": "Status",
-              "type": "string",
-              "description": "Filter by status or use \u0027active\u0027 for queued\u002Brunning",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "Filter by status or use \u0027active\u0027 for queued\u002Brunning"
             }
           },
           {
@@ -5827,9 +5913,11 @@
             "description": "Filter by specific workflow ID",
             "schema": {
               "title": "Workflow Id",
-              "type": "string",
-              "description": "Filter by specific workflow ID",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "Filter by specific workflow ID"
             }
           },
           {
@@ -5848,8 +5936,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -5979,8 +6069,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -6119,8 +6211,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -6240,8 +6334,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -6361,8 +6457,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -6492,8 +6590,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -6613,8 +6713,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -6835,8 +6937,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -7021,8 +7125,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -7225,8 +7331,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -7420,8 +7528,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -7617,8 +7727,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -7825,8 +7937,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -8011,8 +8125,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -8206,8 +8322,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -8401,8 +8519,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -8605,8 +8725,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -8791,8 +8913,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -8986,8 +9110,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -9181,8 +9307,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -9283,8 +9411,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -9387,8 +9517,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -9489,8 +9621,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -9583,8 +9717,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -9686,8 +9822,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -9789,8 +9927,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -9901,8 +10041,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -9995,8 +10137,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -10098,8 +10242,10 @@
             "in": "query",
             "schema": {
               "title": "Cursor",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           },
           {
@@ -10107,8 +10253,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -10210,8 +10358,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -10311,8 +10461,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -10421,8 +10573,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -10524,8 +10678,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -10627,8 +10783,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -10721,8 +10879,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -10813,8 +10973,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -10917,8 +11079,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -11020,8 +11184,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -11123,8 +11289,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -11244,8 +11412,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -11354,8 +11524,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -11466,8 +11638,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -11579,8 +11753,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -11848,8 +12024,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -11949,8 +12127,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -12052,8 +12232,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -12153,8 +12335,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -12263,8 +12447,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -12366,8 +12552,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -12476,8 +12664,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -12588,8 +12778,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -12691,8 +12883,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -12786,8 +12980,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -12899,8 +13095,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -13012,8 +13210,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -13116,8 +13316,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -13231,8 +13433,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -13335,8 +13539,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -13439,8 +13645,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -13543,8 +13751,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -13656,8 +13866,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -13751,8 +13963,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -13855,8 +14069,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -13948,8 +14164,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -14041,8 +14259,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -14126,8 +14346,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -14230,8 +14452,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -14332,8 +14556,10 @@
             "in": "query",
             "schema": {
               "title": "Workflow Id",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           },
           {
@@ -14341,8 +14567,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -14436,8 +14664,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -14540,8 +14770,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -14644,8 +14876,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -14746,8 +14980,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -14857,8 +15093,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -14952,8 +15190,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -15065,8 +15305,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -15159,8 +15401,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -15253,8 +15497,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -15354,8 +15600,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -15438,8 +15686,10 @@
             "in": "header",
             "schema": {
               "title": "X-Api-Key",
-              "type": "string",
-              "nullable": true
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         ],
@@ -15575,13 +15825,17 @@
           },
           "block_id": {
             "title": "Block Id",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "error": {
             "title": "Error",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           }
         }
       },
@@ -15596,8 +15850,10 @@
           },
           "custom_prompt": {
             "title": "Custom Prompt",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           }
         }
       },
@@ -15627,51 +15883,67 @@
           },
           "current_phase": {
             "title": "Current Phase",
-            "type": "integer",
-            "description": "Current pipeline phase index.",
-            "nullable": true
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Current pipeline phase index."
           },
           "progress_message": {
             "title": "Progress Message",
-            "type": "string",
-            "description": "Human-readable progress message.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Human-readable progress message."
           },
           "close_time": {
             "title": "Close Time",
-            "type": "string",
-            "description": "Timestamp when the task finished.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Timestamp when the task finished."
           },
           "resource_handle_id": {
             "title": "Resource Handle Id",
-            "type": "string",
-            "description": "Handle for downloading exported results.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Handle for downloading exported results."
           },
           "total_results": {
             "title": "Total Results",
-            "type": "integer",
-            "description": "Total results found.",
-            "nullable": true
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Total results found."
           },
           "exported_count": {
             "title": "Exported Count",
-            "type": "integer",
-            "description": "Number of results actually exported.",
-            "nullable": true
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Number of results actually exported."
           },
           "error": {
             "title": "Error",
-            "type": "string",
-            "description": "Error message if the operation failed.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Error message if the operation failed."
           },
           "search_id": {
             "title": "Search Id",
-            "type": "string",
-            "description": "Search history ID returned by a previous search. Replays only the query shape; pass exclusions again on this request if they should apply.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Search history ID returned by a previous search. Replays only the query shape; pass exclusions again on this request if they should apply."
           },
           "iterations": {
             "$ref": "#/components/schemas/AgenticSearchStatusResponseIterations"
@@ -15702,8 +15974,10 @@
           },
           "reason": {
             "title": "Reason",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "answers": {
             "$ref": "#/components/schemas/ApprovalRequestAnswers"
@@ -15724,22 +15998,10 @@
             "description": "Async job ID. Poll GET /job-status/{task_id} for status and results."
           },
           "status": {
+            "const": "RUNNING",
             "title": "Status",
-            "enum": [
-              "RUNNING"
-            ],
             "type": "string",
-            "description": "Initial job status.",
-            "x-ms-enum": {
-              "name": "Status",
-              "modelAsString": false,
-              "values": [
-                {
-                  "value": "RUNNING",
-                  "name": "Running"
-                }
-              ]
-            }
+            "description": "Initial job status."
           }
         },
         "example": {
@@ -15777,9 +16039,11 @@
           },
           "block_id": {
             "title": "Block Id",
-            "type": "string",
-            "description": "Stable block identifier; non-UUID values are normalized server-side.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Stable block identifier; non-UUID values are normalized server-side."
           }
         },
         "description": "A single step inside a workflow."
@@ -15816,9 +16080,11 @@
         "properties": {
           "block_id": {
             "title": "Block Id",
-            "type": "string",
-            "description": "Block identifier within the workflow.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Block identifier within the workflow."
           },
           "block_name": {
             "title": "Block Name",
@@ -15840,15 +16106,19 @@
           },
           "started_at": {
             "title": "Started At",
-            "type": "string",
-            "description": "Timestamp when execution started.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Timestamp when execution started."
           },
           "completed_at": {
             "title": "Completed At",
-            "type": "string",
-            "description": "Timestamp when execution finished.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Timestamp when execution finished."
           },
           "progress_percentage": {
             "title": "Progress Percentage",
@@ -15858,9 +16128,11 @@
           },
           "current_step": {
             "title": "Current Step",
-            "type": "string",
-            "description": "Human-readable description of the current sub-step.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Human-readable description of the current sub-step."
           },
           "processed_count": {
             "title": "Processed Count",
@@ -15876,9 +16148,11 @@
           },
           "estimated_total_count": {
             "title": "Estimated Total Count",
-            "type": "integer",
-            "description": "Estimated total when an exact count isn\u0027t yet known.",
-            "nullable": true
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Estimated total when an exact count isn\u0027t yet known."
           },
           "last_updated": {
             "title": "Last Updated",
@@ -15887,11 +16161,14 @@
           },
           "error_message": {
             "title": "Error Message",
-            "type": "string",
-            "description": "Error message if the operation failed.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Error message if the operation failed."
           },
           "metrics": {
+            "description": "Per-block execution metrics.",
             "$ref": "#/components/schemas/BlockMetrics"
           }
         },
@@ -15915,15 +16192,19 @@
           },
           "processed_count": {
             "title": "Processed Count",
-            "type": "integer",
-            "description": "Number of items processed so far.",
-            "nullable": true
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Number of items processed so far."
           },
           "total_count": {
             "title": "Total Count",
-            "type": "integer",
-            "description": "Total number of items to process.",
-            "nullable": true
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Total number of items to process."
           }
         },
         "description": "Metrics for a block execution."
@@ -15979,8 +16260,10 @@
           },
           "scope": {
             "title": "Scope",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           }
         }
       },
@@ -15993,17 +16276,14 @@
         "type": "object",
         "properties": {
           "file": {
+            "contentMediaType": "application/octet-stream",
             "title": "File",
             "type": "string",
-            "description": "CSV, JSON, JSONL, or NDJSON file (max 100 MB / 100,000 rows).",
-            "x-jsonschema-contentMediaType": "application/octet-stream"
+            "description": "CSV, JSON, JSONL, or NDJSON file (max 100 MB / 100,000 rows)."
           },
           "config": {
-            "title": "Config",
-            "type": "string",
-            "description": "JSON-encoded company enrichment config (CompanyBulkIntelligenceConfig schema; max 300000 characters).",
-            "x-jsonschema-contentMediaType": "application/json",
-            "x-jsonschema-contentSchema": {
+            "contentMediaType": "application/json",
+            "contentSchema": {
               "title": "CompanyBulkIntelligenceConfig",
               "required": [
                 "struct"
@@ -16028,9 +16308,7 @@
                       "type": "string"
                     },
                     {
-                      "enum": [
-                        null
-                      ]
+                      "type": "null"
                     }
                   ],
                   "description": "Natural-language description of which people to surface when find_people=true.",
@@ -16043,9 +16321,7 @@
                       "type": "object"
                     },
                     {
-                      "enum": [
-                        null
-                      ]
+                      "type": "null"
                     }
                   ],
                   "description": "Output schema for each discovered person when find_people=true.",
@@ -16058,9 +16334,7 @@
                       "type": "string"
                     },
                     {
-                      "enum": [
-                        null
-                      ]
+                      "type": "null"
                     }
                   ],
                   "description": "Optional natural-language plan that guides the research agent.",
@@ -16101,9 +16375,7 @@
                       }
                     },
                     {
-                      "enum": [
-                        null
-                      ]
+                      "type": "null"
                     }
                   ],
                   "description": "Quality and cost tier for the research agent.",
@@ -16125,9 +16397,7 @@
                       "format": "uri"
                     },
                     {
-                      "enum": [
-                        null
-                      ]
+                      "type": "null"
                     }
                   ],
                   "description": "Optional HTTPS webhook URL for completed results.",
@@ -16140,9 +16410,7 @@
                       "type": "boolean"
                     },
                     {
-                      "enum": [
-                        null
-                      ]
+                      "type": "null"
                     }
                   ],
                   "description": "If true, return confidence scores for each requested output field.",
@@ -16158,9 +16426,7 @@
                       }
                     },
                     {
-                      "enum": [
-                        null
-                      ]
+                      "type": "null"
                     }
                   ],
                   "description": "Optional subset of uploaded columns to feed into the source block.",
@@ -16176,9 +16442,7 @@
                       }
                     },
                     {
-                      "enum": [
-                        null
-                      ]
+                      "type": "null"
                     }
                   ],
                   "description": "Optional saved result formats.",
@@ -16193,7 +16457,10 @@
               },
               "additionalProperties": false,
               "description": "JSON config for POST /bulk-intelligence/company."
-            }
+            },
+            "title": "Config",
+            "type": "string",
+            "description": "JSON-encoded company enrichment config (CompanyBulkIntelligenceConfig schema; max 300000 characters)."
           }
         }
       },
@@ -16206,17 +16473,14 @@
         "type": "object",
         "properties": {
           "file": {
+            "contentMediaType": "application/octet-stream",
             "title": "File",
             "type": "string",
-            "description": "CSV, JSON, JSONL, or NDJSON file (max 100 MB / 100,000 rows).",
-            "x-jsonschema-contentMediaType": "application/octet-stream"
+            "description": "CSV, JSON, JSONL, or NDJSON file (max 100 MB / 100,000 rows)."
           },
           "config": {
-            "title": "Config",
-            "type": "string",
-            "description": "JSON-encoded people enrichment config (PeopleBulkIntelligenceConfig schema; max 300000 characters).",
-            "x-jsonschema-contentMediaType": "application/json",
-            "x-jsonschema-contentSchema": {
+            "contentMediaType": "application/json",
+            "contentSchema": {
               "title": "PeopleBulkIntelligenceConfig",
               "type": "object",
               "properties": {
@@ -16227,9 +16491,7 @@
                       "type": "object"
                     },
                     {
-                      "enum": [
-                        null
-                      ]
+                      "type": "null"
                     }
                   ],
                   "description": "Mapping of output field name to natural-language description of what to extract.",
@@ -16242,9 +16504,7 @@
                       "type": "string"
                     },
                     {
-                      "enum": [
-                        null
-                      ]
+                      "type": "null"
                     }
                   ],
                   "description": "Optional natural-language plan that guides the research agent.",
@@ -16295,9 +16555,7 @@
                       }
                     },
                     {
-                      "enum": [
-                        null
-                      ]
+                      "type": "null"
                     }
                   ],
                   "description": "Quality and cost tier for the research agent.",
@@ -16313,9 +16571,7 @@
                       "format": "uri"
                     },
                     {
-                      "enum": [
-                        null
-                      ]
+                      "type": "null"
                     }
                   ],
                   "description": "Optional HTTPS webhook URL for completed results.",
@@ -16328,9 +16584,7 @@
                       "type": "boolean"
                     },
                     {
-                      "enum": [
-                        null
-                      ]
+                      "type": "null"
                     }
                   ],
                   "description": "If true, return confidence scores for each requested output field.",
@@ -16346,9 +16600,7 @@
                       }
                     },
                     {
-                      "enum": [
-                        null
-                      ]
+                      "type": "null"
                     }
                   ],
                   "description": "Optional subset of uploaded columns to feed into the source block.",
@@ -16364,9 +16616,7 @@
                       }
                     },
                     {
-                      "enum": [
-                        null
-                      ]
+                      "type": "null"
                     }
                   ],
                   "description": "Optional saved result formats.",
@@ -16381,7 +16631,10 @@
               },
               "additionalProperties": false,
               "description": "JSON config for POST /bulk-intelligence/people."
-            }
+            },
+            "title": "Config",
+            "type": "string",
+            "description": "JSON-encoded people enrichment config (PeopleBulkIntelligenceConfig schema; max 300000 characters)."
           }
         }
       },
@@ -16405,27 +16658,35 @@
           },
           "row_count": {
             "title": "Row Count",
-            "type": "integer",
-            "description": "Number of parsed input rows; omitted on idempotent replays.",
-            "nullable": true
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Number of parsed input rows; omitted on idempotent replays."
           },
           "estimated_cost_cents": {
             "title": "Estimated Cost Cents",
-            "type": "integer",
-            "description": "\u0022Estimated job cost in cents (rows \u00D7 per-row tier price). A floor: options like find_people can bill more. Omitted on idempotent replays. Returned when cost_units=cents.\u0022",
-            "nullable": true
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "\u0022Estimated job cost in cents (rows \u00D7 per-row tier price). A floor: options like find_people can bill more. Omitted on idempotent replays. Returned when cost_units=cents.\u0022"
           },
           "estimated_cost_credits": {
             "title": "Estimated Cost Credits",
-            "type": "number",
-            "description": "Estimated job cost in credits. Returned when cost_units=credits.",
-            "nullable": true
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Estimated job cost in credits. Returned when cost_units=credits."
           },
           "already_started": {
             "title": "Already Started",
-            "type": "boolean",
-            "description": "True when the request was deduplicated via Idempotency-Key header.",
-            "nullable": true
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "True when the request was deduplicated via Idempotency-Key header."
           }
         },
         "description": "Response when a bulk intelligence job is started."
@@ -16436,9 +16697,11 @@
         "properties": {
           "job_id": {
             "title": "Job Id",
-            "type": "string",
-            "description": "Run job_id to cancel",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Run job_id to cancel"
           }
         },
         "description": "JSON body for POST /workflows/cancel; job_id may also come from the query param."
@@ -16484,19 +16747,25 @@
           },
           "timezone": {
             "title": "Timezone",
-            "type": "string",
-            "default": "UTC",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "default": "UTC"
           },
           "workflow_id": {
             "title": "Workflow Id",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "workspace_id": {
             "title": "Workspace Id",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "page_context": {
             "$ref": "#/components/schemas/ChatRequestPageContext"
@@ -16528,8 +16797,10 @@
           },
           "workspace_id": {
             "title": "Workspace Id",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "messages": {
             "title": "Messages",
@@ -16570,18 +16841,24 @@
           },
           "workflow_id": {
             "title": "Workflow Id",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "workspace_id": {
             "title": "Workspace Id",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "started_at": {
             "title": "Started At",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "has_unread": {
             "title": "Has Unread",
@@ -16654,6 +16931,44 @@
         }
       },
       "CreateExclusionListRequest": {
+        "examples": [
+          {
+            "name": "Existing customers",
+            "source": {
+              "id_column": "linkedin_url",
+              "resource_handle_id": "8f14e45f-...",
+              "type": "resource_handle"
+            }
+          },
+          {
+            "name": "Do not contact",
+            "source": {
+              "entity_ids": [
+                "john-doe-123"
+              ],
+              "type": "entity_ids"
+            }
+          },
+          {
+            "entity_type": "company",
+            "name": "Existing customer companies",
+            "source": {
+              "entity_ids": [
+                "1441",
+                "linkedin.com/company/openai",
+                "stripe.com"
+              ],
+              "type": "entity_ids"
+            }
+          },
+          {
+            "source": {
+              "max_results": 250000,
+              "search_id": "a1b2c3d4-...",
+              "type": "search_id"
+            }
+          }
+        ],
         "title": "CreateExclusionListRequest",
         "required": [
           "source"
@@ -16664,9 +16979,11 @@
             "title": "Name",
             "maxLength": 120,
             "minLength": 1,
-            "type": "string",
-            "description": "Required unless source.type is \u0027search_id\u0027 (defaults to a date-stamped name).",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Required unless source.type is \u0027search_id\u0027 (defaults to a date-stamped name)."
           },
           "entity_type": {
             "$ref": "#/components/schemas/CreateExclusionListRequestEntityType"
@@ -16711,8 +17028,10 @@
           },
           "jwks_uri": {
             "title": "Jwks Uri",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           }
         }
       },
@@ -16749,8 +17068,10 @@
           },
           "description": {
             "title": "Description",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "is_active": {
             "title": "Is Active",
@@ -16765,13 +17086,17 @@
         "properties": {
           "workflow_id": {
             "title": "Workflow Id",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "workspace_id": {
             "title": "Workspace Id",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           }
         }
       },
@@ -16793,13 +17118,17 @@
           },
           "workflow_id": {
             "title": "Workflow Id",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "workspace_id": {
             "title": "Workspace Id",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           }
         }
       },
@@ -16840,13 +17169,16 @@
             "description": "Human-readable workflow description."
           },
           "workflow_definition": {
+            "description": "Workflow definition as a graph of blocks and edges.",
             "$ref": "#/components/schemas/WorkflowGraph"
           },
           "id": {
             "title": "Id",
-            "type": "string",
-            "description": "Optional pre-generated workflow ID supplied by the client.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional pre-generated workflow ID supplied by the client."
           }
         }
       },
@@ -16856,18 +17188,24 @@
         "properties": {
           "api_key_id": {
             "title": "Api Key Id",
-            "type": "integer",
-            "nullable": true
+            "type": [
+              "null",
+              "integer"
+            ]
           },
           "created_by": {
             "title": "Created By",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "team_id": {
             "title": "Team Id",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           }
         },
         "description": "Pause every active schedule bound to a revoked principal. Exactly one of\napi_key_id (key revoked) or created_by (user offboarded) is provided.\ncreated_by \u002B team_id narrows to one team (member removed from a\nteam while remaining in the org)."
@@ -16918,18 +17256,22 @@
           },
           "people_focus_prompt": {
             "title": "People Focus Prompt",
-            "type": "string",
-            "description": "Natural-language description of which people to surface when find_people=true.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Natural-language description of which people to surface when find_people=true."
           },
           "lead_struct": {
             "$ref": "#/components/schemas/EnrichCompanyInfoLeadStruct"
           },
           "research_plan": {
             "title": "Research Plan",
-            "type": "string",
-            "description": "Optional natural-language plan that guides the research agent.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional natural-language plan that guides the research agent."
           },
           "tier": {
             "$ref": "#/components/schemas/EnrichCompanyInfoTier"
@@ -16944,16 +17286,20 @@
             "title": "Webhook Url",
             "maxLength": 2083,
             "minLength": 1,
-            "type": "string",
+            "type": [
+              "null",
+              "string"
+            ],
             "description": "HTTPS URL that receives the result payload when the async job completes.",
-            "format": "uri",
-            "nullable": true
+            "format": "uri"
           },
           "field_confidence": {
             "title": "Field Confidence",
-            "type": "boolean",
-            "description": "If true, return confidence scores for each requested output field.",
-            "nullable": true
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "If true, return confidence scores for each requested output field."
           },
           "target_company": {
             "$ref": "#/components/schemas/EnrichCompanyInfoTargetCompanyProperty"
@@ -16972,9 +17318,11 @@
           },
           "research_plan": {
             "title": "Research Plan",
-            "type": "string",
-            "description": "Optional natural-language plan that guides the research agent.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional natural-language plan that guides the research agent."
           },
           "tier": {
             "$ref": "#/components/schemas/EnrichLeadInfoTier"
@@ -16983,16 +17331,20 @@
             "title": "Webhook Url",
             "maxLength": 2083,
             "minLength": 1,
-            "type": "string",
+            "type": [
+              "null",
+              "string"
+            ],
             "description": "HTTPS URL that receives the result payload when the async job completes.",
-            "format": "uri",
-            "nullable": true
+            "format": "uri"
           },
           "field_confidence": {
             "title": "Field Confidence",
-            "type": "boolean",
-            "description": "If true, return confidence scores for each requested output field.",
-            "nullable": true
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "If true, return confidence scores for each requested output field."
           },
           "lead_info": {
             "$ref": "#/components/schemas/EnrichLeadInfoLeadInfoProperty"
@@ -17031,9 +17383,11 @@
           },
           "size": {
             "title": "Size",
-            "type": "integer",
-            "description": "Unique member count once ready.",
-            "nullable": true
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Unique member count once ready."
           },
           "source_type": {
             "title": "Source Type",
@@ -17041,25 +17395,33 @@
           },
           "source_total_available": {
             "title": "Source Total Available",
-            "type": "integer",
-            "description": "\u0022For search_id sources: the search\u0027s full match count \u2014 larger than \u0060size\u0060 when the capture was capped by max_results.\u0022",
-            "nullable": true
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "\u0022For search_id sources: the search\u0027s full match count \u2014 larger than \u0060size\u0060 when the capture was capped by max_results.\u0022"
           },
           "id_column": {
             "title": "Id Column",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "unresolved_count": {
             "title": "Unresolved Count",
-            "type": "integer",
-            "description": "\u0022Company lists: input values dropped because they resolved to no or multiple companies.\u0022",
-            "nullable": true
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "\u0022Company lists: input values dropped because they resolved to no or multiple companies.\u0022"
           },
           "error_message": {
             "title": "Error Message",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "created_at": {
             "title": "Created At",
@@ -17097,9 +17459,11 @@
           },
           "nested_path": {
             "title": "Nested Path",
-            "type": "string",
-            "description": "Nested path, if any.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Nested path, if any."
           },
           "queryable": {
             "title": "Queryable",
@@ -17118,15 +17482,19 @@
           },
           "sort_field": {
             "title": "Sort Field",
-            "type": "string",
-            "description": "Sort target when it differs from field (e.g. text fields sort via .keyword).",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Sort target when it differs from field (e.g. text fields sort via .keyword)."
           },
           "aggregation_field": {
             "title": "Aggregation Field",
-            "type": "string",
-            "description": "Field used for terms aggregation when supports_top_values is true.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Field used for terms aggregation when supports_top_values is true."
           },
           "value_type": {
             "title": "Value Type",
@@ -17219,15 +17587,19 @@
           },
           "aggregation_field": {
             "title": "Aggregation Field",
-            "type": "string",
-            "description": "Underlying field used for the terms aggregation.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Underlying field used for the terms aggregation."
           },
           "nested_path": {
             "title": "Nested Path",
-            "type": "string",
-            "description": "Nested path, if any.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Nested path, if any."
           },
           "value_type": {
             "title": "Value Type",
@@ -17265,9 +17637,11 @@
           },
           "request_duration_ms": {
             "title": "Request Duration Ms",
-            "type": "integer",
-            "description": "Server-side request duration in milliseconds.",
-            "nullable": true
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Server-side request duration in milliseconds."
           },
           "values": {
             "title": "Values",
@@ -17344,6 +17718,7 @@
             "description": "Allowed nested.path values for nested query clauses."
           },
           "limits": {
+            "description": "Constraint values for guarded DSL validation.",
             "$ref": "#/components/schemas/FilterSearchLimits"
           },
           "cache_ttl_seconds": {
@@ -17358,9 +17733,11 @@
           },
           "mapping_hash": {
             "title": "Mapping Hash",
-            "type": "string",
-            "description": "Hash of mapping metadata used to derive this capability snapshot.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Hash of mapping metadata used to derive this capability snapshot."
           },
           "simple_query_operators": {
             "$ref": "#/components/schemas/FilterSearchCapabilitiesResponseSimpleQueryOperators"
@@ -17416,9 +17793,11 @@
         "properties": {
           "search_id": {
             "title": "Search Id",
-            "type": "string",
-            "description": "Search history ID returned by a previous search. Replays only the query shape; pass exclusions again on this request if they should apply.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Search history ID returned by a previous search. Replays only the query shape; pass exclusions again on this request if they should apply."
           },
           "resource_handle_id": {
             "title": "Resource Handle Id",
@@ -17427,33 +17806,43 @@
           },
           "csv_download_url": {
             "title": "Csv Download Url",
-            "type": "string",
-            "description": "Signed URL to download results as CSV.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Signed URL to download results as CSV."
           },
           "json_download_url": {
             "title": "Json Download Url",
-            "type": "string",
-            "description": "Signed URL to download results as JSON.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Signed URL to download results as JSON."
           },
           "next_cursor": {
             "title": "Next Cursor",
-            "type": "string",
-            "description": "Cursor to fetch the next page; null when exhausted.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Cursor to fetch the next page; null when exhausted."
           },
           "cursor_expires_in_seconds": {
             "title": "Cursor Expires In Seconds",
-            "type": "integer",
-            "description": "Seconds until \u0060next_cursor\u0060 expires.",
-            "nullable": true
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Seconds until \u0060next_cursor\u0060 expires."
           },
           "request_duration_ms": {
             "title": "Request Duration Ms",
-            "type": "integer",
-            "description": "Server-side request duration in milliseconds.",
-            "nullable": true
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Server-side request duration in milliseconds."
           },
           "has_more": {
             "title": "Has More",
@@ -17463,45 +17852,59 @@
           },
           "page_size": {
             "title": "Page Size",
-            "type": "integer",
-            "description": "Maximum number of results per page (1-100). Pages may contain fewer rows while more results remain (e.g. with exclusion filtering); rely on \u0060has_more\u0060/\u0060next_cursor\u0060, never on page fullness.",
-            "nullable": true
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Maximum number of results per page (1-100). Pages may contain fewer rows while more results remain (e.g. with exclusion filtering); rely on \u0060has_more\u0060/\u0060next_cursor\u0060, never on page fullness."
           },
           "page_count": {
             "title": "Page Count",
-            "type": "integer",
-            "description": "Number of results in this response page. May be less than \u0060page_size\u0060 (down to 0) while \u0060has_more\u0060 is true, e.g. when exclusion filtering is active.",
-            "nullable": true
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Number of results in this response page. May be less than \u0060page_size\u0060 (down to 0) while \u0060has_more\u0060 is true, e.g. when exclusion filtering is active."
           },
           "page_number": {
             "title": "Page Number",
-            "type": "integer",
-            "description": "1-based page number (company pagination).",
-            "nullable": true
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "1-based page number (company pagination)."
           },
           "total_pages": {
             "title": "Total Pages",
-            "type": "integer",
-            "description": "Final total page count; omitted while \u0060has_more\u0060 is true.",
-            "nullable": true
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Final total page count; omitted while \u0060has_more\u0060 is true."
           },
           "max_pages": {
             "title": "Max Pages",
-            "type": "integer",
-            "description": "Upper bound on pages based on max_results and page_size.",
-            "nullable": true
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Upper bound on pages based on max_results and page_size."
           },
           "remaining_results": {
             "title": "Remaining Results",
-            "type": "integer",
-            "description": "Rows still available under max_results after this page.",
-            "nullable": true
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Rows still available under max_results after this page."
           },
           "download_expires_in_seconds": {
             "title": "Download Expires In Seconds",
-            "type": "integer",
-            "description": "Seconds until the download URLs expire.",
-            "nullable": true
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Seconds until the download URLs expire."
           },
           "total_results": {
             "title": "Total Results",
@@ -17510,9 +17913,11 @@
           },
           "total_available": {
             "title": "Total Available",
-            "type": "integer",
-            "description": "\u0022Total OpenSearch matches across pages (capped at 50000); people-mode only. Pre-exclusion: exclusion filtering does not reduce this count.\u0022",
-            "nullable": true
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "\u0022Total OpenSearch matches across pages (capped at 50000); people-mode only. Pre-exclusion: exclusion filtering does not reduce this count.\u0022"
           },
           "exported_count": {
             "title": "Exported Count",
@@ -17533,9 +17938,11 @@
           },
           "natural_language_query": {
             "title": "Natural Language Query",
-            "type": "string",
-            "description": "Original natural-language query echoed verbatim, if any.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Original natural-language query echoed verbatim, if any."
           },
           "company_filter_truncated": {
             "$ref": "#/components/schemas/FilterSearchResponseCompanyFilterTruncated"
@@ -17574,10 +17981,12 @@
             "title": "Webhook Url",
             "maxLength": 2083,
             "minLength": 1,
-            "type": "string",
+            "type": [
+              "null",
+              "string"
+            ],
             "description": "HTTPS URL that receives the result payload when the async job completes.",
-            "format": "uri",
-            "nullable": true
+            "format": "uri"
           }
         }
       },
@@ -17607,10 +18016,12 @@
             "title": "Webhook Url",
             "maxLength": 2083,
             "minLength": 1,
-            "type": "string",
+            "type": [
+              "null",
+              "string"
+            ],
             "description": "HTTPS URL that receives the result payload when the async job completes.",
-            "format": "uri",
-            "nullable": true
+            "format": "uri"
           }
         }
       },
@@ -17643,9 +18054,11 @@
             "title": "Webhook Url",
             "maxLength": 2083,
             "minLength": 1,
-            "type": "string",
-            "format": "uri",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uri"
           }
         }
       },
@@ -17674,9 +18087,11 @@
             "title": "Webhook Url",
             "maxLength": 2083,
             "minLength": 1,
-            "type": "string",
-            "format": "uri",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uri"
           }
         }
       },
@@ -17702,10 +18117,12 @@
             "title": "Webhook Url",
             "maxLength": 2083,
             "minLength": 1,
-            "type": "string",
+            "type": [
+              "null",
+              "string"
+            ],
             "description": "HTTPS URL that receives the result payload when the async job completes.",
-            "format": "uri",
-            "nullable": true
+            "format": "uri"
           }
         }
       },
@@ -17726,10 +18143,12 @@
             "title": "Webhook Url",
             "maxLength": 2083,
             "minLength": 1,
-            "type": "string",
+            "type": [
+              "null",
+              "string"
+            ],
             "description": "HTTPS URL that receives the result payload when the async job completes.",
-            "format": "uri",
-            "nullable": true
+            "format": "uri"
           }
         }
       },
@@ -17754,9 +18173,11 @@
             "title": "Webhook Url",
             "maxLength": 2083,
             "minLength": 1,
-            "type": "string",
-            "format": "uri",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uri"
           }
         }
       },
@@ -17777,9 +18198,11 @@
             "title": "Webhook Url",
             "maxLength": 2083,
             "minLength": 1,
-            "type": "string",
-            "format": "uri",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uri"
           }
         }
       },
@@ -17824,9 +18247,11 @@
           },
           "include_fresh": {
             "title": "Include Fresh",
-            "type": "boolean",
-            "default": false,
-            "nullable": true
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "default": false
           }
         }
       },
@@ -17867,12 +18292,12 @@
           "average_confidence": {
             "title": "Average Confidence",
             "maximum": 1.0,
-            "exclusiveMaximum": false,
             "minimum": 0.0,
-            "exclusiveMinimum": false,
-            "type": "number",
-            "description": "Average accepted heuristic similarity-match score; 1.0 for an exact-only cohort.",
-            "nullable": true
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Average accepted heuristic similarity-match score; 1.0 for an exact-only cohort."
           }
         },
         "description": "Aggregate identity-resolution outcomes without retaining seed PII."
@@ -17886,21 +18311,9 @@
         "type": "object",
         "properties": {
           "type": {
+            "const": "entity_ids",
             "title": "Type",
-            "enum": [
-              "entity_ids"
-            ],
-            "type": "string",
-            "x-ms-enum": {
-              "name": "Type",
-              "modelAsString": false,
-              "values": [
-                {
-                  "value": "entity_ids",
-                  "name": "EntityIds"
-                }
-              ]
-            }
+            "type": "string"
           },
           "entity_ids": {
             "title": "Entity Ids",
@@ -17954,28 +18367,38 @@
           },
           "close_time": {
             "title": "Close Time",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "search_id": {
             "title": "Search Id",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "current_phase": {
             "title": "Current Phase",
-            "type": "integer",
-            "nullable": true
+            "type": [
+              "null",
+              "integer"
+            ]
           },
           "progress_message": {
             "title": "Progress Message",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "total_results": {
             "title": "Total Results",
-            "type": "integer",
-            "nullable": true
+            "type": [
+              "null",
+              "integer"
+            ]
           },
           "filters": {
             "$ref": "#/components/schemas/LookalikeSearchStatusResponseFilters"
@@ -17994,8 +18417,10 @@
           },
           "error": {
             "title": "Error",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           }
         }
       },
@@ -18018,8 +18443,10 @@
           "title": {
             "title": "Title",
             "maxLength": 200,
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "state": {
             "$ref": "#/components/schemas/MountViewerRequestState"
@@ -18058,8 +18485,10 @@
           },
           "jwks_uri": {
             "title": "Jwks Uri",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "status": {
             "title": "Status",
@@ -18071,25 +18500,33 @@
           },
           "access_token_ttl_seconds": {
             "title": "Access Token Ttl Seconds",
-            "type": "integer",
-            "nullable": true
+            "type": [
+              "null",
+              "integer"
+            ]
           },
           "last_used_at": {
             "title": "Last Used At",
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
           },
           "jwks_last_validated_at": {
             "title": "Jwks Last Validated At",
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
           },
           "jwks_last_error": {
             "title": "Jwks Last Error",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "created_at": {
             "title": "Created At",
@@ -18116,23 +18553,31 @@
         "properties": {
           "pathname": {
             "title": "Pathname",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "entityType": {
             "title": "Entitytype",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "entityId": {
             "title": "Entityid",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "description": {
             "title": "Description",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           }
         }
       },
@@ -18172,9 +18617,11 @@
           },
           "revoked_at": {
             "title": "Revoked At",
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
           }
         }
       },
@@ -18206,22 +18653,24 @@
           "max_tool_calls": {
             "title": "Max Tool Calls",
             "maximum": 50.0,
-            "exclusiveMaximum": false,
             "minimum": 1.0,
-            "exclusiveMinimum": false,
-            "type": "integer",
+            "type": [
+              "null",
+              "integer"
+            ],
             "description": "Maximum tool calls the agent may make per evaluation.",
-            "default": 10,
-            "nullable": true
+            "default": 10
           },
           "webhook_url": {
             "title": "Webhook Url",
             "maxLength": 2083,
             "minLength": 1,
-            "type": "string",
+            "type": [
+              "null",
+              "string"
+            ],
             "description": "HTTPS URL that receives the result payload when the async job completes.",
-            "format": "uri",
-            "nullable": true
+            "format": "uri"
           }
         }
       },
@@ -18251,9 +18700,11 @@
           },
           "threshold": {
             "title": "Threshold",
-            "type": "number",
-            "description": "Minimum score (0-1) required to pass this criterion.",
-            "nullable": true
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Minimum score (0-1) required to pass this criterion."
           }
         }
       },
@@ -18272,16 +18723,20 @@
           },
           "research_plan": {
             "title": "Research Plan",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "webhook_url": {
             "title": "Webhook Url",
             "maxLength": 2083,
             "minLength": 1,
-            "type": "string",
-            "format": "uri",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uri"
           }
         }
       },
@@ -18294,21 +18749,9 @@
         "type": "object",
         "properties": {
           "type": {
+            "const": "resource_handle",
             "title": "Type",
-            "enum": [
-              "resource_handle"
-            ],
-            "type": "string",
-            "x-ms-enum": {
-              "name": "Type",
-              "modelAsString": false,
-              "values": [
-                {
-                  "value": "resource_handle",
-                  "name": "ResourceHandle"
-                }
-              ]
-            }
+            "type": "string"
           },
           "resource_handle_id": {
             "title": "Resource Handle Id",
@@ -18316,9 +18759,11 @@
           },
           "id_column": {
             "title": "Id Column",
-            "type": "string",
-            "description": "\u0022CSV column containing entity identifiers. People: LinkedIn public IDs or profile URLs. Companies: numeric company IDs, LinkedIn company URLs/slugs, or exact website domains. Auto-detected when omitted.\u0022",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "\u0022CSV column containing entity identifiers. People: LinkedIn public IDs or profile URLs. Companies: numeric company IDs, LinkedIn company URLs/slugs, or exact website domains. Auto-detected when omitted.\u0022"
           }
         },
         "description": "Build the list from an uploaded CSV (see POST /storage/csv/upload)."
@@ -18345,10 +18790,12 @@
             "title": "Webhook Url",
             "maxLength": 2083,
             "minLength": 1,
-            "type": "string",
+            "type": [
+              "null",
+              "string"
+            ],
             "description": "HTTPS URL that receives the result payload when the async job completes.",
-            "format": "uri",
-            "nullable": true
+            "format": "uri"
           }
         }
       },
@@ -18369,10 +18816,12 @@
             "title": "Webhook Url",
             "maxLength": 2083,
             "minLength": 1,
-            "type": "string",
+            "type": [
+              "null",
+              "string"
+            ],
             "description": "HTTPS URL that receives the result payload when the async job completes.",
-            "format": "uri",
-            "nullable": true
+            "format": "uri"
           }
         }
       },
@@ -18398,10 +18847,12 @@
             "title": "Webhook Url",
             "maxLength": 2083,
             "minLength": 1,
-            "type": "string",
+            "type": [
+              "null",
+              "string"
+            ],
             "description": "HTTPS URL that receives the result payload when the async job completes.",
-            "format": "uri",
-            "nullable": true
+            "format": "uri"
           }
         }
       },
@@ -18422,10 +18873,12 @@
             "title": "Webhook Url",
             "maxLength": 2083,
             "minLength": 1,
-            "type": "string",
+            "type": [
+              "null",
+              "string"
+            ],
             "description": "HTTPS URL that receives the result payload when the async job completes.",
-            "format": "uri",
-            "nullable": true
+            "format": "uri"
           }
         }
       },
@@ -18501,9 +18954,11 @@
         "properties": {
           "search_id": {
             "title": "Search Id",
-            "type": "string",
-            "description": "Search history ID returned by a previous search. Replays only the query shape; pass exclusions again on this request if they should apply.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Search history ID returned by a previous search. Replays only the query shape; pass exclusions again on this request if they should apply."
           },
           "parsed_query": {
             "$ref": "#/components/schemas/SaveSearchRequestParsedQuery"
@@ -18580,8 +19035,10 @@
           },
           "team_id": {
             "title": "Team Id",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "name": {
             "title": "Name",
@@ -18589,8 +19046,10 @@
           },
           "description": {
             "title": "Description",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "cron_expression": {
             "title": "Cron Expression",
@@ -18606,18 +19065,24 @@
           },
           "disabled_reason": {
             "title": "Disabled Reason",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "created_by": {
             "title": "Created By",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "api_key_id": {
             "title": "Api Key Id",
-            "type": "integer",
-            "nullable": true
+            "type": [
+              "null",
+              "integer"
+            ]
           },
           "next_run_times": {
             "title": "Next Run Times",
@@ -18645,21 +19110,9 @@
         "type": "object",
         "properties": {
           "type": {
+            "const": "search_id",
             "title": "Type",
-            "enum": [
-              "search_id"
-            ],
-            "type": "string",
-            "x-ms-enum": {
-              "name": "Type",
-              "modelAsString": false,
-              "values": [
-                {
-                  "value": "search_id",
-                  "name": "SearchId"
-                }
-              ]
-            }
+            "type": "string"
           },
           "search_id": {
             "title": "Search Id",
@@ -18700,21 +19153,27 @@
           },
           "search_id": {
             "title": "Search Id",
-            "type": "string",
-            "description": "Search history ID returned by a previous search. Replays only the query shape; pass exclusions again on this request if they should apply.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Search history ID returned by a previous search. Replays only the query shape; pass exclusions again on this request if they should apply."
           },
           "query": {
             "title": "Query",
-            "type": "string",
-            "description": "Natural-language query. Mutually exclusive with simple_filters / filters / parsed_query / search_id. People-mode only.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Natural-language query. Mutually exclusive with simple_filters / filters / parsed_query / search_id. People-mode only."
           },
           "cursor": {
             "title": "Cursor",
-            "type": "string",
-            "description": "Opaque pagination cursor returned by a previous response.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Opaque pagination cursor returned by a previous response."
           },
           "mode": {
             "$ref": "#/components/schemas/SearchQueryRequestMode"
@@ -18779,8 +19238,10 @@
           },
           "search_id": {
             "title": "Search Id",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "exclude_public_ids": {
             "$ref": "#/components/schemas/SearchRerunRequestExcludePublicIds"
@@ -18847,6 +19308,7 @@
             }
           },
           "identity_resolution": {
+            "description": "Aggregate identity-resolution outcomes without retaining seed PII.",
             "$ref": "#/components/schemas/IdentityResolutionDiagnostics"
           }
         },
@@ -18859,8 +19321,10 @@
           "activeViewerKey": {
             "title": "Activeviewerkey",
             "maxLength": 500,
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           }
         }
       },
@@ -18898,8 +19362,10 @@
           },
           "revoked_at": {
             "title": "Revoked At",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           }
         }
       },
@@ -18922,8 +19388,10 @@
           },
           "slack_email": {
             "title": "Slack Email",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "created_at": {
             "title": "Created At",
@@ -18954,9 +19422,11 @@
           },
           "search_id": {
             "title": "Search Id",
-            "type": "string",
-            "description": "Optional client-supplied search ID for idempotent retries.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional client-supplied search ID for idempotent retries."
           },
           "output_mode": {
             "$ref": "#/components/schemas/StartAgenticSearchRequestOutputMode"
@@ -19035,9 +19505,11 @@
           },
           "cursor": {
             "title": "Cursor",
-            "type": "string",
-            "description": "Opaque pagination cursor returned by a previous response.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Opaque pagination cursor returned by a previous response."
           }
         },
         "description": "Request to start a filter-based search (no LLM step)."
@@ -19097,9 +19569,11 @@
         "properties": {
           "csv_resource_handle_id": {
             "title": "Csv Resource Handle Id",
-            "type": "string",
-            "description": "Resource handle returned by POST /storage/csv/upload.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Resource handle returned by POST /storage/csv/upload."
           },
           "linkedin_urls": {
             "$ref": "#/components/schemas/StartLookalikeSearchRequestLinkedinUrls"
@@ -19107,9 +19581,11 @@
           "guidance": {
             "title": "Guidance",
             "maxLength": 2000,
-            "type": "string",
-            "description": "Optional natural-language guidance for cohort analysis.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional natural-language guidance for cohort analysis."
           },
           "analysis_sample_size": {
             "title": "Analysis Sample Size",
@@ -19148,6 +19624,7 @@
             "description": "Initial task status."
           },
           "seed_diagnostics": {
+            "description": "Accounting for how an input seed set became analyzable profiles.",
             "$ref": "#/components/schemas/SeedDiagnostics"
           }
         }
@@ -19165,8 +19642,10 @@
           },
           "google_sub": {
             "title": "Google Sub",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           }
         }
       },
@@ -19274,8 +19753,10 @@
           },
           "description": {
             "title": "Description",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           }
         }
       },
@@ -19285,8 +19766,10 @@
         "properties": {
           "yolo_mode": {
             "title": "Yolo Mode",
-            "type": "boolean",
-            "nullable": true
+            "type": [
+              "null",
+              "boolean"
+            ]
           }
         }
       },
@@ -19298,8 +19781,10 @@
             "title": "Name",
             "maxLength": 255,
             "minLength": 1,
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "status": {
             "$ref": "#/components/schemas/UpdateOAuthClientRequestStatus"
@@ -19307,11 +19792,11 @@
           "access_token_ttl_seconds": {
             "title": "Access Token Ttl Seconds",
             "maximum": 86400.0,
-            "exclusiveMaximum": false,
             "minimum": 60.0,
-            "exclusiveMinimum": false,
-            "type": "integer",
-            "nullable": true
+            "type": [
+              "null",
+              "integer"
+            ]
           }
         }
       },
@@ -19323,29 +19808,39 @@
             "title": "Name",
             "maxLength": 120,
             "minLength": 1,
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "cron_expression": {
             "title": "Cron Expression",
             "minLength": 1,
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "timezone": {
             "title": "Timezone",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "description": {
             "title": "Description",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "is_active": {
             "title": "Is Active",
-            "type": "boolean",
-            "nullable": true
+            "type": [
+              "null",
+              "boolean"
+            ]
           }
         }
       },
@@ -19368,15 +19863,19 @@
         "properties": {
           "workflow_name": {
             "title": "Workflow Name",
-            "type": "string",
-            "description": "New workflow name.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "New workflow name."
           },
           "workflow_description": {
             "title": "Workflow Description",
-            "type": "string",
-            "description": "New workflow description.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "New workflow description."
           },
           "workflow_definition": {
             "$ref": "#/components/schemas/UpdateWorkflowRequestWorkflowDefinition"
@@ -19398,14 +19897,18 @@
             "title": "Kid",
             "maxLength": 255,
             "minLength": 1,
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "algorithm": {
             "title": "Algorithm",
-            "type": "string",
-            "default": "RS256",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "default": "RS256"
           }
         }
       },
@@ -19439,8 +19942,10 @@
           },
           "title": {
             "title": "Title",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "openedAt": {
             "title": "Openedat",
@@ -19493,9 +19998,11 @@
           },
           "condition": {
             "title": "Condition",
-            "type": "string",
-            "description": "Reserved for future conditional branching.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Reserved for future conditional branching."
           }
         },
         "description": "A directed edge connecting two blocks in a workflow graph."
@@ -19554,15 +20061,19 @@
           },
           "current_block": {
             "title": "Current Block",
-            "type": "string",
-            "description": "Name of the block currently executing.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Name of the block currently executing."
           },
           "current_block_sequence": {
             "title": "Current Block Sequence",
-            "type": "integer",
-            "description": "Sequence number of the block currently executing.",
-            "nullable": true
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Sequence number of the block currently executing."
           },
           "total_blocks": {
             "title": "Total Blocks",
@@ -19578,15 +20089,19 @@
           },
           "started_at": {
             "title": "Started At",
-            "type": "string",
-            "description": "Timestamp when execution started.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Timestamp when execution started."
           },
           "completed_at": {
             "title": "Completed At",
-            "type": "string",
-            "description": "Timestamp when execution finished.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Timestamp when execution finished."
           },
           "last_updated": {
             "title": "Last Updated",
@@ -19610,9 +20125,11 @@
           },
           "estimation_blocked_by": {
             "title": "Estimation Blocked By",
-            "type": "string",
-            "description": "Block name preventing a full progress estimate, if any.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Block name preventing a full progress estimate, if any."
           }
         },
         "description": "Live status response for a single workflow run."
@@ -19636,15 +20153,19 @@
           },
           "user_uuid": {
             "title": "User Uuid",
-            "type": "string",
-            "description": "User who created the workflow.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "User who created the workflow."
           },
           "org_id": {
             "title": "Org Id",
-            "type": "string",
-            "description": "Organization that owns the workflow.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Organization that owns the workflow."
           },
           "name": {
             "title": "Name",
@@ -19653,9 +20174,11 @@
           },
           "description": {
             "title": "Description",
-            "type": "string",
-            "description": "Workflow description.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Workflow description."
           },
           "status": {
             "title": "Status",
@@ -19681,10 +20204,12 @@
           },
           "last_run_date": {
             "title": "Last Run Date",
-            "type": "string",
+            "type": [
+              "null",
+              "string"
+            ],
             "description": "Timestamp of the most recent run.",
-            "format": "date-time",
-            "nullable": true
+            "format": "date-time"
           },
           "workflow_definition": {
             "$ref": "#/components/schemas/WorkflowResponseWorkflowDefinition"
@@ -19711,9 +20236,11 @@
           },
           "file_size": {
             "title": "File Size",
-            "type": "integer",
-            "description": "File size in bytes (uncompressed), when known.",
-            "nullable": true
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "File size in bytes (uncompressed), when known."
           },
           "row_count": {
             "title": "Row Count",
@@ -19723,33 +20250,43 @@
           },
           "block_number": {
             "title": "Block Number",
-            "type": "integer",
-            "description": "Block sequence number that produced the file.",
-            "nullable": true
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Block sequence number that produced the file."
           },
           "created_at": {
             "title": "Created At",
-            "type": "string",
-            "description": "Timestamp when the record was created.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Timestamp when the record was created."
           },
           "message": {
             "title": "Message",
-            "type": "string",
-            "description": "Error or status message, if any.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Error or status message, if any."
           },
           "content_type": {
             "title": "Content Type",
-            "type": "string",
-            "description": "MIME type of the file.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "MIME type of the file."
           },
           "download_url": {
             "title": "Download Url",
-            "type": "string",
-            "description": "Signed download URL; null if signing failed.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Signed download URL; null if signing failed."
           },
           "download_expires_in_seconds": {
             "title": "Download Expires In Seconds",
@@ -19795,68 +20332,88 @@
           },
           "step": {
             "title": "Step",
-            "type": "string",
-            "description": "Current authoring step from the workflow.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Current authoring step from the workflow."
           },
           "user_id": {
             "title": "User Id",
-            "type": "string",
-            "description": "User who created the workflow.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "User who created the workflow."
           },
           "created_at": {
             "title": "Created At",
-            "type": "string",
+            "type": [
+              "null",
+              "string"
+            ],
             "description": "Timestamp when the record was created.",
-            "format": "date-time",
-            "nullable": true
+            "format": "date-time"
           },
           "updated_at": {
             "title": "Updated At",
-            "type": "string",
+            "type": [
+              "null",
+              "string"
+            ],
             "description": "Timestamp when the record was last updated.",
-            "format": "date-time",
-            "nullable": true
+            "format": "date-time"
           },
           "queued_at": {
             "title": "Queued At",
-            "type": "string",
+            "type": [
+              "null",
+              "string"
+            ],
             "description": "Timestamp when the run was enqueued.",
-            "format": "date-time",
-            "nullable": true
+            "format": "date-time"
           },
           "started_at": {
             "title": "Started At",
-            "type": "string",
+            "type": [
+              "null",
+              "string"
+            ],
             "description": "Timestamp when execution started.",
-            "format": "date-time",
-            "nullable": true
+            "format": "date-time"
           },
           "completed_at": {
             "title": "Completed At",
-            "type": "string",
+            "type": [
+              "null",
+              "string"
+            ],
             "description": "Timestamp when execution finished.",
-            "format": "date-time",
-            "nullable": true
+            "format": "date-time"
           },
           "duration_ms": {
             "title": "Duration Ms",
-            "type": "integer",
-            "description": "Total run duration in milliseconds.",
-            "nullable": true
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Total run duration in milliseconds."
           },
           "status_reason": {
             "title": "Status Reason",
-            "type": "string",
-            "description": "Short reason explaining the current status.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Short reason explaining the current status."
           },
           "error_message": {
             "title": "Error Message",
-            "type": "string",
-            "description": "Error message if the operation failed.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Error message if the operation failed."
           },
           "metrics": {
             "$ref": "#/components/schemas/WorkflowRunResponseMetrics"
@@ -19902,9 +20459,11 @@
           },
           "already_started": {
             "title": "Already Started",
-            "type": "boolean",
-            "description": "True when the request was deduplicated via Idempotency-Key header.",
-            "nullable": true
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "True when the request was deduplicated via Idempotency-Key header."
           }
         },
         "description": "Response when a workflow run is started."
@@ -19964,8 +20523,10 @@
           },
           "activeViewerKey": {
             "title": "Activeviewerkey",
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           }
         }
       },
@@ -20041,9 +20602,7 @@
             }
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ],
         "description": "Per-iteration debug data emitted by the agent."
@@ -20059,9 +20618,7 @@
             }
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ],
         "description": "IDs of upstream blocks that feed into this one."
@@ -20076,9 +20633,7 @@
             "$ref": "#/components/schemas/PageContext"
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ],
         "properties": {
@@ -20104,9 +20659,7 @@
             "$ref": "#/components/schemas/SearchRerunRequest"
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ],
         "properties": {
@@ -20175,9 +20728,7 @@
             "type": "boolean"
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ],
         "description": "Field value; null bucket represents missing values."
@@ -20193,9 +20744,7 @@
             }
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ],
         "description": "Supported MongoDB-style operators for simple_filters input."
@@ -20211,9 +20760,7 @@
             }
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ],
         "description": "Override the default provider waterfall by listing provider IDs in priority order."
@@ -20229,9 +20776,7 @@
             }
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ],
         "description": "Override the default provider waterfall by listing provider IDs in priority order."
@@ -20247,9 +20792,7 @@
             }
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ]
       },
@@ -20264,9 +20807,7 @@
             }
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ]
       },
@@ -20281,9 +20822,7 @@
             }
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ],
         "description": "Override the default provider waterfall by listing provider IDs in priority order."
@@ -20299,9 +20838,7 @@
             }
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ],
         "description": "Override the default provider waterfall by listing provider IDs in priority order."
@@ -20317,9 +20854,7 @@
             }
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ]
       },
@@ -20334,9 +20869,7 @@
             }
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ]
       },
@@ -20350,9 +20883,7 @@
             "$ref": "#/components/schemas/SeedDiagnostics"
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ],
         "properties": {
@@ -20379,9 +20910,7 @@
             }
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ]
       },
@@ -20396,9 +20925,7 @@
             }
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ]
       },
@@ -20416,9 +20943,7 @@
             }
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ],
         "description": "Optional reference URLs the agent may use as evidence."
@@ -20434,9 +20959,7 @@
             }
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ],
         "description": "Override the default provider waterfall by listing provider IDs in priority order."
@@ -20452,9 +20975,7 @@
             }
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ],
         "description": "Override the default provider waterfall by listing provider IDs in priority order."
@@ -20470,9 +20991,7 @@
             }
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ],
         "description": "Override the default provider waterfall by listing provider IDs in priority order."
@@ -20488,9 +21007,7 @@
             }
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ],
         "description": "Override the default provider waterfall by listing provider IDs in priority order."
@@ -20509,9 +21026,7 @@
             "type": "object"
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ],
         "properties": {
@@ -20540,9 +21055,7 @@
             }
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ],
         "description": "People-mode inline identifiers to exclude from results, applied as a post-filter. Accepts LinkedIn public IDs or profile URLs. For company searches, use \u0060exclude_entity_ids\u0060. Max 1000."
@@ -20559,9 +21072,7 @@
             }
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ],
         "description": "\u0022Inline identifiers to exclude from results, applied as a post-filter. People mode: LinkedIn public IDs or profile URLs. Company mode: numeric LinkedIn company IDs, company URLs/slugs, or exact website domains (values that resolve to no or multiple companies are ignored). Max 1000.\u0022"
@@ -20578,9 +21089,7 @@
             }
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ],
         "description": "Saved exclusion-list IDs to apply as a post-filter. Each list\u0027s entity type must match the search mode (person lists for people searches, company lists for company searches). Max 5 (10 for organizations with extended exclusion limits)."
@@ -20597,9 +21106,7 @@
             }
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ],
         "description": "Optional people-mode inline exclusions to re-apply while replaying the saved search. \u0060search_id\u0060 itself does not carry exclusions."
@@ -20616,9 +21123,7 @@
             }
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ],
         "description": "\u0022Optional inline exclusions to re-apply while replaying the saved search. People: LinkedIn public IDs/profile URLs. Companies: numeric company IDs, company URLs/slugs, or exact website domains.\u0022"
@@ -20635,9 +21140,7 @@
             }
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ],
         "description": "Optional saved exclusion lists to re-apply while replaying the saved search. \u0060search_id\u0060 itself does not carry exclusions."
@@ -20654,9 +21157,7 @@
             }
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ],
         "description": "People-mode inline identifiers to exclude from results, applied as a post-filter. Accepts LinkedIn public IDs or profile URLs. For company searches, use \u0060exclude_entity_ids\u0060. Max 1000."
@@ -20673,9 +21174,7 @@
             }
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ],
         "description": "\u0022Inline identifiers to exclude from results, applied as a post-filter. People mode: LinkedIn public IDs or profile URLs. Company mode: numeric LinkedIn company IDs, company URLs/slugs, or exact website domains (values that resolve to no or multiple companies are ignored). Max 1000.\u0022"
@@ -20692,9 +21191,7 @@
             }
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ],
         "description": "Saved exclusion-list IDs to apply as a post-filter. Each list\u0027s entity type must match the search mode (person lists for people searches, company lists for company searches). Max 5 (10 for organizations with extended exclusion limits)."
@@ -20710,9 +21207,7 @@
             }
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ]
       },
@@ -20728,9 +21223,7 @@
             }
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ],
         "description": "People-mode inline identifiers to exclude from results, applied as a post-filter. Accepts LinkedIn public IDs or profile URLs. For company searches, use \u0060exclude_entity_ids\u0060. Max 1000."
@@ -20747,9 +21240,7 @@
             }
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ],
         "description": "\u0022Inline identifiers to exclude from results, applied as a post-filter. People mode: LinkedIn public IDs or profile URLs. Company mode: numeric LinkedIn company IDs, company URLs/slugs, or exact website domains (values that resolve to no or multiple companies are ignored). Max 1000.\u0022"
@@ -20766,9 +21257,7 @@
             }
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ],
         "description": "Saved exclusion-list IDs to apply as a post-filter. Each list\u0027s entity type must match the search mode (person lists for people searches, company lists for company searches). Max 5 (10 for organizations with extended exclusion limits)."
@@ -20787,9 +21276,7 @@
             "type": "object"
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ],
         "properties": {
@@ -20816,9 +21303,7 @@
             }
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ]
       },
@@ -20835,9 +21320,7 @@
             }
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ],
         "description": "LinkedIn profile URLs to seed from (max 1,000)."
@@ -20853,9 +21336,7 @@
             }
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ]
       },
@@ -20872,9 +21353,7 @@
             }
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ]
       },
@@ -20889,9 +21368,7 @@
             }
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ]
       },
@@ -20905,9 +21382,7 @@
             "$ref": "#/components/schemas/WorkflowGraph"
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ],
         "properties": {
@@ -20934,9 +21409,7 @@
             "$ref": "#/components/schemas/WorkflowGraph"
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ],
         "properties": {
@@ -20964,9 +21437,7 @@
             }
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ],
         "description": "Inline rows when the file is small enough to embed; otherwise null."
@@ -20979,9 +21450,7 @@
             "type": "object"
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ],
         "description": "Per-block detail; usually null in list responses."
@@ -20997,14 +21466,29 @@
           }
         ]
       },
+      "ValidationErrorInput": {
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "object",
+            "description": "The offending input value (any type, may be null).",
+            "example": null
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
       "AddBlockRequestSpecs": {
         "title": "Specs",
         "type": "object"
       },
       "ApprovalRequestAnswers": {
         "title": "Answers",
-        "type": "object",
-        "nullable": true
+        "type": [
+          "null",
+          "object"
+        ]
       },
       "BlockSpecs": {
         "title": "Specs",
@@ -21021,8 +21505,10 @@
       },
       "ChatRequestPageData": {
         "title": "Page Data",
-        "type": "object",
-        "nullable": true
+        "type": [
+          "null",
+          "object"
+        ]
       },
       "ChatSessionMessagesResponseMessagesItem": {
         "type": "object"
@@ -21037,9 +21523,11 @@
       },
       "EnrichCompanyInfoLeadStruct": {
         "title": "Lead Struct",
-        "type": "object",
-        "description": "Output schema for each discovered person when find_people=true.",
-        "nullable": true
+        "type": [
+          "null",
+          "object"
+        ],
+        "description": "Output schema for each discovered person when find_people=true."
       },
       "EnrichCompanyInfoTargetCompany": {
         "title": "Target Company",
@@ -21048,9 +21536,11 @@
       },
       "EnrichLeadInfoStruct": {
         "title": "Struct",
-        "type": "object",
-        "description": "Mapping of output field name to natural-language description of what to extract.",
-        "nullable": true
+        "type": [
+          "null",
+          "object"
+        ],
+        "description": "Mapping of output field name to natural-language description of what to extract."
       },
       "EnrichLeadInfoLeadInfo": {
         "title": "Lead Info",
@@ -21059,39 +21549,49 @@
       },
       "FilterFieldValuesRequestFilters": {
         "title": "Filters",
-        "type": "object",
-        "description": "Raw OpenSearch DSL filters that scope the aggregation.",
-        "nullable": true
+        "type": [
+          "null",
+          "object"
+        ],
+        "description": "Raw OpenSearch DSL filters that scope the aggregation."
       },
       "FilterFieldValuesRequestSimpleFilters": {
         "title": "Simple Filters",
-        "type": "object",
-        "description": "MongoDB-style filters that scope the aggregation.",
-        "nullable": true
+        "type": [
+          "null",
+          "object"
+        ],
+        "description": "MongoDB-style filters that scope the aggregation."
       },
       "FilterFieldValuesValueFilterSnippet": {
         "title": "Filter Snippet",
-        "type": "object",
-        "description": "Ready-to-merge filter clause that selects this value.",
-        "nullable": true
+        "type": [
+          "null",
+          "object"
+        ],
+        "description": "Ready-to-merge filter clause that selects this value."
       },
       "FilterSearchResponseResultsItem": {
         "type": "object"
       },
       "FilterSearchResponseParsedQuery": {
         "title": "Parsed Query",
-        "type": "object",
-        "description": "Structured filter set echoed back; round-trippable into a follow-up request.",
-        "nullable": true
+        "type": [
+          "null",
+          "object"
+        ],
+        "description": "Structured filter set echoed back; round-trippable into a follow-up request."
       },
       "FilterSearchResponseCompanyFilterTruncated": {
         "title": "Company Filter Truncated",
-        "type": "object",
+        "type": [
+          "null",
+          "object"
+        ],
         "additionalProperties": {
           "type": "integer"
         },
-        "description": "\u0022Present when company filters matched more companies than the resolver expansion cap. \\\u0022total_matched\\\u0022: positive filters truncated \u2014 results cover people at the largest matching employers only. \\\u0022excluded_total_matched\\\u0022: a not-filter truncated \u2014 only the largest matching employers are excluded, so people at smaller excluded companies may still appear.\u0022",
-        "nullable": true
+        "description": "\u0022Present when company filters matched more companies than the resolver expansion cap. \\\u0022total_matched\\\u0022: positive filters truncated \u2014 results cover people at the largest matching employers only. \\\u0022excluded_total_matched\\\u0022: a not-filter truncated \u2014 only the largest matching employers are excluded, so people at smaller excluded companies may still appear.\u0022"
       },
       "FindEmailBulkRequestLeadsItem": {
         "type": "object"
@@ -21130,24 +21630,32 @@
       },
       "LinkedInEnrichRequestStruct": {
         "title": "Struct",
-        "type": "object",
-        "description": "Mapping of output field name to natural-language description of what to extract.",
-        "nullable": true
+        "type": [
+          "null",
+          "object"
+        ],
+        "description": "Mapping of output field name to natural-language description of what to extract."
       },
       "LookalikeSearchStatusResponseFilters": {
         "title": "Filters",
-        "type": "object",
-        "nullable": true
+        "type": [
+          "null",
+          "object"
+        ]
       },
       "LookalikeSearchStatusResponseAnalysis": {
         "title": "Analysis",
-        "type": "object",
-        "nullable": true
+        "type": [
+          "null",
+          "object"
+        ]
       },
       "MountViewerRequestState": {
         "title": "State",
-        "type": "object",
-        "nullable": true
+        "type": [
+          "null",
+          "object"
+        ]
       },
       "PatchViewerStateRequestState": {
         "title": "State",
@@ -21160,12 +21668,14 @@
       },
       "QaAgentRequestStruct": {
         "title": "Struct",
-        "type": "object",
+        "type": [
+          "null",
+          "object"
+        ],
         "additionalProperties": {
           "type": "string"
         },
-        "description": "Mapping of extra output fields and their descriptions.",
-        "nullable": true
+        "description": "Mapping of extra output fields and their descriptions."
       },
       "ResearchAgentRequestInputData": {
         "title": "Input Data",
@@ -21173,8 +21683,10 @@
       },
       "ResearchAgentRequestStruct": {
         "title": "Struct",
-        "type": "object",
-        "nullable": true
+        "type": [
+          "null",
+          "object"
+        ]
       },
       "ReverseEmailBulkRequestLeadsItem": {
         "type": "object"
@@ -21194,33 +21706,43 @@
       },
       "RunWorkflowBodySpecsOverride": {
         "title": "Specs Override",
-        "type": "object",
-        "description": "Optional specs to override first block specs",
-        "nullable": true
+        "type": [
+          "null",
+          "object"
+        ],
+        "description": "Optional specs to override first block specs"
       },
       "SaveSearchRequestParsedQuery": {
         "title": "Parsed Query",
-        "type": "object",
-        "description": "Structured filter set returned by a previous search.",
-        "nullable": true
+        "type": [
+          "null",
+          "object"
+        ],
+        "description": "Structured filter set returned by a previous search."
       },
       "SearchQueryRequestSimpleFilters": {
         "title": "Simple Filters",
-        "type": "object",
-        "description": "MongoDB-style filters; the API translates them to DSL.",
-        "nullable": true
+        "type": [
+          "null",
+          "object"
+        ],
+        "description": "MongoDB-style filters; the API translates them to DSL."
       },
       "SearchQueryRequestFilters": {
         "title": "Filters",
-        "type": "object",
-        "description": "Raw OpenSearch DSL filters.",
-        "nullable": true
+        "type": [
+          "null",
+          "object"
+        ],
+        "description": "Raw OpenSearch DSL filters."
       },
       "SearchQueryRequestParsedQuery": {
         "title": "Parsed Query",
-        "type": "object",
-        "description": "Structured filter set returned by a previous search.",
-        "nullable": true
+        "type": [
+          "null",
+          "object"
+        ],
+        "description": "Structured filter set returned by a previous search."
       },
       "SearchRerunRequestFilters": {
         "title": "Filters",
@@ -21228,15 +21750,19 @@
       },
       "StartFilterSearchRequestFilters": {
         "title": "Filters",
-        "type": "object",
-        "description": "Raw OpenSearch DSL filters.",
-        "nullable": true
+        "type": [
+          "null",
+          "object"
+        ],
+        "description": "Raw OpenSearch DSL filters."
       },
       "StartFilterSearchRequestSimpleFilters": {
         "title": "Simple Filters",
-        "type": "object",
-        "description": "MongoDB-style filters that the API translates to DSL.",
-        "nullable": true
+        "type": [
+          "null",
+          "object"
+        ],
+        "description": "MongoDB-style filters that the API translates to DSL."
       },
       "StartInteractiveRequestSpecs": {
         "title": "Specs",
@@ -21244,8 +21770,10 @@
       },
       "StartInteractiveRequestCacheConfig": {
         "title": "Cache Config",
-        "type": "object",
-        "nullable": true
+        "type": [
+          "null",
+          "object"
+        ]
       },
       "VerifyAgeRequestSubject": {
         "title": "Subject",
@@ -21254,20 +21782,26 @@
       },
       "ViewerSpecState": {
         "title": "State",
-        "type": "object",
-        "nullable": true
+        "type": [
+          "null",
+          "object"
+        ]
       },
       "WorkflowRunResponseMetrics": {
         "title": "Metrics",
-        "type": "object",
-        "description": "Aggregate run metrics (rows in/out, costs, etc.).",
-        "nullable": true
+        "type": [
+          "null",
+          "object"
+        ],
+        "description": "Aggregate run metrics (rows in/out, costs, etc.)."
       },
       "WorkflowRunStartedResponseCacheConfig": {
         "title": "Cache Config",
-        "type": "object",
-        "description": "Cache configuration; only set by the custom-cache endpoint.",
-        "nullable": true
+        "type": [
+          "null",
+          "object"
+        ],
+        "description": "Cache configuration; only set by the custom-cache endpoint."
       },
       "ValidationErrorCtx": {
         "type": "object",
@@ -26551,9 +27085,7 @@
             "$ref": "#/components/schemas/SigningSecretMetaResponse"
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ],
         "properties": {
@@ -27515,18 +28047,22 @@
           },
           "confidence_score": {
             "title": "Confidence Score",
-            "type": "number",
-            "description": "Overall confidence score for the enrichment result.",
-            "nullable": true
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Overall confidence score for the enrichment result."
           },
           "references": {
             "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultReferences"
           },
           "notes": {
             "title": "Notes",
-            "type": "string",
-            "description": "Human-readable notes about the enrichment result.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Human-readable notes about the enrichment result."
           },
           "findings": {
             "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultFindings"
@@ -27547,9 +28083,7 @@
             }
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ],
         "description": "Optional supporting findings produced by the enrichment agent."
@@ -27652,14 +28186,6 @@
         "type": "object",
         "description": "The person to verify. Any identifiers you have (name, company, linkedin, email, location, etc.); more is better."
       },
-      "ValidationErrorInput": {
-        "type": "object",
-        "description": "The offending input value (any type, may be null).",
-        "example": null,
-        "unrecognizedKeywords": {
-          "nullable": true
-        }
-      },
       "ValidationErrorCtxProperty": {
         "type": "object",
         "description": "Optional error context."
@@ -27691,15 +28217,19 @@
       },
       "JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultReferences": {
         "title": "References",
-        "type": "object",
-        "description": "Source references used to produce the result.",
-        "nullable": true
+        "type": [
+          "null",
+          "object"
+        ],
+        "description": "Source references used to produce the result."
       },
       "JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultFieldConfidence": {
         "title": "Field Confidence",
-        "type": "object",
-        "description": "Optional per-field confidence metadata.",
-        "nullable": true
+        "type": [
+          "null",
+          "object"
+        ],
+        "description": "Optional per-field confidence metadata."
       },
       "CreateExclusionListRequestEntityType": {
         "title": "Entity Type",
@@ -27732,10 +28262,12 @@
           "medium",
           "high"
         ],
-        "type": "string",
+        "type": [
+          "null",
+          "string"
+        ],
         "additionalProperties": false,
         "description": "Quality and cost tier for the research agent.",
-        "nullable": true,
         "x-ms-enum": {
           "name": "EnrichCompanyInfoTier",
           "modelAsString": false,
@@ -27769,10 +28301,12 @@
           "xhigh",
           "scout"
         ],
-        "type": "string",
+        "type": [
+          "null",
+          "string"
+        ],
         "additionalProperties": false,
         "description": "Quality and cost tier for the research agent.",
-        "nullable": true,
         "x-ms-enum": {
           "name": "EnrichLeadInfoTier",
           "modelAsString": false,
@@ -28198,9 +28732,11 @@
           "webhook",
           "transform_data"
         ],
-        "type": "string",
+        "type": [
+          "null",
+          "string"
+        ],
         "additionalProperties": false,
-        "nullable": true,
         "x-ms-enum": {
           "name": "StructBuilderRequestBlockType",
           "modelAsString": false,
@@ -28374,9 +28910,11 @@
           "active",
           "disabled"
         ],
-        "type": "string",
+        "type": [
+          "null",
+          "string"
+        ],
         "additionalProperties": false,
-        "nullable": true,
         "x-ms-enum": {
           "name": "UpdateOAuthClientRequestStatus",
           "modelAsString": false,

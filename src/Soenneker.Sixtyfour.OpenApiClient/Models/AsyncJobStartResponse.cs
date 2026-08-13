@@ -15,7 +15,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Initial job status.</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.AsyncJobStartResponse_status? Status { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Status { get; set; }
+#nullable restore
+#else
+        public string Status { get; set; }
+#endif
         /// <summary>Async job ID. Poll GET /job-status/{task_id} for status and results.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,7 +55,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.AsyncJobStartResponse_status>(); } },
+                { "status", n => { Status = n.GetStringValue(); } },
                 { "task_id", n => { TaskId = n.GetStringValue(); } },
             };
         }
@@ -60,7 +66,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.AsyncJobStartResponse_status>("status", Status);
+            writer.WriteStringValue("status", Status);
             writer.WriteStringValue("task_id", TaskId);
             writer.WriteAdditionalData(AdditionalData);
         }

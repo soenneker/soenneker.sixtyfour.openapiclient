@@ -8,20 +8,27 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Optional inline exclusions to re-apply while replaying the saved search. People: LinkedIn public IDs/profile URLs. Companies: numeric company IDs, company URLs/slugs, or exact website domains.&quot;
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchIdSourceExcludeEntityIdsMember1"/>, List&lt;string&gt;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class SearchIdSourceExcludeEntityIds : IAdditionalDataHolder, IParsable
+    public partial class SearchIdSourceExcludeEntityIds : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchIdSourceExcludeEntityIds"/> and sets the default values.
-        /// </summary>
-        public SearchIdSourceExcludeEntityIds()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchIdSourceExcludeEntityIdsMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchIdSourceExcludeEntityIdsMember1? SearchIdSourceExcludeEntityIdsMember1 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchIdSourceExcludeEntityIdsMember1 SearchIdSourceExcludeEntityIdsMember1 { get; set; }
+#endif
+        /// <summary>Composed type representation for type List&lt;string&gt;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? String { get; set; }
+#nullable restore
+#else
+        public List<string> String { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -30,7 +37,15 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public static global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchIdSourceExcludeEntityIds CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchIdSourceExcludeEntityIds();
+            var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchIdSourceExcludeEntityIds();
+            if(parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
+            {
+                result.String = stringValue;
+            }
+            else {
+                result.SearchIdSourceExcludeEntityIdsMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchIdSourceExcludeEntityIdsMember1();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -38,9 +53,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(SearchIdSourceExcludeEntityIdsMember1 != null)
             {
-            };
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(SearchIdSourceExcludeEntityIdsMember1);
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -49,7 +66,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteAdditionalData(AdditionalData);
+            if(String != null)
+            {
+                writer.WriteCollectionOfPrimitiveValues<string>(null, String);
+            }
+            else {
+                writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchIdSourceExcludeEntityIdsMember1>(null, SearchIdSourceExcludeEntityIdsMember1);
+            }
         }
     }
 }

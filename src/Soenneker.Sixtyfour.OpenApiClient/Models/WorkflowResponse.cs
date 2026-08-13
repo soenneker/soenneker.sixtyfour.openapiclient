@@ -79,10 +79,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Workflow graph; included on detail responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseWorkflowDefinition? WorkflowDefinition { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowGraph? WorkflowDefinition { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseWorkflowDefinition WorkflowDefinition { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowGraph WorkflowDefinition { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse"/> and sets the default values.
@@ -119,7 +119,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "step", n => { Step = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "user_uuid", n => { UserUuid = n.GetStringValue(); } },
-                { "workflow_definition", n => { WorkflowDefinition = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseWorkflowDefinition>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseWorkflowDefinition.CreateFromDiscriminatorValue); } },
+                { "workflow_definition", n => { WorkflowDefinition = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowGraph>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowGraph.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -139,7 +139,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteStringValue("step", Step);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("user_uuid", UserUuid);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseWorkflowDefinition>("workflow_definition", WorkflowDefinition);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowGraph>("workflow_definition", WorkflowDefinition);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

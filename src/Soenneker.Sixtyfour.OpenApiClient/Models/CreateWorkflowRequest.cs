@@ -22,7 +22,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>A workflow expressed as a directed graph of blocks and edges.</summary>
+        /// <summary>Workflow definition as a graph of blocks and edges.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowGraph? WorkflowDefinition { get; set; }
