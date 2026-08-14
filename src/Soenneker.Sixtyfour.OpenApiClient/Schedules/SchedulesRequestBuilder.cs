@@ -4,8 +4,6 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Sixtyfour.OpenApiClient.Models;
-using Soenneker.Sixtyfour.OpenApiClient.Schedules.ActiveCounts;
-using Soenneker.Sixtyfour.OpenApiClient.Schedules.DisableBound;
 using Soenneker.Sixtyfour.OpenApiClient.Schedules.Item;
 using System.Collections.Generic;
 using System.IO;
@@ -20,16 +18,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SchedulesRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>The activeCounts property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Schedules.ActiveCounts.ActiveCountsRequestBuilder ActiveCounts
-        {
-            get => new global::Soenneker.Sixtyfour.OpenApiClient.Schedules.ActiveCounts.ActiveCountsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The disableBound property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Schedules.DisableBound.DisableBoundRequestBuilder DisableBound
-        {
-            get => new global::Soenneker.Sixtyfour.OpenApiClient.Schedules.DisableBound.DisableBoundRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Gets an item from the Soenneker.Sixtyfour.OpenApiClient.schedules.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Schedules.Item.WithScheduleItemRequestBuilder"/></returns>

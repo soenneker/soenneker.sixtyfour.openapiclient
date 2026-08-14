@@ -49,6 +49,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #endif
         /// <summary>Upper bound on pages based on max_results and page_size.</summary>
         public int? MaxPages { get; set; }
+        /// <summary>Effective maximum rows this search may return across pages after applying the request and credential limits.</summary>
+        public int? MaxResults { get; set; }
         /// <summary>Original natural-language query echoed verbatim, if any.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,6 +67,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string NextCursor { get; set; }
 #endif
+        /// <summary>Shape of the rows in `results`. Echoed because cursor continuations reject `output_shape` on the request.</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseOutputShape? OutputShape { get; set; }
         /// <summary>Number of results in this response page. May be less than `page_size` (down to 0) while `has_more` is true, e.g. when exclusion filtering is active.</summary>
         public int? PageCount { get; set; }
         /// <summary>1-based page number (company pagination).</summary>
@@ -107,7 +111,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string SearchId { get; set; }
 #endif
-        /// <summary>&quot;Total OpenSearch matches across pages (capped at 50000); people-mode only. Pre-exclusion: exclusion filtering does not reduce this count.&quot;</summary>
+        /// <summary>Exact total matches across pages; people-mode only. Null when unknown — including when exclusions are applied by post-filter scan rather than in the query, where the match count would overstate the eligible results. Never a capped or approximate figure.</summary>
         public int? TotalAvailable { get; set; }
         /// <summary>Final total page count; omitted while `has_more` is true.</summary>
         public int? TotalPages { get; set; }
@@ -148,8 +152,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "has_more", n => { HasMore = n.GetBoolValue(); } },
                 { "json_download_url", n => { JsonDownloadUrl = n.GetStringValue(); } },
                 { "max_pages", n => { MaxPages = n.GetIntValue(); } },
+                { "max_results", n => { MaxResults = n.GetIntValue(); } },
                 { "natural_language_query", n => { NaturalLanguageQuery = n.GetStringValue(); } },
                 { "next_cursor", n => { NextCursor = n.GetStringValue(); } },
+                { "output_shape", n => { OutputShape = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseOutputShape>(); } },
                 { "page_count", n => { PageCount = n.GetIntValue(); } },
                 { "page_number", n => { PageNumber = n.GetIntValue(); } },
                 { "page_size", n => { PageSize = n.GetIntValue(); } },
@@ -179,8 +185,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteBoolValue("has_more", HasMore);
             writer.WriteStringValue("json_download_url", JsonDownloadUrl);
             writer.WriteIntValue("max_pages", MaxPages);
+            writer.WriteIntValue("max_results", MaxResults);
             writer.WriteStringValue("natural_language_query", NaturalLanguageQuery);
             writer.WriteStringValue("next_cursor", NextCursor);
+            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseOutputShape>("output_shape", OutputShape);
             writer.WriteIntValue("page_count", PageCount);
             writer.WriteIntValue("page_number", PageNumber);
             writer.WriteIntValue("page_size", PageSize);

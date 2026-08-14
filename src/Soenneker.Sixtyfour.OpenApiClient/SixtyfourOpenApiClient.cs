@@ -6,16 +6,10 @@ using Microsoft.Kiota.Serialization.Form;
 using Microsoft.Kiota.Serialization.Json;
 using Microsoft.Kiota.Serialization.Multipart;
 using Microsoft.Kiota.Serialization.Text;
-using Soenneker.Sixtyfour.OpenApiClient.Api;
 using Soenneker.Sixtyfour.OpenApiClient.BulkIntelligence;
-using Soenneker.Sixtyfour.OpenApiClient.Chat;
 using Soenneker.Sixtyfour.OpenApiClient.CheckBalance;
 using Soenneker.Sixtyfour.OpenApiClient.CompanyIntelligence;
 using Soenneker.Sixtyfour.OpenApiClient.CompanyIntelligenceAsync;
-using Soenneker.Sixtyfour.OpenApiClient.EnrichCompany;
-using Soenneker.Sixtyfour.OpenApiClient.EnrichCompanyAsync;
-using Soenneker.Sixtyfour.OpenApiClient.EnrichLead;
-using Soenneker.Sixtyfour.OpenApiClient.EnrichLeadAsync;
 using Soenneker.Sixtyfour.OpenApiClient.EnrichLinkedin;
 using Soenneker.Sixtyfour.OpenApiClient.FindEmail;
 using Soenneker.Sixtyfour.OpenApiClient.FindEmailAsync;
@@ -25,17 +19,12 @@ using Soenneker.Sixtyfour.OpenApiClient.FindPhone;
 using Soenneker.Sixtyfour.OpenApiClient.FindPhoneAsync;
 using Soenneker.Sixtyfour.OpenApiClient.FindPhoneBulk;
 using Soenneker.Sixtyfour.OpenApiClient.FindPhoneBulkAsync;
-using Soenneker.Sixtyfour.OpenApiClient.GetLinkedin;
 using Soenneker.Sixtyfour.OpenApiClient.Google;
 using Soenneker.Sixtyfour.OpenApiClient.JobStatus;
-using Soenneker.Sixtyfour.OpenApiClient.Me;
-using Soenneker.Sixtyfour.OpenApiClient.Oauth;
 using Soenneker.Sixtyfour.OpenApiClient.PeopleIntelligence;
 using Soenneker.Sixtyfour.OpenApiClient.PeopleIntelligenceAsync;
 using Soenneker.Sixtyfour.OpenApiClient.QaAgent;
 using Soenneker.Sixtyfour.OpenApiClient.QaAgentAsync;
-using Soenneker.Sixtyfour.OpenApiClient.ResearchAgent;
-using Soenneker.Sixtyfour.OpenApiClient.ResearchAgentAsync;
 using Soenneker.Sixtyfour.OpenApiClient.ReverseEmail;
 using Soenneker.Sixtyfour.OpenApiClient.ReverseEmailAsync;
 using Soenneker.Sixtyfour.OpenApiClient.ReverseEmailBulk;
@@ -48,10 +37,7 @@ using Soenneker.Sixtyfour.OpenApiClient.Schedules;
 using Soenneker.Sixtyfour.OpenApiClient.Search;
 using Soenneker.Sixtyfour.OpenApiClient.StructBuilder;
 using Soenneker.Sixtyfour.OpenApiClient.VerifyAge;
-using Soenneker.Sixtyfour.OpenApiClient.Webhooks;
-using Soenneker.Sixtyfour.OpenApiClient.WellKnown;
 using Soenneker.Sixtyfour.OpenApiClient.Workflows;
-using Soenneker.Sixtyfour.OpenApiClient.Workspaces;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -64,20 +50,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SixtyfourOpenApiClient : BaseRequestBuilder
     {
-        /// <summary>The api property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Api.ApiRequestBuilder Api
-        {
-            get => new global::Soenneker.Sixtyfour.OpenApiClient.Api.ApiRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The bulkIntelligence property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.BulkIntelligence.BulkIntelligenceRequestBuilder BulkIntelligence
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.BulkIntelligence.BulkIntelligenceRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The chat property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Chat.ChatRequestBuilder Chat
-        {
-            get => new global::Soenneker.Sixtyfour.OpenApiClient.Chat.ChatRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The checkBalance property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.CheckBalance.CheckBalanceRequestBuilder CheckBalance
@@ -93,26 +69,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient
         public global::Soenneker.Sixtyfour.OpenApiClient.CompanyIntelligenceAsync.CompanyIntelligenceAsyncRequestBuilder CompanyIntelligenceAsync
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.CompanyIntelligenceAsync.CompanyIntelligenceAsyncRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The enrichCompany property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.EnrichCompany.EnrichCompanyRequestBuilder EnrichCompany
-        {
-            get => new global::Soenneker.Sixtyfour.OpenApiClient.EnrichCompany.EnrichCompanyRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The enrichCompanyAsync property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.EnrichCompanyAsync.EnrichCompanyAsyncRequestBuilder EnrichCompanyAsync
-        {
-            get => new global::Soenneker.Sixtyfour.OpenApiClient.EnrichCompanyAsync.EnrichCompanyAsyncRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The enrichLead property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.EnrichLead.EnrichLeadRequestBuilder EnrichLead
-        {
-            get => new global::Soenneker.Sixtyfour.OpenApiClient.EnrichLead.EnrichLeadRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The enrichLeadAsync property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.EnrichLeadAsync.EnrichLeadAsyncRequestBuilder EnrichLeadAsync
-        {
-            get => new global::Soenneker.Sixtyfour.OpenApiClient.EnrichLeadAsync.EnrichLeadAsyncRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The enrichLinkedin property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.EnrichLinkedin.EnrichLinkedinRequestBuilder EnrichLinkedin
@@ -159,11 +115,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.FindPhoneBulkAsync.FindPhoneBulkAsyncRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The getLinkedin property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.GetLinkedin.GetLinkedinRequestBuilder GetLinkedin
-        {
-            get => new global::Soenneker.Sixtyfour.OpenApiClient.GetLinkedin.GetLinkedinRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The google property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Google.GoogleRequestBuilder Google
         {
@@ -173,16 +124,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient
         public global::Soenneker.Sixtyfour.OpenApiClient.JobStatus.JobStatusRequestBuilder JobStatus
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.JobStatus.JobStatusRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The me property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Me.MeRequestBuilder Me
-        {
-            get => new global::Soenneker.Sixtyfour.OpenApiClient.Me.MeRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The oauth property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Oauth.OauthRequestBuilder Oauth
-        {
-            get => new global::Soenneker.Sixtyfour.OpenApiClient.Oauth.OauthRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The peopleIntelligence property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.PeopleIntelligence.PeopleIntelligenceRequestBuilder PeopleIntelligence
@@ -203,16 +144,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient
         public global::Soenneker.Sixtyfour.OpenApiClient.QaAgentAsync.QaAgentAsyncRequestBuilder QaAgentAsync
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.QaAgentAsync.QaAgentAsyncRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The researchAgent property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.ResearchAgent.ResearchAgentRequestBuilder ResearchAgent
-        {
-            get => new global::Soenneker.Sixtyfour.OpenApiClient.ResearchAgent.ResearchAgentRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The researchAgentAsync property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.ResearchAgentAsync.ResearchAgentAsyncRequestBuilder ResearchAgentAsync
-        {
-            get => new global::Soenneker.Sixtyfour.OpenApiClient.ResearchAgentAsync.ResearchAgentAsyncRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The reverseEmail property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.ReverseEmail.ReverseEmailRequestBuilder ReverseEmail
@@ -274,25 +205,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.VerifyAge.VerifyAgeRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The webhooks property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.WebhooksRequestBuilder Webhooks
-        {
-            get => new global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.WebhooksRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The wellKnown property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.WellKnown.WellKnownRequestBuilder WellKnown
-        {
-            get => new global::Soenneker.Sixtyfour.OpenApiClient.WellKnown.WellKnownRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The workflows property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Workflows.WorkflowsRequestBuilder Workflows
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.Workflows.WorkflowsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The workspaces property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Workspaces.WorkspacesRequestBuilder Workspaces
-        {
-            get => new global::Soenneker.Sixtyfour.OpenApiClient.Workspaces.WorkspacesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.SixtyfourOpenApiClient"/> and sets the default values.
