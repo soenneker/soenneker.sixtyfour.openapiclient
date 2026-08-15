@@ -46,10 +46,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Structured filter set returned by a previous search.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SaveSearchRequestParsedQuery? ParsedQuery { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SaveSearchRequestParsedQueryProperty? ParsedQuery { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SaveSearchRequestParsedQuery ParsedQuery { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SaveSearchRequestParsedQueryProperty ParsedQuery { get; set; }
 #endif
         /// <summary>Search history ID returned by a previous search. Replays only the query shape; pass exclusions again on this request if they should apply.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -90,7 +90,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "exclude_public_ids", n => { ExcludePublicIds = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SaveSearchRequestExcludePublicIds>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SaveSearchRequestExcludePublicIds.CreateFromDiscriminatorValue); } },
                 { "max_results", n => { MaxResults = n.GetIntValue(); } },
                 { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SaveSearchRequestMode>(); } },
-                { "parsed_query", n => { ParsedQuery = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SaveSearchRequestParsedQuery>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SaveSearchRequestParsedQuery.CreateFromDiscriminatorValue); } },
+                { "parsed_query", n => { ParsedQuery = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SaveSearchRequestParsedQueryProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SaveSearchRequestParsedQueryProperty.CreateFromDiscriminatorValue); } },
                 { "search_id", n => { SearchId = n.GetStringValue(); } },
             };
         }
@@ -106,7 +106,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SaveSearchRequestExcludePublicIds>("exclude_public_ids", ExcludePublicIds);
             writer.WriteIntValue("max_results", MaxResults);
             writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SaveSearchRequestMode>("mode", Mode);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SaveSearchRequestParsedQuery>("parsed_query", ParsedQuery);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SaveSearchRequestParsedQueryProperty>("parsed_query", ParsedQuery);
             writer.WriteStringValue("search_id", SearchId);
             writer.WriteAdditionalData(AdditionalData);
         }

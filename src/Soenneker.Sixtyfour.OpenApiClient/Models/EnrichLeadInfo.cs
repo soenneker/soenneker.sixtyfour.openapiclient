@@ -35,10 +35,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Mapping of output field name to natural-language description of what to extract.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStruct? Struct { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty? Struct { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStruct Struct { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty Struct { get; set; }
 #endif
         /// <summary>Quality and cost tier for the research agent.</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoTier? Tier { get; set; }
@@ -78,7 +78,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "field_confidence", n => { FieldConfidence = n.GetBoolValue(); } },
                 { "lead_info", n => { LeadInfo = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoLeadInfoProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoLeadInfoProperty.CreateFromDiscriminatorValue); } },
                 { "research_plan", n => { ResearchPlan = n.GetStringValue(); } },
-                { "struct", n => { Struct = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStruct>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStruct.CreateFromDiscriminatorValue); } },
+                { "struct", n => { Struct = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty.CreateFromDiscriminatorValue); } },
                 { "tier", n => { Tier = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoTier>(); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
             };
@@ -93,7 +93,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteBoolValue("field_confidence", FieldConfidence);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoLeadInfoProperty>("lead_info", LeadInfo);
             writer.WriteStringValue("research_plan", ResearchPlan);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStruct>("struct", Struct);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty>("struct", Struct);
             writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoTier>("tier", Tier);
             writer.WriteStringValue("webhook_url", WebhookUrl);
             writer.WriteAdditionalData(AdditionalData);

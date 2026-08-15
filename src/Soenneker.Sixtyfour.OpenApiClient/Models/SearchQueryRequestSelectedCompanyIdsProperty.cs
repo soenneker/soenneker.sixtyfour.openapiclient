@@ -8,29 +8,29 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// Structured filter set returned by a previous search.
+    /// Platform-only name -&gt; company ID map from autocomplete. Each pair is verified against the company index before use; unverified pairs fall back to name resolution. Disambiguates companies sharing a name. Excess hints are ignored; parsed-query name matching still applies.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class SearchQueryRequestParsedQuery : IAdditionalDataHolder, IParsable
+    public partial class SearchQueryRequestSelectedCompanyIdsProperty : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestParsedQuery"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSelectedCompanyIdsProperty"/> and sets the default values.
         /// </summary>
-        public SearchQueryRequestParsedQuery()
+        public SearchQueryRequestSelectedCompanyIdsProperty()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestParsedQuery"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSelectedCompanyIdsProperty"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestParsedQuery CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSelectedCompanyIdsProperty CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestParsedQuery();
+            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSelectedCompanyIdsProperty();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -50,10 +50,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Aggregate run metrics (rows in/out, costs, etc.).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponseMetrics? Metrics { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponseMetricsProperty? Metrics { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponseMetrics Metrics { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponseMetricsProperty Metrics { get; set; }
 #endif
         /// <summary>Timestamp when the run was enqueued.</summary>
         public DateTimeOffset? QueuedAt { get; set; }
@@ -143,7 +143,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "duration_ms", n => { DurationMs = n.GetIntValue(); } },
                 { "error_message", n => { ErrorMessage = n.GetStringValue(); } },
                 { "job_id", n => { JobId = n.GetStringValue(); } },
-                { "metrics", n => { Metrics = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponseMetrics>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponseMetrics.CreateFromDiscriminatorValue); } },
+                { "metrics", n => { Metrics = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponseMetricsProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponseMetricsProperty.CreateFromDiscriminatorValue); } },
                 { "queued_at", n => { QueuedAt = n.GetDateTimeOffsetValue(); } },
                 { "started_at", n => { StartedAt = n.GetDateTimeOffsetValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
@@ -169,7 +169,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteIntValue("duration_ms", DurationMs);
             writer.WriteStringValue("error_message", ErrorMessage);
             writer.WriteStringValue("job_id", JobId);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponseMetrics>("metrics", Metrics);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponseMetricsProperty>("metrics", Metrics);
             writer.WriteDateTimeOffsetValue("queued_at", QueuedAt);
             writer.WriteDateTimeOffsetValue("started_at", StartedAt);
             writer.WriteStringValue("status", Status);

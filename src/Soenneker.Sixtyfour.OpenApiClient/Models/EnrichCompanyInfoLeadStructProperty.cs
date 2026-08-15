@@ -8,29 +8,29 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// Structured filter set echoed back; round-trippable into a follow-up request.
+    /// Output schema for each discovered person when find_people=true.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class FilterSearchResponseParsedQuery : IAdditionalDataHolder, IParsable
+    public partial class EnrichCompanyInfoLeadStructProperty : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseParsedQuery"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoLeadStructProperty"/> and sets the default values.
         /// </summary>
-        public FilterSearchResponseParsedQuery()
+        public EnrichCompanyInfoLeadStructProperty()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseParsedQuery"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoLeadStructProperty"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseParsedQuery CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoLeadStructProperty CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseParsedQuery();
+            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoLeadStructProperty();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -11,26 +11,26 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     /// Aggregate run metrics (rows in/out, costs, etc.).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class WorkflowRunResponseMetrics : IAdditionalDataHolder, IParsable
+    public partial class WorkflowRunResponseMetricsProperty : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponseMetrics"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponseMetricsProperty"/> and sets the default values.
         /// </summary>
-        public WorkflowRunResponseMetrics()
+        public WorkflowRunResponseMetricsProperty()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponseMetrics"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponseMetricsProperty"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponseMetrics CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponseMetricsProperty CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponseMetrics();
+            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponseMetricsProperty();
         }
         /// <summary>
         /// The deserialization information for the current model

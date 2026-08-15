@@ -18,10 +18,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Optional specs to override first block specs</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodySpecsOverride? SpecsOverride { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodySpecsOverrideProperty? SpecsOverride { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodySpecsOverride SpecsOverride { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodySpecsOverrideProperty SpecsOverride { get; set; }
 #endif
         /// <summary>For API key auth only - can be a list or dict</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -56,7 +56,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "specs_override", n => { SpecsOverride = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodySpecsOverride>(global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodySpecsOverride.CreateFromDiscriminatorValue); } },
+                { "specs_override", n => { SpecsOverride = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodySpecsOverrideProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodySpecsOverrideProperty.CreateFromDiscriminatorValue); } },
                 { "webhook_payload", n => { WebhookPayload = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayload>(global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayload.CreateFromDiscriminatorValue); } },
             };
         }
@@ -67,7 +67,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodySpecsOverride>("specs_override", SpecsOverride);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodySpecsOverrideProperty>("specs_override", SpecsOverride);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayload>("webhook_payload", WebhookPayload);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -26,10 +26,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Raw OpenSearch DSL filters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequestFilters? Filters { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequestFiltersProperty? Filters { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequestFilters Filters { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequestFiltersProperty Filters { get; set; }
 #endif
         /// <summary>Maximum number of results to return across pages.</summary>
         public int? MaxResults { get; set; }
@@ -42,10 +42,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>MongoDB-style filters that the API translates to DSL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequestSimpleFilters? SimpleFilters { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequestSimpleFiltersProperty? SimpleFilters { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequestSimpleFilters SimpleFilters { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequestSimpleFiltersProperty SimpleFilters { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequest"/> and sets the default values.
@@ -76,12 +76,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "cursor", n => { Cursor = n.GetStringValue(); } },
-                { "filters", n => { Filters = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequestFilters>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequestFilters.CreateFromDiscriminatorValue); } },
+                { "filters", n => { Filters = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequestFiltersProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequestFiltersProperty.CreateFromDiscriminatorValue); } },
                 { "max_results", n => { MaxResults = n.GetIntValue(); } },
                 { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequestMode>(); } },
                 { "page_size", n => { PageSize = n.GetIntValue(); } },
                 { "save_json", n => { SaveJson = n.GetBoolValue(); } },
-                { "simple_filters", n => { SimpleFilters = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequestSimpleFilters>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequestSimpleFilters.CreateFromDiscriminatorValue); } },
+                { "simple_filters", n => { SimpleFilters = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequestSimpleFiltersProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequestSimpleFiltersProperty.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -92,12 +92,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("cursor", Cursor);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequestFilters>("filters", Filters);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequestFiltersProperty>("filters", Filters);
             writer.WriteIntValue("max_results", MaxResults);
             writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequestMode>("mode", Mode);
             writer.WriteIntValue("page_size", PageSize);
             writer.WriteBoolValue("save_json", SaveJson);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequestSimpleFilters>("simple_filters", SimpleFilters);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequestSimpleFiltersProperty>("simple_filters", SimpleFilters);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

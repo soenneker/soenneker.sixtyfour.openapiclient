@@ -17,10 +17,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>The analysis property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseAnalysis? Analysis { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseAnalysisProperty? Analysis { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseAnalysis Analysis { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseAnalysisProperty Analysis { get; set; }
 #endif
         /// <summary>The close_time property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -51,10 +51,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>The filters property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseFilters? Filters { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseFiltersProperty? Filters { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseFilters Filters { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseFiltersProperty Filters { get; set; }
 #endif
         /// <summary>The progress_message property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -139,12 +139,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "analysis", n => { Analysis = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseAnalysis>(global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseAnalysis.CreateFromDiscriminatorValue); } },
+                { "analysis", n => { Analysis = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseAnalysisProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseAnalysisProperty.CreateFromDiscriminatorValue); } },
                 { "close_time", n => { CloseTime = n.GetStringValue(); } },
                 { "current_phase", n => { CurrentPhase = n.GetIntValue(); } },
                 { "error", n => { Error = n.GetStringValue(); } },
                 { "excluded_public_ids", n => { ExcludedPublicIds = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseExcludedPublicIds>(global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseExcludedPublicIds.CreateFromDiscriminatorValue); } },
-                { "filters", n => { Filters = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseFilters>(global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseFilters.CreateFromDiscriminatorValue); } },
+                { "filters", n => { Filters = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseFiltersProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseFiltersProperty.CreateFromDiscriminatorValue); } },
                 { "progress_message", n => { ProgressMessage = n.GetStringValue(); } },
                 { "search_id", n => { SearchId = n.GetStringValue(); } },
                 { "seed_diagnostics", n => { SeedDiagnostics = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SeedDiagnostics>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SeedDiagnostics.CreateFromDiscriminatorValue); } },
@@ -162,12 +162,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseAnalysis>("analysis", Analysis);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseAnalysisProperty>("analysis", Analysis);
             writer.WriteStringValue("close_time", CloseTime);
             writer.WriteIntValue("current_phase", CurrentPhase);
             writer.WriteStringValue("error", Error);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseExcludedPublicIds>("excluded_public_ids", ExcludedPublicIds);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseFilters>("filters", Filters);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseFiltersProperty>("filters", Filters);
             writer.WriteStringValue("progress_message", ProgressMessage);
             writer.WriteStringValue("search_id", SearchId);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SeedDiagnostics>("seed_diagnostics", SeedDiagnostics);

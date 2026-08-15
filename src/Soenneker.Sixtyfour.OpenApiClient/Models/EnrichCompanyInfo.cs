@@ -23,10 +23,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Output schema for each discovered person when find_people=true.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoLeadStruct? LeadStruct { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoLeadStructProperty? LeadStruct { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoLeadStruct LeadStruct { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoLeadStructProperty LeadStruct { get; set; }
 #endif
         /// <summary>Natural-language description of which people to surface when find_people=true.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -100,7 +100,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "field_confidence", n => { FieldConfidence = n.GetBoolValue(); } },
                 { "find_people", n => { FindPeople = n.GetBoolValue(); } },
                 { "full_org_chart", n => { FullOrgChart = n.GetBoolValue(); } },
-                { "lead_struct", n => { LeadStruct = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoLeadStruct>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoLeadStruct.CreateFromDiscriminatorValue); } },
+                { "lead_struct", n => { LeadStruct = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoLeadStructProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoLeadStructProperty.CreateFromDiscriminatorValue); } },
                 { "people_focus_prompt", n => { PeopleFocusPrompt = n.GetStringValue(); } },
                 { "research_plan", n => { ResearchPlan = n.GetStringValue(); } },
                 { "struct", n => { Struct = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoStructProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoStructProperty.CreateFromDiscriminatorValue); } },
@@ -119,7 +119,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteBoolValue("field_confidence", FieldConfidence);
             writer.WriteBoolValue("find_people", FindPeople);
             writer.WriteBoolValue("full_org_chart", FullOrgChart);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoLeadStruct>("lead_struct", LeadStruct);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoLeadStructProperty>("lead_struct", LeadStruct);
             writer.WriteStringValue("people_focus_prompt", PeopleFocusPrompt);
             writer.WriteStringValue("research_plan", ResearchPlan);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoStructProperty>("struct", Struct);

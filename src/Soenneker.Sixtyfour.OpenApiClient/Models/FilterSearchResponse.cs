@@ -18,10 +18,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>&quot;Present when company filters matched more companies than the resolver expansion cap. \&quot;total_matched\&quot;: positive filters truncated — results cover people at the largest matching employers only. \&quot;excluded_total_matched\&quot;: a not-filter truncated — only the largest matching employers are excluded, so people at smaller excluded companies may still appear.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseCompanyFilterTruncated? CompanyFilterTruncated { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseCompanyFilterTruncatedProperty? CompanyFilterTruncated { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseCompanyFilterTruncated CompanyFilterTruncated { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseCompanyFilterTruncatedProperty CompanyFilterTruncated { get; set; }
 #endif
         /// <summary>Signed URL to download results as CSV.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -78,10 +78,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Structured filter set echoed back; round-trippable into a follow-up request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseParsedQuery? ParsedQuery { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseParsedQueryProperty? ParsedQuery { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseParsedQuery ParsedQuery { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseParsedQueryProperty ParsedQuery { get; set; }
 #endif
         /// <summary>Rows still available under max_results after this page.</summary>
         public int? RemainingResults { get; set; }
@@ -144,7 +144,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "company_filter_truncated", n => { CompanyFilterTruncated = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseCompanyFilterTruncated>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseCompanyFilterTruncated.CreateFromDiscriminatorValue); } },
+                { "company_filter_truncated", n => { CompanyFilterTruncated = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseCompanyFilterTruncatedProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseCompanyFilterTruncatedProperty.CreateFromDiscriminatorValue); } },
                 { "csv_download_url", n => { CsvDownloadUrl = n.GetStringValue(); } },
                 { "cursor_expires_in_seconds", n => { CursorExpiresInSeconds = n.GetIntValue(); } },
                 { "download_expires_in_seconds", n => { DownloadExpiresInSeconds = n.GetIntValue(); } },
@@ -159,7 +159,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "page_count", n => { PageCount = n.GetIntValue(); } },
                 { "page_number", n => { PageNumber = n.GetIntValue(); } },
                 { "page_size", n => { PageSize = n.GetIntValue(); } },
-                { "parsed_query", n => { ParsedQuery = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseParsedQuery>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseParsedQuery.CreateFromDiscriminatorValue); } },
+                { "parsed_query", n => { ParsedQuery = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseParsedQueryProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseParsedQueryProperty.CreateFromDiscriminatorValue); } },
                 { "remaining_results", n => { RemainingResults = n.GetIntValue(); } },
                 { "request_duration_ms", n => { RequestDurationMs = n.GetIntValue(); } },
                 { "resource_handle_id", n => { ResourceHandleId = n.GetStringValue(); } },
@@ -177,7 +177,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseCompanyFilterTruncated>("company_filter_truncated", CompanyFilterTruncated);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseCompanyFilterTruncatedProperty>("company_filter_truncated", CompanyFilterTruncated);
             writer.WriteStringValue("csv_download_url", CsvDownloadUrl);
             writer.WriteIntValue("cursor_expires_in_seconds", CursorExpiresInSeconds);
             writer.WriteIntValue("download_expires_in_seconds", DownloadExpiresInSeconds);
@@ -192,7 +192,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteIntValue("page_count", PageCount);
             writer.WriteIntValue("page_number", PageNumber);
             writer.WriteIntValue("page_size", PageSize);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseParsedQuery>("parsed_query", ParsedQuery);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseParsedQueryProperty>("parsed_query", ParsedQuery);
             writer.WriteIntValue("remaining_results", RemainingResults);
             writer.WriteIntValue("request_duration_ms", RequestDurationMs);
             writer.WriteStringValue("resource_handle_id", ResourceHandleId);

@@ -8,29 +8,29 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// Raw OpenSearch DSL filters that scope the aggregation.
+    /// Raw OpenSearch DSL filters.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class FilterFieldValuesRequestFilters : IAdditionalDataHolder, IParsable
+    public partial class StartFilterSearchRequestFiltersProperty : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesRequestFilters"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequestFiltersProperty"/> and sets the default values.
         /// </summary>
-        public FilterFieldValuesRequestFilters()
+        public StartFilterSearchRequestFiltersProperty()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesRequestFilters"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequestFiltersProperty"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesRequestFilters CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequestFiltersProperty CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesRequestFilters();
+            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequestFiltersProperty();
         }
         /// <summary>
         /// The deserialization information for the current model

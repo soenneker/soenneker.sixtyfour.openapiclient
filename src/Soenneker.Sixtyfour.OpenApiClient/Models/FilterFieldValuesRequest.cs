@@ -26,20 +26,20 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Raw OpenSearch DSL filters that scope the aggregation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesRequestFilters? Filters { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesRequestFiltersProperty? Filters { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesRequestFilters Filters { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesRequestFiltersProperty Filters { get; set; }
 #endif
         /// <summary>&quot;Search mode: &apos;people&apos; or &apos;company&apos;.&quot;</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesRequestMode? Mode { get; set; }
         /// <summary>MongoDB-style filters that scope the aggregation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesRequestSimpleFilters? SimpleFilters { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesRequestSimpleFiltersProperty? SimpleFilters { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesRequestSimpleFilters SimpleFilters { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesRequestSimpleFiltersProperty SimpleFilters { get; set; }
 #endif
         /// <summary>Maximum number of top values to return.</summary>
         public int? TopK { get; set; }
@@ -70,9 +70,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "field", n => { Field = n.GetStringValue(); } },
-                { "filters", n => { Filters = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesRequestFilters>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesRequestFilters.CreateFromDiscriminatorValue); } },
+                { "filters", n => { Filters = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesRequestFiltersProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesRequestFiltersProperty.CreateFromDiscriminatorValue); } },
                 { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesRequestMode>(); } },
-                { "simple_filters", n => { SimpleFilters = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesRequestSimpleFilters>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesRequestSimpleFilters.CreateFromDiscriminatorValue); } },
+                { "simple_filters", n => { SimpleFilters = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesRequestSimpleFiltersProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesRequestSimpleFiltersProperty.CreateFromDiscriminatorValue); } },
                 { "top_k", n => { TopK = n.GetIntValue(); } },
             };
         }
@@ -84,9 +84,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("field", Field);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesRequestFilters>("filters", Filters);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesRequestFiltersProperty>("filters", Filters);
             writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesRequestMode>("mode", Mode);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesRequestSimpleFilters>("simple_filters", SimpleFilters);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesRequestSimpleFiltersProperty>("simple_filters", SimpleFilters);
             writer.WriteIntValue("top_k", TopK);
             writer.WriteAdditionalData(AdditionalData);
         }

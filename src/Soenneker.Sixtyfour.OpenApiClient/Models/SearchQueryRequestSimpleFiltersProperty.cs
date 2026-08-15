@@ -11,26 +11,26 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     /// MongoDB-style filters; the API translates them to DSL.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class SearchQueryRequestSimpleFilters : IAdditionalDataHolder, IParsable
+    public partial class SearchQueryRequestSimpleFiltersProperty : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSimpleFilters"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSimpleFiltersProperty"/> and sets the default values.
         /// </summary>
-        public SearchQueryRequestSimpleFilters()
+        public SearchQueryRequestSimpleFiltersProperty()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSimpleFilters"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSimpleFiltersProperty"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSimpleFilters CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSimpleFiltersProperty CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSimpleFilters();
+            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSimpleFiltersProperty();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.BulkIntelligence.People
         {
         }
         /// <summary>
-        /// Upload a CSV/JSON/NDJSON file and start a background bulk intelligence run.Poll `GET /job-status/{task_id}`; on completion the response includes signeddownload links and `charge_amount` (total cents charged). Row-level failurespass through un-enriched; source-block failures fail the run.
+        /// Upload a CSV/JSON/NDJSON file and start a background bulk intelligence run.Poll `GET /job-status/{task_id}`; while running the response includes`progress` with the rows enriched so far out of the total, and on completion itincludes signed download links and `charge_amount` (total cents charged).Row-level failures pass through un-enriched; source-block failures fail the run.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.BulkIntelligenceStartedResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -71,7 +71,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.BulkIntelligence.People
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.BulkIntelligenceStartedResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.BulkIntelligenceStartedResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Upload a CSV/JSON/NDJSON file and start a background bulk intelligence run.Poll `GET /job-status/{task_id}`; on completion the response includes signeddownload links and `charge_amount` (total cents charged). Row-level failurespass through un-enriched; source-block failures fail the run.
+        /// Upload a CSV/JSON/NDJSON file and start a background bulk intelligence run.Poll `GET /job-status/{task_id}`; while running the response includes`progress` with the rows enriched so far out of the total, and on completion itincludes signed download links and `charge_amount` (total cents charged).Row-level failures pass through un-enriched; source-block failures fail the run.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -102,7 +102,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.BulkIntelligence.People
             return new global::Soenneker.Sixtyfour.OpenApiClient.BulkIntelligence.People.PeopleRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Upload a CSV/JSON/NDJSON file and start a background bulk intelligence run.Poll `GET /job-status/{task_id}`; on completion the response includes signeddownload links and `charge_amount` (total cents charged). Row-level failurespass through un-enriched; source-block failures fail the run.
+        /// Upload a CSV/JSON/NDJSON file and start a background bulk intelligence run.Poll `GET /job-status/{task_id}`; while running the response includes`progress` with the rows enriched so far out of the total, and on completion itincludes signed download links and `charge_amount` (total cents charged).Row-level failures pass through un-enriched; source-block failures fail the run.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class PeopleRequestBuilderPostQueryParameters 

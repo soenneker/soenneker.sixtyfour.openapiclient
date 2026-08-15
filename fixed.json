@@ -3266,6 +3266,19 @@
                       "start_time": "2026-06-10T00:00:00Z"
                     }
                   },
+                  "running_bulk": {
+                    "summary": "Running bulk intelligence job",
+                    "value": {
+                      "status": "running",
+                      "id": "job_123",
+                      "run_id": "temporal-run-123",
+                      "start_time": "2026-06-10T00:00:00Z",
+                      "progress": {
+                        "completed": 120,
+                        "total": 500
+                      }
+                    }
+                  },
                   "completed_enrichment": {
                     "summary": "Completed enrichment job",
                     "value": {
@@ -3705,7 +3718,7 @@
           "Enrichment"
         ],
         "summary": "People Intelligence (Bulk)",
-        "description": "Upload a CSV/JSON/NDJSON file and start a background bulk intelligence run.\n\nPoll \u0060GET /job-status/{task_id}\u0060; on completion the response includes signed\ndownload links and \u0060charge_amount\u0060 (total cents charged). Row-level failures\npass through un-enriched; source-block failures fail the run.",
+        "description": "Upload a CSV/JSON/NDJSON file and start a background bulk intelligence run.\n\nPoll \u0060GET /job-status/{task_id}\u0060; while running the response includes\n\u0060progress\u0060 with the rows enriched so far out of the total, and on completion it\nincludes signed download links and \u0060charge_amount\u0060 (total cents charged).\nRow-level failures pass through un-enriched; source-block failures fail the run.",
         "operationId": "StartPeopleBulkIntelligenceWorkflowBulkIntelligencePeoplePost",
         "parameters": [
           {
@@ -3858,7 +3871,7 @@
           "Enrichment"
         ],
         "summary": "Company Intelligence (Bulk)",
-        "description": "Upload a CSV/JSON/NDJSON file and start a background bulk intelligence run.\n\nPoll \u0060GET /job-status/{task_id}\u0060; on completion the response includes signed\ndownload links and \u0060charge_amount\u0060 (total cents charged). Row-level failures\npass through un-enriched; source-block failures fail the run.",
+        "description": "Upload a CSV/JSON/NDJSON file and start a background bulk intelligence run.\n\nPoll \u0060GET /job-status/{task_id}\u0060; while running the response includes\n\u0060progress\u0060 with the rows enriched so far out of the total, and on completion it\nincludes signed download links and \u0060charge_amount\u0060 (total cents charged).\nRow-level failures pass through un-enriched; source-block failures fail the run.",
         "operationId": "StartCompanyBulkIntelligenceWorkflowBulkIntelligenceCompanyPost",
         "parameters": [
           {
@@ -10189,7 +10202,7 @@
             ]
           },
           "answers": {
-            "$ref": "#/components/schemas/ApprovalRequestAnswers"
+            "$ref": "#/components/schemas/ApprovalRequestAnswersProperty"
           }
         }
       },
@@ -10980,7 +10993,7 @@
             "$ref": "#/components/schemas/ChatRequestPageContext"
           },
           "page_data": {
-            "$ref": "#/components/schemas/ChatRequestPageData"
+            "$ref": "#/components/schemas/ChatRequestPageDataProperty"
           },
           "search_rerun": {
             "$ref": "#/components/schemas/ChatRequestSearchRerun"
@@ -11472,7 +11485,7 @@
             "description": "Natural-language description of which people to surface when find_people=true."
           },
           "lead_struct": {
-            "$ref": "#/components/schemas/EnrichCompanyInfoLeadStruct"
+            "$ref": "#/components/schemas/EnrichCompanyInfoLeadStructProperty"
           },
           "research_plan": {
             "title": "Research Plan",
@@ -11523,7 +11536,7 @@
         "type": "object",
         "properties": {
           "struct": {
-            "$ref": "#/components/schemas/EnrichLeadInfoStruct"
+            "$ref": "#/components/schemas/EnrichLeadInfoStructProperty"
           },
           "research_plan": {
             "title": "Research Plan",
@@ -11761,10 +11774,10 @@
             "default": 25
           },
           "filters": {
-            "$ref": "#/components/schemas/FilterFieldValuesRequestFilters"
+            "$ref": "#/components/schemas/FilterFieldValuesRequestFiltersProperty"
           },
           "simple_filters": {
-            "$ref": "#/components/schemas/FilterFieldValuesRequestSimpleFilters"
+            "$ref": "#/components/schemas/FilterFieldValuesRequestSimpleFiltersProperty"
           }
         },
         "description": "Request for top values of a single field."
@@ -11885,7 +11898,7 @@
             "description": "Share (0-1) of scoped documents matching this value."
           },
           "filter_snippet": {
-            "$ref": "#/components/schemas/FilterFieldValuesValueFilterSnippet"
+            "$ref": "#/components/schemas/FilterFieldValuesValueFilterSnippetProperty"
           }
         },
         "description": "One candidate value returned by field-values endpoints."
@@ -12154,7 +12167,7 @@
             "description": "Rows returned for the current page."
           },
           "parsed_query": {
-            "$ref": "#/components/schemas/FilterSearchResponseParsedQuery"
+            "$ref": "#/components/schemas/FilterSearchResponseParsedQueryProperty"
           },
           "natural_language_query": {
             "title": "Natural Language Query",
@@ -12165,7 +12178,7 @@
             "description": "Original natural-language query echoed verbatim, if any."
           },
           "company_filter_truncated": {
-            "$ref": "#/components/schemas/FilterSearchResponseCompanyFilterTruncated"
+            "$ref": "#/components/schemas/FilterSearchResponseCompanyFilterTruncatedProperty"
           }
         },
         "description": "Response for a completed filter search."
@@ -12560,7 +12573,7 @@
             "description": "Full LinkedIn profile or company URL to enrich."
           },
           "struct": {
-            "$ref": "#/components/schemas/LinkedInEnrichRequestStruct"
+            "$ref": "#/components/schemas/LinkedInEnrichRequestStructProperty"
           }
         }
       },
@@ -12621,10 +12634,10 @@
             ]
           },
           "filters": {
-            "$ref": "#/components/schemas/LookalikeSearchStatusResponseFilters"
+            "$ref": "#/components/schemas/LookalikeSearchStatusResponseFiltersProperty"
           },
           "analysis": {
-            "$ref": "#/components/schemas/LookalikeSearchStatusResponseAnalysis"
+            "$ref": "#/components/schemas/LookalikeSearchStatusResponseAnalysisProperty"
           },
           "seed_diagnostics": {
             "$ref": "#/components/schemas/LookalikeSearchStatusResponseSeedDiagnostics"
@@ -12669,7 +12682,7 @@
             ]
           },
           "state": {
-            "$ref": "#/components/schemas/MountViewerRequestState"
+            "$ref": "#/components/schemas/MountViewerRequestStateProperty"
           }
         }
       },
@@ -12868,7 +12881,7 @@
             "$ref": "#/components/schemas/QaAgentRequestReferences"
           },
           "struct": {
-            "$ref": "#/components/schemas/QaAgentRequestStruct"
+            "$ref": "#/components/schemas/QaAgentRequestStructProperty"
           },
           "max_tool_calls": {
             "title": "Max Tool Calls",
@@ -12939,7 +12952,7 @@
             "$ref": "#/components/schemas/ResearchAgentRequestInputDataProperty"
           },
           "struct": {
-            "$ref": "#/components/schemas/ResearchAgentRequestStruct"
+            "$ref": "#/components/schemas/ResearchAgentRequestStructProperty"
           },
           "research_plan": {
             "title": "Research Plan",
@@ -13138,7 +13151,7 @@
         "type": "object",
         "properties": {
           "specs_override": {
-            "$ref": "#/components/schemas/RunWorkflowBodySpecsOverride"
+            "$ref": "#/components/schemas/RunWorkflowBodySpecsOverrideProperty"
           },
           "webhook_payload": {
             "$ref": "#/components/schemas/RunWorkflowBodyWebhookPayload"
@@ -13181,7 +13194,7 @@
             "description": "Search history ID returned by a previous search. Replays only the query shape; pass exclusions again on this request if they should apply."
           },
           "parsed_query": {
-            "$ref": "#/components/schemas/SaveSearchRequestParsedQuery"
+            "$ref": "#/components/schemas/SaveSearchRequestParsedQueryProperty"
           },
           "mode": {
             "$ref": "#/components/schemas/SaveSearchRequestMode"
@@ -13378,13 +13391,13 @@
         "type": "object",
         "properties": {
           "simple_filters": {
-            "$ref": "#/components/schemas/SearchQueryRequestSimpleFilters"
+            "$ref": "#/components/schemas/SearchQueryRequestSimpleFiltersProperty"
           },
           "filters": {
-            "$ref": "#/components/schemas/SearchQueryRequestFilters"
+            "$ref": "#/components/schemas/SearchQueryRequestFiltersProperty"
           },
           "parsed_query": {
-            "$ref": "#/components/schemas/SearchQueryRequestParsedQuery"
+            "$ref": "#/components/schemas/SearchQueryRequestParsedQueryProperty"
           },
           "search_id": {
             "title": "Search Id",
@@ -13445,7 +13458,7 @@
             "$ref": "#/components/schemas/SearchQueryRequestSelectedCompanyNames"
           },
           "selected_company_ids": {
-            "$ref": "#/components/schemas/SearchQueryRequestSelectedCompanyIds"
+            "$ref": "#/components/schemas/SearchQueryRequestSelectedCompanyIdsProperty"
           },
           "exclude_public_ids": {
             "$ref": "#/components/schemas/SearchQueryRequestExcludePublicIds"
@@ -13733,10 +13746,10 @@
         "type": "object",
         "properties": {
           "filters": {
-            "$ref": "#/components/schemas/StartFilterSearchRequestFilters"
+            "$ref": "#/components/schemas/StartFilterSearchRequestFiltersProperty"
           },
           "simple_filters": {
-            "$ref": "#/components/schemas/StartFilterSearchRequestSimpleFilters"
+            "$ref": "#/components/schemas/StartFilterSearchRequestSimpleFiltersProperty"
           },
           "mode": {
             "$ref": "#/components/schemas/StartFilterSearchRequestMode"
@@ -13799,7 +13812,7 @@
             "$ref": "#/components/schemas/StartInteractiveRequestResultFormats"
           },
           "cache_config": {
-            "$ref": "#/components/schemas/StartInteractiveRequestCacheConfig"
+            "$ref": "#/components/schemas/StartInteractiveRequestCacheConfigProperty"
           }
         }
       },
@@ -14226,7 +14239,7 @@
             "type": "integer"
           },
           "state": {
-            "$ref": "#/components/schemas/ViewerSpecState"
+            "$ref": "#/components/schemas/ViewerSpecStateProperty"
           }
         },
         "description": "One open tab inside a workspace."
@@ -14690,7 +14703,7 @@
             "description": "Error message if the operation failed."
           },
           "metrics": {
-            "$ref": "#/components/schemas/WorkflowRunResponseMetrics"
+            "$ref": "#/components/schemas/WorkflowRunResponseMetricsProperty"
           },
           "blocks": {
             "$ref": "#/components/schemas/WorkflowRunResponseBlocks"
@@ -14729,7 +14742,7 @@
             "description": "Job (run) identifier."
           },
           "cache_config": {
-            "$ref": "#/components/schemas/WorkflowRunStartedResponseCacheConfig"
+            "$ref": "#/components/schemas/WorkflowRunStartedResponseCacheConfigProperty"
           },
           "already_started": {
             "title": "Already Started",
@@ -20233,6 +20246,9 @@
           "start_time": {
             "type": "string",
             "format": "date-time"
+          },
+          "progress": {
+            "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseOneOf1Progress"
           }
         }
       },
@@ -20397,6 +20413,9 @@
       "AddBlockRequestSpecsProperty": {
         "type": "object"
       },
+      "ApprovalRequestAnswersProperty": {
+        "type": "object"
+      },
       "BlockSpecsProperty": {
         "type": "object",
         "description": "Block-specific configuration; shape depends on \u0060block_name\u0060."
@@ -20406,6 +20425,9 @@
         "description": "JSON Schema describing the block\u0027s \u0060specs\u0060 payload."
       },
       "ChatRequestMessagesItemProperty": {
+        "type": "object"
+      },
+      "ChatRequestPageDataProperty": {
         "type": "object"
       },
       "ChatSessionMessagesResponseMessagesItemProperty": {
@@ -20418,16 +20440,47 @@
         "type": "object",
         "description": "Mapping of output field name to natural-language description of what to extract."
       },
+      "EnrichCompanyInfoLeadStructProperty": {
+        "type": "object",
+        "description": "Output schema for each discovered person when find_people=true."
+      },
       "EnrichCompanyInfoTargetCompanyProperty": {
         "type": "object",
         "description": "Company identifiers (e.g. company_name, domain, linkedin)."
+      },
+      "EnrichLeadInfoStructProperty": {
+        "type": "object",
+        "description": "Mapping of output field name to natural-language description of what to extract."
       },
       "EnrichLeadInfoLeadInfoProperty": {
         "type": "object",
         "description": "Single lead to process. Provide any combination of name, email, company, linkedin, etc."
       },
+      "FilterFieldValuesRequestFiltersProperty": {
+        "type": "object",
+        "description": "Raw OpenSearch DSL filters that scope the aggregation."
+      },
+      "FilterFieldValuesRequestSimpleFiltersProperty": {
+        "type": "object",
+        "description": "MongoDB-style filters that scope the aggregation."
+      },
+      "FilterFieldValuesValueFilterSnippetProperty": {
+        "type": "object",
+        "description": "Ready-to-merge filter clause that selects this value."
+      },
       "FilterSearchResponseResultsItemProperty": {
         "type": "object"
+      },
+      "FilterSearchResponseParsedQueryProperty": {
+        "type": "object",
+        "description": "Structured filter set echoed back; round-trippable into a follow-up request."
+      },
+      "FilterSearchResponseCompanyFilterTruncatedProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "integer"
+        },
+        "description": "\u0022Present when company filters matched more companies than the resolver expansion cap. \\\u0022total_matched\\\u0022: positive filters truncated \u2014 results cover people at the largest matching employers only. \\\u0022excluded_total_matched\\\u0022: a not-filter truncated \u2014 only the largest matching employers are excluded, so people at smaller excluded companies may still appear.\u0022"
       },
       "FindEmailBulkRequestLeadsItemProperty": {
         "type": "object"
@@ -20458,6 +20511,19 @@
       "GenerateSearchTitleRequestParsedQueryProperty": {
         "type": "object"
       },
+      "LinkedInEnrichRequestStructProperty": {
+        "type": "object",
+        "description": "Mapping of output field name to natural-language description of what to extract."
+      },
+      "LookalikeSearchStatusResponseFiltersProperty": {
+        "type": "object"
+      },
+      "LookalikeSearchStatusResponseAnalysisProperty": {
+        "type": "object"
+      },
+      "MountViewerRequestStateProperty": {
+        "type": "object"
+      },
       "PatchViewerStateRequestStateProperty": {
         "type": "object"
       },
@@ -20465,7 +20531,17 @@
         "type": "object",
         "description": "Lead or record to evaluate against the qualification criteria."
       },
+      "QaAgentRequestStructProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Mapping of extra output fields and their descriptions."
+      },
       "ResearchAgentRequestInputDataProperty": {
+        "type": "object"
+      },
+      "ResearchAgentRequestStructProperty": {
         "type": "object"
       },
       "ReverseEmailBulkRequestLeadsItemProperty": {
@@ -20482,15 +20558,64 @@
         "type": "object",
         "description": "Single lead with at least a \u0060phone\u0060 field to reverse-lookup."
       },
+      "RunWorkflowBodySpecsOverrideProperty": {
+        "type": "object",
+        "description": "Optional specs to override first block specs"
+      },
+      "SaveSearchRequestParsedQueryProperty": {
+        "type": "object",
+        "description": "Structured filter set returned by a previous search."
+      },
+      "SearchQueryRequestSimpleFiltersProperty": {
+        "type": "object",
+        "description": "MongoDB-style filters; the API translates them to DSL."
+      },
+      "SearchQueryRequestFiltersProperty": {
+        "type": "object",
+        "description": "Raw OpenSearch DSL filters."
+      },
+      "SearchQueryRequestParsedQueryProperty": {
+        "type": "object",
+        "description": "Structured filter set returned by a previous search."
+      },
+      "SearchQueryRequestSelectedCompanyIdsProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Platform-only name -\u003E company ID map from autocomplete. Each pair is verified against the company index before use; unverified pairs fall back to name resolution. Disambiguates companies sharing a name. Excess hints are ignored; parsed-query name matching still applies."
+      },
       "SearchRerunRequestFiltersProperty": {
         "type": "object"
       },
+      "StartFilterSearchRequestFiltersProperty": {
+        "type": "object",
+        "description": "Raw OpenSearch DSL filters."
+      },
+      "StartFilterSearchRequestSimpleFiltersProperty": {
+        "type": "object",
+        "description": "MongoDB-style filters that the API translates to DSL."
+      },
       "StartInteractiveRequestSpecsProperty": {
+        "type": "object"
+      },
+      "StartInteractiveRequestCacheConfigProperty": {
         "type": "object"
       },
       "VerifyAgeRequestSubjectProperty": {
         "type": "object",
         "description": "The person to verify. Any identifiers you have (name, company, linkedin, email, location, etc.); more is better."
+      },
+      "ViewerSpecStateProperty": {
+        "type": "object"
+      },
+      "WorkflowRunResponseMetricsProperty": {
+        "type": "object",
+        "description": "Aggregate run metrics (rows in/out, costs, etc.)."
+      },
+      "WorkflowRunStartedResponseCacheConfigProperty": {
+        "type": "object",
+        "description": "Cache configuration; only set by the custom-cache endpoint."
       },
       "ValidationErrorCtxProperty": {
         "type": "object",
@@ -20507,6 +20632,18 @@
       },
       "JobStatusJobStatusJobIdGet200ResponseOneOf2ResultBranch3ValueItem": {
         "type": "object"
+      },
+      "JobStatusJobStatusJobIdGet200ResponseOneOf1Progress": {
+        "type": "object",
+        "properties": {
+          "completed": {
+            "type": "integer"
+          },
+          "total": {
+            "type": "integer"
+          }
+        },
+        "description": "\u0022Bulk runs only: rows enriched so far out of the total rows submitted.\u0022"
       },
       "JobStatusJobStatusJobIdGet200ResponseOneOf3ResultsItem": {
         "type": "object",

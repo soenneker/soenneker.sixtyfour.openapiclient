@@ -52,10 +52,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Raw OpenSearch DSL filters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestFilters? Filters { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestFiltersProperty? Filters { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestFilters Filters { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestFiltersProperty Filters { get; set; }
 #endif
         /// <summary>Expand the location filter to nearby areas via PostGIS radius on the `query` (NL) branch. People mode only. For `parsed_query`, use `expand_structured_location`.</summary>
         public bool? LocationExpansionEnabled { get; set; }
@@ -72,10 +72,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Structured filter set returned by a previous search.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestParsedQuery? ParsedQuery { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestParsedQueryProperty? ParsedQuery { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestParsedQuery ParsedQuery { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestParsedQueryProperty ParsedQuery { get; set; }
 #endif
         /// <summary>Natural-language query. Mutually exclusive with simple_filters / filters / parsed_query / search_id. People-mode only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -104,10 +104,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Platform-only name -&gt; company ID map from autocomplete. Each pair is verified against the company index before use; unverified pairs fall back to name resolution. Disambiguates companies sharing a name. Excess hints are ignored; parsed-query name matching still applies.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSelectedCompanyIds? SelectedCompanyIds { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSelectedCompanyIdsProperty? SelectedCompanyIds { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSelectedCompanyIds SelectedCompanyIds { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSelectedCompanyIdsProperty SelectedCompanyIds { get; set; }
 #endif
         /// <summary>Platform-only exact company selections. The backend resolves names to company IDs instead of trusting client-supplied OpenSearch IDs. Excess hints are ignored; parsed-query name matching still applies.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -120,10 +120,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>MongoDB-style filters; the API translates them to DSL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSimpleFilters? SimpleFilters { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSimpleFiltersProperty? SimpleFilters { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSimpleFilters SimpleFilters { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSimpleFiltersProperty SimpleFilters { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequest"/> and sets the default values.
@@ -159,20 +159,20 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "exclude_list_ids", n => { ExcludeListIds = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestExcludeListIds>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestExcludeListIds.CreateFromDiscriminatorValue); } },
                 { "exclude_public_ids", n => { ExcludePublicIds = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestExcludePublicIds>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestExcludePublicIds.CreateFromDiscriminatorValue); } },
                 { "expand_structured_location", n => { ExpandStructuredLocation = n.GetBoolValue(); } },
-                { "filters", n => { Filters = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestFilters>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestFilters.CreateFromDiscriminatorValue); } },
+                { "filters", n => { Filters = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestFiltersProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestFiltersProperty.CreateFromDiscriminatorValue); } },
                 { "location_expansion_enabled", n => { LocationExpansionEnabled = n.GetBoolValue(); } },
                 { "location_expansion_radius_miles", n => { LocationExpansionRadiusMiles = n.GetIntValue(); } },
                 { "max_results", n => { MaxResults = n.GetIntValue(); } },
                 { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestMode>(); } },
                 { "output_shape", n => { OutputShape = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestOutputShape>(); } },
                 { "page_size", n => { PageSize = n.GetIntValue(); } },
-                { "parsed_query", n => { ParsedQuery = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestParsedQuery>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestParsedQuery.CreateFromDiscriminatorValue); } },
+                { "parsed_query", n => { ParsedQuery = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestParsedQueryProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestParsedQueryProperty.CreateFromDiscriminatorValue); } },
                 { "query", n => { Query = n.GetStringValue(); } },
                 { "query_label", n => { QueryLabel = n.GetStringValue(); } },
                 { "search_id", n => { SearchId = n.GetStringValue(); } },
-                { "selected_company_ids", n => { SelectedCompanyIds = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSelectedCompanyIds>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSelectedCompanyIds.CreateFromDiscriminatorValue); } },
+                { "selected_company_ids", n => { SelectedCompanyIds = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSelectedCompanyIdsProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSelectedCompanyIdsProperty.CreateFromDiscriminatorValue); } },
                 { "selected_company_names", n => { SelectedCompanyNames = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSelectedCompanyNames>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSelectedCompanyNames.CreateFromDiscriminatorValue); } },
-                { "simple_filters", n => { SimpleFilters = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSimpleFilters>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSimpleFilters.CreateFromDiscriminatorValue); } },
+                { "simple_filters", n => { SimpleFilters = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSimpleFiltersProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSimpleFiltersProperty.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -187,20 +187,20 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestExcludeListIds>("exclude_list_ids", ExcludeListIds);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestExcludePublicIds>("exclude_public_ids", ExcludePublicIds);
             writer.WriteBoolValue("expand_structured_location", ExpandStructuredLocation);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestFilters>("filters", Filters);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestFiltersProperty>("filters", Filters);
             writer.WriteBoolValue("location_expansion_enabled", LocationExpansionEnabled);
             writer.WriteIntValue("location_expansion_radius_miles", LocationExpansionRadiusMiles);
             writer.WriteIntValue("max_results", MaxResults);
             writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestMode>("mode", Mode);
             writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestOutputShape>("output_shape", OutputShape);
             writer.WriteIntValue("page_size", PageSize);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestParsedQuery>("parsed_query", ParsedQuery);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestParsedQueryProperty>("parsed_query", ParsedQuery);
             writer.WriteStringValue("query", Query);
             writer.WriteStringValue("query_label", QueryLabel);
             writer.WriteStringValue("search_id", SearchId);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSelectedCompanyIds>("selected_company_ids", SelectedCompanyIds);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSelectedCompanyIdsProperty>("selected_company_ids", SelectedCompanyIds);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSelectedCompanyNames>("selected_company_names", SelectedCompanyNames);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSimpleFilters>("simple_filters", SimpleFilters);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSimpleFiltersProperty>("simple_filters", SimpleFilters);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

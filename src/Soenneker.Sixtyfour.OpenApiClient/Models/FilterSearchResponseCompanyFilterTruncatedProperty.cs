@@ -8,29 +8,29 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// Ready-to-merge filter clause that selects this value.
+    /// &quot;Present when company filters matched more companies than the resolver expansion cap. \&quot;total_matched\&quot;: positive filters truncated — results cover people at the largest matching employers only. \&quot;excluded_total_matched\&quot;: a not-filter truncated — only the largest matching employers are excluded, so people at smaller excluded companies may still appear.&quot;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class FilterFieldValuesValueFilterSnippet : IAdditionalDataHolder, IParsable
+    public partial class FilterSearchResponseCompanyFilterTruncatedProperty : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValueFilterSnippet"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseCompanyFilterTruncatedProperty"/> and sets the default values.
         /// </summary>
-        public FilterFieldValuesValueFilterSnippet()
+        public FilterSearchResponseCompanyFilterTruncatedProperty()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValueFilterSnippet"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseCompanyFilterTruncatedProperty"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValueFilterSnippet CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseCompanyFilterTruncatedProperty CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValueFilterSnippet();
+            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseCompanyFilterTruncatedProperty();
         }
         /// <summary>
         /// The deserialization information for the current model
