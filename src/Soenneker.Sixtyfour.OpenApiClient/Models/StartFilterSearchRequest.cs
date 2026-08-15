@@ -33,7 +33,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #endif
         /// <summary>Maximum number of results to return across pages.</summary>
         public int? MaxResults { get; set; }
-        /// <summary>&quot;Search mode: &apos;people&apos; or &apos;company&apos;.&quot;</summary>
+        /// <summary>Search mode: &apos;people&apos; or &apos;company&apos;.</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartFilterSearchRequestMode? Mode { get; set; }
         /// <summary>Maximum number of results per page (1-100). Pages may contain fewer rows while more results remain (e.g. with exclusion filtering); rely on `has_more`/`next_cursor`, never on page fullness.</summary>
         public int? PageSize { get; set; }

@@ -48,7 +48,8 @@
                 "$ref": "#/components/schemas/FindEmailBulkRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -193,7 +194,8 @@
                 "$ref": "#/components/schemas/FindEmailBulkRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -338,7 +340,8 @@
                 "$ref": "#/components/schemas/FindEmailRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -483,7 +486,8 @@
                 "$ref": "#/components/schemas/FindEmailRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -628,7 +632,8 @@
                 "$ref": "#/components/schemas/FindPhoneBulkRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -773,7 +778,8 @@
                 "$ref": "#/components/schemas/FindPhoneBulkRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -918,7 +924,8 @@
                 "$ref": "#/components/schemas/FindPhoneRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -1063,7 +1070,8 @@
                 "$ref": "#/components/schemas/FindPhoneRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -1208,7 +1216,8 @@
                 "$ref": "#/components/schemas/ReverseEmailBulkRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -1353,7 +1362,8 @@
                 "$ref": "#/components/schemas/ReverseEmailBulkRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -1498,7 +1508,8 @@
                 "$ref": "#/components/schemas/ReverseEmailRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -1643,7 +1654,8 @@
                 "$ref": "#/components/schemas/ReverseEmailRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -1788,7 +1800,8 @@
                 "$ref": "#/components/schemas/ReversePhoneBulkRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -1933,7 +1946,8 @@
                 "$ref": "#/components/schemas/ReversePhoneBulkRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -2078,7 +2092,8 @@
                 "$ref": "#/components/schemas/ReversePhoneRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -2223,7 +2238,8 @@
                 "$ref": "#/components/schemas/ReversePhoneRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -2368,7 +2384,8 @@
                 "$ref": "#/components/schemas/EnrichLeadInfo"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -2513,7 +2530,8 @@
                 "$ref": "#/components/schemas/EnrichLeadInfo"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -2658,7 +2676,8 @@
                 "$ref": "#/components/schemas/EnrichCompanyInfo"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -2803,7 +2822,8 @@
                 "$ref": "#/components/schemas/EnrichCompanyInfo"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -2948,7 +2968,8 @@
                 "$ref": "#/components/schemas/QaAgentRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -3093,7 +3114,8 @@
                 "$ref": "#/components/schemas/QaAgentRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -3595,7 +3617,8 @@
                 "$ref": "#/components/schemas/LinkedInEnrichRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -3761,7 +3784,8 @@
                 "$ref": "#/components/schemas/BodyStartPeopleBulkIntelligenceWorkflowBulkIntelligencePeoplePost"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -3914,7 +3938,8 @@
                 "$ref": "#/components/schemas/BodyStartCompanyBulkIntelligenceWorkflowBulkIntelligenceCompanyPost"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -4046,7 +4071,8 @@
                 "$ref": "#/components/schemas/CreateWorkflowRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -4319,7 +4345,8 @@
                 "$ref": "#/components/schemas/UpdateWorkflowRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -4620,11 +4647,11 @@
           {
             "name": "format",
             "in": "query",
-            "description": "\u0022Result format: \u0027csv\u0027, \u0027json\u0027, or \u0027ndjson\u0027\u0022",
+            "description": "Result format: \u0027csv\u0027, \u0027json\u0027, or \u0027ndjson\u0027",
             "schema": {
               "title": "Format",
               "type": "string",
-              "description": "\u0022Result format: \u0027csv\u0027, \u0027json\u0027, or \u0027ndjson\u0027\u0022",
+              "description": "Result format: \u0027csv\u0027, \u0027json\u0027, or \u0027ndjson\u0027",
               "default": "csv"
             }
           },
@@ -5593,7 +5620,8 @@
                 "$ref": "#/components/schemas/StartLookalikeSearchRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "202": {
@@ -6005,7 +6033,8 @@
                 "$ref": "#/components/schemas/StartAgenticSearchRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -6966,11 +6995,11 @@
           {
             "name": "mode",
             "in": "query",
-            "description": "\u0022Search mode: \u0027company\u0027 or \u0027people\u0027.\u0022",
+            "description": "Search mode: \u0027company\u0027 or \u0027people\u0027.",
             "schema": {
               "title": "Mode",
               "type": "string",
-              "description": "\u0022Search mode: \u0027company\u0027 or \u0027people\u0027.\u0022",
+              "description": "Search mode: \u0027company\u0027 or \u0027people\u0027.",
               "default": "company"
             }
           },
@@ -7192,7 +7221,8 @@
                 "$ref": "#/components/schemas/StartFilterSearchRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -7389,7 +7419,8 @@
                 "$ref": "#/components/schemas/FilterFieldValuesRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -7564,7 +7595,7 @@
           "Search"
         ],
         "summary": "Generate Search Title Endpoint",
-        "description": "\u0022LLM-summarize a parsed_query into a short label for the SearchViewer.\n\nReturns \u0060\u0060{\\\u0022title\\\u0022: \\\u0022...\\\u0022}\u0060\u0060 matching the legacy WebApp tRPC procedure\nso the existing useSearchTitle consumer\u0027s mutation response shape is\nunchanged.\u0022",
+        "description": "LLM-summarize a parsed_query into a short label for the SearchViewer.\n\nReturns \u0060\u0060{\u0022title\u0022: \u0022...\u0022}\u0060\u0060 matching the legacy WebApp tRPC procedure\nso the existing useSearchTitle consumer\u0027s mutation response shape is\nunchanged.",
         "operationId": "GenerateSearchTitleEndpointSearchGenerateTitlePost",
         "parameters": [
           {
@@ -7586,7 +7617,8 @@
                 "$ref": "#/components/schemas/GenerateSearchTitleRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -7958,7 +7990,7 @@
           "Search"
         ],
         "summary": "Search Query",
-        "description": "\u0022Run a search query. Provide exactly one query source: simple_filters, filters, parsed_query, or search_id. For pagination, pass cursor alone.\u0022",
+        "description": "Run a search query. Provide exactly one query source: simple_filters, filters, parsed_query, or search_id. For pagination, pass cursor alone.",
         "operationId": "SearchQueryEndpointSearchQueryPost",
         "parameters": [
           {
@@ -7980,7 +8012,8 @@
                 "$ref": "#/components/schemas/SearchQueryRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -8177,7 +8210,8 @@
                 "$ref": "#/components/schemas/SaveSearchRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -8352,7 +8386,7 @@
           "Search"
         ],
         "summary": "Create Exclusion List Endpoint",
-        "description": "\u0022Create an exclusion list (asynchronous materialization).\n\nLists are immutable in v1: to change one, create a new list and delete\nthe old. Up to 20 active lists per organization (40 for organizations\nwith extended exclusion limits).\u0022",
+        "description": "Create an exclusion list (asynchronous materialization).\n\nLists are immutable in v1: to change one, create a new list and delete\nthe old. Up to 20 active lists per organization (40 for organizations\nwith extended exclusion limits).",
         "operationId": "CreateExclusionListEndpointSearchExclusionListsPost",
         "parameters": [
           {
@@ -8374,7 +8408,8 @@
                 "$ref": "#/components/schemas/CreateExclusionListRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "202": {
@@ -8785,7 +8820,8 @@
                 "$ref": "#/components/schemas/StructBuilderRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -8891,7 +8927,8 @@
                 "$ref": "#/components/schemas/CreateScheduleRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -9216,7 +9253,8 @@
                 "$ref": "#/components/schemas/UpdateScheduleRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -9426,7 +9464,8 @@
                 "$ref": "#/components/schemas/VerifyAgeRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -9733,7 +9772,8 @@
                 "$ref": "#/components/schemas/ConnectRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -9830,6 +9870,9 @@
           }
         ],
         "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
           "400": {
             "description": "Request was rejected by the route\u0027s validation rules.",
             "content": {
@@ -10220,10 +10263,7 @@
             "description": "Async job ID. Poll GET /job-status/{task_id} for status and results."
           },
           "status": {
-            "const": "RUNNING",
-            "title": "Status",
-            "type": "string",
-            "description": "Initial job status."
+            "$ref": "#/components/schemas/RunningStatus"
           }
         },
         "example": {
@@ -10324,7 +10364,7 @@
           "status": {
             "title": "Status",
             "type": "string",
-            "description": "\u0022Block status: pending, running, completed, or failed.\u0022"
+            "description": "Block status: pending, running, completed, or failed."
           },
           "started_at": {
             "title": "Started At",
@@ -10892,7 +10932,7 @@
               "null",
               "integer"
             ],
-            "description": "\u0022Estimated job cost in cents (rows \u00D7 per-row tier price). A floor: options like find_people can bill more. Omitted on idempotent replays. Returned when cost_units=cents.\u0022"
+            "description": "Estimated job cost in cents (rows \u00D7 per-row tier price). A floor: options like find_people can bill more. Omitted on idempotent replays. Returned when cost_units=cents."
           },
           "estimated_cost_credits": {
             "title": "Estimated Cost Credits",
@@ -11621,7 +11661,7 @@
               "null",
               "integer"
             ],
-            "description": "\u0022For search_id sources: the search\u0027s full match count \u2014 larger than \u0060size\u0060 when the capture was capped by max_results.\u0022"
+            "description": "For search_id sources: the search\u0027s full match count \u2014 larger than \u0060size\u0060 when the capture was capped by max_results."
           },
           "id_column": {
             "title": "Id Column",
@@ -11636,7 +11676,7 @@
               "null",
               "integer"
             ],
-            "description": "\u0022Company lists: input values dropped because they resolved to no or multiple companies.\u0022"
+            "description": "Company lists: input values dropped because they resolved to no or multiple companies."
           },
           "error_message": {
             "title": "Error Message",
@@ -12544,9 +12584,7 @@
         "type": "object",
         "properties": {
           "type": {
-            "const": "entity_ids",
-            "title": "Type",
-            "type": "string"
+            "$ref": "#/components/schemas/EntityIdsType"
           },
           "entity_ids": {
             "title": "Entity Ids",
@@ -12558,7 +12596,7 @@
             }
           }
         },
-        "description": "\u0022Build the list from inline identifiers (entity-generic).\n\nPerson lists: LinkedIn public IDs or profile URLs. Company lists: numeric\ncompany IDs, LinkedIn company URLs/slugs, or exact website domains.\u0022"
+        "description": "Build the list from inline identifiers (entity-generic).\n\nPerson lists: LinkedIn public IDs or profile URLs. Company lists: numeric\ncompany IDs, LinkedIn company URLs/slugs, or exact website domains."
       },
       "LinkedInEnrichRequest": {
         "title": "LinkedInEnrichRequest",
@@ -12982,9 +13020,7 @@
         "type": "object",
         "properties": {
           "type": {
-            "const": "resource_handle",
-            "title": "Type",
-            "type": "string"
+            "$ref": "#/components/schemas/ResourceHandleType"
           },
           "resource_handle_id": {
             "title": "Resource Handle Id",
@@ -12996,7 +13032,7 @@
               "null",
               "string"
             ],
-            "description": "\u0022CSV column containing entity identifiers. People: LinkedIn public IDs or profile URLs. Companies: numeric company IDs, LinkedIn company URLs/slugs, or exact website domains. Auto-detected when omitted.\u0022"
+            "description": "CSV column containing entity identifiers. People: LinkedIn public IDs or profile URLs. Companies: numeric company IDs, LinkedIn company URLs/slugs, or exact website domains. Auto-detected when omitted."
           }
         },
         "description": "Build the list from an uploaded CSV (see POST /storage/csv/upload)."
@@ -13343,9 +13379,7 @@
         "type": "object",
         "properties": {
           "type": {
-            "const": "search_id",
-            "title": "Type",
-            "type": "string"
+            "$ref": "#/components/schemas/SearchIdType"
           },
           "search_id": {
             "title": "Search Id",
@@ -13449,7 +13483,7 @@
               "null",
               "integer"
             ],
-            "description": "\u0022Maximum number of results to return across pages. Omit to get the default for your credential: 1000 for API keys, the platform ceiling for signed-in sessions. Values above your ceiling are rejected.\u0022"
+            "description": "Maximum number of results to return across pages. Omit to get the default for your credential: 1000 for API keys, the platform ceiling for signed-in sessions. Values above your ceiling are rejected."
           },
           "output_shape": {
             "$ref": "#/components/schemas/SearchQueryRequestOutputShape"
@@ -13472,7 +13506,7 @@
           "expand_structured_location": {
             "title": "Expand Structured Location",
             "type": "boolean",
-            "description": "\u0022Expand a \u0060parsed_query\u0060 location by radius. Off by default: only the \u0060query\u0060 (NL) branch expanded before, so existing callers keep their result sets. \u0060location_expansion_enabled\u0060 still gates the NL branch.\u0022",
+            "description": "Expand a \u0060parsed_query\u0060 location by radius. Off by default: only the \u0060query\u0060 (NL) branch expanded before, so existing callers keep their result sets. \u0060location_expansion_enabled\u0060 still gates the NL branch.",
             "default": false
           },
           "location_expansion_enabled": {
@@ -14344,7 +14378,7 @@
           "overall_status": {
             "title": "Overall Status",
             "type": "string",
-            "description": "\u0022Overall run status: queued, running, completed, or failed.\u0022"
+            "description": "Overall run status: queued, running, completed, or failed."
           },
           "current_block": {
             "title": "Current Block",
@@ -14911,9 +14945,6 @@
         "description": "IDs of upstream blocks that feed into this one."
       },
       "ChatRequestPageContext": {
-        "required": [
-          "type"
-        ],
         "type": "object",
         "anyOf": [
           {
@@ -14924,22 +14955,37 @@
           }
         ],
         "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "PageContext": "#/components/schemas/PageContext"
+          "pathname": {
+            "title": "Pathname",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "entityType": {
+            "title": "Entitytype",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "entityId": {
+            "title": "Entityid",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "description": {
+            "title": "Description",
+            "type": [
+              "null",
+              "string"
+            ]
           }
         }
       },
       "ChatRequestSearchRerun": {
-        "required": [
-          "type"
-        ],
         "type": "object",
         "anyOf": [
           {
@@ -14950,23 +14996,38 @@
           }
         ],
         "properties": {
-          "type": {
+          "filters": {
+            "$ref": "#/components/schemas/SearchRerunRequestFiltersProperty"
+          },
+          "search_type": {
+            "title": "Search Type",
             "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "SearchRerunRequest": "#/components/schemas/SearchRerunRequest"
+            "default": "people"
+          },
+          "search_id": {
+            "title": "Search Id",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "exclude_public_ids": {
+            "$ref": "#/components/schemas/SearchRerunRequestExcludePublicIds"
+          },
+          "location_expansion_enabled": {
+            "title": "Location Expansion Enabled",
+            "type": "boolean",
+            "default": true
+          },
+          "location_expansion_radius_miles": {
+            "title": "Location Expansion Radius Miles",
+            "type": "integer",
+            "default": 10
           }
         }
       },
       "CreateExclusionListRequestSource": {
         "title": "Source",
-        "required": [
-          "type"
-        ],
         "type": "object",
         "oneOf": [
           {
@@ -14980,10 +15041,47 @@
           }
         ],
         "properties": {
-          "type": {
-            "title": "type",
-            "type": "string",
-            "description": "Union discriminator"
+          "resource_handle_id": {
+            "title": "Resource Handle Id",
+            "type": "string"
+          },
+          "id_column": {
+            "title": "Id Column",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "CSV column containing entity identifiers. People: LinkedIn public IDs or profile URLs. Companies: numeric company IDs, LinkedIn company URLs/slugs, or exact website domains. Auto-detected when omitted."
+          },
+          "entity_ids": {
+            "title": "Entity Ids",
+            "maxItems": 10000,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "search_id": {
+            "title": "Search Id",
+            "type": "string"
+          },
+          "max_results": {
+            "title": "Max Results",
+            "maximum": 250000.0,
+            "minimum": 1.0,
+            "type": "integer",
+            "description": "How many top search results to capture into the list.",
+            "default": 250000
+          },
+          "exclude_public_ids": {
+            "$ref": "#/components/schemas/SearchIdSourceExcludePublicIds"
+          },
+          "exclude_entity_ids": {
+            "$ref": "#/components/schemas/SearchIdSourceExcludeEntityIds"
+          },
+          "exclude_list_ids": {
+            "$ref": "#/components/schemas/SearchIdSourceExcludeListIds"
           }
         },
         "discriminator": {
@@ -15161,9 +15259,6 @@
         ]
       },
       "LookalikeSearchStatusResponseSeedDiagnostics": {
-        "required": [
-          "type"
-        ],
         "type": "object",
         "anyOf": [
           {
@@ -15174,15 +15269,46 @@
           }
         ],
         "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "SeedDiagnostics": "#/components/schemas/SeedDiagnostics"
+          "seed_type": {
+            "$ref": "#/components/schemas/SeedDiagnosticsSeedType"
+          },
+          "supplied": {
+            "title": "Supplied",
+            "type": "integer"
+          },
+          "parsed": {
+            "title": "Parsed",
+            "type": "integer"
+          },
+          "resolved": {
+            "title": "Resolved",
+            "type": "integer"
+          },
+          "skipped": {
+            "title": "Skipped",
+            "type": "integer"
+          },
+          "analyzed": {
+            "title": "Analyzed",
+            "type": "integer"
+          },
+          "errors": {
+            "title": "Errors",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "warnings": {
+            "title": "Warnings",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "identity_resolution": {
+            "description": "Aggregate identity-resolution outcomes without retaining seed PII.",
+            "$ref": "#/components/schemas/IdentityResolutionDiagnostics"
           }
         }
       },
@@ -15301,13 +15427,10 @@
       },
       "RunWorkflowBodyWebhookPayload": {
         "title": "Webhook Payload",
-        "required": [
-          "type"
-        ],
         "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/RunWorkflowBodyWebhookPayloadBranch1"
+            "$ref": "#/components/schemas/WebhookPayload"
           },
           {
             "type": "object"
@@ -15317,18 +15440,14 @@
           }
         ],
         "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebhookPayloadValueItem"
+            }
           }
         },
-        "description": "For API key auth only - can be a list or dict",
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "RunWorkflowBodyWebhookPayload_1": "#/components/schemas/RunWorkflowBodyWebhookPayloadBranch1"
-          }
-        }
+        "description": "For API key auth only - can be a list or dict"
       },
       "SaveSearchRequestExcludePublicIds": {
         "title": "Exclude Public Ids",
@@ -15362,7 +15481,7 @@
             "type": "null"
           }
         ],
-        "description": "\u0022Inline identifiers to exclude from results, applied as a post-filter. People mode: LinkedIn public IDs or profile URLs. Company mode: numeric LinkedIn company IDs, company URLs/slugs, or exact website domains (values that resolve to no or multiple companies are ignored). Max 1000.\u0022"
+        "description": "Inline identifiers to exclude from results, applied as a post-filter. People mode: LinkedIn public IDs or profile URLs. Company mode: numeric LinkedIn company IDs, company URLs/slugs, or exact website domains (values that resolve to no or multiple companies are ignored). Max 1000."
       },
       "SaveSearchRequestExcludeListIds": {
         "title": "Exclude List Ids",
@@ -15413,7 +15532,7 @@
             "type": "null"
           }
         ],
-        "description": "\u0022Optional inline exclusions to re-apply while replaying the saved search. People: LinkedIn public IDs/profile URLs. Companies: numeric company IDs, company URLs/slugs, or exact website domains.\u0022"
+        "description": "Optional inline exclusions to re-apply while replaying the saved search. People: LinkedIn public IDs/profile URLs. Companies: numeric company IDs, company URLs/slugs, or exact website domains."
       },
       "SearchIdSourceExcludeListIds": {
         "title": "Exclude List Ids",
@@ -15483,7 +15602,7 @@
             "type": "null"
           }
         ],
-        "description": "\u0022Inline identifiers to exclude from results, applied as a post-filter. People mode: LinkedIn public IDs or profile URLs. Company mode: numeric LinkedIn company IDs, company URLs/slugs, or exact website domains (values that resolve to no or multiple companies are ignored). Max 1000 for API requests, 50000 for platform requests.\u0022"
+        "description": "Inline identifiers to exclude from results, applied as a post-filter. People mode: LinkedIn public IDs or profile URLs. Company mode: numeric LinkedIn company IDs, company URLs/slugs, or exact website domains (values that resolve to no or multiple companies are ignored). Max 1000 for API requests, 50000 for platform requests."
       },
       "SearchQueryRequestExcludeListIds": {
         "title": "Exclude List Ids",
@@ -15549,7 +15668,7 @@
             "type": "null"
           }
         ],
-        "description": "\u0022Inline identifiers to exclude from results, applied as a post-filter. People mode: LinkedIn public IDs or profile URLs. Company mode: numeric LinkedIn company IDs, company URLs/slugs, or exact website domains (values that resolve to no or multiple companies are ignored). Max 1000.\u0022"
+        "description": "Inline identifiers to exclude from results, applied as a post-filter. People mode: LinkedIn public IDs or profile URLs. Company mode: numeric LinkedIn company IDs, company URLs/slugs, or exact website domains (values that resolve to no or multiple companies are ignored). Max 1000."
       },
       "StartAgenticSearchRequestExcludeListIds": {
         "title": "Exclude List Ids",
@@ -15570,13 +15689,10 @@
       },
       "StartInteractiveRequestWebhookPayload": {
         "title": "Webhook Payload",
-        "required": [
-          "type"
-        ],
         "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/StartInteractiveRequestWebhookPayloadBranch1"
+            "$ref": "#/components/schemas/WebhookPayload"
           },
           {
             "type": "object"
@@ -15586,15 +15702,11 @@
           }
         ],
         "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "StartInteractiveRequestWebhookPayload_1": "#/components/schemas/StartInteractiveRequestWebhookPayloadBranch1"
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebhookPayloadValueItem"
+            }
           }
         }
       },
@@ -15679,9 +15791,6 @@
         ]
       },
       "UpdateWorkflowRequestWorkflowDefinition": {
-        "required": [
-          "type"
-        ],
         "type": "object",
         "anyOf": [
           {
@@ -15692,31 +15801,34 @@
           }
         ],
         "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
+          "blocks": {
+            "title": "Blocks",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Block"
+            },
+            "description": "All blocks in the workflow."
+          },
+          "edges": {
+            "title": "Edges",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WorkflowEdge"
+            },
+            "description": "Edges defining the execution order between blocks."
           }
         },
-        "description": "Replacement workflow graph.",
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "WorkflowGraph": "#/components/schemas/WorkflowGraph"
-          }
-        }
+        "description": "Replacement workflow graph."
       },
       "WorkflowResponseWorkflowDefinition": {
         "title": "Workflow Definition",
-        "required": [
-          "type"
-        ],
         "type": "object",
         "anyOf": [
           {
             "$ref": "#/components/schemas/WorkflowGraph"
           },
           {
-            "$ref": "#/components/schemas/WorkflowResponseWorkflowDefinitionBranch2"
+            "$ref": "#/components/schemas/WorkflowDefinition"
           },
           {
             "type": "object"
@@ -15726,19 +15838,30 @@
           }
         ],
         "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
+          "blocks": {
+            "title": "Blocks",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Block"
+            },
+            "description": "All blocks in the workflow."
+          },
+          "edges": {
+            "title": "Edges",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WorkflowEdge"
+            },
+            "description": "Edges defining the execution order between blocks."
+          },
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WorkflowDefinitionValueItem"
+            }
           }
         },
-        "description": "Workflow graph or legacy block list; included on detail responses.",
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "WorkflowGraph": "#/components/schemas/WorkflowGraph",
-            "WorkflowResponseWorkflowDefinition_2": "#/components/schemas/WorkflowResponseWorkflowDefinitionBranch2"
-          }
-        }
+        "description": "Workflow graph or legacy block list; included on detail responses."
       },
       "WorkflowResultItemWithDownloadResults": {
         "title": "Results",
@@ -15905,7 +16028,7 @@
         "additionalProperties": {
           "type": "integer"
         },
-        "description": "\u0022Present when company filters matched more companies than the resolver expansion cap. \\\u0022total_matched\\\u0022: positive filters truncated \u2014 results cover people at the largest matching employers only. \\\u0022excluded_total_matched\\\u0022: a not-filter truncated \u2014 only the largest matching employers are excluded, so people at smaller excluded companies may still appear.\u0022"
+        "description": "Present when company filters matched more companies than the resolver expansion cap. \u0022total_matched\u0022: positive filters truncated \u2014 results cover people at the largest matching employers only. \u0022excluded_total_matched\u0022: a not-filter truncated \u2014 only the largest matching employers are excluded, so people at smaller excluded companies may still appear."
       },
       "FindEmailBulkRequestLeadsItem": {
         "type": "object"
@@ -17423,28 +17546,54 @@
       },
       "JobStatusJobStatusJobIdGet200Response": {
         "required": [
-          "type"
+          "status",
+          "id",
+          "run_id",
+          "start_time"
         ],
         "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseOneOf1"
-          },
-          {
-            "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseOneOf2"
-          },
-          {
-            "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseOneOf3"
-          }
-        ],
         "properties": {
-          "type": {
+          "status": {
+            "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseStatus"
+          },
+          "id": {
+            "type": "string"
+          },
+          "run_id": {
+            "type": "string"
+          },
+          "start_time": {
             "type": "string",
-            "description": "Union discriminator"
+            "format": "date-time"
+          },
+          "progress": {
+            "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseProgress"
+          },
+          "close_time": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "result": {
+            "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseResult"
+          },
+          "charge_amount": {
+            "type": "number",
+            "description": "Total cents charged when cost_units=cents."
+          },
+          "charge_credits": {
+            "type": "number",
+            "description": "Total credits charged when cost_units=credits."
+          },
+          "task_type": {
+            "type": "string",
+            "example": "lead_enrichment"
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseResultsItem"
+            }
           }
-        },
-        "discriminator": {
-          "propertyName": "type"
         }
       },
       "JobStatusJobStatusJobIdGet400Response": {
@@ -20050,51 +20199,37 @@
           }
         }
       },
-      "RunWorkflowBodyWebhookPayloadBranch1": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/RunWorkflowBodyWebhookPayloadBranch1ValueItem"
-            }
-          }
-        }
-      },
-      "StartInteractiveRequestWebhookPayloadBranch1": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/StartInteractiveRequestWebhookPayloadBranch1ValueItem"
-            }
-          }
-        }
-      },
-      "WorkflowResponseWorkflowDefinitionBranch2": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/WorkflowResponseWorkflowDefinitionBranch2ValueItem"
-            }
-          }
-        }
-      },
       "ExamplePayload": {
         "type": "object",
         "description": "Placeholder schema for path example refs"
+      },
+      "WebhookPayload": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebhookPayloadValueItem"
+            }
+          }
+        }
+      },
+      "WorkflowDefinition": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WorkflowDefinitionValueItem"
+            }
+          }
+        }
       },
       "JobStatusJobStatusJobIdGet200ResponseOneOf2ResultBranch3": {
         "required": [
@@ -20225,127 +20360,11 @@
       "VerifyAgeStatusVerifyAgeTaskIdGet200ResponseSchema": {
         "type": "object"
       },
-      "JobStatusJobStatusJobIdGet200ResponseOneOf1": {
-        "required": [
-          "status",
-          "id",
-          "run_id",
-          "start_time"
-        ],
-        "type": "object",
-        "properties": {
-          "status": {
-            "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseOneOf1Status"
-          },
-          "id": {
-            "type": "string"
-          },
-          "run_id": {
-            "type": "string"
-          },
-          "start_time": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "progress": {
-            "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseOneOf1Progress"
-          }
-        }
-      },
-      "JobStatusJobStatusJobIdGet200ResponseOneOf2": {
-        "required": [
-          "status",
-          "id",
-          "run_id",
-          "start_time",
-          "close_time",
-          "result"
-        ],
-        "type": "object",
-        "properties": {
-          "status": {
-            "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseOneOf2Status"
-          },
-          "id": {
-            "type": "string"
-          },
-          "run_id": {
-            "type": "string"
-          },
-          "start_time": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "close_time": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "result": {
-            "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseOneOf2Result"
-          },
-          "charge_amount": {
-            "type": "number",
-            "description": "Total cents charged when cost_units=cents."
-          },
-          "charge_credits": {
-            "type": "number",
-            "description": "Total credits charged when cost_units=credits."
-          },
-          "task_type": {
-            "type": "string",
-            "example": "lead_enrichment"
-          }
-        }
-      },
-      "JobStatusJobStatusJobIdGet200ResponseOneOf3": {
-        "required": [
-          "status",
-          "id",
-          "run_id",
-          "start_time",
-          "close_time",
-          "results"
-        ],
-        "type": "object",
-        "properties": {
-          "status": {
-            "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseOneOf3Status"
-          },
-          "id": {
-            "type": "string"
-          },
-          "run_id": {
-            "type": "string"
-          },
-          "start_time": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "close_time": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "results": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseOneOf3ResultsItem"
-            }
-          },
-          "charge_amount": {
-            "type": "number",
-            "description": "Total cents charged when cost_units=cents."
-          },
-          "charge_credits": {
-            "type": "number",
-            "description": "Total credits charged when cost_units=credits."
-          }
-        }
-      },
-      "JobStatusJobStatusJobIdGet200ResponseOneOf2Result": {
+      "JobStatusJobStatusJobIdGet200ResponseResult": {
         "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResult"
+            "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResult"
           },
           {
             "type": "object",
@@ -20355,17 +20374,9 @@
             "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseOneOf2ResultBranch3"
           }
         ],
-        "description": "Completed job result. Shape depends on task_type."
-      },
-      "JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResult": {
-        "title": "EnrichmentJobResult",
-        "required": [
-          "structured_data"
-        ],
-        "type": "object",
         "properties": {
           "structured_data": {
-            "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultStructuredData"
+            "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultStructuredData"
           },
           "confidence_score": {
             "title": "Confidence Score",
@@ -20376,7 +20387,7 @@
             "description": "Overall confidence score for the enrichment result."
           },
           "references": {
-            "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultReferences"
+            "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultReferences"
           },
           "notes": {
             "title": "Notes",
@@ -20387,14 +20398,59 @@
             "description": "Human-readable notes about the enrichment result."
           },
           "findings": {
-            "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultFindings"
+            "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultFindings"
           },
           "field_confidence": {
-            "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultFieldConfidence"
+            "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultFieldConfidence"
+          },
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseOneOf2ResultBranch3ValueItem"
+            },
+            "description": "Array result for jobs that return multiple rows or records inline."
+          }
+        },
+        "description": "Completed job result. Shape depends on task_type."
+      },
+      "JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResult": {
+        "title": "EnrichmentJobResult",
+        "required": [
+          "structured_data"
+        ],
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultStructuredData"
+          },
+          "confidence_score": {
+            "title": "Confidence Score",
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Overall confidence score for the enrichment result."
+          },
+          "references": {
+            "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultReferences"
+          },
+          "notes": {
+            "title": "Notes",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Human-readable notes about the enrichment result."
+          },
+          "findings": {
+            "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultFindings"
+          },
+          "field_confidence": {
+            "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultFieldConfidence"
           }
         }
       },
-      "JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultFindings": {
+      "JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultFindings": {
         "title": "Findings",
         "type": "object",
         "anyOf": [
@@ -20480,7 +20536,7 @@
         "additionalProperties": {
           "type": "integer"
         },
-        "description": "\u0022Present when company filters matched more companies than the resolver expansion cap. \\\u0022total_matched\\\u0022: positive filters truncated \u2014 results cover people at the largest matching employers only. \\\u0022excluded_total_matched\\\u0022: a not-filter truncated \u2014 only the largest matching employers are excluded, so people at smaller excluded companies may still appear.\u0022"
+        "description": "Present when company filters matched more companies than the resolver expansion cap. \u0022total_matched\u0022: positive filters truncated \u2014 results cover people at the largest matching employers only. \u0022excluded_total_matched\u0022: a not-filter truncated \u2014 only the largest matching employers are excluded, so people at smaller excluded companies may still appear."
       },
       "FindEmailBulkRequestLeadsItemProperty": {
         "type": "object"
@@ -20621,19 +20677,7 @@
         "type": "object",
         "description": "Optional error context."
       },
-      "RunWorkflowBodyWebhookPayloadBranch1ValueItem": {
-        "type": "object"
-      },
-      "StartInteractiveRequestWebhookPayloadBranch1ValueItem": {
-        "type": "object"
-      },
-      "WorkflowResponseWorkflowDefinitionBranch2ValueItem": {
-        "type": "object"
-      },
-      "JobStatusJobStatusJobIdGet200ResponseOneOf2ResultBranch3ValueItem": {
-        "type": "object"
-      },
-      "JobStatusJobStatusJobIdGet200ResponseOneOf1Progress": {
+      "JobStatusJobStatusJobIdGet200ResponseProgress": {
         "type": "object",
         "properties": {
           "completed": {
@@ -20643,9 +20687,9 @@
             "type": "integer"
           }
         },
-        "description": "\u0022Bulk runs only: rows enriched so far out of the total rows submitted.\u0022"
+        "description": "Bulk runs only: rows enriched so far out of the total rows submitted."
       },
-      "JobStatusJobStatusJobIdGet200ResponseOneOf3ResultsItem": {
+      "JobStatusJobStatusJobIdGet200ResponseResultsItem": {
         "type": "object",
         "properties": {
           "filename": {
@@ -20656,12 +20700,21 @@
           }
         }
       },
-      "JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultStructuredData": {
+      "WebhookPayloadValueItem": {
+        "type": "object"
+      },
+      "WorkflowDefinitionValueItem": {
+        "type": "object"
+      },
+      "JobStatusJobStatusJobIdGet200ResponseOneOf2ResultBranch3ValueItem": {
+        "type": "object"
+      },
+      "JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultStructuredData": {
         "title": "Structured Data",
         "type": "object",
         "description": "Requested enrichment fields and extracted values."
       },
-      "JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultReferences": {
+      "JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultReferences": {
         "title": "References",
         "type": [
           "null",
@@ -20669,13 +20722,32 @@
         ],
         "description": "Source references used to produce the result."
       },
-      "JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultFieldConfidence": {
+      "JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultFieldConfidence": {
         "title": "Field Confidence",
         "type": [
           "null",
           "object"
         ],
         "description": "Optional per-field confidence metadata."
+      },
+      "RunningStatus": {
+        "const": null,
+        "title": "Status",
+        "enum": [
+          "RUNNING"
+        ],
+        "type": "string",
+        "description": "Initial job status.",
+        "x-ms-enum": {
+          "name": "RunningStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "RUNNING",
+              "name": "Running"
+            }
+          ]
+        }
       },
       "CreateExclusionListRequestEntityType": {
         "title": "Entity Type",
@@ -20792,7 +20864,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0022Search mode: \u0027people\u0027 or \u0027company\u0027.\u0022",
+        "description": "Search mode: \u0027people\u0027 or \u0027company\u0027.",
         "x-ms-enum": {
           "name": "FilterFieldValuesRequestMode",
           "modelAsString": false,
@@ -20816,7 +20888,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0022Search mode: \u0027people\u0027 or \u0027company\u0027.\u0022",
+        "description": "Search mode: \u0027people\u0027 or \u0027company\u0027.",
         "x-ms-enum": {
           "name": "FilterFieldValuesResponseMode",
           "modelAsString": false,
@@ -20888,7 +20960,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0022Email type to discover: \u0027PROFESSIONAL\u0027 (work) or \u0027PERSONAL\u0027.\u0022",
+        "description": "Email type to discover: \u0027PROFESSIONAL\u0027 (work) or \u0027PERSONAL\u0027.",
         "x-ms-enum": {
           "name": "FindEmailBulkRequestMode",
           "modelAsString": false,
@@ -20912,7 +20984,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0022Email type to discover: \u0027PROFESSIONAL\u0027 (work) or \u0027PERSONAL\u0027.\u0022",
+        "description": "Email type to discover: \u0027PROFESSIONAL\u0027 (work) or \u0027PERSONAL\u0027.",
         "x-ms-enum": {
           "name": "FindEmailRequestMode",
           "modelAsString": false,
@@ -20997,6 +21069,24 @@
           ]
         }
       },
+      "EntityIdsType": {
+        "const": null,
+        "title": "Type",
+        "enum": [
+          "entity_ids"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "EntityIdsType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "entity_ids",
+              "name": "EntityIds"
+            }
+          ]
+        }
+      },
       "MountViewerRequestKind": {
         "title": "Kind",
         "enum": [
@@ -21025,6 +21115,24 @@
           ]
         }
       },
+      "ResourceHandleType": {
+        "const": null,
+        "title": "Type",
+        "enum": [
+          "resource_handle"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ResourceHandleType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "resource_handle",
+              "name": "ResourceHandle"
+            }
+          ]
+        }
+      },
       "SaveSearchRequestMode": {
         "title": "Mode",
         "enum": [
@@ -21045,6 +21153,24 @@
             {
               "value": "company",
               "name": "Company"
+            }
+          ]
+        }
+      },
+      "SearchIdType": {
+        "const": null,
+        "title": "Type",
+        "enum": [
+          "search_id"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "SearchIdType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "search_id",
+              "name": "SearchId"
             }
           ]
         }
@@ -21128,7 +21254,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0022Search mode: \u0027people\u0027 or \u0027company\u0027.\u0022",
+        "description": "Search mode: \u0027people\u0027 or \u0027company\u0027.",
         "x-ms-enum": {
           "name": "StartAgenticSearchRequestMode",
           "modelAsString": false,
@@ -21152,7 +21278,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0022Output mode: \u0027csv\u0027 to export, \u0027query_only\u0027 to return parsed query only.\u0022",
+        "description": "Output mode: \u0027csv\u0027 to export, \u0027query_only\u0027 to return parsed query only.",
         "x-ms-enum": {
           "name": "StartAgenticSearchRequestOutputMode",
           "modelAsString": false,
@@ -21176,7 +21302,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0022Search mode: \u0027people\u0027 or \u0027company\u0027.\u0022",
+        "description": "Search mode: \u0027people\u0027 or \u0027company\u0027.",
         "x-ms-enum": {
           "name": "StartFilterSearchRequestMode",
           "modelAsString": false,
@@ -21428,19 +21554,20 @@
           ]
         }
       },
-      "JobStatusJobStatusJobIdGet200ResponseOneOf1Status": {
+      "JobStatusJobStatusJobIdGet200ResponseStatus": {
         "enum": [
           "running",
           "failed",
           "cancelled",
           "terminated",
           "continued_as_new",
-          "timed_out"
+          "timed_out",
+          "completed"
         ],
         "type": "string",
         "additionalProperties": false,
         "x-ms-enum": {
-          "name": "JobStatusJobStatusJobIdGet200ResponseOneOf1Status",
+          "name": "JobStatusJobStatusJobIdGet200ResponseStatus",
           "modelAsString": false,
           "values": [
             {
@@ -21466,37 +21593,7 @@
             {
               "value": "timed_out",
               "name": "TimedOut"
-            }
-          ]
-        }
-      },
-      "JobStatusJobStatusJobIdGet200ResponseOneOf2Status": {
-        "enum": [
-          "completed"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "JobStatusJobStatusJobIdGet200ResponseOneOf2Status",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "completed",
-              "name": "Completed"
-            }
-          ]
-        }
-      },
-      "JobStatusJobStatusJobIdGet200ResponseOneOf3Status": {
-        "enum": [
-          "completed"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "JobStatusJobStatusJobIdGet200ResponseOneOf3Status",
-          "modelAsString": false,
-          "values": [
+            },
             {
               "value": "completed",
               "name": "Completed"
@@ -21575,14 +21672,6 @@
             }
           ]
         }
-      }
-    },
-    "securitySchemes": {
-      "assets_jwt": {
-        "type": "http",
-        "description": "JWT used for assets upload",
-        "scheme": "bearer",
-        "bearerFormat": "JWT"
       }
     }
   },

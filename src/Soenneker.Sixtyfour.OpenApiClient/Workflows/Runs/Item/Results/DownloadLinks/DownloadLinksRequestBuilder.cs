@@ -103,7 +103,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Results.Download
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class DownloadLinksRequestBuilderGetQueryParameters 
         {
-            /// <summary>&quot;Result format: &apos;csv&apos;, &apos;json&apos;, or &apos;ndjson&apos;&quot;</summary>
+            /// <summary>Result format: &apos;csv&apos;, &apos;json&apos;, or &apos;ndjson&apos;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("format")]

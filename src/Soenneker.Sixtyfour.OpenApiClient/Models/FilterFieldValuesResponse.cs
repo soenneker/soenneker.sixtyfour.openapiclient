@@ -39,7 +39,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string Field { get; set; }
 #endif
-        /// <summary>&quot;Search mode: &apos;people&apos; or &apos;company&apos;.&quot;</summary>
+        /// <summary>Search mode: &apos;people&apos; or &apos;company&apos;.</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesResponseMode? Mode { get; set; }
         /// <summary>Nested path, if any.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

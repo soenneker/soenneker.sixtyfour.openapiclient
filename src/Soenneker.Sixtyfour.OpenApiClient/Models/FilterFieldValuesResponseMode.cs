@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
-    /// <summary>&quot;Search mode: &apos;people&apos; or &apos;company&apos;.&quot;</summary>
+    /// <summary>Search mode: &apos;people&apos; or &apos;company&apos;.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum FilterFieldValuesResponseMode
     {

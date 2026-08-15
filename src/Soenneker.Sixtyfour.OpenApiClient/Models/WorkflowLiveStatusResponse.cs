@@ -61,7 +61,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #endif
         /// <summary>Overall run progress (0-100).</summary>
         public double? OverallProgressPercentage { get; set; }
-        /// <summary>&quot;Overall run status: queued, running, completed, or failed.&quot;</summary>
+        /// <summary>Overall run status: queued, running, completed, or failed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OverallStatus { get; set; }

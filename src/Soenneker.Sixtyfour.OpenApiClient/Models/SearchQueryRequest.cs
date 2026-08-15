@@ -23,7 +23,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string Cursor { get; set; }
 #endif
-        /// <summary>&quot;Inline identifiers to exclude from results, applied as a post-filter. People mode: LinkedIn public IDs or profile URLs. Company mode: numeric LinkedIn company IDs, company URLs/slugs, or exact website domains (values that resolve to no or multiple companies are ignored). Max 1000 for API requests, 50000 for platform requests.&quot;</summary>
+        /// <summary>Inline identifiers to exclude from results, applied as a post-filter. People mode: LinkedIn public IDs or profile URLs. Company mode: numeric LinkedIn company IDs, company URLs/slugs, or exact website domains (values that resolve to no or multiple companies are ignored). Max 1000 for API requests, 50000 for platform requests.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestExcludeEntityIds? ExcludeEntityIds { get; set; }
@@ -47,7 +47,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestExcludePublicIds ExcludePublicIds { get; set; }
 #endif
-        /// <summary>&quot;Expand a `parsed_query` location by radius. Off by default: only the `query` (NL) branch expanded before, so existing callers keep their result sets. `location_expansion_enabled` still gates the NL branch.&quot;</summary>
+        /// <summary>Expand a `parsed_query` location by radius. Off by default: only the `query` (NL) branch expanded before, so existing callers keep their result sets. `location_expansion_enabled` still gates the NL branch.</summary>
         public bool? ExpandStructuredLocation { get; set; }
         /// <summary>Raw OpenSearch DSL filters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -61,7 +61,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public bool? LocationExpansionEnabled { get; set; }
         /// <summary>Radius (miles) for PostGIS location expansion. Ignored when expansion is disabled.</summary>
         public int? LocationExpansionRadiusMiles { get; set; }
-        /// <summary>&quot;Maximum number of results to return across pages. Omit to get the default for your credential: 1000 for API keys, the platform ceiling for signed-in sessions. Values above your ceiling are rejected.&quot;</summary>
+        /// <summary>Maximum number of results to return across pages. Omit to get the default for your credential: 1000 for API keys, the platform ceiling for signed-in sessions. Values above your ceiling are rejected.</summary>
         public int? MaxResults { get; set; }
         /// <summary>Search mode; inferred from DB when using `search_id`.</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestMode? Mode { get; set; }

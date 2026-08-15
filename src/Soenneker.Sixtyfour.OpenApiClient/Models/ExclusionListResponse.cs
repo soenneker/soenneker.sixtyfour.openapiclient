@@ -64,7 +64,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #endif
         /// <summary>Unique member count once ready.</summary>
         public int? Size { get; set; }
-        /// <summary>&quot;For search_id sources: the search&apos;s full match count — larger than `size` when the capture was capped by max_results.&quot;</summary>
+        /// <summary>For search_id sources: the search&apos;s full match count — larger than `size` when the capture was capped by max_results.</summary>
         public int? SourceTotalAvailable { get; set; }
         /// <summary>The source_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -82,7 +82,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string Status { get; set; }
 #endif
-        /// <summary>&quot;Company lists: input values dropped because they resolved to no or multiple companies.&quot;</summary>
+        /// <summary>Company lists: input values dropped because they resolved to no or multiple companies.</summary>
         public int? UnresolvedCount { get; set; }
         /// <summary>The updated_at property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

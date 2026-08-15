@@ -15,7 +15,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;Optional inline exclusions to re-apply while replaying the saved search. People: LinkedIn public IDs/profile URLs. Companies: numeric company IDs, company URLs/slugs, or exact website domains.&quot;</summary>
+        /// <summary>Optional inline exclusions to re-apply while replaying the saved search. People: LinkedIn public IDs/profile URLs. Companies: numeric company IDs, company URLs/slugs, or exact website domains.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchIdSourceExcludeEntityIds? ExcludeEntityIds { get; set; }
@@ -50,13 +50,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string SearchId { get; set; }
 #endif
         /// <summary>The type property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchIdType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchIdSource"/> and sets the default values.
         /// </summary>
@@ -88,7 +82,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "exclude_public_ids", n => { ExcludePublicIds = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchIdSourceExcludePublicIds>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchIdSourceExcludePublicIds.CreateFromDiscriminatorValue); } },
                 { "max_results", n => { MaxResults = n.GetIntValue(); } },
                 { "search_id", n => { SearchId = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchIdType>(); } },
             };
         }
         /// <summary>
@@ -103,7 +97,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchIdSourceExcludePublicIds>("exclude_public_ids", ExcludePublicIds);
             writer.WriteIntValue("max_results", MaxResults);
             writer.WriteStringValue("search_id", SearchId);
-            writer.WriteStringValue("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchIdType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

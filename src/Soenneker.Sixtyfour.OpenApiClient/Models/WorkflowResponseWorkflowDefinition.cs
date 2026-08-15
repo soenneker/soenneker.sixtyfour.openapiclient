@@ -8,11 +8,19 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowGraph"/>, <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseWorkflowDefinitionBranch2"/>, <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseWorkflowDefinitionMember1"/>, <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseWorkflowDefinitionMember2"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowDefinition"/>, <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowGraph"/>, <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseWorkflowDefinitionMember1"/>, <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseWorkflowDefinitionMember2"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WorkflowResponseWorkflowDefinition : IComposedTypeWrapper, IParsable
     {
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowDefinition"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowDefinition? WorkflowDefinition { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowDefinition WorkflowDefinition { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowGraph"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -20,14 +28,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowGraph WorkflowGraph { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseWorkflowDefinitionBranch2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseWorkflowDefinitionBranch2? WorkflowResponseWorkflowDefinitionBranch2 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseWorkflowDefinitionBranch2 WorkflowResponseWorkflowDefinitionBranch2 { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseWorkflowDefinitionMember1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -54,8 +54,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseWorkflowDefinition();
+            result.WorkflowDefinition = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowDefinition();
             result.WorkflowGraph = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowGraph();
-            result.WorkflowResponseWorkflowDefinitionBranch2 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseWorkflowDefinitionBranch2();
             result.WorkflowResponseWorkflowDefinitionMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseWorkflowDefinitionMember1();
             result.WorkflowResponseWorkflowDefinitionMember2 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseWorkflowDefinitionMember2();
             return result;
@@ -66,9 +66,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(WorkflowGraph != null || WorkflowResponseWorkflowDefinitionBranch2 != null || WorkflowResponseWorkflowDefinitionMember1 != null || WorkflowResponseWorkflowDefinitionMember2 != null)
+            if(WorkflowDefinition != null || WorkflowGraph != null || WorkflowResponseWorkflowDefinitionMember1 != null || WorkflowResponseWorkflowDefinitionMember2 != null)
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(WorkflowGraph, WorkflowResponseWorkflowDefinitionBranch2, WorkflowResponseWorkflowDefinitionMember1, WorkflowResponseWorkflowDefinitionMember2);
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(WorkflowDefinition, WorkflowGraph, WorkflowResponseWorkflowDefinitionMember1, WorkflowResponseWorkflowDefinitionMember2);
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -79,7 +79,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowGraph>(null, WorkflowGraph, WorkflowResponseWorkflowDefinitionBranch2, WorkflowResponseWorkflowDefinitionMember1, WorkflowResponseWorkflowDefinitionMember2);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowDefinition>(null, WorkflowDefinition, WorkflowGraph, WorkflowResponseWorkflowDefinitionMember1, WorkflowResponseWorkflowDefinitionMember2);
         }
     }
 }

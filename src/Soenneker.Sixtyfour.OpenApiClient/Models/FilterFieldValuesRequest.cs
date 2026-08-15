@@ -31,7 +31,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesRequestFiltersProperty Filters { get; set; }
 #endif
-        /// <summary>&quot;Search mode: &apos;people&apos; or &apos;company&apos;.&quot;</summary>
+        /// <summary>Search mode: &apos;people&apos; or &apos;company&apos;.</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesRequestMode? Mode { get; set; }
         /// <summary>MongoDB-style filters that scope the aggregation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

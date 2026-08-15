@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Present when company filters matched more companies than the resolver expansion cap. \&quot;total_matched\&quot;: positive filters truncated — results cover people at the largest matching employers only. \&quot;excluded_total_matched\&quot;: a not-filter truncated — only the largest matching employers are excluded, so people at smaller excluded companies may still appear.&quot;
+    /// Present when company filters matched more companies than the resolver expansion cap. &quot;total_matched&quot;: positive filters truncated — results cover people at the largest matching employers only. &quot;excluded_total_matched&quot;: a not-filter truncated — only the largest matching employers are excluded, so people at smaller excluded companies may still appear.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class FilterSearchResponseCompanyFilterTruncatedProperty : IAdditionalDataHolder, IParsable

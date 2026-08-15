@@ -15,7 +15,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;Present when company filters matched more companies than the resolver expansion cap. \&quot;total_matched\&quot;: positive filters truncated — results cover people at the largest matching employers only. \&quot;excluded_total_matched\&quot;: a not-filter truncated — only the largest matching employers are excluded, so people at smaller excluded companies may still appear.&quot;</summary>
+        /// <summary>Present when company filters matched more companies than the resolver expansion cap. &quot;total_matched&quot;: positive filters truncated — results cover people at the largest matching employers only. &quot;excluded_total_matched&quot;: a not-filter truncated — only the largest matching employers are excluded, so people at smaller excluded companies may still appear.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseCompanyFilterTruncatedProperty? CompanyFilterTruncated { get; set; }

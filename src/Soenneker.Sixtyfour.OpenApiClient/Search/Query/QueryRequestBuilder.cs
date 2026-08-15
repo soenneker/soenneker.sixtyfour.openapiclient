@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Query
         {
         }
         /// <summary>
-        /// &quot;Run a search query. Provide exactly one query source: simple_filters, filters, parsed_query, or search_id. For pagination, pass cursor alone.&quot;
+        /// Run a search query. Provide exactly one query source: simple_filters, filters, parsed_query, or search_id. For pagination, pass cursor alone.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse"/></returns>
         /// <param name="body">Unified search query request — replaces both /start-filter-search and /browse.</param>
@@ -81,7 +81,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Query
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Run a search query. Provide exactly one query source: simple_filters, filters, parsed_query, or search_id. For pagination, pass cursor alone.&quot;
+        /// Run a search query. Provide exactly one query source: simple_filters, filters, parsed_query, or search_id. For pagination, pass cursor alone.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Unified search query request — replaces both /start-filter-search and /browse.</param>

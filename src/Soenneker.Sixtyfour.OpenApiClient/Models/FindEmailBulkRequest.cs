@@ -22,7 +22,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailBulkRequestLeadsItemProperty> Leads { get; set; }
 #endif
-        /// <summary>&quot;Email type to discover: &apos;PROFESSIONAL&apos; (work) or &apos;PERSONAL&apos;.&quot;</summary>
+        /// <summary>Email type to discover: &apos;PROFESSIONAL&apos; (work) or &apos;PERSONAL&apos;.</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailBulkRequestMode? Mode { get; set; }
         /// <summary>Override the default provider waterfall by listing provider IDs in priority order.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

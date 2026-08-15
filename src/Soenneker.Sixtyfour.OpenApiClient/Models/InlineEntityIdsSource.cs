@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Build the list from inline identifiers (entity-generic).Person lists: LinkedIn public IDs or profile URLs. Company lists: numericcompany IDs, LinkedIn company URLs/slugs, or exact website domains.&quot;
+    /// Build the list from inline identifiers (entity-generic).Person lists: LinkedIn public IDs or profile URLs. Company lists: numericcompany IDs, LinkedIn company URLs/slugs, or exact website domains.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class InlineEntityIdsSource : IAdditionalDataHolder, IParsable
@@ -24,13 +24,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public List<string> EntityIds { get; set; }
 #endif
         /// <summary>The type property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EntityIdsType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.InlineEntityIdsSource"/> and sets the default values.
         /// </summary>
@@ -57,7 +51,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "entity_ids", n => { EntityIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "type", n => { Type = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EntityIdsType>(); } },
             };
         }
         /// <summary>
@@ -68,7 +62,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("entity_ids", EntityIds);
-            writer.WriteStringValue("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EntityIdsType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

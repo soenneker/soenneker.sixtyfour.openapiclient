@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.GenerateTitle
         {
         }
         /// <summary>
-        /// &quot;LLM-summarize a parsed_query into a short label for the SearchViewer.Returns ``{\&quot;title\&quot;: \&quot;...\&quot;}`` matching the legacy WebApp tRPC procedureso the existing useSearchTitle consumer&apos;s mutation response shape isunchanged.&quot;
+        /// LLM-summarize a parsed_query into a short label for the SearchViewer.Returns ``{&quot;title&quot;: &quot;...&quot;}`` matching the legacy WebApp tRPC procedureso the existing useSearchTitle consumer&apos;s mutation response shape isunchanged.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -81,7 +81,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.GenerateTitle
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost200Response>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateSearchTitleEndpointSearchGenerateTitlePost200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;LLM-summarize a parsed_query into a short label for the SearchViewer.Returns ``{\&quot;title\&quot;: \&quot;...\&quot;}`` matching the legacy WebApp tRPC procedureso the existing useSearchTitle consumer&apos;s mutation response shape isunchanged.&quot;
+        /// LLM-summarize a parsed_query into a short label for the SearchViewer.Returns ``{&quot;title&quot;: &quot;...&quot;}`` matching the legacy WebApp tRPC procedureso the existing useSearchTitle consumer&apos;s mutation response shape isunchanged.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

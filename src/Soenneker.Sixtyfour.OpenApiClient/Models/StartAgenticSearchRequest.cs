@@ -15,7 +15,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;Inline identifiers to exclude from results, applied as a post-filter. People mode: LinkedIn public IDs or profile URLs. Company mode: numeric LinkedIn company IDs, company URLs/slugs, or exact website domains (values that resolve to no or multiple companies are ignored). Max 1000.&quot;</summary>
+        /// <summary>Inline identifiers to exclude from results, applied as a post-filter. People mode: LinkedIn public IDs or profile URLs. Company mode: numeric LinkedIn company IDs, company URLs/slugs, or exact website domains (values that resolve to no or multiple companies are ignored). Max 1000.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequestExcludeEntityIds? ExcludeEntityIds { get; set; }
@@ -41,9 +41,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #endif
         /// <summary>Maximum number of results to return across pages.</summary>
         public int? MaxResults { get; set; }
-        /// <summary>&quot;Search mode: &apos;people&apos; or &apos;company&apos;.&quot;</summary>
+        /// <summary>Search mode: &apos;people&apos; or &apos;company&apos;.</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequestMode? Mode { get; set; }
-        /// <summary>&quot;Output mode: &apos;csv&apos; to export, &apos;query_only&apos; to return parsed query only.&quot;</summary>
+        /// <summary>Output mode: &apos;csv&apos; to export, &apos;query_only&apos; to return parsed query only.</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequestOutputMode? OutputMode { get; set; }
         /// <summary>Natural-language search query.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

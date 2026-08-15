@@ -7,34 +7,29 @@ using System.IO;
 using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
-    /// <summary>
-    /// &quot;Bulk runs only: rows enriched so far out of the total rows submitted.&quot;
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class JobStatusJobStatusJobIdGet200ResponseOneOf1Progress : IAdditionalDataHolder, IParsable
+    #pragma warning disable CS1591
+    public partial class JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultFindingsMember2 : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The completed property</summary>
-        public int? Completed { get; set; }
-        /// <summary>The total property</summary>
-        public int? Total { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf1Progress"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultFindingsMember2"/> and sets the default values.
         /// </summary>
-        public JobStatusJobStatusJobIdGet200ResponseOneOf1Progress()
+        public JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultFindingsMember2()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf1Progress"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultFindingsMember2"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf1Progress CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultFindingsMember2 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf1Progress();
+            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultFindingsMember2();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -44,8 +39,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "completed", n => { Completed = n.GetIntValue(); } },
-                { "total", n => { Total = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -55,8 +48,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("completed", Completed);
-            writer.WriteIntValue("total", Total);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

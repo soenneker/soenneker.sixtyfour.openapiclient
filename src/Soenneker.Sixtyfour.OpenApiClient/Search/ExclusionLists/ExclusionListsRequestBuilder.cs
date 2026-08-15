@@ -79,7 +79,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.ExclusionLists
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// &quot;Create an exclusion list (asynchronous materialization).Lists are immutable in v1: to change one, create a new list and deletethe old. Up to 20 active lists per organization (40 for organizationswith extended exclusion limits).&quot;
+        /// Create an exclusion list (asynchronous materialization).Lists are immutable in v1: to change one, create a new list and deletethe old. Up to 20 active lists per organization (40 for organizationswith extended exclusion limits).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateExclusionListResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -131,7 +131,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.ExclusionLists
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Create an exclusion list (asynchronous materialization).Lists are immutable in v1: to change one, create a new list and deletethe old. Up to 20 active lists per organization (40 for organizationswith extended exclusion limits).&quot;
+        /// Create an exclusion list (asynchronous materialization).Lists are immutable in v1: to change one, create a new list and deletethe old. Up to 20 active lists per organization (40 for organizationswith extended exclusion limits).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

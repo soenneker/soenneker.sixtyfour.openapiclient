@@ -8,29 +8,29 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// Requested enrichment fields and extracted values.
+    /// Object result for non-structured enrichment jobs, including waterfall and single block jobs.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultStructuredData : IAdditionalDataHolder, IParsable
+    public partial class JobStatusJobStatusJobIdGet200ResponseResultMember1 : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultStructuredData"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseResultMember1"/> and sets the default values.
         /// </summary>
-        public JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultStructuredData()
+        public JobStatusJobStatusJobIdGet200ResponseResultMember1()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultStructuredData"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseResultMember1"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultStructuredData CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseResultMember1 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultStructuredData();
+            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseResultMember1();
         }
         /// <summary>
         /// The deserialization information for the current model

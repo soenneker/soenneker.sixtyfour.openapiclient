@@ -7,30 +7,45 @@ using System.IO;
 using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
-    /// <summary>
-    /// Object result for non-structured enrichment jobs, including waterfall and single block jobs.
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class JobStatusJobStatusJobIdGet200ResponseOneOf2ResultMember1 : IAdditionalDataHolder, IParsable
+    #pragma warning disable CS1591
+    public partial class JobStatusJobStatusJobIdGet200ResponseResultsItem : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The download_url property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DownloadUrl { get; set; }
+#nullable restore
+#else
+        public string DownloadUrl { get; set; }
+#endif
+        /// <summary>The filename property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Filename { get; set; }
+#nullable restore
+#else
+        public string Filename { get; set; }
+#endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultMember1"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseResultsItem"/> and sets the default values.
         /// </summary>
-        public JobStatusJobStatusJobIdGet200ResponseOneOf2ResultMember1()
+        public JobStatusJobStatusJobIdGet200ResponseResultsItem()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultMember1"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseResultsItem"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultMember1 CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseResultsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultMember1();
+            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseResultsItem();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -40,6 +55,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "download_url", n => { DownloadUrl = n.GetStringValue(); } },
+                { "filename", n => { Filename = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -49,6 +66,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("download_url", DownloadUrl);
+            writer.WriteStringValue("filename", Filename);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

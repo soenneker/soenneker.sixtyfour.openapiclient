@@ -112,7 +112,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.FilterCapabilities
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class FilterCapabilitiesRequestBuilderGetQueryParameters 
         {
-            /// <summary>&quot;Search mode: &apos;company&apos; or &apos;people&apos;.&quot;</summary>
+            /// <summary>Search mode: &apos;company&apos; or &apos;people&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("mode")]

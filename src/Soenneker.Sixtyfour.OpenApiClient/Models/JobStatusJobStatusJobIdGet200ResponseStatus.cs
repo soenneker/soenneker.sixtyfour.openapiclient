@@ -5,7 +5,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public enum JobStatusJobStatusJobIdGet200ResponseOneOf1Status
+    public enum JobStatusJobStatusJobIdGet200ResponseStatus
     #pragma warning restore CS1591
     {
         [EnumMember(Value = "running")]
@@ -31,6 +31,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         [EnumMember(Value = "timed_out")]
         #pragma warning disable CS1591
         TimedOut,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "completed")]
+        #pragma warning disable CS1591
+        Completed,
         #pragma warning restore CS1591
     }
 }
