@@ -7391,6 +7391,204 @@
         }
       }
     },
+    "/search/autocomplete": {
+      "post": {
+        "tags": [
+          "Search"
+        ],
+        "summary": "Search Autocomplete",
+        "description": "Return platform filter suggestions without exposing OpenSearch to WebApp.",
+        "operationId": "SearchAutocompleteEndpointSearchAutocompletePost",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchAutocompleteRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchAutocompleteResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchAutocompleteEndpointSearchAutocompletePost400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchAutocompleteEndpointSearchAutocompletePost401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forwarded user_id does not belong to caller\u0027s organization.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchAutocompleteEndpointSearchAutocompletePost403Response"
+                },
+                "example": {
+                  "detail": "Forwarded user_id does not belong to your organization."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchAutocompleteEndpointSearchAutocompletePost500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Insufficient credits or no active subscription for this organization.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchAutocompleteEndpointSearchAutocompletePost402Response"
+                },
+                "example": {
+                  "detail": "Insufficient API credits"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchAutocompleteEndpointSearchAutocompletePost429Response"
+                },
+                "example": {
+                  "detail": "Rate limit exceeded"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Search task or export file not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchAutocompleteEndpointSearchAutocompletePost404Response"
+                },
+                "example": {
+                  "detail": "Search not found or has no parsed_query."
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Export workflow already running for this search.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchAutocompleteEndpointSearchAutocompletePost409Response"
+                },
+                "example": {
+                  "detail": "Export workflow is already running for this search."
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Upstream search backend returned an error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchAutocompleteEndpointSearchAutocompletePost502Response"
+                },
+                "example": {
+                  "detail": "NL upstream transport error: connection reset by peer"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Search backend is not configured or unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchAutocompleteEndpointSearchAutocompletePost503Response"
+                },
+                "example": {
+                  "detail": "Company search backend endpoint is not configured"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "Upstream search backend timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchAutocompleteEndpointSearchAutocompletePost504Response"
+                },
+                "example": {
+                  "detail": "Field values request timed out"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/search/filter-field-values": {
       "post": {
         "tags": [
@@ -7787,6 +7985,671 @@
         }
       }
     },
+    "/search/history": {
+      "get": {
+        "tags": [
+          "Search"
+        ],
+        "summary": "List Search History Endpoint",
+        "description": "List the current user\u0027s decrypted search history for Logs.\n\nThe cursor uses the Logs page\u0027s existing \u0060\u0060{\u0022v\u0022, \u0022t\u0022}\u0060\u0060 boundary, so\nthe BFF can merge this source with workflow/API candidates without a\nsecond pagination implementation.",
+        "operationId": "ListSearchHistoryEndpointSearchHistoryGet",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "title": "Limit",
+              "maximum": 250,
+              "minimum": 1,
+              "type": "integer",
+              "default": 25
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/ListSearchHistoryEndpointSearchHistoryGetStatusParameter"
+            }
+          },
+          {
+            "name": "kind",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/ListSearchHistoryEndpointSearchHistoryGetKindParameter"
+            }
+          },
+          {
+            "name": "query_text",
+            "in": "query",
+            "schema": {
+              "title": "Query Text",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/ListSearchHistoryEndpointSearchHistoryGetSortByParameter"
+            }
+          },
+          {
+            "name": "sort_dir",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/ListSearchHistoryEndpointSearchHistoryGetSortDirParameter"
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "schema": {
+              "title": "Cursor",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "schema": {
+              "title": "From",
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "schema": {
+              "title": "To",
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListSearchHistoryEndpointSearchHistoryGet200Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListSearchHistoryEndpointSearchHistoryGet400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListSearchHistoryEndpointSearchHistoryGet401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forwarded user_id does not belong to caller\u0027s organization.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListSearchHistoryEndpointSearchHistoryGet403Response"
+                },
+                "example": {
+                  "detail": "Forwarded user_id does not belong to your organization."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListSearchHistoryEndpointSearchHistoryGet500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Insufficient credits or no active subscription for this organization.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListSearchHistoryEndpointSearchHistoryGet402Response"
+                },
+                "example": {
+                  "detail": "Insufficient API credits"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListSearchHistoryEndpointSearchHistoryGet429Response"
+                },
+                "example": {
+                  "detail": "Rate limit exceeded"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Search task or export file not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListSearchHistoryEndpointSearchHistoryGet404Response"
+                },
+                "example": {
+                  "detail": "Search not found or has no parsed_query."
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Export workflow already running for this search.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListSearchHistoryEndpointSearchHistoryGet409Response"
+                },
+                "example": {
+                  "detail": "Export workflow is already running for this search."
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Upstream search backend returned an error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListSearchHistoryEndpointSearchHistoryGet502Response"
+                },
+                "example": {
+                  "detail": "NL upstream transport error: connection reset by peer"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Search backend is not configured or unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListSearchHistoryEndpointSearchHistoryGet503Response"
+                },
+                "example": {
+                  "detail": "Company search backend endpoint is not configured"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "Upstream search backend timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListSearchHistoryEndpointSearchHistoryGet504Response"
+                },
+                "example": {
+                  "detail": "Field values request timed out"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Search"
+        ],
+        "summary": "Clear Search History Endpoint",
+        "operationId": "ClearSearchHistoryEndpointSearchHistoryDelete",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClearSearchHistoryEndpointSearchHistoryDelete200Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClearSearchHistoryEndpointSearchHistoryDelete400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClearSearchHistoryEndpointSearchHistoryDelete401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forwarded user_id does not belong to caller\u0027s organization.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClearSearchHistoryEndpointSearchHistoryDelete403Response"
+                },
+                "example": {
+                  "detail": "Forwarded user_id does not belong to your organization."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClearSearchHistoryEndpointSearchHistoryDelete500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Insufficient credits or no active subscription for this organization.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClearSearchHistoryEndpointSearchHistoryDelete402Response"
+                },
+                "example": {
+                  "detail": "Insufficient API credits"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClearSearchHistoryEndpointSearchHistoryDelete429Response"
+                },
+                "example": {
+                  "detail": "Rate limit exceeded"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Search task or export file not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClearSearchHistoryEndpointSearchHistoryDelete404Response"
+                },
+                "example": {
+                  "detail": "Search not found or has no parsed_query."
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Export workflow already running for this search.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClearSearchHistoryEndpointSearchHistoryDelete409Response"
+                },
+                "example": {
+                  "detail": "Export workflow is already running for this search."
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Upstream search backend returned an error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClearSearchHistoryEndpointSearchHistoryDelete502Response"
+                },
+                "example": {
+                  "detail": "NL upstream transport error: connection reset by peer"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Search backend is not configured or unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClearSearchHistoryEndpointSearchHistoryDelete503Response"
+                },
+                "example": {
+                  "detail": "Company search backend endpoint is not configured"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "Upstream search backend timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClearSearchHistoryEndpointSearchHistoryDelete504Response"
+                },
+                "example": {
+                  "detail": "Field values request timed out"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/search/history/volume": {
+      "get": {
+        "tags": [
+          "Search"
+        ],
+        "summary": "Get Search History Volume Endpoint",
+        "operationId": "GetSearchHistoryVolumeEndpointSearchHistoryVolumeGet",
+        "parameters": [
+          {
+            "name": "from",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "title": "From",
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "title": "To",
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSearchHistoryVolumeEndpointSearchHistoryVolumeGet200Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSearchHistoryVolumeEndpointSearchHistoryVolumeGet400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSearchHistoryVolumeEndpointSearchHistoryVolumeGet401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forwarded user_id does not belong to caller\u0027s organization.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSearchHistoryVolumeEndpointSearchHistoryVolumeGet403Response"
+                },
+                "example": {
+                  "detail": "Forwarded user_id does not belong to your organization."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSearchHistoryVolumeEndpointSearchHistoryVolumeGet500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Insufficient credits or no active subscription for this organization.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSearchHistoryVolumeEndpointSearchHistoryVolumeGet402Response"
+                },
+                "example": {
+                  "detail": "Insufficient API credits"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSearchHistoryVolumeEndpointSearchHistoryVolumeGet429Response"
+                },
+                "example": {
+                  "detail": "Rate limit exceeded"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Search task or export file not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSearchHistoryVolumeEndpointSearchHistoryVolumeGet404Response"
+                },
+                "example": {
+                  "detail": "Search not found or has no parsed_query."
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Export workflow already running for this search.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSearchHistoryVolumeEndpointSearchHistoryVolumeGet409Response"
+                },
+                "example": {
+                  "detail": "Export workflow is already running for this search."
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Upstream search backend returned an error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSearchHistoryVolumeEndpointSearchHistoryVolumeGet502Response"
+                },
+                "example": {
+                  "detail": "NL upstream transport error: connection reset by peer"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Search backend is not configured or unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSearchHistoryVolumeEndpointSearchHistoryVolumeGet503Response"
+                },
+                "example": {
+                  "detail": "Company search backend endpoint is not configured"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "Upstream search backend timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSearchHistoryVolumeEndpointSearchHistoryVolumeGet504Response"
+                },
+                "example": {
+                  "detail": "Field values request timed out"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/search/history/{searchId}": {
       "get": {
         "tags": [
@@ -7974,6 +8837,406 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GetSearchHistoryRowEndpointSearchHistorySearchIdGet504Response"
+                },
+                "example": {
+                  "detail": "Field values request timed out"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Search"
+        ],
+        "summary": "Delete Search History Endpoint",
+        "operationId": "DeleteSearchHistoryEndpointSearchHistorySearchIdDelete",
+        "parameters": [
+          {
+            "name": "searchId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Search Id",
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteSearchHistoryEndpointSearchHistorySearchIdDelete200Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteSearchHistoryEndpointSearchHistorySearchIdDelete400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteSearchHistoryEndpointSearchHistorySearchIdDelete401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forwarded user_id does not belong to caller\u0027s organization.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteSearchHistoryEndpointSearchHistorySearchIdDelete403Response"
+                },
+                "example": {
+                  "detail": "Forwarded user_id does not belong to your organization."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteSearchHistoryEndpointSearchHistorySearchIdDelete500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Insufficient credits or no active subscription for this organization.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteSearchHistoryEndpointSearchHistorySearchIdDelete402Response"
+                },
+                "example": {
+                  "detail": "Insufficient API credits"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteSearchHistoryEndpointSearchHistorySearchIdDelete429Response"
+                },
+                "example": {
+                  "detail": "Rate limit exceeded"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Search task or export file not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteSearchHistoryEndpointSearchHistorySearchIdDelete404Response"
+                },
+                "example": {
+                  "detail": "Search not found or has no parsed_query."
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Export workflow already running for this search.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteSearchHistoryEndpointSearchHistorySearchIdDelete409Response"
+                },
+                "example": {
+                  "detail": "Export workflow is already running for this search."
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Upstream search backend returned an error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteSearchHistoryEndpointSearchHistorySearchIdDelete502Response"
+                },
+                "example": {
+                  "detail": "NL upstream transport error: connection reset by peer"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Search backend is not configured or unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteSearchHistoryEndpointSearchHistorySearchIdDelete503Response"
+                },
+                "example": {
+                  "detail": "Company search backend endpoint is not configured"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "Upstream search backend timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteSearchHistoryEndpointSearchHistorySearchIdDelete504Response"
+                },
+                "example": {
+                  "detail": "Field values request timed out"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/search/history/{searchId}/favourite": {
+      "patch": {
+        "tags": [
+          "Search"
+        ],
+        "summary": "Set Search History Favourite Endpoint",
+        "operationId": "SetSearchHistoryFavouriteEndpointSearchHistorySearchIdFavouritePatch",
+        "parameters": [
+          {
+            "name": "searchId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Search Id",
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchHistoryFavouriteRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SetSearchHistoryFavouriteEndpointSearchHistorySearchIdFavouritePatch200Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SetSearchHistoryFavouriteEndpointSearchHistorySearchIdFavouritePatch400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SetSearchHistoryFavouriteEndpointSearchHistorySearchIdFavouritePatch401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forwarded user_id does not belong to caller\u0027s organization.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SetSearchHistoryFavouriteEndpointSearchHistorySearchIdFavouritePatch403Response"
+                },
+                "example": {
+                  "detail": "Forwarded user_id does not belong to your organization."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SetSearchHistoryFavouriteEndpointSearchHistorySearchIdFavouritePatch500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Insufficient credits or no active subscription for this organization.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SetSearchHistoryFavouriteEndpointSearchHistorySearchIdFavouritePatch402Response"
+                },
+                "example": {
+                  "detail": "Insufficient API credits"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SetSearchHistoryFavouriteEndpointSearchHistorySearchIdFavouritePatch429Response"
+                },
+                "example": {
+                  "detail": "Rate limit exceeded"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Search task or export file not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SetSearchHistoryFavouriteEndpointSearchHistorySearchIdFavouritePatch404Response"
+                },
+                "example": {
+                  "detail": "Search not found or has no parsed_query."
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Export workflow already running for this search.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SetSearchHistoryFavouriteEndpointSearchHistorySearchIdFavouritePatch409Response"
+                },
+                "example": {
+                  "detail": "Export workflow is already running for this search."
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Upstream search backend returned an error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SetSearchHistoryFavouriteEndpointSearchHistorySearchIdFavouritePatch502Response"
+                },
+                "example": {
+                  "detail": "NL upstream transport error: connection reset by peer"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Search backend is not configured or unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SetSearchHistoryFavouriteEndpointSearchHistorySearchIdFavouritePatch503Response"
+                },
+                "example": {
+                  "detail": "Company search backend endpoint is not configured"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "Upstream search backend timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SetSearchHistoryFavouriteEndpointSearchHistorySearchIdFavouritePatch504Response"
                 },
                 "example": {
                   "detail": "Field values request timed out"
@@ -12189,6 +13452,14 @@
             ],
             "description": "Exact total matches across pages; people-mode only. Null when unknown \u2014 including when exclusions are applied by post-filter scan rather than in the query, where the match count would overstate the eligible results. Never a capped or approximate figure."
           },
+          "total_available_lower_bound": {
+            "title": "Total Available Lower Bound",
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Minimum total matches when OpenSearch caps hit tracking; people-mode only. Null when the total is exact or no reliable lower bound is available."
+          },
           "output_shape": {
             "$ref": "#/components/schemas/FilterSearchResponseOutputShape"
           },
@@ -13367,6 +14638,164 @@
           "updated_at": {
             "title": "Updated At",
             "type": "string"
+          }
+        }
+      },
+      "SearchAutocompleteCompanyMeta": {
+        "title": "SearchAutocompleteCompanyMeta",
+        "type": "object",
+        "properties": {
+          "industry": {
+            "title": "Industry",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "employeeCount": {
+            "title": "Employeecount",
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "linkedInEmployeeCount": {
+            "title": "Linkedinemployeecount",
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "domain": {
+            "title": "Domain",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "location": {
+            "title": "Location",
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
+      "SearchAutocompleteRequest": {
+        "title": "SearchAutocompleteRequest",
+        "required": [
+          "field",
+          "query"
+        ],
+        "type": "object",
+        "properties": {
+          "field": {
+            "$ref": "#/components/schemas/SearchAutocompleteRequestField"
+          },
+          "query": {
+            "title": "Query",
+            "maxLength": 250,
+            "minLength": 1,
+            "type": "string"
+          },
+          "size": {
+            "title": "Size",
+            "maximum": 50.0,
+            "minimum": 1.0,
+            "type": "integer",
+            "default": 50
+          },
+          "mode": {
+            "$ref": "#/components/schemas/SearchAutocompleteRequestMode"
+          },
+          "location_expansion_enabled": {
+            "title": "Location Expansion Enabled",
+            "type": "boolean",
+            "default": true
+          },
+          "location_expansion_radius_miles": {
+            "title": "Location Expansion Radius Miles",
+            "maximum": 200.0,
+            "minimum": 5.0,
+            "type": "integer",
+            "default": 10
+          }
+        },
+        "description": "Bounded platform autocomplete request."
+      },
+      "SearchAutocompleteResponse": {
+        "title": "SearchAutocompleteResponse",
+        "required": [
+          "success"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "title": "Success",
+            "type": "boolean"
+          },
+          "suggestions": {
+            "title": "Suggestions",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SearchAutocompleteSuggestion"
+            }
+          }
+        }
+      },
+      "SearchAutocompleteSuggestion": {
+        "title": "SearchAutocompleteSuggestion",
+        "required": [
+          "value",
+          "count"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "title": "Value",
+            "type": "string"
+          },
+          "label": {
+            "title": "Label",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "selectionValue": {
+            "title": "Selectionvalue",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "count": {
+            "title": "Count",
+            "type": "integer"
+          },
+          "publicId": {
+            "title": "Publicid",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "companyMeta": {
+            "$ref": "#/components/schemas/SearchAutocompleteSuggestionCompanyMeta"
+          }
+        }
+      },
+      "SearchHistoryFavouriteRequest": {
+        "title": "SearchHistoryFavouriteRequest",
+        "required": [
+          "favourite"
+        ],
+        "type": "object",
+        "properties": {
+          "favourite": {
+            "title": "Favourite",
+            "type": "boolean"
           }
         }
       },
@@ -15499,6 +16928,54 @@
           }
         ],
         "description": "Saved exclusion-list IDs to apply as a post-filter. Each list\u0027s entity type must match the search mode (person lists for people searches, company lists for company searches). Max 5 (10 for organizations with extended exclusion limits)."
+      },
+      "SearchAutocompleteSuggestionCompanyMeta": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/SearchAutocompleteCompanyMeta"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "properties": {
+          "industry": {
+            "title": "Industry",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "employeeCount": {
+            "title": "Employeecount",
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "linkedInEmployeeCount": {
+            "title": "Linkedinemployeecount",
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "domain": {
+            "title": "Domain",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "location": {
+            "title": "Location",
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
       },
       "SearchIdSourceExcludePublicIds": {
         "title": "Exclude Public Ids",
@@ -19211,6 +20688,94 @@
           }
         }
       },
+      "SearchAutocompleteEndpointSearchAutocompletePost400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "SearchAutocompleteEndpointSearchAutocompletePost401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "SearchAutocompleteEndpointSearchAutocompletePost403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "SearchAutocompleteEndpointSearchAutocompletePost500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "SearchAutocompleteEndpointSearchAutocompletePost402Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "SearchAutocompleteEndpointSearchAutocompletePost429Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "SearchAutocompleteEndpointSearchAutocompletePost404Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "SearchAutocompleteEndpointSearchAutocompletePost409Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "SearchAutocompleteEndpointSearchAutocompletePost502Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "SearchAutocompleteEndpointSearchAutocompletePost503Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "SearchAutocompleteEndpointSearchAutocompletePost504Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
       "FilterFieldValuesEndpointSearchFilterFieldValuesPost400Response": {
         "type": "object",
         "properties": {
@@ -19394,6 +20959,285 @@
           }
         }
       },
+      "ResponseListSearchHistoryEndpointSearchHistoryGet": {
+        "title": "Response List Search History Endpoint Search History Get",
+        "type": "object"
+      },
+      "ListSearchHistoryEndpointSearchHistoryGet400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ListSearchHistoryEndpointSearchHistoryGet401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ListSearchHistoryEndpointSearchHistoryGet403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ListSearchHistoryEndpointSearchHistoryGet500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ListSearchHistoryEndpointSearchHistoryGet402Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ListSearchHistoryEndpointSearchHistoryGet429Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ListSearchHistoryEndpointSearchHistoryGet404Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ListSearchHistoryEndpointSearchHistoryGet409Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ListSearchHistoryEndpointSearchHistoryGet502Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ListSearchHistoryEndpointSearchHistoryGet503Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ListSearchHistoryEndpointSearchHistoryGet504Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ResponseClearSearchHistoryEndpointSearchHistoryDelete": {
+        "title": "Response Clear Search History Endpoint Search History Delete",
+        "type": "object",
+        "additionalProperties": {
+          "type": "boolean"
+        }
+      },
+      "ClearSearchHistoryEndpointSearchHistoryDelete400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ClearSearchHistoryEndpointSearchHistoryDelete401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ClearSearchHistoryEndpointSearchHistoryDelete403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ClearSearchHistoryEndpointSearchHistoryDelete500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ClearSearchHistoryEndpointSearchHistoryDelete402Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ClearSearchHistoryEndpointSearchHistoryDelete429Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ClearSearchHistoryEndpointSearchHistoryDelete404Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ClearSearchHistoryEndpointSearchHistoryDelete409Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ClearSearchHistoryEndpointSearchHistoryDelete502Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ClearSearchHistoryEndpointSearchHistoryDelete503Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ClearSearchHistoryEndpointSearchHistoryDelete504Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ResponseGetSearchHistoryVolumeEndpointSearchHistoryVolumeGet": {
+        "title": "Response Get Search History Volume Endpoint Search History Volume Get",
+        "type": "object"
+      },
+      "GetSearchHistoryVolumeEndpointSearchHistoryVolumeGet400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetSearchHistoryVolumeEndpointSearchHistoryVolumeGet401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetSearchHistoryVolumeEndpointSearchHistoryVolumeGet403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetSearchHistoryVolumeEndpointSearchHistoryVolumeGet500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetSearchHistoryVolumeEndpointSearchHistoryVolumeGet402Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetSearchHistoryVolumeEndpointSearchHistoryVolumeGet429Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetSearchHistoryVolumeEndpointSearchHistoryVolumeGet404Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetSearchHistoryVolumeEndpointSearchHistoryVolumeGet409Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetSearchHistoryVolumeEndpointSearchHistoryVolumeGet502Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetSearchHistoryVolumeEndpointSearchHistoryVolumeGet503Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetSearchHistoryVolumeEndpointSearchHistoryVolumeGet504Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
       "ResponseGetSearchHistoryRowEndpointSearchHistorySearchIdGet": {
         "title": "Response Get Search History Row Endpoint Search History  Search Id  Get",
         "type": "object"
@@ -19479,6 +21323,196 @@
         }
       },
       "GetSearchHistoryRowEndpointSearchHistorySearchIdGet504Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ResponseDeleteSearchHistoryEndpointSearchHistorySearchIdDelete": {
+        "title": "Response Delete Search History Endpoint Search History  Search Id  Delete",
+        "type": "object",
+        "additionalProperties": {
+          "type": "boolean"
+        }
+      },
+      "DeleteSearchHistoryEndpointSearchHistorySearchIdDelete400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "DeleteSearchHistoryEndpointSearchHistorySearchIdDelete401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "DeleteSearchHistoryEndpointSearchHistorySearchIdDelete403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "DeleteSearchHistoryEndpointSearchHistorySearchIdDelete500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "DeleteSearchHistoryEndpointSearchHistorySearchIdDelete402Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "DeleteSearchHistoryEndpointSearchHistorySearchIdDelete429Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "DeleteSearchHistoryEndpointSearchHistorySearchIdDelete404Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "DeleteSearchHistoryEndpointSearchHistorySearchIdDelete409Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "DeleteSearchHistoryEndpointSearchHistorySearchIdDelete502Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "DeleteSearchHistoryEndpointSearchHistorySearchIdDelete503Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "DeleteSearchHistoryEndpointSearchHistorySearchIdDelete504Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ResponseSetSearchHistoryFavouriteEndpointSearchHistorySearchIdFavouritePatch": {
+        "title": "Response Set Search History Favourite Endpoint Search History  Search Id  Favourite Patch",
+        "type": "object",
+        "additionalProperties": {
+          "type": "boolean"
+        }
+      },
+      "SetSearchHistoryFavouriteEndpointSearchHistorySearchIdFavouritePatch400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "SetSearchHistoryFavouriteEndpointSearchHistorySearchIdFavouritePatch401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "SetSearchHistoryFavouriteEndpointSearchHistorySearchIdFavouritePatch403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "SetSearchHistoryFavouriteEndpointSearchHistorySearchIdFavouritePatch500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "SetSearchHistoryFavouriteEndpointSearchHistorySearchIdFavouritePatch402Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "SetSearchHistoryFavouriteEndpointSearchHistorySearchIdFavouritePatch429Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "SetSearchHistoryFavouriteEndpointSearchHistorySearchIdFavouritePatch404Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "SetSearchHistoryFavouriteEndpointSearchHistorySearchIdFavouritePatch409Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "SetSearchHistoryFavouriteEndpointSearchHistorySearchIdFavouritePatch502Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "SetSearchHistoryFavouriteEndpointSearchHistorySearchIdFavouritePatch503Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "SetSearchHistoryFavouriteEndpointSearchHistorySearchIdFavouritePatch504Response": {
         "type": "object",
         "properties": {
           "detail": {
@@ -20336,8 +22370,32 @@
           "type": "string"
         }
       },
+      "ListSearchHistoryEndpointSearchHistoryGet200Response": {
+        "type": "object"
+      },
+      "ClearSearchHistoryEndpointSearchHistoryDelete200Response": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "boolean"
+        }
+      },
+      "GetSearchHistoryVolumeEndpointSearchHistoryVolumeGet200Response": {
+        "type": "object"
+      },
       "GetSearchHistoryRowEndpointSearchHistorySearchIdGet200Response": {
         "type": "object"
+      },
+      "DeleteSearchHistoryEndpointSearchHistorySearchIdDelete200Response": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "boolean"
+        }
+      },
+      "SetSearchHistoryFavouriteEndpointSearchHistorySearchIdFavouritePatch200Response": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "boolean"
+        }
       },
       "ListExclusionListsEndpointSearchExclusionListsGet200Response": {
         "type": "array",
@@ -21157,6 +23215,97 @@
           ]
         }
       },
+      "SearchAutocompleteRequestField": {
+        "title": "Field",
+        "enum": [
+          "company_name",
+          "job_title",
+          "school_name",
+          "degree",
+          "field_of_study",
+          "industry",
+          "location",
+          "certification",
+          "languages",
+          "technologies_used.technology",
+          "funding_rounds.lead_investors"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "SearchAutocompleteRequestField",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "company_name",
+              "name": "CompanyName"
+            },
+            {
+              "value": "job_title",
+              "name": "JobTitle"
+            },
+            {
+              "value": "school_name",
+              "name": "SchoolName"
+            },
+            {
+              "value": "degree",
+              "name": "Degree"
+            },
+            {
+              "value": "field_of_study",
+              "name": "FieldOfStudy"
+            },
+            {
+              "value": "industry",
+              "name": "Industry"
+            },
+            {
+              "value": "location",
+              "name": "Location"
+            },
+            {
+              "value": "certification",
+              "name": "Certification"
+            },
+            {
+              "value": "languages",
+              "name": "Languages"
+            },
+            {
+              "value": "technologies_used.technology",
+              "name": "TechnologiesUsedTechnology"
+            },
+            {
+              "value": "funding_rounds.lead_investors",
+              "name": "FundingRoundsLeadInvestors"
+            }
+          ]
+        }
+      },
+      "SearchAutocompleteRequestMode": {
+        "title": "Mode",
+        "enum": [
+          "people",
+          "company"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "SearchAutocompleteRequestMode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "people",
+              "name": "People"
+            },
+            {
+              "value": "company",
+              "name": "Company"
+            }
+          ]
+        }
+      },
       "SearchIdType": {
         "const": null,
         "title": "Type",
@@ -21669,6 +23818,118 @@
             {
               "value": "credits",
               "name": "Credits"
+            }
+          ]
+        }
+      },
+      "ListSearchHistoryEndpointSearchHistoryGetStatusParameter": {
+        "title": "Status",
+        "enum": [
+          "all",
+          "success",
+          "failed",
+          "in_progress"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "ListSearchHistoryEndpointSearchHistoryGetStatusParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "all",
+              "name": "All"
+            },
+            {
+              "value": "success",
+              "name": "Success"
+            },
+            {
+              "value": "failed",
+              "name": "Failed"
+            },
+            {
+              "value": "in_progress",
+              "name": "InProgress"
+            }
+          ]
+        }
+      },
+      "ListSearchHistoryEndpointSearchHistoryGetKindParameter": {
+        "title": "Kind",
+        "enum": [
+          "all",
+          "favourites",
+          "deep_search"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "ListSearchHistoryEndpointSearchHistoryGetKindParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "all",
+              "name": "All"
+            },
+            {
+              "value": "favourites",
+              "name": "Favourites"
+            },
+            {
+              "value": "deep_search",
+              "name": "DeepSearch"
+            }
+          ]
+        }
+      },
+      "ListSearchHistoryEndpointSearchHistoryGetSortByParameter": {
+        "title": "Sort By",
+        "enum": [
+          "timestamp",
+          "cost",
+          "duration"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "ListSearchHistoryEndpointSearchHistoryGetSortByParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "timestamp",
+              "name": "Timestamp"
+            },
+            {
+              "value": "cost",
+              "name": "Cost"
+            },
+            {
+              "value": "duration",
+              "name": "Duration"
+            }
+          ]
+        }
+      },
+      "ListSearchHistoryEndpointSearchHistoryGetSortDirParameter": {
+        "title": "Sort Dir",
+        "enum": [
+          "asc",
+          "desc"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "ListSearchHistoryEndpointSearchHistoryGetSortDirParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "asc",
+              "name": "Asc"
+            },
+            {
+              "value": "desc",
+              "name": "Desc"
             }
           ]
         }

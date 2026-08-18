@@ -113,6 +113,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #endif
         /// <summary>Exact total matches across pages; people-mode only. Null when unknown — including when exclusions are applied by post-filter scan rather than in the query, where the match count would overstate the eligible results. Never a capped or approximate figure.</summary>
         public int? TotalAvailable { get; set; }
+        /// <summary>Minimum total matches when OpenSearch caps hit tracking; people-mode only. Null when the total is exact or no reliable lower bound is available.</summary>
+        public int? TotalAvailableLowerBound { get; set; }
         /// <summary>Final total page count; omitted while `has_more` is true.</summary>
         public int? TotalPages { get; set; }
         /// <summary>Rows returned so far (cumulative for company pagination).</summary>
@@ -166,6 +168,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "results", n => { Results = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseResultsItemProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseResultsItemProperty.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "search_id", n => { SearchId = n.GetStringValue(); } },
                 { "total_available", n => { TotalAvailable = n.GetIntValue(); } },
+                { "total_available_lower_bound", n => { TotalAvailableLowerBound = n.GetIntValue(); } },
                 { "total_pages", n => { TotalPages = n.GetIntValue(); } },
                 { "total_results", n => { TotalResults = n.GetIntValue(); } },
             };
@@ -199,6 +202,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseResultsItemProperty>("results", Results);
             writer.WriteStringValue("search_id", SearchId);
             writer.WriteIntValue("total_available", TotalAvailable);
+            writer.WriteIntValue("total_available_lower_bound", TotalAvailableLowerBound);
             writer.WriteIntValue("total_pages", TotalPages);
             writer.WriteIntValue("total_results", TotalResults);
             writer.WriteAdditionalData(AdditionalData);

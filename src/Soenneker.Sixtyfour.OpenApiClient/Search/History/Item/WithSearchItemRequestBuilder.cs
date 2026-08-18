@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Sixtyfour.OpenApiClient.Models;
+using Soenneker.Sixtyfour.OpenApiClient.Search.History.Item.Favourite;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -17,6 +18,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.History.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithSearchItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The favourite property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.Search.History.Item.Favourite.FavouriteRequestBuilder Favourite
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.Search.History.Item.Favourite.FavouriteRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Search.History.Item.WithSearchItemRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -32,6 +38,51 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.History.Item
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         public WithSearchItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/search/history/{searchId}", rawUrl)
         {
+        }
+        /// <summary>
+        /// Delete Search History Endpoint
+        /// </summary>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteSearchHistoryEndpointSearchHistorySearchIdDelete200Response"/></returns>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteSearchHistoryEndpointSearchHistorySearchIdDelete400Response">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteSearchHistoryEndpointSearchHistorySearchIdDelete401Response">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteSearchHistoryEndpointSearchHistorySearchIdDelete402Response">When receiving a 402 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteSearchHistoryEndpointSearchHistorySearchIdDelete403Response">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteSearchHistoryEndpointSearchHistorySearchIdDelete404Response">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteSearchHistoryEndpointSearchHistorySearchIdDelete409Response">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteSearchHistoryEndpointSearchHistorySearchIdDelete429Response">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteSearchHistoryEndpointSearchHistorySearchIdDelete500Response">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteSearchHistoryEndpointSearchHistorySearchIdDelete502Response">When receiving a 502 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteSearchHistoryEndpointSearchHistorySearchIdDelete503Response">When receiving a 503 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteSearchHistoryEndpointSearchHistorySearchIdDelete504Response">When receiving a 504 status code</exception>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteSearchHistoryEndpointSearchHistorySearchIdDelete200Response?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#nullable restore
+#else
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteSearchHistoryEndpointSearchHistorySearchIdDelete200Response> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#endif
+            var requestInfo = ToDeleteRequestInformation(requestConfiguration);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteSearchHistoryEndpointSearchHistorySearchIdDelete400Response.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteSearchHistoryEndpointSearchHistorySearchIdDelete401Response.CreateFromDiscriminatorValue },
+                { "402", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteSearchHistoryEndpointSearchHistorySearchIdDelete402Response.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteSearchHistoryEndpointSearchHistorySearchIdDelete403Response.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteSearchHistoryEndpointSearchHistorySearchIdDelete404Response.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteSearchHistoryEndpointSearchHistorySearchIdDelete409Response.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteSearchHistoryEndpointSearchHistorySearchIdDelete429Response.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteSearchHistoryEndpointSearchHistorySearchIdDelete500Response.CreateFromDiscriminatorValue },
+                { "502", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteSearchHistoryEndpointSearchHistorySearchIdDelete502Response.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteSearchHistoryEndpointSearchHistorySearchIdDelete503Response.CreateFromDiscriminatorValue },
+                { "504", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteSearchHistoryEndpointSearchHistorySearchIdDelete504Response.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteSearchHistoryEndpointSearchHistorySearchIdDelete200Response>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteSearchHistoryEndpointSearchHistorySearchIdDelete200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Return a decrypted saved-search envelope to its owner or active team.Returns 404 (never 403) for inaccessible IDs so the endpoint is not anexistence oracle. ``parsed_query`` includes durable replay metadata neededfor hydration, while server-only ranking metadata remains private.
@@ -77,6 +128,25 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.History.Item
                 { "504", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetSearchHistoryRowEndpointSearchHistorySearchIdGet504Response.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.GetSearchHistoryRowEndpointSearchHistorySearchIdGet200Response>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.GetSearchHistoryRowEndpointSearchHistorySearchIdGet200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
+        /// Delete Search History Endpoint
+        /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
+#nullable restore
+#else
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
+#endif
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
+            return requestInfo;
         }
         /// <summary>
         /// Return a decrypted saved-search envelope to its owner or active team.Returns 404 (never 403) for inaccessible IDs so the endpoint is not anexistence oracle. ``parsed_query`` includes durable replay metadata neededfor hydration, while server-only ranking metadata remains private.

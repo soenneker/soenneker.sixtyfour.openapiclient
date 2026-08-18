@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Sixtyfour.OpenApiClient.Search.Autocomplete;
 using Soenneker.Sixtyfour.OpenApiClient.Search.DeepSearchStatus;
 using Soenneker.Sixtyfour.OpenApiClient.Search.Download;
 using Soenneker.Sixtyfour.OpenApiClient.Search.ExclusionLists;
@@ -28,6 +29,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SearchRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The autocomplete property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.Search.Autocomplete.AutocompleteRequestBuilder Autocomplete
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.Search.Autocomplete.AutocompleteRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The deepSearchStatus property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Search.DeepSearchStatus.DeepSearchStatusRequestBuilder DeepSearchStatus
         {
