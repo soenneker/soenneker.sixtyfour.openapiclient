@@ -28,6 +28,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
+        /// <summary>Stable identity and app link carried across xhigh lifecycle responses.Live workspace statistics stay on the Atlas resource endpoints so pollinga job never fans out into file, graph, or event count queries.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseInvestigation? Investigation { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseInvestigation Investigation { get; set; }
+#endif
         /// <summary>Bulk runs only: rows enriched so far out of the total rows submitted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -101,6 +109,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "charge_credits", n => { ChargeCredits = n.GetDoubleValue(); } },
                 { "close_time", n => { CloseTime = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
+                { "investigation", n => { Investigation = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseInvestigation>(global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseInvestigation.CreateFromDiscriminatorValue); } },
                 { "progress", n => { Progress = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseProgress>(global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseProgress.CreateFromDiscriminatorValue); } },
                 { "result", n => { Result = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseResult>(global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseResult.CreateFromDiscriminatorValue); } },
                 { "results", n => { Results = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseResultsItem>(global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseResultsItem.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -121,6 +130,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteDoubleValue("charge_credits", ChargeCredits);
             writer.WriteDateTimeOffsetValue("close_time", CloseTime);
             writer.WriteStringValue("id", Id);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseInvestigation>("investigation", Investigation);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseProgress>("progress", Progress);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseResult>("result", Result);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseResultsItem>("results", Results);

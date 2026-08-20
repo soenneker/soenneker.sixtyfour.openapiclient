@@ -2393,7 +2393,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AsyncJobStartResponse"
+                  "$ref": "#/components/schemas/LeadAsyncJobStartResponse"
                 }
               }
             }
@@ -3288,6 +3288,19 @@
                       "start_time": "2026-06-10T00:00:00Z"
                     }
                   },
+                  "running_xhigh": {
+                    "summary": "Running xhigh job with Atlas workspace",
+                    "value": {
+                      "status": "running",
+                      "id": "job_123",
+                      "run_id": "temporal-run-123",
+                      "start_time": "2026-06-10T00:00:00Z",
+                      "investigation": {
+                        "id": "29beab70-42e4-5d19-b3b1-9a28279ca19f",
+                        "workspace_url": "https://app.sixtyfour.ai/atlas/29beab70-42e4-5d19-b3b1-9a28279ca19f/graph"
+                      }
+                    }
+                  },
                   "running_bulk": {
                     "summary": "Running bulk intelligence job",
                     "value": {
@@ -3320,6 +3333,31 @@
                         "notes": "Found and verified requested information."
                       },
                       "charge_amount": 5,
+                      "task_type": "lead_enrichment"
+                    }
+                  },
+                  "completed_xhigh_enrichment": {
+                    "summary": "Completed xhigh enrichment with Atlas workspace",
+                    "value": {
+                      "status": "completed",
+                      "id": "job_123",
+                      "run_id": "temporal-run-123",
+                      "start_time": "2026-06-10T00:00:00Z",
+                      "close_time": "2026-06-10T00:08:00Z",
+                      "result": {
+                        "structured_data": {
+                          "current_role": "CEO"
+                        },
+                        "references": {
+                          "https://example.com": "Source page"
+                        },
+                        "notes": "Completed deep research."
+                      },
+                      "investigation": {
+                        "id": "29beab70-42e4-5d19-b3b1-9a28279ca19f",
+                        "workspace_url": "https://app.sixtyfour.ai/atlas/29beab70-42e4-5d19-b3b1-9a28279ca19f/graph"
+                      },
+                      "charge_amount": 50,
                       "task_type": "lead_enrichment"
                     }
                   },
@@ -10699,6 +10737,940 @@
         }
       }
     },
+    "/v1/atlas/investigations": {
+      "get": {
+        "tags": [
+          "Atlas"
+        ],
+        "summary": "List investigations",
+        "description": "Your organization\u0027s Atlas investigations, newest first. Follow \u0060next_cursor\u0060 (pass it as \u0060after\u0060) until it is\nnull; the cursor is a keyset, so pages stay stable while investigations are created or deleted. With a \u0060status\u0060\nfilter a page can come back short (the filter is applied while scanning), so \u0060next_cursor\u0060 \u2014 not page size \u2014 is\nthe end-of-listing signal.",
+        "operationId": "ListInvestigationsV1AtlasInvestigationsGet",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "title": "Limit",
+              "maximum": 200,
+              "minimum": 1,
+              "type": "integer",
+              "default": 50
+            }
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "description": "Cursor from a previous page\u0027s \u0060next_cursor\u0060.",
+            "schema": {
+              "title": "After",
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "Cursor from a previous page\u0027s \u0060next_cursor\u0060."
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Only investigations in this state.",
+            "schema": {
+              "$ref": "#/components/schemas/ListInvestigationsV1AtlasInvestigationsGetStatusParameter"
+            }
+          },
+          {
+            "name": "created_after",
+            "in": "query",
+            "description": "Only investigations created at or after this time (ISO 8601).",
+            "schema": {
+              "title": "Created After",
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "Only investigations created at or after this time (ISO 8601).",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "created_before",
+            "in": "query",
+            "description": "Only investigations created before this time (ISO 8601).",
+            "schema": {
+              "title": "Created Before",
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "Only investigations created before this time (ISO 8601).",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvestigationList"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListInvestigationsV1AtlasInvestigationsGet400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListInvestigationsV1AtlasInvestigationsGet401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListInvestigationsV1AtlasInvestigationsGet403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListInvestigationsV1AtlasInvestigationsGet500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/atlas/investigations/{investigationId}": {
+      "get": {
+        "tags": [
+          "Atlas"
+        ],
+        "summary": "Get an investigation",
+        "operationId": "GetInvestigationV1AtlasInvestigationsInvestigationIdGet",
+        "parameters": [
+          {
+            "name": "investigationId",
+            "in": "path",
+            "description": "Investigation id, as returned by list or by an xhigh enrichment.",
+            "required": true,
+            "schema": {
+              "title": "Investigation Id",
+              "type": "string",
+              "description": "Investigation id, as returned by list or by an xhigh enrichment."
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvestigationSummary"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetInvestigationV1AtlasInvestigationsInvestigationIdGet400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetInvestigationV1AtlasInvestigationsInvestigationIdGet401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetInvestigationV1AtlasInvestigationsInvestigationIdGet403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetInvestigationV1AtlasInvestigationsInvestigationIdGet500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/atlas/investigations/{investigationId}/graph": {
+      "get": {
+        "tags": [
+          "Atlas"
+        ],
+        "summary": "Attribution graph",
+        "description": "The attribution graph: \u0060nodes\u0060 (findings with source URLs and quotes) and \u0060edges\u0060 (confidence-weighted links).",
+        "operationId": "GetGraphV1AtlasInvestigationsInvestigationIdGraphGet",
+        "parameters": [
+          {
+            "name": "investigationId",
+            "in": "path",
+            "description": "Investigation id, as returned by list or by an xhigh enrichment.",
+            "required": true,
+            "schema": {
+              "title": "Investigation Id",
+              "type": "string",
+              "description": "Investigation id, as returned by list or by an xhigh enrichment."
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetGraphV1AtlasInvestigationsInvestigationIdGraphGet200Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetGraphV1AtlasInvestigationsInvestigationIdGraphGet400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetGraphV1AtlasInvestigationsInvestigationIdGraphGet401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetGraphV1AtlasInvestigationsInvestigationIdGraphGet403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetGraphV1AtlasInvestigationsInvestigationIdGraphGet500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/atlas/investigations/{investigationId}/files": {
+      "get": {
+        "tags": [
+          "Atlas"
+        ],
+        "summary": "List workspace files",
+        "description": "Every file in the workspace. Attachments carry their metadata inline; fetch bytes via the file endpoint.",
+        "operationId": "ListFilesV1AtlasInvestigationsInvestigationIdFilesGet",
+        "parameters": [
+          {
+            "name": "investigationId",
+            "in": "path",
+            "description": "Investigation id, as returned by list or by an xhigh enrichment.",
+            "required": true,
+            "schema": {
+              "title": "Investigation Id",
+              "type": "string",
+              "description": "Investigation id, as returned by list or by an xhigh enrichment."
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorkspaceFileList"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListFilesV1AtlasInvestigationsInvestigationIdFilesGet400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListFilesV1AtlasInvestigationsInvestigationIdFilesGet401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListFilesV1AtlasInvestigationsInvestigationIdFilesGet403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListFilesV1AtlasInvestigationsInvestigationIdFilesGet500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/atlas/investigations/{investigationId}/files/{path}": {
+      "get": {
+        "tags": [
+          "Atlas"
+        ],
+        "summary": "Read a workspace file",
+        "description": "A workspace file\u0027s bytes: text as stored, attachments decrypted and served with their content type.",
+        "operationId": "GetFileV1AtlasInvestigationsInvestigationIdFilesPathGet",
+        "parameters": [
+          {
+            "name": "path",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Path",
+              "type": "string"
+            }
+          },
+          {
+            "name": "investigationId",
+            "in": "path",
+            "description": "Investigation id, as returned by list or by an xhigh enrichment.",
+            "required": true,
+            "schema": {
+              "title": "Investigation Id",
+              "type": "string",
+              "description": "Investigation id, as returned by list or by an xhigh enrichment."
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetFileV1AtlasInvestigationsInvestigationIdFilesPathGet200ResponseSchema"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetFileV1AtlasInvestigationsInvestigationIdFilesPathGet400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetFileV1AtlasInvestigationsInvestigationIdFilesPathGet401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetFileV1AtlasInvestigationsInvestigationIdFilesPathGet403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetFileV1AtlasInvestigationsInvestigationIdFilesPathGet500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/atlas/investigations/{investigationId}/report.pdf": {
+      "get": {
+        "tags": [
+          "Atlas"
+        ],
+        "summary": "Intelligence report PDF",
+        "description": "The generated intelligence report. 404 until one has been generated for the current workspace.",
+        "operationId": "GetReportPdfV1AtlasInvestigationsInvestigationIdReportPdfGet",
+        "parameters": [
+          {
+            "name": "investigationId",
+            "in": "path",
+            "description": "Investigation id, as returned by list or by an xhigh enrichment.",
+            "required": true,
+            "schema": {
+              "title": "Investigation Id",
+              "type": "string",
+              "description": "Investigation id, as returned by list or by an xhigh enrichment."
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetReportPdfV1AtlasInvestigationsInvestigationIdReportPdfGet200ResponseSchema"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetReportPdfV1AtlasInvestigationsInvestigationIdReportPdfGet400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetReportPdfV1AtlasInvestigationsInvestigationIdReportPdfGet401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetReportPdfV1AtlasInvestigationsInvestigationIdReportPdfGet403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetReportPdfV1AtlasInvestigationsInvestigationIdReportPdfGet500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/atlas/investigations/{investigationId}/export.zip": {
+      "get": {
+        "tags": [
+          "Atlas"
+        ],
+        "summary": "Export the workspace as a ZIP",
+        "description": "Everything visible in the app, in one archive: files, attachments with \u0060\u003Cpath\u003E.json\u0060 metadata sidecars,\nthe attribution graph, \u0060investigation.json\u0060, and \u2014 with agent-stream access \u2014 \u0060agents/\u0060.",
+        "operationId": "ExportZipV1AtlasInvestigationsInvestigationIdExportZipGet",
+        "parameters": [
+          {
+            "name": "investigationId",
+            "in": "path",
+            "description": "Investigation id, as returned by list or by an xhigh enrichment.",
+            "required": true,
+            "schema": {
+              "title": "Investigation Id",
+              "type": "string",
+              "description": "Investigation id, as returned by list or by an xhigh enrichment."
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExportZipV1AtlasInvestigationsInvestigationIdExportZipGet200ResponseSchema"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExportZipV1AtlasInvestigationsInvestigationIdExportZipGet400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExportZipV1AtlasInvestigationsInvestigationIdExportZipGet401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExportZipV1AtlasInvestigationsInvestigationIdExportZipGet403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExportZipV1AtlasInvestigationsInvestigationIdExportZipGet500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/atlas/investigations/{investigationId}/events": {
+      "get": {
+        "tags": [
+          "Atlas"
+        ],
+        "summary": "Agent event stream",
+        "description": "The agents\u0027 sessions and event stream, oldest first. Visibility follows your organization\u0027s Atlas\naccess: turn summaries with agents access, the full tool stream with per-event payloads with activity access.",
+        "operationId": "GetEventsV1AtlasInvestigationsInvestigationIdEventsGet",
+        "parameters": [
+          {
+            "name": "investigationId",
+            "in": "path",
+            "description": "Investigation id, as returned by list or by an xhigh enrichment.",
+            "required": true,
+            "schema": {
+              "title": "Investigation Id",
+              "type": "string",
+              "description": "Investigation id, as returned by list or by an xhigh enrichment."
+            }
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "description": "Cursor from a previous page\u0027s \u0060next_cursor\u0060.",
+            "schema": {
+              "title": "After",
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "Cursor from a previous page\u0027s \u0060next_cursor\u0060."
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentEventsPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetEventsV1AtlasInvestigationsInvestigationIdEventsGet400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetEventsV1AtlasInvestigationsInvestigationIdEventsGet401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetEventsV1AtlasInvestigationsInvestigationIdEventsGet403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetEventsV1AtlasInvestigationsInvestigationIdEventsGet500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/verify-age": {
       "post": {
         "tags": [
@@ -11364,6 +12336,105 @@
               "null",
               "string"
             ]
+          }
+        }
+      },
+      "AgentEventsPage": {
+        "title": "AgentEventsPage",
+        "required": [
+          "events",
+          "sessions"
+        ],
+        "type": "object",
+        "properties": {
+          "events": {
+            "title": "Events",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AgentEventsPageEventsItemProperty"
+            },
+            "description": "Oldest first. With activity access each event carries a \u0060payload\u0060 of args/result/thinking."
+          },
+          "sessions": {
+            "title": "Sessions",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AgentSession"
+            }
+          },
+          "next_cursor": {
+            "title": "Next Cursor",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Pass as \u0060after\u0060 to fetch the next page."
+          }
+        }
+      },
+      "AgentSession": {
+        "title": "AgentSession",
+        "required": [
+          "id",
+          "agent_type",
+          "status",
+          "started_at",
+          "turn_count",
+          "cost_cents"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "parent_session_id": {
+            "title": "Parent Session Id",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "agent_type": {
+            "title": "Agent Type",
+            "type": "string"
+          },
+          "agent_name": {
+            "title": "Agent Name",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "task": {
+            "title": "Task",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "status": {
+            "title": "Status",
+            "type": "string"
+          },
+          "started_at": {
+            "title": "Started At",
+            "type": "string"
+          },
+          "ended_at": {
+            "title": "Ended At",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "turn_count": {
+            "title": "Turn Count",
+            "type": "integer"
+          },
+          "cost_cents": {
+            "title": "Cost Cents",
+            "type": "integer"
           }
         }
       },
@@ -13869,6 +14940,160 @@
         },
         "description": "Build the list from inline identifiers (entity-generic).\n\nPerson lists: LinkedIn public IDs or profile URLs. Company lists: numeric\ncompany IDs, LinkedIn company URLs/slugs, or exact website domains."
       },
+      "InvestigationList": {
+        "title": "InvestigationList",
+        "required": [
+          "investigations",
+          "limit",
+          "next_cursor"
+        ],
+        "type": "object",
+        "properties": {
+          "investigations": {
+            "title": "Investigations",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InvestigationSummary"
+            }
+          },
+          "limit": {
+            "title": "Limit",
+            "type": "integer"
+          },
+          "next_cursor": {
+            "title": "Next Cursor",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Pass as \u0060after\u0060 for the next page; null when there is nothing further. A short or empty page with a non-null next_cursor means the scan stopped early (status filtering), not that the listing ended."
+          }
+        }
+      },
+      "InvestigationReference": {
+        "title": "InvestigationReference",
+        "required": [
+          "id",
+          "workspace_url"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string",
+            "description": "Atlas investigation ID."
+          },
+          "workspace_url": {
+            "title": "Workspace Url",
+            "maxLength": 2083,
+            "minLength": 1,
+            "type": "string",
+            "description": "Canonical Sixtyfour app URL for the investigation\u0027s Atlas workspace.",
+            "format": "uri"
+          }
+        },
+        "description": "Stable identity and app link carried across xhigh lifecycle responses.\n\nLive workspace statistics stay on the Atlas resource endpoints so polling\na job never fans out into file, graph, or event count queries."
+      },
+      "InvestigationSummary": {
+        "title": "InvestigationSummary",
+        "required": [
+          "id",
+          "name",
+          "status",
+          "visibility",
+          "lead_info",
+          "created_at",
+          "updated_at",
+          "cost_cents",
+          "workspace_url"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/InvestigationSummaryStatus"
+          },
+          "visibility": {
+            "title": "Visibility",
+            "type": "string"
+          },
+          "lead_info": {
+            "$ref": "#/components/schemas/InvestigationSummaryLeadInfoProperty"
+          },
+          "research_plan": {
+            "title": "Research Plan",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": "string"
+          },
+          "updated_at": {
+            "title": "Updated At",
+            "type": "string"
+          },
+          "completed_at": {
+            "title": "Completed At",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "cost_cents": {
+            "title": "Cost Cents",
+            "type": "integer",
+            "description": "Total spend across every agent run of this investigation, in cents."
+          },
+          "workspace_url": {
+            "title": "Workspace Url",
+            "maxLength": 2083,
+            "minLength": 1,
+            "type": "string",
+            "description": "Canonical Sixtyfour app URL for this investigation\u0027s Atlas workspace.",
+            "format": "uri"
+          }
+        }
+      },
+      "LeadAsyncJobStartResponse": {
+        "title": "LeadAsyncJobStartResponse",
+        "required": [
+          "task_id",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "task_id": {
+            "title": "Task Id",
+            "type": "string",
+            "description": "Async job ID. Poll GET /job-status/{task_id} for status and results."
+          },
+          "status": {
+            "$ref": "#/components/schemas/RunningStatus"
+          },
+          "investigation": {
+            "$ref": "#/components/schemas/LeadAsyncJobStartResponseInvestigation"
+          }
+        },
+        "description": "Async people-intelligence kickoff.\n\nXhigh jobs expose their Atlas workspace immediately. The fields stay\noptional because the same endpoint supports tiers that do not create an\ninvestigation.",
+        "example": {
+          "investigation": {
+            "id": "29beab70-42e4-5d19-b3b1-9a28279ca19f",
+            "workspace_url": "https://app.sixtyfour.ai/atlas/29beab70-42e4-5d19-b3b1-9a28279ca19f/graph"
+          },
+          "status": "RUNNING",
+          "task_id": "job_123"
+        }
+      },
       "LinkedInEnrichRequest": {
         "title": "LinkedInEnrichRequest",
         "required": [
@@ -16218,6 +17443,60 @@
         },
         "description": "Response when a workflow run is started."
       },
+      "WorkspaceFileEntry": {
+        "title": "WorkspaceFileEntry",
+        "required": [
+          "path",
+          "size_bytes",
+          "updated_at",
+          "version"
+        ],
+        "type": "object",
+        "properties": {
+          "path": {
+            "title": "Path",
+            "type": "string"
+          },
+          "content_type": {
+            "title": "Content Type",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "size_bytes": {
+            "title": "Size Bytes",
+            "type": "integer"
+          },
+          "updated_at": {
+            "title": "Updated At",
+            "type": "string"
+          },
+          "version": {
+            "title": "Version",
+            "type": "integer"
+          },
+          "attachment": {
+            "$ref": "#/components/schemas/WorkspaceFileEntryAttachmentProperty"
+          }
+        }
+      },
+      "WorkspaceFileList": {
+        "title": "WorkspaceFileList",
+        "required": [
+          "files"
+        ],
+        "type": "object",
+        "properties": {
+          "files": {
+            "title": "Files",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WorkspaceFileEntry"
+            }
+          }
+        }
+      },
       "WorkspaceResponse": {
         "title": "WorkspaceResponse",
         "required": [
@@ -16686,6 +17965,33 @@
             "type": "null"
           }
         ]
+      },
+      "LeadAsyncJobStartResponseInvestigation": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/InvestigationReference"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string",
+            "description": "Atlas investigation ID."
+          },
+          "workspace_url": {
+            "title": "Workspace Url",
+            "maxLength": 2083,
+            "minLength": 1,
+            "type": "string",
+            "description": "Canonical Sixtyfour app URL for the investigation\u0027s Atlas workspace.",
+            "format": "uri"
+          }
+        },
+        "description": "Xhigh only: the Atlas workspace created for this job."
       },
       "LookalikeSearchStatusResponseSeedDiagnostics": {
         "type": "object",
@@ -17397,6 +18703,9 @@
         "title": "Specs",
         "type": "object"
       },
+      "AgentEventsPageEventsItem": {
+        "type": "object"
+      },
       "ApprovalRequestAnswers": {
         "title": "Answers",
         "type": [
@@ -17541,6 +18850,11 @@
         "title": "Parsedquery",
         "maxProperties": 50,
         "type": "object"
+      },
+      "InvestigationSummaryLeadInfo": {
+        "title": "Lead Info",
+        "type": "object",
+        "description": "The original input the investigation was started from."
       },
       "LinkedInEnrichRequestStruct": {
         "title": "Struct",
@@ -17727,6 +19041,14 @@
           "object"
         ],
         "description": "Cache configuration; only set by the custom-cache endpoint."
+      },
+      "WorkspaceFileEntryAttachment": {
+        "title": "Attachment",
+        "type": [
+          "null",
+          "object"
+        ],
+        "description": "For files under attachments/: display name, title, caption, source URL, and provenance."
       },
       "ValidationErrorCtx": {
         "type": "object",
@@ -19045,6 +20367,9 @@
           },
           "progress": {
             "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseProgress"
+          },
+          "investigation": {
+            "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseInvestigation"
           },
           "close_time": {
             "type": "string",
@@ -22038,6 +23363,281 @@
           }
         }
       },
+      "ListInvestigationsV1AtlasInvestigationsGet400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ListInvestigationsV1AtlasInvestigationsGet401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ListInvestigationsV1AtlasInvestigationsGet403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ListInvestigationsV1AtlasInvestigationsGet500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetInvestigationV1AtlasInvestigationsInvestigationIdGet400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetInvestigationV1AtlasInvestigationsInvestigationIdGet401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetInvestigationV1AtlasInvestigationsInvestigationIdGet403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetInvestigationV1AtlasInvestigationsInvestigationIdGet500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ResponseGetGraphV1AtlasInvestigationsInvestigationIdGraphGet": {
+        "title": "Response Get Graph V1 Atlas Investigations  Investigation Id  Graph Get",
+        "type": "object",
+        "additionalProperties": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      },
+      "GetGraphV1AtlasInvestigationsInvestigationIdGraphGet400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetGraphV1AtlasInvestigationsInvestigationIdGraphGet401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetGraphV1AtlasInvestigationsInvestigationIdGraphGet403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetGraphV1AtlasInvestigationsInvestigationIdGraphGet500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ListFilesV1AtlasInvestigationsInvestigationIdFilesGet400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ListFilesV1AtlasInvestigationsInvestigationIdFilesGet401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ListFilesV1AtlasInvestigationsInvestigationIdFilesGet403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ListFilesV1AtlasInvestigationsInvestigationIdFilesGet500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetFileV1AtlasInvestigationsInvestigationIdFilesPathGet200Response": {
+        "type": "object"
+      },
+      "GetFileV1AtlasInvestigationsInvestigationIdFilesPathGet400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetFileV1AtlasInvestigationsInvestigationIdFilesPathGet401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetFileV1AtlasInvestigationsInvestigationIdFilesPathGet403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetFileV1AtlasInvestigationsInvestigationIdFilesPathGet500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetReportPdfV1AtlasInvestigationsInvestigationIdReportPdfGet200Response": {
+        "type": "object"
+      },
+      "GetReportPdfV1AtlasInvestigationsInvestigationIdReportPdfGet400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetReportPdfV1AtlasInvestigationsInvestigationIdReportPdfGet401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetReportPdfV1AtlasInvestigationsInvestigationIdReportPdfGet403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetReportPdfV1AtlasInvestigationsInvestigationIdReportPdfGet500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ExportZipV1AtlasInvestigationsInvestigationIdExportZipGet200Response": {
+        "type": "object"
+      },
+      "ExportZipV1AtlasInvestigationsInvestigationIdExportZipGet400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ExportZipV1AtlasInvestigationsInvestigationIdExportZipGet401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ExportZipV1AtlasInvestigationsInvestigationIdExportZipGet403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ExportZipV1AtlasInvestigationsInvestigationIdExportZipGet500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetEventsV1AtlasInvestigationsInvestigationIdEventsGet400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetEventsV1AtlasInvestigationsInvestigationIdEventsGet401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetEventsV1AtlasInvestigationsInvestigationIdEventsGet403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetEventsV1AtlasInvestigationsInvestigationIdEventsGet500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
       "VerifyAgeVerifyAgePost400Response": {
         "type": "object",
         "properties": {
@@ -22415,6 +24015,24 @@
       "DeleteScheduleEndpointSchedulesScheduleIdDelete200Response": {
         "type": "object"
       },
+      "GetGraphV1AtlasInvestigationsInvestigationIdGraphGet200Response": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      },
+      "GetFileV1AtlasInvestigationsInvestigationIdFilesPathGet200ResponseSchema": {
+        "type": "object"
+      },
+      "GetReportPdfV1AtlasInvestigationsInvestigationIdReportPdfGet200ResponseSchema": {
+        "type": "object"
+      },
+      "ExportZipV1AtlasInvestigationsInvestigationIdExportZipGet200ResponseSchema": {
+        "type": "object"
+      },
       "VerifyAgeStatusVerifyAgeTaskIdGet200ResponseSchema": {
         "type": "object"
       },
@@ -22461,6 +24079,15 @@
           "field_confidence": {
             "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultFieldConfidence"
           },
+          "investigation_id": {
+            "title": "Investigation Id",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Deprecated compatibility field. Use the response envelope\u0027s \u0060investigation.id\u0060.",
+            "deprecated": true
+          },
           "value": {
             "type": "array",
             "items": {
@@ -22505,6 +24132,15 @@
           },
           "field_confidence": {
             "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultFieldConfidence"
+          },
+          "investigation_id": {
+            "title": "Investigation Id",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Deprecated compatibility field. Use the response envelope\u0027s \u0060investigation.id\u0060.",
+            "deprecated": true
           }
         }
       },
@@ -22525,6 +24161,9 @@
         "description": "Optional supporting findings produced by the enrichment agent."
       },
       "AddBlockRequestSpecsProperty": {
+        "type": "object"
+      },
+      "AgentEventsPageEventsItemProperty": {
         "type": "object"
       },
       "ApprovalRequestAnswersProperty": {
@@ -22624,6 +24263,10 @@
       },
       "GenerateSearchTitleRequestParsedQueryProperty": {
         "type": "object"
+      },
+      "InvestigationSummaryLeadInfoProperty": {
+        "type": "object",
+        "description": "The original input the investigation was started from."
       },
       "LinkedInEnrichRequestStructProperty": {
         "type": "object",
@@ -22731,6 +24374,10 @@
         "type": "object",
         "description": "Cache configuration; only set by the custom-cache endpoint."
       },
+      "WorkspaceFileEntryAttachmentProperty": {
+        "type": "object",
+        "description": "For files under attachments/: display name, title, caption, source URL, and provenance."
+      },
       "ValidationErrorCtxProperty": {
         "type": "object",
         "description": "Optional error context."
@@ -22746,6 +24393,30 @@
           }
         },
         "description": "Bulk runs only: rows enriched so far out of the total rows submitted."
+      },
+      "JobStatusJobStatusJobIdGet200ResponseInvestigation": {
+        "title": "InvestigationReference",
+        "required": [
+          "id",
+          "workspace_url"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string",
+            "description": "Atlas investigation ID."
+          },
+          "workspace_url": {
+            "title": "Workspace Url",
+            "maxLength": 2083,
+            "minLength": 1,
+            "type": "string",
+            "description": "Canonical Sixtyfour app URL for the investigation\u0027s Atlas workspace.",
+            "format": "uri"
+          }
+        },
+        "description": "Stable identity and app link carried across xhigh lifecycle responses.\n\nLive workspace statistics stay on the Atlas resource endpoints so polling\na job never fans out into file, graph, or event count queries."
       },
       "JobStatusJobStatusJobIdGet200ResponseResultsItem": {
         "type": "object",
@@ -23141,6 +24812,45 @@
             {
               "value": "entity_ids",
               "name": "EntityIds"
+            }
+          ]
+        }
+      },
+      "InvestigationSummaryStatus": {
+        "title": "Status",
+        "enum": [
+          "created",
+          "running",
+          "paused",
+          "completed",
+          "failed"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Derived from the agent runs, not stored.",
+        "x-ms-enum": {
+          "name": "InvestigationSummaryStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "created",
+              "name": "Created"
+            },
+            {
+              "value": "running",
+              "name": "Running"
+            },
+            {
+              "value": "paused",
+              "name": "Paused"
+            },
+            {
+              "value": "completed",
+              "name": "Completed"
+            },
+            {
+              "value": "failed",
+              "name": "Failed"
             }
           ]
         }
@@ -23933,6 +25643,48 @@
             }
           ]
         }
+      },
+      "ListInvestigationsV1AtlasInvestigationsGetStatusParameter": {
+        "title": "Status",
+        "enum": [
+          "created",
+          "running",
+          "paused",
+          "completed",
+          "failed"
+        ],
+        "type": [
+          "null",
+          "string"
+        ],
+        "additionalProperties": false,
+        "description": "Only investigations in this state.",
+        "x-ms-enum": {
+          "name": "ListInvestigationsV1AtlasInvestigationsGetStatusParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "created",
+              "name": "Created"
+            },
+            {
+              "value": "running",
+              "name": "Running"
+            },
+            {
+              "value": "paused",
+              "name": "Paused"
+            },
+            {
+              "value": "completed",
+              "name": "Completed"
+            },
+            {
+              "value": "failed",
+              "name": "Failed"
+            }
+          ]
+        }
       }
     }
   },
@@ -23964,6 +25716,10 @@
     {
       "name": "Intelligence",
       "description": "Verify identity attributes such as age using high-tier OSINT research."
+    },
+    {
+      "name": "Atlas",
+      "description": "Read your Atlas investigations: attribution graph, workspace files, reports, and exports."
     }
   ]
 }

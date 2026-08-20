@@ -36,6 +36,7 @@ using Soenneker.Sixtyfour.OpenApiClient.ReversePhoneBulkAsync;
 using Soenneker.Sixtyfour.OpenApiClient.Schedules;
 using Soenneker.Sixtyfour.OpenApiClient.Search;
 using Soenneker.Sixtyfour.OpenApiClient.StructBuilder;
+using Soenneker.Sixtyfour.OpenApiClient.V1;
 using Soenneker.Sixtyfour.OpenApiClient.VerifyAge;
 using Soenneker.Sixtyfour.OpenApiClient.Workflows;
 using System.Collections.Generic;
@@ -199,6 +200,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient
         public global::Soenneker.Sixtyfour.OpenApiClient.StructBuilder.StructBuilderRequestBuilder StructBuilder
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.StructBuilder.StructBuilderRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The v1 property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.V1RequestBuilder V1
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.V1RequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The verifyAge property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.VerifyAge.VerifyAgeRequestBuilder VerifyAge

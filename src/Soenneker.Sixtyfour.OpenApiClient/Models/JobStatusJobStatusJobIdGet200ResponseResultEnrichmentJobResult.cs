@@ -32,6 +32,15 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultFindings Findings { get; set; }
 #endif
+        /// <summary>Deprecated compatibility field. Use the response envelope&apos;s `investigation.id`.</summary>
+        [Obsolete("")]
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? InvestigationId { get; set; }
+#nullable restore
+#else
+        public string InvestigationId { get; set; }
+#endif
         /// <summary>Human-readable notes about the enrichment result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -84,6 +93,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "confidence_score", n => { ConfidenceScore = n.GetDoubleValue(); } },
                 { "field_confidence", n => { FieldConfidence = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultFieldConfidence>(global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultFieldConfidence.CreateFromDiscriminatorValue); } },
                 { "findings", n => { Findings = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultFindings>(global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultFindings.CreateFromDiscriminatorValue); } },
+                { "investigation_id", n => { InvestigationId = n.GetStringValue(); } },
                 { "notes", n => { Notes = n.GetStringValue(); } },
                 { "references", n => { References = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultReferences>(global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultReferences.CreateFromDiscriminatorValue); } },
                 { "structured_data", n => { StructuredData = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultStructuredData>(global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultStructuredData.CreateFromDiscriminatorValue); } },
@@ -99,6 +109,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteDoubleValue("confidence_score", ConfidenceScore);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultFieldConfidence>("field_confidence", FieldConfidence);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultFindings>("findings", Findings);
+            writer.WriteStringValue("investigation_id", InvestigationId);
             writer.WriteStringValue("notes", Notes);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultReferences>("references", References);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultStructuredData>("structured_data", StructuredData);
