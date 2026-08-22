@@ -9291,7 +9291,7 @@
           "Search"
         ],
         "summary": "Search Query",
-        "description": "Run a search query. Provide exactly one query source: simple_filters, filters, parsed_query, or search_id. For pagination, pass cursor alone.",
+        "description": "Run a search query. Provide exactly one query source: query, simple_filters, filters, parsed_query, or search_id. For pagination, pass cursor alone.",
         "operationId": "SearchQueryEndpointSearchQueryPost",
         "parameters": [
           {
@@ -16101,7 +16101,7 @@
               "null",
               "string"
             ],
-            "description": "Natural-language query. Mutually exclusive with simple_filters / filters / parsed_query / search_id. People-mode only."
+            "description": "Natural-language query. Mutually exclusive with simple_filters / filters / parsed_query / search_id. Supported for people and company search."
           },
           "query_label": {
             "title": "Query Label",
@@ -16111,6 +16111,22 @@
               "string"
             ],
             "description": "Display label stored with a structured search. It does not affect the query or results. Oversized labels are truncated."
+          },
+          "persist_history": {
+            "title": "Persist History",
+            "type": "boolean",
+            "description": "Set false to skip the canonical search-history write for this search (e.g. a page load that replays a search another surface already recorded). Replays via search_id never write history regardless.",
+            "default": true
+          },
+          "from_offset": {
+            "title": "From Offset",
+            "maximum": 10000.0,
+            "minimum": 0.0,
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Company-mode page offset for page-numbered navigation (mirrors OpenSearch \u0060from\u0060). Offset pages return no cursor and are not persisted to history; page one (offset 0 or omitted) behaves exactly as before. People mode rejects this field."
           },
           "cursor": {
             "title": "Cursor",
@@ -16166,7 +16182,7 @@
           "location_expansion_enabled": {
             "title": "Location Expansion Enabled",
             "type": "boolean",
-            "description": "Expand the location filter to nearby areas via PostGIS radius on the \u0060query\u0060 (NL) branch. People mode only. For \u0060parsed_query\u0060, use \u0060expand_structured_location\u0060.",
+            "description": "Expand the location filter to nearby areas via PostGIS radius on the \u0060query\u0060 (NL) branch. For \u0060parsed_query\u0060, use \u0060expand_structured_location\u0060.",
             "default": true
           },
           "location_expansion_radius_miles": {
@@ -24935,6 +24951,7 @@
           "field_of_study",
           "industry",
           "location",
+          "specialties",
           "certification",
           "languages",
           "technologies_used.technology",
@@ -24973,6 +24990,10 @@
             {
               "value": "location",
               "name": "Location"
+            },
+            {
+              "value": "specialties",
+              "name": "Specialties"
             },
             {
               "value": "certification",

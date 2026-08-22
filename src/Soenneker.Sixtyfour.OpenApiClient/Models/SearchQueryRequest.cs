@@ -57,7 +57,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestFiltersProperty Filters { get; set; }
 #endif
-        /// <summary>Expand the location filter to nearby areas via PostGIS radius on the `query` (NL) branch. People mode only. For `parsed_query`, use `expand_structured_location`.</summary>
+        /// <summary>Company-mode page offset for page-numbered navigation (mirrors OpenSearch `from`). Offset pages return no cursor and are not persisted to history; page one (offset 0 or omitted) behaves exactly as before. People mode rejects this field.</summary>
+        public int? FromOffset { get; set; }
+        /// <summary>Expand the location filter to nearby areas via PostGIS radius on the `query` (NL) branch. For `parsed_query`, use `expand_structured_location`.</summary>
         public bool? LocationExpansionEnabled { get; set; }
         /// <summary>Radius (miles) for PostGIS location expansion. Ignored when expansion is disabled.</summary>
         public int? LocationExpansionRadiusMiles { get; set; }
@@ -77,7 +79,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestParsedQueryProperty ParsedQuery { get; set; }
 #endif
-        /// <summary>Natural-language query. Mutually exclusive with simple_filters / filters / parsed_query / search_id. People-mode only.</summary>
+        /// <summary>Set false to skip the canonical search-history write for this search (e.g. a page load that replays a search another surface already recorded). Replays via search_id never write history regardless.</summary>
+        public bool? PersistHistory { get; set; }
+        /// <summary>Natural-language query. Mutually exclusive with simple_filters / filters / parsed_query / search_id. Supported for people and company search.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Query { get; set; }
@@ -135,6 +139,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             LocationExpansionEnabled = true;
             LocationExpansionRadiusMiles = 10;
             PageSize = 10;
+            PersistHistory = true;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -160,6 +165,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "exclude_public_ids", n => { ExcludePublicIds = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestExcludePublicIds>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestExcludePublicIds.CreateFromDiscriminatorValue); } },
                 { "expand_structured_location", n => { ExpandStructuredLocation = n.GetBoolValue(); } },
                 { "filters", n => { Filters = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestFiltersProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestFiltersProperty.CreateFromDiscriminatorValue); } },
+                { "from_offset", n => { FromOffset = n.GetIntValue(); } },
                 { "location_expansion_enabled", n => { LocationExpansionEnabled = n.GetBoolValue(); } },
                 { "location_expansion_radius_miles", n => { LocationExpansionRadiusMiles = n.GetIntValue(); } },
                 { "max_results", n => { MaxResults = n.GetIntValue(); } },
@@ -167,6 +173,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "output_shape", n => { OutputShape = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestOutputShape>(); } },
                 { "page_size", n => { PageSize = n.GetIntValue(); } },
                 { "parsed_query", n => { ParsedQuery = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestParsedQueryProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestParsedQueryProperty.CreateFromDiscriminatorValue); } },
+                { "persist_history", n => { PersistHistory = n.GetBoolValue(); } },
                 { "query", n => { Query = n.GetStringValue(); } },
                 { "query_label", n => { QueryLabel = n.GetStringValue(); } },
                 { "search_id", n => { SearchId = n.GetStringValue(); } },
@@ -188,6 +195,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestExcludePublicIds>("exclude_public_ids", ExcludePublicIds);
             writer.WriteBoolValue("expand_structured_location", ExpandStructuredLocation);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestFiltersProperty>("filters", Filters);
+            writer.WriteIntValue("from_offset", FromOffset);
             writer.WriteBoolValue("location_expansion_enabled", LocationExpansionEnabled);
             writer.WriteIntValue("location_expansion_radius_miles", LocationExpansionRadiusMiles);
             writer.WriteIntValue("max_results", MaxResults);
@@ -195,6 +203,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestOutputShape>("output_shape", OutputShape);
             writer.WriteIntValue("page_size", PageSize);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestParsedQueryProperty>("parsed_query", ParsedQuery);
+            writer.WriteBoolValue("persist_history", PersistHistory);
             writer.WriteStringValue("query", Query);
             writer.WriteStringValue("query_label", QueryLabel);
             writer.WriteStringValue("search_id", SearchId);

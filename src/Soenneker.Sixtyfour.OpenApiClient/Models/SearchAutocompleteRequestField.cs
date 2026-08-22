@@ -36,6 +36,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         #pragma warning disable CS1591
         Location,
         #pragma warning restore CS1591
+        [EnumMember(Value = "specialties")]
+        #pragma warning disable CS1591
+        Specialties,
+        #pragma warning restore CS1591
         [EnumMember(Value = "certification")]
         #pragma warning disable CS1591
         Certification,
