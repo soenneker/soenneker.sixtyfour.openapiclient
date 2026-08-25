@@ -17459,6 +17459,41 @@
         },
         "description": "Response when a workflow run is started."
       },
+      "WorkspaceActionRequest": {
+        "title": "WorkspaceActionRequest",
+        "required": [
+          "action"
+        ],
+        "type": "object",
+        "properties": {
+          "action": {
+            "$ref": "#/components/schemas/WorkspaceActionRequestAction"
+          },
+          "handle": {
+            "title": "Handle",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "workflow_id": {
+            "title": "Workflow Id",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "expected_focus_version": {
+            "title": "Expected Focus Version",
+            "minimum": 0.0,
+            "type": [
+              "null",
+              "integer"
+            ]
+          }
+        },
+        "description": "Focus one workspace tab, open a workflow\u0027s canvas, or close the viewer.\n\nAll three carry the focus counter the caller observed, so they land while\nthe viewer is still where they saw it and are refused once it has moved.\nIt counts focus changes only, so unrelated workspace writes -- registering\na workflow, renaming one -- do not reject a click that raced nothing. It\nremains optional for legacy callers.\n\u0060\u0060open_workflow\u0060\u0060 carries a workflow id rather than a handle, because an\ninline card can be older than the roster it is asking to move."
+      },
       "WorkspaceFileEntry": {
         "title": "WorkspaceFileEntry",
         "required": [
@@ -25430,6 +25465,34 @@
             {
               "value": "notebook",
               "name": "Notebook"
+            }
+          ]
+        }
+      },
+      "WorkspaceActionRequestAction": {
+        "title": "Action",
+        "enum": [
+          "focus",
+          "close",
+          "open_workflow"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "WorkspaceActionRequestAction",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "focus",
+              "name": "Focus"
+            },
+            {
+              "value": "close",
+              "name": "Close"
+            },
+            {
+              "value": "open_workflow",
+              "name": "OpenWorkflow"
             }
           ]
         }
