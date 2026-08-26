@@ -14,6 +14,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Number of blocks in the workflow. Present on list responses, where the graph itself is omitted, so a caller can tell an empty workflow from a populated one without fetching every definition.</summary>
+        public int? BlockCount { get; set; }
         /// <summary>Timestamp when the record was created.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>Workflow description.</summary>
@@ -34,6 +36,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #endif
         /// <summary>Timestamp of the most recent run.</summary>
         public DateTimeOffset? LastRunDate { get; set; }
+        /// <summary>Whether the graph is locked against edits.</summary>
+        public bool? Locked { get; set; }
         /// <summary>Workflow name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -50,6 +54,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string OrgId { get; set; }
 #endif
+        /// <summary>Whether the caller&apos;s organization has starred the workflow.</summary>
+        public bool? Starred { get; set; }
         /// <summary>Lifecycle status of the workflow definition (e.g. draft, ready).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,6 +71,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #nullable restore
 #else
         public string Step { get; set; }
+#endif
+        /// <summary>Team that owns the workflow; null for org-pool workflows.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TeamId { get; set; }
+#nullable restore
+#else
+        public string TeamId { get; set; }
 #endif
         /// <summary>Timestamp when the record was last updated.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
@@ -109,14 +123,18 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "block_count", n => { BlockCount = n.GetIntValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "last_run_date", n => { LastRunDate = n.GetDateTimeOffsetValue(); } },
+                { "locked", n => { Locked = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "org_id", n => { OrgId = n.GetStringValue(); } },
+                { "starred", n => { Starred = n.GetBoolValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "step", n => { Step = n.GetStringValue(); } },
+                { "team_id", n => { TeamId = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "user_uuid", n => { UserUuid = n.GetStringValue(); } },
                 { "workflow_definition", n => { WorkflowDefinition = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseWorkflowDefinition>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseWorkflowDefinition.CreateFromDiscriminatorValue); } },
@@ -129,14 +147,18 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteIntValue("block_count", BlockCount);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("id", Id);
             writer.WriteDateTimeOffsetValue("last_run_date", LastRunDate);
+            writer.WriteBoolValue("locked", Locked);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("org_id", OrgId);
+            writer.WriteBoolValue("starred", Starred);
             writer.WriteStringValue("status", Status);
             writer.WriteStringValue("step", Step);
+            writer.WriteStringValue("team_id", TeamId);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("user_uuid", UserUuid);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseWorkflowDefinition>("workflow_definition", WorkflowDefinition);

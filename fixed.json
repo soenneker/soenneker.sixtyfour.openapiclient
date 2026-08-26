@@ -17202,6 +17202,38 @@
             "description": "Timestamp of the most recent run.",
             "format": "date-time"
           },
+          "team_id": {
+            "title": "Team Id",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Team that owns the workflow; null for org-pool workflows."
+          },
+          "starred": {
+            "title": "Starred",
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Whether the caller\u0027s organization has starred the workflow."
+          },
+          "locked": {
+            "title": "Locked",
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Whether the graph is locked against edits."
+          },
+          "block_count": {
+            "title": "Block Count",
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Number of blocks in the workflow. Present on list responses, where the graph itself is omitted, so a caller can tell an empty workflow from a populated one without fetching every definition."
+          },
           "workflow_definition": {
             "$ref": "#/components/schemas/WorkflowResponseWorkflowDefinition"
           }
