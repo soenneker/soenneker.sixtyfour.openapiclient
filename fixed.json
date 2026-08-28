@@ -10737,6 +10737,404 @@
         }
       }
     },
+    "/templates": {
+      "get": {
+        "tags": [
+          "Templates"
+        ],
+        "summary": "List Workflow Templates",
+        "description": "Return the curated catalog, newest first. No authentication required.",
+        "operationId": "ListTemplatesTemplatesGet",
+        "parameters": [
+          {
+            "name": "category",
+            "in": "query",
+            "description": "Exact category match, e.g. \u0027Lead Generation\u0027.",
+            "schema": {
+              "title": "Category",
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "Exact category match, e.g. \u0027Lead Generation\u0027."
+            }
+          },
+          {
+            "name": "featured",
+            "in": "query",
+            "description": "Restrict to featured templates.",
+            "schema": {
+              "title": "Featured",
+              "type": [
+                "null",
+                "boolean"
+              ],
+              "description": "Restrict to featured templates."
+            }
+          },
+          {
+            "name": "tags",
+            "in": "query",
+            "description": "Keep templates carrying any of these tags (OR, not AND).",
+            "schema": {
+              "title": "Tags",
+              "type": "object",
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Keep templates carrying any of these tags (OR, not AND)."
+            }
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "description": "Free-text search over name, description, use case, category, and tags.",
+            "schema": {
+              "title": "Q",
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "Free-text search over name, description, use case, category, and tags."
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListTemplatesTemplatesGet200Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListTemplatesTemplatesGet400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListTemplatesTemplatesGet401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListTemplatesTemplatesGet403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListTemplatesTemplatesGet500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/templates/available": {
+      "get": {
+        "tags": [
+          "Templates"
+        ],
+        "summary": "List Available Templates",
+        "description": "Return the catalog plus your organization\u0027s own templates, in one list.\n\nA read-only view over two resources, not a resource itself: create and edit through\n\u0060/orgs/{org_id}/templates\u0060. The body depends on the caller\u0027s org, so unlike the\ncatalog it is never shared-cacheable.",
+        "operationId": "ListAvailableTemplatesTemplatesAvailableGet",
+        "parameters": [
+          {
+            "name": "category",
+            "in": "query",
+            "description": "Exact category match.",
+            "schema": {
+              "title": "Category",
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "Exact category match."
+            }
+          },
+          {
+            "name": "featured",
+            "in": "query",
+            "description": "Restrict to featured templates.",
+            "schema": {
+              "title": "Featured",
+              "type": [
+                "null",
+                "boolean"
+              ],
+              "description": "Restrict to featured templates."
+            }
+          },
+          {
+            "name": "tags",
+            "in": "query",
+            "description": "Keep templates carrying any of these tags.",
+            "schema": {
+              "title": "Tags",
+              "type": "object",
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Keep templates carrying any of these tags."
+            }
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "description": "Free-text search.",
+            "schema": {
+              "title": "Q",
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "Free-text search."
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListAvailableTemplatesTemplatesAvailableGet200Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListAvailableTemplatesTemplatesAvailableGet400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListAvailableTemplatesTemplatesAvailableGet401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListAvailableTemplatesTemplatesAvailableGet403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListAvailableTemplatesTemplatesAvailableGet500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/templates/{templateKey}": {
+      "get": {
+        "tags": [
+          "Templates"
+        ],
+        "summary": "Get Workflow Template",
+        "description": "Return one catalog template, e.g. \u0060\u0060/templates/personal-email-enrichment\u0060\u0060.\n\nAccepts the slug or a uuid, so links minted before slug addressing keep resolving.\nA key carrying a namespace (\u0060\u0060\u003Corg_id\u003E:\u003Cslug\u003E\u0060\u0060) is a 404 rather than a redirect:\nthis route serves the catalog, and an org\u0027s template is not reachable without a\ncredential \u2014 including for an org whose id happens to look like ours.\n\nAn internal-only template is a 404, not a 403, so this cannot enumerate them.",
+        "operationId": "GetTemplateTemplatesTemplateKeyGet",
+        "parameters": [
+          {
+            "name": "templateKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Template Key",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorkflowTemplate"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetTemplateTemplatesTemplateKeyGet400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetTemplateTemplatesTemplateKeyGet401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetTemplateTemplatesTemplateKeyGet403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetTemplateTemplatesTemplateKeyGet500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/atlas/investigations": {
       "get": {
         "tags": [
@@ -17491,6 +17889,272 @@
         },
         "description": "Response when a workflow run is started."
       },
+      "WorkflowTemplate": {
+        "title": "WorkflowTemplate",
+        "required": [
+          "key",
+          "scope",
+          "id",
+          "slug",
+          "name",
+          "description",
+          "category",
+          "difficulty",
+          "estimated_time",
+          "use_case",
+          "blocks",
+          "edges",
+          "internal",
+          "author_name"
+        ],
+        "type": "object",
+        "properties": {
+          "key": {
+            "title": "Key",
+            "type": "string",
+            "description": "Stable identity across both namespaces: the slug alone for a catalog template, \u0060\u003Corg_id\u003E:\u003Cslug\u003E\u0060 for one your organization owns. Unique table-wide, so it means the same template for every caller."
+          },
+          "scope": {
+            "$ref": "#/components/schemas/WorkflowTemplateScope"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "slug": {
+            "title": "Slug",
+            "type": "string",
+            "description": "Stable identity across environments, matching the catalog filename in WebApp/supabase/templates/. Prefer this over \u0060id\u0060, which is minted per environment and differs between local, staging, and prod."
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "description": {
+            "title": "Description",
+            "type": "string"
+          },
+          "category": {
+            "title": "Category",
+            "type": "string"
+          },
+          "tags": {
+            "$ref": "#/components/schemas/WorkflowTemplateTags"
+          },
+          "featured": {
+            "title": "Featured",
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "difficulty": {
+            "title": "Difficulty",
+            "type": "string"
+          },
+          "estimated_time": {
+            "title": "Estimated Time",
+            "type": "string"
+          },
+          "use_case": {
+            "title": "Use Case",
+            "type": "string"
+          },
+          "preview_blocks": {
+            "$ref": "#/components/schemas/WorkflowTemplatePreviewBlocks"
+          },
+          "blocks": {
+            "$ref": "#/components/schemas/WorkflowTemplateBlocks"
+          },
+          "edges": {
+            "$ref": "#/components/schemas/WorkflowTemplateEdges"
+          },
+          "internal": {
+            "title": "Internal",
+            "type": "boolean",
+            "description": "True for Sixtyfour-only templates. Only ever true in a response to an internal caller \u2014 non-internal callers never see these rows at all."
+          },
+          "author_name": {
+            "title": "Author Name",
+            "type": "string"
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "updated_at": {
+            "title": "Updated At",
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "description": "One curated workflow template.\n\nCarries the full block graph rather than metadata alone: every consumer of the\nlist (preview modal, tier gating, search-to-workflow) reads \u0060\u0060blocks\u0060\u0060, and the\ncatalog is small enough that splitting it into a second round-trip per card\nwould cost more than it saves."
+      },
+      "WorkflowTemplateUpdate": {
+        "title": "WorkflowTemplateUpdate",
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "Name",
+            "maxLength": 200,
+            "minLength": 1,
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "description": {
+            "title": "Description",
+            "maxLength": 2000,
+            "minLength": 1,
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "category": {
+            "title": "Category",
+            "maxLength": 100,
+            "minLength": 1,
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "difficulty": {
+            "$ref": "#/components/schemas/WorkflowTemplateUpdateDifficulty"
+          },
+          "estimated_time": {
+            "title": "Estimated Time",
+            "maxLength": 50,
+            "minLength": 1,
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "use_case": {
+            "title": "Use Case",
+            "maxLength": 2000,
+            "minLength": 1,
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "blocks": {
+            "$ref": "#/components/schemas/WorkflowTemplateUpdateBlocks"
+          },
+          "edges": {
+            "$ref": "#/components/schemas/WorkflowTemplateUpdateEdges"
+          },
+          "tags": {
+            "$ref": "#/components/schemas/WorkflowTemplateUpdateTags"
+          },
+          "featured": {
+            "title": "Featured",
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "preview_blocks": {
+            "$ref": "#/components/schemas/WorkflowTemplateUpdatePreviewBlocks"
+          }
+        },
+        "description": "A partial edit. Every field optional; omitted fields are left alone.\n\nThe graph fields carry the same \u0060\u0060Block\u0060\u0060/\u0060\u0060WorkflowEdge\u0060\u0060 models as the write\nmodel: PATCH writes the same jsonb columns, so an edit must not be able to store a\nshape a create would have refused."
+      },
+      "WorkflowTemplateWrite": {
+        "title": "WorkflowTemplateWrite",
+        "required": [
+          "name",
+          "description",
+          "category",
+          "difficulty",
+          "estimated_time",
+          "use_case",
+          "blocks"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "Name",
+            "maxLength": 200,
+            "minLength": 1,
+            "type": "string"
+          },
+          "description": {
+            "title": "Description",
+            "maxLength": 2000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "category": {
+            "title": "Category",
+            "maxLength": 100,
+            "minLength": 1,
+            "type": "string"
+          },
+          "difficulty": {
+            "$ref": "#/components/schemas/WorkflowTemplateWriteDifficulty"
+          },
+          "estimated_time": {
+            "title": "Estimated Time",
+            "maxLength": 50,
+            "minLength": 1,
+            "type": "string"
+          },
+          "use_case": {
+            "title": "Use Case",
+            "maxLength": 2000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "blocks": {
+            "title": "Blocks",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Block"
+            },
+            "description": "The template\u0027s block graph, in workflow-builder shape."
+          },
+          "edges": {
+            "title": "Edges",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WorkflowEdge"
+            },
+            "description": "Edges between the template\u0027s blocks."
+          },
+          "tags": {
+            "title": "Tags",
+            "maxItems": 50,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "featured": {
+            "title": "Featured",
+            "type": "boolean",
+            "default": false
+          },
+          "preview_blocks": {
+            "title": "Preview Blocks",
+            "maxItems": 50,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "description": "A template an org authors. No ownership fields: see the module docstring.\n\nThe graph is validated with the same \u0060\u0060Block\u0060\u0060/\u0060\u0060WorkflowEdge\u0060\u0060 models that\n\u0060\u0060POST /workflows\u0060\u0060 uses. A template is a workflow definition waiting to be\ninstantiated, so a shape this endpoint accepts but that endpoint rejects is a\ntemplate nobody can run -- and the failure would surface at render or run time,\na tenant\u0027s jsonb columns away from the request that caused it."
+      },
       "WorkspaceActionRequest": {
         "title": "WorkspaceActionRequest",
         "required": [
@@ -18757,6 +19421,99 @@
           }
         ],
         "description": "Per-block detail; usually null in list responses."
+      },
+      "WorkflowTemplateTags": {
+        "title": "Tags",
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "WorkflowTemplatePreviewBlocks": {
+        "title": "Preview Blocks",
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "Block types rendered on the template card, in order."
+      },
+      "WorkflowTemplateUpdateBlocks": {
+        "title": "Blocks",
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Block"
+            }
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "WorkflowTemplateUpdateEdges": {
+        "title": "Edges",
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WorkflowEdge"
+            }
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "WorkflowTemplateUpdateTags": {
+        "title": "Tags",
+        "type": "object",
+        "anyOf": [
+          {
+            "maxItems": 50,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "WorkflowTemplateUpdatePreviewBlocks": {
+        "title": "Preview Blocks",
+        "type": "object",
+        "anyOf": [
+          {
+            "maxItems": 50,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "type": "null"
+          }
+        ]
       },
       "ValidationErrorLocItem": {
         "type": "object",
@@ -23446,6 +24203,116 @@
           }
         }
       },
+      "ResponseListTemplatesTemplatesGet": {
+        "title": "Response List Templates Templates Get",
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/WorkflowTemplate"
+        }
+      },
+      "ListTemplatesTemplatesGet400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ListTemplatesTemplatesGet401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ListTemplatesTemplatesGet403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ListTemplatesTemplatesGet500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ResponseListAvailableTemplatesTemplatesAvailableGet": {
+        "title": "Response List Available Templates Templates Available Get",
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/WorkflowTemplate"
+        }
+      },
+      "ListAvailableTemplatesTemplatesAvailableGet400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ListAvailableTemplatesTemplatesAvailableGet401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ListAvailableTemplatesTemplatesAvailableGet403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ListAvailableTemplatesTemplatesAvailableGet500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetTemplateTemplatesTemplateKeyGet400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetTemplateTemplatesTemplateKeyGet401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetTemplateTemplatesTemplateKeyGet403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetTemplateTemplatesTemplateKeyGet500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
       "ListInvestigationsV1AtlasInvestigationsGet400Response": {
         "type": "object",
         "properties": {
@@ -24098,6 +24965,18 @@
       "DeleteScheduleEndpointSchedulesScheduleIdDelete200Response": {
         "type": "object"
       },
+      "ListTemplatesTemplatesGet200Response": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/WorkflowTemplate"
+        }
+      },
+      "ListAvailableTemplatesTemplatesAvailableGet200Response": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/WorkflowTemplate"
+        }
+      },
       "GetGraphV1AtlasInvestigationsInvestigationIdGraphGet200Response": {
         "type": "object",
         "additionalProperties": {
@@ -24456,6 +25335,16 @@
       "WorkflowRunStartedResponseCacheConfigProperty": {
         "type": "object",
         "description": "Cache configuration; only set by the custom-cache endpoint."
+      },
+      "WorkflowTemplateBlocks": {
+        "title": "Blocks",
+        "type": "object",
+        "description": "The template\u0027s block graph, in workflow-builder shape."
+      },
+      "WorkflowTemplateEdges": {
+        "title": "Edges",
+        "type": "object",
+        "description": "Edges between the template\u0027s blocks."
       },
       "WorkspaceFileEntryAttachmentProperty": {
         "type": "object",
@@ -25500,6 +26389,57 @@
             }
           ]
         }
+      },
+      "WorkflowTemplateScope": {
+        "title": "Scope",
+        "enum": [
+          "global",
+          "org"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "\u0060global\u0060 for the curated catalog, \u0060org\u0060 for a template owned by your organization.",
+        "x-ms-enum": {
+          "name": "WorkflowTemplateScope",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "global",
+              "name": "Global"
+            },
+            {
+              "value": "org",
+              "name": "Org"
+            }
+          ]
+        }
+      },
+      "WorkflowTemplateUpdateDifficulty": {
+        "title": "Difficulty",
+        "enum": [
+          "Quick",
+          "Standard",
+          "Advanced",
+          "Beginner",
+          "Intermediate"
+        ],
+        "type": [
+          "null",
+          "string"
+        ],
+        "additionalProperties": false
+      },
+      "WorkflowTemplateWriteDifficulty": {
+        "title": "Difficulty",
+        "enum": [
+          "Quick",
+          "Standard",
+          "Advanced",
+          "Beginner",
+          "Intermediate"
+        ],
+        "type": "string",
+        "additionalProperties": false
       },
       "WorkspaceActionRequestAction": {
         "title": "Action",
