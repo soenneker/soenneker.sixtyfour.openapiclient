@@ -13814,6 +13814,11 @@
             "items": {
               "$ref": "#/components/schemas/ChatSessionMessagesResponseGenerationPartsItemProperty"
             }
+          },
+          "stream_index": {
+            "title": "Stream Index",
+            "type": "integer",
+            "default": 0
           }
         }
       },
