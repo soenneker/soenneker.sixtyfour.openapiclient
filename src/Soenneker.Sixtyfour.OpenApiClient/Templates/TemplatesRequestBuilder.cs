@@ -145,11 +145,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Templates
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("tags")]
-            public string? Tags { get; set; }
+            public string[]? Tags { get; set; }
 #nullable restore
 #else
             [QueryParameter("tags")]
-            public string Tags { get; set; }
+            public string[] Tags { get; set; }
 #endif
         }
     }

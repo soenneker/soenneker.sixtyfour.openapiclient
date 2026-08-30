@@ -18,26 +18,26 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Inline identifiers to exclude from results, applied as a post-filter. People mode: LinkedIn public IDs or profile URLs. Company mode: numeric LinkedIn company IDs, company URLs/slugs, or exact website domains (values that resolve to no or multiple companies are ignored). Max 1000.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequestExcludeEntityIds? ExcludeEntityIds { get; set; }
+        public List<string>? ExcludeEntityIds { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequestExcludeEntityIds ExcludeEntityIds { get; set; }
+        public List<string> ExcludeEntityIds { get; set; }
 #endif
         /// <summary>Saved exclusion-list IDs to apply as a post-filter. Each list&apos;s entity type must match the search mode (person lists for people searches, company lists for company searches). Max 5 (10 for organizations with extended exclusion limits).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequestExcludeListIds? ExcludeListIds { get; set; }
+        public List<string>? ExcludeListIds { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequestExcludeListIds ExcludeListIds { get; set; }
+        public List<string> ExcludeListIds { get; set; }
 #endif
         /// <summary>People-mode inline identifiers to exclude from results, applied as a post-filter. Accepts LinkedIn public IDs or profile URLs. For company searches, use `exclude_entity_ids`. Max 1000.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequestExcludePublicIds? ExcludePublicIds { get; set; }
+        public List<string>? ExcludePublicIds { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequestExcludePublicIds ExcludePublicIds { get; set; }
+        public List<string> ExcludePublicIds { get; set; }
 #endif
         /// <summary>Maximum number of results to return across pages.</summary>
         public int? MaxResults { get; set; }
@@ -87,9 +87,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "exclude_entity_ids", n => { ExcludeEntityIds = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequestExcludeEntityIds>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequestExcludeEntityIds.CreateFromDiscriminatorValue); } },
-                { "exclude_list_ids", n => { ExcludeListIds = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequestExcludeListIds>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequestExcludeListIds.CreateFromDiscriminatorValue); } },
-                { "exclude_public_ids", n => { ExcludePublicIds = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequestExcludePublicIds>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequestExcludePublicIds.CreateFromDiscriminatorValue); } },
+                { "exclude_entity_ids", n => { ExcludeEntityIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "exclude_list_ids", n => { ExcludeListIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "exclude_public_ids", n => { ExcludePublicIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "max_results", n => { MaxResults = n.GetIntValue(); } },
                 { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequestMode>(); } },
                 { "output_mode", n => { OutputMode = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequestOutputMode>(); } },
@@ -104,9 +104,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequestExcludeEntityIds>("exclude_entity_ids", ExcludeEntityIds);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequestExcludeListIds>("exclude_list_ids", ExcludeListIds);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequestExcludePublicIds>("exclude_public_ids", ExcludePublicIds);
+            writer.WriteCollectionOfPrimitiveValues<string>("exclude_entity_ids", ExcludeEntityIds);
+            writer.WriteCollectionOfPrimitiveValues<string>("exclude_list_ids", ExcludeListIds);
+            writer.WriteCollectionOfPrimitiveValues<string>("exclude_public_ids", ExcludePublicIds);
             writer.WriteIntValue("max_results", MaxResults);
             writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequestMode>("mode", Mode);
             writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequestOutputMode>("output_mode", OutputMode);

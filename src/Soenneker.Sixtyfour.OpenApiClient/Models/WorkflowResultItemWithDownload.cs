@@ -64,10 +64,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Inline rows when the file is small enough to embed; otherwise null.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownloadResults? Results { get; set; }
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownloadResultsItemProperty>? Results { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownloadResults Results { get; set; }
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownloadResultsItemProperty> Results { get; set; }
 #endif
         /// <summary>Number of rows in the file.</summary>
         public int? RowCount { get; set; }
@@ -114,7 +114,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "file_size", n => { FileSize = n.GetIntValue(); } },
                 { "filename", n => { Filename = n.GetStringValue(); } },
                 { "message", n => { Message = n.GetStringValue(); } },
-                { "results", n => { Results = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownloadResults>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownloadResults.CreateFromDiscriminatorValue); } },
+                { "results", n => { Results = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownloadResultsItemProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownloadResultsItemProperty.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "row_count", n => { RowCount = n.GetIntValue(); } },
                 { "storage_bucket", n => { StorageBucket = n.GetStringValue(); } },
             };
@@ -134,7 +134,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteStringValue("filename", Filename);
             writer.WriteIntValue("file_size", FileSize);
             writer.WriteStringValue("message", Message);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownloadResults>("results", Results);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownloadResultsItemProperty>("results", Results);
             writer.WriteIntValue("row_count", RowCount);
             writer.WriteStringValue("storage_bucket", StorageBucket);
             writer.WriteAdditionalData(AdditionalData);

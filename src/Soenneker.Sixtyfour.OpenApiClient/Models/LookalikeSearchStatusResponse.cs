@@ -43,10 +43,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>The excluded_public_ids property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseExcludedPublicIds? ExcludedPublicIds { get; set; }
+        public List<string>? ExcludedPublicIds { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseExcludedPublicIds ExcludedPublicIds { get; set; }
+        public List<string> ExcludedPublicIds { get; set; }
 #endif
         /// <summary>The filters property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -109,10 +109,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>The warnings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseWarnings? Warnings { get; set; }
+        public List<string>? Warnings { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseWarnings Warnings { get; set; }
+        public List<string> Warnings { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponse"/> and sets the default values.
@@ -143,7 +143,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "close_time", n => { CloseTime = n.GetStringValue(); } },
                 { "current_phase", n => { CurrentPhase = n.GetIntValue(); } },
                 { "error", n => { Error = n.GetStringValue(); } },
-                { "excluded_public_ids", n => { ExcludedPublicIds = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseExcludedPublicIds>(global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseExcludedPublicIds.CreateFromDiscriminatorValue); } },
+                { "excluded_public_ids", n => { ExcludedPublicIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "filters", n => { Filters = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseFiltersProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseFiltersProperty.CreateFromDiscriminatorValue); } },
                 { "progress_message", n => { ProgressMessage = n.GetStringValue(); } },
                 { "search_id", n => { SearchId = n.GetStringValue(); } },
@@ -152,7 +152,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "task_id", n => { TaskId = n.GetStringValue(); } },
                 { "total_results", n => { TotalResults = n.GetIntValue(); } },
-                { "warnings", n => { Warnings = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseWarnings>(global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseWarnings.CreateFromDiscriminatorValue); } },
+                { "warnings", n => { Warnings = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -166,7 +166,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteStringValue("close_time", CloseTime);
             writer.WriteIntValue("current_phase", CurrentPhase);
             writer.WriteStringValue("error", Error);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseExcludedPublicIds>("excluded_public_ids", ExcludedPublicIds);
+            writer.WriteCollectionOfPrimitiveValues<string>("excluded_public_ids", ExcludedPublicIds);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseFiltersProperty>("filters", Filters);
             writer.WriteStringValue("progress_message", ProgressMessage);
             writer.WriteStringValue("search_id", SearchId);
@@ -175,7 +175,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteStringValue("status", Status);
             writer.WriteStringValue("task_id", TaskId);
             writer.WriteIntValue("total_results", TotalResults);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseWarnings>("warnings", Warnings);
+            writer.WriteCollectionOfPrimitiveValues<string>("warnings", Warnings);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

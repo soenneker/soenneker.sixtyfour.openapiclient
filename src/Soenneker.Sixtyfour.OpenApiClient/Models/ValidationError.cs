@@ -22,7 +22,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidationErrorCtxProperty Ctx { get; set; }
 #endif
-        /// <summary>The input property</summary>
+        /// <summary>The offending input value (any type, may be null).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidationErrorInput? Input { get; set; }

@@ -4525,18 +4525,13 @@
             "description": "Result formats to save. Repeat the parameter for multiple values, e.g. result_formats=csv\u0026result_formats=ndjson.",
             "schema": {
               "title": "Result Formats",
-              "type": "object",
-              "anyOf": [
-                {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                {
-                  "type": "null"
-                }
+              "type": [
+                "null",
+                "array"
               ],
+              "items": {
+                "type": "string"
+              },
               "description": "Result formats to save. Repeat the parameter for multiple values, e.g. result_formats=csv\u0026result_formats=ndjson."
             }
           },
@@ -10778,18 +10773,13 @@
             "description": "Keep templates carrying any of these tags (OR, not AND).",
             "schema": {
               "title": "Tags",
-              "type": "object",
-              "anyOf": [
-                {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                {
-                  "type": "null"
-                }
+              "type": [
+                "null",
+                "array"
               ],
+              "items": {
+                "type": "string"
+              },
               "description": "Keep templates carrying any of these tags (OR, not AND)."
             }
           },
@@ -10924,18 +10914,13 @@
             "description": "Keep templates carrying any of these tags.",
             "schema": {
               "title": "Tags",
-              "type": "object",
-              "anyOf": [
-                {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                {
-                  "type": "null"
-                }
+              "type": [
+                "null",
+                "array"
               ],
+              "items": {
+                "type": "string"
+              },
               "description": "Keep templates carrying any of these tags."
             }
           },
@@ -12943,7 +12928,15 @@
             "description": "Search history ID returned by a previous search. Replays only the query shape; pass exclusions again on this request if they should apply."
           },
           "iterations": {
-            "$ref": "#/components/schemas/AgenticSearchStatusResponseIterations"
+            "title": "Iterations",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/AgenticSearchStatusResponseIterationsItemProperty"
+            },
+            "description": "Per-iteration debug data emitted by the agent."
           }
         },
         "description": "Response for checking agentic search status."
@@ -13091,7 +13084,15 @@
             "description": "Position of the block in the workflow execution order."
           },
           "previous_block_ids": {
-            "$ref": "#/components/schemas/BlockLiveStatusPreviousBlockIds"
+            "title": "Previous Block Ids",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "IDs of upstream blocks that feed into this one."
           },
           "status": {
             "title": "Status",
@@ -14739,7 +14740,15 @@
             "description": "Hash of mapping metadata used to derive this capability snapshot."
           },
           "simple_query_operators": {
-            "$ref": "#/components/schemas/FilterSearchCapabilitiesResponseSimpleQueryOperators"
+            "title": "Simple Query Operators",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "Supported MongoDB-style operators for simple_filters input."
           }
         },
         "description": "Response describing supported filter-search DSL capabilities."
@@ -14993,7 +15002,15 @@
             "$ref": "#/components/schemas/FindEmailBulkRequestMode"
           },
           "providers": {
-            "$ref": "#/components/schemas/FindEmailBulkRequestProviders"
+            "title": "Providers",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "Override the default provider waterfall by listing provider IDs in priority order."
           },
           "webhook_url": {
             "title": "Webhook Url",
@@ -15028,7 +15045,15 @@
             "$ref": "#/components/schemas/FindEmailRequestMode"
           },
           "providers": {
-            "$ref": "#/components/schemas/FindEmailRequestProviders"
+            "title": "Providers",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "Override the default provider waterfall by listing provider IDs in priority order."
           },
           "webhook_url": {
             "title": "Webhook Url",
@@ -15066,7 +15091,14 @@
             "$ref": "#/components/schemas/FindEmailV2BulkRequestMode"
           },
           "providers": {
-            "$ref": "#/components/schemas/FindEmailV2BulkRequestProviders"
+            "title": "Providers",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            }
           },
           "webhook_url": {
             "title": "Webhook Url",
@@ -15099,7 +15131,14 @@
             "$ref": "#/components/schemas/FindEmailV2RequestMode"
           },
           "providers": {
-            "$ref": "#/components/schemas/FindEmailV2RequestProviders"
+            "title": "Providers",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            }
           },
           "webhook_url": {
             "title": "Webhook Url",
@@ -15129,7 +15168,15 @@
             "description": "List of leads to process in one bulk request."
           },
           "providers": {
-            "$ref": "#/components/schemas/FindPhoneBulkRequestProviders"
+            "title": "Providers",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "Override the default provider waterfall by listing provider IDs in priority order."
           },
           "webhook_url": {
             "title": "Webhook Url",
@@ -15155,7 +15202,15 @@
             "$ref": "#/components/schemas/FindPhoneRequestLeadProperty"
           },
           "providers": {
-            "$ref": "#/components/schemas/FindPhoneRequestProviders"
+            "title": "Providers",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "Override the default provider waterfall by listing provider IDs in priority order."
           },
           "webhook_url": {
             "title": "Webhook Url",
@@ -15185,7 +15240,14 @@
             }
           },
           "providers": {
-            "$ref": "#/components/schemas/FindPhoneV2BulkRequestProviders"
+            "title": "Providers",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            }
           },
           "webhook_url": {
             "title": "Webhook Url",
@@ -15210,7 +15272,14 @@
             "$ref": "#/components/schemas/FindPhoneV2RequestLeadProperty"
           },
           "providers": {
-            "$ref": "#/components/schemas/FindPhoneV2RequestProviders"
+            "title": "Providers",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            }
           },
           "webhook_url": {
             "title": "Webhook Url",
@@ -15580,10 +15649,24 @@
             "$ref": "#/components/schemas/LookalikeSearchStatusResponseSeedDiagnostics"
           },
           "excluded_public_ids": {
-            "$ref": "#/components/schemas/LookalikeSearchStatusResponseExcludedPublicIds"
+            "title": "Excluded Public Ids",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            }
           },
           "warnings": {
-            "$ref": "#/components/schemas/LookalikeSearchStatusResponseWarnings"
+            "title": "Warnings",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            }
           },
           "error": {
             "title": "Error",
@@ -15815,7 +15898,16 @@
             "description": "List of criteria the agent will score the data against."
           },
           "references": {
-            "$ref": "#/components/schemas/QaAgentRequestReferences"
+            "title": "References",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/QaAgentRequestReferencesItemProperty"
+            },
+            "description": "Optional reference URLs the agent may use as evidence.",
+            "default": []
           },
           "struct": {
             "$ref": "#/components/schemas/QaAgentRequestStructProperty"
@@ -15952,7 +16044,15 @@
             "description": "List of leads with \u0060email\u0060 to reverse-lookup in one request."
           },
           "providers": {
-            "$ref": "#/components/schemas/ReverseEmailBulkRequestProviders"
+            "title": "Providers",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "Override the default provider waterfall by listing provider IDs in priority order."
           },
           "webhook_url": {
             "title": "Webhook Url",
@@ -15978,7 +16078,15 @@
             "$ref": "#/components/schemas/ReverseEmailRequestLeadProperty"
           },
           "providers": {
-            "$ref": "#/components/schemas/ReverseEmailRequestProviders"
+            "title": "Providers",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "Override the default provider waterfall by listing provider IDs in priority order."
           },
           "webhook_url": {
             "title": "Webhook Url",
@@ -16009,7 +16117,15 @@
             "description": "List of leads with \u0060phone\u0060 to reverse-lookup in one request."
           },
           "providers": {
-            "$ref": "#/components/schemas/ReversePhoneBulkRequestProviders"
+            "title": "Providers",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "Override the default provider waterfall by listing provider IDs in priority order."
           },
           "webhook_url": {
             "title": "Webhook Url",
@@ -16035,7 +16151,15 @@
             "$ref": "#/components/schemas/ReversePhoneRequestLeadProperty"
           },
           "providers": {
-            "$ref": "#/components/schemas/ReversePhoneRequestProviders"
+            "title": "Providers",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "Override the default provider waterfall by listing provider IDs in priority order."
           },
           "webhook_url": {
             "title": "Webhook Url",
@@ -16141,13 +16265,40 @@
             "default": 1000
           },
           "exclude_public_ids": {
-            "$ref": "#/components/schemas/SaveSearchRequestExcludePublicIds"
+            "title": "Exclude Public Ids",
+            "maxItems": 1000,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "People-mode inline identifiers to exclude from results, applied as a post-filter. Accepts LinkedIn public IDs or profile URLs. For company searches, use \u0060exclude_entity_ids\u0060. Max 1000."
           },
           "exclude_entity_ids": {
-            "$ref": "#/components/schemas/SaveSearchRequestExcludeEntityIds"
+            "title": "Exclude Entity Ids",
+            "maxItems": 1000,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "Inline identifiers to exclude from results, applied as a post-filter. People mode: LinkedIn public IDs or profile URLs. Company mode: numeric LinkedIn company IDs, company URLs/slugs, or exact website domains (values that resolve to no or multiple companies are ignored). Max 1000."
           },
           "exclude_list_ids": {
-            "$ref": "#/components/schemas/SaveSearchRequestExcludeListIds"
+            "title": "Exclude List Ids",
+            "maxItems": 10,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "Saved exclusion-list IDs to apply as a post-filter. Each list\u0027s entity type must match the search mode (person lists for people searches, company lists for company searches). Max 5 (10 for organizations with extended exclusion limits)."
           }
         },
         "description": "Request to export search results as CSV."
@@ -16451,13 +16602,40 @@
             "default": 250000
           },
           "exclude_public_ids": {
-            "$ref": "#/components/schemas/SearchIdSourceExcludePublicIds"
+            "title": "Exclude Public Ids",
+            "maxItems": 1000,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "Optional people-mode inline exclusions to re-apply while replaying the saved search. \u0060search_id\u0060 itself does not carry exclusions."
           },
           "exclude_entity_ids": {
-            "$ref": "#/components/schemas/SearchIdSourceExcludeEntityIds"
+            "title": "Exclude Entity Ids",
+            "maxItems": 1000,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "Optional inline exclusions to re-apply while replaying the saved search. People: LinkedIn public IDs/profile URLs. Companies: numeric company IDs, company URLs/slugs, or exact website domains."
           },
           "exclude_list_ids": {
-            "$ref": "#/components/schemas/SearchIdSourceExcludeListIds"
+            "title": "Exclude List Ids",
+            "maxItems": 10,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "Optional saved exclusion lists to re-apply while replaying the saved search. \u0060search_id\u0060 itself does not carry exclusions."
           }
         },
         "description": "Build the list from the results of a saved search (mode must match entity_type)."
@@ -16562,19 +16740,57 @@
             "$ref": "#/components/schemas/SearchQueryRequestOutputShape"
           },
           "selected_company_names": {
-            "$ref": "#/components/schemas/SearchQueryRequestSelectedCompanyNames"
+            "title": "Selected Company Names",
+            "maxItems": 1000,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "maxLength": 500,
+              "minLength": 1,
+              "type": "string"
+            },
+            "description": "Platform-only exact company selections. The backend resolves names to company IDs instead of trusting client-supplied OpenSearch IDs. Excess hints are ignored; parsed-query name matching still applies."
           },
           "selected_company_ids": {
             "$ref": "#/components/schemas/SearchQueryRequestSelectedCompanyIdsProperty"
           },
           "exclude_public_ids": {
-            "$ref": "#/components/schemas/SearchQueryRequestExcludePublicIds"
+            "title": "Exclude Public Ids",
+            "maxItems": 50000,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "People-mode inline identifiers to exclude from results, applied as a post-filter. Accepts LinkedIn public IDs or profile URLs. For company searches, use \u0060exclude_entity_ids\u0060. Max 1000 for API requests, 50000 for platform requests."
           },
           "exclude_entity_ids": {
-            "$ref": "#/components/schemas/SearchQueryRequestExcludeEntityIds"
+            "title": "Exclude Entity Ids",
+            "maxItems": 50000,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "Inline identifiers to exclude from results, applied as a post-filter. People mode: LinkedIn public IDs or profile URLs. Company mode: numeric LinkedIn company IDs, company URLs/slugs, or exact website domains (values that resolve to no or multiple companies are ignored). Max 1000 for API requests, 50000 for platform requests."
           },
           "exclude_list_ids": {
-            "$ref": "#/components/schemas/SearchQueryRequestExcludeListIds"
+            "title": "Exclude List Ids",
+            "maxItems": 10,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "Saved exclusion-list IDs to apply as a post-filter. Each list\u0027s entity type must match the search mode (person lists for people searches, company lists for company searches). Max 5 (10 for organizations with extended exclusion limits)."
           },
           "expand_structured_location": {
             "title": "Expand Structured Location",
@@ -16622,7 +16838,14 @@
             ]
           },
           "exclude_public_ids": {
-            "$ref": "#/components/schemas/SearchRerunRequestExcludePublicIds"
+            "title": "Exclude Public Ids",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            }
           },
           "location_expansion_enabled": {
             "title": "Location Expansion Enabled",
@@ -16810,13 +17033,40 @@
             "$ref": "#/components/schemas/StartAgenticSearchRequestOutputMode"
           },
           "exclude_public_ids": {
-            "$ref": "#/components/schemas/StartAgenticSearchRequestExcludePublicIds"
+            "title": "Exclude Public Ids",
+            "maxItems": 1000,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "People-mode inline identifiers to exclude from results, applied as a post-filter. Accepts LinkedIn public IDs or profile URLs. For company searches, use \u0060exclude_entity_ids\u0060. Max 1000."
           },
           "exclude_entity_ids": {
-            "$ref": "#/components/schemas/StartAgenticSearchRequestExcludeEntityIds"
+            "title": "Exclude Entity Ids",
+            "maxItems": 1000,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "Inline identifiers to exclude from results, applied as a post-filter. People mode: LinkedIn public IDs or profile URLs. Company mode: numeric LinkedIn company IDs, company URLs/slugs, or exact website domains (values that resolve to no or multiple companies are ignored). Max 1000."
           },
           "exclude_list_ids": {
-            "$ref": "#/components/schemas/StartAgenticSearchRequestExcludeListIds"
+            "title": "Exclude List Ids",
+            "maxItems": 10,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "Saved exclusion-list IDs to apply as a post-filter. Each list\u0027s entity type must match the search mode (person lists for people searches, company lists for company searches). Max 5 (10 for organizations with extended exclusion limits)."
           }
         },
         "description": "Request to start an agentic search workflow."
@@ -16916,7 +17166,14 @@
             "default": false
           },
           "result_formats": {
-            "$ref": "#/components/schemas/StartInteractiveRequestResultFormats"
+            "title": "Result Formats",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            }
           },
           "cache_config": {
             "$ref": "#/components/schemas/StartInteractiveRequestCacheConfigProperty"
@@ -16954,7 +17211,17 @@
             "description": "Resource handle returned by POST /storage/csv/upload."
           },
           "linkedin_urls": {
-            "$ref": "#/components/schemas/StartLookalikeSearchRequestLinkedinUrls"
+            "title": "Linkedin Urls",
+            "maxItems": 1000,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "maxLength": 500,
+              "type": "string"
+            },
+            "description": "LinkedIn profile URLs to seed from (max 1,000)."
           },
           "guidance": {
             "title": "Guidance",
@@ -17055,7 +17322,14 @@
             "description": "Natural language description of the fields to generate"
           },
           "existing_struct": {
-            "$ref": "#/components/schemas/StructBuilderRequestExistingStruct"
+            "title": "Existing Struct",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/StructField"
+            }
           },
           "block_type": {
             "$ref": "#/components/schemas/StructBuilderRequestBlockType"
@@ -17106,10 +17380,26 @@
             "$ref": "#/components/schemas/StructFieldType"
           },
           "options": {
-            "$ref": "#/components/schemas/StructFieldOptions"
+            "title": "Options",
+            "maxItems": 500,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "maxLength": 200,
+              "type": "string"
+            }
           },
           "subfields": {
-            "$ref": "#/components/schemas/StructFieldSubfields"
+            "title": "Subfields",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/StructSubField"
+            }
           }
         }
       },
@@ -17721,7 +18011,15 @@
             "default": 900
           },
           "results": {
-            "$ref": "#/components/schemas/WorkflowResultItemWithDownloadResults"
+            "title": "Results",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/WorkflowResultItemWithDownloadResultsItemProperty"
+            },
+            "description": "Inline rows when the file is small enough to embed; otherwise null."
           }
         },
         "description": "Workflow result file with a signed download URL."
@@ -17944,7 +18242,14 @@
             "type": "string"
           },
           "tags": {
-            "$ref": "#/components/schemas/WorkflowTemplateTags"
+            "title": "Tags",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            }
           },
           "featured": {
             "title": "Featured",
@@ -17966,7 +18271,15 @@
             "type": "string"
           },
           "preview_blocks": {
-            "$ref": "#/components/schemas/WorkflowTemplatePreviewBlocks"
+            "title": "Preview Blocks",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "Block types rendered on the template card, in order."
           },
           "blocks": {
             "$ref": "#/components/schemas/WorkflowTemplateBlocks"
@@ -18053,13 +18366,35 @@
             ]
           },
           "blocks": {
-            "$ref": "#/components/schemas/WorkflowTemplateUpdateBlocks"
+            "title": "Blocks",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/Block"
+            }
           },
           "edges": {
-            "$ref": "#/components/schemas/WorkflowTemplateUpdateEdges"
+            "title": "Edges",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/WorkflowEdge"
+            }
           },
           "tags": {
-            "$ref": "#/components/schemas/WorkflowTemplateUpdateTags"
+            "title": "Tags",
+            "maxItems": 50,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            }
           },
           "featured": {
             "title": "Featured",
@@ -18069,7 +18404,15 @@
             ]
           },
           "preview_blocks": {
-            "$ref": "#/components/schemas/WorkflowTemplateUpdatePreviewBlocks"
+            "title": "Preview Blocks",
+            "maxItems": 50,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            }
           }
         },
         "description": "A partial edit. Every field optional; omitted fields are left alone.\n\nThe graph fields carry the same \u0060\u0060Block\u0060\u0060/\u0060\u0060WorkflowEdge\u0060\u0060 models as the write\nmodel: PATCH writes the same jsonb columns, so an edit must not be able to store a\nshape a create would have refused."
@@ -18372,38 +18715,6 @@
           ]
         }
       },
-      "AgenticSearchStatusResponseIterations": {
-        "title": "Iterations",
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "array",
-            "items": {
-              "type": "object"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "description": "Per-iteration debug data emitted by the agent."
-      },
-      "BlockLiveStatusPreviousBlockIds": {
-        "title": "Previous Block Ids",
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "description": "IDs of upstream blocks that feed into this one."
-      },
       "ChatRequestPageContext": {
         "type": "object",
         "anyOf": [
@@ -18472,7 +18783,14 @@
             ]
           },
           "exclude_public_ids": {
-            "$ref": "#/components/schemas/SearchRerunRequestExcludePublicIds"
+            "title": "Exclude Public Ids",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            }
           },
           "location_expansion_enabled": {
             "title": "Location Expansion Enabled",
@@ -18535,13 +18853,40 @@
             "default": 250000
           },
           "exclude_public_ids": {
-            "$ref": "#/components/schemas/SearchIdSourceExcludePublicIds"
+            "title": "Exclude Public Ids",
+            "maxItems": 1000,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "Optional people-mode inline exclusions to re-apply while replaying the saved search. \u0060search_id\u0060 itself does not carry exclusions."
           },
           "exclude_entity_ids": {
-            "$ref": "#/components/schemas/SearchIdSourceExcludeEntityIds"
+            "title": "Exclude Entity Ids",
+            "maxItems": 1000,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "Optional inline exclusions to re-apply while replaying the saved search. People: LinkedIn public IDs/profile URLs. Companies: numeric company IDs, company URLs/slugs, or exact website domains."
           },
           "exclude_list_ids": {
-            "$ref": "#/components/schemas/SearchIdSourceExcludeListIds"
+            "title": "Exclude List Ids",
+            "maxItems": 10,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "Optional saved exclusion lists to re-apply while replaying the saved search. \u0060search_id\u0060 itself does not carry exclusions."
           }
         },
         "discriminator": {
@@ -18577,146 +18922,6 @@
           }
         ],
         "description": "Field value; null bucket represents missing values."
-      },
-      "FilterSearchCapabilitiesResponseSimpleQueryOperators": {
-        "title": "Simple Query Operators",
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "description": "Supported MongoDB-style operators for simple_filters input."
-      },
-      "FindEmailBulkRequestProviders": {
-        "title": "Providers",
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "description": "Override the default provider waterfall by listing provider IDs in priority order."
-      },
-      "FindEmailRequestProviders": {
-        "title": "Providers",
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "description": "Override the default provider waterfall by listing provider IDs in priority order."
-      },
-      "FindEmailV2BulkRequestProviders": {
-        "title": "Providers",
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ]
-      },
-      "FindEmailV2RequestProviders": {
-        "title": "Providers",
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ]
-      },
-      "FindPhoneBulkRequestProviders": {
-        "title": "Providers",
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "description": "Override the default provider waterfall by listing provider IDs in priority order."
-      },
-      "FindPhoneRequestProviders": {
-        "title": "Providers",
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "description": "Override the default provider waterfall by listing provider IDs in priority order."
-      },
-      "FindPhoneV2BulkRequestProviders": {
-        "title": "Providers",
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ]
-      },
-      "FindPhoneV2RequestProviders": {
-        "title": "Providers",
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ]
       },
       "LeadAsyncJobStartResponseInvestigation": {
         "type": "object",
@@ -18799,119 +19004,6 @@
           }
         }
       },
-      "LookalikeSearchStatusResponseExcludedPublicIds": {
-        "title": "Excluded Public Ids",
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ]
-      },
-      "LookalikeSearchStatusResponseWarnings": {
-        "title": "Warnings",
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ]
-      },
-      "QaAgentRequestReferences": {
-        "title": "References",
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              }
-            }
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "description": "Optional reference URLs the agent may use as evidence."
-      },
-      "ReverseEmailBulkRequestProviders": {
-        "title": "Providers",
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "description": "Override the default provider waterfall by listing provider IDs in priority order."
-      },
-      "ReverseEmailRequestProviders": {
-        "title": "Providers",
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "description": "Override the default provider waterfall by listing provider IDs in priority order."
-      },
-      "ReversePhoneBulkRequestProviders": {
-        "title": "Providers",
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "description": "Override the default provider waterfall by listing provider IDs in priority order."
-      },
-      "ReversePhoneRequestProviders": {
-        "title": "Providers",
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "description": "Override the default provider waterfall by listing provider IDs in priority order."
-      },
       "RunWorkflowBodyWebhookPayload": {
         "title": "Webhook Payload",
         "type": "object",
@@ -18935,57 +19027,6 @@
           }
         },
         "description": "For API key auth only - can be a list or dict"
-      },
-      "SaveSearchRequestExcludePublicIds": {
-        "title": "Exclude Public Ids",
-        "type": "object",
-        "anyOf": [
-          {
-            "maxItems": 1000,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "description": "People-mode inline identifiers to exclude from results, applied as a post-filter. Accepts LinkedIn public IDs or profile URLs. For company searches, use \u0060exclude_entity_ids\u0060. Max 1000."
-      },
-      "SaveSearchRequestExcludeEntityIds": {
-        "title": "Exclude Entity Ids",
-        "type": "object",
-        "anyOf": [
-          {
-            "maxItems": 1000,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "description": "Inline identifiers to exclude from results, applied as a post-filter. People mode: LinkedIn public IDs or profile URLs. Company mode: numeric LinkedIn company IDs, company URLs/slugs, or exact website domains (values that resolve to no or multiple companies are ignored). Max 1000."
-      },
-      "SaveSearchRequestExcludeListIds": {
-        "title": "Exclude List Ids",
-        "type": "object",
-        "anyOf": [
-          {
-            "maxItems": 10,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "description": "Saved exclusion-list IDs to apply as a post-filter. Each list\u0027s entity type must match the search mode (person lists for people searches, company lists for company searches). Max 5 (10 for organizations with extended exclusion limits)."
       },
       "SearchAutocompleteSuggestionCompanyMeta": {
         "type": "object",
@@ -19035,193 +19076,6 @@
           }
         }
       },
-      "SearchIdSourceExcludePublicIds": {
-        "title": "Exclude Public Ids",
-        "type": "object",
-        "anyOf": [
-          {
-            "maxItems": 1000,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "description": "Optional people-mode inline exclusions to re-apply while replaying the saved search. \u0060search_id\u0060 itself does not carry exclusions."
-      },
-      "SearchIdSourceExcludeEntityIds": {
-        "title": "Exclude Entity Ids",
-        "type": "object",
-        "anyOf": [
-          {
-            "maxItems": 1000,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "description": "Optional inline exclusions to re-apply while replaying the saved search. People: LinkedIn public IDs/profile URLs. Companies: numeric company IDs, company URLs/slugs, or exact website domains."
-      },
-      "SearchIdSourceExcludeListIds": {
-        "title": "Exclude List Ids",
-        "type": "object",
-        "anyOf": [
-          {
-            "maxItems": 10,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "description": "Optional saved exclusion lists to re-apply while replaying the saved search. \u0060search_id\u0060 itself does not carry exclusions."
-      },
-      "SearchQueryRequestSelectedCompanyNames": {
-        "title": "Selected Company Names",
-        "type": "object",
-        "anyOf": [
-          {
-            "maxItems": 1000,
-            "type": "array",
-            "items": {
-              "maxLength": 500,
-              "minLength": 1,
-              "type": "string"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "description": "Platform-only exact company selections. The backend resolves names to company IDs instead of trusting client-supplied OpenSearch IDs. Excess hints are ignored; parsed-query name matching still applies."
-      },
-      "SearchQueryRequestExcludePublicIds": {
-        "title": "Exclude Public Ids",
-        "type": "object",
-        "anyOf": [
-          {
-            "maxItems": 50000,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "description": "People-mode inline identifiers to exclude from results, applied as a post-filter. Accepts LinkedIn public IDs or profile URLs. For company searches, use \u0060exclude_entity_ids\u0060. Max 1000 for API requests, 50000 for platform requests."
-      },
-      "SearchQueryRequestExcludeEntityIds": {
-        "title": "Exclude Entity Ids",
-        "type": "object",
-        "anyOf": [
-          {
-            "maxItems": 50000,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "description": "Inline identifiers to exclude from results, applied as a post-filter. People mode: LinkedIn public IDs or profile URLs. Company mode: numeric LinkedIn company IDs, company URLs/slugs, or exact website domains (values that resolve to no or multiple companies are ignored). Max 1000 for API requests, 50000 for platform requests."
-      },
-      "SearchQueryRequestExcludeListIds": {
-        "title": "Exclude List Ids",
-        "type": "object",
-        "anyOf": [
-          {
-            "maxItems": 10,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "description": "Saved exclusion-list IDs to apply as a post-filter. Each list\u0027s entity type must match the search mode (person lists for people searches, company lists for company searches). Max 5 (10 for organizations with extended exclusion limits)."
-      },
-      "SearchRerunRequestExcludePublicIds": {
-        "title": "Exclude Public Ids",
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ]
-      },
-      "StartAgenticSearchRequestExcludePublicIds": {
-        "title": "Exclude Public Ids",
-        "type": "object",
-        "anyOf": [
-          {
-            "maxItems": 1000,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "description": "People-mode inline identifiers to exclude from results, applied as a post-filter. Accepts LinkedIn public IDs or profile URLs. For company searches, use \u0060exclude_entity_ids\u0060. Max 1000."
-      },
-      "StartAgenticSearchRequestExcludeEntityIds": {
-        "title": "Exclude Entity Ids",
-        "type": "object",
-        "anyOf": [
-          {
-            "maxItems": 1000,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "description": "Inline identifiers to exclude from results, applied as a post-filter. People mode: LinkedIn public IDs or profile URLs. Company mode: numeric LinkedIn company IDs, company URLs/slugs, or exact website domains (values that resolve to no or multiple companies are ignored). Max 1000."
-      },
-      "StartAgenticSearchRequestExcludeListIds": {
-        "title": "Exclude List Ids",
-        "type": "object",
-        "anyOf": [
-          {
-            "maxItems": 10,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "description": "Saved exclusion-list IDs to apply as a post-filter. Each list\u0027s entity type must match the search mode (person lists for people searches, company lists for company searches). Max 5 (10 for organizations with extended exclusion limits)."
-      },
       "StartInteractiveRequestWebhookPayload": {
         "title": "Webhook Payload",
         "type": "object",
@@ -19244,86 +19098,6 @@
             }
           }
         }
-      },
-      "StartInteractiveRequestResultFormats": {
-        "title": "Result Formats",
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ]
-      },
-      "StartLookalikeSearchRequestLinkedinUrls": {
-        "title": "Linkedin Urls",
-        "type": "object",
-        "anyOf": [
-          {
-            "maxItems": 1000,
-            "type": "array",
-            "items": {
-              "maxLength": 500,
-              "type": "string"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "description": "LinkedIn profile URLs to seed from (max 1,000)."
-      },
-      "StructBuilderRequestExistingStruct": {
-        "title": "Existing Struct",
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/StructField"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ]
-      },
-      "StructFieldOptions": {
-        "title": "Options",
-        "type": "object",
-        "anyOf": [
-          {
-            "maxItems": 500,
-            "type": "array",
-            "items": {
-              "maxLength": 200,
-              "type": "string"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ]
-      },
-      "StructFieldSubfields": {
-        "title": "Subfields",
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/StructSubField"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ]
       },
       "UpdateWorkflowRequestWorkflowDefinition": {
         "type": "object",
@@ -19398,127 +19172,13 @@
         },
         "description": "Workflow graph or legacy block list; included on detail responses."
       },
-      "WorkflowResultItemWithDownloadResults": {
-        "title": "Results",
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "array",
-            "items": {
-              "type": "object"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "description": "Inline rows when the file is small enough to embed; otherwise null."
-      },
       "WorkflowRunResponseBlocks": {
         "title": "Blocks",
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "object"
-          },
-          {
-            "type": "null"
-          }
+        "type": [
+          "null",
+          "object"
         ],
         "description": "Per-block detail; usually null in list responses."
-      },
-      "WorkflowTemplateTags": {
-        "title": "Tags",
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ]
-      },
-      "WorkflowTemplatePreviewBlocks": {
-        "title": "Preview Blocks",
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "description": "Block types rendered on the template card, in order."
-      },
-      "WorkflowTemplateUpdateBlocks": {
-        "title": "Blocks",
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Block"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ]
-      },
-      "WorkflowTemplateUpdateEdges": {
-        "title": "Edges",
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/WorkflowEdge"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ]
-      },
-      "WorkflowTemplateUpdateTags": {
-        "title": "Tags",
-        "type": "object",
-        "anyOf": [
-          {
-            "maxItems": 50,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ]
-      },
-      "WorkflowTemplateUpdatePreviewBlocks": {
-        "title": "Preview Blocks",
-        "type": "object",
-        "anyOf": [
-          {
-            "maxItems": 50,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ]
       },
       "ValidationErrorLocItem": {
         "type": "object",
@@ -19532,23 +19192,21 @@
         ]
       },
       "ValidationErrorInput": {
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "object",
-            "description": "The offending input value (any type, may be null).",
-            "example": null
-          },
-          {
-            "type": "null"
-          }
-        ]
+        "type": [
+          "null",
+          "object"
+        ],
+        "description": "The offending input value (any type, may be null).",
+        "example": null
       },
       "AddBlockRequestSpecs": {
         "title": "Specs",
         "type": "object"
       },
       "AgentEventsPageEventsItem": {
+        "type": "object"
+      },
+      "AgenticSearchStatusResponseIterationsItem": {
         "type": "object"
       },
       "ApprovalRequestAnswers": {
@@ -19739,6 +19397,12 @@
         "type": "object",
         "description": "Lead or record to evaluate against the qualification criteria."
       },
+      "QaAgentRequestReferencesItem": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        }
+      },
       "QaAgentRequestStruct": {
         "title": "Struct",
         "type": [
@@ -19870,6 +19534,9 @@
           "null",
           "object"
         ]
+      },
+      "WorkflowResultItemWithDownloadResultsItem": {
+        "type": "object"
       },
       "WorkflowRunResponseMetrics": {
         "title": "Metrics",
@@ -25041,7 +24708,15 @@
             "description": "Human-readable notes about the enrichment result."
           },
           "findings": {
-            "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultFindings"
+            "title": "Findings",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultFindingsItem"
+            },
+            "description": "Optional supporting findings produced by the enrichment agent."
           },
           "field_confidence": {
             "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultFieldConfidence"
@@ -25095,7 +24770,15 @@
             "description": "Human-readable notes about the enrichment result."
           },
           "findings": {
-            "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultFindings"
+            "title": "Findings",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultFindingsItem"
+            },
+            "description": "Optional supporting findings produced by the enrichment agent."
           },
           "field_confidence": {
             "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultFieldConfidence"
@@ -25111,26 +24794,13 @@
           }
         }
       },
-      "JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultFindings": {
-        "title": "Findings",
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "array",
-            "items": {
-              "type": "object"
-            }
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "description": "Optional supporting findings produced by the enrichment agent."
-      },
       "AddBlockRequestSpecsProperty": {
         "type": "object"
       },
       "AgentEventsPageEventsItemProperty": {
+        "type": "object"
+      },
+      "AgenticSearchStatusResponseIterationsItemProperty": {
         "type": "object"
       },
       "ApprovalRequestAnswersProperty": {
@@ -25255,6 +24925,12 @@
         "type": "object",
         "description": "Lead or record to evaluate against the qualification criteria."
       },
+      "QaAgentRequestReferencesItemProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        }
+      },
       "QaAgentRequestStructProperty": {
         "type": "object",
         "additionalProperties": {
@@ -25331,6 +25007,9 @@
         "description": "The person to verify. Any identifiers you have (name, company, linkedin, email, location, etc.); more is better."
       },
       "ViewerSpecStateProperty": {
+        "type": "object"
+      },
+      "WorkflowResultItemWithDownloadResultsItemProperty": {
         "type": "object"
       },
       "WorkflowRunResponseMetricsProperty": {
@@ -25427,6 +25106,9 @@
           "object"
         ],
         "description": "Source references used to produce the result."
+      },
+      "JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultFindingsItem": {
+        "type": "object"
       },
       "JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultFieldConfidence": {
         "title": "Field Confidence",

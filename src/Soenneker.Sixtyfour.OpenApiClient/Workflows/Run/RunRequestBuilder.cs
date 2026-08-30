@@ -111,11 +111,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Run
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("result_formats")]
-            public string? ResultFormats { get; set; }
+            public string[]? ResultFormats { get; set; }
 #nullable restore
 #else
             [QueryParameter("result_formats")]
-            public string ResultFormats { get; set; }
+            public string[] ResultFormats { get; set; }
 #endif
             /// <summary>Also save results as JSON</summary>
             [QueryParameter("save_json")]

@@ -35,10 +35,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Optional reference URLs the agent may use as evidence.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestReferences? References { get; set; }
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestReferencesItemProperty>? References { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestReferences References { get; set; }
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestReferencesItemProperty> References { get; set; }
 #endif
         /// <summary>Mapping of extra output fields and their descriptions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -85,7 +85,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "data", n => { Data = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestDataProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestDataProperty.CreateFromDiscriminatorValue); } },
                 { "max_tool_calls", n => { MaxToolCalls = n.GetIntValue(); } },
                 { "qualification_criteria", n => { QualificationCriteria = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.QualificationCriteria>(global::Soenneker.Sixtyfour.OpenApiClient.Models.QualificationCriteria.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "references", n => { References = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestReferences>(global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestReferences.CreateFromDiscriminatorValue); } },
+                { "references", n => { References = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestReferencesItemProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestReferencesItemProperty.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "struct", n => { Struct = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestStructProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestStructProperty.CreateFromDiscriminatorValue); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
             };
@@ -100,7 +100,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestDataProperty>("data", Data);
             writer.WriteIntValue("max_tool_calls", MaxToolCalls);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.QualificationCriteria>("qualification_criteria", QualificationCriteria);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestReferences>("references", References);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestReferencesItemProperty>("references", References);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestStructProperty>("struct", Struct);
             writer.WriteStringValue("webhook_url", WebhookUrl);
             writer.WriteAdditionalData(AdditionalData);

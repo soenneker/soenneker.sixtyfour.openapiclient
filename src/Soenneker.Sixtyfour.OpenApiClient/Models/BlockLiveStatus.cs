@@ -76,10 +76,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>IDs of upstream blocks that feed into this one.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatusPreviousBlockIds? PreviousBlockIds { get; set; }
+        public List<string>? PreviousBlockIds { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatusPreviousBlockIds PreviousBlockIds { get; set; }
+        public List<string> PreviousBlockIds { get; set; }
 #endif
         /// <summary>Number of items processed so far.</summary>
         public int? ProcessedCount { get; set; }
@@ -141,7 +141,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "estimated_total_count", n => { EstimatedTotalCount = n.GetIntValue(); } },
                 { "last_updated", n => { LastUpdated = n.GetStringValue(); } },
                 { "metrics", n => { Metrics = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockMetrics>(global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockMetrics.CreateFromDiscriminatorValue); } },
-                { "previous_block_ids", n => { PreviousBlockIds = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatusPreviousBlockIds>(global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatusPreviousBlockIds.CreateFromDiscriminatorValue); } },
+                { "previous_block_ids", n => { PreviousBlockIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "processed_count", n => { ProcessedCount = n.GetIntValue(); } },
                 { "progress_percentage", n => { ProgressPercentage = n.GetDoubleValue(); } },
                 { "sequence_number", n => { SequenceNumber = n.GetIntValue(); } },
@@ -165,7 +165,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteIntValue("estimated_total_count", EstimatedTotalCount);
             writer.WriteStringValue("last_updated", LastUpdated);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockMetrics>("metrics", Metrics);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockLiveStatusPreviousBlockIds>("previous_block_ids", PreviousBlockIds);
+            writer.WriteCollectionOfPrimitiveValues<string>("previous_block_ids", PreviousBlockIds);
             writer.WriteIntValue("processed_count", ProcessedCount);
             writer.WriteDoubleValue("progress_percentage", ProgressPercentage);
             writer.WriteIntValue("sequence_number", SequenceNumber);

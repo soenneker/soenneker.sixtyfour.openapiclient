@@ -110,10 +110,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Block types rendered on the template card, in order.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowTemplatePreviewBlocks? PreviewBlocks { get; set; }
+        public List<string>? PreviewBlocks { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowTemplatePreviewBlocks PreviewBlocks { get; set; }
+        public List<string> PreviewBlocks { get; set; }
 #endif
         /// <summary>`global` for the curated catalog, `org` for a template owned by your organization.</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowTemplateScope? Scope { get; set; }
@@ -128,10 +128,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>The tags property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowTemplateTags? Tags { get; set; }
+        public List<string>? Tags { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowTemplateTags Tags { get; set; }
+        public List<string> Tags { get; set; }
 #endif
         /// <summary>The updated_at property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -187,10 +187,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "internal", n => { Internal = n.GetBoolValue(); } },
                 { "key", n => { Key = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "preview_blocks", n => { PreviewBlocks = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowTemplatePreviewBlocks>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowTemplatePreviewBlocks.CreateFromDiscriminatorValue); } },
+                { "preview_blocks", n => { PreviewBlocks = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "scope", n => { Scope = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowTemplateScope>(); } },
                 { "slug", n => { Slug = n.GetStringValue(); } },
-                { "tags", n => { Tags = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowTemplateTags>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowTemplateTags.CreateFromDiscriminatorValue); } },
+                { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
                 { "use_case", n => { UseCase = n.GetStringValue(); } },
             };
@@ -215,10 +215,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteBoolValue("internal", Internal);
             writer.WriteStringValue("key", Key);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowTemplatePreviewBlocks>("preview_blocks", PreviewBlocks);
+            writer.WriteCollectionOfPrimitiveValues<string>("preview_blocks", PreviewBlocks);
             writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowTemplateScope>("scope", Scope);
             writer.WriteStringValue("slug", Slug);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowTemplateTags>("tags", Tags);
+            writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteStringValue("use_case", UseCase);
             writer.WriteAdditionalData(AdditionalData);

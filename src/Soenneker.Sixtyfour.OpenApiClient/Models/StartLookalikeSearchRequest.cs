@@ -36,10 +36,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>LinkedIn profile URLs to seed from (max 1,000).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartLookalikeSearchRequestLinkedinUrls? LinkedinUrls { get; set; }
+        public List<string>? LinkedinUrls { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartLookalikeSearchRequestLinkedinUrls LinkedinUrls { get; set; }
+        public List<string> LinkedinUrls { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartLookalikeSearchRequest"/> and sets the default values.
@@ -70,7 +70,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "analysis_sample_size", n => { AnalysisSampleSize = n.GetIntValue(); } },
                 { "csv_resource_handle_id", n => { CsvResourceHandleId = n.GetStringValue(); } },
                 { "guidance", n => { Guidance = n.GetStringValue(); } },
-                { "linkedin_urls", n => { LinkedinUrls = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartLookalikeSearchRequestLinkedinUrls>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StartLookalikeSearchRequestLinkedinUrls.CreateFromDiscriminatorValue); } },
+                { "linkedin_urls", n => { LinkedinUrls = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -83,7 +83,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteIntValue("analysis_sample_size", AnalysisSampleSize);
             writer.WriteStringValue("csv_resource_handle_id", CsvResourceHandleId);
             writer.WriteStringValue("guidance", Guidance);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartLookalikeSearchRequestLinkedinUrls>("linkedin_urls", LinkedinUrls);
+            writer.WriteCollectionOfPrimitiveValues<string>("linkedin_urls", LinkedinUrls);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
