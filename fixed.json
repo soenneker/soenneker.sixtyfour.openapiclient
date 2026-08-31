@@ -15677,6 +15677,51 @@
           }
         }
       },
+      "MessageFeedbackRequest": {
+        "title": "MessageFeedbackRequest",
+        "required": [
+          "session_id",
+          "message_id",
+          "rating"
+        ],
+        "type": "object",
+        "properties": {
+          "session_id": {
+            "title": "Session Id",
+            "minLength": 1,
+            "type": "string"
+          },
+          "message_id": {
+            "title": "Message Id",
+            "minLength": 1,
+            "type": "string"
+          },
+          "rating": {
+            "$ref": "#/components/schemas/MessageFeedbackRequestRating"
+          },
+          "feedback_text": {
+            "title": "Feedback Text",
+            "maxLength": 5000,
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
+      "MessageFeedbackResponse": {
+        "title": "MessageFeedbackResponse",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string"
+          }
+        }
+      },
       "MountViewerRequest": {
         "title": "MountViewerRequest",
         "required": [
@@ -16914,6 +16959,37 @@
           }
         },
         "description": "Accounting for how an input seed set became analyzable profiles."
+      },
+      "SessionFeedbackEntry": {
+        "title": "SessionFeedbackEntry",
+        "required": [
+          "message_id",
+          "rating"
+        ],
+        "type": "object",
+        "properties": {
+          "message_id": {
+            "title": "Message Id",
+            "type": "string"
+          },
+          "rating": {
+            "title": "Rating",
+            "type": "string"
+          }
+        }
+      },
+      "SessionFeedbackResponse": {
+        "title": "SessionFeedbackResponse",
+        "type": "object",
+        "properties": {
+          "feedback": {
+            "title": "Feedback",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SessionFeedbackEntry"
+            }
+          }
+        }
       },
       "SetActiveViewerRequest": {
         "title": "SetActiveViewerRequest",
@@ -25510,6 +25586,29 @@
             {
               "value": "failed",
               "name": "Failed"
+            }
+          ]
+        }
+      },
+      "MessageFeedbackRequestRating": {
+        "title": "Rating",
+        "enum": [
+          "up",
+          "down"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "MessageFeedbackRequestRating",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "up",
+              "name": "Up"
+            },
+            {
+              "value": "down",
+              "name": "Down"
             }
           ]
         }
