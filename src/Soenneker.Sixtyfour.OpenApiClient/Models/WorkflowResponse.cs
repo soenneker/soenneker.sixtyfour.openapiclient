@@ -26,6 +26,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
+        /// <summary>Resolved label and tone for `status` + `step`, so clients render rather than interpret them.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowDisplayStatus? DisplayStatus { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowDisplayStatus DisplayStatus { get; set; }
+#endif
         /// <summary>Workflow identifier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -126,6 +134,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "block_count", n => { BlockCount = n.GetIntValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
+                { "display_status", n => { DisplayStatus = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowDisplayStatus>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowDisplayStatus.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "last_run_date", n => { LastRunDate = n.GetDateTimeOffsetValue(); } },
                 { "locked", n => { Locked = n.GetBoolValue(); } },
@@ -150,6 +159,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteIntValue("block_count", BlockCount);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("description", Description);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowDisplayStatus>("display_status", DisplayStatus);
             writer.WriteStringValue("id", Id);
             writer.WriteDateTimeOffsetValue("last_run_date", LastRunDate);
             writer.WriteBoolValue("locked", Locked);

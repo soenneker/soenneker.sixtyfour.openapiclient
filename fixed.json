@@ -17738,6 +17738,24 @@
         },
         "description": "Response for workflow cancellation."
       },
+      "WorkflowDisplayStatus": {
+        "title": "WorkflowDisplayStatus",
+        "required": [
+          "label",
+          "tone"
+        ],
+        "type": "object",
+        "properties": {
+          "label": {
+            "title": "Label",
+            "type": "string",
+            "description": "Human-readable status, e.g. \u0027Failed at Enriching Leads\u0027."
+          },
+          "tone": {
+            "$ref": "#/components/schemas/WorkflowDisplayStatusTone"
+          }
+        }
+      },
       "WorkflowEdge": {
         "title": "WorkflowEdge",
         "required": [
@@ -17949,6 +17967,9 @@
             "title": "Step",
             "type": "string",
             "description": "Current authoring step in the builder UI."
+          },
+          "display_status": {
+            "$ref": "#/components/schemas/WorkflowResponseDisplayStatus"
           },
           "created_at": {
             "title": "Created At",
@@ -19204,6 +19225,28 @@
           }
         },
         "description": "Replacement workflow graph."
+      },
+      "WorkflowResponseDisplayStatus": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/WorkflowDisplayStatus"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "properties": {
+          "label": {
+            "title": "Label",
+            "type": "string",
+            "description": "Human-readable status, e.g. \u0027Failed at Enriching Leads\u0027."
+          },
+          "tone": {
+            "$ref": "#/components/schemas/WorkflowDisplayStatusTone"
+          }
+        },
+        "description": "Resolved label and tone for \u0060status\u0060 \u002B \u0060step\u0060, so clients render rather than interpret them."
       },
       "WorkflowResponseWorkflowDefinition": {
         "title": "Workflow Definition",
@@ -26172,6 +26215,50 @@
             {
               "value": "notebook",
               "name": "Notebook"
+            }
+          ]
+        }
+      },
+      "WorkflowDisplayStatusTone": {
+        "title": "Tone",
+        "enum": [
+          "success",
+          "active",
+          "queued",
+          "failed",
+          "draft",
+          "idle"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Which visual treatment the label gets.",
+        "x-ms-enum": {
+          "name": "WorkflowDisplayStatusTone",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "success",
+              "name": "Success"
+            },
+            {
+              "value": "active",
+              "name": "Active"
+            },
+            {
+              "value": "queued",
+              "name": "Queued"
+            },
+            {
+              "value": "failed",
+              "name": "Failed"
+            },
+            {
+              "value": "draft",
+              "name": "Draft"
+            },
+            {
+              "value": "idle",
+              "name": "Idle"
             }
           ]
         }
