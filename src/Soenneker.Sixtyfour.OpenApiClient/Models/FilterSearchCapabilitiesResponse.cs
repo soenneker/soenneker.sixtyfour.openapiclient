@@ -61,6 +61,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public List<string> NestedPaths { get; set; }
 #endif
+        /// <summary>Credits charged per result returned by /search/query for this caller.</summary>
+        public double? PricePerResultCredits { get; set; }
         /// <summary>Supported MongoDB-style operators for simple_filters input.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -102,6 +104,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "mapping_hash", n => { MappingHash = n.GetStringValue(); } },
                 { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchCapabilitiesResponseMode>(); } },
                 { "nested_paths", n => { NestedPaths = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "price_per_result_credits", n => { PricePerResultCredits = n.GetDoubleValue(); } },
                 { "simple_query_operators", n => { SimpleQueryOperators = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
@@ -120,6 +123,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteStringValue("mapping_hash", MappingHash);
             writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchCapabilitiesResponseMode>("mode", Mode);
             writer.WriteCollectionOfPrimitiveValues<string>("nested_paths", NestedPaths);
+            writer.WriteDoubleValue("price_per_result_credits", PricePerResultCredits);
             writer.WriteCollectionOfPrimitiveValues<string>("simple_query_operators", SimpleQueryOperators);
             writer.WriteAdditionalData(AdditionalData);
         }

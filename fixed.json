@@ -13823,6 +13823,33 @@
           }
         }
       },
+      "ChatSessionStatusRequest": {
+        "title": "ChatSessionStatusRequest",
+        "type": "object",
+        "properties": {
+          "session_ids": {
+            "title": "Session Ids",
+            "maxItems": 100,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "ChatSessionStatusResponse": {
+        "title": "ChatSessionStatusResponse",
+        "type": "object",
+        "properties": {
+          "generating_session_ids": {
+            "title": "Generating Session Ids",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
       "ChatSessionSummary": {
         "title": "ChatSessionSummary",
         "required": [
@@ -13862,6 +13889,11 @@
           },
           "has_unread": {
             "title": "Has Unread",
+            "type": "boolean",
+            "default": false
+          },
+          "generating": {
+            "title": "Generating",
             "type": "boolean",
             "default": false
           }
@@ -14689,7 +14721,8 @@
           "nested_paths",
           "limits",
           "cache_ttl_seconds",
-          "generated_at_epoch_ms"
+          "generated_at_epoch_ms",
+          "price_per_result_credits"
         ],
         "type": "object",
         "properties": {
@@ -14730,6 +14763,11 @@
             "title": "Generated At Epoch Ms",
             "type": "integer",
             "description": "Epoch timestamp (ms) when these capabilities were derived."
+          },
+          "price_per_result_credits": {
+            "title": "Price Per Result Credits",
+            "type": "number",
+            "description": "Credits charged per result returned by /search/query for this caller."
           },
           "mapping_hash": {
             "title": "Mapping Hash",
@@ -14942,6 +14980,14 @@
               "integer"
             ],
             "description": "Minimum total matches when OpenSearch caps hit tracking; people-mode only. Null when the total is exact or no reliable lower bound is available."
+          },
+          "charge_credits": {
+            "title": "Charge Credits",
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Credits charged for this page: 0.1 credit per result returned for billed callers, 0 when this call was not billed."
           },
           "output_shape": {
             "$ref": "#/components/schemas/FilterSearchResponseOutputShape"
