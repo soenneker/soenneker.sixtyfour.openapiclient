@@ -112,10 +112,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Lookalike.Item
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithTaskItemRequestBuilderGetQueryParameters 
         {
+            #pragma warning disable CS1591
             [QueryParameter("include_analysis")]
             public bool? IncludeAnalysis { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("include_filters")]
             public bool? IncludeFilters { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

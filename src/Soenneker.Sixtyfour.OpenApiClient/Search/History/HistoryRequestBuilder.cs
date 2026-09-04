@@ -197,36 +197,58 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.History
         {
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("cursor")]
             public string? Cursor { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("cursor")]
             public string Cursor { get; set; }
+            #pragma warning restore CS1591
 #endif
+            #pragma warning disable CS1591
             [QueryParameter("from")]
             public DateTimeOffset? From { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("kind")]
             public global::Soenneker.Sixtyfour.OpenApiClient.Models.ListSearchHistoryEndpointSearchHistoryGetKindParameter? Kind { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("limit")]
             public int? Limit { get; set; }
+            #pragma warning restore CS1591
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("query_text")]
             public string? QueryText { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("query_text")]
             public string QueryText { get; set; }
+            #pragma warning restore CS1591
 #endif
+            #pragma warning disable CS1591
             [QueryParameter("sort_by")]
             public global::Soenneker.Sixtyfour.OpenApiClient.Models.ListSearchHistoryEndpointSearchHistoryGetSortByParameter? SortBy { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("sort_dir")]
             public global::Soenneker.Sixtyfour.OpenApiClient.Models.ListSearchHistoryEndpointSearchHistoryGetSortDirParameter? SortDir { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("status")]
             public global::Soenneker.Sixtyfour.OpenApiClient.Models.ListSearchHistoryEndpointSearchHistoryGetStatusParameter? Status { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("to")]
             public DateTimeOffset? To { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

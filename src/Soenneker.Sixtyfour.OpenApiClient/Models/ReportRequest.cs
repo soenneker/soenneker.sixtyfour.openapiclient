@@ -7,46 +7,32 @@ using System.IO;
 using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
-    /// <summary>
-    /// Metrics for a block execution.
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class BlockMetrics : IAdditionalDataHolder, IParsable
+    #pragma warning disable CS1591
+    public partial class ReportRequest : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Logical row type produced (e.g. LEAD, COMPANY).</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? DataframeType { get; set; }
-#nullable restore
-#else
-        public string DataframeType { get; set; }
-#endif
-        /// <summary>Number of items processed so far.</summary>
-        public int? ProcessedCount { get; set; }
-        /// <summary>Total rows produced by the block.</summary>
-        public int? RowCount { get; set; }
-        /// <summary>Total number of items to process.</summary>
-        public int? TotalCount { get; set; }
+        /// <summary>Retry after a failed attempt on the same workspace.</summary>
+        public bool? RetryFailed { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockMetrics"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ReportRequest"/> and sets the default values.
         /// </summary>
-        public BlockMetrics()
+        public ReportRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            DataframeType = "LEAD";
-            RowCount = 0;
+            RetryFailed = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockMetrics"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ReportRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockMetrics CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Sixtyfour.OpenApiClient.Models.ReportRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockMetrics();
+            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.ReportRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -56,10 +42,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "dataframe_type", n => { DataframeType = n.GetStringValue(); } },
-                { "processed_count", n => { ProcessedCount = n.GetIntValue(); } },
-                { "row_count", n => { RowCount = n.GetIntValue(); } },
-                { "total_count", n => { TotalCount = n.GetIntValue(); } },
+                { "retry_failed", n => { RetryFailed = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -69,10 +52,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("dataframe_type", DataframeType);
-            writer.WriteIntValue("processed_count", ProcessedCount);
-            writer.WriteIntValue("row_count", RowCount);
-            writer.WriteIntValue("total_count", TotalCount);
+            writer.WriteBoolValue("retry_failed", RetryFailed);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

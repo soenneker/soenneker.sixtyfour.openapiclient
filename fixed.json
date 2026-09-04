@@ -11717,14 +11717,129 @@
         }
       }
     },
-    "/v1/atlas/investigations/{investigationId}/report.pdf": {
+    "/v1/atlas/investigations/{investigationId}/report": {
+      "post": {
+        "tags": [
+          "Atlas"
+        ],
+        "summary": "Generate the intelligence report",
+        "description": "Start durable report generation for the current workspace, or reuse the run already covering it.\nIdempotent: repeat calls return the same job; an up-to-date report returns \u0060completed\u0060 with \u0060cached: true\u0060.\nPoll \u0060GET \u2026/report\u0060 (or the PDF endpoint) until \u0060completed\u0060, then download \u0060\u2026/report.pdf\u0060.",
+        "operationId": "GenerateReportV1AtlasInvestigationsInvestigationIdReportPost",
+        "parameters": [
+          {
+            "name": "investigationId",
+            "in": "path",
+            "description": "Investigation id, as returned by list or by an xhigh enrichment.",
+            "required": true,
+            "schema": {
+              "title": "Investigation Id",
+              "type": "string",
+              "description": "Investigation id, as returned by list or by an xhigh enrichment."
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReportRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportJob"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenerateReportV1AtlasInvestigationsInvestigationIdReportPost400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenerateReportV1AtlasInvestigationsInvestigationIdReportPost401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenerateReportV1AtlasInvestigationsInvestigationIdReportPost403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenerateReportV1AtlasInvestigationsInvestigationIdReportPost500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      },
       "get": {
         "tags": [
           "Atlas"
         ],
-        "summary": "Intelligence report PDF",
-        "description": "The generated intelligence report. 404 until one has been generated for the current workspace.",
-        "operationId": "GetReportPdfV1AtlasInvestigationsInvestigationIdReportPdfGet",
+        "summary": "Report generation status",
+        "description": "The most recent report job. 404 until generation has been requested.",
+        "operationId": "GetReportStatusV1AtlasInvestigationsInvestigationIdReportGet",
         "parameters": [
           {
             "name": "investigationId",
@@ -11755,7 +11870,115 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetReportPdfV1AtlasInvestigationsInvestigationIdReportPdfGet200ResponseSchema"
+                  "$ref": "#/components/schemas/ReportJob"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetReportStatusV1AtlasInvestigationsInvestigationIdReportGet400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetReportStatusV1AtlasInvestigationsInvestigationIdReportGet401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetReportStatusV1AtlasInvestigationsInvestigationIdReportGet403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetReportStatusV1AtlasInvestigationsInvestigationIdReportGet500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/atlas/investigations/{investigationId}/report.pdf": {
+      "get": {
+        "tags": [
+          "Atlas"
+        ],
+        "summary": "Intelligence report PDF",
+        "description": "The generated report. 200 with the PDF when ready; 202 with the job (and \u0060Retry-After\u0060) while generation\nis in progress; 404 if generation has not been requested \u2014 \u0060POST \u2026/report\u0060 starts it.",
+        "operationId": "GetReportPdfV1AtlasInvestigationsInvestigationIdReportPdfGet",
+        "parameters": [
+          {
+            "name": "investigationId",
+            "in": "path",
+            "description": "Investigation id, as returned by list or by an xhigh enrichment.",
+            "required": true,
+            "schema": {
+              "title": "Investigation Id",
+              "type": "string",
+              "description": "Investigation id, as returned by list or by an xhigh enrichment."
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The report.",
+            "content": {
+              "application/pdf": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetReportPdfV1AtlasInvestigationsInvestigationIdReportPdfGet200PdfResponseSchema"
                 }
               }
             }
@@ -11821,6 +12044,27 @@
                 }
               }
             }
+          },
+          "202": {
+            "description": "Generation is in progress; poll again after \u0060Retry-After\u0060 seconds.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds to wait before retrying.",
+                "schema": {
+                  "type": "integer"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportJob"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No report has been generated; \u0060POST \u2026/report\u0060 starts one."
           }
         }
       }
@@ -16061,6 +16305,75 @@
           }
         }
       },
+      "ReportJob": {
+        "title": "ReportJob",
+        "required": [
+          "job_id",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "job_id": {
+            "title": "Job Id",
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/ReportJobStatus"
+          },
+          "workspace_hash": {
+            "title": "Workspace Hash",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The workspace snapshot this report covers."
+          },
+          "requested_at": {
+            "title": "Requested At",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "completed_at": {
+            "title": "Completed At",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "error": {
+            "title": "Error",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "cached": {
+            "title": "Cached",
+            "type": "boolean",
+            "description": "True when an up-to-date report already existed.",
+            "default": false
+          },
+          "byte_size": {
+            "title": "Byte Size",
+            "type": "integer",
+            "default": 0
+          }
+        }
+      },
+      "ReportRequest": {
+        "title": "ReportRequest",
+        "type": "object",
+        "properties": {
+          "retry_failed": {
+            "title": "Retry Failed",
+            "type": "boolean",
+            "description": "Retry after a failed attempt on the same workspace.",
+            "default": false
+          }
+        }
+      },
       "ResearchAgentRequest": {
         "title": "ResearchAgentRequest",
         "required": [
@@ -18949,6 +19262,9 @@
       },
       "CreateExclusionListRequestSource": {
         "title": "Source",
+        "required": [
+          "type"
+        ],
         "type": "object",
         "oneOf": [
           {
@@ -19030,6 +19346,9 @@
               "type": "string"
             },
             "description": "Optional saved exclusion lists to re-apply while replaying the saved search. \u0060search_id\u0060 itself does not carry exclusions."
+          },
+          "type": {
+            "type": "string"
           }
         },
         "discriminator": {
@@ -24323,8 +24642,73 @@
           }
         }
       },
-      "GetReportPdfV1AtlasInvestigationsInvestigationIdReportPdfGet200Response": {
-        "type": "object"
+      "GenerateReportV1AtlasInvestigationsInvestigationIdReportPost400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GenerateReportV1AtlasInvestigationsInvestigationIdReportPost401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GenerateReportV1AtlasInvestigationsInvestigationIdReportPost403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GenerateReportV1AtlasInvestigationsInvestigationIdReportPost500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetReportStatusV1AtlasInvestigationsInvestigationIdReportGet400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetReportStatusV1AtlasInvestigationsInvestigationIdReportGet401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetReportStatusV1AtlasInvestigationsInvestigationIdReportGet403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetReportStatusV1AtlasInvestigationsInvestigationIdReportGet500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetReportPdfV1AtlasInvestigationsInvestigationIdReportPdfGet200PdfResponse": {
+        "type": "string",
+        "format": "binary"
       },
       "GetReportPdfV1AtlasInvestigationsInvestigationIdReportPdfGet400Response": {
         "type": "object",
@@ -24826,8 +25210,9 @@
       "GetFileV1AtlasInvestigationsInvestigationIdFilesPathGet200ResponseSchema": {
         "type": "object"
       },
-      "GetReportPdfV1AtlasInvestigationsInvestigationIdReportPdfGet200ResponseSchema": {
-        "type": "object"
+      "GetReportPdfV1AtlasInvestigationsInvestigationIdReportPdfGet200PdfResponseSchema": {
+        "type": "string",
+        "format": "binary"
       },
       "ExportZipV1AtlasInvestigationsInvestigationIdExportZipGet200ResponseSchema": {
         "type": "object"
@@ -25726,6 +26111,45 @@
             {
               "value": "notebook",
               "name": "Notebook"
+            }
+          ]
+        }
+      },
+      "ReportJobStatus": {
+        "title": "Status",
+        "enum": [
+          "pending",
+          "running",
+          "completed",
+          "failed",
+          "superseded"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "\u0060completed\u0060 means the PDF is downloadable; \u0060superseded\u0060 means the workspace changed and a newer job replaced this one.",
+        "x-ms-enum": {
+          "name": "ReportJobStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "pending",
+              "name": "Pending"
+            },
+            {
+              "value": "running",
+              "name": "Running"
+            },
+            {
+              "value": "completed",
+              "name": "Completed"
+            },
+            {
+              "value": "failed",
+              "name": "Failed"
+            },
+            {
+              "value": "superseded",
+              "name": "Superseded"
             }
           ]
         }

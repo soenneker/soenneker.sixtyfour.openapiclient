@@ -8,6 +8,7 @@ using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Events;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.ExportZip;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Files;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Graph;
+using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Report;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.ReportPdf;
 using System.Collections.Generic;
 using System.IO;
@@ -41,6 +42,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item
         public global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Graph.GraphRequestBuilder Graph
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Graph.GraphRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The report property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Report.ReportRequestBuilder Report
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Report.ReportRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The reportPdf property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.ReportPdf.ReportPdfRequestBuilder ReportPdf

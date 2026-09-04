@@ -112,10 +112,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.History.Volume
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class VolumeRequestBuilderGetQueryParameters 
         {
+            #pragma warning disable CS1591
             [QueryParameter("from")]
             public DateTimeOffset? From { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("to")]
             public DateTimeOffset? To { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

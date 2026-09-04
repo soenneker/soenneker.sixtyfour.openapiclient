@@ -127,8 +127,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations
             /// <summary>Only investigations created before this time (ISO 8601).</summary>
             [QueryParameter("created_before")]
             public DateTimeOffset? CreatedBefore { get; set; }
+            #pragma warning disable CS1591
             [QueryParameter("limit")]
             public int? Limit { get; set; }
+            #pragma warning restore CS1591
             /// <summary>Only investigations in this state.</summary>
             [QueryParameter("status")]
             public global::Soenneker.Sixtyfour.OpenApiClient.Models.ListInvestigationsV1AtlasInvestigationsGetStatusParameter? Status { get; set; }
