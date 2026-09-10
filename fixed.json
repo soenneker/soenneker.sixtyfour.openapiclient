@@ -14019,6 +14019,13 @@
             "title": "Is Onboarding",
             "type": "boolean",
             "default": false
+          },
+          "model": {
+            "title": "Model",
+            "type": [
+              "null",
+              "string"
+            ]
           }
         }
       },
