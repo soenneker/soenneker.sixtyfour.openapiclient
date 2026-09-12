@@ -11126,7 +11126,7 @@
           "Atlas"
         ],
         "summary": "List investigations",
-        "description": "Your organization\u0027s Atlas investigations, newest first. Follow \u0060next_cursor\u0060 (pass it as \u0060after\u0060) until it is\nnull; the cursor is a keyset, so pages stay stable while investigations are created or deleted. With a \u0060status\u0060\nfilter a page can come back short (the filter is applied while scanning), so \u0060next_cursor\u0060 \u2014 not page size \u2014 is\nthe end-of-listing signal.",
+        "description": "Your team\u0027s Atlas investigations, newest first (organization admins see every team\u0027s). Follow \u0060next_cursor\u0060\n(pass it as \u0060after\u0060) until it is null; the cursor is a keyset, so pages stay stable while investigations are\ncreated or deleted. With a \u0060status\u0060 filter a page can come back short (the filter is applied while scanning), so\n\u0060next_cursor\u0060 \u2014 not page size \u2014 is the end-of-listing signal.",
         "operationId": "ListInvestigationsV1AtlasInvestigationsGet",
         "parameters": [
           {
