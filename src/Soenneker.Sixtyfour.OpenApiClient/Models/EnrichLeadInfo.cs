@@ -16,6 +16,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>If true, return confidence scores for each requested output field.</summary>
         public bool? FieldConfidence { get; set; }
+        /// <summary>For xhigh, include workspace files alongside structured output (default: true). Set false to omit them. Saved images are attachment pointers; retrieve their bytes through the investigation&apos;s /v1/atlas file API. Ignored by other tiers.</summary>
+        public bool? IncludeWorkspace { get; set; }
         /// <summary>Single lead to process. Provide any combination of name, email, company, linkedin, etc.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -76,6 +78,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "field_confidence", n => { FieldConfidence = n.GetBoolValue(); } },
+                { "include_workspace", n => { IncludeWorkspace = n.GetBoolValue(); } },
                 { "lead_info", n => { LeadInfo = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoLeadInfoProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoLeadInfoProperty.CreateFromDiscriminatorValue); } },
                 { "research_plan", n => { ResearchPlan = n.GetStringValue(); } },
                 { "struct", n => { Struct = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty.CreateFromDiscriminatorValue); } },
@@ -91,6 +94,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("field_confidence", FieldConfidence);
+            writer.WriteBoolValue("include_workspace", IncludeWorkspace);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoLeadInfoProperty>("lead_info", LeadInfo);
             writer.WriteStringValue("research_plan", ResearchPlan);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty>("struct", Struct);

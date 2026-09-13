@@ -13033,6 +13033,13 @@
               "string"
             ]
           },
+          "display_name": {
+            "title": "Display Name",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "task": {
             "title": "Task",
             "type": [
@@ -14631,6 +14638,14 @@
           },
           "lead_info": {
             "$ref": "#/components/schemas/EnrichLeadInfoLeadInfoProperty"
+          },
+          "include_workspace": {
+            "title": "Include Workspace",
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "For xhigh, include workspace files alongside structured output (default: true). Set false to omit them. Saved images are attachment pointers; retrieve their bytes through the investigation\u0027s /v1/atlas file API. Ignored by other tiers."
           }
         }
       },
@@ -26037,6 +26052,7 @@
         "enum": [
           "created",
           "running",
+          "stalled",
           "paused",
           "completed",
           "failed"
@@ -26055,6 +26071,10 @@
             {
               "value": "running",
               "name": "Running"
+            },
+            {
+              "value": "stalled",
+              "name": "Stalled"
             },
             {
               "value": "paused",
@@ -27055,6 +27075,7 @@
         "enum": [
           "created",
           "running",
+          "stalled",
           "paused",
           "completed",
           "failed"
@@ -27076,6 +27097,10 @@
             {
               "value": "running",
               "name": "Running"
+            },
+            {
+              "value": "stalled",
+              "name": "Stalled"
             },
             {
               "value": "paused",

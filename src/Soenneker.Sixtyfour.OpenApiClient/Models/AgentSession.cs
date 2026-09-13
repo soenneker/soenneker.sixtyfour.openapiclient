@@ -32,6 +32,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #endif
         /// <summary>The cost_cents property</summary>
         public int? CostCents { get; set; }
+        /// <summary>The display_name property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
+        public string DisplayName { get; set; }
+#endif
         /// <summary>The ended_at property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -110,6 +118,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "agent_name", n => { AgentName = n.GetStringValue(); } },
                 { "agent_type", n => { AgentType = n.GetStringValue(); } },
                 { "cost_cents", n => { CostCents = n.GetIntValue(); } },
+                { "display_name", n => { DisplayName = n.GetStringValue(); } },
                 { "ended_at", n => { EndedAt = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "parent_session_id", n => { ParentSessionId = n.GetStringValue(); } },
@@ -129,6 +138,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteStringValue("agent_name", AgentName);
             writer.WriteStringValue("agent_type", AgentType);
             writer.WriteIntValue("cost_cents", CostCents);
+            writer.WriteStringValue("display_name", DisplayName);
             writer.WriteStringValue("ended_at", EndedAt);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("parent_session_id", ParentSessionId);
