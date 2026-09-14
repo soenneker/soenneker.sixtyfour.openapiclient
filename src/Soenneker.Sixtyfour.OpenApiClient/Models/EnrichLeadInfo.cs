@@ -14,6 +14,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Async endpoints only: a client-generated idempotency key for the dispatch. Reusing the same key for the same organization returns the existing job instead of starting and billing a duplicate.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DispatchId { get; set; }
+#nullable restore
+#else
+        public string DispatchId { get; set; }
+#endif
         /// <summary>If true, return confidence scores for each requested output field.</summary>
         public bool? FieldConfidence { get; set; }
         /// <summary>For xhigh, include workspace files alongside structured output (default: true). Set false to omit them. Saved images are attachment pointers; retrieve their bytes through the investigation&apos;s /v1/atlas file API. Ignored by other tiers.</summary>
@@ -77,6 +85,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "dispatch_id", n => { DispatchId = n.GetStringValue(); } },
                 { "field_confidence", n => { FieldConfidence = n.GetBoolValue(); } },
                 { "include_workspace", n => { IncludeWorkspace = n.GetBoolValue(); } },
                 { "lead_info", n => { LeadInfo = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoLeadInfoProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoLeadInfoProperty.CreateFromDiscriminatorValue); } },
@@ -93,6 +102,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("dispatch_id", DispatchId);
             writer.WriteBoolValue("field_confidence", FieldConfidence);
             writer.WriteBoolValue("include_workspace", IncludeWorkspace);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoLeadInfoProperty>("lead_info", LeadInfo);

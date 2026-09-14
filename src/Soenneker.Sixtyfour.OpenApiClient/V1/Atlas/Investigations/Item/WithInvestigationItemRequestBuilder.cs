@@ -6,8 +6,11 @@ using Microsoft.Kiota.Abstractions;
 using Soenneker.Sixtyfour.OpenApiClient.Models;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Events;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.ExportZip;
+using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.FileEntries;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Files;
+using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Findings;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Graph;
+using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Links;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Report;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.ReportPdf;
 using System.Collections.Generic;
@@ -33,15 +36,30 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.ExportZip.ExportZipRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The fileEntries property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.FileEntries.FileEntriesRequestBuilder FileEntries
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.FileEntries.FileEntriesRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The files property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Files.FilesRequestBuilder Files
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Files.FilesRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The findings property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Findings.FindingsRequestBuilder Findings
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Findings.FindingsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The graph property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Graph.GraphRequestBuilder Graph
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Graph.GraphRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The links property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Links.LinksRequestBuilder Links
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Links.LinksRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The report property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Report.ReportRequestBuilder Report

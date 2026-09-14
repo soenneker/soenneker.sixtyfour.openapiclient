@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Access;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations;
 using System.Collections.Generic;
 using System.IO;
@@ -15,6 +16,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AtlasRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The access property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Access.AccessRequestBuilder Access
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Access.AccessRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The investigations property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.InvestigationsRequestBuilder Investigations
         {
