@@ -7820,204 +7820,6 @@
         }
       }
     },
-    "/search/generate-title": {
-      "post": {
-        "tags": [
-          "Search"
-        ],
-        "summary": "Generate Search Title Endpoint",
-        "description": "LLM-summarize a parsed_query into a short label for the SearchViewer.\n\nReturns \u0060\u0060{\u0022title\u0022: \u0022...\u0022}\u0060\u0060 matching the legacy WebApp tRPC procedure\nso the existing useSearchTitle consumer\u0027s mutation response shape is\nunchanged.",
-        "operationId": "GenerateSearchTitleEndpointSearchGenerateTitlePost",
-        "parameters": [
-          {
-            "name": "x-api-key",
-            "in": "header",
-            "schema": {
-              "title": "X-Api-Key",
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/GenerateSearchTitleRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenerateSearchTitleEndpointSearchGenerateTitlePost200Response"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Request was rejected by the route\u0027s validation rules.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenerateSearchTitleEndpointSearchGenerateTitlePost400Response"
-                },
-                "example": {
-                  "detail": "Invalid request body"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Missing or invalid API key.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenerateSearchTitleEndpointSearchGenerateTitlePost401Response"
-                },
-                "example": {
-                  "detail": "Invalid API key"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forwarded user_id does not belong to caller\u0027s organization.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenerateSearchTitleEndpointSearchGenerateTitlePost403Response"
-                },
-                "example": {
-                  "detail": "Forwarded user_id does not belong to your organization."
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Request body failed validation.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HttpValidationError"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Unexpected server error. Retry with backoff.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenerateSearchTitleEndpointSearchGenerateTitlePost500Response"
-                },
-                "example": {
-                  "detail": "Internal server error"
-                }
-              }
-            }
-          },
-          "402": {
-            "description": "Insufficient credits or no active subscription for this organization.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenerateSearchTitleEndpointSearchGenerateTitlePost402Response"
-                },
-                "example": {
-                  "detail": "Insufficient API credits"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Rate limit exceeded.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenerateSearchTitleEndpointSearchGenerateTitlePost429Response"
-                },
-                "example": {
-                  "detail": "Rate limit exceeded"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Search task or export file not found.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenerateSearchTitleEndpointSearchGenerateTitlePost404Response"
-                },
-                "example": {
-                  "detail": "Search not found or has no parsed_query."
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Export workflow already running for this search.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenerateSearchTitleEndpointSearchGenerateTitlePost409Response"
-                },
-                "example": {
-                  "detail": "Export workflow is already running for this search."
-                }
-              }
-            }
-          },
-          "502": {
-            "description": "Upstream search backend returned an error.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenerateSearchTitleEndpointSearchGenerateTitlePost502Response"
-                },
-                "example": {
-                  "detail": "NL upstream transport error: connection reset by peer"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Search backend is not configured or unavailable.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenerateSearchTitleEndpointSearchGenerateTitlePost503Response"
-                },
-                "example": {
-                  "detail": "Company search backend endpoint is not configured"
-                }
-              }
-            }
-          },
-          "504": {
-            "description": "Upstream search backend timed out.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenerateSearchTitleEndpointSearchGenerateTitlePost504Response"
-                },
-                "example": {
-                  "detail": "Field values request timed out"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/search/history": {
       "get": {
         "tags": [
@@ -10201,7 +10003,7 @@
           "Workflow Schedules"
         ],
         "summary": "Create Schedule",
-        "description": "Create a schedule and register its Temporal Schedule. Bound to the caller.\n\nThe schedule lives in its WORKFLOW\u0027s team (runs bill \u002B attribute\nthere), so cross-team creation is blocked for non-admin members \u2014\n404 to mask existence, matching the workflow list\u0027s partitioning.",
+        "description": "Create a schedule and register its Temporal Schedule. Bound to the caller.\n\nThe schedule lives in its WORKFLOW\u0027s team (runs bill \u002B attribute\nthere), so cross-team creation is blocked for every caller \u2014\n404 to mask existence, matching the workflow list\u0027s partitioning.",
         "operationId": "CreateScheduleEndpointSchedulesPost",
         "parameters": [
           {
@@ -10306,7 +10108,7 @@
           "Workflow Schedules"
         ],
         "summary": "List Schedules",
-        "description": "List schedules \u2014 the caller\u0027s active team for members; the whole\norg for org admins and org-scoped credentials (optionally one workflow).",
+        "description": "List schedules in the caller\u0027s active team, optionally for one workflow.",
         "operationId": "ListSchedulesEndpointSchedulesGet",
         "parameters": [
           {
@@ -14020,6 +13822,34 @@
               "null",
               "string"
             ]
+          },
+          "resource": {
+            "title": "Resource",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "subject_token": {
+            "title": "Subject Token",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "subject_token_type": {
+            "title": "Subject Token Type",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "requested_token_type": {
+            "title": "Requested Token Type",
+            "type": [
+              "null",
+              "string"
+            ]
           }
         }
       },
@@ -14516,13 +14346,6 @@
               "string"
             ]
           },
-          "workspace_id": {
-            "title": "Workspace Id",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
           "page_context": {
             "$ref": "#/components/schemas/ChatRequestPageContext"
           },
@@ -14558,13 +14381,6 @@
             "title": "Session Id",
             "type": "string"
           },
-          "workspace_id": {
-            "title": "Workspace Id",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
           "messages": {
             "title": "Messages",
             "type": "array",
@@ -14583,6 +14399,13 @@
             "items": {
               "$ref": "#/components/schemas/ChatSessionMessagesResponseGenerationPartsItemProperty"
             }
+          },
+          "generation_index": {
+            "title": "Generation Index",
+            "type": [
+              "null",
+              "integer"
+            ]
           },
           "stream_index": {
             "title": "Stream Index",
@@ -14636,13 +14459,6 @@
           },
           "workflow_id": {
             "title": "Workflow Id",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "workspace_id": {
-            "title": "Workspace Id",
             "type": [
               "null",
               "string"
@@ -14890,13 +14706,6 @@
               "null",
               "string"
             ]
-          },
-          "workspace_id": {
-            "title": "Workspace Id",
-            "type": [
-              "null",
-              "string"
-            ]
           }
         }
       },
@@ -14918,13 +14727,6 @@
           },
           "workflow_id": {
             "title": "Workflow Id",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "workspace_id": {
-            "title": "Workspace Id",
             "type": [
               "null",
               "string"
@@ -15155,7 +14957,33 @@
               "null",
               "boolean"
             ],
-            "description": "For xhigh, include workspace files alongside structured output (default: true). Set false to omit them. Saved images are attachment pointers; retrieve their bytes through the investigation\u0027s /v1/atlas file API. Ignored by other tiers."
+            "description": "For Atlas runs (xhigh, or scout with graph), include workspace files alongside structured output (default: true). Set false to omit them. Saved images are attachment pointers; retrieve their bytes through the investigation\u0027s /v1/atlas file API. Ignored by other tiers."
+          },
+          "investigation_id": {
+            "title": "Investigation Id",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "For Atlas runs (xhigh, or scout with graph), continue an existing investigation instead of creating one. The run reuses that investigation\u0027s graph and workspace, so a follow-up builds on the earlier research rather than starting over. Ignored by other tiers."
+          },
+          "investigation_name": {
+            "title": "Investigation Name",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "For Atlas runs, the title of a newly created investigation. Ignored when resuming via investigation_id; when unset the title is derived from lead_info."
+          },
+          "budget": {
+            "title": "Budget",
+            "maximum": 10.0,
+            "minimum": 1.0,
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "For Atlas runs, the number of research cycles to run (1-10, default 1). Each cycle starts a fresh agent context on the same investigation, so later cycles build on the graph and workspace the earlier ones produced. Billed as budget \u00D7 the tier price."
           },
           "dispatch_id": {
             "title": "Dispatch Id",
@@ -16138,21 +15966,6 @@
           }
         }
       },
-      "GenerateSearchTitleRequest": {
-        "title": "GenerateSearchTitleRequest",
-        "required": [
-          "parsedQuery"
-        ],
-        "type": "object",
-        "properties": {
-          "parsedQuery": {
-            "$ref": "#/components/schemas/GenerateSearchTitleRequestParsedQueryProperty"
-          },
-          "entityMode": {
-            "$ref": "#/components/schemas/GenerateSearchTitleRequestEntityMode"
-          }
-        }
-      },
       "GetLinkedInRequest": {
         "title": "GetLinkedInRequest",
         "required": [
@@ -16412,7 +16225,7 @@
             "$ref": "#/components/schemas/LeadAsyncJobStartResponseInvestigation"
           }
         },
-        "description": "Async people-intelligence kickoff.\n\nXhigh jobs expose their Atlas workspace immediately. The fields stay\noptional because the same endpoint supports tiers that do not create an\ninvestigation.",
+        "description": "Async people-intelligence kickoff.\n\nAtlas jobs (xHigh or Scout Graph) expose their workspace immediately. The fields stay\noptional because the same endpoint supports tiers that do not create an\ninvestigation.",
         "example": {
           "investigation": {
             "id": "29beab70-42e4-5d19-b3b1-9a28279ca19f",
@@ -16578,35 +16391,6 @@
           }
         }
       },
-      "MountViewerRequest": {
-        "title": "MountViewerRequest",
-        "required": [
-          "kind",
-          "id"
-        ],
-        "type": "object",
-        "properties": {
-          "kind": {
-            "$ref": "#/components/schemas/MountViewerRequestKind"
-          },
-          "id": {
-            "title": "Id",
-            "maxLength": 200,
-            "type": "string"
-          },
-          "title": {
-            "title": "Title",
-            "maxLength": 200,
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "state": {
-            "$ref": "#/components/schemas/MountViewerRequestStateProperty"
-          }
-        }
-      },
       "OAuthClientDetail": {
         "title": "OAuthClientDetail",
         "required": [
@@ -16732,18 +16516,6 @@
               "null",
               "string"
             ]
-          }
-        }
-      },
-      "PatchViewerStateRequest": {
-        "title": "PatchViewerStateRequest",
-        "required": [
-          "state"
-        ],
-        "type": "object",
-        "properties": {
-          "state": {
-            "$ref": "#/components/schemas/PatchViewerStateRequestStateProperty"
           }
         }
       },
@@ -17916,20 +17688,6 @@
           }
         }
       },
-      "SetActiveViewerRequest": {
-        "title": "SetActiveViewerRequest",
-        "type": "object",
-        "properties": {
-          "activeViewerKey": {
-            "title": "Activeviewerkey",
-            "maxLength": 500,
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        }
-      },
       "SigningSecretMetaResponse": {
         "title": "SigningSecretMetaResponse",
         "required": [
@@ -18608,39 +18366,6 @@
             "$ref": "#/components/schemas/VerifyAgeRequestSubjectProperty"
           }
         }
-      },
-      "ViewerSpec": {
-        "title": "ViewerSpec",
-        "required": [
-          "kind",
-          "id",
-          "openedAt"
-        ],
-        "type": "object",
-        "properties": {
-          "kind": {
-            "$ref": "#/components/schemas/ViewerSpecKind"
-          },
-          "id": {
-            "title": "Id",
-            "type": "string"
-          },
-          "title": {
-            "title": "Title",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "openedAt": {
-            "title": "Openedat",
-            "type": "integer"
-          },
-          "state": {
-            "$ref": "#/components/schemas/ViewerSpecStateProperty"
-          }
-        },
-        "description": "One open tab inside a workspace."
       },
       "WorkflowCancelResponse": {
         "title": "WorkflowCancelResponse",
@@ -19638,68 +19363,6 @@
           }
         }
       },
-      "WorkspaceResponse": {
-        "title": "WorkspaceResponse",
-        "required": [
-          "id",
-          "is_owner",
-          "org_id",
-          "state",
-          "version",
-          "created_at",
-          "updated_at"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "title": "Id",
-            "type": "string"
-          },
-          "is_owner": {
-            "title": "Is Owner",
-            "type": "boolean"
-          },
-          "org_id": {
-            "title": "Org Id",
-            "type": "string"
-          },
-          "state": {
-            "$ref": "#/components/schemas/WorkspaceState"
-          },
-          "version": {
-            "title": "Version",
-            "type": "integer"
-          },
-          "created_at": {
-            "title": "Created At",
-            "type": "string"
-          },
-          "updated_at": {
-            "title": "Updated At",
-            "type": "string"
-          }
-        }
-      },
-      "WorkspaceState": {
-        "title": "WorkspaceState",
-        "type": "object",
-        "properties": {
-          "viewers": {
-            "title": "Viewers",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ViewerSpec"
-            }
-          },
-          "activeViewerKey": {
-            "title": "Activeviewerkey",
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        }
-      },
       "ValidationError": {
         "title": "ValidationError",
         "required": [
@@ -20000,7 +19663,7 @@
             "format": "uri"
           }
         },
-        "description": "Xhigh only: the Atlas workspace created for this job."
+        "description": "Atlas runs only: the workspace created for this job."
       },
       "LookalikeSearchStatusResponseSeedDiagnostics": {
         "type": "object",
@@ -20423,11 +20086,6 @@
         "title": "Lead",
         "type": "object"
       },
-      "GenerateSearchTitleRequestParsedQuery": {
-        "title": "Parsedquery",
-        "maxProperties": 50,
-        "type": "object"
-      },
       "GraphItemsPageItemsItem": {
         "type": "object"
       },
@@ -20457,17 +20115,6 @@
           "null",
           "object"
         ]
-      },
-      "MountViewerRequestState": {
-        "title": "State",
-        "type": [
-          "null",
-          "object"
-        ]
-      },
-      "PatchViewerStateRequestState": {
-        "title": "State",
-        "type": "object"
       },
       "QaAgentRequestData": {
         "title": "Data",
@@ -20604,13 +20251,6 @@
         "title": "Subject",
         "type": "object",
         "description": "The person to verify. Any identifiers you have (name, company, linkedin, email, location, etc.); more is better."
-      },
-      "ViewerSpecState": {
-        "title": "State",
-        "type": [
-          "null",
-          "object"
-        ]
       },
       "WorkflowResultItemWithDownloadResultsItem": {
         "type": "object"
@@ -23778,101 +23418,6 @@
           }
         }
       },
-      "ResponseGenerateSearchTitleEndpointSearchGenerateTitlePost": {
-        "title": "Response Generate Search Title Endpoint Search Generate Title Post",
-        "type": "object",
-        "additionalProperties": {
-          "type": "string"
-        }
-      },
-      "GenerateSearchTitleEndpointSearchGenerateTitlePost400Response": {
-        "type": "object",
-        "properties": {
-          "detail": {
-            "type": "string"
-          }
-        }
-      },
-      "GenerateSearchTitleEndpointSearchGenerateTitlePost401Response": {
-        "type": "object",
-        "properties": {
-          "detail": {
-            "type": "string"
-          }
-        }
-      },
-      "GenerateSearchTitleEndpointSearchGenerateTitlePost403Response": {
-        "type": "object",
-        "properties": {
-          "detail": {
-            "type": "string"
-          }
-        }
-      },
-      "GenerateSearchTitleEndpointSearchGenerateTitlePost500Response": {
-        "type": "object",
-        "properties": {
-          "detail": {
-            "type": "string"
-          }
-        }
-      },
-      "GenerateSearchTitleEndpointSearchGenerateTitlePost402Response": {
-        "type": "object",
-        "properties": {
-          "detail": {
-            "type": "string"
-          }
-        }
-      },
-      "GenerateSearchTitleEndpointSearchGenerateTitlePost429Response": {
-        "type": "object",
-        "properties": {
-          "detail": {
-            "type": "string"
-          }
-        }
-      },
-      "GenerateSearchTitleEndpointSearchGenerateTitlePost404Response": {
-        "type": "object",
-        "properties": {
-          "detail": {
-            "type": "string"
-          }
-        }
-      },
-      "GenerateSearchTitleEndpointSearchGenerateTitlePost409Response": {
-        "type": "object",
-        "properties": {
-          "detail": {
-            "type": "string"
-          }
-        }
-      },
-      "GenerateSearchTitleEndpointSearchGenerateTitlePost502Response": {
-        "type": "object",
-        "properties": {
-          "detail": {
-            "type": "string"
-          }
-        }
-      },
-      "GenerateSearchTitleEndpointSearchGenerateTitlePost503Response": {
-        "type": "object",
-        "properties": {
-          "detail": {
-            "type": "string"
-          }
-        }
-      },
-      "GenerateSearchTitleEndpointSearchGenerateTitlePost504Response": {
-        "type": "object",
-        "properties": {
-          "detail": {
-            "type": "string"
-          }
-        }
-      },
       "ResponseListSearchHistoryEndpointSearchHistoryGet": {
         "title": "Response List Search History Endpoint Search History Get",
         "type": "object"
@@ -25856,12 +25401,6 @@
           "$ref": "#/components/schemas/BlockInfoResponse"
         }
       },
-      "GenerateSearchTitleEndpointSearchGenerateTitlePost200Response": {
-        "type": "object",
-        "additionalProperties": {
-          "type": "string"
-        }
-      },
       "ListSearchHistoryEndpointSearchHistoryGet200Response": {
         "type": "object"
       },
@@ -26169,9 +25708,6 @@
       "FindPhoneV2RequestLeadProperty": {
         "type": "object"
       },
-      "GenerateSearchTitleRequestParsedQueryProperty": {
-        "type": "object"
-      },
       "GraphItemsPageItemsItemProperty": {
         "type": "object"
       },
@@ -26187,12 +25723,6 @@
         "type": "object"
       },
       "LookalikeSearchStatusResponseAnalysisProperty": {
-        "type": "object"
-      },
-      "MountViewerRequestStateProperty": {
-        "type": "object"
-      },
-      "PatchViewerStateRequestStateProperty": {
         "type": "object"
       },
       "QaAgentRequestDataProperty": {
@@ -26279,9 +25809,6 @@
       "VerifyAgeRequestSubjectProperty": {
         "type": "object",
         "description": "The person to verify. Any identifiers you have (name, company, linkedin, email, location, etc.); more is better."
-      },
-      "ViewerSpecStateProperty": {
-        "type": "object"
       },
       "WorkflowResultItemWithDownloadResultsItemProperty": {
         "type": "object"
@@ -26708,29 +26235,6 @@
           ]
         }
       },
-      "GenerateSearchTitleRequestEntityMode": {
-        "title": "Entitymode",
-        "enum": [
-          "people",
-          "company"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "GenerateSearchTitleRequestEntityMode",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "people",
-              "name": "People"
-            },
-            {
-              "value": "company",
-              "name": "Company"
-            }
-          ]
-        }
-      },
       "EntityIdsType": {
         "const": null,
         "title": "Type",
@@ -26812,34 +26316,6 @@
             {
               "value": "down",
               "name": "Down"
-            }
-          ]
-        }
-      },
-      "MountViewerRequestKind": {
-        "title": "Kind",
-        "enum": [
-          "search",
-          "workflow",
-          "notebook"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "MountViewerRequestKind",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "search",
-              "name": "Search"
-            },
-            {
-              "value": "workflow",
-              "name": "Workflow"
-            },
-            {
-              "value": "notebook",
-              "name": "Notebook"
             }
           ]
         }
@@ -27386,34 +26862,6 @@
             {
               "value": "disabled",
               "name": "Disabled"
-            }
-          ]
-        }
-      },
-      "ViewerSpecKind": {
-        "title": "Kind",
-        "enum": [
-          "search",
-          "workflow",
-          "notebook"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "ViewerSpecKind",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "search",
-              "name": "Search"
-            },
-            {
-              "value": "workflow",
-              "name": "Workflow"
-            },
-            {
-              "value": "notebook",
-              "name": "Notebook"
             }
           ]
         }

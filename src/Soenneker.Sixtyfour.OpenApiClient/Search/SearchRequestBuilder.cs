@@ -9,7 +9,6 @@ using Soenneker.Sixtyfour.OpenApiClient.Search.ExclusionLists;
 using Soenneker.Sixtyfour.OpenApiClient.Search.Export;
 using Soenneker.Sixtyfour.OpenApiClient.Search.FilterCapabilities;
 using Soenneker.Sixtyfour.OpenApiClient.Search.FilterFieldValues;
-using Soenneker.Sixtyfour.OpenApiClient.Search.GenerateTitle;
 using Soenneker.Sixtyfour.OpenApiClient.Search.History;
 using Soenneker.Sixtyfour.OpenApiClient.Search.Limits;
 using Soenneker.Sixtyfour.OpenApiClient.Search.Lookalike;
@@ -63,11 +62,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search
         public global::Soenneker.Sixtyfour.OpenApiClient.Search.FilterFieldValues.FilterFieldValuesRequestBuilder FilterFieldValues
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.Search.FilterFieldValues.FilterFieldValuesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The generateTitle property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Search.GenerateTitle.GenerateTitleRequestBuilder GenerateTitle
-        {
-            get => new global::Soenneker.Sixtyfour.OpenApiClient.Search.GenerateTitle.GenerateTitleRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The history property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Search.History.HistoryRequestBuilder History

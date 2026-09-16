@@ -14,6 +14,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>For Atlas runs, the number of research cycles to run (1-10, default 1). Each cycle starts a fresh agent context on the same investigation, so later cycles build on the graph and workspace the earlier ones produced. Billed as budget × the tier price.</summary>
+        public int? Budget { get; set; }
         /// <summary>Async endpoints only: a client-generated idempotency key for the dispatch. Reusing the same key for the same organization returns the existing job instead of starting and billing a duplicate.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -24,8 +26,24 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #endif
         /// <summary>If true, return confidence scores for each requested output field.</summary>
         public bool? FieldConfidence { get; set; }
-        /// <summary>For xhigh, include workspace files alongside structured output (default: true). Set false to omit them. Saved images are attachment pointers; retrieve their bytes through the investigation&apos;s /v1/atlas file API. Ignored by other tiers.</summary>
+        /// <summary>For Atlas runs (xhigh, or scout with graph), include workspace files alongside structured output (default: true). Set false to omit them. Saved images are attachment pointers; retrieve their bytes through the investigation&apos;s /v1/atlas file API. Ignored by other tiers.</summary>
         public bool? IncludeWorkspace { get; set; }
+        /// <summary>For Atlas runs (xhigh, or scout with graph), continue an existing investigation instead of creating one. The run reuses that investigation&apos;s graph and workspace, so a follow-up builds on the earlier research rather than starting over. Ignored by other tiers.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? InvestigationId { get; set; }
+#nullable restore
+#else
+        public string InvestigationId { get; set; }
+#endif
+        /// <summary>For Atlas runs, the title of a newly created investigation. Ignored when resuming via investigation_id; when unset the title is derived from lead_info.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? InvestigationName { get; set; }
+#nullable restore
+#else
+        public string InvestigationName { get; set; }
+#endif
         /// <summary>Single lead to process. Provide any combination of name, email, company, linkedin, etc.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -85,9 +103,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "budget", n => { Budget = n.GetIntValue(); } },
                 { "dispatch_id", n => { DispatchId = n.GetStringValue(); } },
                 { "field_confidence", n => { FieldConfidence = n.GetBoolValue(); } },
                 { "include_workspace", n => { IncludeWorkspace = n.GetBoolValue(); } },
+                { "investigation_id", n => { InvestigationId = n.GetStringValue(); } },
+                { "investigation_name", n => { InvestigationName = n.GetStringValue(); } },
                 { "lead_info", n => { LeadInfo = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoLeadInfoProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoLeadInfoProperty.CreateFromDiscriminatorValue); } },
                 { "research_plan", n => { ResearchPlan = n.GetStringValue(); } },
                 { "struct", n => { Struct = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty.CreateFromDiscriminatorValue); } },
@@ -102,9 +123,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteIntValue("budget", Budget);
             writer.WriteStringValue("dispatch_id", DispatchId);
             writer.WriteBoolValue("field_confidence", FieldConfidence);
             writer.WriteBoolValue("include_workspace", IncludeWorkspace);
+            writer.WriteStringValue("investigation_id", InvestigationId);
+            writer.WriteStringValue("investigation_name", InvestigationName);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoLeadInfoProperty>("lead_info", LeadInfo);
             writer.WriteStringValue("research_plan", ResearchPlan);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty>("struct", Struct);

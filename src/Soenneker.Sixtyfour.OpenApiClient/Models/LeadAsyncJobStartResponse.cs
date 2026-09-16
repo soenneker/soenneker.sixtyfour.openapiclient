@@ -8,14 +8,14 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// Async people-intelligence kickoff.Xhigh jobs expose their Atlas workspace immediately. The fields stayoptional because the same endpoint supports tiers that do not create aninvestigation.
+    /// Async people-intelligence kickoff.Atlas jobs (xHigh or Scout Graph) expose their workspace immediately. The fields stayoptional because the same endpoint supports tiers that do not create aninvestigation.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LeadAsyncJobStartResponse : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Xhigh only: the Atlas workspace created for this job.</summary>
+        /// <summary>Atlas runs only: the workspace created for this job.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationReference? Investigation { get; set; }
