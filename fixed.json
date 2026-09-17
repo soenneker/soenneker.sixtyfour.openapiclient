@@ -2685,7 +2685,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AsyncJobStartResponse"
+                  "$ref": "#/components/schemas/CompanyAsyncJobStartResponse"
                 }
               }
             }
@@ -5243,7 +5243,7 @@
           "Workflow"
         ],
         "summary": "List Workflows",
-        "description": "List all workflows in the organization. Returns lightweight metadata without block definitions; use \u0060GET /workflows/{workflow_id}\u0060 for the full definition.",
+        "description": "List the workflows in the organization the caller can access. Returns lightweight metadata without block definitions; use \u0060GET /workflows/{workflow_id}\u0060 for the full definition.",
         "operationId": "ListWorkflowsWorkflowsGet",
         "parameters": [
           {
@@ -14497,6 +14497,40 @@
           }
         }
       },
+      "CompanyAsyncJobStartResponse": {
+        "title": "CompanyAsyncJobStartResponse",
+        "required": [
+          "task_id",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "task_id": {
+            "title": "Task Id",
+            "type": "string",
+            "description": "Async job ID. Poll GET /job-status/{task_id} for status and results."
+          },
+          "status": {
+            "$ref": "#/components/schemas/RunningStatus"
+          },
+          "unrecognized_fields": {
+            "title": "Unrecognized Fields",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "Request fields we do not recognize and therefore ignored, so an instruction that silently did nothing is visible rather than assumed to have applied. Absent when every field was understood."
+          }
+        },
+        "description": "Async company-intelligence kickoff.",
+        "example": {
+          "status": "RUNNING",
+          "task_id": "job_123"
+        }
+      },
       "ConfirmLinkRequest": {
         "title": "ConfirmLinkRequest",
         "required": [
@@ -16223,6 +16257,17 @@
           },
           "investigation": {
             "$ref": "#/components/schemas/LeadAsyncJobStartResponseInvestigation"
+          },
+          "unrecognized_fields": {
+            "title": "Unrecognized Fields",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "Request fields we do not recognize and therefore ignored, so an instruction that silently did nothing is visible rather than assumed to have applied. Absent when every field was understood."
           }
         },
         "description": "Async people-intelligence kickoff.\n\nAtlas jobs (xHigh or Scout Graph) expose their workspace immediately. The fields stay\noptional because the same endpoint supports tiers that do not create an\ninvestigation.",

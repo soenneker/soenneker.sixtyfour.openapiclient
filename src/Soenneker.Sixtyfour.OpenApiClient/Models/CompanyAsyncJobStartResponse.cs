@@ -8,21 +8,13 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// Async people-intelligence kickoff.Atlas jobs (xHigh or Scout Graph) expose their workspace immediately. The fields stayoptional because the same endpoint supports tiers that do not create aninvestigation.
+    /// Async company-intelligence kickoff.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class LeadAsyncJobStartResponse : IAdditionalDataHolder, IParsable
+    public partial class CompanyAsyncJobStartResponse : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Atlas runs only: the workspace created for this job.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationReference? Investigation { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationReference Investigation { get; set; }
-#endif
         /// <summary>Initial job status.</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.RunningStatus? Status { get; set; }
         /// <summary>Async job ID. Poll GET /job-status/{task_id} for status and results.</summary>
@@ -42,21 +34,21 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public List<string> UnrecognizedFields { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.LeadAsyncJobStartResponse"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CompanyAsyncJobStartResponse"/> and sets the default values.
         /// </summary>
-        public LeadAsyncJobStartResponse()
+        public CompanyAsyncJobStartResponse()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.LeadAsyncJobStartResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CompanyAsyncJobStartResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Sixtyfour.OpenApiClient.Models.LeadAsyncJobStartResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Sixtyfour.OpenApiClient.Models.CompanyAsyncJobStartResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.LeadAsyncJobStartResponse();
+            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.CompanyAsyncJobStartResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -66,7 +58,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "investigation", n => { Investigation = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationReference>(global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationReference.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunningStatus>(); } },
                 { "task_id", n => { TaskId = n.GetStringValue(); } },
                 { "unrecognized_fields", n => { UnrecognizedFields = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -79,7 +70,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationReference>("investigation", Investigation);
             writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunningStatus>("status", Status);
             writer.WriteStringValue("task_id", TaskId);
             writer.WriteCollectionOfPrimitiveValues<string>("unrecognized_fields", UnrecognizedFields);
