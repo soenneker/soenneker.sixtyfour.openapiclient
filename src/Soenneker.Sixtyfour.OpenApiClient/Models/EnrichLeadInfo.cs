@@ -26,7 +26,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #endif
         /// <summary>If true, return confidence scores for each requested output field.</summary>
         public bool? FieldConfidence { get; set; }
-        /// <summary>For Atlas runs (xhigh, or scout with graph), include workspace files alongside structured output (default: true). Set false to omit them. Saved images are attachment pointers; retrieve their bytes through the investigation&apos;s /v1/atlas file API. Ignored by other tiers.</summary>
+        /// <summary>For Atlas runs (xhigh, or scout with graph), include workspace files alongside structured output (default: true). Set false to omit them. Saved images appear as attachment records; requested image fields carry their permanent /v1/media URL, and the investigation&apos;s /v1/atlas file API serves any attachment. Ignored by other tiers.</summary>
         public bool? IncludeWorkspace { get; set; }
         /// <summary>For Atlas runs (xhigh, or scout with graph), continue an existing investigation instead of creating one. The run reuses that investigation&apos;s graph and workspace, so a follow-up builds on the earlier research rather than starting over. Ignored by other tiers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -60,7 +60,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string ResearchPlan { get; set; }
 #endif
-        /// <summary>Mapping of output field name to natural-language description of what to extract.</summary>
+        /// <summary>Mapping of output field name to natural-language description of what to extract. A field that asks for an image (a headshot, a logo, a screenshot of a page) is returned as a permanent image URL on api.sixtyfour.ai/v1/media, hosted by Sixtyfour; embed it directly.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty? Struct { get; set; }

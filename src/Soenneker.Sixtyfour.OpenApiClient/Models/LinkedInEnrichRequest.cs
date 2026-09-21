@@ -22,7 +22,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string LinkedinUrl { get; set; }
 #endif
-        /// <summary>Mapping of output field name to natural-language description of what to extract.</summary>
+        /// <summary>Mapping of output field name to natural-language description of what to extract. A field that asks for an image (a headshot, a logo, a screenshot of a page) is returned as a permanent image URL on api.sixtyfour.ai/v1/media, hosted by Sixtyfour; embed it directly.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.LinkedInEnrichRequestStructProperty? Struct { get; set; }

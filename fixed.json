@@ -12596,6 +12596,113 @@
         }
       }
     },
+    "/v1/media/{token}": {
+      "get": {
+        "tags": [
+          "Media"
+        ],
+        "summary": "Fetch an image or PDF returned by an enrichment",
+        "description": "Serve one image or PDF referenced by an enrichment result.\n\nPermanent and unguessable; embed or link directly. Organizations with\ncustomer-managed encryption must send their API key.",
+        "operationId": "GetMediaV1MediaTokenGet",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "description": "The opaque token from a media URL in an enrichment result.",
+            "required": true,
+            "schema": {
+              "title": "Token",
+              "type": "string",
+              "description": "The opaque token from a media URL in an enrichment result."
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The image or PDF bytes.",
+            "content": {
+              "image/*": {
+                "schema": {
+                  "type": "object",
+                  "description": "Fallback media schema"
+                }
+              },
+              "application/pdf": {
+                "schema": {
+                  "type": "object",
+                  "description": "Fallback media schema"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetMediaV1MediaTokenGet400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The organization uses customer-managed encryption; send your API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetMediaV1MediaTokenGet401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetMediaV1MediaTokenGet403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetMediaV1MediaTokenGet500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Unknown, tampered or deleted media."
+          }
+        }
+      }
+    },
     "/verify-age": {
       "post": {
         "tags": [
@@ -13879,7 +13986,7 @@
                 "struct": {
                   "title": "Struct",
                   "type": "object",
-                  "description": "Mapping of output field name to natural-language description of what to extract."
+                  "description": "Mapping of output field name to natural-language description of what to extract. A field that asks for an image (a headshot, a logo, a screenshot of a page) is returned as a permanent image URL on api.sixtyfour.ai/v1/media, hosted by Sixtyfour; embed it directly."
                 },
                 "find_people": {
                   "title": "Find People",
@@ -14080,7 +14187,7 @@
                       "type": "null"
                     }
                   ],
-                  "description": "Mapping of output field name to natural-language description of what to extract.",
+                  "description": "Mapping of output field name to natural-language description of what to extract. A field that asks for an image (a headshot, a logo, a screenshot of a page) is returned as a permanent image URL on api.sixtyfour.ai/v1/media, hosted by Sixtyfour; embed it directly.",
                   "default": null
                 },
                 "research_plan": {
@@ -14991,7 +15098,7 @@
               "null",
               "boolean"
             ],
-            "description": "For Atlas runs (xhigh, or scout with graph), include workspace files alongside structured output (default: true). Set false to omit them. Saved images are attachment pointers; retrieve their bytes through the investigation\u0027s /v1/atlas file API. Ignored by other tiers."
+            "description": "For Atlas runs (xhigh, or scout with graph), include workspace files alongside structured output (default: true). Set false to omit them. Saved images appear as attachment records; requested image fields carry their permanent /v1/media URL, and the investigation\u0027s /v1/atlas file API serves any attachment. Ignored by other tiers."
           },
           "investigation_id": {
             "title": "Investigation Id",
@@ -15667,6 +15774,52 @@
           },
           "company_filter_truncated": {
             "$ref": "#/components/schemas/FilterSearchResponseCompanyFilterTruncatedProperty"
+          },
+          "engine": {
+            "$ref": "#/components/schemas/FilterSearchResponseEngine"
+          },
+          "plan": {
+            "title": "Plan",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Retrieval plan the engine ran: exact, structured, filtered_semantic, semantic or lookalike. ClickHouse only."
+          },
+          "cohort_size": {
+            "title": "Cohort Size",
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Exact number of rows the filters matched before ranking. ClickHouse only."
+          },
+          "ranking_policy": {
+            "title": "Ranking Policy",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Version of the ranking policy the page was ranked with. ClickHouse only."
+          },
+          "ranking_strategy": {
+            "title": "Ranking Strategy",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Execution strategy the ranked plan chose from the scan estimate and cohort size: range_exact, range_two_stage, vectors_in or vectors_open. ClickHouse ranked plans only."
+          },
+          "unmet_constraints": {
+            "title": "Unmet Constraints",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "Parsed-query fields the engine had no column for and did not apply. ClickHouse only."
           }
         },
         "description": "Response for a completed filter search."
@@ -19848,7 +20001,7 @@
         "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/WebhookPayload"
+            "$ref": "#/components/schemas/WebhookPayloadWrapper"
           },
           {
             "type": "object"
@@ -19861,7 +20014,7 @@
           "value": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/WebhookPayloadValueItem"
+              "$ref": "#/components/schemas/WebhookPayloadWrapperValueItem"
             }
           }
         }
@@ -20034,7 +20187,7 @@
       "EnrichCompanyInfoStruct": {
         "title": "Struct",
         "type": "object",
-        "description": "Mapping of output field name to natural-language description of what to extract."
+        "description": "Mapping of output field name to natural-language description of what to extract. A field that asks for an image (a headshot, a logo, a screenshot of a page) is returned as a permanent image URL on api.sixtyfour.ai/v1/media, hosted by Sixtyfour; embed it directly."
       },
       "EnrichCompanyInfoLeadStruct": {
         "title": "Lead Struct",
@@ -20055,7 +20208,7 @@
           "null",
           "object"
         ],
-        "description": "Mapping of output field name to natural-language description of what to extract."
+        "description": "Mapping of output field name to natural-language description of what to extract. A field that asks for an image (a headshot, a logo, a screenshot of a page) is returned as a permanent image URL on api.sixtyfour.ai/v1/media, hosted by Sixtyfour; embed it directly."
       },
       "EnrichLeadInfoLeadInfo": {
         "title": "Lead Info",
@@ -20152,7 +20305,7 @@
           "null",
           "object"
         ],
-        "description": "Mapping of output field name to natural-language description of what to extract."
+        "description": "Mapping of output field name to natural-language description of what to extract. A field that asks for an image (a headshot, a logo, a screenshot of a page) is returned as a permanent image URL on api.sixtyfour.ai/v1/media, hosted by Sixtyfour; embed it directly."
       },
       "LookalikeSearchStatusResponseFilters": {
         "title": "Filters",
@@ -25127,6 +25280,38 @@
           }
         }
       },
+      "GetMediaV1MediaTokenGet400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetMediaV1MediaTokenGet401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetMediaV1MediaTokenGet403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetMediaV1MediaTokenGet500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
       "VerifyAgeVerifyAgePost400Response": {
         "type": "object",
         "properties": {
@@ -25336,6 +25521,20 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/WebhookPayloadValueItem"
+            }
+          }
+        }
+      },
+      "WebhookPayloadWrapper": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebhookPayloadWrapperValueItem"
             }
           }
         }
@@ -25690,7 +25889,7 @@
       },
       "EnrichCompanyInfoStructProperty": {
         "type": "object",
-        "description": "Mapping of output field name to natural-language description of what to extract."
+        "description": "Mapping of output field name to natural-language description of what to extract. A field that asks for an image (a headshot, a logo, a screenshot of a page) is returned as a permanent image URL on api.sixtyfour.ai/v1/media, hosted by Sixtyfour; embed it directly."
       },
       "EnrichCompanyInfoLeadStructProperty": {
         "type": "object",
@@ -25702,7 +25901,7 @@
       },
       "EnrichLeadInfoStructProperty": {
         "type": "object",
-        "description": "Mapping of output field name to natural-language description of what to extract."
+        "description": "Mapping of output field name to natural-language description of what to extract. A field that asks for an image (a headshot, a logo, a screenshot of a page) is returned as a permanent image URL on api.sixtyfour.ai/v1/media, hosted by Sixtyfour; embed it directly."
       },
       "EnrichLeadInfoLeadInfoProperty": {
         "type": "object",
@@ -25769,7 +25968,7 @@
       },
       "LinkedInEnrichRequestStructProperty": {
         "type": "object",
-        "description": "Mapping of output field name to natural-language description of what to extract."
+        "description": "Mapping of output field name to natural-language description of what to extract. A field that asks for an image (a headshot, a logo, a screenshot of a page) is returned as a permanent image URL on api.sixtyfour.ai/v1/media, hosted by Sixtyfour; embed it directly."
       },
       "LookalikeSearchStatusResponseFiltersProperty": {
         "type": "object"
@@ -25939,6 +26138,9 @@
         }
       },
       "WebhookPayloadValueItem": {
+        "type": "object"
+      },
+      "WebhookPayloadWrapperValueItem": {
         "type": "object"
       },
       "WorkflowDefinitionValueItem": {
@@ -26189,6 +26391,33 @@
             {
               "value": "workflow",
               "name": "Workflow"
+            }
+          ]
+        }
+      },
+      "FilterSearchResponseEngine": {
+        "title": "Engine",
+        "enum": [
+          "opensearch",
+          "clickhouse"
+        ],
+        "type": [
+          "null",
+          "string"
+        ],
+        "additionalProperties": false,
+        "description": "Search engine that served this page. Absent on legacy responses.",
+        "x-ms-enum": {
+          "name": "FilterSearchResponseEngine",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "opensearch",
+              "name": "Opensearch"
+            },
+            {
+              "value": "clickhouse",
+              "name": "Clickhouse"
             }
           ]
         }

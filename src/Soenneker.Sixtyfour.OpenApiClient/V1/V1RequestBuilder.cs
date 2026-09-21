@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas;
+using Soenneker.Sixtyfour.OpenApiClient.V1.Media;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -19,6 +20,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1
         public global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.AtlasRequestBuilder Atlas
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.AtlasRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The media property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.Media.MediaRequestBuilder Media
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Media.MediaRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.V1.V1RequestBuilder"/> and sets the default values.

@@ -17,6 +17,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Credits charged for this page: 0.1 credit per result returned for billed callers, 0 when this call was not billed.</summary>
         public double? ChargeCredits { get; set; }
+        /// <summary>Exact number of rows the filters matched before ranking. ClickHouse only.</summary>
+        public int? CohortSize { get; set; }
         /// <summary>Present when company filters matched more companies than the resolver expansion cap. &quot;total_matched&quot;: positive filters truncated — results cover people at the largest matching employers only. &quot;excluded_total_matched&quot;: a not-filter truncated — only the largest matching employers are excluded, so people at smaller excluded companies may still appear.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -37,6 +39,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public int? CursorExpiresInSeconds { get; set; }
         /// <summary>Seconds until the download URLs expire.</summary>
         public int? DownloadExpiresInSeconds { get; set; }
+        /// <summary>Search engine that served this page. Absent on legacy responses.</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseEngine? Engine { get; set; }
         /// <summary>Legacy export count; always 0 for company direct-filter mode.</summary>
         public int? ExportedCount { get; set; }
         /// <summary>True when another page is available via `next_cursor`. Always continue via the cursor; a short or empty page does NOT mean the results are exhausted.</summary>
@@ -85,6 +89,30 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseParsedQueryProperty ParsedQuery { get; set; }
 #endif
+        /// <summary>Retrieval plan the engine ran: exact, structured, filtered_semantic, semantic or lookalike. ClickHouse only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Plan { get; set; }
+#nullable restore
+#else
+        public string Plan { get; set; }
+#endif
+        /// <summary>Version of the ranking policy the page was ranked with. ClickHouse only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RankingPolicy { get; set; }
+#nullable restore
+#else
+        public string RankingPolicy { get; set; }
+#endif
+        /// <summary>Execution strategy the ranked plan chose from the scan estimate and cohort size: range_exact, range_two_stage, vectors_in or vectors_open. ClickHouse ranked plans only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RankingStrategy { get; set; }
+#nullable restore
+#else
+        public string RankingStrategy { get; set; }
+#endif
         /// <summary>Rows still available under max_results after this page.</summary>
         public int? RemainingResults { get; set; }
         /// <summary>Server-side request duration in milliseconds.</summary>
@@ -121,6 +149,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public int? TotalPages { get; set; }
         /// <summary>Rows returned so far (cumulative for company pagination).</summary>
         public int? TotalResults { get; set; }
+        /// <summary>Parsed-query fields the engine had no column for and did not apply. ClickHouse only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? UnmetConstraints { get; set; }
+#nullable restore
+#else
+        public List<string> UnmetConstraints { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse"/> and sets the default values.
         /// </summary>
@@ -149,10 +185,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "charge_credits", n => { ChargeCredits = n.GetDoubleValue(); } },
+                { "cohort_size", n => { CohortSize = n.GetIntValue(); } },
                 { "company_filter_truncated", n => { CompanyFilterTruncated = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseCompanyFilterTruncatedProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseCompanyFilterTruncatedProperty.CreateFromDiscriminatorValue); } },
                 { "csv_download_url", n => { CsvDownloadUrl = n.GetStringValue(); } },
                 { "cursor_expires_in_seconds", n => { CursorExpiresInSeconds = n.GetIntValue(); } },
                 { "download_expires_in_seconds", n => { DownloadExpiresInSeconds = n.GetIntValue(); } },
+                { "engine", n => { Engine = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseEngine>(); } },
                 { "exported_count", n => { ExportedCount = n.GetIntValue(); } },
                 { "has_more", n => { HasMore = n.GetBoolValue(); } },
                 { "json_download_url", n => { JsonDownloadUrl = n.GetStringValue(); } },
@@ -165,6 +203,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "page_number", n => { PageNumber = n.GetIntValue(); } },
                 { "page_size", n => { PageSize = n.GetIntValue(); } },
                 { "parsed_query", n => { ParsedQuery = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseParsedQueryProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseParsedQueryProperty.CreateFromDiscriminatorValue); } },
+                { "plan", n => { Plan = n.GetStringValue(); } },
+                { "ranking_policy", n => { RankingPolicy = n.GetStringValue(); } },
+                { "ranking_strategy", n => { RankingStrategy = n.GetStringValue(); } },
                 { "remaining_results", n => { RemainingResults = n.GetIntValue(); } },
                 { "request_duration_ms", n => { RequestDurationMs = n.GetIntValue(); } },
                 { "resource_handle_id", n => { ResourceHandleId = n.GetStringValue(); } },
@@ -174,6 +215,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "total_available_lower_bound", n => { TotalAvailableLowerBound = n.GetIntValue(); } },
                 { "total_pages", n => { TotalPages = n.GetIntValue(); } },
                 { "total_results", n => { TotalResults = n.GetIntValue(); } },
+                { "unmet_constraints", n => { UnmetConstraints = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -184,10 +226,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("charge_credits", ChargeCredits);
+            writer.WriteIntValue("cohort_size", CohortSize);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseCompanyFilterTruncatedProperty>("company_filter_truncated", CompanyFilterTruncated);
             writer.WriteStringValue("csv_download_url", CsvDownloadUrl);
             writer.WriteIntValue("cursor_expires_in_seconds", CursorExpiresInSeconds);
             writer.WriteIntValue("download_expires_in_seconds", DownloadExpiresInSeconds);
+            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseEngine>("engine", Engine);
             writer.WriteIntValue("exported_count", ExportedCount);
             writer.WriteBoolValue("has_more", HasMore);
             writer.WriteStringValue("json_download_url", JsonDownloadUrl);
@@ -200,6 +244,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteIntValue("page_number", PageNumber);
             writer.WriteIntValue("page_size", PageSize);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseParsedQueryProperty>("parsed_query", ParsedQuery);
+            writer.WriteStringValue("plan", Plan);
+            writer.WriteStringValue("ranking_policy", RankingPolicy);
+            writer.WriteStringValue("ranking_strategy", RankingStrategy);
             writer.WriteIntValue("remaining_results", RemainingResults);
             writer.WriteIntValue("request_duration_ms", RequestDurationMs);
             writer.WriteStringValue("resource_handle_id", ResourceHandleId);
@@ -209,6 +256,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteIntValue("total_available_lower_bound", TotalAvailableLowerBound);
             writer.WriteIntValue("total_pages", TotalPages);
             writer.WriteIntValue("total_results", TotalResults);
+            writer.WriteCollectionOfPrimitiveValues<string>("unmet_constraints", UnmetConstraints);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
