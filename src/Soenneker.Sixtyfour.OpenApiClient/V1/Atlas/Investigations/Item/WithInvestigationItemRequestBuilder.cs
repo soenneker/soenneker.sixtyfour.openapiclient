@@ -13,6 +13,7 @@ using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Graph;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Links;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Report;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.ReportPdf;
+using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Runs;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -70,6 +71,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item
         public global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.ReportPdf.ReportPdfRequestBuilder ReportPdf
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.ReportPdf.ReportPdfRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The runs property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Runs.RunsRequestBuilder Runs
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Runs.RunsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.WithInvestigationItemRequestBuilder"/> and sets the default values.

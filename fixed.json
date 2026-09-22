@@ -11020,6 +11020,137 @@
       }
     },
     "/v1/atlas/investigations": {
+      "post": {
+        "tags": [
+          "Atlas"
+        ],
+        "summary": "Start an investigation",
+        "description": "Research a subject into a new Atlas investigation.\n\nThe investigation is created and returned immediately, so its workspace and\ngraph can be read while the run is still going. It is stamped with the\ncalling credential\u0027s team, which is what decides who else can see it.",
+        "operationId": "StartInvestigationV1AtlasInvestigationsPost",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StartInvestigationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RunStarted"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StartInvestigationV1AtlasInvestigationsPost400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StartInvestigationV1AtlasInvestigationsPost401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StartInvestigationV1AtlasInvestigationsPost403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StartInvestigationV1AtlasInvestigationsPost500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Insufficient credits or no active subscription for this organization.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StartInvestigationV1AtlasInvestigationsPost402Response"
+                },
+                "example": {
+                  "detail": "Insufficient API credits"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StartInvestigationV1AtlasInvestigationsPost429Response"
+                },
+                "example": {
+                  "detail": "Rate limit exceeded"
+                }
+              }
+            }
+          }
+        }
+      },
       "get": {
         "tags": [
           "Atlas"
@@ -11172,6 +11303,153 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/v1/atlas/investigations/{investigationId}/runs": {
+      "post": {
+        "tags": [
+          "Atlas"
+        ],
+        "summary": "Continue an investigation",
+        "description": "Run again into an investigation you already have.\n\nThe run reuses that investigation\u0027s graph and workspace, so a follow-up\nbuilds on the earlier research instead of starting over. Resolved through\nthe same scope as every other by-id route, so an investigation the caller\nmay not see answers 404.",
+        "operationId": "ContinueInvestigationV1AtlasInvestigationsInvestigationIdRunsPost",
+        "parameters": [
+          {
+            "name": "investigationId",
+            "in": "path",
+            "description": "Investigation id, as returned by list or by an xhigh enrichment.",
+            "required": true,
+            "schema": {
+              "title": "Investigation Id",
+              "type": "string",
+              "description": "Investigation id, as returned by list or by an xhigh enrichment."
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RunOptions"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RunStarted"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContinueInvestigationV1AtlasInvestigationsInvestigationIdRunsPost400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContinueInvestigationV1AtlasInvestigationsInvestigationIdRunsPost401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContinueInvestigationV1AtlasInvestigationsInvestigationIdRunsPost403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContinueInvestigationV1AtlasInvestigationsInvestigationIdRunsPost500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Insufficient credits or no active subscription for this organization.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContinueInvestigationV1AtlasInvestigationsInvestigationIdRunsPost402Response"
+                },
+                "example": {
+                  "detail": "Insufficient API credits"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContinueInvestigationV1AtlasInvestigationsInvestigationIdRunsPost429Response"
+                },
+                "example": {
+                  "detail": "Rate limit exceeded"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No such investigation, or not one this caller may see."
           }
         }
       }
@@ -17145,6 +17423,71 @@
           }
         }
       },
+      "RunOptions": {
+        "title": "RunOptions",
+        "type": "object",
+        "properties": {
+          "engine": {
+            "$ref": "#/components/schemas/RunOptionsEngine"
+          },
+          "research_plan": {
+            "title": "Research Plan",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Direction for this run. On a continue, what to look into next."
+          },
+          "struct": {
+            "$ref": "#/components/schemas/RunOptionsStructProperty"
+          },
+          "budget": {
+            "title": "Budget",
+            "maximum": 10.0,
+            "minimum": 1.0,
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Research cycles to allocate. Billed as budget x the engine price."
+          },
+          "dispatch_id": {
+            "title": "Dispatch Id",
+            "maxLength": 128,
+            "minLength": 8,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Client-generated idempotency key. Reusing the same key for the same organization returns the existing run instead of starting and billing a duplicate, so a lost response is safe to retry."
+          }
+        },
+        "description": "What a start or a continue may vary. Everything else about a run (the\norg it bills, the team it is stamped with, the identity that started it)\ncomes from the credential, never the body."
+      },
+      "RunStarted": {
+        "title": "RunStarted",
+        "required": [
+          "task_id",
+          "status",
+          "investigation"
+        ],
+        "type": "object",
+        "properties": {
+          "task_id": {
+            "title": "Task Id",
+            "type": "string",
+            "description": "Poll with \u0060GET /job-status/{job_id}\u0060."
+          },
+          "status": {
+            "title": "Status",
+            "type": "string"
+          },
+          "investigation": {
+            "description": "The investigation this run writes into. Readable through the routes below while the run is still going.",
+            "$ref": "#/components/schemas/InvestigationReference"
+          }
+        }
+      },
       "RunWorkflowBody": {
         "title": "RunWorkflowBody",
         "type": "object",
@@ -18152,6 +18495,60 @@
           "status": {
             "title": "Status",
             "type": "string"
+          }
+        }
+      },
+      "StartInvestigationRequest": {
+        "title": "StartInvestigationRequest",
+        "required": [
+          "lead_info"
+        ],
+        "type": "object",
+        "properties": {
+          "engine": {
+            "$ref": "#/components/schemas/StartInvestigationRequestEngine"
+          },
+          "research_plan": {
+            "title": "Research Plan",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Direction for this run. On a continue, what to look into next."
+          },
+          "struct": {
+            "$ref": "#/components/schemas/StartInvestigationRequestStructProperty"
+          },
+          "budget": {
+            "title": "Budget",
+            "maximum": 10.0,
+            "minimum": 1.0,
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Research cycles to allocate. Billed as budget x the engine price."
+          },
+          "dispatch_id": {
+            "title": "Dispatch Id",
+            "maxLength": 128,
+            "minLength": 8,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Client-generated idempotency key. Reusing the same key for the same organization returns the existing run instead of starting and billing a duplicate, so a lost response is safe to retry."
+          },
+          "lead_info": {
+            "$ref": "#/components/schemas/StartInvestigationRequestLeadInfoProperty"
+          },
+          "name": {
+            "title": "Name",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Title for the investigation. Derived from lead_info when unset."
           }
         }
       },
@@ -20370,6 +20767,14 @@
         "type": "object",
         "description": "Single lead with at least a \u0060phone\u0060 field to reverse-lookup."
       },
+      "RunOptionsStruct": {
+        "title": "Struct",
+        "type": [
+          "null",
+          "object"
+        ],
+        "description": "Optional output schema. Atlas researches open-endedly into the workspace either way."
+      },
       "RunWorkflowBodySpecsOverride": {
         "title": "Specs Override",
         "type": [
@@ -20451,6 +20856,19 @@
           "null",
           "object"
         ]
+      },
+      "StartInvestigationRequestStruct": {
+        "title": "Struct",
+        "type": [
+          "null",
+          "object"
+        ],
+        "description": "Optional output schema. Atlas researches open-endedly into the workspace either way."
+      },
+      "StartInvestigationRequestLeadInfo": {
+        "title": "Lead Info",
+        "type": "object",
+        "description": "Who to investigate, e.g. {\u0022name\u0022: \u0022Jane Doe\u0022, \u0022company\u0022: \u0022Acme\u0022}."
       },
       "VerifyAgeRequestSubject": {
         "title": "Subject",
@@ -24844,6 +25262,54 @@
           }
         }
       },
+      "StartInvestigationV1AtlasInvestigationsPost400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "StartInvestigationV1AtlasInvestigationsPost401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "StartInvestigationV1AtlasInvestigationsPost403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "StartInvestigationV1AtlasInvestigationsPost500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "StartInvestigationV1AtlasInvestigationsPost402Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "StartInvestigationV1AtlasInvestigationsPost429Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
       "ListInvestigationsV1AtlasInvestigationsGet400Response": {
         "type": "object",
         "properties": {
@@ -24869,6 +25335,54 @@
         }
       },
       "ListInvestigationsV1AtlasInvestigationsGet500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ContinueInvestigationV1AtlasInvestigationsInvestigationIdRunsPost400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ContinueInvestigationV1AtlasInvestigationsInvestigationIdRunsPost401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ContinueInvestigationV1AtlasInvestigationsInvestigationIdRunsPost403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ContinueInvestigationV1AtlasInvestigationsInvestigationIdRunsPost500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ContinueInvestigationV1AtlasInvestigationsInvestigationIdRunsPost402Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ContinueInvestigationV1AtlasInvestigationsInvestigationIdRunsPost429Response": {
         "type": "object",
         "properties": {
           "detail": {
@@ -26013,6 +26527,10 @@
         "type": "object",
         "description": "Single lead with at least a \u0060phone\u0060 field to reverse-lookup."
       },
+      "RunOptionsStructProperty": {
+        "type": "object",
+        "description": "Optional output schema. Atlas researches open-endedly into the workspace either way."
+      },
       "RunWorkflowBodySpecsOverrideProperty": {
         "type": "object",
         "description": "Optional specs to override first block specs"
@@ -26056,6 +26574,14 @@
       },
       "StartInteractiveRequestCacheConfigProperty": {
         "type": "object"
+      },
+      "StartInvestigationRequestStructProperty": {
+        "type": "object",
+        "description": "Optional output schema. Atlas researches open-endedly into the workspace either way."
+      },
+      "StartInvestigationRequestLeadInfoProperty": {
+        "type": "object",
+        "description": "Who to investigate, e.g. {\u0022name\u0022: \u0022Jane Doe\u0022, \u0022company\u0022: \u0022Acme\u0022}."
       },
       "VerifyAgeRequestSubjectProperty": {
         "type": "object",
@@ -26546,7 +27072,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "Derived from the agent runs, not stored.",
+        "description": "Maintained by the database from the investigation\u0027s agent runs.",
         "x-ms-enum": {
           "name": "InvestigationSummaryStatus",
           "modelAsString": false,
@@ -26654,6 +27180,30 @@
             {
               "value": "resource_handle",
               "name": "ResourceHandle"
+            }
+          ]
+        }
+      },
+      "RunOptionsEngine": {
+        "title": "Engine",
+        "enum": [
+          "xhigh",
+          "scout"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Research engine. \u0060GET /v1/atlas/access\u0060 reports which ones this organization may run, and what each costs.",
+        "x-ms-enum": {
+          "name": "RunOptionsEngine",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "xhigh",
+              "name": "Xhigh"
+            },
+            {
+              "value": "scout",
+              "name": "Scout"
             }
           ]
         }
@@ -26935,6 +27485,30 @@
             {
               "value": "company",
               "name": "Company"
+            }
+          ]
+        }
+      },
+      "StartInvestigationRequestEngine": {
+        "title": "Engine",
+        "enum": [
+          "xhigh",
+          "scout"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Research engine. \u0060GET /v1/atlas/access\u0060 reports which ones this organization may run, and what each costs.",
+        "x-ms-enum": {
+          "name": "StartInvestigationRequestEngine",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "xhigh",
+              "name": "Xhigh"
+            },
+            {
+              "value": "scout",
+              "name": "Scout"
             }
           ]
         }

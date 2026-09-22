@@ -64,7 +64,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string ResearchPlan { get; set; }
 #endif
-        /// <summary>Derived from the agent runs, not stored.</summary>
+        /// <summary>Maintained by the database from the investigation&apos;s agent runs.</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummaryStatus? Status { get; set; }
         /// <summary>The updated_at property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

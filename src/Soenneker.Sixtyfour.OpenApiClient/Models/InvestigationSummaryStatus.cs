@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
-    /// <summary>Derived from the agent runs, not stored.</summary>
+    /// <summary>Maintained by the database from the investigation&apos;s agent runs.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum InvestigationSummaryStatus
     {

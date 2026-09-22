@@ -78,6 +78,43 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationList>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationList.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
+        /// Research a subject into a new Atlas investigation.The investigation is created and returned immediately, so its workspace andgraph can be read while the run is still going. It is stamped with thecalling credential&apos;s team, which is what decides who else can see it.
+        /// </summary>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RunStarted"/></returns>
+        /// <param name="body">The request body</param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationV1AtlasInvestigationsPost400Response">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationV1AtlasInvestigationsPost401Response">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationV1AtlasInvestigationsPost402Response">When receiving a 402 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationV1AtlasInvestigationsPost403Response">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationV1AtlasInvestigationsPost429Response">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationV1AtlasInvestigationsPost500Response">When receiving a 500 status code</exception>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunStarted?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#nullable restore
+#else
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunStarted> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationV1AtlasInvestigationsPost400Response.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationV1AtlasInvestigationsPost401Response.CreateFromDiscriminatorValue },
+                { "402", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationV1AtlasInvestigationsPost402Response.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationV1AtlasInvestigationsPost403Response.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationV1AtlasInvestigationsPost429Response.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationV1AtlasInvestigationsPost500Response.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunStarted>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.RunStarted.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
         /// Your team&apos;s Atlas investigations, newest first (organization admins see every team&apos;s). Follow `next_cursor`(pass it as `after`) until it is null; the cursor is a keyset, so pages stay stable while investigations arecreated or deleted. With a `status` filter a page can come back short (the filter is applied while scanning), so`next_cursor` — not page size — is the end-of-listing signal.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
@@ -94,6 +131,28 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
+            return requestInfo;
+        }
+        /// <summary>
+        /// Research a subject into a new Atlas investigation.The investigation is created and returned immediately, so its workspace andgraph can be read while the run is still going. It is stamped with thecalling credential&apos;s team, which is what decides who else can see it.
+        /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="body">The request body</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
+#nullable restore
+#else
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
+#endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
+            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             return requestInfo;
         }
         /// <summary>
