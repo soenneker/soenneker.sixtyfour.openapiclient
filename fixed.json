@@ -13682,6 +13682,26 @@
           }
         }
       },
+      "AgentPreferencesResponse": {
+        "title": "AgentPreferencesResponse",
+        "type": "object",
+        "properties": {
+          "preferences": {
+            "title": "Preferences",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "updated_at": {
+            "title": "Updated At",
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
       "AgentSession": {
         "title": "AgentSession",
         "required": [
@@ -18775,6 +18795,20 @@
           },
           "description": {
             "title": "Description",
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
+      "UpdateAgentPreferencesRequest": {
+        "title": "UpdateAgentPreferencesRequest",
+        "type": "object",
+        "properties": {
+          "preferences": {
+            "title": "Preferences",
+            "maxLength": 5000,
             "type": [
               "null",
               "string"
