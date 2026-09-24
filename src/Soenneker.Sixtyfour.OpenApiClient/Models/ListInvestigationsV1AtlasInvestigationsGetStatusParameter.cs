@@ -19,10 +19,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         #pragma warning disable CS1591
         Stalled,
         #pragma warning restore CS1591
-        [EnumMember(Value = "paused")]
-        #pragma warning disable CS1591
-        Paused,
-        #pragma warning restore CS1591
         [EnumMember(Value = "completed")]
         #pragma warning disable CS1591
         Completed,

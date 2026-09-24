@@ -15433,6 +15433,12 @@
               "string"
             ],
             "description": "Async endpoints only: a client-generated idempotency key for the dispatch. Reusing the same key for the same organization returns the existing job instead of starting and billing a duplicate."
+          },
+          "exclusive_run": {
+            "title": "Exclusive Run",
+            "type": "boolean",
+            "description": "Atlas runs on an existing investigation only: refuse with 409 while that investigation already has a run starting or running, instead of starting and billing a second one.",
+            "default": false
           }
         }
       },
@@ -27100,7 +27106,6 @@
           "created",
           "running",
           "stalled",
-          "paused",
           "completed",
           "failed"
         ],
@@ -27122,10 +27127,6 @@
             {
               "value": "stalled",
               "name": "Stalled"
-            },
-            {
-              "value": "paused",
-              "name": "Paused"
             },
             {
               "value": "completed",
@@ -28120,7 +28121,6 @@
           "created",
           "running",
           "stalled",
-          "paused",
           "completed",
           "failed"
         ],
@@ -28145,10 +28145,6 @@
             {
               "value": "stalled",
               "name": "Stalled"
-            },
-            {
-              "value": "paused",
-              "name": "Paused"
             },
             {
               "value": "completed",

@@ -24,6 +24,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string DispatchId { get; set; }
 #endif
+        /// <summary>Atlas runs on an existing investigation only: refuse with 409 while that investigation already has a run starting or running, instead of starting and billing a second one.</summary>
+        public bool? ExclusiveRun { get; set; }
         /// <summary>If true, return confidence scores for each requested output field.</summary>
         public bool? FieldConfidence { get; set; }
         /// <summary>For Atlas runs (xhigh, or scout with graph), include workspace files alongside structured output (default: true). Set false to omit them. Saved images appear as attachment records; requested image fields carry their permanent /v1/media URL, and the investigation&apos;s /v1/atlas file API serves any attachment. Ignored by other tiers.</summary>
@@ -84,6 +86,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public EnrichLeadInfo()
         {
             AdditionalData = new Dictionary<string, object>();
+            ExclusiveRun = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -105,6 +108,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             {
                 { "budget", n => { Budget = n.GetIntValue(); } },
                 { "dispatch_id", n => { DispatchId = n.GetStringValue(); } },
+                { "exclusive_run", n => { ExclusiveRun = n.GetBoolValue(); } },
                 { "field_confidence", n => { FieldConfidence = n.GetBoolValue(); } },
                 { "include_workspace", n => { IncludeWorkspace = n.GetBoolValue(); } },
                 { "investigation_id", n => { InvestigationId = n.GetStringValue(); } },
@@ -125,6 +129,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("budget", Budget);
             writer.WriteStringValue("dispatch_id", DispatchId);
+            writer.WriteBoolValue("exclusive_run", ExclusiveRun);
             writer.WriteBoolValue("field_confidence", FieldConfidence);
             writer.WriteBoolValue("include_workspace", IncludeWorkspace);
             writer.WriteStringValue("investigation_id", InvestigationId);
