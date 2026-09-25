@@ -11156,7 +11156,7 @@
           "Atlas"
         ],
         "summary": "List investigations",
-        "description": "Your team\u0027s Atlas investigations, newest first (organization admins see every team\u0027s). Follow \u0060next_cursor\u0060\n(pass it as \u0060after\u0060) until it is null; the cursor is a keyset, so pages stay stable while investigations are\ncreated or deleted. With a \u0060status\u0060 filter a page can come back short (the filter is applied while scanning), so\n\u0060next_cursor\u0060 \u2014 not page size \u2014 is the end-of-listing signal.",
+        "description": "Your team\u0027s Atlas investigations and the ones other teams shared with it, newest first (organization admins\nsee every team\u0027s). Each carries \u0060shared\u0060: null when your team owns it, otherwise who shared it and how. Follow \u0060next_cursor\u0060\n(pass it as \u0060after\u0060) until it is null; the cursor is a keyset, so pages stay stable while investigations are\ncreated or deleted. With a \u0060status\u0060 filter a page can come back short (the filter is applied while scanning), so\n\u0060next_cursor\u0060 \u2014 not page size \u2014 is the end-of-listing signal.",
         "operationId": "ListInvestigationsV1AtlasInvestigationsGet",
         "parameters": [
           {
@@ -11168,6 +11168,14 @@
               "minimum": 1,
               "type": "integer",
               "default": 50
+            }
+          },
+          {
+            "name": "shared",
+            "in": "query",
+            "description": "Your team\u0027s own investigations, the ones other teams shared with it, or both.",
+            "schema": {
+              "$ref": "#/components/schemas/ListInvestigationsV1AtlasInvestigationsGetSharedParameter"
             }
           },
           {
@@ -11319,12 +11327,10 @@
           {
             "name": "investigationId",
             "in": "path",
-            "description": "Investigation id, as returned by list or by an xhigh enrichment.",
             "required": true,
             "schema": {
               "title": "Investigation Id",
-              "type": "string",
-              "description": "Investigation id, as returned by list or by an xhigh enrichment."
+              "type": "string"
             }
           },
           {
@@ -11387,7 +11393,7 @@
             }
           },
           "403": {
-            "description": "Organization access is locked.",
+            "description": "The investigation is shared with your team as a viewer, which cannot run it.",
             "content": {
               "application/json": {
                 "schema": {
@@ -11465,12 +11471,10 @@
           {
             "name": "investigationId",
             "in": "path",
-            "description": "Investigation id, as returned by list or by an xhigh enrichment.",
             "required": true,
             "schema": {
               "title": "Investigation Id",
-              "type": "string",
-              "description": "Investigation id, as returned by list or by an xhigh enrichment."
+              "type": "string"
             }
           },
           {
@@ -11573,12 +11577,10 @@
           {
             "name": "investigationId",
             "in": "path",
-            "description": "Investigation id, as returned by list or by an xhigh enrichment.",
             "required": true,
             "schema": {
               "title": "Investigation Id",
-              "type": "string",
-              "description": "Investigation id, as returned by list or by an xhigh enrichment."
+              "type": "string"
             }
           },
           {
@@ -11681,12 +11683,10 @@
           {
             "name": "investigationId",
             "in": "path",
-            "description": "Investigation id, as returned by list or by an xhigh enrichment.",
             "required": true,
             "schema": {
               "title": "Investigation Id",
-              "type": "string",
-              "description": "Investigation id, as returned by list or by an xhigh enrichment."
+              "type": "string"
             }
           },
           {
@@ -11814,12 +11814,10 @@
           {
             "name": "investigationId",
             "in": "path",
-            "description": "Investigation id, as returned by list or by an xhigh enrichment.",
             "required": true,
             "schema": {
               "title": "Investigation Id",
-              "type": "string",
-              "description": "Investigation id, as returned by list or by an xhigh enrichment."
+              "type": "string"
             }
           },
           {
@@ -11947,12 +11945,10 @@
           {
             "name": "investigationId",
             "in": "path",
-            "description": "Investigation id, as returned by list or by an xhigh enrichment.",
             "required": true,
             "schema": {
               "title": "Investigation Id",
-              "type": "string",
-              "description": "Investigation id, as returned by list or by an xhigh enrichment."
+              "type": "string"
             }
           },
           {
@@ -12055,12 +12051,10 @@
           {
             "name": "investigationId",
             "in": "path",
-            "description": "Investigation id, as returned by list or by an xhigh enrichment.",
             "required": true,
             "schema": {
               "title": "Investigation Id",
-              "type": "string",
-              "description": "Investigation id, as returned by list or by an xhigh enrichment."
+              "type": "string"
             }
           },
           {
@@ -12197,12 +12191,10 @@
           {
             "name": "investigationId",
             "in": "path",
-            "description": "Investigation id, as returned by list or by an xhigh enrichment.",
             "required": true,
             "schema": {
               "title": "Investigation Id",
-              "type": "string",
-              "description": "Investigation id, as returned by list or by an xhigh enrichment."
+              "type": "string"
             }
           },
           {
@@ -12305,12 +12297,10 @@
           {
             "name": "investigationId",
             "in": "path",
-            "description": "Investigation id, as returned by list or by an xhigh enrichment.",
             "required": true,
             "schema": {
               "title": "Investigation Id",
-              "type": "string",
-              "description": "Investigation id, as returned by list or by an xhigh enrichment."
+              "type": "string"
             }
           },
           {
@@ -12420,12 +12410,10 @@
           {
             "name": "investigationId",
             "in": "path",
-            "description": "Investigation id, as returned by list or by an xhigh enrichment.",
             "required": true,
             "schema": {
               "title": "Investigation Id",
-              "type": "string",
-              "description": "Investigation id, as returned by list or by an xhigh enrichment."
+              "type": "string"
             }
           },
           {
@@ -12528,12 +12516,10 @@
           {
             "name": "investigationId",
             "in": "path",
-            "description": "Investigation id, as returned by list or by an xhigh enrichment.",
             "required": true,
             "schema": {
               "title": "Investigation Id",
-              "type": "string",
-              "description": "Investigation id, as returned by list or by an xhigh enrichment."
+              "type": "string"
             }
           },
           {
@@ -12657,12 +12643,10 @@
           {
             "name": "investigationId",
             "in": "path",
-            "description": "Investigation id, as returned by list or by an xhigh enrichment.",
             "required": true,
             "schema": {
               "title": "Investigation Id",
-              "type": "string",
-              "description": "Investigation id, as returned by list or by an xhigh enrichment."
+              "type": "string"
             }
           },
           {
@@ -12765,12 +12749,10 @@
           {
             "name": "investigationId",
             "in": "path",
-            "description": "Investigation id, as returned by list or by an xhigh enrichment.",
             "required": true,
             "schema": {
               "title": "Investigation Id",
-              "type": "string",
-              "description": "Investigation id, as returned by list or by an xhigh enrichment."
+              "type": "string"
             }
           },
           {
@@ -12977,6 +12959,113 @@
           },
           "404": {
             "description": "Unknown, tampered or deleted media."
+          }
+        }
+      }
+    },
+    "/v1/media/profiles/{key}": {
+      "get": {
+        "tags": [
+          "Media"
+        ],
+        "summary": "Fetch a profile photo from people search",
+        "description": "Serve a profile photo returned by people search.\n\nPermanent and credential-free; embed or link directly. Photos may be cached\nfor a day. Limited to 600 requests per minute per client IP.",
+        "operationId": "GetProfilePhotoV1MediaProfilesKeyGet",
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "description": "The photo key at the end of a people-search \u0060logoUrl\u0060.",
+            "required": true,
+            "schema": {
+              "title": "Key",
+              "type": "string",
+              "description": "The photo key at the end of a people-search \u0060logoUrl\u0060."
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The photo bytes.",
+            "content": {
+              "image/*": {
+                "schema": {
+                  "type": "object",
+                  "description": "Fallback media schema"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetProfilePhotoV1MediaProfilesKeyGet400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetProfilePhotoV1MediaProfilesKeyGet401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetProfilePhotoV1MediaProfilesKeyGet403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetProfilePhotoV1MediaProfilesKeyGet500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Unknown photo key."
+          },
+          "502": {
+            "description": "The photo could not be fetched."
+          },
+          "503": {
+            "description": "Busy; retry after the Retry-After interval."
           }
         }
       }
@@ -16686,6 +16775,9 @@
             "type": "integer",
             "description": "Total spend across every agent run of this investigation, in cents."
           },
+          "shared": {
+            "$ref": "#/components/schemas/InvestigationSummaryShared"
+          },
           "workspace_url": {
             "title": "Workspace Url",
             "maxLength": 2083,
@@ -18252,6 +18344,35 @@
             "items": {
               "$ref": "#/components/schemas/SessionFeedbackEntry"
             }
+          }
+        }
+      },
+      "SharedFrom": {
+        "title": "SharedFrom",
+        "required": [
+          "team_id",
+          "tier"
+        ],
+        "type": "object",
+        "properties": {
+          "team_id": {
+            "title": "Team Id",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The team that owns the investigation and shared it with yours."
+          },
+          "team_name": {
+            "title": "Team Name",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "That team\u0027s name; null if it could not be read."
+          },
+          "tier": {
+            "$ref": "#/components/schemas/SharedFromTier"
           }
         }
       },
@@ -20279,6 +20400,39 @@
           }
         ],
         "description": "Field value; null bucket represents missing values."
+      },
+      "InvestigationSummaryShared": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/SharedFrom"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "properties": {
+          "team_id": {
+            "title": "Team Id",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The team that owns the investigation and shared it with yours."
+          },
+          "team_name": {
+            "title": "Team Name",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "That team\u0027s name; null if it could not be read."
+          },
+          "tier": {
+            "$ref": "#/components/schemas/SharedFromTier"
+          }
+        },
+        "description": "Null when your team owns this investigation; otherwise the team that shared it with yours, and how."
       },
       "LeadAsyncJobStartResponseInvestigation": {
         "type": "object",
@@ -25866,6 +26020,38 @@
           }
         }
       },
+      "GetProfilePhotoV1MediaProfilesKeyGet400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetProfilePhotoV1MediaProfilesKeyGet401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetProfilePhotoV1MediaProfilesKeyGet403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetProfilePhotoV1MediaProfilesKeyGet500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
       "VerifyAgeVerifyAgePost400Response": {
         "type": "object",
         "properties": {
@@ -27452,6 +27638,30 @@
           ]
         }
       },
+      "SharedFromTier": {
+        "title": "Tier",
+        "enum": [
+          "viewer",
+          "editor"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "What your team may do: a viewer reads and exports, an editor may also run and edit it.",
+        "x-ms-enum": {
+          "name": "SharedFromTier",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "viewer",
+              "name": "Viewer"
+            },
+            {
+              "value": "editor",
+              "name": "Editor"
+            }
+          ]
+        }
+      },
       "StartAgenticSearchRequestMode": {
         "title": "Mode",
         "enum": [
@@ -28111,6 +28321,35 @@
             {
               "value": "desc",
               "name": "Desc"
+            }
+          ]
+        }
+      },
+      "ListInvestigationsV1AtlasInvestigationsGetSharedParameter": {
+        "title": "Shared",
+        "enum": [
+          "all",
+          "owned",
+          "shared"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Your team\u0027s own investigations, the ones other teams shared with it, or both.",
+        "x-ms-enum": {
+          "name": "ListInvestigationsV1AtlasInvestigationsGetSharedParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "all",
+              "name": "All"
+            },
+            {
+              "value": "owned",
+              "name": "Owned"
+            },
+            {
+              "value": "shared",
+              "name": "Shared"
             }
           ]
         }

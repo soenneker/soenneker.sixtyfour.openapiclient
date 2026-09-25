@@ -19,7 +19,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations
     public partial class InvestigationsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Sixtyfour.OpenApiClient.v1.atlas.investigations.item collection</summary>
-        /// <param name="position">Investigation id, as returned by list or by an xhigh enrichment.</param>
+        /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.WithInvestigationItemRequestBuilder"/></returns>
         public global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.WithInvestigationItemRequestBuilder this[string position]
         {
@@ -35,7 +35,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public InvestigationsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v1/atlas/investigations{?after*,created_after*,created_before*,limit*,status*}", pathParameters)
+        public InvestigationsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v1/atlas/investigations{?after*,created_after*,created_before*,limit*,shared*,status*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,11 +43,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public InvestigationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v1/atlas/investigations{?after*,created_after*,created_before*,limit*,status*}", rawUrl)
+        public InvestigationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v1/atlas/investigations{?after*,created_after*,created_before*,limit*,shared*,status*}", rawUrl)
         {
         }
         /// <summary>
-        /// Your team&apos;s Atlas investigations, newest first (organization admins see every team&apos;s). Follow `next_cursor`(pass it as `after`) until it is null; the cursor is a keyset, so pages stay stable while investigations arecreated or deleted. With a `status` filter a page can come back short (the filter is applied while scanning), so`next_cursor` — not page size — is the end-of-listing signal.
+        /// Your team&apos;s Atlas investigations and the ones other teams shared with it, newest first (organization adminssee every team&apos;s). Each carries `shared`: null when your team owns it, otherwise who shared it and how. Follow `next_cursor`(pass it as `after`) until it is null; the cursor is a keyset, so pages stay stable while investigations arecreated or deleted. With a `status` filter a page can come back short (the filter is applied while scanning), so`next_cursor` — not page size — is the end-of-listing signal.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationList"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -115,7 +115,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunStarted>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.RunStarted.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Your team&apos;s Atlas investigations, newest first (organization admins see every team&apos;s). Follow `next_cursor`(pass it as `after`) until it is null; the cursor is a keyset, so pages stay stable while investigations arecreated or deleted. With a `status` filter a page can come back short (the filter is applied while scanning), so`next_cursor` — not page size — is the end-of-listing signal.
+        /// Your team&apos;s Atlas investigations and the ones other teams shared with it, newest first (organization adminssee every team&apos;s). Each carries `shared`: null when your team owns it, otherwise who shared it and how. Follow `next_cursor`(pass it as `after`) until it is null; the cursor is a keyset, so pages stay stable while investigations arecreated or deleted. With a `status` filter a page can come back short (the filter is applied while scanning), so`next_cursor` — not page size — is the end-of-listing signal.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -165,7 +165,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations
             return new global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.InvestigationsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Your team&apos;s Atlas investigations, newest first (organization admins see every team&apos;s). Follow `next_cursor`(pass it as `after`) until it is null; the cursor is a keyset, so pages stay stable while investigations arecreated or deleted. With a `status` filter a page can come back short (the filter is applied while scanning), so`next_cursor` — not page size — is the end-of-listing signal.
+        /// Your team&apos;s Atlas investigations and the ones other teams shared with it, newest first (organization adminssee every team&apos;s). Each carries `shared`: null when your team owns it, otherwise who shared it and how. Follow `next_cursor`(pass it as `after`) until it is null; the cursor is a keyset, so pages stay stable while investigations arecreated or deleted. With a `status` filter a page can come back short (the filter is applied while scanning), so`next_cursor` — not page size — is the end-of-listing signal.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class InvestigationsRequestBuilderGetQueryParameters 
@@ -190,6 +190,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations
             [QueryParameter("limit")]
             public int? Limit { get; set; }
             #pragma warning restore CS1591
+            /// <summary>Your team&apos;s own investigations, the ones other teams shared with it, or both.</summary>
+            [QueryParameter("shared")]
+            public global::Soenneker.Sixtyfour.OpenApiClient.Models.ListInvestigationsV1AtlasInvestigationsGetSharedParameter? Shared { get; set; }
             /// <summary>Only investigations in this state.</summary>
             [QueryParameter("status")]
             public global::Soenneker.Sixtyfour.OpenApiClient.Models.ListInvestigationsV1AtlasInvestigationsGetStatusParameter? Status { get; set; }

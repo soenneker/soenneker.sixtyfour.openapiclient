@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Media.Item;
+using Soenneker.Sixtyfour.OpenApiClient.V1.Media.Profiles;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -15,6 +16,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Media
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MediaRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The profiles property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.Media.Profiles.ProfilesRequestBuilder Profiles
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Media.Profiles.ProfilesRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Gets an item from the Soenneker.Sixtyfour.OpenApiClient.v1.media.item collection</summary>
         /// <param name="position">The opaque token from a media URL in an enrichment result.</param>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.V1.Media.Item.WithTokenItemRequestBuilder"/></returns>
