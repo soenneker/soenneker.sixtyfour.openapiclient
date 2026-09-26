@@ -41,7 +41,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.History
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public HistoryRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/search/history{?cursor*,from*,kind*,limit*,query_text*,sort_by*,sort_dir*,status*,to*}", pathParameters)
+        public HistoryRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/search/history{?cursor*,exclude_api_request_searches*,from*,kind*,limit*,query_text*,sort_by*,sort_dir*,status*,to*}", pathParameters)
         {
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.History
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public HistoryRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/search/history{?cursor*,from*,kind*,limit*,query_text*,sort_by*,sort_dir*,status*,to*}", rawUrl)
+        public HistoryRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/search/history{?cursor*,exclude_api_request_searches*,from*,kind*,limit*,query_text*,sort_by*,sort_dir*,status*,to*}", rawUrl)
         {
         }
         /// <summary>
@@ -208,6 +208,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.History
             public string Cursor { get; set; }
             #pragma warning restore CS1591
 #endif
+            #pragma warning disable CS1591
+            [QueryParameter("exclude_api_request_searches")]
+            public bool? ExcludeApiRequestSearches { get; set; }
+            #pragma warning restore CS1591
             #pragma warning disable CS1591
             [QueryParameter("from")]
             public DateTimeOffset? From { get; set; }

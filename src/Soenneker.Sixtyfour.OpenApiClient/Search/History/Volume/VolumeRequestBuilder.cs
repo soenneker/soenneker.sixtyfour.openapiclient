@@ -22,7 +22,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.History.Volume
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public VolumeRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/search/history/volume?from={from}&to={to}", pathParameters)
+        public VolumeRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/search/history/volume?from={from}&to={to}{&exclude_api_request_searches*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.History.Volume
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public VolumeRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/search/history/volume?from={from}&to={to}", rawUrl)
+        public VolumeRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/search/history/volume?from={from}&to={to}{&exclude_api_request_searches*}", rawUrl)
         {
         }
         /// <summary>
@@ -112,6 +112,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.History.Volume
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class VolumeRequestBuilderGetQueryParameters 
         {
+            #pragma warning disable CS1591
+            [QueryParameter("exclude_api_request_searches")]
+            public bool? ExcludeApiRequestSearches { get; set; }
+            #pragma warning restore CS1591
             #pragma warning disable CS1591
             [QueryParameter("from")]
             public DateTimeOffset? From { get; set; }

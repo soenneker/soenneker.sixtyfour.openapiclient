@@ -7915,6 +7915,15 @@
             }
           },
           {
+            "name": "exclude_api_request_searches",
+            "in": "query",
+            "schema": {
+              "title": "Exclude Api Request Searches",
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
             "name": "x-api-key",
             "in": "header",
             "schema": {
@@ -8304,6 +8313,15 @@
               "title": "To",
               "type": "string",
               "format": "date-time"
+            }
+          },
+          {
+            "name": "exclude_api_request_searches",
+            "in": "query",
+            "schema": {
+              "title": "Exclude Api Request Searches",
+              "type": "boolean",
+              "default": false
             }
           },
           {
@@ -11156,7 +11174,7 @@
           "Atlas"
         ],
         "summary": "List investigations",
-        "description": "Your team\u0027s Atlas investigations and the ones other teams shared with it, newest first (organization admins\nsee every team\u0027s). Each carries \u0060shared\u0060: null when your team owns it, otherwise who shared it and how. Follow \u0060next_cursor\u0060\n(pass it as \u0060after\u0060) until it is null; the cursor is a keyset, so pages stay stable while investigations are\ncreated or deleted. With a \u0060status\u0060 filter a page can come back short (the filter is applied while scanning), so\n\u0060next_cursor\u0060 \u2014 not page size \u2014 is the end-of-listing signal.",
+        "description": "Your team\u0027s Atlas investigations and the ones other teams shared with it, newest first. Each carries \u0060shared\u0060:\nnull when your team owns it, otherwise who shared it and how. Follow \u0060next_cursor\u0060\n(pass it as \u0060after\u0060) until it is null; the cursor is a keyset, so pages stay stable while investigations are\ncreated or deleted. With a \u0060status\u0060 filter a page can come back short (the filter is applied while scanning), so\n\u0060next_cursor\u0060 \u2014 not page size \u2014 is the end-of-listing signal.",
         "operationId": "ListInvestigationsV1AtlasInvestigationsGet",
         "parameters": [
           {
@@ -13059,7 +13077,7 @@
             }
           },
           "404": {
-            "description": "Unknown photo key."
+            "description": "Unknown photo key, or the person has no photo."
           },
           "502": {
             "description": "The photo could not be fetched."
@@ -16241,17 +16259,6 @@
           "mode": {
             "$ref": "#/components/schemas/FindEmailBulkRequestMode"
           },
-          "providers": {
-            "title": "Providers",
-            "type": [
-              "null",
-              "array"
-            ],
-            "items": {
-              "type": "string"
-            },
-            "description": "Override the default provider waterfall by listing provider IDs in priority order."
-          },
           "webhook_url": {
             "title": "Webhook Url",
             "maxLength": 2083,
@@ -16283,17 +16290,6 @@
           },
           "mode": {
             "$ref": "#/components/schemas/FindEmailRequestMode"
-          },
-          "providers": {
-            "title": "Providers",
-            "type": [
-              "null",
-              "array"
-            ],
-            "items": {
-              "type": "string"
-            },
-            "description": "Override the default provider waterfall by listing provider IDs in priority order."
           },
           "webhook_url": {
             "title": "Webhook Url",
@@ -16407,17 +16403,6 @@
             },
             "description": "List of leads to process in one bulk request."
           },
-          "providers": {
-            "title": "Providers",
-            "type": [
-              "null",
-              "array"
-            ],
-            "items": {
-              "type": "string"
-            },
-            "description": "Override the default provider waterfall by listing provider IDs in priority order."
-          },
           "webhook_url": {
             "title": "Webhook Url",
             "maxLength": 2083,
@@ -16440,17 +16425,6 @@
         "properties": {
           "lead": {
             "$ref": "#/components/schemas/FindPhoneRequestLeadProperty"
-          },
-          "providers": {
-            "title": "Providers",
-            "type": [
-              "null",
-              "array"
-            ],
-            "items": {
-              "type": "string"
-            },
-            "description": "Override the default provider waterfall by listing provider IDs in priority order."
           },
           "webhook_url": {
             "title": "Webhook Url",
@@ -17379,17 +17353,6 @@
             },
             "description": "List of leads with \u0060email\u0060 to reverse-lookup in one request."
           },
-          "providers": {
-            "title": "Providers",
-            "type": [
-              "null",
-              "array"
-            ],
-            "items": {
-              "type": "string"
-            },
-            "description": "Override the default provider waterfall by listing provider IDs in priority order."
-          },
           "webhook_url": {
             "title": "Webhook Url",
             "maxLength": 2083,
@@ -17412,17 +17375,6 @@
         "properties": {
           "lead": {
             "$ref": "#/components/schemas/ReverseEmailRequestLeadProperty"
-          },
-          "providers": {
-            "title": "Providers",
-            "type": [
-              "null",
-              "array"
-            ],
-            "items": {
-              "type": "string"
-            },
-            "description": "Override the default provider waterfall by listing provider IDs in priority order."
           },
           "webhook_url": {
             "title": "Webhook Url",
@@ -17452,17 +17404,6 @@
             },
             "description": "List of leads with \u0060phone\u0060 to reverse-lookup in one request."
           },
-          "providers": {
-            "title": "Providers",
-            "type": [
-              "null",
-              "array"
-            ],
-            "items": {
-              "type": "string"
-            },
-            "description": "Override the default provider waterfall by listing provider IDs in priority order."
-          },
           "webhook_url": {
             "title": "Webhook Url",
             "maxLength": 2083,
@@ -17485,17 +17426,6 @@
         "properties": {
           "lead": {
             "$ref": "#/components/schemas/ReversePhoneRequestLeadProperty"
-          },
-          "providers": {
-            "title": "Providers",
-            "type": [
-              "null",
-              "array"
-            ],
-            "items": {
-              "type": "string"
-            },
-            "description": "Override the default provider waterfall by listing provider IDs in priority order."
           },
           "webhook_url": {
             "title": "Webhook Url",
