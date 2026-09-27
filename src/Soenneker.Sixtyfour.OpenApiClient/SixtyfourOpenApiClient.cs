@@ -21,6 +21,7 @@ using Soenneker.Sixtyfour.OpenApiClient.FindPhoneBulk;
 using Soenneker.Sixtyfour.OpenApiClient.FindPhoneBulkAsync;
 using Soenneker.Sixtyfour.OpenApiClient.Google;
 using Soenneker.Sixtyfour.OpenApiClient.JobStatus;
+using Soenneker.Sixtyfour.OpenApiClient.Monitors;
 using Soenneker.Sixtyfour.OpenApiClient.PeopleIntelligence;
 using Soenneker.Sixtyfour.OpenApiClient.PeopleIntelligenceAsync;
 using Soenneker.Sixtyfour.OpenApiClient.QaAgent;
@@ -126,6 +127,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient
         public global::Soenneker.Sixtyfour.OpenApiClient.JobStatus.JobStatusRequestBuilder JobStatus
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.JobStatus.JobStatusRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The monitors property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.Monitors.MonitorsRequestBuilder Monitors
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.Monitors.MonitorsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The peopleIntelligence property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.PeopleIntelligence.PeopleIntelligenceRequestBuilder PeopleIntelligence
