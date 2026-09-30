@@ -10663,7 +10663,7 @@
           "Monitors"
         ],
         "summary": "List Monitors",
-        "description": "One page of monitors, newest first.",
+        "description": "One page of monitors, newest first.\n\nSet include_inactive=true and include_cancelled=false to include paused\nand other disabled monitors while hiding cancellations.",
         "operationId": "ListMonitorsEndpointMonitorsGet",
         "parameters": [
           {
@@ -10673,6 +10673,15 @@
               "title": "Include Inactive",
               "type": "boolean",
               "default": false
+            }
+          },
+          {
+            "name": "include_cancelled",
+            "in": "query",
+            "schema": {
+              "title": "Include Cancelled",
+              "type": "boolean",
+              "default": true
             }
           },
           {
@@ -10775,6 +10784,236 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ListMonitorsEndpointMonitorsGet500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/monitors/run-source/{runId}": {
+      "get": {
+        "tags": [
+          "Monitors"
+        ],
+        "summary": "Get Monitor Run Source",
+        "operationId": "GetMonitorRunSourceMonitorsRunSourceRunIdGet",
+        "parameters": [
+          {
+            "name": "runId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Run Id",
+              "type": "string"
+            }
+          },
+          {
+            "name": "storage_url",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "title": "Storage Url",
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetMonitorRunSourceMonitorsRunSourceRunIdGet200ResponseSchema"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetMonitorRunSourceMonitorsRunSourceRunIdGet400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetMonitorRunSourceMonitorsRunSourceRunIdGet401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetMonitorRunSourceMonitorsRunSourceRunIdGet403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetMonitorRunSourceMonitorsRunSourceRunIdGet500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/monitors/for-run/{runId}": {
+      "get": {
+        "tags": [
+          "Monitors"
+        ],
+        "summary": "List Monitors For Run",
+        "operationId": "ListMonitorsForRunMonitorsForRunRunIdGet",
+        "parameters": [
+          {
+            "name": "runId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Run Id",
+              "type": "string"
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "schema": {
+              "title": "Cursor",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListMonitorsForRunMonitorsForRunRunIdGet200Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListMonitorsForRunMonitorsForRunRunIdGet400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListMonitorsForRunMonitorsForRunRunIdGet401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListMonitorsForRunMonitorsForRunRunIdGet403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListMonitorsForRunMonitorsForRunRunIdGet500Response"
                 },
                 "example": {
                   "detail": "Internal server error"
@@ -16223,6 +16462,13 @@
             "title": "Has More",
             "type": "boolean",
             "default": false
+          },
+          "next_cursor": {
+            "title": "Next Cursor",
+            "type": [
+              "null",
+              "string"
+            ]
           }
         }
       },
@@ -16279,6 +16525,36 @@
               "null",
               "string"
             ]
+          }
+        }
+      },
+      "ChatSessionFolderResponse": {
+        "title": "ChatSessionFolderResponse",
+        "required": [
+          "session_id"
+        ],
+        "type": "object",
+        "properties": {
+          "session_id": {
+            "title": "Session Id",
+            "type": "string"
+          },
+          "team_id": {
+            "title": "Team Id",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "folder_id": {
+            "title": "Folder Id",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "folder": {
+            "$ref": "#/components/schemas/ChatSessionFolderResponseFolderProperty"
           }
         }
       },
@@ -16393,6 +16669,20 @@
             "title": "Generating",
             "type": "boolean",
             "default": false
+          },
+          "folder_id": {
+            "title": "Folder Id",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "team_id": {
+            "title": "Team Id",
+            "type": [
+              "null",
+              "string"
+            ]
           }
         }
       },
@@ -16580,7 +16870,6 @@
         "title": "CreateMonitorRequest",
         "required": [
           "name",
-          "rows",
           "key_columns",
           "struct"
         ],
@@ -16595,11 +16884,13 @@
           },
           "rows": {
             "title": "Rows",
-            "minItems": 1,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CreateMonitorRequestRowsItemProperty"
             }
+          },
+          "source": {
+            "$ref": "#/components/schemas/CreateMonitorRequestSource"
           },
           "key_columns": {
             "title": "Key Columns",
@@ -16752,6 +17043,14 @@
               "null",
               "string"
             ]
+          },
+          "folder_id": {
+            "title": "Folder Id",
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uuid"
           }
         }
       },
@@ -17021,15 +17320,19 @@
             ],
             "description": "For Atlas runs, the title of a newly created investigation. Ignored when resuming via investigation_id; when unset the title is derived from lead_info."
           },
-          "budget": {
-            "title": "Budget",
-            "maximum": 10.0,
-            "minimum": 1.0,
+          "relentless": {
+            "title": "Relentless",
+            "type": "boolean",
+            "description": "For Atlas runs with target fields: research until the budget runs out. By default a run may stop once every requested field is answered, charging the turns it used (at least one unit).",
+            "default": false
+          },
+          "max_credits": {
+            "title": "Max Credits",
             "type": [
               "null",
               "integer"
             ],
-            "description": "For Atlas runs, the number of research cycles to run (1-10, default 1). Each cycle starts a fresh agent context on the same investigation, so later cycles build on the graph and workspace the earlier ones produced. Billed as budget \u00D7 the tier price."
+            "description": "For Atlas runs, how much research to buy, in credits (default: one unit of the tier price, 250 credits on xhigh), up to 10 units. On multi-agent runs every 250 credits buy 800 team turns (every model response by any agent in the run), used in full unless the research stops yielding: 300 buys 960."
           },
           "dispatch_id": {
             "title": "Dispatch Id",
@@ -18222,13 +18525,6 @@
           "lead_info": {
             "$ref": "#/components/schemas/InvestigationSummaryLeadInfoProperty"
           },
-          "research_plan": {
-            "title": "Research Plan",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
           "created_at": {
             "title": "Created At",
             "type": "string"
@@ -18880,6 +19176,38 @@
           }
         }
       },
+      "MonitorRunSource": {
+        "title": "MonitorRunSource",
+        "required": [
+          "run_id",
+          "storage_url",
+          "sha256",
+          "row_indices"
+        ],
+        "type": "object",
+        "properties": {
+          "run_id": {
+            "title": "Run Id",
+            "type": "string"
+          },
+          "storage_url": {
+            "title": "Storage Url",
+            "type": "string"
+          },
+          "sha256": {
+            "title": "Sha256",
+            "type": "string"
+          },
+          "row_indices": {
+            "title": "Row Indices",
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          }
+        }
+      },
       "MonitorSnapshotResponse": {
         "title": "MonitorSnapshotResponse",
         "required": [
@@ -18911,6 +19239,24 @@
           }
         },
         "description": "One point in time this table can be exported as."
+      },
+      "MoveSessionRequest": {
+        "title": "MoveSessionRequest",
+        "required": [
+          "folder_id"
+        ],
+        "type": "object",
+        "properties": {
+          "folder_id": {
+            "title": "Folder Id",
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
       },
       "OAuthClientDetail": {
         "title": "OAuthClientDetail",
@@ -19465,15 +19811,19 @@
           "struct": {
             "$ref": "#/components/schemas/RunOptionsStructProperty"
           },
-          "budget": {
-            "title": "Budget",
-            "maximum": 10.0,
-            "minimum": 1.0,
+          "relentless": {
+            "title": "Relentless",
+            "type": "boolean",
+            "description": "Research until the budget runs out (the Atlas default). Set false to let a run with \u0060struct\u0060 stop once every field is answered, charging the turns it used (at least one unit).",
+            "default": true
+          },
+          "max_credits": {
+            "title": "Max Credits",
             "type": [
               "null",
               "integer"
             ],
-            "description": "Research cycles to allocate. Billed as budget x the engine price."
+            "description": "How much research to buy, in credits (default: one unit of the engine price), up to 10 units. On xhigh every 250 credits buy 800 team turns, used in full unless the research stops yielding: 300 buys 960."
           },
           "dispatch_id": {
             "title": "Dispatch Id",
@@ -20572,15 +20922,19 @@
           "struct": {
             "$ref": "#/components/schemas/StartInvestigationRequestStructProperty"
           },
-          "budget": {
-            "title": "Budget",
-            "maximum": 10.0,
-            "minimum": 1.0,
+          "relentless": {
+            "title": "Relentless",
+            "type": "boolean",
+            "description": "Research until the budget runs out (the Atlas default). Set false to let a run with \u0060struct\u0060 stop once every field is answered, charging the turns it used (at least one unit).",
+            "default": true
+          },
+          "max_credits": {
+            "title": "Max Credits",
             "type": [
               "null",
               "integer"
             ],
-            "description": "Research cycles to allocate. Billed as budget x the engine price."
+            "description": "How much research to buy, in credits (default: one unit of the engine price), up to 10 units. On xhigh every 250 credits buy 800 team turns, used in full unless the research stops yielding: 300 buys 960."
           },
           "dispatch_id": {
             "title": "Dispatch Id",
@@ -22334,6 +22688,39 @@
           }
         }
       },
+      "CreateMonitorRequestSource": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/MonitorRunSource"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "properties": {
+          "run_id": {
+            "title": "Run Id",
+            "type": "string"
+          },
+          "storage_url": {
+            "title": "Storage Url",
+            "type": "string"
+          },
+          "sha256": {
+            "title": "Sha256",
+            "type": "string"
+          },
+          "row_indices": {
+            "title": "Row Indices",
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          }
+        }
+      },
       "FilterFieldValuesValueValue": {
         "title": "Value",
         "type": "object",
@@ -22719,6 +23106,13 @@
       },
       "ChatRequestPageData": {
         "title": "Page Data",
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "ChatSessionFolderResponseFolder": {
+        "title": "Folder",
         "type": [
           "null",
           "object"
@@ -27410,6 +27804,80 @@
           }
         }
       },
+      "GetMonitorRunSourceMonitorsRunSourceRunIdGet200Response": {
+        "type": "object"
+      },
+      "GetMonitorRunSourceMonitorsRunSourceRunIdGet400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetMonitorRunSourceMonitorsRunSourceRunIdGet401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetMonitorRunSourceMonitorsRunSourceRunIdGet403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetMonitorRunSourceMonitorsRunSourceRunIdGet500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ResponseListMonitorsForRunMonitorsForRunRunIdGet": {
+        "title": "Response List Monitors For Run Monitors For Run  Run Id  Get",
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/MonitorResponse"
+        }
+      },
+      "ListMonitorsForRunMonitorsForRunRunIdGet400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ListMonitorsForRunMonitorsForRunRunIdGet401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ListMonitorsForRunMonitorsForRunRunIdGet403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ListMonitorsForRunMonitorsForRunRunIdGet500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
       "GetMonitorForRunEndpointMonitorsForRunWorkflowRunIdBlockIdGet400Response": {
         "type": "object",
         "properties": {
@@ -28874,6 +29342,15 @@
       "DeleteScheduleEndpointSchedulesScheduleIdDelete200Response": {
         "type": "object"
       },
+      "GetMonitorRunSourceMonitorsRunSourceRunIdGet200ResponseSchema": {
+        "type": "object"
+      },
+      "ListMonitorsForRunMonitorsForRunRunIdGet200Response": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/MonitorResponse"
+        }
+      },
       "ListMonitorSnapshotsEndpointMonitorsMonitorIdSnapshotsGet200Response": {
         "type": "array",
         "items": {
@@ -29074,6 +29551,9 @@
         "type": "object"
       },
       "ChatRequestPageDataProperty": {
+        "type": "object"
+      },
+      "ChatSessionFolderResponseFolderProperty": {
         "type": "object"
       },
       "ChatSessionMessagesResponseMessagesItemProperty": {

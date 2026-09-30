@@ -56,14 +56,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The research_plan property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ResearchPlan { get; set; }
-#nullable restore
-#else
-        public string ResearchPlan { get; set; }
-#endif
         /// <summary>Null when your team owns this investigation; otherwise the team that shared it with yours, and how.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -129,7 +121,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "lead_info", n => { LeadInfo = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummaryLeadInfoProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummaryLeadInfoProperty.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "research_plan", n => { ResearchPlan = n.GetStringValue(); } },
                 { "shared", n => { Shared = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SharedFrom>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SharedFrom.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummaryStatus>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
@@ -150,7 +141,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummaryLeadInfoProperty>("lead_info", LeadInfo);
             writer.WriteStringValue("name", Name);
-            writer.WriteStringValue("research_plan", ResearchPlan);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SharedFrom>("shared", Shared);
             writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummaryStatus>("status", Status);
             writer.WriteStringValue("updated_at", UpdatedAt);

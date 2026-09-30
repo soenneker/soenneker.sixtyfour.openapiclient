@@ -17,14 +17,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.ForRun
     {
         /// <summary>Gets an item from the Soenneker.Sixtyfour.OpenApiClient.monitors.forRun.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Monitors.ForRun.Item.WithWorkflowRunItemRequestBuilder"/></returns>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Monitors.ForRun.Item.WithWorkflowRunItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Monitors.ForRun.Item.RunItemRequestBuilder"/></returns>
+        public global::Soenneker.Sixtyfour.OpenApiClient.Monitors.ForRun.Item.RunItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("workflowRunId", position);
-                return new global::Soenneker.Sixtyfour.OpenApiClient.Monitors.ForRun.Item.WithWorkflowRunItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("run%2Did", position);
+                return new global::Soenneker.Sixtyfour.OpenApiClient.Monitors.ForRun.Item.RunItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

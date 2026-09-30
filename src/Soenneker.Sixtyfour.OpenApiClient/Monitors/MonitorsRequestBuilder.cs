@@ -6,6 +6,7 @@ using Microsoft.Kiota.Abstractions;
 using Soenneker.Sixtyfour.OpenApiClient.Models;
 using Soenneker.Sixtyfour.OpenApiClient.Monitors.ForRun;
 using Soenneker.Sixtyfour.OpenApiClient.Monitors.Item;
+using Soenneker.Sixtyfour.OpenApiClient.Monitors.RunSource;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -24,6 +25,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.Monitors.ForRun.ForRunRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The runSource property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.Monitors.RunSource.RunSourceRequestBuilder RunSource
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.Monitors.RunSource.RunSourceRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Gets an item from the Soenneker.Sixtyfour.OpenApiClient.monitors.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.WithMonitorItemRequestBuilder"/></returns>
@@ -41,7 +47,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MonitorsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/monitors{?cursor*,include_inactive*,limit*}", pathParameters)
+        public MonitorsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/monitors{?cursor*,include_cancelled*,include_inactive*,limit*}", pathParameters)
         {
         }
         /// <summary>
@@ -49,11 +55,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MonitorsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/monitors{?cursor*,include_inactive*,limit*}", rawUrl)
+        public MonitorsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/monitors{?cursor*,include_cancelled*,include_inactive*,limit*}", rawUrl)
         {
         }
         /// <summary>
-        /// One page of monitors, newest first.
+        /// One page of monitors, newest first.Set include_inactive=true and include_cancelled=false to include pausedand other disabled monitors while hiding cancellations.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.PaginatedMonitorResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -117,7 +123,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorDetailResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorDetailResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// One page of monitors, newest first.
+        /// One page of monitors, newest first.Set include_inactive=true and include_cancelled=false to include pausedand other disabled monitors while hiding cancellations.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -167,7 +173,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors
             return new global::Soenneker.Sixtyfour.OpenApiClient.Monitors.MonitorsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// One page of monitors, newest first.
+        /// One page of monitors, newest first.Set include_inactive=true and include_cancelled=false to include pausedand other disabled monitors while hiding cancellations.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class MonitorsRequestBuilderGetQueryParameters 
@@ -185,6 +191,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors
             public string Cursor { get; set; }
             #pragma warning restore CS1591
 #endif
+            #pragma warning disable CS1591
+            [QueryParameter("include_cancelled")]
+            public bool? IncludeCancelled { get; set; }
+            #pragma warning restore CS1591
             #pragma warning disable CS1591
             [QueryParameter("include_inactive")]
             public bool? IncludeInactive { get; set; }

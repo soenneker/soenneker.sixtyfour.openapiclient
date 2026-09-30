@@ -14,8 +14,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>For Atlas runs, the number of research cycles to run (1-10, default 1). Each cycle starts a fresh agent context on the same investigation, so later cycles build on the graph and workspace the earlier ones produced. Billed as budget × the tier price.</summary>
-        public int? Budget { get; set; }
         /// <summary>Async endpoints only: a client-generated idempotency key for the dispatch. Reusing the same key for the same organization returns the existing job instead of starting and billing a duplicate.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -54,6 +52,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoLeadInfoProperty LeadInfo { get; set; }
 #endif
+        /// <summary>For Atlas runs, how much research to buy, in credits (default: one unit of the tier price, 250 credits on xhigh), up to 10 units. On multi-agent runs every 250 credits buy 800 team turns (every model response by any agent in the run), used in full unless the research stops yielding: 300 buys 960.</summary>
+        public int? MaxCredits { get; set; }
+        /// <summary>For Atlas runs with target fields: research until the budget runs out. By default a run may stop once every requested field is answered, charging the turns it used (at least one unit).</summary>
+        public bool? Relentless { get; set; }
         /// <summary>Optional natural-language plan that guides the research agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -87,6 +89,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             AdditionalData = new Dictionary<string, object>();
             ExclusiveRun = false;
+            Relentless = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -106,7 +109,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "budget", n => { Budget = n.GetIntValue(); } },
                 { "dispatch_id", n => { DispatchId = n.GetStringValue(); } },
                 { "exclusive_run", n => { ExclusiveRun = n.GetBoolValue(); } },
                 { "field_confidence", n => { FieldConfidence = n.GetBoolValue(); } },
@@ -114,6 +116,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "investigation_id", n => { InvestigationId = n.GetStringValue(); } },
                 { "investigation_name", n => { InvestigationName = n.GetStringValue(); } },
                 { "lead_info", n => { LeadInfo = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoLeadInfoProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoLeadInfoProperty.CreateFromDiscriminatorValue); } },
+                { "max_credits", n => { MaxCredits = n.GetIntValue(); } },
+                { "relentless", n => { Relentless = n.GetBoolValue(); } },
                 { "research_plan", n => { ResearchPlan = n.GetStringValue(); } },
                 { "struct", n => { Struct = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty.CreateFromDiscriminatorValue); } },
                 { "tier", n => { Tier = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoTier>(); } },
@@ -127,7 +131,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("budget", Budget);
             writer.WriteStringValue("dispatch_id", DispatchId);
             writer.WriteBoolValue("exclusive_run", ExclusiveRun);
             writer.WriteBoolValue("field_confidence", FieldConfidence);
@@ -135,6 +138,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteStringValue("investigation_id", InvestigationId);
             writer.WriteStringValue("investigation_name", InvestigationName);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoLeadInfoProperty>("lead_info", LeadInfo);
+            writer.WriteIntValue("max_credits", MaxCredits);
+            writer.WriteBoolValue("relentless", Relentless);
             writer.WriteStringValue("research_plan", ResearchPlan);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty>("struct", Struct);
             writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoTier>("tier", Tier);
