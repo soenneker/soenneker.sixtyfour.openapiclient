@@ -35,7 +35,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Snapshots
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SnapshotsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/monitors/{monitorId}/snapshots{?limit*}", pathParameters)
+        public SnapshotsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/monitors/{monitorId}/snapshots{?before*,end*,limit*,start*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,11 +43,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Snapshots
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SnapshotsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/monitors/{monitorId}/snapshots{?limit*}", rawUrl)
+        public SnapshotsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/monitors/{monitorId}/snapshots{?before*,end*,limit*,start*}", rawUrl)
         {
         }
         /// <summary>
-        /// Every moment this table changed, newest first, each with a download link.A snapshot per change, not per check.
+        /// Every moment this table changed, newest first, each with a download link.Includes initial values and subsequent changes, not unchanged checks.Pass the last as_of as before to fetch the next page.
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorSnapshotResponse&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -79,7 +79,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Snapshots
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// Every moment this table changed, newest first, each with a download link.A snapshot per change, not per check.
+        /// Every moment this table changed, newest first, each with a download link.Includes initial values and subsequent changes, not unchanged checks.Pass the last as_of as before to fetch the next page.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -107,14 +107,35 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Snapshots
             return new global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Snapshots.SnapshotsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Every moment this table changed, newest first, each with a download link.A snapshot per change, not per check.
+        /// Every moment this table changed, newest first, each with a download link.Includes initial values and subsequent changes, not unchanged checks.Pass the last as_of as before to fetch the next page.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class SnapshotsRequestBuilderGetQueryParameters 
         {
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            #pragma warning disable CS1591
+            [QueryParameter("before")]
+            public string? Before { get; set; }
+            #pragma warning restore CS1591
+#nullable restore
+#else
+            #pragma warning disable CS1591
+            [QueryParameter("before")]
+            public string Before { get; set; }
+            #pragma warning restore CS1591
+#endif
+            #pragma warning disable CS1591
+            [QueryParameter("end")]
+            public DateTimeOffset? End { get; set; }
+            #pragma warning restore CS1591
             #pragma warning disable CS1591
             [QueryParameter("limit")]
             public int? Limit { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
+            [QueryParameter("start")]
+            public DateTimeOffset? Start { get; set; }
             #pragma warning restore CS1591
         }
     }

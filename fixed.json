@@ -10589,7 +10589,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/MonitorDetailResponse"
+                  "$ref": "#/components/schemas/MonitorResponse"
                 }
               }
             }
@@ -10784,6 +10784,127 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ListMonitorsEndpointMonitorsGet500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/monitors/upload": {
+      "post": {
+        "tags": [
+          "Monitors"
+        ],
+        "summary": "Create Monitor From A File",
+        "description": "Create one monitor from a file, with a row per subject.\n\nAnswers as soon as the file has been checked and the monitor exists, with a\n\u0060status\u0060 of \u0060starting\u0060. Its rows are added afterwards; read the monitor\nagain to see \u0060row_count\u0060 climb and \u0060status\u0060 become \u0060active\u0060. Sending the\nsame request again returns the same monitor, and finishes it if the first\nattempt was interrupted.",
+        "operationId": "UploadMonitorEndpointMonitorsUploadPost",
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "description": "Optional. Omitted, a key is derived from the settings and the file\u0027s contents, so sending the same file again replays.",
+            "schema": {
+              "title": "Idempotency-Key",
+              "maxLength": 200,
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "Optional. Omitted, a key is derived from the settings and the file\u0027s contents, so sending the same file again replays."
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/BodyUploadMonitorEndpointMonitorsUploadPost"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MonitorResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UploadMonitorEndpointMonitorsUploadPost400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UploadMonitorEndpointMonitorsUploadPost401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UploadMonitorEndpointMonitorsUploadPost403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UploadMonitorEndpointMonitorsUploadPost500Response"
                 },
                 "example": {
                   "detail": "Internal server error"
@@ -11030,7 +11151,7 @@
           "Monitors"
         ],
         "summary": "Retrieve The Monitor A Workflow Run Started",
-        "description": "The monitor a run\u0027s \u0060monitor\u0060 block started, with its rows.\n\nTeam-gated: the run being visible does not make the monitor visible.",
+        "description": "The monitor a run\u0027s \u0060monitor\u0060 block started. Its rows are read from\n\u0060GET /monitors/{monitor_id}/rows\u0060.\n\nTeam-gated: the run being visible does not make the monitor visible.",
         "operationId": "GetMonitorForRunEndpointMonitorsForRunWorkflowRunIdBlockIdGet",
         "parameters": [
           {
@@ -11069,7 +11190,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/MonitorDetailResponse"
+                  "$ref": "#/components/schemas/MonitorResponse"
                 }
               }
             }
@@ -11145,7 +11266,7 @@
           "Monitors"
         ],
         "summary": "Retrieve Monitor",
-        "description": "The monitor and every row in it, switched-off rows included.",
+        "description": "The monitor: its settings, status and row counts. Its rows are read from\n\u0060GET /monitors/{monitor_id}/rows\u0060.",
         "operationId": "GetMonitorEndpointMonitorsMonitorIdGet",
         "parameters": [
           {
@@ -11175,7 +11296,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/MonitorDetailResponse"
+                  "$ref": "#/components/schemas/MonitorResponse"
                 }
               }
             }
@@ -11245,13 +11366,247 @@
         }
       }
     },
+    "/monitors/{monitorId}/rows": {
+      "get": {
+        "tags": [
+          "Monitors"
+        ],
+        "summary": "List A Monitor\u0027s Rows",
+        "description": "A page of the monitor\u0027s rows, switched-off rows included, in the order\nthey were added. A row has no schedule of its own, so its \u0060next_run_times\u0060\nare the monitor\u0027s.",
+        "operationId": "ListMonitorRowsEndpointMonitorsMonitorIdRowsGet",
+        "parameters": [
+          {
+            "name": "monitorId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Monitor Id",
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "title": "Limit",
+              "maximum": 1000,
+              "minimum": 1,
+              "type": "integer",
+              "default": 100
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "schema": {
+              "title": "Cursor",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MonitorRowPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListMonitorRowsEndpointMonitorsMonitorIdRowsGet400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListMonitorRowsEndpointMonitorsMonitorIdRowsGet401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListMonitorRowsEndpointMonitorsMonitorIdRowsGet403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListMonitorRowsEndpointMonitorsMonitorIdRowsGet500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/monitors/{monitorId}/changes": {
+      "get": {
+        "tags": [
+          "Monitors"
+        ],
+        "summary": "Latest Recorded Change Per Row And Field",
+        "description": "Return \u0060{row_id: {field_name: latest_change_timestamp}}\u0060 (ISO 8601).\n\nIncludes only actual change events for currently watched fields; establishment,\nquiet checks, retired fields and future timestamps are excluded. Rows/fields\nwithout recorded changes are omitted; an empty history returns \u0060{}\u0060. This is\nlatest-change metadata, not a full audit log or a snapshot of current values.\nRequires the same authenticated org/team access as monitor detail (404 for\ninaccessible groups). Query failures return an error, never partial history.",
+        "operationId": "MonitorChangesEndpointMonitorsMonitorIdChangesGet",
+        "parameters": [
+          {
+            "name": "monitorId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Monitor Id",
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MonitorChangesEndpointMonitorsMonitorIdChangesGet200Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MonitorChangesEndpointMonitorsMonitorIdChangesGet400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MonitorChangesEndpointMonitorsMonitorIdChangesGet401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MonitorChangesEndpointMonitorsMonitorIdChangesGet403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MonitorChangesEndpointMonitorsMonitorIdChangesGet500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/monitors/{monitorId}/snapshots": {
       "get": {
         "tags": [
           "Monitors"
         ],
         "summary": "List Every State This Monitor\u0027s Data Has Been In",
-        "description": "Every moment this table changed, newest first, each with a download link.\n\nA snapshot per change, not per check.",
+        "description": "Every moment this table changed, newest first, each with a download link.\n\nIncludes initial values and subsequent changes, not unchanged checks.\nPass the last as_of as before to fetch the next page.",
         "operationId": "ListMonitorSnapshotsEndpointMonitorsMonitorIdSnapshotsGet",
         "parameters": [
           {
@@ -11272,6 +11627,41 @@
               "minimum": 1,
               "type": "integer",
               "default": 100
+            }
+          },
+          {
+            "name": "before",
+            "in": "query",
+            "schema": {
+              "title": "Before",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "schema": {
+              "title": "Start",
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "schema": {
+              "title": "End",
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "date-time"
             }
           },
           {
@@ -11362,6 +11752,122 @@
         }
       }
     },
+    "/monitors/{monitorId}/history-export": {
+      "post": {
+        "tags": [
+          "Monitors"
+        ],
+        "summary": "Download Selected Snapshots As ZIP",
+        "description": "Full CSVs in one ZIP. Omit timestamps for all snapshots in the date range.\n\nBounds: 5,000 snapshots, 50 MiB CSV data, 100 MiB event data, 120 seconds.\nAn oversized request returns 413 before any ZIP is sent; select fewer dates.\nAll timestamps use UTC; start and end are inclusive.",
+        "operationId": "ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost",
+        "parameters": [
+          {
+            "name": "monitorId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Monitor Id",
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MonitorHistoryExportRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost200ResponseSchema"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/monitors/{monitorId}/snapshots/{asOf}": {
       "get": {
         "tags": [
@@ -11387,6 +11893,21 @@
             "schema": {
               "title": "As Of",
               "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Only the first rows, for a preview. Omitted, the whole table.",
+            "schema": {
+              "title": "Limit",
+              "maximum": 1000,
+              "minimum": 1,
+              "type": [
+                "null",
+                "integer"
+              ],
+              "description": "Only the first rows, for a preview. Omitted, the whole table."
             }
           },
           {
@@ -16376,6 +16897,27 @@
           }
         }
       },
+      "BodyUploadMonitorEndpointMonitorsUploadPost": {
+        "title": "Body_upload_monitor_endpoint_monitors_upload_post",
+        "required": [
+          "file",
+          "config"
+        ],
+        "type": "object",
+        "properties": {
+          "file": {
+            "contentMediaType": "application/octet-stream",
+            "title": "File",
+            "type": "string",
+            "description": "CSV, JSON, JSONL, or NDJSON file, one row per subject (max 100 MB / 100,000 rows)."
+          },
+          "config": {
+            "title": "Config",
+            "type": "string",
+            "description": "JSON-encoded monitor settings (UploadMonitorConfig schema; max 300000 characters)."
+          }
+        }
+      },
       "BulkIntelligenceStartedResponse": {
         "title": "BulkIntelligenceStartedResponse",
         "required": [
@@ -18755,134 +19297,6 @@
           }
         }
       },
-      "MonitorDetailResponse": {
-        "title": "MonitorDetailResponse",
-        "required": [
-          "id",
-          "org_id",
-          "team_id",
-          "name",
-          "frequency",
-          "watched",
-          "tier",
-          "subject_type",
-          "research_plan",
-          "is_active",
-          "disabled_reason",
-          "webhook_url",
-          "metadata",
-          "last_run_at",
-          "next_run_times",
-          "row_count",
-          "active_row_count",
-          "created_at",
-          "updated_at",
-          "rows"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "title": "Id",
-            "type": "string"
-          },
-          "org_id": {
-            "title": "Org Id",
-            "type": "string"
-          },
-          "team_id": {
-            "title": "Team Id",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "name": {
-            "title": "Name",
-            "type": "string"
-          },
-          "frequency": {
-            "title": "Frequency",
-            "type": "string"
-          },
-          "watched": {
-            "$ref": "#/components/schemas/MonitorDetailResponseWatchedProperty"
-          },
-          "tier": {
-            "title": "Tier",
-            "type": "string"
-          },
-          "subject_type": {
-            "title": "Subject Type",
-            "type": "string"
-          },
-          "research_plan": {
-            "title": "Research Plan",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "is_active": {
-            "title": "Is Active",
-            "type": "boolean"
-          },
-          "disabled_reason": {
-            "title": "Disabled Reason",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "webhook_url": {
-            "title": "Webhook Url",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "metadata": {
-            "$ref": "#/components/schemas/MonitorDetailResponseMetadataProperty"
-          },
-          "last_run_at": {
-            "title": "Last Run At",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "next_run_times": {
-            "title": "Next Run Times",
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "row_count": {
-            "title": "Row Count",
-            "type": "integer"
-          },
-          "active_row_count": {
-            "title": "Active Row Count",
-            "type": "integer"
-          },
-          "created_at": {
-            "title": "Created At",
-            "type": "string"
-          },
-          "updated_at": {
-            "title": "Updated At",
-            "type": "string"
-          },
-          "rows": {
-            "title": "Rows",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MonitorRowResponse"
-            }
-          }
-        },
-        "description": "The monitor plus its rows \u2014 the spreadsheet view."
-      },
       "MonitorEventResponse": {
         "title": "MonitorEventResponse",
         "required": [
@@ -18939,6 +19353,50 @@
           }
         }
       },
+      "MonitorHistoryExportRequest": {
+        "title": "MonitorHistoryExportRequest",
+        "type": "object",
+        "properties": {
+          "exclude": {
+            "title": "Exclude",
+            "maxItems": 5000,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "timestamps": {
+            "title": "Timestamps",
+            "maxItems": 5000,
+            "minItems": 1,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "start": {
+            "title": "Start",
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "end": {
+            "title": "End",
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          }
+        }
+      },
       "MonitorResponse": {
         "title": "MonitorResponse",
         "required": [
@@ -18959,6 +19417,7 @@
           "next_run_times",
           "row_count",
           "active_row_count",
+          "status",
           "created_at",
           "updated_at"
         ],
@@ -19048,6 +19507,9 @@
             "title": "Active Row Count",
             "type": "integer"
           },
+          "status": {
+            "$ref": "#/components/schemas/MonitorResponseStatus"
+          },
           "created_at": {
             "title": "Created At",
             "type": "string"
@@ -19058,6 +19520,31 @@
           }
         },
         "description": "One uploaded table, watched as a single thing.\n\n\u0060row_count\u0060 and \u0060active_row_count\u0060 differ when rows have been switched off."
+      },
+      "MonitorRowPage": {
+        "title": "MonitorRowPage",
+        "required": [
+          "rows"
+        ],
+        "type": "object",
+        "properties": {
+          "rows": {
+            "title": "Rows",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MonitorRowResponse"
+            }
+          },
+          "next_cursor": {
+            "title": "Next Cursor",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Pass back as \u0060cursor\u0060 for the next page. Absent on the last page."
+          }
+        },
+        "description": "One page of a monitor\u0027s rows, in the order they were added."
       },
       "MonitorRowResponse": {
         "title": "MonitorRowResponse",
@@ -23271,17 +23758,6 @@
       },
       "LookalikeSearchStatusResponseAnalysis": {
         "title": "Analysis",
-        "type": [
-          "null",
-          "object"
-        ]
-      },
-      "MonitorDetailResponseWatched": {
-        "title": "Watched",
-        "type": "object"
-      },
-      "MonitorDetailResponseMetadata": {
-        "title": "Metadata",
         "type": [
           "null",
           "object"
@@ -27804,6 +28280,38 @@
           }
         }
       },
+      "UploadMonitorEndpointMonitorsUploadPost400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "UploadMonitorEndpointMonitorsUploadPost401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "UploadMonitorEndpointMonitorsUploadPost403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "UploadMonitorEndpointMonitorsUploadPost500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
       "GetMonitorRunSourceMonitorsRunSourceRunIdGet200Response": {
         "type": "object"
       },
@@ -27942,6 +28450,77 @@
           }
         }
       },
+      "ListMonitorRowsEndpointMonitorsMonitorIdRowsGet400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ListMonitorRowsEndpointMonitorsMonitorIdRowsGet401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ListMonitorRowsEndpointMonitorsMonitorIdRowsGet403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ListMonitorRowsEndpointMonitorsMonitorIdRowsGet500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ResponseMonitorChangesEndpointMonitorsMonitorIdChangesGet": {
+        "title": "Response Monitor Changes Endpoint Monitors  Monitor Id  Changes Get",
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/ResponseMonitorChangesEndpointMonitorsMonitorIdChangesGetAdditionalProperties"
+        }
+      },
+      "MonitorChangesEndpointMonitorsMonitorIdChangesGet400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "MonitorChangesEndpointMonitorsMonitorIdChangesGet401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "MonitorChangesEndpointMonitorsMonitorIdChangesGet403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "MonitorChangesEndpointMonitorsMonitorIdChangesGet500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
       "ResponseListMonitorSnapshotsEndpointMonitorsMonitorIdSnapshotsGet": {
         "title": "Response List Monitor Snapshots Endpoint Monitors  Monitor Id  Snapshots Get",
         "type": "array",
@@ -27974,6 +28553,41 @@
         }
       },
       "ListMonitorSnapshotsEndpointMonitorsMonitorIdSnapshotsGet500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost200Response": {
+        "type": "object"
+      },
+      "ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost500Response": {
         "type": "object",
         "properties": {
           "detail": {
@@ -29351,11 +29965,20 @@
           "$ref": "#/components/schemas/MonitorResponse"
         }
       },
+      "MonitorChangesEndpointMonitorsMonitorIdChangesGet200Response": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/MonitorChangesEndpointMonitorsMonitorIdChangesGet200ResponseAdditionalProperties"
+        }
+      },
       "ListMonitorSnapshotsEndpointMonitorsMonitorIdSnapshotsGet200Response": {
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/MonitorSnapshotResponse"
         }
+      },
+      "ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost200ResponseSchema": {
+        "type": "object"
       },
       "TriggerMonitorEndpointMonitorsMonitorIdTriggerPost202Response": {
         "type": "object",
@@ -29661,12 +30284,6 @@
       "LookalikeSearchStatusResponseAnalysisProperty": {
         "type": "object"
       },
-      "MonitorDetailResponseWatchedProperty": {
-        "type": "object"
-      },
-      "MonitorDetailResponseMetadataProperty": {
-        "type": "object"
-      },
       "MonitorEventResponsePayloadProperty": {
         "type": "object"
       },
@@ -29867,6 +30484,12 @@
           }
         }
       },
+      "ResponseMonitorChangesEndpointMonitorsMonitorIdChangesGetAdditionalProperties": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        }
+      },
       "WebhookPayloadValueItem": {
         "type": "object"
       },
@@ -29878,6 +30501,12 @@
       },
       "JobStatusJobStatusJobIdGet200ResponseOneOf2ResultBranch3ValueItem": {
         "type": "object"
+      },
+      "MonitorChangesEndpointMonitorsMonitorIdChangesGet200ResponseAdditionalProperties": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        }
       },
       "JobStatusJobStatusJobIdGet200ResponseResultEnrichmentJobResultStructuredData": {
         "title": "Structured Data",
@@ -30346,6 +30975,40 @@
             {
               "value": "down",
               "name": "Down"
+            }
+          ]
+        }
+      },
+      "MonitorResponseStatus": {
+        "title": "Status",
+        "enum": [
+          "starting",
+          "failed",
+          "active",
+          "paused"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "\u0027starting\u0027 while an uploaded file\u0027s rows are still being added, \u0027failed\u0027 when adding them failed. Nothing is checked until it becomes \u0027active\u0027.",
+        "x-ms-enum": {
+          "name": "MonitorResponseStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "starting",
+              "name": "Starting"
+            },
+            {
+              "value": "failed",
+              "name": "Failed"
+            },
+            {
+              "value": "active",
+              "name": "Active"
+            },
+            {
+              "value": "paused",
+              "name": "Paused"
             }
           ]
         }

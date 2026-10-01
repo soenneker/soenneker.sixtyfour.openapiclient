@@ -7,6 +7,7 @@ using Soenneker.Sixtyfour.OpenApiClient.Models;
 using Soenneker.Sixtyfour.OpenApiClient.Monitors.ForRun;
 using Soenneker.Sixtyfour.OpenApiClient.Monitors.Item;
 using Soenneker.Sixtyfour.OpenApiClient.Monitors.RunSource;
+using Soenneker.Sixtyfour.OpenApiClient.Monitors.Upload;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -29,6 +30,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors
         public global::Soenneker.Sixtyfour.OpenApiClient.Monitors.RunSource.RunSourceRequestBuilder RunSource
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.Monitors.RunSource.RunSourceRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The upload property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Upload.UploadRequestBuilder Upload
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Upload.UploadRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.Sixtyfour.OpenApiClient.monitors.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
@@ -92,7 +98,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors
         /// <summary>
         /// Create one monitor from a table, with a row per subject.The watched cells that arrive become each row&apos;s baseline, so the first checkreports the ones that were already stale rather than adopting them.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorDetailResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponse"/></returns>
         /// <param name="body">Start one monitor per row of a table.A row column named after a struct field seeds that field&apos;s starting value;a field with no matching column is established by the first check.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -103,11 +109,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorEndpointMonitorsPost500Response">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorDetailResponse?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponse?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorDetailResponse> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponse> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -120,7 +126,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorEndpointMonitorsPost500Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorDetailResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorDetailResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// One page of monitors, newest first.Set include_inactive=true and include_cancelled=false to include pausedand other disabled monitors while hiding cancellations.

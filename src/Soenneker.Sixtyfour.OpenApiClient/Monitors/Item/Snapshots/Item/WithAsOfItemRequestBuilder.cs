@@ -22,7 +22,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Snapshots.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithAsOfItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/monitors/{monitorId}/snapshots/{asOf}", pathParameters)
+        public WithAsOfItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/monitors/{monitorId}/snapshots/{asOf}{?limit*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Snapshots.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithAsOfItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/monitors/{monitorId}/snapshots/{asOf}", rawUrl)
+        public WithAsOfItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/monitors/{monitorId}/snapshots/{asOf}{?limit*}", rawUrl)
         {
         }
         /// <summary>
@@ -46,11 +46,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Snapshots.Item
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetMonitorSnapshotEndpointMonitorsMonitorIdSnapshotsAsOfGet500Response">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream?> GetAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Snapshots.Item.WithAsOfItemRequestBuilder.WithAsOfItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream> GetAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Snapshots.Item.WithAsOfItemRequestBuilder.WithAsOfItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -71,11 +71,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Snapshots.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Snapshots.Item.WithAsOfItemRequestBuilder.WithAsOfItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Snapshots.Item.WithAsOfItemRequestBuilder.WithAsOfItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -91,6 +91,16 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Snapshots.Item
         public global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Snapshots.Item.WithAsOfItemRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Snapshots.Item.WithAsOfItemRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// One snapshot as a CSV: a row per subject, watched fields as columns.`as_of` is a timestamp from /snapshots, or `latest` for the present.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class WithAsOfItemRequestBuilderGetQueryParameters 
+        {
+            /// <summary>Only the first rows, for a preview. Omitted, the whole table.</summary>
+            [QueryParameter("limit")]
+            public int? Limit { get; set; }
         }
     }
 }

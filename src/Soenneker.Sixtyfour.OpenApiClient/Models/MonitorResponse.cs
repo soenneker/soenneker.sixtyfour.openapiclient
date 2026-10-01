@@ -101,6 +101,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #endif
         /// <summary>The row_count property</summary>
         public int? RowCount { get; set; }
+        /// <summary>&apos;starting&apos; while an uploaded file&apos;s rows are still being added, &apos;failed&apos; when adding them failed. Nothing is checked until it becomes &apos;active&apos;.</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponseStatus? Status { get; set; }
         /// <summary>The subject_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -187,6 +189,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "org_id", n => { OrgId = n.GetStringValue(); } },
                 { "research_plan", n => { ResearchPlan = n.GetStringValue(); } },
                 { "row_count", n => { RowCount = n.GetIntValue(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponseStatus>(); } },
                 { "subject_type", n => { SubjectType = n.GetStringValue(); } },
                 { "team_id", n => { TeamId = n.GetStringValue(); } },
                 { "tier", n => { Tier = n.GetStringValue(); } },
@@ -215,6 +218,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteStringValue("org_id", OrgId);
             writer.WriteStringValue("research_plan", ResearchPlan);
             writer.WriteIntValue("row_count", RowCount);
+            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponseStatus>("status", Status);
             writer.WriteStringValue("subject_type", SubjectType);
             writer.WriteStringValue("team_id", TeamId);
             writer.WriteStringValue("tier", Tier);

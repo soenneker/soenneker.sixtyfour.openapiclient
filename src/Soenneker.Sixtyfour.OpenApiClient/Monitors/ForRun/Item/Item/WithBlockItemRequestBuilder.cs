@@ -34,9 +34,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.ForRun.Item.Item
         {
         }
         /// <summary>
-        /// The monitor a run&apos;s `monitor` block started, with its rows.Team-gated: the run being visible does not make the monitor visible.
+        /// The monitor a run&apos;s `monitor` block started. Its rows are read from`GET /monitors/{monitor_id}/rows`.Team-gated: the run being visible does not make the monitor visible.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorDetailResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetMonitorForRunEndpointMonitorsForRunWorkflowRunIdBlockIdGet400Response">When receiving a 400 status code</exception>
@@ -46,11 +46,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.ForRun.Item.Item
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetMonitorForRunEndpointMonitorsForRunWorkflowRunIdBlockIdGet500Response">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorDetailResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorDetailResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -62,10 +62,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.ForRun.Item.Item
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetMonitorForRunEndpointMonitorsForRunWorkflowRunIdBlockIdGet500Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorDetailResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorDetailResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// The monitor a run&apos;s `monitor` block started, with its rows.Team-gated: the run being visible does not make the monitor visible.
+        /// The monitor a run&apos;s `monitor` block started. Its rows are read from`GET /monitors/{monitor_id}/rows`.Team-gated: the run being visible does not make the monitor visible.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
