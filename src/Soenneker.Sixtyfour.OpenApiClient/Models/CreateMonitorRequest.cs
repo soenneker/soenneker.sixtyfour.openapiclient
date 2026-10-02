@@ -107,7 +107,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string Tier { get; set; }
 #endif
-        /// <summary>The webhook_event_types property</summary>
+        /// <summary>Which events POST to webhook_url: any of &apos;monitor.field.changed&apos;, &apos;monitor.execution.completed&apos;, &apos;monitor.execution.failed&apos;, &apos;monitor.run.completed&apos;. Defaults to [&apos;monitor.field.changed&apos;]. A monitor&apos;s first check records starting values rather than changes, so subscribe to &apos;monitor.execution.completed&apos; to hear about every finished check.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? WebhookEventTypes { get; set; }

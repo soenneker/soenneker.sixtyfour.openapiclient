@@ -44,6 +44,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Google.Sheets.Status
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetStatusGoogleSheetsStatusGet403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetStatusGoogleSheetsStatusGet500Response">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetStatusGoogleSheetsStatusGet503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.StatusResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -61,6 +62,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Google.Sheets.Status
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetStatusGoogleSheetsStatusGet403Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetStatusGoogleSheetsStatusGet500Response.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetStatusGoogleSheetsStatusGet503Response.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.StatusResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.StatusResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

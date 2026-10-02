@@ -48,6 +48,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.FindEmailBulkAsync
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailBulkAsyncEndpointFindEmailBulkAsyncPost429Response">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailBulkAsyncEndpointFindEmailBulkAsyncPost500Response">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailBulkAsyncEndpointFindEmailBulkAsyncPost503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailBulkAsyncEndpointFindEmailBulkAsyncPost200ResponseSchema?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailBulkRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -69,6 +70,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.FindEmailBulkAsync
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailBulkAsyncEndpointFindEmailBulkAsyncPost429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailBulkAsyncEndpointFindEmailBulkAsyncPost500Response.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailBulkAsyncEndpointFindEmailBulkAsyncPost503Response.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailBulkAsyncEndpointFindEmailBulkAsyncPost200ResponseSchema>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailBulkAsyncEndpointFindEmailBulkAsyncPost200ResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

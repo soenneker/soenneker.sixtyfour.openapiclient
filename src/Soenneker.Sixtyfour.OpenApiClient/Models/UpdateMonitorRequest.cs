@@ -40,14 +40,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The struct property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateMonitorRequestStructProperty? Struct { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateMonitorRequestStructProperty Struct { get; set; }
-#endif
         /// <summary>The tier property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -55,6 +47,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #nullable restore
 #else
         public string Tier { get; set; }
+#endif
+        /// <summary>Replaces the subscription. Any of &apos;monitor.field.changed&apos;, &apos;monitor.execution.completed&apos;, &apos;monitor.execution.failed&apos;, &apos;monitor.run.completed&apos;; null resets it to [&apos;monitor.field.changed&apos;].</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? WebhookEventTypes { get; set; }
+#nullable restore
+#else
+        public List<string> WebhookEventTypes { get; set; }
 #endif
         /// <summary>The webhook_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -93,8 +93,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "is_active", n => { IsActive = n.GetBoolValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateMonitorRequestMetadataProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateMonitorRequestMetadataProperty.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "struct", n => { Struct = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateMonitorRequestStructProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateMonitorRequestStructProperty.CreateFromDiscriminatorValue); } },
                 { "tier", n => { Tier = n.GetStringValue(); } },
+                { "webhook_event_types", n => { WebhookEventTypes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
             };
         }
@@ -109,8 +109,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteBoolValue("is_active", IsActive);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateMonitorRequestMetadataProperty>("metadata", Metadata);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateMonitorRequestStructProperty>("struct", Struct);
             writer.WriteStringValue("tier", Tier);
+            writer.WriteCollectionOfPrimitiveValues<string>("webhook_event_types", WebhookEventTypes);
             writer.WriteStringValue("webhook_url", WebhookUrl);
             writer.WriteAdditionalData(AdditionalData);
         }

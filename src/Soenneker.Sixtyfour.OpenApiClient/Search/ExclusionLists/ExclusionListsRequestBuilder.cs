@@ -57,6 +57,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.ExclusionLists
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListExclusionListsEndpointSearchExclusionListsGet403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListExclusionListsEndpointSearchExclusionListsGet500Response">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListExclusionListsEndpointSearchExclusionListsGet503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<List<global::Soenneker.Sixtyfour.OpenApiClient.Models.ExclusionListResponse>?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -74,6 +75,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.ExclusionLists
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListExclusionListsEndpointSearchExclusionListsGet403Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListExclusionListsEndpointSearchExclusionListsGet500Response.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListExclusionListsEndpointSearchExclusionListsGet503Response.CreateFromDiscriminatorValue },
             };
             var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ExclusionListResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ExclusionListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
@@ -90,6 +92,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.ExclusionLists
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateExclusionListEndpointSearchExclusionListsPost403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateExclusionListEndpointSearchExclusionListsPost500Response">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateExclusionListEndpointSearchExclusionListsPost503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateExclusionListResponse?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateExclusionListRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -108,6 +111,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.ExclusionLists
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateExclusionListEndpointSearchExclusionListsPost403Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateExclusionListEndpointSearchExclusionListsPost500Response.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateExclusionListEndpointSearchExclusionListsPost503Response.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateExclusionListResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateExclusionListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

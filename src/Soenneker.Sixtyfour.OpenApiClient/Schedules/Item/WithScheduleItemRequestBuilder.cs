@@ -44,6 +44,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules.Item
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteScheduleEndpointSchedulesScheduleIdDelete403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteScheduleEndpointSchedulesScheduleIdDelete500Response">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteScheduleEndpointSchedulesScheduleIdDelete503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteScheduleEndpointSchedulesScheduleIdDelete200Response?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -61,6 +62,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules.Item
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteScheduleEndpointSchedulesScheduleIdDelete403Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteScheduleEndpointSchedulesScheduleIdDelete500Response.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteScheduleEndpointSchedulesScheduleIdDelete503Response.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteScheduleEndpointSchedulesScheduleIdDelete200Response>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteScheduleEndpointSchedulesScheduleIdDelete200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -75,6 +77,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules.Item
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetScheduleEndpointSchedulesScheduleIdGet403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetScheduleEndpointSchedulesScheduleIdGet500Response">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetScheduleEndpointSchedulesScheduleIdGet503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ScheduleResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -92,6 +95,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules.Item
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetScheduleEndpointSchedulesScheduleIdGet403Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetScheduleEndpointSchedulesScheduleIdGet500Response.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetScheduleEndpointSchedulesScheduleIdGet503Response.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ScheduleResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ScheduleResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -107,6 +111,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules.Item
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateScheduleEndpointSchedulesScheduleIdPatch403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateScheduleEndpointSchedulesScheduleIdPatch500Response">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateScheduleEndpointSchedulesScheduleIdPatch503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ScheduleResponse?> PatchAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateScheduleRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -125,6 +130,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules.Item
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateScheduleEndpointSchedulesScheduleIdPatch403Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateScheduleEndpointSchedulesScheduleIdPatch500Response.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateScheduleEndpointSchedulesScheduleIdPatch503Response.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ScheduleResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ScheduleResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

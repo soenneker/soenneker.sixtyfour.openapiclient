@@ -47,6 +47,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Update_workflow
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateWorkflowWorkflowsUpdateWorkflowPost409Response">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateWorkflowWorkflowsUpdateWorkflowPost500Response">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateWorkflowWorkflowsUpdateWorkflowPost503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateWorkflowRequest body, Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Update_workflow.Update_workflowRequestBuilder.Update_workflowRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -67,6 +68,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Update_workflow
                 { "409", global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateWorkflowWorkflowsUpdateWorkflowPost409Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateWorkflowWorkflowsUpdateWorkflowPost500Response.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateWorkflowWorkflowsUpdateWorkflowPost503Response.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

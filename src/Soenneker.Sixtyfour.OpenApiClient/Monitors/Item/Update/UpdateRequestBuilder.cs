@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Update
         {
         }
         /// <summary>
-        /// Change what this monitor watches, how often, or how deeply.Applied to every row as well as the monitor, because the rows are what run.`is_active` is not pushed down: a row switched off by hand stays off.
+        /// Change monitor settings. Watched fields are fixed at creation.Applied to every row as well as the monitor, because the rows are what run.`is_active` is not pushed down: a row switched off by hand stays off.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -45,6 +45,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Update
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateMonitorEndpointMonitorsMonitorIdUpdatePost403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateMonitorEndpointMonitorsMonitorIdUpdatePost500Response">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateMonitorEndpointMonitorsMonitorIdUpdatePost503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponse?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateMonitorRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -63,11 +64,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Update
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateMonitorEndpointMonitorsMonitorIdUpdatePost403Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateMonitorEndpointMonitorsMonitorIdUpdatePost500Response.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateMonitorEndpointMonitorsMonitorIdUpdatePost503Response.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Change what this monitor watches, how often, or how deeply.Applied to every row as well as the monitor, because the rows are what run.`is_active` is not pushed down: a row switched off by hand stays off.
+        /// Change monitor settings. Watched fields are fixed at creation.Applied to every row as well as the monitor, because the rows are what run.`is_active` is not pushed down: a row switched off by hand stays off.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

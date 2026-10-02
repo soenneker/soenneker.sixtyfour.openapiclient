@@ -47,6 +47,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.BulkIntelligence.People
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartPeopleBulkIntelligenceWorkflowBulkIntelligencePeoplePost429Response">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartPeopleBulkIntelligenceWorkflowBulkIntelligencePeoplePost500Response">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartPeopleBulkIntelligenceWorkflowBulkIntelligencePeoplePost503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.BulkIntelligenceStartedResponse?> PostAsync(MultipartBody body, Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.BulkIntelligence.People.PeopleRequestBuilder.PeopleRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -67,6 +68,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.BulkIntelligence.People
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartPeopleBulkIntelligenceWorkflowBulkIntelligencePeoplePost429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartPeopleBulkIntelligenceWorkflowBulkIntelligencePeoplePost500Response.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartPeopleBulkIntelligenceWorkflowBulkIntelligencePeoplePost503Response.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.BulkIntelligenceStartedResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.BulkIntelligenceStartedResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

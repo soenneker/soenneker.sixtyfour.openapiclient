@@ -152,6 +152,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRowResponseWatchedProperty Watched { get; set; }
 #endif
+        /// <summary>The webhook_event_types property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? WebhookEventTypes { get; set; }
+#nullable restore
+#else
+        public List<string> WebhookEventTypes { get; set; }
+#endif
         /// <summary>The webhook_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -203,6 +211,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "tier", n => { Tier = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
                 { "watched", n => { Watched = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRowResponseWatchedProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRowResponseWatchedProperty.CreateFromDiscriminatorValue); } },
+                { "webhook_event_types", n => { WebhookEventTypes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
             };
         }
@@ -231,6 +240,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteStringValue("tier", Tier);
             writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRowResponseWatchedProperty>("watched", Watched);
+            writer.WriteCollectionOfPrimitiveValues<string>("webhook_event_types", WebhookEventTypes);
             writer.WriteStringValue("webhook_url", WebhookUrl);
             writer.WriteAdditionalData(AdditionalData);
         }

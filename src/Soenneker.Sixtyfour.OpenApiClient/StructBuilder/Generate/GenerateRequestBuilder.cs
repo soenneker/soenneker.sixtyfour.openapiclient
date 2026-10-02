@@ -45,6 +45,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.StructBuilder.Generate
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateStructStructBuilderGeneratePost403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateStructStructBuilderGeneratePost500Response">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateStructStructBuilderGeneratePost503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderResponse?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -63,6 +64,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.StructBuilder.Generate
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateStructStructBuilderGeneratePost403Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateStructStructBuilderGeneratePost500Response.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateStructStructBuilderGeneratePost503Response.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

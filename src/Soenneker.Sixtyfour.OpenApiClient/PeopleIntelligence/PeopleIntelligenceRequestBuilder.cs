@@ -48,6 +48,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.PeopleIntelligence
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.PeopleIntelligenceEndpointPeopleIntelligencePost429Response">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.PeopleIntelligenceEndpointPeopleIntelligencePost500Response">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.PeopleIntelligenceEndpointPeopleIntelligencePost503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.PeopleIntelligenceEndpointPeopleIntelligencePost200ResponseSchema?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -69,6 +70,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.PeopleIntelligence
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.PeopleIntelligenceEndpointPeopleIntelligencePost429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.PeopleIntelligenceEndpointPeopleIntelligencePost500Response.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.PeopleIntelligenceEndpointPeopleIntelligencePost503Response.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.PeopleIntelligenceEndpointPeopleIntelligencePost200ResponseSchema>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.PeopleIntelligenceEndpointPeopleIntelligencePost200ResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

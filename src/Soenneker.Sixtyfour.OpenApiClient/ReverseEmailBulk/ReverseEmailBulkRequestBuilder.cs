@@ -48,6 +48,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.ReverseEmailBulk
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailBulkEndpointReverseEmailBulkPost429Response">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailBulkEndpointReverseEmailBulkPost500Response">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailBulkEndpointReverseEmailBulkPost503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailBulkEndpointReverseEmailBulkPost200ResponseSchema?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailBulkRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -69,6 +70,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.ReverseEmailBulk
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailBulkEndpointReverseEmailBulkPost429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailBulkEndpointReverseEmailBulkPost500Response.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailBulkEndpointReverseEmailBulkPost503Response.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailBulkEndpointReverseEmailBulkPost200ResponseSchema>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailBulkEndpointReverseEmailBulkPost200ResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

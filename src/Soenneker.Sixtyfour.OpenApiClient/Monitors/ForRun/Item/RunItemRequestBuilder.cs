@@ -57,6 +57,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.ForRun.Item
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMonitorsForRunMonitorsForRunRunIdGet403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMonitorsForRunMonitorsForRunRunIdGet500Response">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMonitorsForRunMonitorsForRunRunIdGet503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<List<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponse>?> GetAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Monitors.ForRun.Item.RunItemRequestBuilder.RunItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -74,6 +75,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.ForRun.Item
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMonitorsForRunMonitorsForRunRunIdGet403Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMonitorsForRunMonitorsForRunRunIdGet500Response.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMonitorsForRunMonitorsForRunRunIdGet503Response.CreateFromDiscriminatorValue },
             };
             var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();

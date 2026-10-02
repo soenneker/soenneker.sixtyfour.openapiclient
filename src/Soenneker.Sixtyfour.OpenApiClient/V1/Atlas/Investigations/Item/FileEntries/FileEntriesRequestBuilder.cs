@@ -44,6 +44,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.FileEnt
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListFileEntriesV1AtlasInvestigationsInvestigationIdFileEntriesGet403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListFileEntriesV1AtlasInvestigationsInvestigationIdFileEntriesGet500Response">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListFileEntriesV1AtlasInvestigationsInvestigationIdFileEntriesGet503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceFileEntriesPage?> GetAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.FileEntries.FileEntriesRequestBuilder.FileEntriesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -61,6 +62,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.FileEnt
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListFileEntriesV1AtlasInvestigationsInvestigationIdFileEntriesGet403Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListFileEntriesV1AtlasInvestigationsInvestigationIdFileEntriesGet500Response.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListFileEntriesV1AtlasInvestigationsInvestigationIdFileEntriesGet503Response.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceFileEntriesPage>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceFileEntriesPage.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

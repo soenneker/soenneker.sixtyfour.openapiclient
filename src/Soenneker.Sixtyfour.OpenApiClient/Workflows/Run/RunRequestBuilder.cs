@@ -47,6 +47,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Run
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowWorkflowsRunPost409Response">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowWorkflowsRunPost500Response">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowWorkflowsRunPost503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunStartedResponse?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBody body, Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Run.RunRequestBuilder.RunRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -67,6 +68,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Run
                 { "409", global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowWorkflowsRunPost409Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowWorkflowsRunPost500Response.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowWorkflowsRunPost503Response.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunStartedResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunStartedResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

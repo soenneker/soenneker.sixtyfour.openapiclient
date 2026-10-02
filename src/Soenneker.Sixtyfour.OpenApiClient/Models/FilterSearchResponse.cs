@@ -143,7 +143,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #endif
         /// <summary>Exact total matches across pages; people-mode only. Null when unknown — including when exclusions are applied by post-filter scan rather than in the query, where the match count would overstate the eligible results. Never a capped or approximate figure.</summary>
         public int? TotalAvailable { get; set; }
-        /// <summary>Minimum total matches when OpenSearch caps hit tracking; people-mode only. Null when the total is exact or no reliable lower bound is available.</summary>
+        /// <summary>Minimum total matches when the search stopped counting at its cap (50,000), so total_available is null. Null when the total is exact or no reliable lower bound is available.</summary>
         public int? TotalAvailableLowerBound { get; set; }
         /// <summary>Final total page count; omitted while `has_more` is true.</summary>
         public int? TotalPages { get; set; }

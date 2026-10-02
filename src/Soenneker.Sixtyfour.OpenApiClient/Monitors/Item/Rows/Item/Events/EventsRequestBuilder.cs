@@ -44,6 +44,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Rows.Item.Events
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRowEventsEndpointMonitorsMonitorIdRowsRowIdEventsGet403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRowEventsEndpointMonitorsMonitorIdRowsRowIdEventsGet500Response">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRowEventsEndpointMonitorsMonitorIdRowsRowIdEventsGet503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<List<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorEventResponse>?> GetAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Rows.Item.Events.EventsRequestBuilder.EventsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -61,6 +62,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Rows.Item.Events
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRowEventsEndpointMonitorsMonitorIdRowsRowIdEventsGet403Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRowEventsEndpointMonitorsMonitorIdRowsRowIdEventsGet500Response.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRowEventsEndpointMonitorsMonitorIdRowsRowIdEventsGet503Response.CreateFromDiscriminatorValue },
             };
             var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorEventResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorEventResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
