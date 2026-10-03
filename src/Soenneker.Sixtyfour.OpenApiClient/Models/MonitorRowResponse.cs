@@ -104,6 +104,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string ResearchPlan { get; set; }
 #endif
+        /// <summary>The struct property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRowResponseStructProperty? Struct { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRowResponseStructProperty Struct { get; set; }
+#endif
         /// <summary>The subject property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -143,14 +151,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #nullable restore
 #else
         public string UpdatedAt { get; set; }
-#endif
-        /// <summary>The watched property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRowResponseWatchedProperty? Watched { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRowResponseWatchedProperty Watched { get; set; }
 #endif
         /// <summary>The webhook_event_types property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -205,12 +205,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "next_run_times", n => { NextRunTimes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "org_id", n => { OrgId = n.GetStringValue(); } },
                 { "research_plan", n => { ResearchPlan = n.GetStringValue(); } },
+                { "struct", n => { Struct = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRowResponseStructProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRowResponseStructProperty.CreateFromDiscriminatorValue); } },
                 { "subject", n => { Subject = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRowResponseSubjectProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRowResponseSubjectProperty.CreateFromDiscriminatorValue); } },
                 { "subject_type", n => { SubjectType = n.GetStringValue(); } },
                 { "team_id", n => { TeamId = n.GetStringValue(); } },
                 { "tier", n => { Tier = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
-                { "watched", n => { Watched = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRowResponseWatchedProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRowResponseWatchedProperty.CreateFromDiscriminatorValue); } },
                 { "webhook_event_types", n => { WebhookEventTypes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
             };
@@ -234,12 +234,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("next_run_times", NextRunTimes);
             writer.WriteStringValue("org_id", OrgId);
             writer.WriteStringValue("research_plan", ResearchPlan);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRowResponseStructProperty>("struct", Struct);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRowResponseSubjectProperty>("subject", Subject);
             writer.WriteStringValue("subject_type", SubjectType);
             writer.WriteStringValue("team_id", TeamId);
             writer.WriteStringValue("tier", Tier);
             writer.WriteStringValue("updated_at", UpdatedAt);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRowResponseWatchedProperty>("watched", Watched);
             writer.WriteCollectionOfPrimitiveValues<string>("webhook_event_types", WebhookEventTypes);
             writer.WriteStringValue("webhook_url", WebhookUrl);
             writer.WriteAdditionalData(AdditionalData);

@@ -9,11 +9,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class MonitorRunSource : IAdditionalDataHolder, IParsable
+    public partial class MonitorRunSource : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The row_indices property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -46,13 +44,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string StorageUrl { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRunSource"/> and sets the default values.
-        /// </summary>
-        public MonitorRunSource()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -88,7 +79,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteStringValue("run_id", RunId);
             writer.WriteStringValue("sha256", Sha256);
             writer.WriteStringValue("storage_url", StorageUrl);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

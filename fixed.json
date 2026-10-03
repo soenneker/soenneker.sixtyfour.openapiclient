@@ -11456,7 +11456,7 @@
           {
             "name": "Idempotency-Key",
             "in": "header",
-            "description": "Optional. Omitted, a key is derived from the settings and the file\u0027s contents, so sending the same file again replays.",
+            "description": "Optional. Omitted, a key is derived from the settings and the file\u0027s contents, so sending the same file again replays. Reusing a key with different settings or file contents returns 409.",
             "schema": {
               "title": "Idempotency-Key",
               "maxLength": 200,
@@ -11464,7 +11464,7 @@
                 "null",
                 "string"
               ],
-              "description": "Optional. Omitted, a key is derived from the settings and the file\u0027s contents, so sending the same file again replays."
+              "description": "Optional. Omitted, a key is derived from the settings and the file\u0027s contents, so sending the same file again replays. Reusing a key with different settings or file contents returns 409."
             }
           },
           {
@@ -12896,7 +12896,7 @@
           "Monitors"
         ],
         "summary": "Cancel Monitor",
-        "description": "Stop the whole table. Rows keep their own switches, so resuming restores\nthe selection the user had.",
+        "description": "Permanently stop future checks. Create a new monitor to start again.",
         "operationId": "CancelMonitorEndpointMonitorsMonitorIdCancelPost",
         "parameters": [
           {
@@ -13037,15 +13037,6 @@
             }
           },
           {
-            "name": "is_active",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "title": "Is Active",
-              "type": "boolean"
-            }
-          },
-          {
             "name": "x-api-key",
             "in": "header",
             "schema": {
@@ -13057,6 +13048,16 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateMonitorRowRequest"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "200": {
             "description": "Successful Response",
@@ -18710,9 +18711,10 @@
               "null",
               "string"
             ],
-            "description": "Optional. Resending a request with the same key returns what the first attempt created instead of creating the batch twice. Omitted, a key is derived from the request\u0027s own content, so an identical resend replays by default."
+            "description": "Optional. Resending a request with the same key returns what the first attempt created instead of creating the batch twice. Reusing a key with different content returns 409. Omitted, a key is derived from the request\u0027s own content, so an identical resend replays by default."
           }
         },
+        "additionalProperties": false,
         "description": "Start one monitor per row of a table.\n\nA row column named after a struct field seeds that field\u0027s starting value;\na field with no matching column is established by the first check."
       },
       "CreateOAuthClientRequest": {
@@ -20304,6 +20306,12 @@
             "type": "string",
             "description": "Canonical Sixtyfour app URL for this investigation\u0027s Atlas workspace.",
             "format": "uri"
+          },
+          "private": {
+            "title": "Private",
+            "type": "boolean",
+            "description": "Visible only to you, not your team.",
+            "default": false
           }
         }
       },
@@ -20602,7 +20610,8 @@
             ],
             "format": "date-time"
           }
-        }
+        },
+        "additionalProperties": false
       },
       "MonitorResponse": {
         "title": "MonitorResponse",
@@ -20612,7 +20621,7 @@
           "team_id",
           "name",
           "frequency",
-          "watched",
+          "struct",
           "tier",
           "subject_type",
           "research_plan",
@@ -20654,8 +20663,8 @@
             "title": "Frequency",
             "type": "string"
           },
-          "watched": {
-            "$ref": "#/components/schemas/MonitorResponseWatchedProperty"
+          "struct": {
+            "$ref": "#/components/schemas/MonitorResponseStructProperty"
           },
           "tier": {
             "title": "Tier",
@@ -20770,7 +20779,7 @@
           "name",
           "frequency",
           "subject",
-          "watched",
+          "struct",
           "baseline",
           "tier",
           "subject_type",
@@ -20813,8 +20822,8 @@
           "subject": {
             "$ref": "#/components/schemas/MonitorRowResponseSubjectProperty"
           },
-          "watched": {
-            "$ref": "#/components/schemas/MonitorRowResponseWatchedProperty"
+          "struct": {
+            "$ref": "#/components/schemas/MonitorRowResponseStructProperty"
           },
           "baseline": {
             "$ref": "#/components/schemas/MonitorRowResponseBaselineProperty"
@@ -20916,7 +20925,8 @@
               "type": "integer"
             }
           }
-        }
+        },
+        "additionalProperties": false
       },
       "MonitorSnapshotResponse": {
         "title": "MonitorSnapshotResponse",
@@ -22666,6 +22676,12 @@
               "string"
             ],
             "description": "Title for the investigation. Derived from lead_info when unset."
+          },
+          "private": {
+            "title": "Private",
+            "type": "boolean",
+            "description": "Visible only to you, not your team. Needs a signed-in user and a team that allows private runs.",
+            "default": false
           }
         }
       },
@@ -22981,7 +22997,22 @@
               "boolean"
             ]
           }
-        }
+        },
+        "additionalProperties": false
+      },
+      "UpdateMonitorRowRequest": {
+        "title": "UpdateMonitorRowRequest",
+        "required": [
+          "is_active"
+        ],
+        "type": "object",
+        "properties": {
+          "is_active": {
+            "title": "Is Active",
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
       },
       "UpdateOAuthClientRequest": {
         "title": "UpdateOAuthClientRequest",
@@ -25001,8 +25032,8 @@
           "object"
         ]
       },
-      "MonitorResponseWatched": {
-        "title": "Watched",
+      "MonitorResponseStruct": {
+        "title": "Struct",
         "type": "object"
       },
       "MonitorResponseMetadata": {
@@ -25016,8 +25047,8 @@
         "title": "Subject",
         "type": "object"
       },
-      "MonitorRowResponseWatched": {
-        "title": "Watched",
+      "MonitorRowResponseStruct": {
+        "title": "Struct",
         "type": "object"
       },
       "MonitorRowResponseBaseline": {
@@ -32255,7 +32286,7 @@
       "MonitorEventResponsePayloadProperty": {
         "type": "object"
       },
-      "MonitorResponseWatchedProperty": {
+      "MonitorResponseStructProperty": {
         "type": "object"
       },
       "MonitorResponseMetadataProperty": {
@@ -32264,7 +32295,7 @@
       "MonitorRowResponseSubjectProperty": {
         "type": "object"
       },
-      "MonitorRowResponseWatchedProperty": {
+      "MonitorRowResponseStructProperty": {
         "type": "object"
       },
       "MonitorRowResponseBaselineProperty": {
@@ -32950,11 +32981,12 @@
           "starting",
           "failed",
           "active",
-          "paused"
+          "paused",
+          "cancelled"
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0027starting\u0027 while an uploaded file\u0027s rows are still being added, \u0027failed\u0027 when adding them failed. Nothing is checked until it becomes \u0027active\u0027.",
+        "description": "\u0027starting\u0027 while an uploaded file\u0027s rows are still being added, \u0027failed\u0027 when adding them failed. Nothing is checked until it becomes \u0027active\u0027. \u0027cancelled\u0027 means the owner cancelled it; \u0027paused\u0027 means it was switched off without cancellation.",
         "x-ms-enum": {
           "name": "MonitorResponseStatus",
           "modelAsString": false,
@@ -32974,6 +33006,10 @@
             {
               "value": "paused",
               "name": "Paused"
+            },
+            {
+              "value": "cancelled",
+              "name": "Cancelled"
             }
           ]
         }

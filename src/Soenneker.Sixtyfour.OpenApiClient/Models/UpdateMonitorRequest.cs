@@ -9,11 +9,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class UpdateMonitorRequest : IAdditionalDataHolder, IParsable
+    public partial class UpdateMonitorRequest : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The frequency property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,13 +63,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string WebhookUrl { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateMonitorRequest"/> and sets the default values.
-        /// </summary>
-        public UpdateMonitorRequest()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateMonitorRequest"/></returns>
@@ -112,7 +103,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteStringValue("tier", Tier);
             writer.WriteCollectionOfPrimitiveValues<string>("webhook_event_types", WebhookEventTypes);
             writer.WriteStringValue("webhook_url", WebhookUrl);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

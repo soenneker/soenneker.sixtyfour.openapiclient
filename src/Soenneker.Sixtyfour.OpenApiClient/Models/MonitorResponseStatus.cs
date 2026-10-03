@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
-    /// <summary>&apos;starting&apos; while an uploaded file&apos;s rows are still being added, &apos;failed&apos; when adding them failed. Nothing is checked until it becomes &apos;active&apos;.</summary>
+    /// <summary>&apos;starting&apos; while an uploaded file&apos;s rows are still being added, &apos;failed&apos; when adding them failed. Nothing is checked until it becomes &apos;active&apos;. &apos;cancelled&apos; means the owner cancelled it; &apos;paused&apos; means it was switched off without cancellation.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum MonitorResponseStatus
     {
@@ -22,6 +22,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         [EnumMember(Value = "paused")]
         #pragma warning disable CS1591
         Paused,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "cancelled")]
+        #pragma warning disable CS1591
+        Cancelled,
         #pragma warning restore CS1591
     }
 }

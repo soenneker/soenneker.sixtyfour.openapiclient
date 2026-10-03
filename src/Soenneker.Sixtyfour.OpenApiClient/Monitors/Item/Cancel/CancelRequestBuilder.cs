@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Cancel
         {
         }
         /// <summary>
-        /// Stop the whole table. Rows keep their own switches, so resuming restoresthe selection the user had.
+        /// Permanently stop future checks. Create a new monitor to start again.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -67,7 +67,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Cancel
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Stop the whole table. Rows keep their own switches, so resuming restoresthe selection the user had.
+        /// Permanently stop future checks. Create a new monitor to start again.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -42,6 +42,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
+        /// <summary>Visible only to you, not your team. Needs a signed-in user and a team that allows private runs.</summary>
+        public bool? Private { get; set; }
         /// <summary>Research until the budget runs out (the Atlas default). Set false to let a run with `struct` stop once every field is answered, charging the turns it used (at least one unit).</summary>
         public bool? Relentless { get; set; }
         /// <summary>Direction for this run. On a continue, what to look into next.</summary>
@@ -66,6 +68,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public StartInvestigationRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            Private = false;
             Relentless = true;
         }
         /// <summary>
@@ -91,6 +94,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "lead_info", n => { LeadInfo = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequestLeadInfoProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequestLeadInfoProperty.CreateFromDiscriminatorValue); } },
                 { "max_credits", n => { MaxCredits = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "private", n => { Private = n.GetBoolValue(); } },
                 { "relentless", n => { Relentless = n.GetBoolValue(); } },
                 { "research_plan", n => { ResearchPlan = n.GetStringValue(); } },
                 { "struct", n => { Struct = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequestStructProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequestStructProperty.CreateFromDiscriminatorValue); } },
@@ -108,6 +112,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequestLeadInfoProperty>("lead_info", LeadInfo);
             writer.WriteIntValue("max_credits", MaxCredits);
             writer.WriteStringValue("name", Name);
+            writer.WriteBoolValue("private", Private);
             writer.WriteBoolValue("relentless", Relentless);
             writer.WriteStringValue("research_plan", ResearchPlan);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequestStructProperty>("struct", Struct);

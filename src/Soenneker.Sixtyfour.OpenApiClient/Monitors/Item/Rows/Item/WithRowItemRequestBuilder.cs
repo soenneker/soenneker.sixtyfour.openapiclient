@@ -76,6 +76,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Rows.Item
         /// Include or exclude one row from the monitor&apos;s checks.A switched-off row is skipped by the fan-out, so it costs nothing, and itsbaseline and history are kept.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRowResponse"/></returns>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SetRowActiveEndpointMonitorsMonitorIdRowsRowIdPost400Response">When receiving a 400 status code</exception>
@@ -86,14 +87,15 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Rows.Item
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SetRowActiveEndpointMonitorsMonitorIdRowsRowIdPost503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRowResponse?> PostAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Rows.Item.WithRowItemRequestBuilder.WithRowItemRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRowResponse?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateMonitorRowRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRowResponse> PostAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Rows.Item.WithRowItemRequestBuilder.WithRowItemRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRowResponse> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateMonitorRowRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            var requestInfo = ToPostRequestInformation(requestConfiguration);
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.SetRowActiveEndpointMonitorsMonitorIdRowsRowIdPost400Response.CreateFromDiscriminatorValue },
@@ -128,19 +130,22 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Rows.Item
         /// Include or exclude one row from the monitor&apos;s checks.A switched-off row is skipped by the fan-out, so it costs nothing, and itsbaseline and history are kept.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Rows.Item.WithRowItemRequestBuilder.WithRowItemRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateMonitorRowRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Rows.Item.WithRowItemRequestBuilder.WithRowItemRequestBuilderPostQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateMonitorRowRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/monitors/{monitorId}/rows/{rowId}?is_active={is_active}", PathParameters);
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
+            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             return requestInfo;
         }
         /// <summary>
@@ -151,17 +156,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Rows.Item
         public global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Rows.Item.WithRowItemRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Rows.Item.WithRowItemRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Include or exclude one row from the monitor&apos;s checks.A switched-off row is skipped by the fan-out, so it costs nothing, and itsbaseline and history are kept.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WithRowItemRequestBuilderPostQueryParameters 
-        {
-            #pragma warning disable CS1591
-            [QueryParameter("is_active")]
-            public bool? IsActive { get; set; }
-            #pragma warning restore CS1591
         }
     }
 }

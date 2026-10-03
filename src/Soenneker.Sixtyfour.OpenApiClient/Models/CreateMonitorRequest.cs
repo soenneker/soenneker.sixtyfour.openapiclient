@@ -11,10 +11,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     /// Start one monitor per row of a table.A row column named after a struct field seeds that field&apos;s starting value;a field with no matching column is established by the first check.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class CreateMonitorRequest : IAdditionalDataHolder, IParsable
+    public partial class CreateMonitorRequest : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>When the first check runs. &apos;now&apos; checks every row as soon as the monitor exists. &apos;next_tick&apos; waits for the schedule: an hourly monitor first runs at the next :00 UTC, a daily one at the next 00:00 UTC. The response&apos;s next_run_times says exactly when.</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestFirstCheck? FirstCheck { get; set; }
         /// <summary>The frequency property</summary>
@@ -25,7 +23,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string Frequency { get; set; }
 #endif
-        /// <summary>Optional. Resending a request with the same key returns what the first attempt created instead of creating the batch twice. Omitted, a key is derived from the request&apos;s own content, so an identical resend replays by default.</summary>
+        /// <summary>Optional. Resending a request with the same key returns what the first attempt created instead of creating the batch twice. Reusing a key with different content returns 409. Omitted, a key is derived from the request&apos;s own content, so an identical resend replays by default.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? IdempotencyKey { get; set; }
@@ -128,7 +126,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// </summary>
         public CreateMonitorRequest()
         {
-            AdditionalData = new Dictionary<string, object>();
             Frequency = "1d";
             IsActive = true;
             SubjectType = "company";
@@ -191,7 +188,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteStringValue("tier", Tier);
             writer.WriteCollectionOfPrimitiveValues<string>("webhook_event_types", WebhookEventTypes);
             writer.WriteStringValue("webhook_url", WebhookUrl);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

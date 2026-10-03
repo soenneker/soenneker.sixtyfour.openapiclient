@@ -9,11 +9,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class MonitorHistoryExportRequest : IAdditionalDataHolder, IParsable
+    public partial class MonitorHistoryExportRequest : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The end property</summary>
         public DateTimeOffset? End { get; set; }
         /// <summary>The exclude property</summary>
@@ -34,13 +32,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public List<DateTimeOffset?> Timestamps { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorHistoryExportRequest"/> and sets the default values.
-        /// </summary>
-        public MonitorHistoryExportRequest()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -76,7 +67,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<DateTimeOffset?>("exclude", Exclude);
             writer.WriteDateTimeOffsetValue("start", Start);
             writer.WriteCollectionOfPrimitiveValues<DateTimeOffset?>("timestamps", Timestamps);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

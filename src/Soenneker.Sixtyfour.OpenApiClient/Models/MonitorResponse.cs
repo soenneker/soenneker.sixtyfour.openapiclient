@@ -101,8 +101,16 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #endif
         /// <summary>The row_count property</summary>
         public int? RowCount { get; set; }
-        /// <summary>&apos;starting&apos; while an uploaded file&apos;s rows are still being added, &apos;failed&apos; when adding them failed. Nothing is checked until it becomes &apos;active&apos;.</summary>
+        /// <summary>&apos;starting&apos; while an uploaded file&apos;s rows are still being added, &apos;failed&apos; when adding them failed. Nothing is checked until it becomes &apos;active&apos;. &apos;cancelled&apos; means the owner cancelled it; &apos;paused&apos; means it was switched off without cancellation.</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponseStatus? Status { get; set; }
+        /// <summary>The struct property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponseStructProperty? Struct { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponseStructProperty Struct { get; set; }
+#endif
         /// <summary>The subject_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -134,14 +142,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #nullable restore
 #else
         public string UpdatedAt { get; set; }
-#endif
-        /// <summary>The watched property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponseWatchedProperty? Watched { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponseWatchedProperty Watched { get; set; }
 #endif
         /// <summary>The webhook_event_types property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -198,11 +198,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "research_plan", n => { ResearchPlan = n.GetStringValue(); } },
                 { "row_count", n => { RowCount = n.GetIntValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponseStatus>(); } },
+                { "struct", n => { Struct = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponseStructProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponseStructProperty.CreateFromDiscriminatorValue); } },
                 { "subject_type", n => { SubjectType = n.GetStringValue(); } },
                 { "team_id", n => { TeamId = n.GetStringValue(); } },
                 { "tier", n => { Tier = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
-                { "watched", n => { Watched = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponseWatchedProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponseWatchedProperty.CreateFromDiscriminatorValue); } },
                 { "webhook_event_types", n => { WebhookEventTypes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
             };
@@ -228,11 +228,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteStringValue("research_plan", ResearchPlan);
             writer.WriteIntValue("row_count", RowCount);
             writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponseStatus>("status", Status);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponseStructProperty>("struct", Struct);
             writer.WriteStringValue("subject_type", SubjectType);
             writer.WriteStringValue("team_id", TeamId);
             writer.WriteStringValue("tier", Tier);
             writer.WriteStringValue("updated_at", UpdatedAt);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponseWatchedProperty>("watched", Watched);
             writer.WriteCollectionOfPrimitiveValues<string>("webhook_event_types", WebhookEventTypes);
             writer.WriteStringValue("webhook_url", WebhookUrl);
             writer.WriteAdditionalData(AdditionalData);
