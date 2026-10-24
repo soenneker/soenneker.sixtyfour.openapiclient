@@ -15,6 +15,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Temporal accepted a request to stop; final cleanup may still be running.</summary>
+        public bool? CancellationRequested { get; set; }
         /// <summary>Job (run) identifier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -23,7 +25,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string JobId { get; set; }
 #endif
-        /// <summary>Status after cancellation, typically &apos;canceled&apos;.</summary>
+        /// <summary>Current durable run status. A cancellation request may still be stopping.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Status { get; set; }
@@ -37,6 +39,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public WorkflowCancelResponse()
         {
             AdditionalData = new Dictionary<string, object>();
+            CancellationRequested = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -56,6 +59,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "cancellation_requested", n => { CancellationRequested = n.GetBoolValue(); } },
                 { "job_id", n => { JobId = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
             };
@@ -67,6 +71,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("cancellation_requested", CancellationRequested);
             writer.WriteStringValue("job_id", JobId);
             writer.WriteStringValue("status", Status);
             writer.WriteAdditionalData(AdditionalData);

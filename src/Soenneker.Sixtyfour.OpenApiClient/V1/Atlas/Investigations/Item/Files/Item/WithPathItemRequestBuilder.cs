@@ -36,7 +36,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Files.I
         /// <summary>
         /// A workspace file&apos;s bytes: text as stored, attachments decrypted and served with their content type.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetFileV1AtlasInvestigationsInvestigationIdFilesPathGet200ResponseSchema"/></returns>
+        /// <returns>A <see cref="UntypedNode"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetFileV1AtlasInvestigationsInvestigationIdFilesPathGet400Response">When receiving a 400 status code</exception>
@@ -47,11 +47,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Files.I
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetFileV1AtlasInvestigationsInvestigationIdFilesPathGet503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.GetFileV1AtlasInvestigationsInvestigationIdFilesPathGet200ResponseSchema?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<UntypedNode?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.GetFileV1AtlasInvestigationsInvestigationIdFilesPathGet200ResponseSchema> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<UntypedNode> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -64,7 +64,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Files.I
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetFileV1AtlasInvestigationsInvestigationIdFilesPathGet500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetFileV1AtlasInvestigationsInvestigationIdFilesPathGet503Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.GetFileV1AtlasInvestigationsInvestigationIdFilesPathGet200ResponseSchema>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.GetFileV1AtlasInvestigationsInvestigationIdFilesPathGet200ResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// A workspace file&apos;s bytes: text as stored, attachments decrypted and served with their content type.

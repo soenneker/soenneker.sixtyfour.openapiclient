@@ -1,8 +1,8 @@
 {
-  "descriptionHash": "96CCC8F45970DFBE7B37A6430AA65CEFEF5ABFA3AF54F73B20ED6FC1268E2014B65E0B50D1B11783F00F5969D642E57D9702969A66EED8E25ABE4DEA30E2C02A",
+  "descriptionHash": "00A41EFE89A7B7976890E4215347782613EE613B74AC775BB298F8A857418601C62ABC0B325FC7C5DDB135E57FC5E0649849676DD764F00AF3D51615C8B0B000",
   "descriptionLocation": "../../fixed.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.35.0",
+  "kiotaVersion": "1.36.1",
   "clientClassName": "SixtyfourOpenApiClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "Soenneker.Sixtyfour.OpenApiClient",

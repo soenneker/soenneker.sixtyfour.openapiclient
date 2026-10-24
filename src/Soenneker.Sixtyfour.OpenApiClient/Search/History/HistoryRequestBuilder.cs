@@ -55,7 +55,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.History
         /// <summary>
         /// Clear Search History Endpoint
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ClearSearchHistoryEndpointSearchHistoryDelete200Response"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseClearSearchHistoryEndpointSearchHistoryDeleteSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ClearSearchHistoryEndpointSearchHistoryDelete400Response">When receiving a 400 status code</exception>
@@ -72,11 +72,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.History
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ClearSearchHistoryEndpointSearchHistoryDelete504Response">When receiving a 504 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ClearSearchHistoryEndpointSearchHistoryDelete200Response?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseClearSearchHistoryEndpointSearchHistoryDeleteSchema?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ClearSearchHistoryEndpointSearchHistoryDelete200Response> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseClearSearchHistoryEndpointSearchHistoryDeleteSchema> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -95,12 +95,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.History
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.ClearSearchHistoryEndpointSearchHistoryDelete503Response.CreateFromDiscriminatorValue },
                 { "504", global::Soenneker.Sixtyfour.OpenApiClient.Models.ClearSearchHistoryEndpointSearchHistoryDelete504Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ClearSearchHistoryEndpointSearchHistoryDelete200Response>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ClearSearchHistoryEndpointSearchHistoryDelete200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseClearSearchHistoryEndpointSearchHistoryDeleteSchema>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseClearSearchHistoryEndpointSearchHistoryDeleteSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List the current user&apos;s decrypted search history for Logs.The cursor uses the Logs page&apos;s existing ``{&quot;v&quot;, &quot;t&quot;}`` boundary, sothe BFF can merge this source with workflow/API candidates without asecond pagination implementation.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListSearchHistoryEndpointSearchHistoryGet200Response"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseListSearchHistoryEndpointSearchHistoryGetSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListSearchHistoryEndpointSearchHistoryGet400Response">When receiving a 400 status code</exception>
@@ -117,11 +117,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.History
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListSearchHistoryEndpointSearchHistoryGet504Response">When receiving a 504 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ListSearchHistoryEndpointSearchHistoryGet200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Search.History.HistoryRequestBuilder.HistoryRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseListSearchHistoryEndpointSearchHistoryGetSchema?> GetAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Search.History.HistoryRequestBuilder.HistoryRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ListSearchHistoryEndpointSearchHistoryGet200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Search.History.HistoryRequestBuilder.HistoryRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseListSearchHistoryEndpointSearchHistoryGetSchema> GetAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Search.History.HistoryRequestBuilder.HistoryRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -140,7 +140,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.History
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListSearchHistoryEndpointSearchHistoryGet503Response.CreateFromDiscriminatorValue },
                 { "504", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListSearchHistoryEndpointSearchHistoryGet504Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ListSearchHistoryEndpointSearchHistoryGet200Response>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ListSearchHistoryEndpointSearchHistoryGet200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseListSearchHistoryEndpointSearchHistoryGetSchema>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseListSearchHistoryEndpointSearchHistoryGetSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Clear Search History Endpoint

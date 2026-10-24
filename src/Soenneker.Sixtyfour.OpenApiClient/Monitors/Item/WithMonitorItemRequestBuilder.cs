@@ -8,6 +8,7 @@ using Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Cancel;
 using Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Changes;
 using Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.HistoryExport;
 using Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Rows;
+using Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Runs;
 using Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Snapshots;
 using Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Trigger;
 using Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Update;
@@ -43,6 +44,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item
         public global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Rows.RowsRequestBuilder Rows
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Rows.RowsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The runs property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Runs.RunsRequestBuilder Runs
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Runs.RunsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The snapshots property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Snapshots.SnapshotsRequestBuilder Snapshots
@@ -84,7 +90,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetMonitorEndpointMonitorsMonitorIdGet400Response">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetMonitorEndpointMonitorsMonitorIdGet401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetMonitorEndpointMonitorsMonitorIdGet403Response">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorValidationErrorResponse">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetMonitorEndpointMonitorsMonitorIdGet500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetMonitorEndpointMonitorsMonitorIdGet503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -102,7 +108,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item
                 { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetMonitorEndpointMonitorsMonitorIdGet400Response.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetMonitorEndpointMonitorsMonitorIdGet401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetMonitorEndpointMonitorsMonitorIdGet403Response.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorValidationErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetMonitorEndpointMonitorsMonitorIdGet500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetMonitorEndpointMonitorsMonitorIdGet503Response.CreateFromDiscriminatorValue },
             };

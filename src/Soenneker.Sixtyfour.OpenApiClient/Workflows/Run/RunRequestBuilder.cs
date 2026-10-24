@@ -46,6 +46,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Run
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowWorkflowsRunPost404Response">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowWorkflowsRunPost409Response">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowWorkflowsRunPost429Response">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowWorkflowsRunPost500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowWorkflowsRunPost503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -67,6 +68,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Run
                 { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowWorkflowsRunPost404Response.CreateFromDiscriminatorValue },
                 { "409", global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowWorkflowsRunPost409Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowWorkflowsRunPost429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowWorkflowsRunPost500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowWorkflowsRunPost503Response.CreateFromDiscriminatorValue },
             };

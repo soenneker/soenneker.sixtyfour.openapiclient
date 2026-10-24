@@ -22,7 +22,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.HistoryExport
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public HistoryExportRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/monitors/{monitorId}/history-export", pathParameters)
+        public HistoryExportRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/monitors/{monitorId}/history-export{?spreadsheet_safe*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,29 +30,29 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.HistoryExport
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public HistoryExportRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/monitors/{monitorId}/history-export", rawUrl)
+        public HistoryExportRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/monitors/{monitorId}/history-export{?spreadsheet_safe*}", rawUrl)
         {
         }
         /// <summary>
         /// Full CSVs in one ZIP. Omit timestamps for all snapshots in the date range.Bounds: 5,000 snapshots, 50 MiB CSV data, 100 MiB event data, 120 seconds.An oversized request returns 413 before any ZIP is sent; select fewer dates.All timestamps use UTC; start and end are inclusive.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost200ResponseSchema"/></returns>
+        /// <returns>A <see cref="UntypedNode"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost400Response">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost403Response">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorValidationErrorResponse">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost200ResponseSchema?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorHistoryExportRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<UntypedNode?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorHistoryExportRequest body, Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.HistoryExport.HistoryExportRequestBuilder.HistoryExportRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost200ResponseSchema> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorHistoryExportRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<UntypedNode> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorHistoryExportRequest body, Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.HistoryExport.HistoryExportRequestBuilder.HistoryExportRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -62,11 +62,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.HistoryExport
                 { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost400Response.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost403Response.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorValidationErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost503Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost200ResponseSchema>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost200ResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Full CSVs in one ZIP. Omit timestamps for all snapshots in the date range.Bounds: 5,000 snapshots, 50 MiB CSV data, 100 MiB event data, 120 seconds.An oversized request returns 413 before any ZIP is sent; select fewer dates.All timestamps use UTC; start and end are inclusive.
@@ -76,11 +76,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.HistoryExport
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorHistoryExportRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorHistoryExportRequest body, Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.HistoryExport.HistoryExportRequestBuilder.HistoryExportRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorHistoryExportRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorHistoryExportRequest body, Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.HistoryExport.HistoryExportRequestBuilder.HistoryExportRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -98,6 +98,16 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.HistoryExport
         public global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.HistoryExport.HistoryExportRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.HistoryExport.HistoryExportRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// Full CSVs in one ZIP. Omit timestamps for all snapshots in the date range.Bounds: 5,000 snapshots, 50 MiB CSV data, 100 MiB event data, 120 seconds.An oversized request returns 413 before any ZIP is sent; select fewer dates.All timestamps use UTC; start and end are inclusive.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class HistoryExportRequestBuilderPostQueryParameters 
+        {
+            /// <summary>Escape formula-prefixed CSV cells; off so machine callers keep canonical bytes</summary>
+            [QueryParameter("spreadsheet_safe")]
+            public bool? SpreadsheetSafe { get; set; }
         }
     }
 }

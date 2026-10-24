@@ -59,6 +59,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #endif
         /// <summary>Company-mode page offset for page-numbered navigation (mirrors OpenSearch `from`). Offset pages return no cursor and are not persisted to history; page one (offset 0 or omitted) behaves exactly as before. People mode rejects this field.</summary>
         public int? FromOffset { get; set; }
+        /// <summary>Platform-only. The saved search this one was derived from. Stored with the new search so the agent can see the chain behind a live view; ignored on cursor and search_id replays.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchLineage? Lineage { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchLineage Lineage { get; set; }
+#endif
         /// <summary>Expand the location filter to nearby areas via PostGIS radius on the `query` (NL) branch. For `parsed_query`, use `expand_structured_location`.</summary>
         public bool? LocationExpansionEnabled { get; set; }
         /// <summary>Radius (miles) for PostGIS location expansion. Ignored when expansion is disabled.</summary>
@@ -108,10 +116,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Platform-only name -&gt; company ID map from autocomplete. Each pair is verified against the company index before use; unverified pairs fall back to name resolution. Disambiguates companies sharing a name. Excess hints are ignored; parsed-query name matching still applies.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSelectedCompanyIdsProperty? SelectedCompanyIds { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSelectedCompanyIdsAnyOf1? SelectedCompanyIds { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSelectedCompanyIdsProperty SelectedCompanyIds { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSelectedCompanyIdsAnyOf1 SelectedCompanyIds { get; set; }
 #endif
         /// <summary>Platform-only exact company selections. The backend resolves names to company IDs instead of trusting client-supplied OpenSearch IDs. Excess hints are ignored; parsed-query name matching still applies.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -166,6 +174,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "expand_structured_location", n => { ExpandStructuredLocation = n.GetBoolValue(); } },
                 { "filters", n => { Filters = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestFiltersProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestFiltersProperty.CreateFromDiscriminatorValue); } },
                 { "from_offset", n => { FromOffset = n.GetIntValue(); } },
+                { "lineage", n => { Lineage = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchLineage>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchLineage.CreateFromDiscriminatorValue); } },
                 { "location_expansion_enabled", n => { LocationExpansionEnabled = n.GetBoolValue(); } },
                 { "location_expansion_radius_miles", n => { LocationExpansionRadiusMiles = n.GetIntValue(); } },
                 { "max_results", n => { MaxResults = n.GetIntValue(); } },
@@ -177,7 +186,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "query", n => { Query = n.GetStringValue(); } },
                 { "query_label", n => { QueryLabel = n.GetStringValue(); } },
                 { "search_id", n => { SearchId = n.GetStringValue(); } },
-                { "selected_company_ids", n => { SelectedCompanyIds = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSelectedCompanyIdsProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSelectedCompanyIdsProperty.CreateFromDiscriminatorValue); } },
+                { "selected_company_ids", n => { SelectedCompanyIds = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSelectedCompanyIdsAnyOf1>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSelectedCompanyIdsAnyOf1.CreateFromDiscriminatorValue); } },
                 { "selected_company_names", n => { SelectedCompanyNames = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "simple_filters", n => { SimpleFilters = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSimpleFiltersProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSimpleFiltersProperty.CreateFromDiscriminatorValue); } },
             };
@@ -196,6 +205,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteBoolValue("expand_structured_location", ExpandStructuredLocation);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestFiltersProperty>("filters", Filters);
             writer.WriteIntValue("from_offset", FromOffset);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchLineage>("lineage", Lineage);
             writer.WriteBoolValue("location_expansion_enabled", LocationExpansionEnabled);
             writer.WriteIntValue("location_expansion_radius_miles", LocationExpansionRadiusMiles);
             writer.WriteIntValue("max_results", MaxResults);
@@ -207,7 +217,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteStringValue("query", Query);
             writer.WriteStringValue("query_label", QueryLabel);
             writer.WriteStringValue("search_id", SearchId);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSelectedCompanyIdsProperty>("selected_company_ids", SelectedCompanyIds);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSelectedCompanyIdsAnyOf1>("selected_company_ids", SelectedCompanyIds);
             writer.WriteCollectionOfPrimitiveValues<string>("selected_company_names", SelectedCompanyNames);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSimpleFiltersProperty>("simple_filters", SimpleFilters);
             writer.WriteAdditionalData(AdditionalData);

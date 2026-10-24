@@ -8,18 +8,18 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayloadMember1"/>, <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayloadMember2"/>, <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WebhookPayload"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayloadMember2"/>, <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayloadMember3"/>, List&lt;global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayloadMember1&gt;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RunWorkflowBodyWebhookPayload : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayloadMember1"/></summary>
+        /// <summary>Composed type representation for type List&lt;global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayloadMember1&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayloadMember1? RunWorkflowBodyWebhookPayloadMember1 { get; set; }
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayloadMember1>? RunWorkflowBodyWebhookPayloadMember1 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayloadMember1 RunWorkflowBodyWebhookPayloadMember1 { get; set; }
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayloadMember1> RunWorkflowBodyWebhookPayloadMember1 { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayloadMember2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -29,13 +29,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayloadMember2 RunWorkflowBodyWebhookPayloadMember2 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WebhookPayload"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayloadMember3"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WebhookPayload? WebhookPayload { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayloadMember3? RunWorkflowBodyWebhookPayloadMember3 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WebhookPayload WebhookPayload { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayloadMember3 RunWorkflowBodyWebhookPayloadMember3 { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -46,9 +46,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayload();
-            result.RunWorkflowBodyWebhookPayloadMember1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayloadMember1();
-            result.RunWorkflowBodyWebhookPayloadMember2 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayloadMember2();
-            result.WebhookPayload = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WebhookPayload();
+            if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayloadMember1>(global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayloadMember1.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayloadMember1> runWorkflowBodyWebhookPayloadMember1Value)
+            {
+                result.RunWorkflowBodyWebhookPayloadMember1 = runWorkflowBodyWebhookPayloadMember1Value;
+            }
+            else {
+                result.RunWorkflowBodyWebhookPayloadMember2 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayloadMember2();
+                result.RunWorkflowBodyWebhookPayloadMember3 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayloadMember3();
+            }
             return result;
         }
         /// <summary>
@@ -57,9 +62,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(RunWorkflowBodyWebhookPayloadMember1 != null || RunWorkflowBodyWebhookPayloadMember2 != null || WebhookPayload != null)
+            if(RunWorkflowBodyWebhookPayloadMember2 != null || RunWorkflowBodyWebhookPayloadMember3 != null)
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(RunWorkflowBodyWebhookPayloadMember1, RunWorkflowBodyWebhookPayloadMember2, WebhookPayload);
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(RunWorkflowBodyWebhookPayloadMember2, RunWorkflowBodyWebhookPayloadMember3);
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -70,7 +75,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayloadMember1>(null, RunWorkflowBodyWebhookPayloadMember1, RunWorkflowBodyWebhookPayloadMember2, WebhookPayload);
+            if(RunWorkflowBodyWebhookPayloadMember1 != null)
+            {
+                writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayloadMember1>(null, RunWorkflowBodyWebhookPayloadMember1);
+            }
+            else {
+                writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayloadMember2>(null, RunWorkflowBodyWebhookPayloadMember2, RunWorkflowBodyWebhookPayloadMember3);
+            }
         }
     }
 }

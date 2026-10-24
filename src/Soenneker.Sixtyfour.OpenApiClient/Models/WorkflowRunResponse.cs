@@ -18,10 +18,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Per-block detail; usually null in list responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponseBlocks? Blocks { get; set; }
+        public UntypedNode? Blocks { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponseBlocks Blocks { get; set; }
+        public UntypedNode Blocks { get; set; }
 #endif
         /// <summary>Number of blocks in the workflow at run time.</summary>
         public int? BlocksCount { get; set; }
@@ -47,7 +47,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string JobId { get; set; }
 #endif
-        /// <summary>Aggregate run metrics (rows in/out, costs, etc.).</summary>
+        /// <summary>Aggregate run metrics; workflow_cost_credits is the total cost in credits. Legacy workflow_cost retains its existing units.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponseMetricsProperty? Metrics { get; set; }
@@ -136,7 +136,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "blocks", n => { Blocks = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponseBlocks>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponseBlocks.CreateFromDiscriminatorValue); } },
+                { "blocks", n => { Blocks = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "blocks_count", n => { BlocksCount = n.GetIntValue(); } },
                 { "completed_at", n => { CompletedAt = n.GetDateTimeOffsetValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
@@ -162,7 +162,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponseBlocks>("blocks", Blocks);
+            writer.WriteObjectValue<UntypedNode>("blocks", Blocks);
             writer.WriteIntValue("blocks_count", BlocksCount);
             writer.WriteDateTimeOffsetValue("completed_at", CompletedAt);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);

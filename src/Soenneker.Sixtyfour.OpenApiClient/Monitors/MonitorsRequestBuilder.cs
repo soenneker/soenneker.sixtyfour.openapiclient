@@ -6,6 +6,7 @@ using Microsoft.Kiota.Abstractions;
 using Soenneker.Sixtyfour.OpenApiClient.Models;
 using Soenneker.Sixtyfour.OpenApiClient.Monitors.ForRun;
 using Soenneker.Sixtyfour.OpenApiClient.Monitors.Item;
+using Soenneker.Sixtyfour.OpenApiClient.Monitors.Linkedin;
 using Soenneker.Sixtyfour.OpenApiClient.Monitors.RunSource;
 using Soenneker.Sixtyfour.OpenApiClient.Monitors.Upload;
 using System.Collections.Generic;
@@ -25,6 +26,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors
         public global::Soenneker.Sixtyfour.OpenApiClient.Monitors.ForRun.ForRunRequestBuilder ForRun
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.Monitors.ForRun.ForRunRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The linkedin property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Linkedin.LinkedinRequestBuilder Linkedin
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Linkedin.LinkedinRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The runSource property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Monitors.RunSource.RunSourceRequestBuilder RunSource
@@ -73,7 +79,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMonitorsEndpointMonitorsGet400Response">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMonitorsEndpointMonitorsGet401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMonitorsEndpointMonitorsGet403Response">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorValidationErrorResponse">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMonitorsEndpointMonitorsGet500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMonitorsEndpointMonitorsGet503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -91,14 +97,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors
                 { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMonitorsEndpointMonitorsGet400Response.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMonitorsEndpointMonitorsGet401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMonitorsEndpointMonitorsGet403Response.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorValidationErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMonitorsEndpointMonitorsGet500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMonitorsEndpointMonitorsGet503Response.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.PaginatedMonitorResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.PaginatedMonitorResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create one monitor from a table, with a row per subject.The watched cells that arrive become each row&apos;s baseline, so the first checkreports the ones that were already stale rather than adopting them.
+        /// Create one monitor from a table, with a row per subject.Supplied watched cells become the baseline. Complete rows skip setup;incomplete rows need an initial enrichment before recurring checks.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponse"/></returns>
         /// <param name="body">Start one monitor per row of a table.A row column named after a struct field seeds that field&apos;s starting value;a field with no matching column is established by the first check.</param>
@@ -107,7 +113,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorEndpointMonitorsPost400Response">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorEndpointMonitorsPost401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorEndpointMonitorsPost403Response">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorValidationErrorResponse">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorEndpointMonitorsPost500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorEndpointMonitorsPost503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -126,7 +132,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors
                 { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorEndpointMonitorsPost400Response.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorEndpointMonitorsPost401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorEndpointMonitorsPost403Response.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorValidationErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorEndpointMonitorsPost500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorEndpointMonitorsPost503Response.CreateFromDiscriminatorValue },
             };
@@ -152,7 +158,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors
             return requestInfo;
         }
         /// <summary>
-        /// Create one monitor from a table, with a row per subject.The watched cells that arrive become each row&apos;s baseline, so the first checkreports the ones that were already stale rather than adopting them.
+        /// Create one monitor from a table, with a row per subject.Supplied watched cells become the baseline. Complete rows skip setup;incomplete rows need an initial enrichment before recurring checks.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Start one monitor per row of a table.A row column named after a struct field seeds that field&apos;s starting value;a field with no matching column is established by the first check.</param>

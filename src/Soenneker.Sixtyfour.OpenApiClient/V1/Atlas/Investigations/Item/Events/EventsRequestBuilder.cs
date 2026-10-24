@@ -4,6 +4,8 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Sixtyfour.OpenApiClient.Models;
+using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Events.Item;
+using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Events.StreamNamespace;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -17,6 +19,23 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Events
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EventsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The stream property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Events.StreamNamespace.StreamRequestBuilder Stream
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Events.StreamNamespace.StreamRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Gets an item from the Soenneker.Sixtyfour.OpenApiClient.v1.atlas.investigations.item.events.item collection</summary>
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Events.Item.WithEventItemRequestBuilder"/></returns>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Events.Item.WithEventItemRequestBuilder this[Guid position]
+        {
+            get
+            {
+                var urlTplParams = new Dictionary<string, object>(PathParameters);
+                urlTplParams.Add("eventId", position);
+                return new global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Events.Item.WithEventItemRequestBuilder(urlTplParams, RequestAdapter);
+            }
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Events.EventsRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -34,7 +53,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Events
         {
         }
         /// <summary>
-        /// The agents&apos; sessions and event stream, oldest first. Visibility follows your organization&apos;s Atlasaccess: turn summaries with agents access, the full tool stream with per-event payloads with activity access.
+        /// The agents&apos; sessions and event stream, oldest first: each agent&apos;s and subagent&apos;s turn summaries.For a live feed of the same events, use `GET …/events/stream`.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.AgentEventsPage"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -67,7 +86,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Events
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgentEventsPage>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.AgentEventsPage.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// The agents&apos; sessions and event stream, oldest first. Visibility follows your organization&apos;s Atlasaccess: turn summaries with agents access, the full tool stream with per-event payloads with activity access.
+        /// The agents&apos; sessions and event stream, oldest first: each agent&apos;s and subagent&apos;s turn summaries.For a live feed of the same events, use `GET …/events/stream`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -95,7 +114,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Events
             return new global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Events.EventsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// The agents&apos; sessions and event stream, oldest first. Visibility follows your organization&apos;s Atlasaccess: turn summaries with agents access, the full tool stream with per-event payloads with activity access.
+        /// The agents&apos; sessions and event stream, oldest first: each agent&apos;s and subagent&apos;s turn summaries.For a live feed of the same events, use `GET …/events/stream`.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class EventsRequestBuilderGetQueryParameters 

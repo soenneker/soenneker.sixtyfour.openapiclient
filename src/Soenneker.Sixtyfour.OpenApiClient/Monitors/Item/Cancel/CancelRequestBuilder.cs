@@ -42,7 +42,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Cancel
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelMonitorEndpointMonitorsMonitorIdCancelPost400Response">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelMonitorEndpointMonitorsMonitorIdCancelPost401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelMonitorEndpointMonitorsMonitorIdCancelPost403Response">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorValidationErrorResponse">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelMonitorEndpointMonitorsMonitorIdCancelPost500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelMonitorEndpointMonitorsMonitorIdCancelPost503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -60,7 +60,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Cancel
                 { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelMonitorEndpointMonitorsMonitorIdCancelPost400Response.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelMonitorEndpointMonitorsMonitorIdCancelPost401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelMonitorEndpointMonitorsMonitorIdCancelPost403Response.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorValidationErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelMonitorEndpointMonitorsMonitorIdCancelPost500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelMonitorEndpointMonitorsMonitorIdCancelPost503Response.CreateFromDiscriminatorValue },
             };

@@ -14,7 +14,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Oldest first. With activity access each event carries a `payload` of args/result/thinking.</summary>
+        /// <summary>Oldest first. With activity access, small payloads are inline; oversized payloads have a storage_ref and are fetched from the event payload endpoint.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgentEventsPageEventsItemProperty>? Events { get; set; }

@@ -36,22 +36,22 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Changes
         /// <summary>
         /// Return `{row_id: {field_name: latest_change_timestamp}}` (ISO 8601).Includes only actual change events for currently watched fields; establishment,quiet checks, retired fields and future timestamps are excluded. Rows/fieldswithout recorded changes are omitted; an empty history returns `{}`. This islatest-change metadata, not a full audit log or a snapshot of current values.Requires the same authenticated org/team access as monitor detail (404 forinaccessible groups). Query failures return an error, never partial history.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorChangesEndpointMonitorsMonitorIdChangesGet200Response"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseMonitorChangesEndpointMonitorsMonitorIdChangesGetSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorChangesEndpointMonitorsMonitorIdChangesGet400Response">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorChangesEndpointMonitorsMonitorIdChangesGet401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorChangesEndpointMonitorsMonitorIdChangesGet403Response">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorValidationErrorResponse">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorChangesEndpointMonitorsMonitorIdChangesGet500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorChangesEndpointMonitorsMonitorIdChangesGet503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorChangesEndpointMonitorsMonitorIdChangesGet200Response?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseMonitorChangesEndpointMonitorsMonitorIdChangesGetSchema?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorChangesEndpointMonitorsMonitorIdChangesGet200Response> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseMonitorChangesEndpointMonitorsMonitorIdChangesGetSchema> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -60,11 +60,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Changes
                 { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorChangesEndpointMonitorsMonitorIdChangesGet400Response.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorChangesEndpointMonitorsMonitorIdChangesGet401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorChangesEndpointMonitorsMonitorIdChangesGet403Response.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorValidationErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorChangesEndpointMonitorsMonitorIdChangesGet500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorChangesEndpointMonitorsMonitorIdChangesGet503Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorChangesEndpointMonitorsMonitorIdChangesGet200Response>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorChangesEndpointMonitorsMonitorIdChangesGet200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseMonitorChangesEndpointMonitorsMonitorIdChangesGetSchema>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseMonitorChangesEndpointMonitorsMonitorIdChangesGetSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Return `{row_id: {field_name: latest_change_timestamp}}` (ISO 8601).Includes only actual change events for currently watched fields; establishment,quiet checks, retired fields and future timestamps are excluded. Rows/fieldswithout recorded changes are omitted; an empty history returns `{}`. This islatest-change metadata, not a full audit log or a snapshot of current values.Requires the same authenticated org/team access as monitor detail (404 forinaccessible groups). Query failures return an error, never partial history.

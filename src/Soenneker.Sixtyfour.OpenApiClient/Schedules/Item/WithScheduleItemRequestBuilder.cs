@@ -36,7 +36,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules.Item
         /// <summary>
         /// Delete a schedule.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteScheduleEndpointSchedulesScheduleIdDelete200Response"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseDeleteScheduleEndpointSchedulesScheduleIdDeleteSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteScheduleEndpointSchedulesScheduleIdDelete400Response">When receiving a 400 status code</exception>
@@ -47,11 +47,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules.Item
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteScheduleEndpointSchedulesScheduleIdDelete503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteScheduleEndpointSchedulesScheduleIdDelete200Response?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseDeleteScheduleEndpointSchedulesScheduleIdDeleteSchema?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteScheduleEndpointSchedulesScheduleIdDelete200Response> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseDeleteScheduleEndpointSchedulesScheduleIdDeleteSchema> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -64,7 +64,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules.Item
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteScheduleEndpointSchedulesScheduleIdDelete500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteScheduleEndpointSchedulesScheduleIdDelete503Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteScheduleEndpointSchedulesScheduleIdDelete200Response>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteScheduleEndpointSchedulesScheduleIdDelete200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseDeleteScheduleEndpointSchedulesScheduleIdDeleteSchema>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseDeleteScheduleEndpointSchedulesScheduleIdDeleteSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get a schedule.

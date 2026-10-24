@@ -13,7 +13,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateMonitorRequest : IParsable
     {
-        /// <summary>When the first check runs. &apos;now&apos; checks every row as soon as the monitor exists. &apos;next_tick&apos; waits for the schedule: an hourly monitor first runs at the next :00 UTC, a daily one at the next 00:00 UTC. The response&apos;s next_run_times says exactly when.</summary>
+        /// <summary>When setup runs for rows missing watched values. &apos;now&apos; triggers setup immediately; &apos;next_tick&apos; waits for the schedule. Fully supplied rows always start on the schedule: an hourly monitor first runs at the next :00 UTC, a daily one at the next 00:00 UTC. The response&apos;s next_run_times says exactly when.</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestFirstCheck? FirstCheck { get; set; }
         /// <summary>The frequency property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -23,6 +23,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string Frequency { get; set; }
 #endif
+        /// <summary>Upload handle returned by /storage/csv/upload. Use instead of rows or source.</summary>
+        public Guid? HandleId { get; set; }
         /// <summary>Optional. Resending a request with the same key returns what the first attempt created instead of creating the batch twice. Reusing a key with different content returns 409. Omitted, a key is derived from the request&apos;s own content, so an identical resend replays by default.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,6 +51,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestMetadataProperty Metadata { get; set; }
 #endif
+        /// <summary>The monitor_type property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestMonitorType? MonitorType { get; set; }
         /// <summary>Base name; the row&apos;s key values are appended.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -151,10 +155,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             {
                 { "first_check", n => { FirstCheck = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestFirstCheck>(); } },
                 { "frequency", n => { Frequency = n.GetStringValue(); } },
+                { "handle_id", n => { HandleId = n.GetGuidValue(); } },
                 { "idempotency_key", n => { IdempotencyKey = n.GetStringValue(); } },
                 { "is_active", n => { IsActive = n.GetBoolValue(); } },
                 { "key_columns", n => { KeyColumns = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestMetadataProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestMetadataProperty.CreateFromDiscriminatorValue); } },
+                { "monitor_type", n => { MonitorType = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestMonitorType>(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "research_plan", n => { ResearchPlan = n.GetStringValue(); } },
                 { "rows", n => { Rows = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestRowsItemProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestRowsItemProperty.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -175,10 +181,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestFirstCheck>("first_check", FirstCheck);
             writer.WriteStringValue("frequency", Frequency);
+            writer.WriteGuidValue("handle_id", HandleId);
             writer.WriteStringValue("idempotency_key", IdempotencyKey);
             writer.WriteBoolValue("is_active", IsActive);
             writer.WriteCollectionOfPrimitiveValues<string>("key_columns", KeyColumns);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestMetadataProperty>("metadata", Metadata);
+            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestMonitorType>("monitor_type", MonitorType);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("research_plan", ResearchPlan);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestRowsItemProperty>("rows", Rows);

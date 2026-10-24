@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.JobStatus.Item
         {
         }
         /// <summary>
-        /// Poll the status of an async job and retrieve results when complete.cost_units=&quot;credits&quot; returns cost fields in credits (charge_credits, cost_credits)instead of cents fields (charge_amount, cost_cents); the charge itself is unchanged.
+        /// Poll the status of an async job and retrieve results when complete.Credit fields (charge_credits, cost_credits) accompany unchanged legacy cost fields.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -73,7 +73,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.JobStatus.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200Response>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Poll the status of an async job and retrieve results when complete.cost_units=&quot;credits&quot; returns cost fields in credits (charge_credits, cost_credits)instead of cents fields (charge_amount, cost_cents); the charge itself is unchanged.
+        /// Poll the status of an async job and retrieve results when complete.Credit fields (charge_credits, cost_credits) accompany unchanged legacy cost fields.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -101,12 +101,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.JobStatus.Item
             return new global::Soenneker.Sixtyfour.OpenApiClient.JobStatus.Item.WithJobItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Poll the status of an async job and retrieve results when complete.cost_units=&quot;credits&quot; returns cost fields in credits (charge_credits, cost_credits)instead of cents fields (charge_amount, cost_cents); the charge itself is unchanged.
+        /// Poll the status of an async job and retrieve results when complete.Credit fields (charge_credits, cost_credits) accompany unchanged legacy cost fields.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithJobItemRequestBuilderGetQueryParameters 
         {
-            /// <summary>Response cost unit.</summary>
+            /// <summary>Compatibility option. Both legacy cost fields and credit fields are returned for either value.</summary>
+            [Obsolete("")]
             [QueryParameter("cost_units")]
             public global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGetCostUnitsParameter? CostUnits { get; set; }
         }

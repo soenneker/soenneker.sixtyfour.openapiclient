@@ -22,13 +22,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidationErrorCtxProperty Ctx { get; set; }
 #endif
-        /// <summary>The offending input value (any type, may be null).</summary>
+        /// <summary>The input property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidationErrorInput? Input { get; set; }
+        public UntypedNode? Input { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidationErrorInput Input { get; set; }
+        public UntypedNode Input { get; set; }
 #endif
         /// <summary>Path to the field that failed validation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -80,7 +80,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "ctx", n => { Ctx = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidationErrorCtxProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidationErrorCtxProperty.CreateFromDiscriminatorValue); } },
-                { "input", n => { Input = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidationErrorInput>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidationErrorInput.CreateFromDiscriminatorValue); } },
+                { "input", n => { Input = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "loc", n => { Loc = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "msg", n => { Msg = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
@@ -94,7 +94,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidationErrorCtxProperty>("ctx", Ctx);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ValidationErrorInput>("input", Input);
+            writer.WriteObjectValue<UntypedNode>("input", Input);
             writer.WriteCollectionOfPrimitiveValues<string>("loc", Loc);
             writer.WriteStringValue("msg", Msg);
             writer.WriteStringValue("type", Type);

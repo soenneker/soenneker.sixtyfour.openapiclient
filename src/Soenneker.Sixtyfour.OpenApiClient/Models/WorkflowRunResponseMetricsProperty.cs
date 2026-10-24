@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// Aggregate run metrics (rows in/out, costs, etc.).
+    /// Aggregate run metrics; workflow_cost_credits is the total cost in credits. Legacy workflow_cost retains its existing units.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WorkflowRunResponseMetricsProperty : IAdditionalDataHolder, IParsable

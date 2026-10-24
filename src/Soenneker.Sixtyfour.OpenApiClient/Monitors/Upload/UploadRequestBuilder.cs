@@ -43,7 +43,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Upload
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.UploadMonitorEndpointMonitorsUploadPost400Response">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.UploadMonitorEndpointMonitorsUploadPost401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.UploadMonitorEndpointMonitorsUploadPost403Response">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorValidationErrorResponse">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.UploadMonitorEndpointMonitorsUploadPost500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.UploadMonitorEndpointMonitorsUploadPost503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -62,7 +62,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Upload
                 { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.UploadMonitorEndpointMonitorsUploadPost400Response.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.UploadMonitorEndpointMonitorsUploadPost401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.UploadMonitorEndpointMonitorsUploadPost403Response.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorValidationErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.UploadMonitorEndpointMonitorsUploadPost500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.UploadMonitorEndpointMonitorsUploadPost503Response.CreateFromDiscriminatorValue },
             };

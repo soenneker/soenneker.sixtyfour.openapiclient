@@ -24,9 +24,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #endif
         /// <summary>Atlas runs on an existing investigation only: refuse with 409 while that investigation already has a run starting or running, instead of starting and billing a second one.</summary>
         public bool? ExclusiveRun { get; set; }
-        /// <summary>If true, return confidence scores for each requested output field.</summary>
+        /// <summary>If true, return each requested field&apos;s confidence (0-100), justification and source URLs, nested like the request.</summary>
         public bool? FieldConfidence { get; set; }
-        /// <summary>For Atlas runs (xhigh, or scout with graph), include workspace files alongside structured output (default: true). Set false to omit them. Saved images appear as attachment records; requested image fields carry their permanent /v1/media URL, and the investigation&apos;s /v1/atlas file API serves any attachment. Ignored by other tiers.</summary>
+        /// <summary>Only with tier &quot;scout&quot;: set true to run Scout as an Atlas run. The run is saved as an Atlas investigation you can open in the Sixtyfour app, export, and continue later with `investigation_id`; the async response returns it under `investigation`. It takes the Atlas run options (`max_credits`, `max_minutes`, `relentless`, `investigation_id`, `investigation_name`, `include_workspace`), and `struct` becomes optional. It is billed per unit of research instead of Scout&apos;s standard price: 50 credits a unit. It must be enabled for your organization, and true with any other tier is rejected. Omitted or false, Scout runs as usual.</summary>
+        public bool? Graph { get; set; }
+        /// <summary>For Atlas runs (xhigh, or scout with graph), include workspace files alongside structured output (default: true). Set false to omit them. Job status reads them from the investigation, so it shows the investigation&apos;s current workspace, including what a later run on it changed. Saved images appear as attachment records; requested image fields carry their /v1/media URL, and the investigation&apos;s /v1/atlas file API serves any attachment. Ignored by other tiers.</summary>
         public bool? IncludeWorkspace { get; set; }
         /// <summary>For Atlas runs (xhigh, or scout with graph), continue an existing investigation instead of creating one. The run reuses that investigation&apos;s graph and workspace, so a follow-up builds on the earlier research rather than starting over. Ignored by other tiers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -52,9 +54,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoLeadInfoProperty LeadInfo { get; set; }
 #endif
-        /// <summary>For Atlas runs, how much research to buy, in credits (default: one unit of the tier price, 250 credits on xhigh), up to 10 units. On multi-agent runs every 250 credits buy 800 team turns (every model response by any agent in the run), used in full unless the research stops yielding: 300 buys 960.</summary>
+        /// <summary>For Atlas runs, how much research to buy, in credits: one unit of the tier price by default, up to 10 units. A unit is 250 credits on xhigh and 50 on scout with graph. Research scales with the credits bought, and the whole budget is used and charged unless the run stops early; see `relentless` and `max_minutes`.</summary>
         public int? MaxCredits { get; set; }
-        /// <summary>For Atlas runs with target fields: research until the budget runs out. By default a run may stop once every requested field is answered, charging the turns it used (at least one unit).</summary>
+        /// <summary>For Atlas runs, the longest the run may research, in minutes of working time: time spent waiting to retry after a temporary failure does not count. When it is reached the run writes up what it found and completes, and is charged for the research it used, rounded up to the next 50 credits, instead of the whole budget. Writing up can take a few minutes past the limit. Default: no limit.</summary>
+        public int? MaxMinutes { get; set; }
+        /// <summary>For Atlas runs with `struct`: research until the budget runs out. By default a run may stop once every requested field is answered, and is then charged for the research it used (at least one unit).</summary>
         public bool? Relentless { get; set; }
         /// <summary>Optional natural-language plan that guides the research agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -64,7 +68,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string ResearchPlan { get; set; }
 #endif
-        /// <summary>Mapping of output field name to natural-language description of what to extract. A field that asks for an image (a headshot, a logo, a screenshot of a page) is returned as a permanent image URL on api.sixtyfour.ai/v1/media, hosted by Sixtyfour; embed it directly.</summary>
+        /// <summary>Mapping of output field name to natural-language description of what to extract. A field that asks for an image (a headshot, a logo, a screenshot of a page) is returned as an image URL on api.sixtyfour.ai/v1/media, hosted by Sixtyfour; embed it directly. It works until the investigation that saved the image, or the organization, is permanently deleted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty? Struct { get; set; }
@@ -112,11 +116,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "dispatch_id", n => { DispatchId = n.GetStringValue(); } },
                 { "exclusive_run", n => { ExclusiveRun = n.GetBoolValue(); } },
                 { "field_confidence", n => { FieldConfidence = n.GetBoolValue(); } },
+                { "graph", n => { Graph = n.GetBoolValue(); } },
                 { "include_workspace", n => { IncludeWorkspace = n.GetBoolValue(); } },
                 { "investigation_id", n => { InvestigationId = n.GetStringValue(); } },
                 { "investigation_name", n => { InvestigationName = n.GetStringValue(); } },
                 { "lead_info", n => { LeadInfo = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoLeadInfoProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoLeadInfoProperty.CreateFromDiscriminatorValue); } },
                 { "max_credits", n => { MaxCredits = n.GetIntValue(); } },
+                { "max_minutes", n => { MaxMinutes = n.GetIntValue(); } },
                 { "relentless", n => { Relentless = n.GetBoolValue(); } },
                 { "research_plan", n => { ResearchPlan = n.GetStringValue(); } },
                 { "struct", n => { Struct = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty.CreateFromDiscriminatorValue); } },
@@ -134,11 +140,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteStringValue("dispatch_id", DispatchId);
             writer.WriteBoolValue("exclusive_run", ExclusiveRun);
             writer.WriteBoolValue("field_confidence", FieldConfidence);
+            writer.WriteBoolValue("graph", Graph);
             writer.WriteBoolValue("include_workspace", IncludeWorkspace);
             writer.WriteStringValue("investigation_id", InvestigationId);
             writer.WriteStringValue("investigation_name", InvestigationName);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoLeadInfoProperty>("lead_info", LeadInfo);
             writer.WriteIntValue("max_credits", MaxCredits);
+            writer.WriteIntValue("max_minutes", MaxMinutes);
             writer.WriteBoolValue("relentless", Relentless);
             writer.WriteStringValue("research_plan", ResearchPlan);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty>("struct", Struct);

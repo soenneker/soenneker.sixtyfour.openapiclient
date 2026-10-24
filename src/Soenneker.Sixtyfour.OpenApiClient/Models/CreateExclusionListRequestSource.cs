@@ -51,11 +51,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             {
                 result.InlineEntityIdsSource = new global::Soenneker.Sixtyfour.OpenApiClient.Models.InlineEntityIdsSource();
             }
-            else if("ResourceHandleSource".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("resource_handle".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ResourceHandleSource = new global::Soenneker.Sixtyfour.OpenApiClient.Models.ResourceHandleSource();
             }
-            else if("SearchIdSource".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("search_id".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SearchIdSource = new global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchIdSource();
             }

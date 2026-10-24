@@ -7,86 +7,36 @@ using System.IO;
 using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
+    /// <summary>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf1"/>, <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2"/>, <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf3"/>
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class JobStatusJobStatusJobIdGet200Response : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class JobStatusJobStatusJobIdGet200Response : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Total cents charged when cost_units=cents.</summary>
-        public double? ChargeAmount { get; set; }
-        /// <summary>Total credits charged when cost_units=credits.</summary>
-        public double? ChargeCredits { get; set; }
-        /// <summary>The close_time property</summary>
-        public DateTimeOffset? CloseTime { get; set; }
-        /// <summary>The id property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf1? JobStatusJobStatusJobIdGet200ResponseOneOf1 { get; set; }
 #nullable restore
 #else
-        public string Id { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf1 JobStatusJobStatusJobIdGet200ResponseOneOf1 { get; set; }
 #endif
-        /// <summary>Stable identity and app link carried across xhigh lifecycle responses.Live workspace statistics stay on the Atlas resource endpoints so pollinga job never fans out into file, graph, or event count queries.</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseInvestigation? Investigation { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2? JobStatusJobStatusJobIdGet200ResponseOneOf2 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseInvestigation Investigation { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2 JobStatusJobStatusJobIdGet200ResponseOneOf2 { get; set; }
 #endif
-        /// <summary>Bulk runs only: rows enriched so far out of the total rows submitted.</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf3"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseProgress? Progress { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf3? JobStatusJobStatusJobIdGet200ResponseOneOf3 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseProgress Progress { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf3 JobStatusJobStatusJobIdGet200ResponseOneOf3 { get; set; }
 #endif
-        /// <summary>Completed job result. Shape depends on task_type.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseResult? Result { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseResult Result { get; set; }
-#endif
-        /// <summary>The results property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseResultsItem>? Results { get; set; }
-#nullable restore
-#else
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseResultsItem> Results { get; set; }
-#endif
-        /// <summary>The run_id property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? RunId { get; set; }
-#nullable restore
-#else
-        public string RunId { get; set; }
-#endif
-        /// <summary>The start_time property</summary>
-        public DateTimeOffset? StartTime { get; set; }
-        /// <summary>The status property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseStatus? Status { get; set; }
-        /// <summary>The task_type property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? TaskType { get; set; }
-#nullable restore
-#else
-        public string TaskType { get; set; }
-#endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200Response"/> and sets the default values.
-        /// </summary>
-        public JobStatusJobStatusJobIdGet200Response()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -95,7 +45,21 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public static global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200Response();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200Response();
+            if("JobStatusJobStatusJobIdGet200ResponseOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.JobStatusJobStatusJobIdGet200ResponseOneOf1 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf1();
+            }
+            else if("JobStatusJobStatusJobIdGet200ResponseOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.JobStatusJobStatusJobIdGet200ResponseOneOf2 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2();
+            }
+            else if("JobStatusJobStatusJobIdGet200ResponseOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.JobStatusJobStatusJobIdGet200ResponseOneOf3 = new global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf3();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -103,21 +67,19 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(JobStatusJobStatusJobIdGet200ResponseOneOf1 != null)
             {
-                { "charge_amount", n => { ChargeAmount = n.GetDoubleValue(); } },
-                { "charge_credits", n => { ChargeCredits = n.GetDoubleValue(); } },
-                { "close_time", n => { CloseTime = n.GetDateTimeOffsetValue(); } },
-                { "id", n => { Id = n.GetStringValue(); } },
-                { "investigation", n => { Investigation = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseInvestigation>(global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseInvestigation.CreateFromDiscriminatorValue); } },
-                { "progress", n => { Progress = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseProgress>(global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseProgress.CreateFromDiscriminatorValue); } },
-                { "result", n => { Result = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseResult>(global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseResult.CreateFromDiscriminatorValue); } },
-                { "results", n => { Results = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseResultsItem>(global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseResultsItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "run_id", n => { RunId = n.GetStringValue(); } },
-                { "start_time", n => { StartTime = n.GetDateTimeOffsetValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseStatus>(); } },
-                { "task_type", n => { TaskType = n.GetStringValue(); } },
-            };
+                return JobStatusJobStatusJobIdGet200ResponseOneOf1.GetFieldDeserializers();
+            }
+            else if(JobStatusJobStatusJobIdGet200ResponseOneOf2 != null)
+            {
+                return JobStatusJobStatusJobIdGet200ResponseOneOf2.GetFieldDeserializers();
+            }
+            else if(JobStatusJobStatusJobIdGet200ResponseOneOf3 != null)
+            {
+                return JobStatusJobStatusJobIdGet200ResponseOneOf3.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -126,19 +88,18 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteDoubleValue("charge_amount", ChargeAmount);
-            writer.WriteDoubleValue("charge_credits", ChargeCredits);
-            writer.WriteDateTimeOffsetValue("close_time", CloseTime);
-            writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseInvestigation>("investigation", Investigation);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseProgress>("progress", Progress);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseResult>("result", Result);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseResultsItem>("results", Results);
-            writer.WriteStringValue("run_id", RunId);
-            writer.WriteDateTimeOffsetValue("start_time", StartTime);
-            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseStatus>("status", Status);
-            writer.WriteStringValue("task_type", TaskType);
-            writer.WriteAdditionalData(AdditionalData);
+            if(JobStatusJobStatusJobIdGet200ResponseOneOf1 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf1>(null, JobStatusJobStatusJobIdGet200ResponseOneOf1);
+            }
+            else if(JobStatusJobStatusJobIdGet200ResponseOneOf2 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2>(null, JobStatusJobStatusJobIdGet200ResponseOneOf2);
+            }
+            else if(JobStatusJobStatusJobIdGet200ResponseOneOf3 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf3>(null, JobStatusJobStatusJobIdGet200ResponseOneOf3);
+            }
         }
     }
 }

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// Stable identity and app link carried across xhigh lifecycle responses.Live workspace statistics stay on the Atlas resource endpoints so pollinga job never fans out into file, graph, or event count queries.
+    /// The Atlas investigation a run belongs to: its ID and a link to open it inthe Sixtyfour app. Its files, findings and graph are served by the /v1/atlasendpoints.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class InvestigationReference : IAdditionalDataHolder, IParsable

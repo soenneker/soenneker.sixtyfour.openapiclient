@@ -14,7 +14,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>If true, return confidence scores for each requested output field.</summary>
+        /// <summary>If true, return each requested field&apos;s confidence (0-100), justification and source URLs, nested like the request.</summary>
         public bool? FieldConfidence { get; set; }
         /// <summary>If true, also discover key people at the company.</summary>
         public bool? FindPeople { get; set; }
@@ -44,7 +44,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string ResearchPlan { get; set; }
 #endif
-        /// <summary>Mapping of output field name to natural-language description of what to extract. A field that asks for an image (a headshot, a logo, a screenshot of a page) is returned as a permanent image URL on api.sixtyfour.ai/v1/media, hosted by Sixtyfour; embed it directly.</summary>
+        /// <summary>Mapping of output field name to natural-language description of what to extract. A field that asks for an image (a headshot, a logo, a screenshot of a page) is returned as an image URL on api.sixtyfour.ai/v1/media, hosted by Sixtyfour; embed it directly. It works until the investigation that saved the image, or the organization, is permanently deleted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoStructProperty? Struct { get; set; }

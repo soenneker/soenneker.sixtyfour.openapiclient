@@ -25,8 +25,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #endif
         /// <summary>Research engine. `GET /v1/atlas/access` reports which ones this organization may run, and what each costs.</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.RunOptionsEngine? Engine { get; set; }
-        /// <summary>How much research to buy, in credits (default: one unit of the engine price), up to 10 units. On xhigh every 250 credits buy 800 team turns, used in full unless the research stops yielding: 300 buys 960.</summary>
+        /// <summary>How much research to buy, in credits (default: one unit of the engine price), up to 10 units. On xhigh every 250 credits buy 800 team turns, used in full unless the research stops yielding: 300 buys 960. Scout researches alone, and every 50 credits buy its 100 turns.</summary>
         public int? MaxCredits { get; set; }
+        /// <summary>The longest the run may research, in minutes of working time: waits to retry a model call or an attempt do not count. When it is reached the run writes up what it found and completes, charging the credits its turns used, rounded up to the next 50, instead of the whole budget. Writing up can take a few minutes past the limit. Default: no limit.</summary>
+        public int? MaxMinutes { get; set; }
         /// <summary>Research until the budget runs out (the Atlas default). Set false to let a run with `struct` stop once every field is answered, charging the turns it used (at least one unit).</summary>
         public bool? Relentless { get; set; }
         /// <summary>Direction for this run. On a continue, what to look into next.</summary>
@@ -74,6 +76,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "dispatch_id", n => { DispatchId = n.GetStringValue(); } },
                 { "engine", n => { Engine = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunOptionsEngine>(); } },
                 { "max_credits", n => { MaxCredits = n.GetIntValue(); } },
+                { "max_minutes", n => { MaxMinutes = n.GetIntValue(); } },
                 { "relentless", n => { Relentless = n.GetBoolValue(); } },
                 { "research_plan", n => { ResearchPlan = n.GetStringValue(); } },
                 { "struct", n => { Struct = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunOptionsStructProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.RunOptionsStructProperty.CreateFromDiscriminatorValue); } },
@@ -89,6 +92,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteStringValue("dispatch_id", DispatchId);
             writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunOptionsEngine>("engine", Engine);
             writer.WriteIntValue("max_credits", MaxCredits);
+            writer.WriteIntValue("max_minutes", MaxMinutes);
             writer.WriteBoolValue("relentless", Relentless);
             writer.WriteStringValue("research_plan", ResearchPlan);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunOptionsStructProperty>("struct", Struct);

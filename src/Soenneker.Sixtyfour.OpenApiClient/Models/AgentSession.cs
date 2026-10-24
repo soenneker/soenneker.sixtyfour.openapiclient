@@ -30,8 +30,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string AgentType { get; set; }
 #endif
-        /// <summary>The cost_cents property</summary>
+        /// <summary>Legacy session spend in cents; preserved for compatibility. Prefer cost_credits.</summary>
+        [Obsolete("")]
         public int? CostCents { get; set; }
+        /// <summary>Session spend in credits.</summary>
+        public double? CostCredits { get; set; }
         /// <summary>The display_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -118,6 +121,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "agent_name", n => { AgentName = n.GetStringValue(); } },
                 { "agent_type", n => { AgentType = n.GetStringValue(); } },
                 { "cost_cents", n => { CostCents = n.GetIntValue(); } },
+                { "cost_credits", n => { CostCredits = n.GetDoubleValue(); } },
                 { "display_name", n => { DisplayName = n.GetStringValue(); } },
                 { "ended_at", n => { EndedAt = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
@@ -138,6 +142,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteStringValue("agent_name", AgentName);
             writer.WriteStringValue("agent_type", AgentType);
             writer.WriteIntValue("cost_cents", CostCents);
+            writer.WriteDoubleValue("cost_credits", CostCredits);
             writer.WriteStringValue("display_name", DisplayName);
             writer.WriteStringValue("ended_at", EndedAt);
             writer.WriteStringValue("id", Id);

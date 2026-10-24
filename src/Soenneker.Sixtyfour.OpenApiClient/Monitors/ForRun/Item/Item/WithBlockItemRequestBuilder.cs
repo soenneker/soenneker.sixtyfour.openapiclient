@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.ForRun.Item.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \monitors\for-run\{run-id}\{blockId}
+    /// Builds and executes requests for operations under \monitors\for-run\{runId}\{blockId}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithBlockItemRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.ForRun.Item.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithBlockItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/monitors/for-run/{run%2Did}/{blockId}", pathParameters)
+        public WithBlockItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/monitors/for-run/{runId}/{blockId}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.ForRun.Item.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithBlockItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/monitors/for-run/{run%2Did}/{blockId}", rawUrl)
+        public WithBlockItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/monitors/for-run/{runId}/{blockId}", rawUrl)
         {
         }
         /// <summary>
@@ -42,7 +42,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.ForRun.Item.Item
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetMonitorForRunEndpointMonitorsForRunWorkflowRunIdBlockIdGet400Response">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetMonitorForRunEndpointMonitorsForRunWorkflowRunIdBlockIdGet401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetMonitorForRunEndpointMonitorsForRunWorkflowRunIdBlockIdGet403Response">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorValidationErrorResponse">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetMonitorForRunEndpointMonitorsForRunWorkflowRunIdBlockIdGet500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetMonitorForRunEndpointMonitorsForRunWorkflowRunIdBlockIdGet503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -60,7 +60,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.ForRun.Item.Item
                 { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetMonitorForRunEndpointMonitorsForRunWorkflowRunIdBlockIdGet400Response.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetMonitorForRunEndpointMonitorsForRunWorkflowRunIdBlockIdGet401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetMonitorForRunEndpointMonitorsForRunWorkflowRunIdBlockIdGet403Response.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorValidationErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetMonitorForRunEndpointMonitorsForRunWorkflowRunIdBlockIdGet500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetMonitorForRunEndpointMonitorsForRunWorkflowRunIdBlockIdGet503Response.CreateFromDiscriminatorValue },
             };

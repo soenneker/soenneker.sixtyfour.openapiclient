@@ -32,8 +32,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequestLeadInfoProperty LeadInfo { get; set; }
 #endif
-        /// <summary>How much research to buy, in credits (default: one unit of the engine price), up to 10 units. On xhigh every 250 credits buy 800 team turns, used in full unless the research stops yielding: 300 buys 960.</summary>
+        /// <summary>How much research to buy, in credits (default: one unit of the engine price), up to 10 units. On xhigh every 250 credits buy 800 team turns, used in full unless the research stops yielding: 300 buys 960. Scout researches alone, and every 50 credits buy its 100 turns.</summary>
         public int? MaxCredits { get; set; }
+        /// <summary>The longest the run may research, in minutes of working time: waits to retry a model call or an attempt do not count. When it is reached the run writes up what it found and completes, charging the credits its turns used, rounded up to the next 50, instead of the whole budget. Writing up can take a few minutes past the limit. Default: no limit.</summary>
+        public int? MaxMinutes { get; set; }
         /// <summary>Title for the investigation. Derived from lead_info when unset.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -42,7 +44,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>Visible only to you, not your team. Needs a signed-in user and a team that allows private runs.</summary>
+        /// <summary>Visible only to you, not your team. With an API key, the run is private to the person who created the key. Your team must allow private runs.</summary>
         public bool? Private { get; set; }
         /// <summary>Research until the budget runs out (the Atlas default). Set false to let a run with `struct` stop once every field is answered, charging the turns it used (at least one unit).</summary>
         public bool? Relentless { get; set; }
@@ -93,6 +95,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "engine", n => { Engine = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequestEngine>(); } },
                 { "lead_info", n => { LeadInfo = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequestLeadInfoProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequestLeadInfoProperty.CreateFromDiscriminatorValue); } },
                 { "max_credits", n => { MaxCredits = n.GetIntValue(); } },
+                { "max_minutes", n => { MaxMinutes = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "private", n => { Private = n.GetBoolValue(); } },
                 { "relentless", n => { Relentless = n.GetBoolValue(); } },
@@ -111,6 +114,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequestEngine>("engine", Engine);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequestLeadInfoProperty>("lead_info", LeadInfo);
             writer.WriteIntValue("max_credits", MaxCredits);
+            writer.WriteIntValue("max_minutes", MaxMinutes);
             writer.WriteStringValue("name", Name);
             writer.WriteBoolValue("private", Private);
             writer.WriteBoolValue("relentless", Relentless);

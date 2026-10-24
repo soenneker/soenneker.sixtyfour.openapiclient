@@ -55,7 +55,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Snapshots
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMonitorSnapshotsEndpointMonitorsMonitorIdSnapshotsGet400Response">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMonitorSnapshotsEndpointMonitorsMonitorIdSnapshotsGet401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMonitorSnapshotsEndpointMonitorsMonitorIdSnapshotsGet403Response">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorValidationErrorResponse">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMonitorSnapshotsEndpointMonitorsMonitorIdSnapshotsGet500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMonitorSnapshotsEndpointMonitorsMonitorIdSnapshotsGet503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -73,7 +73,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Snapshots
                 { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMonitorSnapshotsEndpointMonitorsMonitorIdSnapshotsGet400Response.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMonitorSnapshotsEndpointMonitorsMonitorIdSnapshotsGet401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMonitorSnapshotsEndpointMonitorsMonitorIdSnapshotsGet403Response.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorValidationErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMonitorSnapshotsEndpointMonitorsMonitorIdSnapshotsGet500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMonitorSnapshotsEndpointMonitorsMonitorIdSnapshotsGet503Response.CreateFromDiscriminatorValue },
             };

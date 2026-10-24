@@ -8,14 +8,14 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// Async people-intelligence kickoff.Atlas jobs (xHigh or Scout Graph) expose their workspace immediately. The fields stayoptional because the same endpoint supports tiers that do not create aninvestigation.
+    /// Async people-intelligence kickoff.Atlas runs (tier xhigh, or tier scout with graph) return their investigationimmediately. The field is optional because other tiers do not create one.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LeadAsyncJobStartResponse : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Atlas runs only: the workspace created for this job.</summary>
+        /// <summary>Atlas runs only: the investigation this job runs in.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationReference? Investigation { get; set; }
@@ -24,7 +24,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationReference Investigation { get; set; }
 #endif
         /// <summary>Initial job status.</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.RunningStatus? Status { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.LeadAsyncJobStartResponseStatus? Status { get; set; }
         /// <summary>Async job ID. Poll GET /job-status/{task_id} for status and results.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -67,7 +67,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "investigation", n => { Investigation = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationReference>(global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationReference.CreateFromDiscriminatorValue); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunningStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.LeadAsyncJobStartResponseStatus>(); } },
                 { "task_id", n => { TaskId = n.GetStringValue(); } },
                 { "unrecognized_fields", n => { UnrecognizedFields = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
@@ -80,7 +80,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationReference>("investigation", Investigation);
-            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunningStatus>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.LeadAsyncJobStartResponseStatus>("status", Status);
             writer.WriteStringValue("task_id", TaskId);
             writer.WriteCollectionOfPrimitiveValues<string>("unrecognized_fields", UnrecognizedFields);
             writer.WriteAdditionalData(AdditionalData);

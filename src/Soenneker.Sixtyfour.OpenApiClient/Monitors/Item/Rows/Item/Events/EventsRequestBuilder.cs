@@ -42,7 +42,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Rows.Item.Events
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRowEventsEndpointMonitorsMonitorIdRowsRowIdEventsGet400Response">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRowEventsEndpointMonitorsMonitorIdRowsRowIdEventsGet401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRowEventsEndpointMonitorsMonitorIdRowsRowIdEventsGet403Response">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorValidationErrorResponse">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRowEventsEndpointMonitorsMonitorIdRowsRowIdEventsGet500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRowEventsEndpointMonitorsMonitorIdRowsRowIdEventsGet503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -60,7 +60,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Rows.Item.Events
                 { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRowEventsEndpointMonitorsMonitorIdRowsRowIdEventsGet400Response.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRowEventsEndpointMonitorsMonitorIdRowsRowIdEventsGet401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRowEventsEndpointMonitorsMonitorIdRowsRowIdEventsGet403Response.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorValidationErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRowEventsEndpointMonitorsMonitorIdRowsRowIdEventsGet500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRowEventsEndpointMonitorsMonitorIdRowsRowIdEventsGet503Response.CreateFromDiscriminatorValue },
             };
@@ -101,19 +101,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Rows.Item.Events
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class EventsRequestBuilderGetQueryParameters 
         {
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             #pragma warning disable CS1591
             [QueryParameter("event_group_id")]
-            public string? EventGroupId { get; set; }
+            public Guid? EventGroupId { get; set; }
             #pragma warning restore CS1591
-#nullable restore
-#else
-            #pragma warning disable CS1591
-            [QueryParameter("event_group_id")]
-            public string EventGroupId { get; set; }
-            #pragma warning restore CS1591
-#endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             #pragma warning disable CS1591

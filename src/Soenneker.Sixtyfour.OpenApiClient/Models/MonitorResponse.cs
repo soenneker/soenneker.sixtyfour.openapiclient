@@ -67,6 +67,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponseMetadataProperty Metadata { get; set; }
 #endif
+        /// <summary>The monitor_type property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponseMonitorType? MonitorType { get; set; }
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -192,6 +194,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "is_active", n => { IsActive = n.GetBoolValue(); } },
                 { "last_run_at", n => { LastRunAt = n.GetStringValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponseMetadataProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponseMetadataProperty.CreateFromDiscriminatorValue); } },
+                { "monitor_type", n => { MonitorType = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponseMonitorType>(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "next_run_times", n => { NextRunTimes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "org_id", n => { OrgId = n.GetStringValue(); } },
@@ -222,6 +225,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteBoolValue("is_active", IsActive);
             writer.WriteStringValue("last_run_at", LastRunAt);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponseMetadataProperty>("metadata", Metadata);
+            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponseMonitorType>("monitor_type", MonitorType);
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfPrimitiveValues<string>("next_run_times", NextRunTimes);
             writer.WriteStringValue("org_id", OrgId);

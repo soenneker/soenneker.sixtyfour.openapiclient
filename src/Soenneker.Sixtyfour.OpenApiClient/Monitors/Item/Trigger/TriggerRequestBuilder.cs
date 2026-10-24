@@ -36,22 +36,22 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Trigger
         /// <summary>
         /// Run every active row now, without waiting for the next interval.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.TriggerMonitorEndpointMonitorsMonitorIdTriggerPost202Response"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseTriggerMonitorEndpointMonitorsMonitorIdTriggerPostSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.TriggerMonitorEndpointMonitorsMonitorIdTriggerPost400Response">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.TriggerMonitorEndpointMonitorsMonitorIdTriggerPost401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.TriggerMonitorEndpointMonitorsMonitorIdTriggerPost403Response">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorValidationErrorResponse">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.TriggerMonitorEndpointMonitorsMonitorIdTriggerPost500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.TriggerMonitorEndpointMonitorsMonitorIdTriggerPost503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.TriggerMonitorEndpointMonitorsMonitorIdTriggerPost202Response?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseTriggerMonitorEndpointMonitorsMonitorIdTriggerPostSchema?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.TriggerMonitorEndpointMonitorsMonitorIdTriggerPost202Response> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseTriggerMonitorEndpointMonitorsMonitorIdTriggerPostSchema> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
@@ -60,11 +60,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Trigger
                 { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.TriggerMonitorEndpointMonitorsMonitorIdTriggerPost400Response.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.TriggerMonitorEndpointMonitorsMonitorIdTriggerPost401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.TriggerMonitorEndpointMonitorsMonitorIdTriggerPost403Response.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorValidationErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.TriggerMonitorEndpointMonitorsMonitorIdTriggerPost500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.TriggerMonitorEndpointMonitorsMonitorIdTriggerPost503Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.TriggerMonitorEndpointMonitorsMonitorIdTriggerPost202Response>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.TriggerMonitorEndpointMonitorsMonitorIdTriggerPost202Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseTriggerMonitorEndpointMonitorsMonitorIdTriggerPostSchema>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseTriggerMonitorEndpointMonitorsMonitorIdTriggerPostSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Run every active row now, without waiting for the next interval.

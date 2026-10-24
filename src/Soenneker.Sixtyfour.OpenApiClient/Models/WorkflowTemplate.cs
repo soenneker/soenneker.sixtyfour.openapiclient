@@ -26,10 +26,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>The template&apos;s block graph, in workflow-builder shape.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowTemplateBlocks? Blocks { get; set; }
+        public UntypedNode? Blocks { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowTemplateBlocks Blocks { get; set; }
+        public UntypedNode Blocks { get; set; }
 #endif
         /// <summary>The category property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -66,10 +66,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Edges between the template&apos;s blocks.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowTemplateEdges? Edges { get; set; }
+        public UntypedNode? Edges { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowTemplateEdges Edges { get; set; }
+        public UntypedNode Edges { get; set; }
 #endif
         /// <summary>The estimated_time property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -175,12 +175,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "author_name", n => { AuthorName = n.GetStringValue(); } },
-                { "blocks", n => { Blocks = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowTemplateBlocks>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowTemplateBlocks.CreateFromDiscriminatorValue); } },
+                { "blocks", n => { Blocks = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "category", n => { Category = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "difficulty", n => { Difficulty = n.GetStringValue(); } },
-                { "edges", n => { Edges = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowTemplateEdges>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowTemplateEdges.CreateFromDiscriminatorValue); } },
+                { "edges", n => { Edges = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "estimated_time", n => { EstimatedTime = n.GetStringValue(); } },
                 { "featured", n => { Featured = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
@@ -203,12 +203,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("author_name", AuthorName);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowTemplateBlocks>("blocks", Blocks);
+            writer.WriteObjectValue<UntypedNode>("blocks", Blocks);
             writer.WriteStringValue("category", Category);
             writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("difficulty", Difficulty);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowTemplateEdges>("edges", Edges);
+            writer.WriteObjectValue<UntypedNode>("edges", Edges);
             writer.WriteStringValue("estimated_time", EstimatedTime);
             writer.WriteBoolValue("featured", Featured);
             writer.WriteStringValue("id", Id);

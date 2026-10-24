@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Access
         {
         }
         /// <summary>
-        /// Whether the caller&apos;s organization has Atlas/xHigh enabled.This capability probe is available to every authenticated organization soclients can omit Atlas-only tools without exposing their schemas to callersthat cannot use them.
+        /// Whether your organization can use Atlas, and the engines it can run with each engine&apos;s price in credits per unit.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.AtlasAccess"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -67,7 +67,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Access
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.AtlasAccess>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.AtlasAccess.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Whether the caller&apos;s organization has Atlas/xHigh enabled.This capability probe is available to every authenticated organization soclients can omit Atlas-only tools without exposing their schemas to callersthat cannot use them.
+        /// Whether your organization can use Atlas, and the engines it can run with each engine&apos;s price in credits per unit.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

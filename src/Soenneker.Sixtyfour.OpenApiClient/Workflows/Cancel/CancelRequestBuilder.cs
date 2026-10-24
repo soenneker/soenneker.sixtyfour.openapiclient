@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Cancel
         {
         }
         /// <summary>
-        /// Cancel an in-progress workflow run.
+        /// Request cancellation of an in-progress run.The response carries the actual durable status. When`cancellation_requested` is true, Temporal accepted the stop request;continue polling until a terminal status is returned. Results and chargesfor completed work remain. A terminal run keeps its original outcome.A 503 means confirmation failed: retry cancellation of the same job_id.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowCancelResponse"/></returns>
         /// <param name="body">JSON body for POST /workflows/cancel; job_id may also come from the query param.</param>
@@ -73,7 +73,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Cancel
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowCancelResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowCancelResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Cancel an in-progress workflow run.
+        /// Request cancellation of an in-progress run.The response carries the actual durable status. When`cancellation_requested` is true, Temporal accepted the stop request;continue polling until a terminal status is returned. Results and chargesfor completed work remain. A terminal run keeps its original outcome.A 503 means confirmation failed: retry cancellation of the same job_id.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">JSON body for POST /workflows/cancel; job_id may also come from the query param.</param>
@@ -104,7 +104,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Cancel
             return new global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Cancel.CancelRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Cancel an in-progress workflow run.
+        /// Request cancellation of an in-progress run.The response carries the actual durable status. When`cancellation_requested` is true, Temporal accepted the stop request;continue polling until a terminal status is returned. Results and chargesfor completed work remain. A terminal run keeps its original outcome.A 503 means confirmation failed: retry cancellation of the same job_id.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class CancelRequestBuilderPostQueryParameters 

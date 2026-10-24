@@ -81,7 +81,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// Create a schedule and register its Temporal Schedule. Bound to the caller.The schedule lives in its WORKFLOW&apos;s team (runs bill + attributethere), so cross-team creation is blocked for every caller —404 to mask existence, matching the workflow list&apos;s partitioning.
+        /// Create a schedule and register its Temporal Schedule. Bound to the caller.The schedule lives in its WORKFLOW&apos;s team (runs bill + attributethere), so automating a workflow is decided like any other action on it:another team&apos;s or another org&apos;s workflow answers 404, as a missing one.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ScheduleResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -135,7 +135,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules
             return requestInfo;
         }
         /// <summary>
-        /// Create a schedule and register its Temporal Schedule. Bound to the caller.The schedule lives in its WORKFLOW&apos;s team (runs bill + attributethere), so cross-team creation is blocked for every caller —404 to mask existence, matching the workflow list&apos;s partitioning.
+        /// Create a schedule and register its Temporal Schedule. Bound to the caller.The schedule lives in its WORKFLOW&apos;s team (runs bill + attributethere), so automating a workflow is decided like any other action on it:another team&apos;s or another org&apos;s workflow answers 404, as a missing one.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

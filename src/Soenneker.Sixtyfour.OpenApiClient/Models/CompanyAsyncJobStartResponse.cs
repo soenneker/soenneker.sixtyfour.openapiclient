@@ -16,7 +16,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Initial job status.</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.RunningStatus? Status { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.CompanyAsyncJobStartResponseStatus? Status { get; set; }
         /// <summary>Async job ID. Poll GET /job-status/{task_id} for status and results.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -58,7 +58,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunningStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.CompanyAsyncJobStartResponseStatus>(); } },
                 { "task_id", n => { TaskId = n.GetStringValue(); } },
                 { "unrecognized_fields", n => { UnrecognizedFields = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
@@ -70,7 +70,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunningStatus>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.CompanyAsyncJobStartResponseStatus>("status", Status);
             writer.WriteStringValue("task_id", TaskId);
             writer.WriteCollectionOfPrimitiveValues<string>("unrecognized_fields", UnrecognizedFields);
             writer.WriteAdditionalData(AdditionalData);

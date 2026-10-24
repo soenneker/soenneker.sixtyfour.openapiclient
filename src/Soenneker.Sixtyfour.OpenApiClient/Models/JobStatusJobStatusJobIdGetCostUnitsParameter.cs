@@ -3,8 +3,9 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
-    /// <summary>Response cost unit.</summary>
+    /// <summary>Compatibility option. Both legacy cost fields and credit fields are returned for either value.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+    [Obsolete("")]
     public enum JobStatusJobStatusJobIdGetCostUnitsParameter
     {
         [EnumMember(Value = "cents")]

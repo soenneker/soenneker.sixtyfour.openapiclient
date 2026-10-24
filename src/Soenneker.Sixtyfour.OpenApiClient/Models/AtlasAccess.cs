@@ -14,7 +14,15 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Whether this organization may start and read Atlas/xHigh investigations.</summary>
+        /// <summary>The engines your organization can run, the default first. Empty when `has_atlas` is false.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.AtlasEngineOption>? Engines { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.AtlasEngineOption> Engines { get; set; }
+#endif
+        /// <summary>Whether your organization can use Atlas.</summary>
         public bool? HasAtlas { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.AtlasAccess"/> and sets the default values.
@@ -41,6 +49,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "engines", n => { Engines = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.AtlasEngineOption>(global::Soenneker.Sixtyfour.OpenApiClient.Models.AtlasEngineOption.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "has_atlas", n => { HasAtlas = n.GetBoolValue(); } },
             };
         }
@@ -51,6 +60,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.AtlasEngineOption>("engines", Engines);
             writer.WriteBoolValue("has_atlas", HasAtlas);
             writer.WriteAdditionalData(AdditionalData);
         }

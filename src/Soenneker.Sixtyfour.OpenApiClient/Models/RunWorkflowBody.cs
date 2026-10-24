@@ -15,6 +15,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Run the acknowledged shared definition revision; refuse unfinished edits or a different revision.</summary>
+        public int? ExpectedRevision { get; set; }
         /// <summary>Optional specs to override first block specs</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -56,6 +58,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "expected_revision", n => { ExpectedRevision = n.GetIntValue(); } },
                 { "specs_override", n => { SpecsOverride = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodySpecsOverrideProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodySpecsOverrideProperty.CreateFromDiscriminatorValue); } },
                 { "webhook_payload", n => { WebhookPayload = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayload>(global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayload.CreateFromDiscriminatorValue); } },
             };
@@ -67,6 +70,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteIntValue("expected_revision", ExpectedRevision);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodySpecsOverrideProperty>("specs_override", SpecsOverride);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayload>("webhook_payload", WebhookPayload);
             writer.WriteAdditionalData(AdditionalData);

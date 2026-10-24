@@ -22,7 +22,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Snapshots.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithAsOfItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/monitors/{monitorId}/snapshots/{asOf}{?limit*}", pathParameters)
+        public WithAsOfItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/monitors/{monitorId}/snapshots/{asOf}{?limit*,spreadsheet_safe*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Snapshots.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithAsOfItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/monitors/{monitorId}/snapshots/{asOf}{?limit*}", rawUrl)
+        public WithAsOfItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/monitors/{monitorId}/snapshots/{asOf}{?limit*,spreadsheet_safe*}", rawUrl)
         {
         }
         /// <summary>
@@ -42,7 +42,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Snapshots.Item
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetMonitorSnapshotEndpointMonitorsMonitorIdSnapshotsAsOfGet400Response">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetMonitorSnapshotEndpointMonitorsMonitorIdSnapshotsAsOfGet401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetMonitorSnapshotEndpointMonitorsMonitorIdSnapshotsAsOfGet403Response">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorValidationErrorResponse">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetMonitorSnapshotEndpointMonitorsMonitorIdSnapshotsAsOfGet500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetMonitorSnapshotEndpointMonitorsMonitorIdSnapshotsAsOfGet503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -60,7 +60,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Snapshots.Item
                 { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetMonitorSnapshotEndpointMonitorsMonitorIdSnapshotsAsOfGet400Response.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetMonitorSnapshotEndpointMonitorsMonitorIdSnapshotsAsOfGet401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetMonitorSnapshotEndpointMonitorsMonitorIdSnapshotsAsOfGet403Response.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorValidationErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetMonitorSnapshotEndpointMonitorsMonitorIdSnapshotsAsOfGet500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetMonitorSnapshotEndpointMonitorsMonitorIdSnapshotsAsOfGet503Response.CreateFromDiscriminatorValue },
             };
@@ -103,6 +103,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Snapshots.Item
             /// <summary>Only the first rows, for a preview. Omitted, the whole table.</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }
+            /// <summary>Escape formula-prefixed CSV cells; off so machine callers keep canonical bytes</summary>
+            [QueryParameter("spreadsheet_safe")]
+            public bool? SpreadsheetSafe { get; set; }
         }
     }
 }

@@ -17,9 +17,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>True when the request was deduplicated via Idempotency-Key header.</summary>
         public bool? AlreadyStarted { get; set; }
-        /// <summary>Estimated job cost in cents (rows × per-row tier price). A floor: options like find_people can bill more. Omitted on idempotent replays. Returned when cost_units=cents.</summary>
+        /// <summary>Legacy estimated job cost in cents; preserved for compatibility. Omitted on idempotent replays. Prefer estimated_cost_credits.</summary>
+        [Obsolete("")]
         public int? EstimatedCostCents { get; set; }
-        /// <summary>Estimated job cost in credits. Returned when cost_units=credits.</summary>
+        /// <summary>Estimated job cost in credits (rows × per-row tier price). A floor: options like find_people can bill more. Omitted on idempotent replays.</summary>
         public double? EstimatedCostCredits { get; set; }
         /// <summary>Number of parsed input rows; omitted on idempotent replays.</summary>
         public int? RowCount { get; set; }

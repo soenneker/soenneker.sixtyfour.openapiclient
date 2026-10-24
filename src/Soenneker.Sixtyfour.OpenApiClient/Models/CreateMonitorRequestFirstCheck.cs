@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
-    /// <summary>When the first check runs. &apos;now&apos; checks every row as soon as the monitor exists. &apos;next_tick&apos; waits for the schedule: an hourly monitor first runs at the next :00 UTC, a daily one at the next 00:00 UTC. The response&apos;s next_run_times says exactly when.</summary>
+    /// <summary>When setup runs for rows missing watched values. &apos;now&apos; triggers setup immediately; &apos;next_tick&apos; waits for the schedule. Fully supplied rows always start on the schedule: an hourly monitor first runs at the next :00 UTC, a daily one at the next 00:00 UTC. The response&apos;s next_run_times says exactly when.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum CreateMonitorRequestFirstCheck
     {

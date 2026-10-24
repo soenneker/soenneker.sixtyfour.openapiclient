@@ -22,8 +22,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string CompletedAt { get; set; }
 #endif
-        /// <summary>Total spend across every agent run of this investigation, in cents.</summary>
+        /// <summary>Legacy total spend in cents; preserved for compatibility. Prefer cost_credits.</summary>
+        [Obsolete("")]
         public int? CostCents { get; set; }
+        /// <summary>Total spend across every agent run of this investigation, in credits.</summary>
+        public double? CostCredits { get; set; }
         /// <summary>The created_at property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -120,6 +123,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             {
                 { "completed_at", n => { CompletedAt = n.GetStringValue(); } },
                 { "cost_cents", n => { CostCents = n.GetIntValue(); } },
+                { "cost_credits", n => { CostCredits = n.GetDoubleValue(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "lead_info", n => { LeadInfo = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummaryLeadInfoProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummaryLeadInfoProperty.CreateFromDiscriminatorValue); } },
@@ -141,6 +145,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("completed_at", CompletedAt);
             writer.WriteIntValue("cost_cents", CostCents);
+            writer.WriteDoubleValue("cost_credits", CostCredits);
             writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummaryLeadInfoProperty>("lead_info", LeadInfo);

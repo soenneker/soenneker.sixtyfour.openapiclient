@@ -34,6 +34,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowDisplayStatus DisplayStatus { get; set; }
 #endif
+        /// <summary>Shared definition revision; unchanged by run progress or metadata flags.</summary>
+        public int? EditRevision { get; set; }
         /// <summary>Workflow identifier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -112,6 +114,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public WorkflowResponse()
         {
             AdditionalData = new Dictionary<string, object>();
+            EditRevision = 0;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -135,6 +138,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "display_status", n => { DisplayStatus = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowDisplayStatus>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowDisplayStatus.CreateFromDiscriminatorValue); } },
+                { "edit_revision", n => { EditRevision = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "last_run_date", n => { LastRunDate = n.GetDateTimeOffsetValue(); } },
                 { "locked", n => { Locked = n.GetBoolValue(); } },
@@ -160,6 +164,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("description", Description);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowDisplayStatus>("display_status", DisplayStatus);
+            writer.WriteIntValue("edit_revision", EditRevision);
             writer.WriteStringValue("id", Id);
             writer.WriteDateTimeOffsetValue("last_run_date", LastRunDate);
             writer.WriteBoolValue("locked", Locked);
