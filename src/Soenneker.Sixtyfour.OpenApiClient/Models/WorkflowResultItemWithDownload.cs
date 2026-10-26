@@ -35,7 +35,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #endif
         /// <summary>Seconds until `download_url` expires.</summary>
         public int? DownloadExpiresInSeconds { get; set; }
-        /// <summary>Signed download URL; null if signing failed.</summary>
+        /// <summary>Signed download URL; null if signing failed. A CSV comes back with formula-like cells escaped for spreadsheets; append `?spreadsheet_safe=false` to get the file exactly as stored.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DownloadUrl { get; set; }

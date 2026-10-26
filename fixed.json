@@ -5196,14 +5196,23 @@
             }
           },
           "503": {
-            "description": "The API key could not be checked, or the request could not be started, because a backing service is briefly unavailable or at capacity. Nothing was charged. Retry after the \u0060Retry-After\u0060 header.",
+            "description": "Result storage or its metadata is temporarily unavailable. Retry this read after Retry-After; do not rerun the workflow.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds before retrying the read",
+                "schema": {
+                  "type": "string",
+                  "example": "15"
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet503Response"
                 },
                 "example": {
-                  "detail": "Could not verify the API key right now. Retry shortly."
+                  "detail": "Workflow results are temporarily unavailable. Please retry shortly."
                 }
               }
             }
@@ -20225,7 +20234,7 @@
           "url": {
             "title": "Url",
             "type": "string",
-            "description": "Signed download URL."
+            "description": "Signed download URL. A CSV comes back with formula-like cells escaped for spreadsheets; append \u0060?spreadsheet_safe=false\u0060 to get the file exactly as stored."
           },
           "bucket": {
             "title": "Bucket",
@@ -25583,7 +25592,7 @@
               "null",
               "string"
             ],
-            "description": "Signed download URL; null if signing failed."
+            "description": "Signed download URL; null if signing failed. A CSV comes back with formula-like cells escaped for spreadsheets; append \u0060?spreadsheet_safe=false\u0060 to get the file exactly as stored."
           },
           "download_expires_in_seconds": {
             "title": "Download Expires In Seconds",
@@ -34771,7 +34780,8 @@
             "type": "string"
           },
           "download_url": {
-            "type": "string"
+            "type": "string",
+            "description": "Signed download URL. A CSV comes back with formula-like cells escaped for spreadsheets; append \u0060?spreadsheet_safe=false\u0060 to get the file exactly as stored."
           }
         }
       },
