@@ -46,7 +46,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayload();
-            if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayloadMember1>(global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayloadMember1.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayloadMember1> runWorkflowBodyWebhookPayloadMember1Value)
+            if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayloadMember1>(global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayloadMember1.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayloadMember1> runWorkflowBodyWebhookPayloadMember1Value)
             {
                 result.RunWorkflowBodyWebhookPayloadMember1 = runWorkflowBodyWebhookPayloadMember1Value;
             }

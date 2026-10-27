@@ -54,7 +54,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseWorkflowDefinition();
-            if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseWorkflowDefinitionMember1>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseWorkflowDefinitionMember1.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseWorkflowDefinitionMember1> workflowResponseWorkflowDefinitionMember1Value)
+            if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseWorkflowDefinitionMember1>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseWorkflowDefinitionMember1.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseWorkflowDefinitionMember1> workflowResponseWorkflowDefinitionMember1Value)
             {
                 result.WorkflowResponseWorkflowDefinitionMember1 = workflowResponseWorkflowDefinitionMember1Value;
             }

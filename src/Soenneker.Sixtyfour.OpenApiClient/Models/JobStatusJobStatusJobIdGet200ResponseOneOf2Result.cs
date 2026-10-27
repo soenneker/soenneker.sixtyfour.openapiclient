@@ -51,7 +51,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             {
                 result.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResult = new global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResult();
             }
-            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultMember2>(global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultMember2.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultMember2> jobStatusJobStatusJobIdGet200ResponseOneOf2ResultMember2Value)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultMember2>(global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultMember2.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultMember2> jobStatusJobStatusJobIdGet200ResponseOneOf2ResultMember2Value)
             {
                 result.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultMember2 = jobStatusJobStatusJobIdGet200ResponseOneOf2ResultMember2Value;
             }

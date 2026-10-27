@@ -42,7 +42,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             {
                 result.String = stringValue;
             }
-            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorValidationErrorItem>(global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorValidationErrorItem.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorValidationErrorItem> monitorValidationErrorItemValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorValidationErrorItem>(global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorValidationErrorItem.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorValidationErrorItem> monitorValidationErrorItemValue)
             {
                 result.MonitorValidationErrorItem = monitorValidationErrorItemValue;
             }
