@@ -9031,7 +9031,7 @@
           "Search"
         ],
         "summary": "Get Search History Row Endpoint",
-        "description": "Return a decrypted saved-search envelope to its owner or active team.\n\nReturns 404 (never 403) for inaccessible IDs so the endpoint is not an\nexistence oracle. \u0060\u0060parsed_query\u0060\u0060 includes durable replay metadata needed\nfor hydration, while server-only ranking metadata remains private.",
+        "description": "Return a decrypted saved-search envelope to whoever the policy lets see it.\n\nA search the caller may not see answers 404, as a missing one does, so\nthe endpoint is not an existence oracle; Sixtyfour staff in an org with\nsupport access off are answered 403. \u0060\u0060parsed_query\u0060\u0060 includes durable\nreplay metadata needed for hydration, while server-only ranking metadata\nremains private.",
         "operationId": "GetSearchHistoryRowEndpointSearchHistorySearchIdGet",
         "parameters": [
           {
@@ -10011,6 +10011,252 @@
                 },
                 "example": {
                   "detail": "Field values request timed out"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/webhooks/test-events": {
+      "get": {
+        "tags": [
+          "Webhook Testing"
+        ],
+        "summary": "List webhook events or get one example",
+        "description": "Discover synthetic samples. Does not run jobs, send callbacks or charge credits.",
+        "operationId": "ListTestEventsWebhooksTestEventsGet",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Return only the example payload for this events[].type. Omit to list all events.",
+            "schema": {
+              "examples": [
+                "monitor.run.completed"
+              ],
+              "title": "Type",
+              "maxLength": 100,
+              "minLength": 1,
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "Return only the example payload for this events[].type. Omit to list all events."
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseListTestEventsWebhooksTestEventsGet"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListTestEventsWebhooksTestEventsGet400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListTestEventsWebhooksTestEventsGet401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListTestEventsWebhooksTestEventsGet403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListTestEventsWebhooksTestEventsGet500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "The API key could not be checked, or the request could not be started, because a backing service is briefly unavailable or at capacity. Nothing was charged. Retry after the \u0060Retry-After\u0060 header.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListTestEventsWebhooksTestEventsGet503Response"
+                },
+                "example": {
+                  "detail": "Could not verify the API key right now. Retry shortly."
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Webhook Testing"
+        ],
+        "summary": "Send a sample webhook to your receiver",
+        "description": "Send a catalog sample with production retry/signing behavior. Up to 100 seconds.\n\nLimited to 10 sends/minute per organization across all cases. A 200 response\nreports delivery via delivered/status_code; it does not imply the receiver accepted it.\nDo not automatically retry this POST: each call sends a new event.",
+        "operationId": "SendTestEventWebhooksTestEventsPost",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TestEventRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TestEventResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SendTestEventWebhooksTestEventsPost400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SendTestEventWebhooksTestEventsPost401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SendTestEventWebhooksTestEventsPost403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SendTestEventWebhooksTestEventsPost500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "The API key could not be checked, or the request could not be started, because a backing service is briefly unavailable or at capacity. Nothing was charged. Retry after the \u0060Retry-After\u0060 header.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SendTestEventWebhooksTestEventsPost503Response"
+                },
+                "example": {
+                  "detail": "Could not verify the API key right now. Retry shortly."
                 }
               }
             }
@@ -24877,6 +25123,122 @@
           }
         }
       },
+      "TestEventCatalog": {
+        "title": "TestEventCatalog",
+        "required": [
+          "events"
+        ],
+        "type": "object",
+        "properties": {
+          "events": {
+            "title": "Events",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TestEventExample"
+            }
+          }
+        }
+      },
+      "TestEventExample": {
+        "title": "TestEventExample",
+        "required": [
+          "type",
+          "description",
+          "example"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "title": "Type",
+            "type": "string",
+            "description": "Pass this value as event when sending a test; the example keeps the production envelope."
+          },
+          "description": {
+            "title": "Description",
+            "type": "string"
+          },
+          "example": {
+            "$ref": "#/components/schemas/TestEventExampleExampleProperty"
+          }
+        }
+      },
+      "TestEventRequest": {
+        "examples": [
+          {
+            "event": "monitor.run.completed",
+            "url": "https://your-app.example/webhooks"
+          }
+        ],
+        "title": "TestEventRequest",
+        "required": [
+          "event",
+          "url"
+        ],
+        "type": "object",
+        "properties": {
+          "event": {
+            "title": "Event",
+            "maxLength": 100,
+            "minLength": 1,
+            "type": "string",
+            "description": "An events[].type from GET /webhooks/test-events."
+          },
+          "url": {
+            "title": "Url",
+            "maxLength": 2048,
+            "minLength": 1,
+            "type": "string",
+            "description": "Your public HTTPS receiver URL."
+          },
+          "signing": {
+            "$ref": "#/components/schemas/TestEventRequestSigning"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TestEventResponse": {
+        "examples": [
+          {
+            "attempts": 1,
+            "delivered": true,
+            "id": "21b3e340-e326-4c01-9a42-7dc426ec4481",
+            "status_code": 200
+          }
+        ],
+        "title": "TestEventResponse",
+        "required": [
+          "id",
+          "delivered",
+          "status_code",
+          "attempts"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string",
+            "description": "Delivery correlation ID, also sent in Sixtyfour-Test-Run-Id."
+          },
+          "delivered": {
+            "title": "Delivered",
+            "type": "boolean",
+            "description": "True only when the receiver returned a 2xx status."
+          },
+          "status_code": {
+            "title": "Status Code",
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Last attempt\u0027s HTTP status, or null when no response was received."
+          },
+          "attempts": {
+            "title": "Attempts",
+            "type": "integer",
+            "description": "Number of HTTP delivery attempts made."
+          }
+        }
+      },
       "UpdateAgentPreferencesRequest": {
         "title": "UpdateAgentPreferencesRequest",
         "type": "object",
@@ -27071,6 +27433,10 @@
         "title": "Lead Info",
         "type": "object",
         "description": "Who to investigate, e.g. {\u0022name\u0022: \u0022Jane Doe\u0022, \u0022company\u0022: \u0022Acme\u0022}."
+      },
+      "TestEventExampleExample": {
+        "title": "Example",
+        "type": "object"
       },
       "UpdateMonitorRequestMetadata": {
         "title": "Metadata",
@@ -31217,6 +31583,97 @@
           }
         }
       },
+      "ResponseListTestEventsWebhooksTestEventsGet": {
+        "title": "Response List Test Events Webhooks Test Events Get",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/TestEventCatalog"
+          },
+          {
+            "type": "object"
+          }
+        ]
+      },
+      "ListTestEventsWebhooksTestEventsGet400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ListTestEventsWebhooksTestEventsGet401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ListTestEventsWebhooksTestEventsGet403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ListTestEventsWebhooksTestEventsGet500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ListTestEventsWebhooksTestEventsGet503Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "SendTestEventWebhooksTestEventsPost400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "SendTestEventWebhooksTestEventsPost401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "SendTestEventWebhooksTestEventsPost403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "SendTestEventWebhooksTestEventsPost500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "SendTestEventWebhooksTestEventsPost503Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
       "CreateExclusionListEndpointSearchExclusionListsPost400Response": {
         "type": "object",
         "properties": {
@@ -34658,6 +35115,10 @@
         "type": "object",
         "description": "Who to investigate, e.g. {\u0022name\u0022: \u0022Jane Doe\u0022, \u0022company\u0022: \u0022Acme\u0022}."
       },
+      "TestEventExampleExampleProperty": {
+        "title": "Example",
+        "type": "object"
+      },
       "UpdateMonitorRequestMetadataProperty": {
         "title": "Metadata",
         "type": [
@@ -36121,6 +36582,29 @@
             {
               "value": "dict",
               "name": "Dict"
+            }
+          ]
+        }
+      },
+      "TestEventRequestSigning": {
+        "title": "Signing",
+        "enum": [
+          "auto",
+          "required"
+        ],
+        "type": "string",
+        "description": "Auto matches production: sign if configured. Required refuses unsigned delivery.",
+        "x-ms-enum": {
+          "name": "TestEventRequestSigning",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "auto",
+              "name": "Auto"
+            },
+            {
+              "value": "required",
+              "name": "Required"
             }
           ]
         }

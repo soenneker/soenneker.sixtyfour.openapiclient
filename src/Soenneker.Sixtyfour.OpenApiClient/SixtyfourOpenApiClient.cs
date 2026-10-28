@@ -41,6 +41,7 @@ using Soenneker.Sixtyfour.OpenApiClient.Templates;
 using Soenneker.Sixtyfour.OpenApiClient.V1;
 using Soenneker.Sixtyfour.OpenApiClient.VerifyAge;
 using Soenneker.Sixtyfour.OpenApiClient.VerifyEmail;
+using Soenneker.Sixtyfour.OpenApiClient.Webhooks;
 using Soenneker.Sixtyfour.OpenApiClient.Workflows;
 using System.Collections.Generic;
 using System.IO;
@@ -228,6 +229,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient
         public global::Soenneker.Sixtyfour.OpenApiClient.VerifyEmail.VerifyEmailRequestBuilder VerifyEmail
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.VerifyEmail.VerifyEmailRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The webhooks property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.WebhooksRequestBuilder Webhooks
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.WebhooksRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The workflows property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Workflows.WorkflowsRequestBuilder Workflows

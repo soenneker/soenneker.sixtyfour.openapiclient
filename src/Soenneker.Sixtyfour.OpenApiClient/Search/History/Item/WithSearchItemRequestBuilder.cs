@@ -85,7 +85,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.History.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseDeleteSearchHistoryEndpointSearchHistorySearchIdDeleteSchema>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseDeleteSearchHistoryEndpointSearchHistorySearchIdDeleteSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Return a decrypted saved-search envelope to its owner or active team.Returns 404 (never 403) for inaccessible IDs so the endpoint is not anexistence oracle. ``parsed_query`` includes durable replay metadata neededfor hydration, while server-only ranking metadata remains private.
+        /// Return a decrypted saved-search envelope to whoever the policy lets see it.A search the caller may not see answers 404, as a missing one does, sothe endpoint is not an existence oracle; Sixtyfour staff in an org withsupport access off are answered 403. ``parsed_query`` includes durablereplay metadata needed for hydration, while server-only ranking metadataremains private.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseGetSearchHistoryRowEndpointSearchHistorySearchIdGetSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -149,7 +149,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.History.Item
             return requestInfo;
         }
         /// <summary>
-        /// Return a decrypted saved-search envelope to its owner or active team.Returns 404 (never 403) for inaccessible IDs so the endpoint is not anexistence oracle. ``parsed_query`` includes durable replay metadata neededfor hydration, while server-only ranking metadata remains private.
+        /// Return a decrypted saved-search envelope to whoever the policy lets see it.A search the caller may not see answers 404, as a missing one does, sothe endpoint is not an existence oracle; Sixtyfour staff in an org withsupport access off are answered 403. ``parsed_query`` includes durablereplay metadata needed for hydration, while server-only ranking metadataremains private.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
