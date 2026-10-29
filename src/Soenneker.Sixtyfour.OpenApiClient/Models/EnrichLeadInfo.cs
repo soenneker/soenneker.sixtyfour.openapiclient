@@ -58,6 +58,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public int? MaxCredits { get; set; }
         /// <summary>For Atlas runs, the longest the run may research, in minutes of working time: time spent waiting to retry after a temporary failure does not count. When it is reached the run writes up what it found and completes, and is charged for the research it used, rounded up to the next 50 credits, instead of the whole budget. Writing up can take a few minutes past the limit. Default: no limit.</summary>
         public int? MaxMinutes { get; set; }
+        /// <summary>For Atlas runs (xhigh, or scout with graph) started on the async endpoint: make the new investigation visible only to you, not your team. With an API key, the run is private to the person who created the key. Your team must allow private runs. Rejected on other tiers, on the sync endpoint, and with `investigation_id`.</summary>
+        public bool? Private { get; set; }
         /// <summary>For Atlas runs with `struct`: research until the budget runs out. By default a run may stop once every requested field is answered, and is then charged for the research it used (at least one unit).</summary>
         public bool? Relentless { get; set; }
         /// <summary>Optional natural-language plan that guides the research agent.</summary>
@@ -93,6 +95,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             AdditionalData = new Dictionary<string, object>();
             ExclusiveRun = false;
+            Private = false;
             Relentless = false;
         }
         /// <summary>
@@ -123,6 +126,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "lead_info", n => { LeadInfo = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoLeadInfoProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoLeadInfoProperty.CreateFromDiscriminatorValue); } },
                 { "max_credits", n => { MaxCredits = n.GetIntValue(); } },
                 { "max_minutes", n => { MaxMinutes = n.GetIntValue(); } },
+                { "private", n => { Private = n.GetBoolValue(); } },
                 { "relentless", n => { Relentless = n.GetBoolValue(); } },
                 { "research_plan", n => { ResearchPlan = n.GetStringValue(); } },
                 { "struct", n => { Struct = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty.CreateFromDiscriminatorValue); } },
@@ -147,6 +151,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoLeadInfoProperty>("lead_info", LeadInfo);
             writer.WriteIntValue("max_credits", MaxCredits);
             writer.WriteIntValue("max_minutes", MaxMinutes);
+            writer.WriteBoolValue("private", Private);
             writer.WriteBoolValue("relentless", Relentless);
             writer.WriteStringValue("research_plan", ResearchPlan);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty>("struct", Struct);

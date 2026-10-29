@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Results.Download
         {
         }
         /// <summary>
-        /// List a workflow run&apos;s results with 15-minute signed download URLs.
+        /// List a workflow run&apos;s results with 15-minute signed download URLs.In a CSV, list and object cells are JSON text and booleans are `true` or `false`.
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -45,6 +45,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Results.Download
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet404Response">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet409Response">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet429Response">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -65,6 +66,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Results.Download
                 { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet404Response.CreateFromDiscriminatorValue },
                 { "409", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet409Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet503Response.CreateFromDiscriminatorValue },
             };
@@ -72,7 +74,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Results.Download
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// List a workflow run&apos;s results with 15-minute signed download URLs.
+        /// List a workflow run&apos;s results with 15-minute signed download URLs.In a CSV, list and object cells are JSON text and booleans are `true` or `false`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -100,7 +102,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Results.Download
             return new global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Results.DownloadLinks.DownloadLinksRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List a workflow run&apos;s results with 15-minute signed download URLs.
+        /// List a workflow run&apos;s results with 15-minute signed download URLs.In a CSV, list and object cells are JSON text and booleans are `true` or `false`.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class DownloadLinksRequestBuilderGetQueryParameters 

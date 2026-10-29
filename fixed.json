@@ -3524,7 +3524,7 @@
           "Enrichment"
         ],
         "summary": "Job Status",
-        "description": "Poll the status of an async job and retrieve results when complete.\n\nCredit fields (charge_credits, cost_credits) accompany unchanged legacy cost fields.",
+        "description": "Poll an async job and retrieve results when complete. Authorized snapshots are cached for up to 10 seconds. Shares an organization polling budget of 300/minute with burst 15 with workflow live status. Credit and legacy cost fields are returned for either cost_units value.",
         "operationId": "JobStatusJobStatusJobIdGet",
         "parameters": [
           {
@@ -3740,14 +3740,23 @@
             }
           },
           "503": {
-            "description": "The API key could not be checked, or the request could not be started, because a backing service is briefly unavailable or at capacity. Nothing was charged. Retry after the \u0060Retry-After\u0060 header.",
+            "description": "Request capacity is temporarily unavailable. Status snapshots are cached for 10 seconds. Retry after Retry-After; do not restart the job.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds before retrying",
+                "schema": {
+                  "type": "string",
+                  "example": "15"
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet503Response"
                 },
                 "example": {
-                  "detail": "Could not verify the API key right now. Retry shortly."
+                  "detail": "Request capacity is temporarily unavailable. Status snapshots are cached for 10 seconds. Retry after Retry-After; do not restart the job."
                 }
               }
             }
@@ -3766,14 +3775,44 @@
             }
           },
           "429": {
-            "description": "Rate limit exceeded.",
+            "description": "300 requests per 60 second(s) per organization, with a burst of 15, shared across API servers. Status snapshots are cached for 10 seconds. Retry after Retry-After; do not restart the job.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds before retrying",
+                "schema": {
+                  "type": "string",
+                  "example": "1"
+                }
+              },
+              "X-RateLimit-Requests": {
+                "description": "Requests replenished per period",
+                "schema": {
+                  "type": "string",
+                  "example": "300"
+                }
+              },
+              "X-RateLimit-Period": {
+                "description": "Replenishment period in seconds",
+                "schema": {
+                  "type": "string",
+                  "example": "60"
+                }
+              },
+              "X-RateLimit-Burst": {
+                "description": "Maximum requests available after idling",
+                "schema": {
+                  "type": "string",
+                  "example": "15"
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet429Response"
                 },
                 "example": {
-                  "detail": "Rate limit exceeded"
+                  "detail": "Rate limit exceeded: 300 requests per 60 second(s) per organization, with a burst of 15, shared across API servers. Status snapshots are cached for 10 seconds. Retry after Retry-After; do not restart the job."
                 }
               }
             }
@@ -5052,14 +5091,45 @@
             }
           },
           "409": {
-            "description": "Workflow with the supplied ID already exists.",
+            "description": "A concurrent request with this Idempotency-Key is still being admitted. Retry with the same key after one second; no job ID is returned until a run exists.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds to wait for the concurrent admission attempt.",
+                "schema": {
+                  "type": "integer",
+                  "example": 1
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/RunWorkflowWorkflowsRunPost409Response"
                 },
                 "example": {
-                  "detail": "Workflow with ID 0123abcd-1234-5678-9abc-def012345678 already exists. Use update endpoint to modify existing workflows."
+                  "detail": "A request with this Idempotency-Key is still being admitted. Retry shortly."
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Insufficient credits to cover the run\u0027s estimate, or, for bulk intelligence uploads, no active subscription. Estimates based on assumptions require a positive balance. No run is created. When auto-recharge is due or in progress, Retry-After is 30 seconds; retry with the same Idempotency-Key. Already-started runs are returned without a new balance check.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds to wait when a top-up is due or in progress.",
+                "schema": {
+                  "type": "integer",
+                  "example": 30
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RunWorkflowWorkflowsRunPost402Response"
+                },
+                "example": {
+                  "detail": "Insufficient API credits to start this run; a top-up has been requested."
                 }
               }
             }
@@ -5086,7 +5156,7 @@
           "Workflow"
         ],
         "summary": "List Run Result Downloads",
-        "description": "List a workflow run\u0027s results with 15-minute signed download URLs.",
+        "description": "List a workflow run\u0027s results with 15-minute signed download URLs.\n\nIn a CSV, list and object cells are JSON text and booleans are \u0060true\u0060 or \u0060false\u0060.",
         "operationId": "ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet",
         "parameters": [
           {
@@ -5196,10 +5266,10 @@
             }
           },
           "503": {
-            "description": "Result storage or its metadata is temporarily unavailable. Retry this read after Retry-After; do not rerun the workflow.",
+            "description": "Request capacity, result storage or its metadata is temporarily unavailable. Respect Retry-After; do not rerun the workflow.",
             "headers": {
               "Retry-After": {
-                "description": "Seconds before retrying the read",
+                "description": "Seconds before retrying",
                 "schema": {
                   "type": "string",
                   "example": "15"
@@ -5212,7 +5282,7 @@
                   "$ref": "#/components/schemas/ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet503Response"
                 },
                 "example": {
-                  "detail": "Workflow results are temporarily unavailable. Please retry shortly."
+                  "detail": "Request capacity is temporarily unavailable. Reuse the 15-minute download links. Retry this read later; do not rerun the workflow."
                 }
               }
             }
@@ -5239,6 +5309,49 @@
                 },
                 "example": {
                   "detail": "Workflow with ID 0123abcd-1234-5678-9abc-def012345678 already exists. Use update endpoint to modify existing workflows."
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "5 requests per 1 second(s) per organization, with a burst of 15, shared across API servers. Reuse the 15-minute download links. Retry this read later; do not rerun the workflow.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds before retrying",
+                "schema": {
+                  "type": "string",
+                  "example": "1"
+                }
+              },
+              "X-RateLimit-Requests": {
+                "description": "Requests replenished per period",
+                "schema": {
+                  "type": "string",
+                  "example": "5"
+                }
+              },
+              "X-RateLimit-Period": {
+                "description": "Replenishment period in seconds",
+                "schema": {
+                  "type": "string",
+                  "example": "1"
+                }
+              },
+              "X-RateLimit-Burst": {
+                "description": "Maximum requests available after idling",
+                "schema": {
+                  "type": "string",
+                  "example": "15"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet429Response"
+                },
+                "example": {
+                  "detail": "Rate limit exceeded: 5 requests per 1 second(s) per organization, with a burst of 15, shared across API servers. Reuse the 15-minute download links. Retry this read later; do not rerun the workflow."
                 }
               }
             }
@@ -5580,7 +5693,7 @@
           "Workflow"
         ],
         "summary": "Get Workflow Run (Live Status)",
-        "description": "Get a run\u0027s live status and per-block progress. Running runs return 500\nif their block graph is unavailable or progress sources exceed 5 seconds.",
+        "description": "Read authorized run status and progress. Snapshots are cached for up to 10 seconds. Shares an organization polling budget of 300/minute with burst 15 with job status. Resource access is checked on every request.",
         "operationId": "GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet",
         "parameters": [
           {
@@ -5679,14 +5792,23 @@
             }
           },
           "503": {
-            "description": "The API key could not be checked, or the request could not be started, because a backing service is briefly unavailable or at capacity. Nothing was charged. Retry after the \u0060Retry-After\u0060 header.",
+            "description": "Request capacity is temporarily unavailable. Status snapshots are cached for 10 seconds. Retry after Retry-After; do not restart the job.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds before retrying",
+                "schema": {
+                  "type": "string",
+                  "example": "15"
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet503Response"
                 },
                 "example": {
-                  "detail": "Could not verify the API key right now. Retry shortly."
+                  "detail": "Request capacity is temporarily unavailable. Status snapshots are cached for 10 seconds. Retry after Retry-After; do not restart the job."
                 }
               }
             }
@@ -5713,6 +5835,49 @@
                 },
                 "example": {
                   "detail": "Workflow with ID 0123abcd-1234-5678-9abc-def012345678 already exists. Use update endpoint to modify existing workflows."
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "300 requests per 60 second(s) per organization, with a burst of 15, shared across API servers. Status snapshots are cached for 10 seconds. Retry after Retry-After; do not restart the job.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds before retrying",
+                "schema": {
+                  "type": "string",
+                  "example": "1"
+                }
+              },
+              "X-RateLimit-Requests": {
+                "description": "Requests replenished per period",
+                "schema": {
+                  "type": "string",
+                  "example": "300"
+                }
+              },
+              "X-RateLimit-Period": {
+                "description": "Replenishment period in seconds",
+                "schema": {
+                  "type": "string",
+                  "example": "60"
+                }
+              },
+              "X-RateLimit-Burst": {
+                "description": "Maximum requests available after idling",
+                "schema": {
+                  "type": "string",
+                  "example": "15"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet429Response"
+                },
+                "example": {
+                  "detail": "Rate limit exceeded: 300 requests per 60 second(s) per organization, with a burst of 15, shared across API servers. Status snapshots are cached for 10 seconds. Retry after Retry-After; do not restart the job."
                 }
               }
             }
@@ -11680,15 +11845,29 @@
         }
       }
     },
-    "/monitors": {
+    "/monitors/upload": {
       "post": {
         "tags": [
           "Monitors"
         ],
-        "summary": "Create Monitor",
-        "description": "Create one monitor from a table, with a row per subject.\n\nSupplied watched cells become the baseline. Complete rows skip setup;\nincomplete rows need an initial enrichment before recurring checks.",
-        "operationId": "CreateMonitorEndpointMonitorsPost",
+        "summary": "Create Monitor From A File",
+        "description": "Create one monitor from a file, with a row per subject.\n\nAnswers as soon as the file has been checked and the monitor exists, with a\n\u0060status\u0060 of \u0060starting\u0060. Its rows are added afterwards; read the monitor\nagain to see \u0060row_count\u0060 climb and \u0060status\u0060 become \u0060active\u0060. Sending the\nsame request again returns the same monitor, and finishes it if the first\nattempt was interrupted.",
+        "operationId": "UploadMonitorEndpointMonitorsUploadPost",
         "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "description": "Optional. Omitted, a key is derived from the settings and the file\u0027s contents, so sending the same file again replays. Reusing a key with different settings or file contents returns 409.",
+            "schema": {
+              "title": "Idempotency-Key",
+              "maxLength": 200,
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "Optional. Omitted, a key is derived from the settings and the file\u0027s contents, so sending the same file again replays. Reusing a key with different settings or file contents returns 409."
+            }
+          },
           {
             "name": "x-api-key",
             "in": "header",
@@ -11703,16 +11882,16 @@
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/CreateMonitorRequest"
+                "$ref": "#/components/schemas/BodyUploadMonitorEndpointMonitorsUploadPost"
               }
             }
           },
           "required": true
         },
         "responses": {
-          "201": {
+          "202": {
             "description": "Successful Response",
             "content": {
               "application/json": {
@@ -11727,7 +11906,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateMonitorEndpointMonitorsPost400Response"
+                  "$ref": "#/components/schemas/UploadMonitorEndpointMonitorsUploadPost400Response"
                 },
                 "example": {
                   "detail": "Invalid request body"
@@ -11740,7 +11919,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateMonitorEndpointMonitorsPost401Response"
+                  "$ref": "#/components/schemas/UploadMonitorEndpointMonitorsUploadPost401Response"
                 },
                 "example": {
                   "detail": "Invalid API key"
@@ -11753,7 +11932,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateMonitorEndpointMonitorsPost403Response"
+                  "$ref": "#/components/schemas/UploadMonitorEndpointMonitorsUploadPost403Response"
                 },
                 "example": {
                   "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
@@ -11776,7 +11955,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateMonitorEndpointMonitorsPost500Response"
+                  "$ref": "#/components/schemas/UploadMonitorEndpointMonitorsUploadPost500Response"
                 },
                 "example": {
                   "detail": "Internal server error"
@@ -11789,7 +11968,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateMonitorEndpointMonitorsPost503Response"
+                  "$ref": "#/components/schemas/UploadMonitorEndpointMonitorsUploadPost503Response"
                 },
                 "example": {
                   "detail": "Could not verify the API key right now. Retry shortly."
@@ -11798,7 +11977,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/monitors": {
       "get": {
         "tags": [
           "Monitors"
@@ -11946,55 +12127,26 @@
             }
           }
         }
-      }
-    },
-    "/monitors/upload": {
+      },
       "post": {
         "tags": [
           "Monitors"
         ],
-        "summary": "Create Monitor From A File",
-        "description": "Create one monitor from a file, with a row per subject.\n\nAnswers as soon as the file has been checked and the monitor exists, with a\n\u0060status\u0060 of \u0060starting\u0060. Its rows are added afterwards; read the monitor\nagain to see \u0060row_count\u0060 climb and \u0060status\u0060 become \u0060active\u0060. Sending the\nsame request again returns the same monitor, and finishes it if the first\nattempt was interrupted.",
-        "operationId": "UploadMonitorEndpointMonitorsUploadPost",
-        "parameters": [
-          {
-            "name": "Idempotency-Key",
-            "in": "header",
-            "description": "Optional. Omitted, a key is derived from the settings and the file\u0027s contents, so sending the same file again replays. Reusing a key with different settings or file contents returns 409.",
-            "schema": {
-              "title": "Idempotency-Key",
-              "maxLength": 200,
-              "type": [
-                "null",
-                "string"
-              ],
-              "description": "Optional. Omitted, a key is derived from the settings and the file\u0027s contents, so sending the same file again replays. Reusing a key with different settings or file contents returns 409."
-            }
-          },
-          {
-            "name": "x-api-key",
-            "in": "header",
-            "schema": {
-              "title": "X-Api-Key",
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        ],
+        "summary": "Create Monitor",
+        "description": "Create one monitor from a table, with a row per subject.\n\nSupplied watched cells become the baseline. Complete rows skip setup;\nincomplete rows need an initial enrichment before recurring checks.",
+        "operationId": "CreateMonitorEndpointMonitorsPost",
         "requestBody": {
           "content": {
-            "multipart/form-data": {
+            "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/BodyUploadMonitorEndpointMonitorsUploadPost"
+                "$ref": "#/components/schemas/CreateMonitorRequest"
               }
             }
           },
           "required": true
         },
         "responses": {
-          "202": {
+          "201": {
             "description": "Successful Response",
             "content": {
               "application/json": {
@@ -12009,7 +12161,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UploadMonitorEndpointMonitorsUploadPost400Response"
+                  "$ref": "#/components/schemas/CreateMonitorEndpointMonitorsPost400Response"
                 },
                 "example": {
                   "detail": "Invalid request body"
@@ -12022,7 +12174,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UploadMonitorEndpointMonitorsUploadPost401Response"
+                  "$ref": "#/components/schemas/CreateMonitorEndpointMonitorsPost401Response"
                 },
                 "example": {
                   "detail": "Invalid API key"
@@ -12035,7 +12187,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UploadMonitorEndpointMonitorsUploadPost403Response"
+                  "$ref": "#/components/schemas/CreateMonitorEndpointMonitorsPost403Response"
                 },
                 "example": {
                   "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
@@ -12058,7 +12210,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UploadMonitorEndpointMonitorsUploadPost500Response"
+                  "$ref": "#/components/schemas/CreateMonitorEndpointMonitorsPost500Response"
                 },
                 "example": {
                   "detail": "Internal server error"
@@ -12071,7 +12223,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UploadMonitorEndpointMonitorsUploadPost503Response"
+                  "$ref": "#/components/schemas/CreateMonitorEndpointMonitorsPost503Response"
                 },
                 "example": {
                   "detail": "Could not verify the API key right now. Retry shortly."
@@ -17101,7 +17253,7 @@
           "Atlas"
         ],
         "summary": "Live agent event stream",
-        "description": "Server-Sent Events: the agents\u0027 and subagents\u0027 turn summaries as they are written, in order.\n\nNew durable summaries are checked every two seconds while the stream is open.\n\nFrames:\n- \u0060sessions\u0060 \u2014 every agent session, sent first and again whenever one starts, finishes or changes.\n- \u0060event\u0060 \u2014 one turn summary; its \u0060id:\u0060 is the cursor to resume from.\n- \u0060status\u0060 \u2014 the investigation\u0027s status when the stream opens and whenever it changes.\n- \u0060end\u0060 \u2014 the run reached \u0060completed\u0060 or \u0060failed\u0060 and every event has been sent; the stream closes.\n- \u0060access_lost\u0060 \u2014 you may no longer see this investigation; the stream closes.\n\nA stream closes after about five minutes so access is checked again; reconnect (SSE clients do this\nthemselves) and it resumes from the last event id. Comment lines are heartbeats.",
+        "description": "Server-Sent Events: the agents\u0027 and subagents\u0027 turn summaries as they are written, in order.\n\nNew durable summaries are checked every two seconds while the stream is open.\n\nFrames:\n- \u0060sessions\u0060 \u2014 every agent session, sent first and again whenever one starts, finishes or changes.\n- \u0060event\u0060 \u2014 one turn summary; its \u0060id:\u0060 is the cursor to resume from.\n- \u0060status\u0060 \u2014 the investigation\u0027s status when the stream opens and whenever it changes.\n- \u0060end\u0060 \u2014 the run reached \u0060completed\u0060 or \u0060failed\u0060, every event has been sent, and the \u0060sessions\u0060 frame before it\n  carries the run\u0027s recorded cost (null only if settlement did not record it in time); the stream closes.\n- \u0060access_lost\u0060 \u2014 you may no longer see this investigation; the stream closes.\n\nA stream closes after about five minutes so access is checked again; reconnect (SSE clients do this\nthemselves) and it resumes from the last event id. Comment lines are heartbeats.",
         "operationId": "StreamEventsV1AtlasInvestigationsInvestigationIdEventsStreamGet",
         "parameters": [
           {
@@ -18476,14 +18628,20 @@
           },
           "cost_cents": {
             "title": "Cost Cents",
-            "type": "integer",
-            "description": "Legacy session spend in cents; preserved for compatibility. Prefer cost_credits.",
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Legacy session spend in cents; preserved for compatibility. Prefer cost_credits. Null when cost_credits is.",
             "deprecated": true
           },
           "cost_credits": {
             "title": "Cost Credits",
-            "type": "number",
-            "description": "Session spend in credits."
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Session spend in credits. Null until the run\u0027s charge is recorded: briefly after the run closes, before its settlement records the charge, and for good if settlement fails."
           }
         }
       },
@@ -20639,6 +20797,12 @@
             ],
             "description": "For Atlas runs, the title of a newly created investigation. Ignored when resuming via investigation_id; when unset the title is derived from lead_info."
           },
+          "private": {
+            "title": "Private",
+            "type": "boolean",
+            "description": "For Atlas runs (xhigh, or scout with graph) started on the async endpoint: make the new investigation visible only to you, not your team. With an API key, the run is private to the person who created the key. Your team must allow private runs. Rejected on other tiers, on the sync endpoint, and with \u0060investigation_id\u0060.",
+            "default": false
+          },
           "relentless": {
             "title": "Relentless",
             "type": "boolean",
@@ -21896,14 +22060,20 @@
           },
           "cost_cents": {
             "title": "Cost Cents",
-            "type": "integer",
-            "description": "Legacy total spend in cents; preserved for compatibility. Prefer cost_credits.",
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Legacy total spend in cents; preserved for compatibility. Prefer cost_credits. Null when cost_credits is.",
             "deprecated": true
           },
           "cost_credits": {
             "title": "Cost Credits",
-            "type": "number",
-            "description": "Total spend across every agent run of this investigation, in credits."
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Total spend across every agent run of this investigation, in credits. Null until every run\u0027s charge is recorded: briefly after a run closes, before its settlement records the charge, and for good if settlement fails."
           },
           "shared": {
             "$ref": "#/components/schemas/InvestigationSummaryShared"
@@ -25954,7 +26124,7 @@
               "null",
               "string"
             ],
-            "description": "Signed download URL; null if signing failed. A CSV comes back with formula-like cells escaped for spreadsheets; append \u0060?spreadsheet_safe=false\u0060 to get the file exactly as stored."
+            "description": "Signed download URL; null if signing failed. In a CSV, list and object cells are JSON text and booleans are \u0060true\u0060 or \u0060false\u0060. A CSV comes back with formula-like cells escaped for spreadsheets; append \u0060?spreadsheet_safe=false\u0060 to get the file exactly as stored."
           },
           "download_expires_in_seconds": {
             "title": "Download Expires In Seconds",
@@ -25971,7 +26141,7 @@
             "items": {
               "$ref": "#/components/schemas/WorkflowResultItemWithDownloadResultsItemProperty"
             },
-            "description": "Inline rows when the file is small enough to embed; otherwise null."
+            "description": "Inline rows when the file is small enough to embed; otherwise null. For a CSV, every value is its cell text: a list or object is a JSON string to parse with \u0060json.loads\u0060 or \u0060JSON.parse\u0060, and a boolean is \u0060true\u0060 or \u0060false\u0060. For JSON and NDJSON, values keep their types."
           }
         },
         "description": "Workflow result file with a signed download URL."
@@ -29450,6 +29620,14 @@
           }
         }
       },
+      "RunWorkflowWorkflowsRunPost402Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
       "RunWorkflowWorkflowsRunPost429Response": {
         "type": "object",
         "properties": {
@@ -29514,6 +29692,14 @@
         }
       },
       "ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet409Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet429Response": {
         "type": "object",
         "properties": {
           "detail": {
@@ -29689,6 +29875,14 @@
         }
       },
       "GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet409Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet429Response": {
         "type": "object",
         "properties": {
           "detail": {
@@ -32183,7 +32377,7 @@
           }
         }
       },
-      "CreateMonitorEndpointMonitorsPost400Response": {
+      "UploadMonitorEndpointMonitorsUploadPost400Response": {
         "type": "object",
         "properties": {
           "detail": {
@@ -32191,7 +32385,7 @@
           }
         }
       },
-      "CreateMonitorEndpointMonitorsPost401Response": {
+      "UploadMonitorEndpointMonitorsUploadPost401Response": {
         "type": "object",
         "properties": {
           "detail": {
@@ -32199,7 +32393,7 @@
           }
         }
       },
-      "CreateMonitorEndpointMonitorsPost403Response": {
+      "UploadMonitorEndpointMonitorsUploadPost403Response": {
         "type": "object",
         "properties": {
           "detail": {
@@ -32207,7 +32401,7 @@
           }
         }
       },
-      "CreateMonitorEndpointMonitorsPost500Response": {
+      "UploadMonitorEndpointMonitorsUploadPost500Response": {
         "type": "object",
         "properties": {
           "detail": {
@@ -32215,7 +32409,7 @@
           }
         }
       },
-      "CreateMonitorEndpointMonitorsPost503Response": {
+      "UploadMonitorEndpointMonitorsUploadPost503Response": {
         "type": "object",
         "properties": {
           "detail": {
@@ -32263,7 +32457,7 @@
           }
         }
       },
-      "UploadMonitorEndpointMonitorsUploadPost400Response": {
+      "CreateMonitorEndpointMonitorsPost400Response": {
         "type": "object",
         "properties": {
           "detail": {
@@ -32271,7 +32465,7 @@
           }
         }
       },
-      "UploadMonitorEndpointMonitorsUploadPost401Response": {
+      "CreateMonitorEndpointMonitorsPost401Response": {
         "type": "object",
         "properties": {
           "detail": {
@@ -32279,7 +32473,7 @@
           }
         }
       },
-      "UploadMonitorEndpointMonitorsUploadPost403Response": {
+      "CreateMonitorEndpointMonitorsPost403Response": {
         "type": "object",
         "properties": {
           "detail": {
@@ -32287,7 +32481,7 @@
           }
         }
       },
-      "UploadMonitorEndpointMonitorsUploadPost500Response": {
+      "CreateMonitorEndpointMonitorsPost500Response": {
         "type": "object",
         "properties": {
           "detail": {
@@ -32295,7 +32489,7 @@
           }
         }
       },
-      "UploadMonitorEndpointMonitorsUploadPost503Response": {
+      "CreateMonitorEndpointMonitorsPost503Response": {
         "type": "object",
         "properties": {
           "detail": {

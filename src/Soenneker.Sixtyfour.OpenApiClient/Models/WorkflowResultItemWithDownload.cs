@@ -35,7 +35,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #endif
         /// <summary>Seconds until `download_url` expires.</summary>
         public int? DownloadExpiresInSeconds { get; set; }
-        /// <summary>Signed download URL; null if signing failed. A CSV comes back with formula-like cells escaped for spreadsheets; append `?spreadsheet_safe=false` to get the file exactly as stored.</summary>
+        /// <summary>Signed download URL; null if signing failed. In a CSV, list and object cells are JSON text and booleans are `true` or `false`. A CSV comes back with formula-like cells escaped for spreadsheets; append `?spreadsheet_safe=false` to get the file exactly as stored.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DownloadUrl { get; set; }
@@ -61,7 +61,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string Message { get; set; }
 #endif
-        /// <summary>Inline rows when the file is small enough to embed; otherwise null.</summary>
+        /// <summary>Inline rows when the file is small enough to embed; otherwise null. For a CSV, every value is its cell text: a list or object is a JSON string to parse with `json.loads` or `JSON.parse`, and a boolean is `true` or `false`. For JSON and NDJSON, values keep their types.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownloadResultsItemProperty>? Results { get; set; }

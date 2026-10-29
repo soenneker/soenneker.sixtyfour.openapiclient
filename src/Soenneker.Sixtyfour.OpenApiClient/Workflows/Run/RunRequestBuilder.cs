@@ -42,6 +42,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Run
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowWorkflowsRunPost400Response">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowWorkflowsRunPost401Response">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowWorkflowsRunPost402Response">When receiving a 402 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowWorkflowsRunPost403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowWorkflowsRunPost404Response">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowWorkflowsRunPost409Response">When receiving a 409 status code</exception>
@@ -64,6 +65,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Run
             {
                 { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowWorkflowsRunPost400Response.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowWorkflowsRunPost401Response.CreateFromDiscriminatorValue },
+                { "402", global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowWorkflowsRunPost402Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowWorkflowsRunPost403Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowWorkflowsRunPost404Response.CreateFromDiscriminatorValue },
                 { "409", global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowWorkflowsRunPost409Response.CreateFromDiscriminatorValue },

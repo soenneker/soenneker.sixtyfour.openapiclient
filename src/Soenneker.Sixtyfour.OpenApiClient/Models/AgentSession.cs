@@ -30,10 +30,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string AgentType { get; set; }
 #endif
-        /// <summary>Legacy session spend in cents; preserved for compatibility. Prefer cost_credits.</summary>
+        /// <summary>Legacy session spend in cents; preserved for compatibility. Prefer cost_credits. Null when cost_credits is.</summary>
         [Obsolete("")]
         public int? CostCents { get; set; }
-        /// <summary>Session spend in credits.</summary>
+        /// <summary>Session spend in credits. Null until the run&apos;s charge is recorded: briefly after the run closes, before its settlement records the charge, and for good if settlement fails.</summary>
         public double? CostCredits { get; set; }
         /// <summary>The display_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

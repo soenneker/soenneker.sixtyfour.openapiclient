@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Live_status
         {
         }
         /// <summary>
-        /// Get a run&apos;s live status and per-block progress. Running runs return 500if their block graph is unavailable or progress sources exceed 5 seconds.
+        /// Read authorized run status and progress. Snapshots are cached for up to 10 seconds. Shares an organization polling budget of 300/minute with burst 15 with job status. Resource access is checked on every request.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -45,6 +45,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Live_status
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet404Response">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet409Response">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet429Response">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -65,13 +66,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Live_status
                 { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet404Response.CreateFromDiscriminatorValue },
                 { "409", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet409Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet503Response.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get a run&apos;s live status and per-block progress. Running runs return 500if their block graph is unavailable or progress sources exceed 5 seconds.
+        /// Read authorized run status and progress. Snapshots are cached for up to 10 seconds. Shares an organization polling budget of 300/minute with burst 15 with job status. Resource access is checked on every request.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
