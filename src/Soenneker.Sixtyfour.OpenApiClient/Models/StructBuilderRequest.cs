@@ -17,38 +17,42 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("allow_nested") is { } nullNodeAllowNested && nullNodeAllowNested.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowNested = null;
-            if (parseNode.GetChildNode("block_type") is { } nullNodeBlockType && nullNodeBlockType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockType = null;
-            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
-            if (parseNode.GetChildNode("existing_struct") is { } nullNodeExistingStruct && nullNodeExistingStruct.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExistingStruct = null;
+            if (parseNode.GetChildNode("allow_nested") is null) { _explicitNullValueAllowNested = default!; _explicitNullProperties?.Remove("allow_nested"); }
+            else if (parseNode.GetChildNode("allow_nested") is { } nullNodeAllowNested && nullNodeAllowNested.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowNested = null;
+            if (parseNode.GetChildNode("block_type") is null) { _explicitNullValueBlockType = default!; _explicitNullProperties?.Remove("block_type"); }
+            else if (parseNode.GetChildNode("block_type") is { } nullNodeBlockType && nullNodeBlockType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockType = null;
+            if (parseNode.GetChildNode("description") is null) { _explicitNullValueDescription = default!; _explicitNullProperties?.Remove("description"); }
+            else if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("existing_struct") is null) { _explicitNullValueExistingStruct = default!; _explicitNullProperties?.Remove("existing_struct"); }
+            else if (parseNode.GetChildNode("existing_struct") is { } nullNodeExistingStruct && nullNodeExistingStruct.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExistingStruct = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The allow_nested property</summary>
-        public bool? AllowNested { get => _explicitNullValueAllowNested; set { _explicitNullValueAllowNested = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_nested"); else _explicitNullProperties?.Remove("allow_nested"); } }
+        public bool? AllowNested { get => _explicitNullValueAllowNested; set { _explicitNullValueAllowNested = value; AdditionalData?.Remove("allow_nested"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_nested"); else _explicitNullProperties?.Remove("allow_nested"); } }
         private bool? _explicitNullValueAllowNested = default!;
         /// <summary>The block_type property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequestBlockType? BlockType { get => _explicitNullValueBlockType; set { _explicitNullValueBlockType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("block_type"); else _explicitNullProperties?.Remove("block_type"); } }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequestBlockType? BlockType { get => _explicitNullValueBlockType; set { _explicitNullValueBlockType = value; AdditionalData?.Remove("block_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("block_type"); else _explicitNullProperties?.Remove("block_type"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequestBlockType? _explicitNullValueBlockType = default!;
         /// <summary>Natural language description of the fields to generate</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; AdditionalData?.Remove("description"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
         private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; AdditionalData?.Remove("description"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
         private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>The existing_struct property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructField>? ExistingStruct { get => _explicitNullValueExistingStruct; set { _explicitNullValueExistingStruct = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("existing_struct"); else _explicitNullProperties?.Remove("existing_struct"); } }
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructField>? ExistingStruct { get => _explicitNullValueExistingStruct; set { _explicitNullValueExistingStruct = value; AdditionalData?.Remove("existing_struct"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("existing_struct"); else _explicitNullProperties?.Remove("existing_struct"); } }
         private List<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructField>? _explicitNullValueExistingStruct = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructField> ExistingStruct { get => _explicitNullValueExistingStruct; set { _explicitNullValueExistingStruct = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("existing_struct"); else _explicitNullProperties?.Remove("existing_struct"); } }
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructField> ExistingStruct { get => _explicitNullValueExistingStruct; set { _explicitNullValueExistingStruct = value; AdditionalData?.Remove("existing_struct"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("existing_struct"); else _explicitNullProperties?.Remove("existing_struct"); } }
         private List<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructField> _explicitNullValueExistingStruct = default!;
 #endif
         /// <summary>
@@ -78,7 +82,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "allow_nested", n => { AllowNested = n.GetBoolValue(); } },
-                { "block_type", n => { BlockType = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequestBlockType>(); } },
+                { "block_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequestBlockType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueBlockType = default; _explicitNullProperties?.Remove("block_type"); AdditionalData["block_type"] = unknown; } else { BlockType = parsed; AdditionalData.Remove("block_type"); } } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "existing_struct", n => { ExistingStruct = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructField>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StructField.CreateFromDiscriminatorValue)?.AsList(); } },
             };

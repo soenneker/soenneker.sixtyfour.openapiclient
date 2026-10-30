@@ -18,11 +18,16 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("block_id") is { } nullNodeBlockId && nullNodeBlockId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockId = null;
-            if (parseNode.GetChildNode("block_name") is { } nullNodeBlockName && nullNodeBlockName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockName = null;
-            if (parseNode.GetChildNode("block_type") is { } nullNodeBlockType && nullNodeBlockType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockType = null;
-            if (parseNode.GetChildNode("sequence_number") is { } nullNodeSequenceNumber && nullNodeSequenceNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SequenceNumber = null;
-            if (parseNode.GetChildNode("specs") is { } nullNodeSpecs && nullNodeSpecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Specs = null;
+            if (parseNode.GetChildNode("block_id") is null) { _explicitNullValueBlockId = default!; _explicitNullProperties?.Remove("block_id"); }
+            else if (parseNode.GetChildNode("block_id") is { } nullNodeBlockId && nullNodeBlockId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockId = null;
+            if (parseNode.GetChildNode("block_name") is null) { _explicitNullValueBlockName = default!; _explicitNullProperties?.Remove("block_name"); }
+            else if (parseNode.GetChildNode("block_name") is { } nullNodeBlockName && nullNodeBlockName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockName = null;
+            if (parseNode.GetChildNode("block_type") is null) { _explicitNullValueBlockType = default!; _explicitNullProperties?.Remove("block_type"); }
+            else if (parseNode.GetChildNode("block_type") is { } nullNodeBlockType && nullNodeBlockType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockType = null;
+            if (parseNode.GetChildNode("sequence_number") is null) { _explicitNullValueSequenceNumber = default!; _explicitNullProperties?.Remove("sequence_number"); }
+            else if (parseNode.GetChildNode("sequence_number") is { } nullNodeSequenceNumber && nullNodeSequenceNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SequenceNumber = null;
+            if (parseNode.GetChildNode("specs") is null) { _explicitNullValueSpecs = default!; _explicitNullProperties?.Remove("specs"); }
+            else if (parseNode.GetChildNode("specs") is { } nullNodeSpecs && nullNodeSpecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Specs = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -30,44 +35,44 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Stable block identifier; non-UUID values are normalized server-side.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BlockId { get => _explicitNullValueBlockId; set { _explicitNullValueBlockId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("block_id"); else _explicitNullProperties?.Remove("block_id"); } }
+        public string? BlockId { get => _explicitNullValueBlockId; set { _explicitNullValueBlockId = value; AdditionalData?.Remove("block_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("block_id"); else _explicitNullProperties?.Remove("block_id"); } }
         private string? _explicitNullValueBlockId = default!;
 #nullable restore
 #else
-        public string BlockId { get => _explicitNullValueBlockId; set { _explicitNullValueBlockId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("block_id"); else _explicitNullProperties?.Remove("block_id"); } }
+        public string BlockId { get => _explicitNullValueBlockId; set { _explicitNullValueBlockId = value; AdditionalData?.Remove("block_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("block_id"); else _explicitNullProperties?.Remove("block_id"); } }
         private string _explicitNullValueBlockId = default!;
 #endif
         /// <summary>Registered block type name (e.g. &apos;enrich_lead&apos;, &apos;find_email&apos;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BlockName { get => _explicitNullValueBlockName; set { _explicitNullValueBlockName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("block_name"); else _explicitNullProperties?.Remove("block_name"); } }
+        public string? BlockName { get => _explicitNullValueBlockName; set { _explicitNullValueBlockName = value; AdditionalData?.Remove("block_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("block_name"); else _explicitNullProperties?.Remove("block_name"); } }
         private string? _explicitNullValueBlockName = default!;
 #nullable restore
 #else
-        public string BlockName { get => _explicitNullValueBlockName; set { _explicitNullValueBlockName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("block_name"); else _explicitNullProperties?.Remove("block_name"); } }
+        public string BlockName { get => _explicitNullValueBlockName; set { _explicitNullValueBlockName = value; AdditionalData?.Remove("block_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("block_name"); else _explicitNullProperties?.Remove("block_name"); } }
         private string _explicitNullValueBlockName = default!;
 #endif
         /// <summary>Category of block (e.g. &apos;source&apos;, &apos;enrich&apos;, &apos;output&apos;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BlockType { get => _explicitNullValueBlockType; set { _explicitNullValueBlockType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("block_type"); else _explicitNullProperties?.Remove("block_type"); } }
+        public string? BlockType { get => _explicitNullValueBlockType; set { _explicitNullValueBlockType = value; AdditionalData?.Remove("block_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("block_type"); else _explicitNullProperties?.Remove("block_type"); } }
         private string? _explicitNullValueBlockType = default!;
 #nullable restore
 #else
-        public string BlockType { get => _explicitNullValueBlockType; set { _explicitNullValueBlockType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("block_type"); else _explicitNullProperties?.Remove("block_type"); } }
+        public string BlockType { get => _explicitNullValueBlockType; set { _explicitNullValueBlockType = value; AdditionalData?.Remove("block_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("block_type"); else _explicitNullProperties?.Remove("block_type"); } }
         private string _explicitNullValueBlockType = default!;
 #endif
         /// <summary>Position of the block in the workflow execution order.</summary>
-        public int? SequenceNumber { get => _explicitNullValueSequenceNumber; set { _explicitNullValueSequenceNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sequence_number"); else _explicitNullProperties?.Remove("sequence_number"); } }
+        public int? SequenceNumber { get => _explicitNullValueSequenceNumber; set { _explicitNullValueSequenceNumber = value; AdditionalData?.Remove("sequence_number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sequence_number"); else _explicitNullProperties?.Remove("sequence_number"); } }
         private int? _explicitNullValueSequenceNumber = default!;
         /// <summary>Block-specific configuration; shape depends on `block_name`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockSpecsProperty? Specs { get => _explicitNullValueSpecs; set { _explicitNullValueSpecs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("specs"); else _explicitNullProperties?.Remove("specs"); } }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockSpecsProperty? Specs { get => _explicitNullValueSpecs; set { _explicitNullValueSpecs = value; AdditionalData?.Remove("specs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("specs"); else _explicitNullProperties?.Remove("specs"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockSpecsProperty? _explicitNullValueSpecs = default!;
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockSpecsProperty Specs { get => _explicitNullValueSpecs; set { _explicitNullValueSpecs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("specs"); else _explicitNullProperties?.Remove("specs"); } }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockSpecsProperty Specs { get => _explicitNullValueSpecs; set { _explicitNullValueSpecs = value; AdditionalData?.Remove("specs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("specs"); else _explicitNullProperties?.Remove("specs"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockSpecsProperty _explicitNullValueSpecs = default!;
 #endif
         /// <summary>

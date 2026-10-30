@@ -86,7 +86,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Delete_workflow
         public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Delete_workflow.Delete_workflowRequestBuilder.Delete_workflowRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.sixtyfour.ai", "/workflows/delete_workflow", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

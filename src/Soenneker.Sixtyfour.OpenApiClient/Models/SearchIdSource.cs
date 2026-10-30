@@ -18,12 +18,18 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("exclude_entity_ids") is { } nullNodeExcludeEntityIds && nullNodeExcludeEntityIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExcludeEntityIds = null;
-            if (parseNode.GetChildNode("exclude_list_ids") is { } nullNodeExcludeListIds && nullNodeExcludeListIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExcludeListIds = null;
-            if (parseNode.GetChildNode("exclude_public_ids") is { } nullNodeExcludePublicIds && nullNodeExcludePublicIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExcludePublicIds = null;
-            if (parseNode.GetChildNode("max_results") is { } nullNodeMaxResults && nullNodeMaxResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxResults = null;
-            if (parseNode.GetChildNode("search_id") is { } nullNodeSearchId && nullNodeSearchId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SearchId = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("exclude_entity_ids") is null) { _explicitNullValueExcludeEntityIds = default!; _explicitNullProperties?.Remove("exclude_entity_ids"); }
+            else if (parseNode.GetChildNode("exclude_entity_ids") is { } nullNodeExcludeEntityIds && nullNodeExcludeEntityIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExcludeEntityIds = null;
+            if (parseNode.GetChildNode("exclude_list_ids") is null) { _explicitNullValueExcludeListIds = default!; _explicitNullProperties?.Remove("exclude_list_ids"); }
+            else if (parseNode.GetChildNode("exclude_list_ids") is { } nullNodeExcludeListIds && nullNodeExcludeListIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExcludeListIds = null;
+            if (parseNode.GetChildNode("exclude_public_ids") is null) { _explicitNullValueExcludePublicIds = default!; _explicitNullProperties?.Remove("exclude_public_ids"); }
+            else if (parseNode.GetChildNode("exclude_public_ids") is { } nullNodeExcludePublicIds && nullNodeExcludePublicIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExcludePublicIds = null;
+            if (parseNode.GetChildNode("max_results") is null) { _explicitNullValueMaxResults = default!; _explicitNullProperties?.Remove("max_results"); }
+            else if (parseNode.GetChildNode("max_results") is { } nullNodeMaxResults && nullNodeMaxResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxResults = null;
+            if (parseNode.GetChildNode("search_id") is null) { _explicitNullValueSearchId = default!; _explicitNullProperties?.Remove("search_id"); }
+            else if (parseNode.GetChildNode("search_id") is { } nullNodeSearchId && nullNodeSearchId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SearchId = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -31,48 +37,48 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Optional inline exclusions to re-apply while replaying the saved search. People: LinkedIn public IDs/profile URLs. Companies: numeric company IDs, company URLs/slugs, or exact website domains.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ExcludeEntityIds { get => _explicitNullValueExcludeEntityIds; set { _explicitNullValueExcludeEntityIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude_entity_ids"); else _explicitNullProperties?.Remove("exclude_entity_ids"); } }
+        public List<string>? ExcludeEntityIds { get => _explicitNullValueExcludeEntityIds; set { _explicitNullValueExcludeEntityIds = value; AdditionalData?.Remove("exclude_entity_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude_entity_ids"); else _explicitNullProperties?.Remove("exclude_entity_ids"); } }
         private List<string>? _explicitNullValueExcludeEntityIds = default!;
 #nullable restore
 #else
-        public List<string> ExcludeEntityIds { get => _explicitNullValueExcludeEntityIds; set { _explicitNullValueExcludeEntityIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude_entity_ids"); else _explicitNullProperties?.Remove("exclude_entity_ids"); } }
+        public List<string> ExcludeEntityIds { get => _explicitNullValueExcludeEntityIds; set { _explicitNullValueExcludeEntityIds = value; AdditionalData?.Remove("exclude_entity_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude_entity_ids"); else _explicitNullProperties?.Remove("exclude_entity_ids"); } }
         private List<string> _explicitNullValueExcludeEntityIds = default!;
 #endif
         /// <summary>Optional saved exclusion lists to re-apply while replaying the saved search. `search_id` itself does not carry exclusions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ExcludeListIds { get => _explicitNullValueExcludeListIds; set { _explicitNullValueExcludeListIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude_list_ids"); else _explicitNullProperties?.Remove("exclude_list_ids"); } }
+        public List<string>? ExcludeListIds { get => _explicitNullValueExcludeListIds; set { _explicitNullValueExcludeListIds = value; AdditionalData?.Remove("exclude_list_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude_list_ids"); else _explicitNullProperties?.Remove("exclude_list_ids"); } }
         private List<string>? _explicitNullValueExcludeListIds = default!;
 #nullable restore
 #else
-        public List<string> ExcludeListIds { get => _explicitNullValueExcludeListIds; set { _explicitNullValueExcludeListIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude_list_ids"); else _explicitNullProperties?.Remove("exclude_list_ids"); } }
+        public List<string> ExcludeListIds { get => _explicitNullValueExcludeListIds; set { _explicitNullValueExcludeListIds = value; AdditionalData?.Remove("exclude_list_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude_list_ids"); else _explicitNullProperties?.Remove("exclude_list_ids"); } }
         private List<string> _explicitNullValueExcludeListIds = default!;
 #endif
         /// <summary>Optional people-mode inline exclusions to re-apply while replaying the saved search. `search_id` itself does not carry exclusions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ExcludePublicIds { get => _explicitNullValueExcludePublicIds; set { _explicitNullValueExcludePublicIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude_public_ids"); else _explicitNullProperties?.Remove("exclude_public_ids"); } }
+        public List<string>? ExcludePublicIds { get => _explicitNullValueExcludePublicIds; set { _explicitNullValueExcludePublicIds = value; AdditionalData?.Remove("exclude_public_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude_public_ids"); else _explicitNullProperties?.Remove("exclude_public_ids"); } }
         private List<string>? _explicitNullValueExcludePublicIds = default!;
 #nullable restore
 #else
-        public List<string> ExcludePublicIds { get => _explicitNullValueExcludePublicIds; set { _explicitNullValueExcludePublicIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude_public_ids"); else _explicitNullProperties?.Remove("exclude_public_ids"); } }
+        public List<string> ExcludePublicIds { get => _explicitNullValueExcludePublicIds; set { _explicitNullValueExcludePublicIds = value; AdditionalData?.Remove("exclude_public_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude_public_ids"); else _explicitNullProperties?.Remove("exclude_public_ids"); } }
         private List<string> _explicitNullValueExcludePublicIds = default!;
 #endif
         /// <summary>How many top search results to capture into the list.</summary>
-        public int? MaxResults { get => _explicitNullValueMaxResults; set { _explicitNullValueMaxResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_results"); else _explicitNullProperties?.Remove("max_results"); } }
+        public int? MaxResults { get => _explicitNullValueMaxResults; set { _explicitNullValueMaxResults = value; AdditionalData?.Remove("max_results"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_results"); else _explicitNullProperties?.Remove("max_results"); } }
         private int? _explicitNullValueMaxResults = default!;
         /// <summary>The search_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SearchId { get => _explicitNullValueSearchId; set { _explicitNullValueSearchId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search_id"); else _explicitNullProperties?.Remove("search_id"); } }
+        public string? SearchId { get => _explicitNullValueSearchId; set { _explicitNullValueSearchId = value; AdditionalData?.Remove("search_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search_id"); else _explicitNullProperties?.Remove("search_id"); } }
         private string? _explicitNullValueSearchId = default!;
 #nullable restore
 #else
-        public string SearchId { get => _explicitNullValueSearchId; set { _explicitNullValueSearchId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search_id"); else _explicitNullProperties?.Remove("search_id"); } }
+        public string SearchId { get => _explicitNullValueSearchId; set { _explicitNullValueSearchId = value; AdditionalData?.Remove("search_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search_id"); else _explicitNullProperties?.Remove("search_id"); } }
         private string _explicitNullValueSearchId = default!;
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchIdType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchIdType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchIdType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchIdSource"/> and sets the default values.
@@ -105,7 +111,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "exclude_public_ids", n => { ExcludePublicIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "max_results", n => { MaxResults = n.GetIntValue(); } },
                 { "search_id", n => { SearchId = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchIdType>(); } },
+                { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchIdType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
             };
         }
         /// <summary>

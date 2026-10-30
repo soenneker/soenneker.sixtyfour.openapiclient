@@ -17,8 +17,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("parent_search_id") is { } nullNodeParentSearchId && nullNodeParentSearchId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ParentSearchId = null;
-            if (parseNode.GetChildNode("relation") is { } nullNodeRelation && nullNodeRelation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Relation = null;
+            if (parseNode.GetChildNode("parent_search_id") is null) { _explicitNullValueParentSearchId = default!; _explicitNullProperties?.Remove("parent_search_id"); }
+            else if (parseNode.GetChildNode("parent_search_id") is { } nullNodeParentSearchId && nullNodeParentSearchId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ParentSearchId = null;
+            if (parseNode.GetChildNode("relation") is null) { _explicitNullValueRelation = default!; _explicitNullProperties?.Remove("relation"); }
+            else if (parseNode.GetChildNode("relation") is { } nullNodeRelation && nullNodeRelation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Relation = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,15 +28,15 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>The parent_search_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ParentSearchId { get => _explicitNullValueParentSearchId; set { _explicitNullValueParentSearchId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_search_id"); else _explicitNullProperties?.Remove("parent_search_id"); } }
+        public string? ParentSearchId { get => _explicitNullValueParentSearchId; set { _explicitNullValueParentSearchId = value; AdditionalData?.Remove("parent_search_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_search_id"); else _explicitNullProperties?.Remove("parent_search_id"); } }
         private string? _explicitNullValueParentSearchId = default!;
 #nullable restore
 #else
-        public string ParentSearchId { get => _explicitNullValueParentSearchId; set { _explicitNullValueParentSearchId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_search_id"); else _explicitNullProperties?.Remove("parent_search_id"); } }
+        public string ParentSearchId { get => _explicitNullValueParentSearchId; set { _explicitNullValueParentSearchId = value; AdditionalData?.Remove("parent_search_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_search_id"); else _explicitNullProperties?.Remove("parent_search_id"); } }
         private string _explicitNullValueParentSearchId = default!;
 #endif
         /// <summary>How a search was derived from its parent.</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.LineageRelation? Relation { get => _explicitNullValueRelation; set { _explicitNullValueRelation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relation"); else _explicitNullProperties?.Remove("relation"); } }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.LineageRelation? Relation { get => _explicitNullValueRelation; set { _explicitNullValueRelation = value; AdditionalData?.Remove("relation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relation"); else _explicitNullProperties?.Remove("relation"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.LineageRelation? _explicitNullValueRelation = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchLineage"/> and sets the default values.
@@ -63,7 +65,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "parent_search_id", n => { ParentSearchId = n.GetStringValue(); } },
-                { "relation", n => { Relation = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.LineageRelation>(); } },
+                { "relation", n => { var parsed = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.LineageRelation>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRelation = default; _explicitNullProperties?.Remove("relation"); AdditionalData["relation"] = unknown; } else { Relation = parsed; AdditionalData.Remove("relation"); } } },
             };
         }
         /// <summary>

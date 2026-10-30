@@ -17,7 +17,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("struct") is { } nullNodeStruct && nullNodeStruct.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Struct = null;
+            if (parseNode.GetChildNode("struct") is null) { _explicitNullValueStruct = default!; _explicitNullProperties?.Remove("struct"); }
+            else if (parseNode.GetChildNode("struct") is { } nullNodeStruct && nullNodeStruct.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Struct = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>The struct property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructField>? Struct { get => _explicitNullValueStruct; set { _explicitNullValueStruct = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("struct"); else _explicitNullProperties?.Remove("struct"); } }
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructField>? Struct { get => _explicitNullValueStruct; set { _explicitNullValueStruct = value; AdditionalData?.Remove("struct"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("struct"); else _explicitNullProperties?.Remove("struct"); } }
         private List<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructField>? _explicitNullValueStruct = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructField> Struct { get => _explicitNullValueStruct; set { _explicitNullValueStruct = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("struct"); else _explicitNullProperties?.Remove("struct"); } }
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructField> Struct { get => _explicitNullValueStruct; set { _explicitNullValueStruct = value; AdditionalData?.Remove("struct"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("struct"); else _explicitNullProperties?.Remove("struct"); } }
         private List<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructField> _explicitNullValueStruct = default!;
 #endif
         /// <summary>

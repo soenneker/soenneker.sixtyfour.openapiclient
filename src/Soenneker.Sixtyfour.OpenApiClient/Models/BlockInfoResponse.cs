@@ -18,8 +18,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("block_name") is { } nullNodeBlockName && nullNodeBlockName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockName = null;
-            if (parseNode.GetChildNode("specs_schema") is { } nullNodeSpecsSchema && nullNodeSpecsSchema.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpecsSchema = null;
+            if (parseNode.GetChildNode("block_name") is null) { _explicitNullValueBlockName = default!; _explicitNullProperties?.Remove("block_name"); }
+            else if (parseNode.GetChildNode("block_name") is { } nullNodeBlockName && nullNodeBlockName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockName = null;
+            if (parseNode.GetChildNode("specs_schema") is null) { _explicitNullValueSpecsSchema = default!; _explicitNullProperties?.Remove("specs_schema"); }
+            else if (parseNode.GetChildNode("specs_schema") is { } nullNodeSpecsSchema && nullNodeSpecsSchema.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpecsSchema = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Registered block type name (e.g. &apos;enrich_lead&apos;, &apos;find_email&apos;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BlockName { get => _explicitNullValueBlockName; set { _explicitNullValueBlockName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("block_name"); else _explicitNullProperties?.Remove("block_name"); } }
+        public string? BlockName { get => _explicitNullValueBlockName; set { _explicitNullValueBlockName = value; AdditionalData?.Remove("block_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("block_name"); else _explicitNullProperties?.Remove("block_name"); } }
         private string? _explicitNullValueBlockName = default!;
 #nullable restore
 #else
-        public string BlockName { get => _explicitNullValueBlockName; set { _explicitNullValueBlockName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("block_name"); else _explicitNullProperties?.Remove("block_name"); } }
+        public string BlockName { get => _explicitNullValueBlockName; set { _explicitNullValueBlockName = value; AdditionalData?.Remove("block_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("block_name"); else _explicitNullProperties?.Remove("block_name"); } }
         private string _explicitNullValueBlockName = default!;
 #endif
         /// <summary>JSON Schema describing the block&apos;s `specs` payload.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockInfoResponseSpecsSchemaProperty? SpecsSchema { get => _explicitNullValueSpecsSchema; set { _explicitNullValueSpecsSchema = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("specs_schema"); else _explicitNullProperties?.Remove("specs_schema"); } }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockInfoResponseSpecsSchemaProperty? SpecsSchema { get => _explicitNullValueSpecsSchema; set { _explicitNullValueSpecsSchema = value; AdditionalData?.Remove("specs_schema"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("specs_schema"); else _explicitNullProperties?.Remove("specs_schema"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockInfoResponseSpecsSchemaProperty? _explicitNullValueSpecsSchema = default!;
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockInfoResponseSpecsSchemaProperty SpecsSchema { get => _explicitNullValueSpecsSchema; set { _explicitNullValueSpecsSchema = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("specs_schema"); else _explicitNullProperties?.Remove("specs_schema"); } }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockInfoResponseSpecsSchemaProperty SpecsSchema { get => _explicitNullValueSpecsSchema; set { _explicitNullValueSpecsSchema = value; AdditionalData?.Remove("specs_schema"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("specs_schema"); else _explicitNullProperties?.Remove("specs_schema"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockInfoResponseSpecsSchemaProperty _explicitNullValueSpecsSchema = default!;
 #endif
         /// <summary>

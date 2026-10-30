@@ -94,7 +94,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.History.Volume
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Search.History.Volume.VolumeRequestBuilder.VolumeRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.sixtyfour.ai", "/search/history/volume", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

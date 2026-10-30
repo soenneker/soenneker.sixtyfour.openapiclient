@@ -17,8 +17,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("linkedin_url") is { } nullNodeLinkedinUrl && nullNodeLinkedinUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LinkedinUrl = null;
-            if (parseNode.GetChildNode("struct") is { } nullNodeStruct && nullNodeStruct.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Struct = null;
+            if (parseNode.GetChildNode("linkedin_url") is null) { _explicitNullValueLinkedinUrl = default!; _explicitNullProperties?.Remove("linkedin_url"); }
+            else if (parseNode.GetChildNode("linkedin_url") is { } nullNodeLinkedinUrl && nullNodeLinkedinUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LinkedinUrl = null;
+            if (parseNode.GetChildNode("struct") is null) { _explicitNullValueStruct = default!; _explicitNullProperties?.Remove("struct"); }
+            else if (parseNode.GetChildNode("struct") is { } nullNodeStruct && nullNodeStruct.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Struct = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Full LinkedIn profile or company URL to enrich.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LinkedinUrl { get => _explicitNullValueLinkedinUrl; set { _explicitNullValueLinkedinUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("linkedin_url"); else _explicitNullProperties?.Remove("linkedin_url"); } }
+        public string? LinkedinUrl { get => _explicitNullValueLinkedinUrl; set { _explicitNullValueLinkedinUrl = value; AdditionalData?.Remove("linkedin_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("linkedin_url"); else _explicitNullProperties?.Remove("linkedin_url"); } }
         private string? _explicitNullValueLinkedinUrl = default!;
 #nullable restore
 #else
-        public string LinkedinUrl { get => _explicitNullValueLinkedinUrl; set { _explicitNullValueLinkedinUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("linkedin_url"); else _explicitNullProperties?.Remove("linkedin_url"); } }
+        public string LinkedinUrl { get => _explicitNullValueLinkedinUrl; set { _explicitNullValueLinkedinUrl = value; AdditionalData?.Remove("linkedin_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("linkedin_url"); else _explicitNullProperties?.Remove("linkedin_url"); } }
         private string _explicitNullValueLinkedinUrl = default!;
 #endif
         /// <summary>Mapping of output field name to natural-language description of what to extract. A field that asks for an image (a headshot, a logo, a screenshot of a page) is returned as an image URL on api.sixtyfour.ai/v1/media, hosted by Sixtyfour; embed it directly. It works until the investigation that saved the image, or the organization, is permanently deleted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.LinkedInEnrichRequestStructProperty? Struct { get => _explicitNullValueStruct; set { _explicitNullValueStruct = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("struct"); else _explicitNullProperties?.Remove("struct"); } }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.LinkedInEnrichRequestStructProperty? Struct { get => _explicitNullValueStruct; set { _explicitNullValueStruct = value; AdditionalData?.Remove("struct"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("struct"); else _explicitNullProperties?.Remove("struct"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.LinkedInEnrichRequestStructProperty? _explicitNullValueStruct = default!;
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.LinkedInEnrichRequestStructProperty Struct { get => _explicitNullValueStruct; set { _explicitNullValueStruct = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("struct"); else _explicitNullProperties?.Remove("struct"); } }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.LinkedInEnrichRequestStructProperty Struct { get => _explicitNullValueStruct; set { _explicitNullValueStruct = value; AdditionalData?.Remove("struct"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("struct"); else _explicitNullProperties?.Remove("struct"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.LinkedInEnrichRequestStructProperty _explicitNullValueStruct = default!;
 #endif
         /// <summary>

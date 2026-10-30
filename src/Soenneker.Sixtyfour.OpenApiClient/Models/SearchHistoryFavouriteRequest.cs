@@ -17,13 +17,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("favourite") is { } nullNodeFavourite && nullNodeFavourite.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Favourite = null;
+            if (parseNode.GetChildNode("favourite") is null) { _explicitNullValueFavourite = default!; _explicitNullProperties?.Remove("favourite"); }
+            else if (parseNode.GetChildNode("favourite") is { } nullNodeFavourite && nullNodeFavourite.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Favourite = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The favourite property</summary>
-        public bool? Favourite { get => _explicitNullValueFavourite; set { _explicitNullValueFavourite = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("favourite"); else _explicitNullProperties?.Remove("favourite"); } }
+        public bool? Favourite { get => _explicitNullValueFavourite; set { _explicitNullValueFavourite = value; AdditionalData?.Remove("favourite"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("favourite"); else _explicitNullProperties?.Remove("favourite"); } }
         private bool? _explicitNullValueFavourite = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchHistoryFavouriteRequest"/> and sets the default values.

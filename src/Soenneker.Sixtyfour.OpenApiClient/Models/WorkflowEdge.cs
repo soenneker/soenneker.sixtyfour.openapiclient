@@ -18,9 +18,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("condition") is { } nullNodeCondition && nullNodeCondition.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Condition = null;
-            if (parseNode.GetChildNode("from_block_id") is { } nullNodeFromBlockId && nullNodeFromBlockId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FromBlockId = null;
-            if (parseNode.GetChildNode("to_block_id") is { } nullNodeToBlockId && nullNodeToBlockId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToBlockId = null;
+            if (parseNode.GetChildNode("condition") is null) { _explicitNullValueCondition = default!; _explicitNullProperties?.Remove("condition"); }
+            else if (parseNode.GetChildNode("condition") is { } nullNodeCondition && nullNodeCondition.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Condition = null;
+            if (parseNode.GetChildNode("from_block_id") is null) { _explicitNullValueFromBlockId = default!; _explicitNullProperties?.Remove("from_block_id"); }
+            else if (parseNode.GetChildNode("from_block_id") is { } nullNodeFromBlockId && nullNodeFromBlockId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FromBlockId = null;
+            if (parseNode.GetChildNode("to_block_id") is null) { _explicitNullValueToBlockId = default!; _explicitNullProperties?.Remove("to_block_id"); }
+            else if (parseNode.GetChildNode("to_block_id") is { } nullNodeToBlockId && nullNodeToBlockId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToBlockId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,31 +31,31 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Reserved for future conditional branching.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Condition { get => _explicitNullValueCondition; set { _explicitNullValueCondition = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("condition"); else _explicitNullProperties?.Remove("condition"); } }
+        public string? Condition { get => _explicitNullValueCondition; set { _explicitNullValueCondition = value; AdditionalData?.Remove("condition"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("condition"); else _explicitNullProperties?.Remove("condition"); } }
         private string? _explicitNullValueCondition = default!;
 #nullable restore
 #else
-        public string Condition { get => _explicitNullValueCondition; set { _explicitNullValueCondition = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("condition"); else _explicitNullProperties?.Remove("condition"); } }
+        public string Condition { get => _explicitNullValueCondition; set { _explicitNullValueCondition = value; AdditionalData?.Remove("condition"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("condition"); else _explicitNullProperties?.Remove("condition"); } }
         private string _explicitNullValueCondition = default!;
 #endif
         /// <summary>Source block ID for this edge.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FromBlockId { get => _explicitNullValueFromBlockId; set { _explicitNullValueFromBlockId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from_block_id"); else _explicitNullProperties?.Remove("from_block_id"); } }
+        public string? FromBlockId { get => _explicitNullValueFromBlockId; set { _explicitNullValueFromBlockId = value; AdditionalData?.Remove("from_block_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from_block_id"); else _explicitNullProperties?.Remove("from_block_id"); } }
         private string? _explicitNullValueFromBlockId = default!;
 #nullable restore
 #else
-        public string FromBlockId { get => _explicitNullValueFromBlockId; set { _explicitNullValueFromBlockId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from_block_id"); else _explicitNullProperties?.Remove("from_block_id"); } }
+        public string FromBlockId { get => _explicitNullValueFromBlockId; set { _explicitNullValueFromBlockId = value; AdditionalData?.Remove("from_block_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from_block_id"); else _explicitNullProperties?.Remove("from_block_id"); } }
         private string _explicitNullValueFromBlockId = default!;
 #endif
         /// <summary>Destination block ID for this edge.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ToBlockId { get => _explicitNullValueToBlockId; set { _explicitNullValueToBlockId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("to_block_id"); else _explicitNullProperties?.Remove("to_block_id"); } }
+        public string? ToBlockId { get => _explicitNullValueToBlockId; set { _explicitNullValueToBlockId = value; AdditionalData?.Remove("to_block_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("to_block_id"); else _explicitNullProperties?.Remove("to_block_id"); } }
         private string? _explicitNullValueToBlockId = default!;
 #nullable restore
 #else
-        public string ToBlockId { get => _explicitNullValueToBlockId; set { _explicitNullValueToBlockId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("to_block_id"); else _explicitNullProperties?.Remove("to_block_id"); } }
+        public string ToBlockId { get => _explicitNullValueToBlockId; set { _explicitNullValueToBlockId = value; AdditionalData?.Remove("to_block_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("to_block_id"); else _explicitNullProperties?.Remove("to_block_id"); } }
         private string _explicitNullValueToBlockId = default!;
 #endif
         /// <summary>

@@ -36,7 +36,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Webhooks.TestEvents
         /// <summary>
         /// Discover synthetic samples. Does not run jobs, send callbacks or charge credits.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.TestEventCatalog"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseListTestEventsWebhooksTestEventsGet"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListTestEventsWebhooksTestEventsGet400Response">When receiving a 400 status code</exception>
@@ -47,11 +47,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Webhooks.TestEvents
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListTestEventsWebhooksTestEventsGet503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.TestEventCatalog?> GetAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.TestEvents.TestEventsRequestBuilder.TestEventsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseListTestEventsWebhooksTestEventsGet?> GetAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.TestEvents.TestEventsRequestBuilder.TestEventsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.TestEventCatalog> GetAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.TestEvents.TestEventsRequestBuilder.TestEventsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseListTestEventsWebhooksTestEventsGet> GetAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.TestEvents.TestEventsRequestBuilder.TestEventsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -66,7 +66,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Webhooks.TestEvents
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.TestEventCatalog>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.TestEventCatalog.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseListTestEventsWebhooksTestEventsGet>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseListTestEventsWebhooksTestEventsGet.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Send a catalog sample with production retry/signing behavior. Up to 100 seconds.Limited to 10 sends/minute per organization across all cases. A 200 responsereports delivery via delivered/status_code; it does not imply the receiver accepted it.Do not automatically retry this POST: each call sends a new event.
@@ -119,7 +119,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Webhooks.TestEvents
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Webhooks.TestEvents.TestEventsRequestBuilder.TestEventsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.sixtyfour.ai", "/webhooks/test-events", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -140,7 +140,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Webhooks.TestEvents
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.sixtyfour.ai", "/webhooks/test-events", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);

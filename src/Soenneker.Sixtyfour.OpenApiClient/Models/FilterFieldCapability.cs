@@ -18,19 +18,32 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("aggregation_field") is { } nullNodeAggregationField && nullNodeAggregationField.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AggregationField = null;
-            if (parseNode.GetChildNode("field") is { } nullNodeField && nullNodeField.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Field = null;
-            if (parseNode.GetChildNode("field_type") is { } nullNodeFieldType && nullNodeFieldType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FieldType = null;
-            if (parseNode.GetChildNode("nested_path") is { } nullNodeNestedPath && nullNodeNestedPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NestedPath = null;
-            if (parseNode.GetChildNode("preferred_for_exact_match") is { } nullNodePreferredForExactMatch && nullNodePreferredForExactMatch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreferredForExactMatch = null;
-            if (parseNode.GetChildNode("queryable") is { } nullNodeQueryable && nullNodeQueryable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Queryable = null;
-            if (parseNode.GetChildNode("rangeable") is { } nullNodeRangeable && nullNodeRangeable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Rangeable = null;
-            if (parseNode.GetChildNode("related_fields") is { } nullNodeRelatedFields && nullNodeRelatedFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RelatedFields = null;
-            if (parseNode.GetChildNode("sortable") is { } nullNodeSortable && nullNodeSortable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sortable = null;
-            if (parseNode.GetChildNode("sort_field") is { } nullNodeSortField && nullNodeSortField.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SortField = null;
-            if (parseNode.GetChildNode("supports_exact_filter_snippet") is { } nullNodeSupportsExactFilterSnippet && nullNodeSupportsExactFilterSnippet.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SupportsExactFilterSnippet = null;
-            if (parseNode.GetChildNode("supports_top_values") is { } nullNodeSupportsTopValues && nullNodeSupportsTopValues.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SupportsTopValues = null;
-            if (parseNode.GetChildNode("value_type") is { } nullNodeValueType && nullNodeValueType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ValueType = null;
+            if (parseNode.GetChildNode("aggregation_field") is null) { _explicitNullValueAggregationField = default!; _explicitNullProperties?.Remove("aggregation_field"); }
+            else if (parseNode.GetChildNode("aggregation_field") is { } nullNodeAggregationField && nullNodeAggregationField.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AggregationField = null;
+            if (parseNode.GetChildNode("field") is null) { _explicitNullValueField = default!; _explicitNullProperties?.Remove("field"); }
+            else if (parseNode.GetChildNode("field") is { } nullNodeField && nullNodeField.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Field = null;
+            if (parseNode.GetChildNode("field_type") is null) { _explicitNullValueFieldType = default!; _explicitNullProperties?.Remove("field_type"); }
+            else if (parseNode.GetChildNode("field_type") is { } nullNodeFieldType && nullNodeFieldType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FieldType = null;
+            if (parseNode.GetChildNode("nested_path") is null) { _explicitNullValueNestedPath = default!; _explicitNullProperties?.Remove("nested_path"); }
+            else if (parseNode.GetChildNode("nested_path") is { } nullNodeNestedPath && nullNodeNestedPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NestedPath = null;
+            if (parseNode.GetChildNode("preferred_for_exact_match") is null) { _explicitNullValuePreferredForExactMatch = default!; _explicitNullProperties?.Remove("preferred_for_exact_match"); }
+            else if (parseNode.GetChildNode("preferred_for_exact_match") is { } nullNodePreferredForExactMatch && nullNodePreferredForExactMatch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreferredForExactMatch = null;
+            if (parseNode.GetChildNode("queryable") is null) { _explicitNullValueQueryable = default!; _explicitNullProperties?.Remove("queryable"); }
+            else if (parseNode.GetChildNode("queryable") is { } nullNodeQueryable && nullNodeQueryable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Queryable = null;
+            if (parseNode.GetChildNode("rangeable") is null) { _explicitNullValueRangeable = default!; _explicitNullProperties?.Remove("rangeable"); }
+            else if (parseNode.GetChildNode("rangeable") is { } nullNodeRangeable && nullNodeRangeable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Rangeable = null;
+            if (parseNode.GetChildNode("related_fields") is null) { _explicitNullValueRelatedFields = default!; _explicitNullProperties?.Remove("related_fields"); }
+            else if (parseNode.GetChildNode("related_fields") is { } nullNodeRelatedFields && nullNodeRelatedFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RelatedFields = null;
+            if (parseNode.GetChildNode("sortable") is null) { _explicitNullValueSortable = default!; _explicitNullProperties?.Remove("sortable"); }
+            else if (parseNode.GetChildNode("sortable") is { } nullNodeSortable && nullNodeSortable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sortable = null;
+            if (parseNode.GetChildNode("sort_field") is null) { _explicitNullValueSortField = default!; _explicitNullProperties?.Remove("sort_field"); }
+            else if (parseNode.GetChildNode("sort_field") is { } nullNodeSortField && nullNodeSortField.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SortField = null;
+            if (parseNode.GetChildNode("supports_exact_filter_snippet") is null) { _explicitNullValueSupportsExactFilterSnippet = default!; _explicitNullProperties?.Remove("supports_exact_filter_snippet"); }
+            else if (parseNode.GetChildNode("supports_exact_filter_snippet") is { } nullNodeSupportsExactFilterSnippet && nullNodeSupportsExactFilterSnippet.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SupportsExactFilterSnippet = null;
+            if (parseNode.GetChildNode("supports_top_values") is null) { _explicitNullValueSupportsTopValues = default!; _explicitNullProperties?.Remove("supports_top_values"); }
+            else if (parseNode.GetChildNode("supports_top_values") is { } nullNodeSupportsTopValues && nullNodeSupportsTopValues.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SupportsTopValues = null;
+            if (parseNode.GetChildNode("value_type") is null) { _explicitNullValueValueType = default!; _explicitNullProperties?.Remove("value_type"); }
+            else if (parseNode.GetChildNode("value_type") is { } nullNodeValueType && nullNodeValueType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ValueType = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -38,89 +51,89 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Field used for terms aggregation when supports_top_values is true.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AggregationField { get => _explicitNullValueAggregationField; set { _explicitNullValueAggregationField = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aggregation_field"); else _explicitNullProperties?.Remove("aggregation_field"); } }
+        public string? AggregationField { get => _explicitNullValueAggregationField; set { _explicitNullValueAggregationField = value; AdditionalData?.Remove("aggregation_field"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aggregation_field"); else _explicitNullProperties?.Remove("aggregation_field"); } }
         private string? _explicitNullValueAggregationField = default!;
 #nullable restore
 #else
-        public string AggregationField { get => _explicitNullValueAggregationField; set { _explicitNullValueAggregationField = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aggregation_field"); else _explicitNullProperties?.Remove("aggregation_field"); } }
+        public string AggregationField { get => _explicitNullValueAggregationField; set { _explicitNullValueAggregationField = value; AdditionalData?.Remove("aggregation_field"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aggregation_field"); else _explicitNullProperties?.Remove("aggregation_field"); } }
         private string _explicitNullValueAggregationField = default!;
 #endif
         /// <summary>Canonical field path.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Field { get => _explicitNullValueField; set { _explicitNullValueField = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field"); else _explicitNullProperties?.Remove("field"); } }
+        public string? Field { get => _explicitNullValueField; set { _explicitNullValueField = value; AdditionalData?.Remove("field"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field"); else _explicitNullProperties?.Remove("field"); } }
         private string? _explicitNullValueField = default!;
 #nullable restore
 #else
-        public string Field { get => _explicitNullValueField; set { _explicitNullValueField = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field"); else _explicitNullProperties?.Remove("field"); } }
+        public string Field { get => _explicitNullValueField; set { _explicitNullValueField = value; AdditionalData?.Remove("field"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field"); else _explicitNullProperties?.Remove("field"); } }
         private string _explicitNullValueField = default!;
 #endif
         /// <summary>Source ES mapping type (e.g. text, keyword, long).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FieldType { get => _explicitNullValueFieldType; set { _explicitNullValueFieldType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field_type"); else _explicitNullProperties?.Remove("field_type"); } }
+        public string? FieldType { get => _explicitNullValueFieldType; set { _explicitNullValueFieldType = value; AdditionalData?.Remove("field_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field_type"); else _explicitNullProperties?.Remove("field_type"); } }
         private string? _explicitNullValueFieldType = default!;
 #nullable restore
 #else
-        public string FieldType { get => _explicitNullValueFieldType; set { _explicitNullValueFieldType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field_type"); else _explicitNullProperties?.Remove("field_type"); } }
+        public string FieldType { get => _explicitNullValueFieldType; set { _explicitNullValueFieldType = value; AdditionalData?.Remove("field_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field_type"); else _explicitNullProperties?.Remove("field_type"); } }
         private string _explicitNullValueFieldType = default!;
 #endif
         /// <summary>Nested path, if any.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NestedPath { get => _explicitNullValueNestedPath; set { _explicitNullValueNestedPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nested_path"); else _explicitNullProperties?.Remove("nested_path"); } }
+        public string? NestedPath { get => _explicitNullValueNestedPath; set { _explicitNullValueNestedPath = value; AdditionalData?.Remove("nested_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nested_path"); else _explicitNullProperties?.Remove("nested_path"); } }
         private string? _explicitNullValueNestedPath = default!;
 #nullable restore
 #else
-        public string NestedPath { get => _explicitNullValueNestedPath; set { _explicitNullValueNestedPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nested_path"); else _explicitNullProperties?.Remove("nested_path"); } }
+        public string NestedPath { get => _explicitNullValueNestedPath; set { _explicitNullValueNestedPath = value; AdditionalData?.Remove("nested_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nested_path"); else _explicitNullProperties?.Remove("nested_path"); } }
         private string _explicitNullValueNestedPath = default!;
 #endif
         /// <summary>Recommended for simple exact-match queries over its nested counterpart.</summary>
-        public bool? PreferredForExactMatch { get => _explicitNullValuePreferredForExactMatch; set { _explicitNullValuePreferredForExactMatch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preferred_for_exact_match"); else _explicitNullProperties?.Remove("preferred_for_exact_match"); } }
+        public bool? PreferredForExactMatch { get => _explicitNullValuePreferredForExactMatch; set { _explicitNullValuePreferredForExactMatch = value; AdditionalData?.Remove("preferred_for_exact_match"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preferred_for_exact_match"); else _explicitNullProperties?.Remove("preferred_for_exact_match"); } }
         private bool? _explicitNullValuePreferredForExactMatch = default!;
         /// <summary>Allowed in query clauses.</summary>
-        public bool? Queryable { get => _explicitNullValueQueryable; set { _explicitNullValueQueryable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("queryable"); else _explicitNullProperties?.Remove("queryable"); } }
+        public bool? Queryable { get => _explicitNullValueQueryable; set { _explicitNullValueQueryable = value; AdditionalData?.Remove("queryable"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("queryable"); else _explicitNullProperties?.Remove("queryable"); } }
         private bool? _explicitNullValueQueryable = default!;
         /// <summary>Supports range operators (gt/gte/lt/lte).</summary>
-        public bool? Rangeable { get => _explicitNullValueRangeable; set { _explicitNullValueRangeable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rangeable"); else _explicitNullProperties?.Remove("rangeable"); } }
+        public bool? Rangeable { get => _explicitNullValueRangeable; set { _explicitNullValueRangeable = value; AdditionalData?.Remove("rangeable"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rangeable"); else _explicitNullProperties?.Remove("rangeable"); } }
         private bool? _explicitNullValueRangeable = default!;
         /// <summary>Other paths representing the same concept (e.g. flat counterpart of nested).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? RelatedFields { get => _explicitNullValueRelatedFields; set { _explicitNullValueRelatedFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("related_fields"); else _explicitNullProperties?.Remove("related_fields"); } }
+        public List<string>? RelatedFields { get => _explicitNullValueRelatedFields; set { _explicitNullValueRelatedFields = value; AdditionalData?.Remove("related_fields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("related_fields"); else _explicitNullProperties?.Remove("related_fields"); } }
         private List<string>? _explicitNullValueRelatedFields = default!;
 #nullable restore
 #else
-        public List<string> RelatedFields { get => _explicitNullValueRelatedFields; set { _explicitNullValueRelatedFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("related_fields"); else _explicitNullProperties?.Remove("related_fields"); } }
+        public List<string> RelatedFields { get => _explicitNullValueRelatedFields; set { _explicitNullValueRelatedFields = value; AdditionalData?.Remove("related_fields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("related_fields"); else _explicitNullProperties?.Remove("related_fields"); } }
         private List<string> _explicitNullValueRelatedFields = default!;
 #endif
         /// <summary>Allowed in sort clauses.</summary>
-        public bool? Sortable { get => _explicitNullValueSortable; set { _explicitNullValueSortable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sortable"); else _explicitNullProperties?.Remove("sortable"); } }
+        public bool? Sortable { get => _explicitNullValueSortable; set { _explicitNullValueSortable = value; AdditionalData?.Remove("sortable"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sortable"); else _explicitNullProperties?.Remove("sortable"); } }
         private bool? _explicitNullValueSortable = default!;
         /// <summary>Sort target when it differs from field (e.g. text fields sort via .keyword).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SortField { get => _explicitNullValueSortField; set { _explicitNullValueSortField = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sort_field"); else _explicitNullProperties?.Remove("sort_field"); } }
+        public string? SortField { get => _explicitNullValueSortField; set { _explicitNullValueSortField = value; AdditionalData?.Remove("sort_field"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sort_field"); else _explicitNullProperties?.Remove("sort_field"); } }
         private string? _explicitNullValueSortField = default!;
 #nullable restore
 #else
-        public string SortField { get => _explicitNullValueSortField; set { _explicitNullValueSortField = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sort_field"); else _explicitNullProperties?.Remove("sort_field"); } }
+        public string SortField { get => _explicitNullValueSortField; set { _explicitNullValueSortField = value; AdditionalData?.Remove("sort_field"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sort_field"); else _explicitNullProperties?.Remove("sort_field"); } }
         private string _explicitNullValueSortField = default!;
 #endif
         /// <summary>API can return deterministic exact filter snippets.</summary>
-        public bool? SupportsExactFilterSnippet { get => _explicitNullValueSupportsExactFilterSnippet; set { _explicitNullValueSupportsExactFilterSnippet = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supports_exact_filter_snippet"); else _explicitNullProperties?.Remove("supports_exact_filter_snippet"); } }
+        public bool? SupportsExactFilterSnippet { get => _explicitNullValueSupportsExactFilterSnippet; set { _explicitNullValueSupportsExactFilterSnippet = value; AdditionalData?.Remove("supports_exact_filter_snippet"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supports_exact_filter_snippet"); else _explicitNullProperties?.Remove("supports_exact_filter_snippet"); } }
         private bool? _explicitNullValueSupportsExactFilterSnippet = default!;
         /// <summary>Supports top-values aggregation.</summary>
-        public bool? SupportsTopValues { get => _explicitNullValueSupportsTopValues; set { _explicitNullValueSupportsTopValues = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supports_top_values"); else _explicitNullProperties?.Remove("supports_top_values"); } }
+        public bool? SupportsTopValues { get => _explicitNullValueSupportsTopValues; set { _explicitNullValueSupportsTopValues = value; AdditionalData?.Remove("supports_top_values"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supports_top_values"); else _explicitNullProperties?.Remove("supports_top_values"); } }
         private bool? _explicitNullValueSupportsTopValues = default!;
         /// <summary>Aggregation target type (keyword, long, etc.).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ValueType { get => _explicitNullValueValueType; set { _explicitNullValueValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value_type"); else _explicitNullProperties?.Remove("value_type"); } }
+        public string? ValueType { get => _explicitNullValueValueType; set { _explicitNullValueValueType = value; AdditionalData?.Remove("value_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value_type"); else _explicitNullProperties?.Remove("value_type"); } }
         private string? _explicitNullValueValueType = default!;
 #nullable restore
 #else
-        public string ValueType { get => _explicitNullValueValueType; set { _explicitNullValueValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value_type"); else _explicitNullProperties?.Remove("value_type"); } }
+        public string ValueType { get => _explicitNullValueValueType; set { _explicitNullValueValueType = value; AdditionalData?.Remove("value_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value_type"); else _explicitNullProperties?.Remove("value_type"); } }
         private string _explicitNullValueValueType = default!;
 #endif
         /// <summary>

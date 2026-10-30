@@ -9,7 +9,7 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowGraph"/>, <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseWorkflowDefinitionMember2"/>, <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseWorkflowDefinitionMember3"/>, List&lt;global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseWorkflowDefinitionMember1&gt;
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseWorkflowDefinitionMember2"/>, <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseWorkflowDefinitionMember3"/>, List&lt;global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseWorkflowDefinitionMember1&gt;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WorkflowResponseWorkflowDefinition : IComposedTypeWrapper, IParsable
@@ -19,14 +19,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowGraph"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowGraph? WorkflowGraph { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowGraph WorkflowGraph { get; set; }
-#endif
         /// <summary>Composed type representation for type List&lt;global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseWorkflowDefinitionMember1&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -67,13 +59,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             else {
                 
                 
-                
             }
             
             var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
-            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("blocks") != null && parseNode.GetChildNode("edges") != null))();
-            if (result.WorkflowGraph == null && result.WorkflowResponseWorkflowDefinitionMember1 == null && result.WorkflowResponseWorkflowDefinitionMember2 == null && result.WorkflowResponseWorkflowDefinitionMember3 == null && matchesUnionBranch0) result.WorkflowGraph = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowGraph(), parseNode);
-            if (result.WorkflowGraph == null && result.WorkflowResponseWorkflowDefinitionMember1 == null && result.WorkflowResponseWorkflowDefinitionMember2 == null && result.WorkflowResponseWorkflowDefinitionMember3 == null) result.UnrecognizedValue = unionPayload;
+            if (result.WorkflowResponseWorkflowDefinitionMember1 == null && result.WorkflowResponseWorkflowDefinitionMember2 == null && result.WorkflowResponseWorkflowDefinitionMember3 == null) result.UnrecognizedValue = unionPayload;
 return result;
         }
         /// <summary>
@@ -82,9 +71,11 @@ return result;
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(WorkflowGraph != null || WorkflowResponseWorkflowDefinitionMember2 != null || WorkflowResponseWorkflowDefinitionMember3 != null)
+            if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawFields) { var fields = new global::System.Collections.Generic.Dictionary<string, global::System.Action<IParseNode>>(); foreach (var entry in rawFields.GetValue()) fields[entry.Key] = _ => { }; return fields; }
+
+            if(WorkflowResponseWorkflowDefinitionMember2 != null || WorkflowResponseWorkflowDefinitionMember3 != null)
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(WorkflowGraph, WorkflowResponseWorkflowDefinitionMember2, WorkflowResponseWorkflowDefinitionMember3);
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(WorkflowResponseWorkflowDefinitionMember2, WorkflowResponseWorkflowDefinitionMember3);
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -95,10 +86,13 @@ return result;
         public virtual void Serialize(ISerializationWriter writer)
         {
             if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
-            if (WorkflowGraph == null && WorkflowResponseWorkflowDefinitionMember1 == null && WorkflowResponseWorkflowDefinitionMember2 == null && WorkflowResponseWorkflowDefinitionMember3 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
-            if (WorkflowGraph != null && WorkflowResponseWorkflowDefinitionMember1 == null && WorkflowResponseWorkflowDefinitionMember2 == null && WorkflowResponseWorkflowDefinitionMember3 == null) { if (WorkflowGraph is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, WorkflowGraph); return; }
-            if (WorkflowResponseWorkflowDefinitionMember2 != null && WorkflowGraph == null && WorkflowResponseWorkflowDefinitionMember1 == null && WorkflowResponseWorkflowDefinitionMember3 == null) { if (WorkflowResponseWorkflowDefinitionMember2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, WorkflowResponseWorkflowDefinitionMember2); return; }
-            if (WorkflowResponseWorkflowDefinitionMember3 != null && WorkflowGraph == null && WorkflowResponseWorkflowDefinitionMember1 == null && WorkflowResponseWorkflowDefinitionMember2 == null) { if (WorkflowResponseWorkflowDefinitionMember3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, WorkflowResponseWorkflowDefinitionMember3); return; }
+            if (WorkflowResponseWorkflowDefinitionMember1 == null && WorkflowResponseWorkflowDefinitionMember2 == null && WorkflowResponseWorkflowDefinitionMember3 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            int selectedUnionBranches = 0;
+            if (WorkflowResponseWorkflowDefinitionMember1 != null) selectedUnionBranches++;
+            if (WorkflowResponseWorkflowDefinitionMember2 != null) selectedUnionBranches++;
+            if (WorkflowResponseWorkflowDefinitionMember3 != null) selectedUnionBranches++;
+            if (WorkflowResponseWorkflowDefinitionMember2 != null && selectedUnionBranches == 1) { if (WorkflowResponseWorkflowDefinitionMember2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, WorkflowResponseWorkflowDefinitionMember2); return; }
+            if (WorkflowResponseWorkflowDefinitionMember3 != null && selectedUnionBranches == 1) { if (WorkflowResponseWorkflowDefinitionMember3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, WorkflowResponseWorkflowDefinitionMember3); return; }
 
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(WorkflowResponseWorkflowDefinitionMember1 != null)
@@ -106,7 +100,7 @@ return result;
                 writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseWorkflowDefinitionMember1>(null, WorkflowResponseWorkflowDefinitionMember1);
             }
             else {
-                writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowGraph>(null, WorkflowGraph, WorkflowResponseWorkflowDefinitionMember2, WorkflowResponseWorkflowDefinitionMember3);
+                writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseWorkflowDefinitionMember2>(null, WorkflowResponseWorkflowDefinitionMember2, WorkflowResponseWorkflowDefinitionMember3);
             }
         }
     }

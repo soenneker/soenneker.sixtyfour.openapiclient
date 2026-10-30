@@ -18,9 +18,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("id_column") is { } nullNodeIdColumn && nullNodeIdColumn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdColumn = null;
-            if (parseNode.GetChildNode("resource_handle_id") is { } nullNodeResourceHandleId && nullNodeResourceHandleId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResourceHandleId = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("id_column") is null) { _explicitNullValueIdColumn = default!; _explicitNullProperties?.Remove("id_column"); }
+            else if (parseNode.GetChildNode("id_column") is { } nullNodeIdColumn && nullNodeIdColumn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdColumn = null;
+            if (parseNode.GetChildNode("resource_handle_id") is null) { _explicitNullValueResourceHandleId = default!; _explicitNullProperties?.Remove("resource_handle_id"); }
+            else if (parseNode.GetChildNode("resource_handle_id") is { } nullNodeResourceHandleId && nullNodeResourceHandleId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResourceHandleId = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,25 +31,25 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>CSV column containing entity identifiers. People: LinkedIn public IDs or profile URLs. Companies: numeric company IDs, LinkedIn company URLs/slugs, or exact website domains. Auto-detected when omitted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IdColumn { get => _explicitNullValueIdColumn; set { _explicitNullValueIdColumn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id_column"); else _explicitNullProperties?.Remove("id_column"); } }
+        public string? IdColumn { get => _explicitNullValueIdColumn; set { _explicitNullValueIdColumn = value; AdditionalData?.Remove("id_column"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id_column"); else _explicitNullProperties?.Remove("id_column"); } }
         private string? _explicitNullValueIdColumn = default!;
 #nullable restore
 #else
-        public string IdColumn { get => _explicitNullValueIdColumn; set { _explicitNullValueIdColumn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id_column"); else _explicitNullProperties?.Remove("id_column"); } }
+        public string IdColumn { get => _explicitNullValueIdColumn; set { _explicitNullValueIdColumn = value; AdditionalData?.Remove("id_column"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id_column"); else _explicitNullProperties?.Remove("id_column"); } }
         private string _explicitNullValueIdColumn = default!;
 #endif
         /// <summary>The resource_handle_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ResourceHandleId { get => _explicitNullValueResourceHandleId; set { _explicitNullValueResourceHandleId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_handle_id"); else _explicitNullProperties?.Remove("resource_handle_id"); } }
+        public string? ResourceHandleId { get => _explicitNullValueResourceHandleId; set { _explicitNullValueResourceHandleId = value; AdditionalData?.Remove("resource_handle_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_handle_id"); else _explicitNullProperties?.Remove("resource_handle_id"); } }
         private string? _explicitNullValueResourceHandleId = default!;
 #nullable restore
 #else
-        public string ResourceHandleId { get => _explicitNullValueResourceHandleId; set { _explicitNullValueResourceHandleId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_handle_id"); else _explicitNullProperties?.Remove("resource_handle_id"); } }
+        public string ResourceHandleId { get => _explicitNullValueResourceHandleId; set { _explicitNullValueResourceHandleId = value; AdditionalData?.Remove("resource_handle_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_handle_id"); else _explicitNullProperties?.Remove("resource_handle_id"); } }
         private string _explicitNullValueResourceHandleId = default!;
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ResourceHandleType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ResourceHandleType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.ResourceHandleType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ResourceHandleSource"/> and sets the default values.
@@ -75,7 +78,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             {
                 { "id_column", n => { IdColumn = n.GetStringValue(); } },
                 { "resource_handle_id", n => { ResourceHandleId = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResourceHandleType>(); } },
+                { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResourceHandleType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
             };
         }
         /// <summary>

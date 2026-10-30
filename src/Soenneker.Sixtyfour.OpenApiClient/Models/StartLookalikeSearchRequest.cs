@@ -18,45 +18,49 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("analysis_sample_size") is { } nullNodeAnalysisSampleSize && nullNodeAnalysisSampleSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AnalysisSampleSize = null;
-            if (parseNode.GetChildNode("csv_resource_handle_id") is { } nullNodeCsvResourceHandleId && nullNodeCsvResourceHandleId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CsvResourceHandleId = null;
-            if (parseNode.GetChildNode("guidance") is { } nullNodeGuidance && nullNodeGuidance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Guidance = null;
-            if (parseNode.GetChildNode("linkedin_urls") is { } nullNodeLinkedinUrls && nullNodeLinkedinUrls.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LinkedinUrls = null;
+            if (parseNode.GetChildNode("analysis_sample_size") is null) { _explicitNullValueAnalysisSampleSize = default!; _explicitNullProperties?.Remove("analysis_sample_size"); }
+            else if (parseNode.GetChildNode("analysis_sample_size") is { } nullNodeAnalysisSampleSize && nullNodeAnalysisSampleSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AnalysisSampleSize = null;
+            if (parseNode.GetChildNode("csv_resource_handle_id") is null) { _explicitNullValueCsvResourceHandleId = default!; _explicitNullProperties?.Remove("csv_resource_handle_id"); }
+            else if (parseNode.GetChildNode("csv_resource_handle_id") is { } nullNodeCsvResourceHandleId && nullNodeCsvResourceHandleId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CsvResourceHandleId = null;
+            if (parseNode.GetChildNode("guidance") is null) { _explicitNullValueGuidance = default!; _explicitNullProperties?.Remove("guidance"); }
+            else if (parseNode.GetChildNode("guidance") is { } nullNodeGuidance && nullNodeGuidance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Guidance = null;
+            if (parseNode.GetChildNode("linkedin_urls") is null) { _explicitNullValueLinkedinUrls = default!; _explicitNullProperties?.Remove("linkedin_urls"); }
+            else if (parseNode.GetChildNode("linkedin_urls") is { } nullNodeLinkedinUrls && nullNodeLinkedinUrls.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LinkedinUrls = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>How many representative resolved profiles to analyze.</summary>
-        public int? AnalysisSampleSize { get => _explicitNullValueAnalysisSampleSize; set { _explicitNullValueAnalysisSampleSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("analysis_sample_size"); else _explicitNullProperties?.Remove("analysis_sample_size"); } }
+        public int? AnalysisSampleSize { get => _explicitNullValueAnalysisSampleSize; set { _explicitNullValueAnalysisSampleSize = value; AdditionalData?.Remove("analysis_sample_size"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("analysis_sample_size"); else _explicitNullProperties?.Remove("analysis_sample_size"); } }
         private int? _explicitNullValueAnalysisSampleSize = default!;
         /// <summary>Resource handle returned by POST /storage/csv/upload.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CsvResourceHandleId { get => _explicitNullValueCsvResourceHandleId; set { _explicitNullValueCsvResourceHandleId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("csv_resource_handle_id"); else _explicitNullProperties?.Remove("csv_resource_handle_id"); } }
+        public string? CsvResourceHandleId { get => _explicitNullValueCsvResourceHandleId; set { _explicitNullValueCsvResourceHandleId = value; AdditionalData?.Remove("csv_resource_handle_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("csv_resource_handle_id"); else _explicitNullProperties?.Remove("csv_resource_handle_id"); } }
         private string? _explicitNullValueCsvResourceHandleId = default!;
 #nullable restore
 #else
-        public string CsvResourceHandleId { get => _explicitNullValueCsvResourceHandleId; set { _explicitNullValueCsvResourceHandleId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("csv_resource_handle_id"); else _explicitNullProperties?.Remove("csv_resource_handle_id"); } }
+        public string CsvResourceHandleId { get => _explicitNullValueCsvResourceHandleId; set { _explicitNullValueCsvResourceHandleId = value; AdditionalData?.Remove("csv_resource_handle_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("csv_resource_handle_id"); else _explicitNullProperties?.Remove("csv_resource_handle_id"); } }
         private string _explicitNullValueCsvResourceHandleId = default!;
 #endif
         /// <summary>Optional natural-language guidance for cohort analysis.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Guidance { get => _explicitNullValueGuidance; set { _explicitNullValueGuidance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("guidance"); else _explicitNullProperties?.Remove("guidance"); } }
+        public string? Guidance { get => _explicitNullValueGuidance; set { _explicitNullValueGuidance = value; AdditionalData?.Remove("guidance"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("guidance"); else _explicitNullProperties?.Remove("guidance"); } }
         private string? _explicitNullValueGuidance = default!;
 #nullable restore
 #else
-        public string Guidance { get => _explicitNullValueGuidance; set { _explicitNullValueGuidance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("guidance"); else _explicitNullProperties?.Remove("guidance"); } }
+        public string Guidance { get => _explicitNullValueGuidance; set { _explicitNullValueGuidance = value; AdditionalData?.Remove("guidance"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("guidance"); else _explicitNullProperties?.Remove("guidance"); } }
         private string _explicitNullValueGuidance = default!;
 #endif
         /// <summary>LinkedIn profile URLs to seed from (max 1,000).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? LinkedinUrls { get => _explicitNullValueLinkedinUrls; set { _explicitNullValueLinkedinUrls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("linkedin_urls"); else _explicitNullProperties?.Remove("linkedin_urls"); } }
+        public List<string>? LinkedinUrls { get => _explicitNullValueLinkedinUrls; set { _explicitNullValueLinkedinUrls = value; AdditionalData?.Remove("linkedin_urls"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("linkedin_urls"); else _explicitNullProperties?.Remove("linkedin_urls"); } }
         private List<string>? _explicitNullValueLinkedinUrls = default!;
 #nullable restore
 #else
-        public List<string> LinkedinUrls { get => _explicitNullValueLinkedinUrls; set { _explicitNullValueLinkedinUrls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("linkedin_urls"); else _explicitNullProperties?.Remove("linkedin_urls"); } }
+        public List<string> LinkedinUrls { get => _explicitNullValueLinkedinUrls; set { _explicitNullValueLinkedinUrls = value; AdditionalData?.Remove("linkedin_urls"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("linkedin_urls"); else _explicitNullProperties?.Remove("linkedin_urls"); } }
         private List<string> _explicitNullValueLinkedinUrls = default!;
 #endif
         /// <summary>

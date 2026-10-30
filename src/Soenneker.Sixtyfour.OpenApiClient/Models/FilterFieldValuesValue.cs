@@ -18,38 +18,42 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("count") is { } nullNodeCount && nullNodeCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Count = null;
-            if (parseNode.GetChildNode("filter_snippet") is { } nullNodeFilterSnippet && nullNodeFilterSnippet.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FilterSnippet = null;
-            if (parseNode.GetChildNode("percent_of_scope") is { } nullNodePercentOfScope && nullNodePercentOfScope.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PercentOfScope = null;
-            if (parseNode.GetChildNode("value") is { } nullNodeValue && nullNodeValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Value = null;
+            if (parseNode.GetChildNode("count") is null) { _explicitNullValueCount = default!; _explicitNullProperties?.Remove("count"); }
+            else if (parseNode.GetChildNode("count") is { } nullNodeCount && nullNodeCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Count = null;
+            if (parseNode.GetChildNode("filter_snippet") is null) { _explicitNullValueFilterSnippet = default!; _explicitNullProperties?.Remove("filter_snippet"); }
+            else if (parseNode.GetChildNode("filter_snippet") is { } nullNodeFilterSnippet && nullNodeFilterSnippet.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FilterSnippet = null;
+            if (parseNode.GetChildNode("percent_of_scope") is null) { _explicitNullValuePercentOfScope = default!; _explicitNullProperties?.Remove("percent_of_scope"); }
+            else if (parseNode.GetChildNode("percent_of_scope") is { } nullNodePercentOfScope && nullNodePercentOfScope.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PercentOfScope = null;
+            if (parseNode.GetChildNode("value") is null) { _explicitNullValueValue = default!; _explicitNullProperties?.Remove("value"); }
+            else if (parseNode.GetChildNode("value") is { } nullNodeValue && nullNodeValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Value = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Document count for this value within the scoped query.</summary>
-        public int? Count { get => _explicitNullValueCount; set { _explicitNullValueCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("count"); else _explicitNullProperties?.Remove("count"); } }
+        public int? Count { get => _explicitNullValueCount; set { _explicitNullValueCount = value; AdditionalData?.Remove("count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("count"); else _explicitNullProperties?.Remove("count"); } }
         private int? _explicitNullValueCount = default!;
         /// <summary>Ready-to-merge filter clause that selects this value.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValueFilterSnippetProperty? FilterSnippet { get => _explicitNullValueFilterSnippet; set { _explicitNullValueFilterSnippet = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filter_snippet"); else _explicitNullProperties?.Remove("filter_snippet"); } }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValueFilterSnippetProperty? FilterSnippet { get => _explicitNullValueFilterSnippet; set { _explicitNullValueFilterSnippet = value; AdditionalData?.Remove("filter_snippet"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filter_snippet"); else _explicitNullProperties?.Remove("filter_snippet"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValueFilterSnippetProperty? _explicitNullValueFilterSnippet = default!;
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValueFilterSnippetProperty FilterSnippet { get => _explicitNullValueFilterSnippet; set { _explicitNullValueFilterSnippet = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filter_snippet"); else _explicitNullProperties?.Remove("filter_snippet"); } }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValueFilterSnippetProperty FilterSnippet { get => _explicitNullValueFilterSnippet; set { _explicitNullValueFilterSnippet = value; AdditionalData?.Remove("filter_snippet"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filter_snippet"); else _explicitNullProperties?.Remove("filter_snippet"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValueFilterSnippetProperty _explicitNullValueFilterSnippet = default!;
 #endif
         /// <summary>Share (0-1) of scoped documents matching this value.</summary>
-        public double? PercentOfScope { get => _explicitNullValuePercentOfScope; set { _explicitNullValuePercentOfScope = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("percent_of_scope"); else _explicitNullProperties?.Remove("percent_of_scope"); } }
+        public double? PercentOfScope { get => _explicitNullValuePercentOfScope; set { _explicitNullValuePercentOfScope = value; AdditionalData?.Remove("percent_of_scope"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("percent_of_scope"); else _explicitNullProperties?.Remove("percent_of_scope"); } }
         private double? _explicitNullValuePercentOfScope = default!;
         /// <summary>Field value; null bucket represents missing values.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValueValue? Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValueValue? Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; AdditionalData?.Remove("value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValueValue? _explicitNullValueValue = default!;
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValueValue Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValueValue Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; AdditionalData?.Remove("value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValueValue _explicitNullValueValue = default!;
 #endif
         /// <summary>

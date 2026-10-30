@@ -18,10 +18,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("as_of") is { } nullNodeAsOf && nullNodeAsOf.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AsOf = null;
-            if (parseNode.GetChildNode("changed_fields") is { } nullNodeChangedFields && nullNodeChangedFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChangedFields = null;
-            if (parseNode.GetChildNode("subjects_changed") is { } nullNodeSubjectsChanged && nullNodeSubjectsChanged.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubjectsChanged = null;
-            if (parseNode.GetChildNode("url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
+            if (parseNode.GetChildNode("as_of") is null) { _explicitNullValueAsOf = default!; _explicitNullProperties?.Remove("as_of"); }
+            else if (parseNode.GetChildNode("as_of") is { } nullNodeAsOf && nullNodeAsOf.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AsOf = null;
+            if (parseNode.GetChildNode("changed_fields") is null) { _explicitNullValueChangedFields = default!; _explicitNullProperties?.Remove("changed_fields"); }
+            else if (parseNode.GetChildNode("changed_fields") is { } nullNodeChangedFields && nullNodeChangedFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChangedFields = null;
+            if (parseNode.GetChildNode("subjects_changed") is null) { _explicitNullValueSubjectsChanged = default!; _explicitNullProperties?.Remove("subjects_changed"); }
+            else if (parseNode.GetChildNode("subjects_changed") is { } nullNodeSubjectsChanged && nullNodeSubjectsChanged.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubjectsChanged = null;
+            if (parseNode.GetChildNode("url") is null) { _explicitNullValueUrl = default!; _explicitNullProperties?.Remove("url"); }
+            else if (parseNode.GetChildNode("url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,34 +33,34 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>The as_of property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AsOf { get => _explicitNullValueAsOf; set { _explicitNullValueAsOf = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("as_of"); else _explicitNullProperties?.Remove("as_of"); } }
+        public string? AsOf { get => _explicitNullValueAsOf; set { _explicitNullValueAsOf = value; AdditionalData?.Remove("as_of"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("as_of"); else _explicitNullProperties?.Remove("as_of"); } }
         private string? _explicitNullValueAsOf = default!;
 #nullable restore
 #else
-        public string AsOf { get => _explicitNullValueAsOf; set { _explicitNullValueAsOf = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("as_of"); else _explicitNullProperties?.Remove("as_of"); } }
+        public string AsOf { get => _explicitNullValueAsOf; set { _explicitNullValueAsOf = value; AdditionalData?.Remove("as_of"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("as_of"); else _explicitNullProperties?.Remove("as_of"); } }
         private string _explicitNullValueAsOf = default!;
 #endif
         /// <summary>The changed_fields property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ChangedFields { get => _explicitNullValueChangedFields; set { _explicitNullValueChangedFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("changed_fields"); else _explicitNullProperties?.Remove("changed_fields"); } }
+        public List<string>? ChangedFields { get => _explicitNullValueChangedFields; set { _explicitNullValueChangedFields = value; AdditionalData?.Remove("changed_fields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("changed_fields"); else _explicitNullProperties?.Remove("changed_fields"); } }
         private List<string>? _explicitNullValueChangedFields = default!;
 #nullable restore
 #else
-        public List<string> ChangedFields { get => _explicitNullValueChangedFields; set { _explicitNullValueChangedFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("changed_fields"); else _explicitNullProperties?.Remove("changed_fields"); } }
+        public List<string> ChangedFields { get => _explicitNullValueChangedFields; set { _explicitNullValueChangedFields = value; AdditionalData?.Remove("changed_fields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("changed_fields"); else _explicitNullProperties?.Remove("changed_fields"); } }
         private List<string> _explicitNullValueChangedFields = default!;
 #endif
         /// <summary>The subjects_changed property</summary>
-        public int? SubjectsChanged { get => _explicitNullValueSubjectsChanged; set { _explicitNullValueSubjectsChanged = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subjects_changed"); else _explicitNullProperties?.Remove("subjects_changed"); } }
+        public int? SubjectsChanged { get => _explicitNullValueSubjectsChanged; set { _explicitNullValueSubjectsChanged = value; AdditionalData?.Remove("subjects_changed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subjects_changed"); else _explicitNullProperties?.Remove("subjects_changed"); } }
         private int? _explicitNullValueSubjectsChanged = default!;
         /// <summary>The url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; AdditionalData?.Remove("url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
         private string? _explicitNullValueUrl = default!;
 #nullable restore
 #else
-        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; AdditionalData?.Remove("url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
         private string _explicitNullValueUrl = default!;
 #endif
         /// <summary>

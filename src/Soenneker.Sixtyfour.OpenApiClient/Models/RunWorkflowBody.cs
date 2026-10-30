@@ -18,34 +18,37 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("expected_revision") is { } nullNodeExpectedRevision && nullNodeExpectedRevision.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpectedRevision = null;
-            if (parseNode.GetChildNode("specs_override") is { } nullNodeSpecsOverride && nullNodeSpecsOverride.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpecsOverride = null;
-            if (parseNode.GetChildNode("webhook_payload") is { } nullNodeWebhookPayload && nullNodeWebhookPayload.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookPayload = null;
+            if (parseNode.GetChildNode("expected_revision") is null) { _explicitNullValueExpectedRevision = default!; _explicitNullProperties?.Remove("expected_revision"); }
+            else if (parseNode.GetChildNode("expected_revision") is { } nullNodeExpectedRevision && nullNodeExpectedRevision.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpectedRevision = null;
+            if (parseNode.GetChildNode("specs_override") is null) { _explicitNullValueSpecsOverride = default!; _explicitNullProperties?.Remove("specs_override"); }
+            else if (parseNode.GetChildNode("specs_override") is { } nullNodeSpecsOverride && nullNodeSpecsOverride.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpecsOverride = null;
+            if (parseNode.GetChildNode("webhook_payload") is null) { _explicitNullValueWebhookPayload = default!; _explicitNullProperties?.Remove("webhook_payload"); }
+            else if (parseNode.GetChildNode("webhook_payload") is { } nullNodeWebhookPayload && nullNodeWebhookPayload.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookPayload = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Run the acknowledged shared definition revision; refuse unfinished edits or a different revision.</summary>
-        public int? ExpectedRevision { get => _explicitNullValueExpectedRevision; set { _explicitNullValueExpectedRevision = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expected_revision"); else _explicitNullProperties?.Remove("expected_revision"); } }
+        public int? ExpectedRevision { get => _explicitNullValueExpectedRevision; set { _explicitNullValueExpectedRevision = value; AdditionalData?.Remove("expected_revision"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expected_revision"); else _explicitNullProperties?.Remove("expected_revision"); } }
         private int? _explicitNullValueExpectedRevision = default!;
         /// <summary>Optional specs to override first block specs</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodySpecsOverrideProperty? SpecsOverride { get => _explicitNullValueSpecsOverride; set { _explicitNullValueSpecsOverride = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("specs_override"); else _explicitNullProperties?.Remove("specs_override"); } }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodySpecsOverrideProperty? SpecsOverride { get => _explicitNullValueSpecsOverride; set { _explicitNullValueSpecsOverride = value; AdditionalData?.Remove("specs_override"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("specs_override"); else _explicitNullProperties?.Remove("specs_override"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodySpecsOverrideProperty? _explicitNullValueSpecsOverride = default!;
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodySpecsOverrideProperty SpecsOverride { get => _explicitNullValueSpecsOverride; set { _explicitNullValueSpecsOverride = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("specs_override"); else _explicitNullProperties?.Remove("specs_override"); } }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodySpecsOverrideProperty SpecsOverride { get => _explicitNullValueSpecsOverride; set { _explicitNullValueSpecsOverride = value; AdditionalData?.Remove("specs_override"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("specs_override"); else _explicitNullProperties?.Remove("specs_override"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodySpecsOverrideProperty _explicitNullValueSpecsOverride = default!;
 #endif
         /// <summary>For API key auth only - can be a list or dict</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayload? WebhookPayload { get => _explicitNullValueWebhookPayload; set { _explicitNullValueWebhookPayload = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_payload"); else _explicitNullProperties?.Remove("webhook_payload"); } }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayload? WebhookPayload { get => _explicitNullValueWebhookPayload; set { _explicitNullValueWebhookPayload = value; AdditionalData?.Remove("webhook_payload"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_payload"); else _explicitNullProperties?.Remove("webhook_payload"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayload? _explicitNullValueWebhookPayload = default!;
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayload WebhookPayload { get => _explicitNullValueWebhookPayload; set { _explicitNullValueWebhookPayload = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_payload"); else _explicitNullProperties?.Remove("webhook_payload"); } }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayload WebhookPayload { get => _explicitNullValueWebhookPayload; set { _explicitNullValueWebhookPayload = value; AdditionalData?.Remove("webhook_payload"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_payload"); else _explicitNullProperties?.Remove("webhook_payload"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayload _explicitNullValueWebhookPayload = default!;
 #endif
         /// <summary>

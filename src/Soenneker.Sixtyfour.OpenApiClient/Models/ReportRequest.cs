@@ -17,13 +17,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("retry_failed") is { } nullNodeRetryFailed && nullNodeRetryFailed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RetryFailed = null;
+            if (parseNode.GetChildNode("retry_failed") is null) { _explicitNullValueRetryFailed = default!; _explicitNullProperties?.Remove("retry_failed"); }
+            else if (parseNode.GetChildNode("retry_failed") is { } nullNodeRetryFailed && nullNodeRetryFailed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RetryFailed = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Retry after a failed attempt on the same workspace.</summary>
-        public bool? RetryFailed { get => _explicitNullValueRetryFailed; set { _explicitNullValueRetryFailed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retry_failed"); else _explicitNullProperties?.Remove("retry_failed"); } }
+        public bool? RetryFailed { get => _explicitNullValueRetryFailed; set { _explicitNullValueRetryFailed = value; AdditionalData?.Remove("retry_failed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retry_failed"); else _explicitNullProperties?.Remove("retry_failed"); } }
         private bool? _explicitNullValueRetryFailed = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ReportRequest"/> and sets the default values.

@@ -82,7 +82,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Links
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Links.LinksRequestBuilder.LinksRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.sixtyfour.ai", "/v1/atlas/investigations/{investigationId}/links", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

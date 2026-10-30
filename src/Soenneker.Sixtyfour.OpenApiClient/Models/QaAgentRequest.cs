@@ -17,13 +17,20 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("data") is { } nullNodeData && nullNodeData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Data = null;
-            if (parseNode.GetChildNode("dispatch_id") is { } nullNodeDispatchId && nullNodeDispatchId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DispatchId = null;
-            if (parseNode.GetChildNode("max_tool_calls") is { } nullNodeMaxToolCalls && nullNodeMaxToolCalls.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxToolCalls = null;
-            if (parseNode.GetChildNode("qualification_criteria") is { } nullNodeQualificationCriteria && nullNodeQualificationCriteria.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) QualificationCriteria = null;
-            if (parseNode.GetChildNode("references") is { } nullNodeReferences && nullNodeReferences.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) References = null;
-            if (parseNode.GetChildNode("struct") is { } nullNodeStruct && nullNodeStruct.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Struct = null;
-            if (parseNode.GetChildNode("webhook_url") is { } nullNodeWebhookUrl && nullNodeWebhookUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookUrl = null;
+            if (parseNode.GetChildNode("data") is null) { _explicitNullValueData = default!; _explicitNullProperties?.Remove("data"); }
+            else if (parseNode.GetChildNode("data") is { } nullNodeData && nullNodeData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Data = null;
+            if (parseNode.GetChildNode("dispatch_id") is null) { _explicitNullValueDispatchId = default!; _explicitNullProperties?.Remove("dispatch_id"); }
+            else if (parseNode.GetChildNode("dispatch_id") is { } nullNodeDispatchId && nullNodeDispatchId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DispatchId = null;
+            if (parseNode.GetChildNode("max_tool_calls") is null) { _explicitNullValueMaxToolCalls = default!; _explicitNullProperties?.Remove("max_tool_calls"); }
+            else if (parseNode.GetChildNode("max_tool_calls") is { } nullNodeMaxToolCalls && nullNodeMaxToolCalls.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxToolCalls = null;
+            if (parseNode.GetChildNode("qualification_criteria") is null) { _explicitNullValueQualificationCriteria = default!; _explicitNullProperties?.Remove("qualification_criteria"); }
+            else if (parseNode.GetChildNode("qualification_criteria") is { } nullNodeQualificationCriteria && nullNodeQualificationCriteria.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) QualificationCriteria = null;
+            if (parseNode.GetChildNode("references") is null) { _explicitNullValueReferences = default!; _explicitNullProperties?.Remove("references"); }
+            else if (parseNode.GetChildNode("references") is { } nullNodeReferences && nullNodeReferences.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) References = null;
+            if (parseNode.GetChildNode("struct") is null) { _explicitNullValueStruct = default!; _explicitNullProperties?.Remove("struct"); }
+            else if (parseNode.GetChildNode("struct") is { } nullNodeStruct && nullNodeStruct.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Struct = null;
+            if (parseNode.GetChildNode("webhook_url") is null) { _explicitNullValueWebhookUrl = default!; _explicitNullProperties?.Remove("webhook_url"); }
+            else if (parseNode.GetChildNode("webhook_url") is { } nullNodeWebhookUrl && nullNodeWebhookUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookUrl = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -31,64 +38,64 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Lead or record to evaluate against the qualification criteria.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestDataProperty? Data { get => _explicitNullValueData; set { _explicitNullValueData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data"); else _explicitNullProperties?.Remove("data"); } }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestDataProperty? Data { get => _explicitNullValueData; set { _explicitNullValueData = value; AdditionalData?.Remove("data"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data"); else _explicitNullProperties?.Remove("data"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestDataProperty? _explicitNullValueData = default!;
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestDataProperty Data { get => _explicitNullValueData; set { _explicitNullValueData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data"); else _explicitNullProperties?.Remove("data"); } }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestDataProperty Data { get => _explicitNullValueData; set { _explicitNullValueData = value; AdditionalData?.Remove("data"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data"); else _explicitNullProperties?.Remove("data"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestDataProperty _explicitNullValueData = default!;
 #endif
         /// <summary>Async endpoints only: a client-generated idempotency key for the dispatch. Reusing the same key for the same organization returns the existing job instead of starting and billing a duplicate.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DispatchId { get => _explicitNullValueDispatchId; set { _explicitNullValueDispatchId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dispatch_id"); else _explicitNullProperties?.Remove("dispatch_id"); } }
+        public string? DispatchId { get => _explicitNullValueDispatchId; set { _explicitNullValueDispatchId = value; AdditionalData?.Remove("dispatch_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dispatch_id"); else _explicitNullProperties?.Remove("dispatch_id"); } }
         private string? _explicitNullValueDispatchId = default!;
 #nullable restore
 #else
-        public string DispatchId { get => _explicitNullValueDispatchId; set { _explicitNullValueDispatchId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dispatch_id"); else _explicitNullProperties?.Remove("dispatch_id"); } }
+        public string DispatchId { get => _explicitNullValueDispatchId; set { _explicitNullValueDispatchId = value; AdditionalData?.Remove("dispatch_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dispatch_id"); else _explicitNullProperties?.Remove("dispatch_id"); } }
         private string _explicitNullValueDispatchId = default!;
 #endif
         /// <summary>Maximum tool calls the agent may make per evaluation.</summary>
-        public int? MaxToolCalls { get => _explicitNullValueMaxToolCalls; set { _explicitNullValueMaxToolCalls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_tool_calls"); else _explicitNullProperties?.Remove("max_tool_calls"); } }
+        public int? MaxToolCalls { get => _explicitNullValueMaxToolCalls; set { _explicitNullValueMaxToolCalls = value; AdditionalData?.Remove("max_tool_calls"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_tool_calls"); else _explicitNullProperties?.Remove("max_tool_calls"); } }
         private int? _explicitNullValueMaxToolCalls = default!;
         /// <summary>List of criteria the agent will score the data against.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.QualificationCriteria>? QualificationCriteria { get => _explicitNullValueQualificationCriteria; set { _explicitNullValueQualificationCriteria = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("qualification_criteria"); else _explicitNullProperties?.Remove("qualification_criteria"); } }
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.QualificationCriteria>? QualificationCriteria { get => _explicitNullValueQualificationCriteria; set { _explicitNullValueQualificationCriteria = value; AdditionalData?.Remove("qualification_criteria"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("qualification_criteria"); else _explicitNullProperties?.Remove("qualification_criteria"); } }
         private List<global::Soenneker.Sixtyfour.OpenApiClient.Models.QualificationCriteria>? _explicitNullValueQualificationCriteria = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.QualificationCriteria> QualificationCriteria { get => _explicitNullValueQualificationCriteria; set { _explicitNullValueQualificationCriteria = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("qualification_criteria"); else _explicitNullProperties?.Remove("qualification_criteria"); } }
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.QualificationCriteria> QualificationCriteria { get => _explicitNullValueQualificationCriteria; set { _explicitNullValueQualificationCriteria = value; AdditionalData?.Remove("qualification_criteria"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("qualification_criteria"); else _explicitNullProperties?.Remove("qualification_criteria"); } }
         private List<global::Soenneker.Sixtyfour.OpenApiClient.Models.QualificationCriteria> _explicitNullValueQualificationCriteria = default!;
 #endif
         /// <summary>Optional reference URLs the agent may use as evidence.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.QaReference>? References { get => _explicitNullValueReferences; set { _explicitNullValueReferences = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("references"); else _explicitNullProperties?.Remove("references"); } }
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.QaReference>? References { get => _explicitNullValueReferences; set { _explicitNullValueReferences = value; AdditionalData?.Remove("references"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("references"); else _explicitNullProperties?.Remove("references"); } }
         private List<global::Soenneker.Sixtyfour.OpenApiClient.Models.QaReference>? _explicitNullValueReferences = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.QaReference> References { get => _explicitNullValueReferences; set { _explicitNullValueReferences = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("references"); else _explicitNullProperties?.Remove("references"); } }
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.QaReference> References { get => _explicitNullValueReferences; set { _explicitNullValueReferences = value; AdditionalData?.Remove("references"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("references"); else _explicitNullProperties?.Remove("references"); } }
         private List<global::Soenneker.Sixtyfour.OpenApiClient.Models.QaReference> _explicitNullValueReferences = default!;
 #endif
         /// <summary>Mapping of extra output fields and their descriptions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestStructAnyOf1? Struct { get => _explicitNullValueStruct; set { _explicitNullValueStruct = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("struct"); else _explicitNullProperties?.Remove("struct"); } }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestStructAnyOf1? Struct { get => _explicitNullValueStruct; set { _explicitNullValueStruct = value; AdditionalData?.Remove("struct"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("struct"); else _explicitNullProperties?.Remove("struct"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestStructAnyOf1? _explicitNullValueStruct = default!;
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestStructAnyOf1 Struct { get => _explicitNullValueStruct; set { _explicitNullValueStruct = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("struct"); else _explicitNullProperties?.Remove("struct"); } }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestStructAnyOf1 Struct { get => _explicitNullValueStruct; set { _explicitNullValueStruct = value; AdditionalData?.Remove("struct"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("struct"); else _explicitNullProperties?.Remove("struct"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestStructAnyOf1 _explicitNullValueStruct = default!;
 #endif
         /// <summary>HTTPS URL that receives the result payload when the async job completes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WebhookUrl { get => _explicitNullValueWebhookUrl; set { _explicitNullValueWebhookUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url"); else _explicitNullProperties?.Remove("webhook_url"); } }
+        public string? WebhookUrl { get => _explicitNullValueWebhookUrl; set { _explicitNullValueWebhookUrl = value; AdditionalData?.Remove("webhook_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url"); else _explicitNullProperties?.Remove("webhook_url"); } }
         private string? _explicitNullValueWebhookUrl = default!;
 #nullable restore
 #else
-        public string WebhookUrl { get => _explicitNullValueWebhookUrl; set { _explicitNullValueWebhookUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url"); else _explicitNullProperties?.Remove("webhook_url"); } }
+        public string WebhookUrl { get => _explicitNullValueWebhookUrl; set { _explicitNullValueWebhookUrl = value; AdditionalData?.Remove("webhook_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url"); else _explicitNullProperties?.Remove("webhook_url"); } }
         private string _explicitNullValueWebhookUrl = default!;
 #endif
         /// <summary>

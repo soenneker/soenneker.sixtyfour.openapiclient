@@ -17,79 +17,86 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("confidence_score") is { } nullNodeConfidenceScore && nullNodeConfidenceScore.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConfidenceScore = null;
-            if (parseNode.GetChildNode("field_confidence") is { } nullNodeFieldConfidence && nullNodeFieldConfidence.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FieldConfidence = null;
-            if (parseNode.GetChildNode("findings") is { } nullNodeFindings && nullNodeFindings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Findings = null;
-            if (parseNode.GetChildNode("investigation_id") is { } nullNodeInvestigationId && nullNodeInvestigationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InvestigationId = null;
-            if (parseNode.GetChildNode("notes") is { } nullNodeNotes && nullNodeNotes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Notes = null;
-            if (parseNode.GetChildNode("references") is { } nullNodeReferences && nullNodeReferences.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) References = null;
-            if (parseNode.GetChildNode("structured_data") is { } nullNodeStructuredData && nullNodeStructuredData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StructuredData = null;
+            if (parseNode.GetChildNode("confidence_score") is null) { _explicitNullValueConfidenceScore = default!; _explicitNullProperties?.Remove("confidence_score"); }
+            else if (parseNode.GetChildNode("confidence_score") is { } nullNodeConfidenceScore && nullNodeConfidenceScore.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConfidenceScore = null;
+            if (parseNode.GetChildNode("field_confidence") is null) { _explicitNullValueFieldConfidence = default!; _explicitNullProperties?.Remove("field_confidence"); }
+            else if (parseNode.GetChildNode("field_confidence") is { } nullNodeFieldConfidence && nullNodeFieldConfidence.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FieldConfidence = null;
+            if (parseNode.GetChildNode("findings") is null) { _explicitNullValueFindings = default!; _explicitNullProperties?.Remove("findings"); }
+            else if (parseNode.GetChildNode("findings") is { } nullNodeFindings && nullNodeFindings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Findings = null;
+            if (parseNode.GetChildNode("investigation_id") is null) { _explicitNullValueInvestigationId = default!; _explicitNullProperties?.Remove("investigation_id"); }
+            else if (parseNode.GetChildNode("investigation_id") is { } nullNodeInvestigationId && nullNodeInvestigationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InvestigationId = null;
+            if (parseNode.GetChildNode("notes") is null) { _explicitNullValueNotes = default!; _explicitNullProperties?.Remove("notes"); }
+            else if (parseNode.GetChildNode("notes") is { } nullNodeNotes && nullNodeNotes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Notes = null;
+            if (parseNode.GetChildNode("references") is null) { _explicitNullValueReferences = default!; _explicitNullProperties?.Remove("references"); }
+            else if (parseNode.GetChildNode("references") is { } nullNodeReferences && nullNodeReferences.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) References = null;
+            if (parseNode.GetChildNode("structured_data") is null) { _explicitNullValueStructuredData = default!; _explicitNullProperties?.Remove("structured_data"); }
+            else if (parseNode.GetChildNode("structured_data") is { } nullNodeStructuredData && nullNodeStructuredData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StructuredData = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Overall confidence score for the enrichment result.</summary>
-        public double? ConfidenceScore { get => _explicitNullValueConfidenceScore; set { _explicitNullValueConfidenceScore = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("confidence_score"); else _explicitNullProperties?.Remove("confidence_score"); } }
+        public double? ConfidenceScore { get => _explicitNullValueConfidenceScore; set { _explicitNullValueConfidenceScore = value; AdditionalData?.Remove("confidence_score"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("confidence_score"); else _explicitNullProperties?.Remove("confidence_score"); } }
         private double? _explicitNullValueConfidenceScore = default!;
         /// <summary>Per requested field, nested like the request: its confidence (0-100), justification and sources. xHigh also names the research graph nodes the value rests on.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultFieldConfidence? FieldConfidence { get => _explicitNullValueFieldConfidence; set { _explicitNullValueFieldConfidence = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field_confidence"); else _explicitNullProperties?.Remove("field_confidence"); } }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultFieldConfidence? FieldConfidence { get => _explicitNullValueFieldConfidence; set { _explicitNullValueFieldConfidence = value; AdditionalData?.Remove("field_confidence"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field_confidence"); else _explicitNullProperties?.Remove("field_confidence"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultFieldConfidence? _explicitNullValueFieldConfidence = default!;
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultFieldConfidence FieldConfidence { get => _explicitNullValueFieldConfidence; set { _explicitNullValueFieldConfidence = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field_confidence"); else _explicitNullProperties?.Remove("field_confidence"); } }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultFieldConfidence FieldConfidence { get => _explicitNullValueFieldConfidence; set { _explicitNullValueFieldConfidence = value; AdditionalData?.Remove("field_confidence"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field_confidence"); else _explicitNullProperties?.Remove("field_confidence"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultFieldConfidence _explicitNullValueFieldConfidence = default!;
 #endif
         /// <summary>Optional supporting findings produced by the enrichment agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Findings { get => _explicitNullValueFindings; set { _explicitNullValueFindings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("findings"); else _explicitNullProperties?.Remove("findings"); } }
+        public UntypedNode? Findings { get => _explicitNullValueFindings; set { _explicitNullValueFindings = value; AdditionalData?.Remove("findings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("findings"); else _explicitNullProperties?.Remove("findings"); } }
         private UntypedNode? _explicitNullValueFindings = default!;
 #nullable restore
 #else
-        public UntypedNode Findings { get => _explicitNullValueFindings; set { _explicitNullValueFindings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("findings"); else _explicitNullProperties?.Remove("findings"); } }
+        public UntypedNode Findings { get => _explicitNullValueFindings; set { _explicitNullValueFindings = value; AdditionalData?.Remove("findings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("findings"); else _explicitNullProperties?.Remove("findings"); } }
         private UntypedNode _explicitNullValueFindings = default!;
 #endif
         /// <summary>Deprecated compatibility field. Use the response envelope&apos;s `investigation.id`.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? InvestigationId { get => _explicitNullValueInvestigationId; set { _explicitNullValueInvestigationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("investigation_id"); else _explicitNullProperties?.Remove("investigation_id"); } }
+        public string? InvestigationId { get => _explicitNullValueInvestigationId; set { _explicitNullValueInvestigationId = value; AdditionalData?.Remove("investigation_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("investigation_id"); else _explicitNullProperties?.Remove("investigation_id"); } }
         private string? _explicitNullValueInvestigationId = default!;
 #nullable restore
 #else
-        public string InvestigationId { get => _explicitNullValueInvestigationId; set { _explicitNullValueInvestigationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("investigation_id"); else _explicitNullProperties?.Remove("investigation_id"); } }
+        public string InvestigationId { get => _explicitNullValueInvestigationId; set { _explicitNullValueInvestigationId = value; AdditionalData?.Remove("investigation_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("investigation_id"); else _explicitNullProperties?.Remove("investigation_id"); } }
         private string _explicitNullValueInvestigationId = default!;
 #endif
         /// <summary>Human-readable notes about the enrichment result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Notes { get => _explicitNullValueNotes; set { _explicitNullValueNotes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notes"); else _explicitNullProperties?.Remove("notes"); } }
+        public string? Notes { get => _explicitNullValueNotes; set { _explicitNullValueNotes = value; AdditionalData?.Remove("notes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notes"); else _explicitNullProperties?.Remove("notes"); } }
         private string? _explicitNullValueNotes = default!;
 #nullable restore
 #else
-        public string Notes { get => _explicitNullValueNotes; set { _explicitNullValueNotes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notes"); else _explicitNullProperties?.Remove("notes"); } }
+        public string Notes { get => _explicitNullValueNotes; set { _explicitNullValueNotes = value; AdditionalData?.Remove("notes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notes"); else _explicitNullProperties?.Remove("notes"); } }
         private string _explicitNullValueNotes = default!;
 #endif
         /// <summary>Source references used to produce the result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultReferences? References { get => _explicitNullValueReferences; set { _explicitNullValueReferences = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("references"); else _explicitNullProperties?.Remove("references"); } }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultReferences? References { get => _explicitNullValueReferences; set { _explicitNullValueReferences = value; AdditionalData?.Remove("references"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("references"); else _explicitNullProperties?.Remove("references"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultReferences? _explicitNullValueReferences = default!;
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultReferences References { get => _explicitNullValueReferences; set { _explicitNullValueReferences = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("references"); else _explicitNullProperties?.Remove("references"); } }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultReferences References { get => _explicitNullValueReferences; set { _explicitNullValueReferences = value; AdditionalData?.Remove("references"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("references"); else _explicitNullProperties?.Remove("references"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultReferences _explicitNullValueReferences = default!;
 #endif
         /// <summary>Requested enrichment fields and extracted values.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultStructuredData? StructuredData { get => _explicitNullValueStructuredData; set { _explicitNullValueStructuredData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("structured_data"); else _explicitNullProperties?.Remove("structured_data"); } }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultStructuredData? StructuredData { get => _explicitNullValueStructuredData; set { _explicitNullValueStructuredData = value; AdditionalData?.Remove("structured_data"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("structured_data"); else _explicitNullProperties?.Remove("structured_data"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultStructuredData? _explicitNullValueStructuredData = default!;
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultStructuredData StructuredData { get => _explicitNullValueStructuredData; set { _explicitNullValueStructuredData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("structured_data"); else _explicitNullProperties?.Remove("structured_data"); } }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultStructuredData StructuredData { get => _explicitNullValueStructuredData; set { _explicitNullValueStructuredData = value; AdditionalData?.Remove("structured_data"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("structured_data"); else _explicitNullProperties?.Remove("structured_data"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultStructuredData _explicitNullValueStructuredData = default!;
 #endif
         /// <summary>

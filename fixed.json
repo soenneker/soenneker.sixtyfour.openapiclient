@@ -27156,9 +27156,6 @@
             "type": "string"
           },
           {
-            "type": "integer"
-          },
-          {
             "type": "number"
           },
           {
@@ -27332,9 +27329,6 @@
         "title": "Workflow Definition",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/WorkflowGraph"
-          },
-          {
             "type": "array",
             "items": {
               "type": "object"
@@ -27351,12 +27345,6 @@
       },
       "WorkflowRunResponseBlocks": {
         "title": "Blocks",
-        "anyOf": [
-          {},
-          {
-            "type": "null"
-          }
-        ],
         "description": "Per-block detail; usually null in list responses."
       },
       "ValidationErrorLocItem": {
@@ -27370,15 +27358,8 @@
         ]
       },
       "ValidationErrorInput": {
-        "anyOf": [
-          {
-            "description": "The offending input value (any type, may be null).",
-            "example": null
-          },
-          {
-            "type": "null"
-          }
-        ]
+        "description": "The offending input value (any type, may be null).",
+        "example": null
       },
       "AddBlockRequestSpecs": {
         "title": "Specs",
@@ -31975,15 +31956,8 @@
         }
       },
       "ResponseListTestEventsWebhooksTestEventsGet": {
-        "title": "Response List Test Events Webhooks Test Events Get",
-        "anyOf": [
-          {
-            "$ref": "#/components/schemas/TestEventCatalog"
-          },
-          {
-            "type": "object"
-          }
-        ]
+        "type": "object",
+        "title": "Response List Test Events Webhooks Test Events Get"
       },
       "ListTestEventsWebhooksTestEventsGet400Response": {
         "type": "object",
@@ -35656,13 +35630,13 @@
         "description": "Per requested field, nested like the request: its confidence (0-100), justification and sources. xHigh also names the research graph nodes the value rests on."
       },
       "RunningStatus": {
-        "const": null,
         "title": "Status",
         "enum": [
           "RUNNING"
         ],
         "type": "string",
         "description": "Initial job status.",
+        "x-client-original-const": "RUNNING",
         "x-ms-enum": {
           "name": "RunningStatus",
           "modelAsString": false,
@@ -35769,13 +35743,13 @@
         }
       },
       "CompanyAsyncJobStartResponseStatus": {
-        "const": null,
         "title": "Status",
         "enum": [
           "RUNNING"
         ],
         "type": "string",
         "description": "Initial job status.",
+        "x-client-original-const": "RUNNING",
         "x-ms-enum": {
           "name": "CompanyAsyncJobStartResponseStatus",
           "modelAsString": false,
@@ -36170,12 +36144,12 @@
         }
       },
       "EntityIdsType": {
-        "const": null,
         "title": "Type",
         "enum": [
           "entity_ids"
         ],
         "type": "string",
+        "x-client-original-const": "entity_ids",
         "x-ms-enum": {
           "name": "EntityIdsType",
           "modelAsString": false,
@@ -36226,13 +36200,13 @@
         }
       },
       "LeadAsyncJobStartResponseStatus": {
-        "const": null,
         "title": "Status",
         "enum": [
           "RUNNING"
         ],
         "type": "string",
         "description": "Initial job status.",
+        "x-client-original-const": "RUNNING",
         "x-ms-enum": {
           "name": "LeadAsyncJobStartResponseStatus",
           "modelAsString": false,
@@ -36414,12 +36388,12 @@
         }
       },
       "ResourceHandleType": {
-        "const": null,
         "title": "Type",
         "enum": [
           "resource_handle"
         ],
         "type": "string",
+        "x-client-original-const": "resource_handle",
         "x-ms-enum": {
           "name": "ResourceHandleType",
           "modelAsString": false,
@@ -36594,12 +36568,12 @@
         }
       },
       "SearchIdType": {
-        "const": null,
         "title": "Type",
         "enum": [
           "search_id"
         ],
         "type": "string",
+        "x-client-original-const": "search_id",
         "x-ms-enum": {
           "name": "SearchIdType",
           "modelAsString": false,

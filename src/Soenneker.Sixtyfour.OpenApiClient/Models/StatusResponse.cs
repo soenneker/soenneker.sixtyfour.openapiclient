@@ -17,23 +17,25 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("connected") is { } nullNodeConnected && nullNodeConnected.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Connected = null;
-            if (parseNode.GetChildNode("google_sub") is { } nullNodeGoogleSub && nullNodeGoogleSub.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GoogleSub = null;
+            if (parseNode.GetChildNode("connected") is null) { _explicitNullValueConnected = default!; _explicitNullProperties?.Remove("connected"); }
+            else if (parseNode.GetChildNode("connected") is { } nullNodeConnected && nullNodeConnected.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Connected = null;
+            if (parseNode.GetChildNode("google_sub") is null) { _explicitNullValueGoogleSub = default!; _explicitNullProperties?.Remove("google_sub"); }
+            else if (parseNode.GetChildNode("google_sub") is { } nullNodeGoogleSub && nullNodeGoogleSub.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GoogleSub = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The connected property</summary>
-        public bool? Connected { get => _explicitNullValueConnected; set { _explicitNullValueConnected = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connected"); else _explicitNullProperties?.Remove("connected"); } }
+        public bool? Connected { get => _explicitNullValueConnected; set { _explicitNullValueConnected = value; AdditionalData?.Remove("connected"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connected"); else _explicitNullProperties?.Remove("connected"); } }
         private bool? _explicitNullValueConnected = default!;
         /// <summary>The google_sub property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GoogleSub { get => _explicitNullValueGoogleSub; set { _explicitNullValueGoogleSub = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("google_sub"); else _explicitNullProperties?.Remove("google_sub"); } }
+        public string? GoogleSub { get => _explicitNullValueGoogleSub; set { _explicitNullValueGoogleSub = value; AdditionalData?.Remove("google_sub"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("google_sub"); else _explicitNullProperties?.Remove("google_sub"); } }
         private string? _explicitNullValueGoogleSub = default!;
 #nullable restore
 #else
-        public string GoogleSub { get => _explicitNullValueGoogleSub; set { _explicitNullValueGoogleSub = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("google_sub"); else _explicitNullProperties?.Remove("google_sub"); } }
+        public string GoogleSub { get => _explicitNullValueGoogleSub; set { _explicitNullValueGoogleSub = value; AdditionalData?.Remove("google_sub"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("google_sub"); else _explicitNullProperties?.Remove("google_sub"); } }
         private string _explicitNullValueGoogleSub = default!;
 #endif
         /// <summary>

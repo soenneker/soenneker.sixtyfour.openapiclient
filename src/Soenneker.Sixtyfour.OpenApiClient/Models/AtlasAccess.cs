@@ -17,8 +17,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("engines") is { } nullNodeEngines && nullNodeEngines.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Engines = null;
-            if (parseNode.GetChildNode("has_atlas") is { } nullNodeHasAtlas && nullNodeHasAtlas.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasAtlas = null;
+            if (parseNode.GetChildNode("engines") is null) { _explicitNullValueEngines = default!; _explicitNullProperties?.Remove("engines"); }
+            else if (parseNode.GetChildNode("engines") is { } nullNodeEngines && nullNodeEngines.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Engines = null;
+            if (parseNode.GetChildNode("has_atlas") is null) { _explicitNullValueHasAtlas = default!; _explicitNullProperties?.Remove("has_atlas"); }
+            else if (parseNode.GetChildNode("has_atlas") is { } nullNodeHasAtlas && nullNodeHasAtlas.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasAtlas = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,15 +28,15 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>The engines your organization can run, the default first. Empty when `has_atlas` is false.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.AtlasEngineOption>? Engines { get => _explicitNullValueEngines; set { _explicitNullValueEngines = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("engines"); else _explicitNullProperties?.Remove("engines"); } }
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.AtlasEngineOption>? Engines { get => _explicitNullValueEngines; set { _explicitNullValueEngines = value; AdditionalData?.Remove("engines"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("engines"); else _explicitNullProperties?.Remove("engines"); } }
         private List<global::Soenneker.Sixtyfour.OpenApiClient.Models.AtlasEngineOption>? _explicitNullValueEngines = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.AtlasEngineOption> Engines { get => _explicitNullValueEngines; set { _explicitNullValueEngines = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("engines"); else _explicitNullProperties?.Remove("engines"); } }
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.AtlasEngineOption> Engines { get => _explicitNullValueEngines; set { _explicitNullValueEngines = value; AdditionalData?.Remove("engines"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("engines"); else _explicitNullProperties?.Remove("engines"); } }
         private List<global::Soenneker.Sixtyfour.OpenApiClient.Models.AtlasEngineOption> _explicitNullValueEngines = default!;
 #endif
         /// <summary>Whether your organization can use Atlas.</summary>
-        public bool? HasAtlas { get => _explicitNullValueHasAtlas; set { _explicitNullValueHasAtlas = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has_atlas"); else _explicitNullProperties?.Remove("has_atlas"); } }
+        public bool? HasAtlas { get => _explicitNullValueHasAtlas; set { _explicitNullValueHasAtlas = value; AdditionalData?.Remove("has_atlas"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has_atlas"); else _explicitNullProperties?.Remove("has_atlas"); } }
         private bool? _explicitNullValueHasAtlas = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.AtlasAccess"/> and sets the default values.
