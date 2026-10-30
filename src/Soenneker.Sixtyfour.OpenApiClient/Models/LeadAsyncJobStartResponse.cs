@@ -12,34 +12,52 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LeadAsyncJobStartResponse : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("investigation") is { } nullNodeInvestigation && nullNodeInvestigation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Investigation = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("task_id") is { } nullNodeTaskId && nullNodeTaskId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TaskId = null;
+            if (parseNode.GetChildNode("unrecognized_fields") is { } nullNodeUnrecognizedFields && nullNodeUnrecognizedFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UnrecognizedFields = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Atlas runs only: the investigation this job runs in.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationReference? Investigation { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationReference? Investigation { get => _explicitNullValueInvestigation; set { _explicitNullValueInvestigation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("investigation"); else _explicitNullProperties?.Remove("investigation"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationReference? _explicitNullValueInvestigation = default!;
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationReference Investigation { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationReference Investigation { get => _explicitNullValueInvestigation; set { _explicitNullValueInvestigation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("investigation"); else _explicitNullProperties?.Remove("investigation"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationReference _explicitNullValueInvestigation = default!;
 #endif
         /// <summary>Initial job status.</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.LeadAsyncJobStartResponseStatus? Status { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.LeadAsyncJobStartResponseStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.LeadAsyncJobStartResponseStatus? _explicitNullValueStatus = default!;
         /// <summary>Async job ID. Poll GET /job-status/{task_id} for status and results.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TaskId { get; set; }
+        public string? TaskId { get => _explicitNullValueTaskId; set { _explicitNullValueTaskId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("task_id"); else _explicitNullProperties?.Remove("task_id"); } }
+        private string? _explicitNullValueTaskId = default!;
 #nullable restore
 #else
-        public string TaskId { get; set; }
+        public string TaskId { get => _explicitNullValueTaskId; set { _explicitNullValueTaskId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("task_id"); else _explicitNullProperties?.Remove("task_id"); } }
+        private string _explicitNullValueTaskId = default!;
 #endif
         /// <summary>Request fields we do not recognize and therefore ignored, so an instruction that silently did nothing is visible rather than assumed to have applied. Absent when every field was understood.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? UnrecognizedFields { get; set; }
+        public List<string>? UnrecognizedFields { get => _explicitNullValueUnrecognizedFields; set { _explicitNullValueUnrecognizedFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unrecognized_fields"); else _explicitNullProperties?.Remove("unrecognized_fields"); } }
+        private List<string>? _explicitNullValueUnrecognizedFields = default!;
 #nullable restore
 #else
-        public List<string> UnrecognizedFields { get; set; }
+        public List<string> UnrecognizedFields { get => _explicitNullValueUnrecognizedFields; set { _explicitNullValueUnrecognizedFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unrecognized_fields"); else _explicitNullProperties?.Remove("unrecognized_fields"); } }
+        private List<string> _explicitNullValueUnrecognizedFields = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.LeadAsyncJobStartResponse"/> and sets the default values.
@@ -56,7 +74,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public static global::Soenneker.Sixtyfour.OpenApiClient.Models.LeadAsyncJobStartResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.LeadAsyncJobStartResponse();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Sixtyfour.OpenApiClient.Models.LeadAsyncJobStartResponse(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -83,6 +101,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.LeadAsyncJobStartResponseStatus>("status", Status);
             writer.WriteStringValue("task_id", TaskId);
             writer.WriteCollectionOfPrimitiveValues<string>("unrecognized_fields", UnrecognizedFields);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

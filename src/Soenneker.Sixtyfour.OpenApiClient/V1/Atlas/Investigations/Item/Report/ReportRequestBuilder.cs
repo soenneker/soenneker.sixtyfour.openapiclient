@@ -63,11 +63,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Report
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetReportStatusV1AtlasInvestigationsInvestigationIdReportGet500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetReportStatusV1AtlasInvestigationsInvestigationIdReportGet503Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ReportJob>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ReportJob.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Start durable report generation for the current workspace, or reuse the run already covering it.Idempotent: repeat calls return the same job; an up-to-date report returns `completed` with `cached: true`.Poll `GET …/report` (or the PDF endpoint) until `completed`, then download `…/report.pdf`.
+        /// Start durable report generation for the current workspace, or join the one already running.One report is written at a time: while research is still adding findings, a call during a build returns thatbuild, and one more starts from the newest findings when it ends. An up-to-date report returns `completed` with`cached: true`. Poll `GET …/report` (or the PDF endpoint) until `completed`, then download `…/report.pdf`.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ReportJob"/></returns>
         /// <param name="body">The request body</param>
@@ -98,6 +100,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Report
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateReportV1AtlasInvestigationsInvestigationIdReportPost500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateReportV1AtlasInvestigationsInvestigationIdReportPost503Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ReportJob>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ReportJob.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -121,7 +125,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Report
             return requestInfo;
         }
         /// <summary>
-        /// Start durable report generation for the current workspace, or reuse the run already covering it.Idempotent: repeat calls return the same job; an up-to-date report returns `completed` with `cached: true`.Poll `GET …/report` (or the PDF endpoint) until `completed`, then download `…/report.pdf`.
+        /// Start durable report generation for the current workspace, or join the one already running.One report is written at a time: while research is still adding findings, a call during a build returns thatbuild, and one more starts from the newest findings when it ends. An up-to-date report returns `completed` with`cached: true`. Poll `GET …/report` (or the PDF endpoint) until `completed`, then download `…/report.pdf`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -63,6 +63,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Linkedin.Fields
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorValidationErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.LinkedinMonitorFieldsMonitorsLinkedinFieldsGet500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.LinkedinMonitorFieldsMonitorsLinkedinFieldsGet503Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.LinkedInMonitorField>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.LinkedInMonitorField.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();

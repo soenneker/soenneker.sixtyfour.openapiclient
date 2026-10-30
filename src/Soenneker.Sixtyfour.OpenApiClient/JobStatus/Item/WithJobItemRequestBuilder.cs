@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.JobStatus.Item
         {
         }
         /// <summary>
-        /// Poll an async job and retrieve results when complete. Authorized snapshots are cached for up to 10 seconds. Shares an organization polling budget of 300/minute with burst 15 with workflow live status. Credit and legacy cost fields are returned for either cost_units value.
+        /// Poll an async job and retrieve results when complete. Authorized snapshots are cached for up to 10 seconds. API-key and OAuth machine callers share an organization polling budget of 300/minute with burst 15 with workflow live status. Verified platform sessions bypass rate limits. Credit and legacy cost fields are returned for either cost_units value.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -69,11 +69,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.JobStatus.Item
                 { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet503Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200Response>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Poll an async job and retrieve results when complete. Authorized snapshots are cached for up to 10 seconds. Shares an organization polling budget of 300/minute with burst 15 with workflow live status. Credit and legacy cost fields are returned for either cost_units value.
+        /// Poll an async job and retrieve results when complete. Authorized snapshots are cached for up to 10 seconds. API-key and OAuth machine callers share an organization polling budget of 300/minute with burst 15 with workflow live status. Verified platform sessions bypass rate limits. Credit and legacy cost fields are returned for either cost_units value.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -101,7 +103,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.JobStatus.Item
             return new global::Soenneker.Sixtyfour.OpenApiClient.JobStatus.Item.WithJobItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Poll an async job and retrieve results when complete. Authorized snapshots are cached for up to 10 seconds. Shares an organization polling budget of 300/minute with burst 15 with workflow live status. Credit and legacy cost fields are returned for either cost_units value.
+        /// Poll an async job and retrieve results when complete. Authorized snapshots are cached for up to 10 seconds. API-key and OAuth machine callers share an organization polling budget of 300/minute with burst 15 with workflow live status. Verified platform sessions bypass rate limits. Credit and legacy cost fields are returned for either cost_units value.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithJobItemRequestBuilderGetQueryParameters 

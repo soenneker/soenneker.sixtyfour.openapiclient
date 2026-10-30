@@ -71,6 +71,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.FindPhoneBulkAsync
                 { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.FindPhoneBulkAsyncEndpointFindPhoneBulkAsyncPost429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.FindPhoneBulkAsyncEndpointFindPhoneBulkAsyncPost500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.FindPhoneBulkAsyncEndpointFindPhoneBulkAsyncPost503Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

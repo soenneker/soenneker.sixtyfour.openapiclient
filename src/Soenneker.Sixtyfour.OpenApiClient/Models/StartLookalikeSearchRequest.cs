@@ -12,34 +12,52 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class StartLookalikeSearchRequest : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("analysis_sample_size") is { } nullNodeAnalysisSampleSize && nullNodeAnalysisSampleSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AnalysisSampleSize = null;
+            if (parseNode.GetChildNode("csv_resource_handle_id") is { } nullNodeCsvResourceHandleId && nullNodeCsvResourceHandleId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CsvResourceHandleId = null;
+            if (parseNode.GetChildNode("guidance") is { } nullNodeGuidance && nullNodeGuidance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Guidance = null;
+            if (parseNode.GetChildNode("linkedin_urls") is { } nullNodeLinkedinUrls && nullNodeLinkedinUrls.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LinkedinUrls = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>How many representative resolved profiles to analyze.</summary>
-        public int? AnalysisSampleSize { get; set; }
+        public int? AnalysisSampleSize { get => _explicitNullValueAnalysisSampleSize; set { _explicitNullValueAnalysisSampleSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("analysis_sample_size"); else _explicitNullProperties?.Remove("analysis_sample_size"); } }
+        private int? _explicitNullValueAnalysisSampleSize = default!;
         /// <summary>Resource handle returned by POST /storage/csv/upload.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CsvResourceHandleId { get; set; }
+        public string? CsvResourceHandleId { get => _explicitNullValueCsvResourceHandleId; set { _explicitNullValueCsvResourceHandleId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("csv_resource_handle_id"); else _explicitNullProperties?.Remove("csv_resource_handle_id"); } }
+        private string? _explicitNullValueCsvResourceHandleId = default!;
 #nullable restore
 #else
-        public string CsvResourceHandleId { get; set; }
+        public string CsvResourceHandleId { get => _explicitNullValueCsvResourceHandleId; set { _explicitNullValueCsvResourceHandleId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("csv_resource_handle_id"); else _explicitNullProperties?.Remove("csv_resource_handle_id"); } }
+        private string _explicitNullValueCsvResourceHandleId = default!;
 #endif
         /// <summary>Optional natural-language guidance for cohort analysis.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Guidance { get; set; }
+        public string? Guidance { get => _explicitNullValueGuidance; set { _explicitNullValueGuidance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("guidance"); else _explicitNullProperties?.Remove("guidance"); } }
+        private string? _explicitNullValueGuidance = default!;
 #nullable restore
 #else
-        public string Guidance { get; set; }
+        public string Guidance { get => _explicitNullValueGuidance; set { _explicitNullValueGuidance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("guidance"); else _explicitNullProperties?.Remove("guidance"); } }
+        private string _explicitNullValueGuidance = default!;
 #endif
         /// <summary>LinkedIn profile URLs to seed from (max 1,000).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? LinkedinUrls { get; set; }
+        public List<string>? LinkedinUrls { get => _explicitNullValueLinkedinUrls; set { _explicitNullValueLinkedinUrls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("linkedin_urls"); else _explicitNullProperties?.Remove("linkedin_urls"); } }
+        private List<string>? _explicitNullValueLinkedinUrls = default!;
 #nullable restore
 #else
-        public List<string> LinkedinUrls { get; set; }
+        public List<string> LinkedinUrls { get => _explicitNullValueLinkedinUrls; set { _explicitNullValueLinkedinUrls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("linkedin_urls"); else _explicitNullProperties?.Remove("linkedin_urls"); } }
+        private List<string> _explicitNullValueLinkedinUrls = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartLookalikeSearchRequest"/> and sets the default values.
@@ -57,7 +75,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public static global::Soenneker.Sixtyfour.OpenApiClient.Models.StartLookalikeSearchRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.StartLookalikeSearchRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Sixtyfour.OpenApiClient.Models.StartLookalikeSearchRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -84,6 +102,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteStringValue("csv_resource_handle_id", CsvResourceHandleId);
             writer.WriteStringValue("guidance", Guidance);
             writer.WriteCollectionOfPrimitiveValues<string>("linkedin_urls", LinkedinUrls);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

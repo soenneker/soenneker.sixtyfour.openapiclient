@@ -81,6 +81,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.History.Item
                 { "502", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteSearchHistoryEndpointSearchHistorySearchIdDelete502Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteSearchHistoryEndpointSearchHistorySearchIdDelete503Response.CreateFromDiscriminatorValue },
                 { "504", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteSearchHistoryEndpointSearchHistorySearchIdDelete504Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseDeleteSearchHistoryEndpointSearchHistorySearchIdDeleteSchema>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseDeleteSearchHistoryEndpointSearchHistorySearchIdDeleteSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -126,6 +128,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.History.Item
                 { "502", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetSearchHistoryRowEndpointSearchHistorySearchIdGet502Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetSearchHistoryRowEndpointSearchHistorySearchIdGet503Response.CreateFromDiscriminatorValue },
                 { "504", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetSearchHistoryRowEndpointSearchHistorySearchIdGet504Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseGetSearchHistoryRowEndpointSearchHistorySearchIdGetSchema>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseGetSearchHistoryRowEndpointSearchHistorySearchIdGetSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

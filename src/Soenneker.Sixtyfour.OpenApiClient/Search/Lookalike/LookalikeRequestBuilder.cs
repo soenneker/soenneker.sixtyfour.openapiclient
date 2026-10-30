@@ -90,6 +90,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Lookalike
                 { "502", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartLookalikeSearchEndpointSearchLookalikePost502Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartLookalikeSearchEndpointSearchLookalikePost503Response.CreateFromDiscriminatorValue },
                 { "504", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartLookalikeSearchEndpointSearchLookalikePost504Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartLookalikeSearchResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.StartLookalikeSearchResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

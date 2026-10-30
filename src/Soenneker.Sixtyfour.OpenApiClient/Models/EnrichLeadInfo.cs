@@ -11,82 +11,128 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class EnrichLeadInfo : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("dispatch_id") is { } nullNodeDispatchId && nullNodeDispatchId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DispatchId = null;
+            if (parseNode.GetChildNode("exclusive_run") is { } nullNodeExclusiveRun && nullNodeExclusiveRun.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExclusiveRun = null;
+            if (parseNode.GetChildNode("field_confidence") is { } nullNodeFieldConfidence && nullNodeFieldConfidence.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FieldConfidence = null;
+            if (parseNode.GetChildNode("graph") is { } nullNodeGraph && nullNodeGraph.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Graph = null;
+            if (parseNode.GetChildNode("include_workspace") is { } nullNodeIncludeWorkspace && nullNodeIncludeWorkspace.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludeWorkspace = null;
+            if (parseNode.GetChildNode("investigation_id") is { } nullNodeInvestigationId && nullNodeInvestigationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InvestigationId = null;
+            if (parseNode.GetChildNode("investigation_name") is { } nullNodeInvestigationName && nullNodeInvestigationName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InvestigationName = null;
+            if (parseNode.GetChildNode("lead_info") is { } nullNodeLeadInfo && nullNodeLeadInfo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LeadInfo = null;
+            if (parseNode.GetChildNode("max_credits") is { } nullNodeMaxCredits && nullNodeMaxCredits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxCredits = null;
+            if (parseNode.GetChildNode("max_minutes") is { } nullNodeMaxMinutes && nullNodeMaxMinutes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxMinutes = null;
+            if (parseNode.GetChildNode("private") is { } nullNodePrivate && nullNodePrivate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Private = null;
+            if (parseNode.GetChildNode("relentless") is { } nullNodeRelentless && nullNodeRelentless.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Relentless = null;
+            if (parseNode.GetChildNode("research_plan") is { } nullNodeResearchPlan && nullNodeResearchPlan.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResearchPlan = null;
+            if (parseNode.GetChildNode("struct") is { } nullNodeStruct && nullNodeStruct.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Struct = null;
+            if (parseNode.GetChildNode("tier") is { } nullNodeTier && nullNodeTier.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tier = null;
+            if (parseNode.GetChildNode("webhook_url") is { } nullNodeWebhookUrl && nullNodeWebhookUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookUrl = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Async endpoints only: a client-generated idempotency key for the dispatch. Reusing the same key for the same organization returns the existing job instead of starting and billing a duplicate.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DispatchId { get; set; }
+        public string? DispatchId { get => _explicitNullValueDispatchId; set { _explicitNullValueDispatchId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dispatch_id"); else _explicitNullProperties?.Remove("dispatch_id"); } }
+        private string? _explicitNullValueDispatchId = default!;
 #nullable restore
 #else
-        public string DispatchId { get; set; }
+        public string DispatchId { get => _explicitNullValueDispatchId; set { _explicitNullValueDispatchId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dispatch_id"); else _explicitNullProperties?.Remove("dispatch_id"); } }
+        private string _explicitNullValueDispatchId = default!;
 #endif
         /// <summary>Atlas runs on an existing investigation only: refuse with 409 while that investigation already has a run starting or running, instead of starting and billing a second one.</summary>
-        public bool? ExclusiveRun { get; set; }
+        public bool? ExclusiveRun { get => _explicitNullValueExclusiveRun; set { _explicitNullValueExclusiveRun = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclusive_run"); else _explicitNullProperties?.Remove("exclusive_run"); } }
+        private bool? _explicitNullValueExclusiveRun = default!;
         /// <summary>If true, return each requested field&apos;s confidence (0-100), justification and source URLs, nested like the request.</summary>
-        public bool? FieldConfidence { get; set; }
+        public bool? FieldConfidence { get => _explicitNullValueFieldConfidence; set { _explicitNullValueFieldConfidence = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field_confidence"); else _explicitNullProperties?.Remove("field_confidence"); } }
+        private bool? _explicitNullValueFieldConfidence = default!;
         /// <summary>Only with tier &quot;scout&quot;: set true to run Scout as an Atlas run. The run is saved as an Atlas investigation you can open in the Sixtyfour app, export, and continue later with `investigation_id`; the async response returns it under `investigation`. It takes the Atlas run options (`max_credits`, `max_minutes`, `relentless`, `investigation_id`, `investigation_name`, `include_workspace`), and `struct` becomes optional. It is billed per unit of research instead of Scout&apos;s standard price: 50 credits a unit. It must be enabled for your organization, and true with any other tier is rejected. Omitted or false, Scout runs as usual.</summary>
-        public bool? Graph { get; set; }
+        public bool? Graph { get => _explicitNullValueGraph; set { _explicitNullValueGraph = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("graph"); else _explicitNullProperties?.Remove("graph"); } }
+        private bool? _explicitNullValueGraph = default!;
         /// <summary>For Atlas runs (xhigh, or scout with graph), include workspace files alongside structured output (default: true). Set false to omit them. Job status reads them from the investigation, so it shows the investigation&apos;s current workspace, including what a later run on it changed. Saved images appear as attachment records; requested image fields carry their /v1/media URL, and the investigation&apos;s /v1/atlas file API serves any attachment. Ignored by other tiers.</summary>
-        public bool? IncludeWorkspace { get; set; }
+        public bool? IncludeWorkspace { get => _explicitNullValueIncludeWorkspace; set { _explicitNullValueIncludeWorkspace = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_workspace"); else _explicitNullProperties?.Remove("include_workspace"); } }
+        private bool? _explicitNullValueIncludeWorkspace = default!;
         /// <summary>For Atlas runs (xhigh, or scout with graph), continue an existing investigation instead of creating one. The run reuses that investigation&apos;s graph and workspace, so a follow-up builds on the earlier research rather than starting over. Ignored by other tiers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? InvestigationId { get; set; }
+        public string? InvestigationId { get => _explicitNullValueInvestigationId; set { _explicitNullValueInvestigationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("investigation_id"); else _explicitNullProperties?.Remove("investigation_id"); } }
+        private string? _explicitNullValueInvestigationId = default!;
 #nullable restore
 #else
-        public string InvestigationId { get; set; }
+        public string InvestigationId { get => _explicitNullValueInvestigationId; set { _explicitNullValueInvestigationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("investigation_id"); else _explicitNullProperties?.Remove("investigation_id"); } }
+        private string _explicitNullValueInvestigationId = default!;
 #endif
         /// <summary>For Atlas runs, the title of a newly created investigation. Ignored when resuming via investigation_id; when unset the title is derived from lead_info.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? InvestigationName { get; set; }
+        public string? InvestigationName { get => _explicitNullValueInvestigationName; set { _explicitNullValueInvestigationName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("investigation_name"); else _explicitNullProperties?.Remove("investigation_name"); } }
+        private string? _explicitNullValueInvestigationName = default!;
 #nullable restore
 #else
-        public string InvestigationName { get; set; }
+        public string InvestigationName { get => _explicitNullValueInvestigationName; set { _explicitNullValueInvestigationName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("investigation_name"); else _explicitNullProperties?.Remove("investigation_name"); } }
+        private string _explicitNullValueInvestigationName = default!;
 #endif
         /// <summary>Single lead to process. Provide any combination of name, email, company, linkedin, etc.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoLeadInfoProperty? LeadInfo { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoLeadInfoProperty? LeadInfo { get => _explicitNullValueLeadInfo; set { _explicitNullValueLeadInfo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lead_info"); else _explicitNullProperties?.Remove("lead_info"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoLeadInfoProperty? _explicitNullValueLeadInfo = default!;
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoLeadInfoProperty LeadInfo { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoLeadInfoProperty LeadInfo { get => _explicitNullValueLeadInfo; set { _explicitNullValueLeadInfo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lead_info"); else _explicitNullProperties?.Remove("lead_info"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoLeadInfoProperty _explicitNullValueLeadInfo = default!;
 #endif
         /// <summary>For Atlas runs, how much research to buy, in credits: one unit of the tier price by default, up to 10 units. A unit is 250 credits on xhigh and 50 on scout with graph. Research scales with the credits bought, and the whole budget is used and charged unless the run stops early; see `relentless` and `max_minutes`.</summary>
-        public int? MaxCredits { get; set; }
+        public int? MaxCredits { get => _explicitNullValueMaxCredits; set { _explicitNullValueMaxCredits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_credits"); else _explicitNullProperties?.Remove("max_credits"); } }
+        private int? _explicitNullValueMaxCredits = default!;
         /// <summary>For Atlas runs, the longest the run may research, in minutes of working time: time spent waiting to retry after a temporary failure does not count. When it is reached the run writes up what it found and completes, and is charged for the research it used, rounded up to the next 50 credits, instead of the whole budget. Writing up can take a few minutes past the limit. Default: no limit.</summary>
-        public int? MaxMinutes { get; set; }
-        /// <summary>For Atlas runs (xhigh, or scout with graph) started on the async endpoint: make the new investigation visible only to you, not your team. With an API key, the run is private to the person who created the key. Your team must allow private runs. Rejected on other tiers, on the sync endpoint, and with `investigation_id`.</summary>
-        public bool? Private { get; set; }
+        public int? MaxMinutes { get => _explicitNullValueMaxMinutes; set { _explicitNullValueMaxMinutes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_minutes"); else _explicitNullProperties?.Remove("max_minutes"); } }
+        private int? _explicitNullValueMaxMinutes = default!;
+        /// <summary>Make the run visible only to you, not your team: its result, status and usage log. With an API key, the run is private to the person who created the key. Your team must allow private runs. Supported on every tier; Atlas runs (xhigh, or scout with graph) must use the async endpoint and can&apos;t combine it with `investigation_id`.</summary>
+        public bool? Private { get => _explicitNullValuePrivate; set { _explicitNullValuePrivate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("private"); else _explicitNullProperties?.Remove("private"); } }
+        private bool? _explicitNullValuePrivate = default!;
         /// <summary>For Atlas runs with `struct`: research until the budget runs out. By default a run may stop once every requested field is answered, and is then charged for the research it used (at least one unit).</summary>
-        public bool? Relentless { get; set; }
+        public bool? Relentless { get => _explicitNullValueRelentless; set { _explicitNullValueRelentless = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relentless"); else _explicitNullProperties?.Remove("relentless"); } }
+        private bool? _explicitNullValueRelentless = default!;
         /// <summary>Optional natural-language plan that guides the research agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ResearchPlan { get; set; }
+        public string? ResearchPlan { get => _explicitNullValueResearchPlan; set { _explicitNullValueResearchPlan = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("research_plan"); else _explicitNullProperties?.Remove("research_plan"); } }
+        private string? _explicitNullValueResearchPlan = default!;
 #nullable restore
 #else
-        public string ResearchPlan { get; set; }
+        public string ResearchPlan { get => _explicitNullValueResearchPlan; set { _explicitNullValueResearchPlan = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("research_plan"); else _explicitNullProperties?.Remove("research_plan"); } }
+        private string _explicitNullValueResearchPlan = default!;
 #endif
         /// <summary>Mapping of output field name to natural-language description of what to extract. A field that asks for an image (a headshot, a logo, a screenshot of a page) is returned as an image URL on api.sixtyfour.ai/v1/media, hosted by Sixtyfour; embed it directly. It works until the investigation that saved the image, or the organization, is permanently deleted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty? Struct { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty? Struct { get => _explicitNullValueStruct; set { _explicitNullValueStruct = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("struct"); else _explicitNullProperties?.Remove("struct"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty? _explicitNullValueStruct = default!;
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty Struct { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty Struct { get => _explicitNullValueStruct; set { _explicitNullValueStruct = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("struct"); else _explicitNullProperties?.Remove("struct"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty _explicitNullValueStruct = default!;
 #endif
         /// <summary>Quality and cost tier for the research agent.</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoTier? Tier { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoTier? Tier { get => _explicitNullValueTier; set { _explicitNullValueTier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tier"); else _explicitNullProperties?.Remove("tier"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoTier? _explicitNullValueTier = default!;
         /// <summary>HTTPS URL that receives the result payload when the async job completes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WebhookUrl { get; set; }
+        public string? WebhookUrl { get => _explicitNullValueWebhookUrl; set { _explicitNullValueWebhookUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url"); else _explicitNullProperties?.Remove("webhook_url"); } }
+        private string? _explicitNullValueWebhookUrl = default!;
 #nullable restore
 #else
-        public string WebhookUrl { get; set; }
+        public string WebhookUrl { get => _explicitNullValueWebhookUrl; set { _explicitNullValueWebhookUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url"); else _explicitNullProperties?.Remove("webhook_url"); } }
+        private string _explicitNullValueWebhookUrl = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo"/> and sets the default values.
@@ -106,7 +152,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public static global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfo(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -157,6 +203,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty>("struct", Struct);
             writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoTier>("tier", Tier);
             writer.WriteStringValue("webhook_url", WebhookUrl);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

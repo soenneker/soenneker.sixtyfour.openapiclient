@@ -50,11 +50,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.BulkIntelligence.People
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartPeopleBulkIntelligenceWorkflowBulkIntelligencePeoplePost503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.BulkIntelligenceStartedResponse?> PostAsync(MultipartBody body, Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.BulkIntelligence.People.PeopleRequestBuilder.PeopleRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.BulkIntelligenceStartedResponse?> PostAsync(global::Microsoft.Kiota.Abstractions.MultipartBody body, Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.BulkIntelligence.People.PeopleRequestBuilder.PeopleRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.BulkIntelligenceStartedResponse> PostAsync(MultipartBody body, Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.BulkIntelligence.People.PeopleRequestBuilder.PeopleRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.BulkIntelligenceStartedResponse> PostAsync(global::Microsoft.Kiota.Abstractions.MultipartBody body, Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.BulkIntelligence.People.PeopleRequestBuilder.PeopleRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -69,6 +69,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.BulkIntelligence.People
                 { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartPeopleBulkIntelligenceWorkflowBulkIntelligencePeoplePost429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartPeopleBulkIntelligenceWorkflowBulkIntelligencePeoplePost500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartPeopleBulkIntelligenceWorkflowBulkIntelligencePeoplePost503Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.BulkIntelligenceStartedResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.BulkIntelligenceStartedResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -80,11 +82,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.BulkIntelligence.People
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(MultipartBody body, Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.BulkIntelligence.People.PeopleRequestBuilder.PeopleRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Microsoft.Kiota.Abstractions.MultipartBody body, Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.BulkIntelligence.People.PeopleRequestBuilder.PeopleRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(MultipartBody body, Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.BulkIntelligence.People.PeopleRequestBuilder.PeopleRequestBuilderPostQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Microsoft.Kiota.Abstractions.MultipartBody body, Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.BulkIntelligence.People.PeopleRequestBuilder.PeopleRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

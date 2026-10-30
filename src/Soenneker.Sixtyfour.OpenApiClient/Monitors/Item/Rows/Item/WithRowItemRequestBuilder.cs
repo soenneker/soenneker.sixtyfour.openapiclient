@@ -69,6 +69,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Rows.Item
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorValidationErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetRowEndpointMonitorsMonitorIdRowsRowIdGet500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetRowEndpointMonitorsMonitorIdRowsRowIdGet503Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRowResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRowResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -104,6 +106,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Rows.Item
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorValidationErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.SetRowActiveEndpointMonitorsMonitorIdRowsRowIdPost500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.SetRowActiveEndpointMonitorsMonitorIdRowsRowIdPost503Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRowResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRowResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

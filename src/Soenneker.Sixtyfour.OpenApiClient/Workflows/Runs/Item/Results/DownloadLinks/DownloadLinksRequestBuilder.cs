@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Results.Download
         {
         }
         /// <summary>
-        /// List a workflow run&apos;s results with 15-minute signed download URLs.In a CSV, list and object cells are JSON text and booleans are `true` or `false`.
+        /// List signed result download links. API-key and OAuth machine callers share an organization budget of 5 requests/second with burst 15. Verified platform sessions bypass rate limits; resource export permissions still apply.
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -69,12 +69,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Results.Download
                 { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet503Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// List a workflow run&apos;s results with 15-minute signed download URLs.In a CSV, list and object cells are JSON text and booleans are `true` or `false`.
+        /// List signed result download links. API-key and OAuth machine callers share an organization budget of 5 requests/second with burst 15. Verified platform sessions bypass rate limits; resource export permissions still apply.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -102,7 +104,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Results.Download
             return new global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Results.DownloadLinks.DownloadLinksRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List a workflow run&apos;s results with 15-minute signed download URLs.In a CSV, list and object cells are JSON text and booleans are `true` or `false`.
+        /// List signed result download links. API-key and OAuth machine callers share an organization budget of 5 requests/second with burst 15. Verified platform sessions bypass rate limits; resource export permissions still apply.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class DownloadLinksRequestBuilderGetQueryParameters 

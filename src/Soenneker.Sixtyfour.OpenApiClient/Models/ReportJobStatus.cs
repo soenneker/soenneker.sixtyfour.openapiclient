@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
-    /// <summary>`completed` means the PDF is downloadable; `superseded` means the workspace changed and a newer job replaced this one.</summary>
+    /// <summary>`completed` means the PDF is downloadable; `superseded` means a revision replaced this job before it finished.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ReportJobStatus
     {

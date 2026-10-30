@@ -12,27 +12,42 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ResourceHandleSource : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("id_column") is { } nullNodeIdColumn && nullNodeIdColumn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdColumn = null;
+            if (parseNode.GetChildNode("resource_handle_id") is { } nullNodeResourceHandleId && nullNodeResourceHandleId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResourceHandleId = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>CSV column containing entity identifiers. People: LinkedIn public IDs or profile URLs. Companies: numeric company IDs, LinkedIn company URLs/slugs, or exact website domains. Auto-detected when omitted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IdColumn { get; set; }
+        public string? IdColumn { get => _explicitNullValueIdColumn; set { _explicitNullValueIdColumn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id_column"); else _explicitNullProperties?.Remove("id_column"); } }
+        private string? _explicitNullValueIdColumn = default!;
 #nullable restore
 #else
-        public string IdColumn { get; set; }
+        public string IdColumn { get => _explicitNullValueIdColumn; set { _explicitNullValueIdColumn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id_column"); else _explicitNullProperties?.Remove("id_column"); } }
+        private string _explicitNullValueIdColumn = default!;
 #endif
         /// <summary>The resource_handle_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ResourceHandleId { get; set; }
+        public string? ResourceHandleId { get => _explicitNullValueResourceHandleId; set { _explicitNullValueResourceHandleId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_handle_id"); else _explicitNullProperties?.Remove("resource_handle_id"); } }
+        private string? _explicitNullValueResourceHandleId = default!;
 #nullable restore
 #else
-        public string ResourceHandleId { get; set; }
+        public string ResourceHandleId { get => _explicitNullValueResourceHandleId; set { _explicitNullValueResourceHandleId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_handle_id"); else _explicitNullProperties?.Remove("resource_handle_id"); } }
+        private string _explicitNullValueResourceHandleId = default!;
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ResourceHandleType? Type { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ResourceHandleType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.ResourceHandleType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ResourceHandleSource"/> and sets the default values.
         /// </summary>
@@ -48,7 +63,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public static global::Soenneker.Sixtyfour.OpenApiClient.Models.ResourceHandleSource CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.ResourceHandleSource();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Sixtyfour.OpenApiClient.Models.ResourceHandleSource(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,6 +88,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteStringValue("id_column", IdColumn);
             writer.WriteStringValue("resource_handle_id", ResourceHandleId);
             writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResourceHandleType>("type", Type);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

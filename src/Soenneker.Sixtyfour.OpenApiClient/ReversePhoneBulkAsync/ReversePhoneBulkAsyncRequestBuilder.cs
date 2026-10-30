@@ -71,6 +71,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.ReversePhoneBulkAsync
                 { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkAsyncEndpointReversePhoneBulkAsyncPost429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkAsyncEndpointReversePhoneBulkAsyncPost500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkAsyncEndpointReversePhoneBulkAsyncPost503Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

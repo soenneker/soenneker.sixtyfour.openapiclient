@@ -76,6 +76,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListInvestigationsV1AtlasInvestigationsGet500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListInvestigationsV1AtlasInvestigationsGet503Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationList>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationList.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -115,6 +117,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations
                 { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationV1AtlasInvestigationsPost429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationV1AtlasInvestigationsPost500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationV1AtlasInvestigationsPost503Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunStarted>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.RunStarted.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

@@ -11,64 +11,97 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class EnrichCompanyInfo : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("field_confidence") is { } nullNodeFieldConfidence && nullNodeFieldConfidence.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FieldConfidence = null;
+            if (parseNode.GetChildNode("find_people") is { } nullNodeFindPeople && nullNodeFindPeople.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FindPeople = null;
+            if (parseNode.GetChildNode("full_org_chart") is { } nullNodeFullOrgChart && nullNodeFullOrgChart.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FullOrgChart = null;
+            if (parseNode.GetChildNode("lead_struct") is { } nullNodeLeadStruct && nullNodeLeadStruct.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LeadStruct = null;
+            if (parseNode.GetChildNode("people_focus_prompt") is { } nullNodePeopleFocusPrompt && nullNodePeopleFocusPrompt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PeopleFocusPrompt = null;
+            if (parseNode.GetChildNode("research_plan") is { } nullNodeResearchPlan && nullNodeResearchPlan.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResearchPlan = null;
+            if (parseNode.GetChildNode("struct") is { } nullNodeStruct && nullNodeStruct.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Struct = null;
+            if (parseNode.GetChildNode("target_company") is { } nullNodeTargetCompany && nullNodeTargetCompany.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetCompany = null;
+            if (parseNode.GetChildNode("tier") is { } nullNodeTier && nullNodeTier.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tier = null;
+            if (parseNode.GetChildNode("webhook_url") is { } nullNodeWebhookUrl && nullNodeWebhookUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookUrl = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>If true, return each requested field&apos;s confidence (0-100), justification and source URLs, nested like the request.</summary>
-        public bool? FieldConfidence { get; set; }
+        public bool? FieldConfidence { get => _explicitNullValueFieldConfidence; set { _explicitNullValueFieldConfidence = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field_confidence"); else _explicitNullProperties?.Remove("field_confidence"); } }
+        private bool? _explicitNullValueFieldConfidence = default!;
         /// <summary>If true, also discover key people at the company.</summary>
-        public bool? FindPeople { get; set; }
+        public bool? FindPeople { get => _explicitNullValueFindPeople; set { _explicitNullValueFindPeople = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("find_people"); else _explicitNullProperties?.Remove("find_people"); } }
+        private bool? _explicitNullValueFindPeople = default!;
         /// <summary>If true, return the full org chart instead of a focused list.</summary>
-        public bool? FullOrgChart { get; set; }
+        public bool? FullOrgChart { get => _explicitNullValueFullOrgChart; set { _explicitNullValueFullOrgChart = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("full_org_chart"); else _explicitNullProperties?.Remove("full_org_chart"); } }
+        private bool? _explicitNullValueFullOrgChart = default!;
         /// <summary>Output schema for each discovered person when find_people=true.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoLeadStructProperty? LeadStruct { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoLeadStructProperty? LeadStruct { get => _explicitNullValueLeadStruct; set { _explicitNullValueLeadStruct = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lead_struct"); else _explicitNullProperties?.Remove("lead_struct"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoLeadStructProperty? _explicitNullValueLeadStruct = default!;
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoLeadStructProperty LeadStruct { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoLeadStructProperty LeadStruct { get => _explicitNullValueLeadStruct; set { _explicitNullValueLeadStruct = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lead_struct"); else _explicitNullProperties?.Remove("lead_struct"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoLeadStructProperty _explicitNullValueLeadStruct = default!;
 #endif
         /// <summary>Natural-language description of which people to surface when find_people=true.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PeopleFocusPrompt { get; set; }
+        public string? PeopleFocusPrompt { get => _explicitNullValuePeopleFocusPrompt; set { _explicitNullValuePeopleFocusPrompt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("people_focus_prompt"); else _explicitNullProperties?.Remove("people_focus_prompt"); } }
+        private string? _explicitNullValuePeopleFocusPrompt = default!;
 #nullable restore
 #else
-        public string PeopleFocusPrompt { get; set; }
+        public string PeopleFocusPrompt { get => _explicitNullValuePeopleFocusPrompt; set { _explicitNullValuePeopleFocusPrompt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("people_focus_prompt"); else _explicitNullProperties?.Remove("people_focus_prompt"); } }
+        private string _explicitNullValuePeopleFocusPrompt = default!;
 #endif
         /// <summary>Optional natural-language plan that guides the research agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ResearchPlan { get; set; }
+        public string? ResearchPlan { get => _explicitNullValueResearchPlan; set { _explicitNullValueResearchPlan = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("research_plan"); else _explicitNullProperties?.Remove("research_plan"); } }
+        private string? _explicitNullValueResearchPlan = default!;
 #nullable restore
 #else
-        public string ResearchPlan { get; set; }
+        public string ResearchPlan { get => _explicitNullValueResearchPlan; set { _explicitNullValueResearchPlan = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("research_plan"); else _explicitNullProperties?.Remove("research_plan"); } }
+        private string _explicitNullValueResearchPlan = default!;
 #endif
         /// <summary>Mapping of output field name to natural-language description of what to extract. A field that asks for an image (a headshot, a logo, a screenshot of a page) is returned as an image URL on api.sixtyfour.ai/v1/media, hosted by Sixtyfour; embed it directly. It works until the investigation that saved the image, or the organization, is permanently deleted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoStructProperty? Struct { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoStructProperty? Struct { get => _explicitNullValueStruct; set { _explicitNullValueStruct = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("struct"); else _explicitNullProperties?.Remove("struct"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoStructProperty? _explicitNullValueStruct = default!;
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoStructProperty Struct { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoStructProperty Struct { get => _explicitNullValueStruct; set { _explicitNullValueStruct = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("struct"); else _explicitNullProperties?.Remove("struct"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoStructProperty _explicitNullValueStruct = default!;
 #endif
         /// <summary>Company identifiers (e.g. company_name, domain, linkedin).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoTargetCompanyProperty? TargetCompany { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoTargetCompanyProperty? TargetCompany { get => _explicitNullValueTargetCompany; set { _explicitNullValueTargetCompany = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_company"); else _explicitNullProperties?.Remove("target_company"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoTargetCompanyProperty? _explicitNullValueTargetCompany = default!;
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoTargetCompanyProperty TargetCompany { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoTargetCompanyProperty TargetCompany { get => _explicitNullValueTargetCompany; set { _explicitNullValueTargetCompany = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_company"); else _explicitNullProperties?.Remove("target_company"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoTargetCompanyProperty _explicitNullValueTargetCompany = default!;
 #endif
         /// <summary>Quality and cost tier for the research agent.</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoTier? Tier { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoTier? Tier { get => _explicitNullValueTier; set { _explicitNullValueTier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tier"); else _explicitNullProperties?.Remove("tier"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoTier? _explicitNullValueTier = default!;
         /// <summary>HTTPS URL that receives the result payload when the async job completes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WebhookUrl { get; set; }
+        public string? WebhookUrl { get => _explicitNullValueWebhookUrl; set { _explicitNullValueWebhookUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url"); else _explicitNullProperties?.Remove("webhook_url"); } }
+        private string? _explicitNullValueWebhookUrl = default!;
 #nullable restore
 #else
-        public string WebhookUrl { get; set; }
+        public string WebhookUrl { get => _explicitNullValueWebhookUrl; set { _explicitNullValueWebhookUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url"); else _explicitNullProperties?.Remove("webhook_url"); } }
+        private string _explicitNullValueWebhookUrl = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo"/> and sets the default values.
@@ -87,7 +120,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public static global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfo(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -126,6 +159,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoTargetCompanyProperty>("target_company", TargetCompany);
             writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoTier>("tier", Tier);
             writer.WriteStringValue("webhook_url", WebhookUrl);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

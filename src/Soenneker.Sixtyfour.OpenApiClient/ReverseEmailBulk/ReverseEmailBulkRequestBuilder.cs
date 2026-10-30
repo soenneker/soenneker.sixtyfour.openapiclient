@@ -71,6 +71,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.ReverseEmailBulk
                 { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailBulkEndpointReverseEmailBulkPost429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailBulkEndpointReverseEmailBulkPost500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseEmailBulkEndpointReverseEmailBulkPost503Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

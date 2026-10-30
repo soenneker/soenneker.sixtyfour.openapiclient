@@ -12,26 +12,41 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RunWorkflowBody : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("expected_revision") is { } nullNodeExpectedRevision && nullNodeExpectedRevision.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpectedRevision = null;
+            if (parseNode.GetChildNode("specs_override") is { } nullNodeSpecsOverride && nullNodeSpecsOverride.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpecsOverride = null;
+            if (parseNode.GetChildNode("webhook_payload") is { } nullNodeWebhookPayload && nullNodeWebhookPayload.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookPayload = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Run the acknowledged shared definition revision; refuse unfinished edits or a different revision.</summary>
-        public int? ExpectedRevision { get; set; }
+        public int? ExpectedRevision { get => _explicitNullValueExpectedRevision; set { _explicitNullValueExpectedRevision = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expected_revision"); else _explicitNullProperties?.Remove("expected_revision"); } }
+        private int? _explicitNullValueExpectedRevision = default!;
         /// <summary>Optional specs to override first block specs</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodySpecsOverrideProperty? SpecsOverride { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodySpecsOverrideProperty? SpecsOverride { get => _explicitNullValueSpecsOverride; set { _explicitNullValueSpecsOverride = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("specs_override"); else _explicitNullProperties?.Remove("specs_override"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodySpecsOverrideProperty? _explicitNullValueSpecsOverride = default!;
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodySpecsOverrideProperty SpecsOverride { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodySpecsOverrideProperty SpecsOverride { get => _explicitNullValueSpecsOverride; set { _explicitNullValueSpecsOverride = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("specs_override"); else _explicitNullProperties?.Remove("specs_override"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodySpecsOverrideProperty _explicitNullValueSpecsOverride = default!;
 #endif
         /// <summary>For API key auth only - can be a list or dict</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayload? WebhookPayload { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayload? WebhookPayload { get => _explicitNullValueWebhookPayload; set { _explicitNullValueWebhookPayload = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_payload"); else _explicitNullProperties?.Remove("webhook_payload"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayload? _explicitNullValueWebhookPayload = default!;
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayload WebhookPayload { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayload WebhookPayload { get => _explicitNullValueWebhookPayload; set { _explicitNullValueWebhookPayload = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_payload"); else _explicitNullProperties?.Remove("webhook_payload"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayload _explicitNullValueWebhookPayload = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBody"/> and sets the default values.
@@ -48,7 +63,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public static global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBody();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBody(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,6 +88,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteIntValue("expected_revision", ExpectedRevision);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodySpecsOverrideProperty>("specs_override", SpecsOverride);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayload>("webhook_payload", WebhookPayload);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.HistoryExport
         {
         }
         /// <summary>
-        /// Full CSVs in one ZIP. Omit timestamps for all snapshots in the date range.Bounds: 5,000 snapshots, 50 MiB CSV data, 100 MiB event data, 120 seconds.An oversized request returns 413 before any ZIP is sent; select fewer dates.All timestamps use UTC; start and end are inclusive.
+        /// API-key and OAuth callers share 300 requests/minute with burst 15. All callers share five concurrent archive builds per organization. Capacity refusals return 429 with Retry-After; unavailable capacity returns 503.
         /// </summary>
         /// <returns>A <see cref="UntypedNode"/></returns>
         /// <param name="body">The request body</param>
@@ -44,6 +44,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.HistoryExport
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorValidationErrorResponse">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost429Response">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,13 +64,16 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.HistoryExport
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost403Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorValidationErrorResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost503Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Full CSVs in one ZIP. Omit timestamps for all snapshots in the date range.Bounds: 5,000 snapshots, 50 MiB CSV data, 100 MiB event data, 120 seconds.An oversized request returns 413 before any ZIP is sent; select fewer dates.All timestamps use UTC; start and end are inclusive.
+        /// API-key and OAuth callers share 300 requests/minute with burst 15. All callers share five concurrent archive builds per organization. Capacity refusals return 429 with Retry-After; unavailable capacity returns 503.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -100,7 +104,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.HistoryExport
             return new global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.HistoryExport.HistoryExportRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Full CSVs in one ZIP. Omit timestamps for all snapshots in the date range.Bounds: 5,000 snapshots, 50 MiB CSV data, 100 MiB event data, 120 seconds.An oversized request returns 413 before any ZIP is sent; select fewer dates.All timestamps use UTC; start and end are inclusive.
+        /// API-key and OAuth callers share 300 requests/minute with burst 15. All callers share five concurrent archive builds per organization. Capacity refusals return 429 with Retry-After; unavailable capacity returns 503.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class HistoryExportRequestBuilderPostQueryParameters 

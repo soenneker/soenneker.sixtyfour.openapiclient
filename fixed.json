@@ -3524,7 +3524,7 @@
           "Enrichment"
         ],
         "summary": "Job Status",
-        "description": "Poll an async job and retrieve results when complete. Authorized snapshots are cached for up to 10 seconds. Shares an organization polling budget of 300/minute with burst 15 with workflow live status. Credit and legacy cost fields are returned for either cost_units value.",
+        "description": "Poll an async job and retrieve results when complete. Authorized snapshots are cached for up to 10 seconds. API-key and OAuth machine callers share an organization polling budget of 300/minute with burst 15 with workflow live status. Verified platform sessions bypass rate limits. Credit and legacy cost fields are returned for either cost_units value.",
         "operationId": "JobStatusJobStatusJobIdGet",
         "parameters": [
           {
@@ -3740,7 +3740,7 @@
             }
           },
           "503": {
-            "description": "Request capacity is temporarily unavailable. Status snapshots are cached for 10 seconds. Retry after Retry-After; do not restart the job.",
+            "description": "Request capacity is temporarily unavailable. Retry after Retry-After; do not restart the job.",
             "headers": {
               "Retry-After": {
                 "description": "Seconds before retrying",
@@ -3756,7 +3756,7 @@
                   "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet503Response"
                 },
                 "example": {
-                  "detail": "Request capacity is temporarily unavailable. Status snapshots are cached for 10 seconds. Retry after Retry-After; do not restart the job."
+                  "detail": "Request capacity is temporarily unavailable. Retry after Retry-After; do not restart the job."
                 }
               }
             }
@@ -3775,7 +3775,7 @@
             }
           },
           "429": {
-            "description": "300 requests per 60 second(s) per organization, with a burst of 15, shared across API servers. Status snapshots are cached for 10 seconds. Retry after Retry-After; do not restart the job.",
+            "description": "300 requests per 60 second(s) per organization, with a burst of 15, shared across API servers. Retry after Retry-After; do not restart the job.",
             "headers": {
               "Retry-After": {
                 "description": "Seconds before retrying",
@@ -3812,7 +3812,7 @@
                   "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet429Response"
                 },
                 "example": {
-                  "detail": "Rate limit exceeded: 300 requests per 60 second(s) per organization, with a burst of 15, shared across API servers. Status snapshots are cached for 10 seconds. Retry after Retry-After; do not restart the job."
+                  "detail": "Rate limit exceeded: 300 requests per 60 second(s) per organization, with a burst of 15, shared across API servers. Retry after Retry-After; do not restart the job."
                 }
               }
             }
@@ -4165,6 +4165,7 @@
             "description": "Optional idempotency key for retry-safe bulk submissions.",
             "schema": {
               "title": "Idempotency-Key",
+              "maxLength": 255,
               "type": [
                 "null",
                 "string"
@@ -4333,6 +4334,7 @@
             "description": "Optional idempotency key for retry-safe bulk submissions.",
             "schema": {
               "title": "Idempotency-Key",
+              "maxLength": 255,
               "type": [
                 "null",
                 "string"
@@ -4638,6 +4640,7 @@
             "required": true,
             "schema": {
               "title": "Workflow Id",
+              "maxLength": 200,
               "type": "string"
             }
           },
@@ -4783,6 +4786,7 @@
             "required": true,
             "schema": {
               "title": "Workflow Id",
+              "maxLength": 200,
               "type": "string"
             }
           },
@@ -4939,6 +4943,7 @@
             "required": true,
             "schema": {
               "title": "Workflow Id",
+              "maxLength": 200,
               "type": "string",
               "description": "Workflow ID to run"
             }
@@ -4965,6 +4970,7 @@
                 "array"
               ],
               "items": {
+                "maxLength": 200,
                 "type": "string"
               },
               "description": "Result formats to save. Repeat the parameter for multiple values, e.g. result_formats=csv\u0026result_formats=ndjson."
@@ -5156,7 +5162,7 @@
           "Workflow"
         ],
         "summary": "List Run Result Downloads",
-        "description": "List a workflow run\u0027s results with 15-minute signed download URLs.\n\nIn a CSV, list and object cells are JSON text and booleans are \u0060true\u0060 or \u0060false\u0060.",
+        "description": "List signed result download links. API-key and OAuth machine callers share an organization budget of 5 requests/second with burst 15. Verified platform sessions bypass rate limits; resource export permissions still apply.",
         "operationId": "ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet",
         "parameters": [
           {
@@ -5175,6 +5181,7 @@
             "description": "Result format: \u0027csv\u0027, \u0027json\u0027, or \u0027ndjson\u0027",
             "schema": {
               "title": "Format",
+              "maxLength": 200,
               "type": "string",
               "description": "Result format: \u0027csv\u0027, \u0027json\u0027, or \u0027ndjson\u0027",
               "default": "csv"
@@ -5374,6 +5381,7 @@
             "description": "Filter by status or use \u0027active\u0027 for queued\u002Brunning",
             "schema": {
               "title": "Status",
+              "maxLength": 200,
               "type": [
                 "null",
                 "string"
@@ -5387,6 +5395,7 @@
             "description": "Filter by specific workflow ID",
             "schema": {
               "title": "Workflow Id",
+              "maxLength": 200,
               "type": [
                 "null",
                 "string"
@@ -5547,6 +5556,7 @@
             "description": "Run job_id to cancel",
             "schema": {
               "title": "Job Id",
+              "maxLength": 200,
               "type": "string",
               "description": "Run job_id to cancel"
             }
@@ -5693,7 +5703,7 @@
           "Workflow"
         ],
         "summary": "Get Workflow Run (Live Status)",
-        "description": "Read authorized run status and progress. Snapshots are cached for up to 10 seconds. Shares an organization polling budget of 300/minute with burst 15 with job status. Resource access is checked on every request.",
+        "description": "Read authorized run status and progress. Resource access is checked on every request. API-key and OAuth machine callers share an organization polling budget of 300/minute with burst 15 with job status. Verified platform sessions bypass rate limits. Answers 503 with Retry-After when the status cannot be produced within 5 seconds.",
         "operationId": "GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet",
         "parameters": [
           {
@@ -5779,26 +5789,25 @@
             }
           },
           "500": {
-            "description": "Running-run progress cannot be reconstructed when its saved block graph is missing or its sources time out. Retry with backoff.",
+            "description": "Unexpected server error. Retry with backoff.",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet500Response"
                 },
                 "example": {
-                  "detail": "Failed to get live status: no block graph in Redis or the database for running run \u003Crun_id\u003E"
+                  "detail": "Internal server error"
                 }
               }
             }
           },
           "503": {
-            "description": "Request capacity is temporarily unavailable. Status snapshots are cached for 10 seconds. Retry after Retry-After; do not restart the job.",
+            "description": "The run\u0027s status could not be produced within 5 seconds, a running run\u0027s block graph is missing, or request capacity is temporarily unavailable. Nothing changed; retry after the \u0060Retry-After\u0060 header.",
             "headers": {
               "Retry-After": {
-                "description": "Seconds before retrying",
+                "description": "Seconds to wait before retrying.",
                 "schema": {
-                  "type": "string",
-                  "example": "15"
+                  "type": "integer"
                 }
               }
             },
@@ -5808,7 +5817,7 @@
                   "$ref": "#/components/schemas/GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet503Response"
                 },
                 "example": {
-                  "detail": "Request capacity is temporarily unavailable. Status snapshots are cached for 10 seconds. Retry after Retry-After; do not restart the job."
+                  "detail": "Live status is temporarily unavailable. Retry after the Retry-After interval."
                 }
               }
             }
@@ -5840,7 +5849,7 @@
             }
           },
           "429": {
-            "description": "300 requests per 60 second(s) per organization, with a burst of 15, shared across API servers. Status snapshots are cached for 10 seconds. Retry after Retry-After; do not restart the job.",
+            "description": "300 requests per 60 second(s) per organization, with a burst of 15, shared across API servers. Retry after Retry-After; do not restart the job.",
             "headers": {
               "Retry-After": {
                 "description": "Seconds before retrying",
@@ -5877,7 +5886,7 @@
                   "$ref": "#/components/schemas/GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet429Response"
                 },
                 "example": {
-                  "detail": "Rate limit exceeded: 300 requests per 60 second(s) per organization, with a burst of 15, shared across API servers. Status snapshots are cached for 10 seconds. Retry after Retry-After; do not restart the job."
+                  "detail": "Rate limit exceeded: 300 requests per 60 second(s) per organization, with a burst of 15, shared across API servers. Retry after Retry-After; do not restart the job."
                 }
               }
             }
@@ -7333,6 +7342,7 @@
             "required": true,
             "schema": {
               "title": "Resource Handle Id",
+              "maxLength": 200,
               "type": "string",
               "description": "Resource handle ID for the search result"
             }
@@ -7718,6 +7728,7 @@
             "description": "Search mode: \u0027company\u0027 or \u0027people\u0027.",
             "schema": {
               "title": "Mode",
+              "maxLength": 200,
               "type": "string",
               "description": "Search mode: \u0027company\u0027 or \u0027people\u0027.",
               "default": "company"
@@ -8546,6 +8557,7 @@
             "in": "query",
             "schema": {
               "title": "Query Text",
+              "maxLength": 10000,
               "type": [
                 "null",
                 "string"
@@ -8571,6 +8583,7 @@
             "in": "query",
             "schema": {
               "title": "Cursor",
+              "maxLength": 2048,
               "type": [
                 "null",
                 "string"
@@ -10201,7 +10214,7 @@
                 "monitor.run.completed"
               ],
               "title": "Type",
-              "maxLength": 100,
+              "maxLength": 200,
               "minLength": 1,
               "type": [
                 "null",
@@ -11145,6 +11158,7 @@
             "in": "query",
             "schema": {
               "title": "Workflow Id",
+              "maxLength": 200,
               "type": [
                 "null",
                 "string"
@@ -11731,7 +11745,7 @@
           "Monitors"
         ],
         "summary": "Create LinkedIn Monitor",
-        "description": "Watch one LinkedIn profile. First check establishes its values;\nsubsequent checks report exact changes to selected fields, without research.",
+        "description": "Watch one LinkedIn profile. First check establishes its values;\nsubsequent checks report exact changes to selected fields, without research.\nEach profile check with one or more changed fields costs 0.1 credits by default,\nsubject to organization pricing. Initial baselines and unchanged checks are free.\nInsufficient balance leaves the baseline unchanged and reports a failed check.",
         "operationId": "CreateLinkedinMonitorEndpointMonitorsLinkedinPost",
         "parameters": [
           {
@@ -11860,7 +11874,7 @@
             "description": "Optional. Omitted, a key is derived from the settings and the file\u0027s contents, so sending the same file again replays. Reusing a key with different settings or file contents returns 409.",
             "schema": {
               "title": "Idempotency-Key",
-              "maxLength": 200,
+              "maxLength": 255,
               "type": [
                 "null",
                 "string"
@@ -12022,6 +12036,7 @@
             "in": "query",
             "schema": {
               "title": "Cursor",
+              "maxLength": 2048,
               "type": [
                 "null",
                 "string"
@@ -12257,6 +12272,7 @@
             "required": true,
             "schema": {
               "title": "Storage Url",
+              "maxLength": 2048,
               "type": "string"
             }
           },
@@ -12383,6 +12399,7 @@
             "in": "query",
             "schema": {
               "title": "Cursor",
+              "maxLength": 2048,
               "type": [
                 "null",
                 "string"
@@ -12771,6 +12788,7 @@
             "in": "query",
             "schema": {
               "title": "Cursor",
+              "maxLength": 2048,
               "type": [
                 "null",
                 "string"
@@ -12912,6 +12930,7 @@
             "in": "query",
             "schema": {
               "title": "Cursor",
+              "maxLength": 2048,
               "type": [
                 "null",
                 "string"
@@ -13330,6 +13349,7 @@
             "in": "query",
             "schema": {
               "title": "Before",
+              "maxLength": 2048,
               "type": [
                 "null",
                 "string"
@@ -13467,7 +13487,7 @@
           "Monitors"
         ],
         "summary": "Download Selected Snapshots As ZIP",
-        "description": "Full CSVs in one ZIP. Omit timestamps for all snapshots in the date range.\n\nBounds: 5,000 snapshots, 50 MiB CSV data, 100 MiB event data, 120 seconds.\nAn oversized request returns 413 before any ZIP is sent; select fewer dates.\nAll timestamps use UTC; start and end are inclusive.",
+        "description": "API-key and OAuth callers share 300 requests/minute with burst 15. All callers share five concurrent archive builds per organization. Capacity refusals return 429 with Retry-After; unavailable capacity returns 503.",
         "operationId": "ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost",
         "parameters": [
           {
@@ -13586,14 +13606,66 @@
             }
           },
           "503": {
-            "description": "The API key could not be checked, or the request could not be started, because a backing service is briefly unavailable or at capacity. Nothing was charged. Retry after the \u0060Retry-After\u0060 header.",
+            "description": "Request capacity is temporarily unavailable. Retry after the delay in Retry-After.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds before retrying",
+                "schema": {
+                  "type": "string",
+                  "example": "15"
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost503Response"
                 },
                 "example": {
-                  "detail": "Could not verify the API key right now. Retry shortly."
+                  "detail": "Request capacity is temporarily unavailable. Retry after the delay in Retry-After."
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "300 requests per 60 second(s) per organization, with a burst of 15, shared across API servers. Retry after the delay in Retry-After.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds before retrying",
+                "schema": {
+                  "type": "string",
+                  "example": "1"
+                }
+              },
+              "X-RateLimit-Requests": {
+                "description": "Requests replenished per period",
+                "schema": {
+                  "type": "string",
+                  "example": "300"
+                }
+              },
+              "X-RateLimit-Period": {
+                "description": "Replenishment period in seconds",
+                "schema": {
+                  "type": "string",
+                  "example": "60"
+                }
+              },
+              "X-RateLimit-Burst": {
+                "description": "Maximum requests available after idling",
+                "schema": {
+                  "type": "string",
+                  "example": "15"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost429Response"
+                },
+                "example": {
+                  "detail": "Rate limit exceeded: 300 requests per 60 second(s) per organization, with a burst of 15, shared across API servers. Retry after the delay in Retry-After."
                 }
               }
             }
@@ -14423,6 +14495,7 @@
             "in": "query",
             "schema": {
               "title": "Field",
+              "maxLength": 100000,
               "type": [
                 "null",
                 "string"
@@ -14565,6 +14638,7 @@
             "description": "Exact category match, e.g. \u0027Lead Generation\u0027.",
             "schema": {
               "title": "Category",
+              "maxLength": 200,
               "type": [
                 "null",
                 "string"
@@ -14596,6 +14670,7 @@
                 "array"
               ],
               "items": {
+                "maxLength": 200,
                 "type": "string"
               },
               "description": "Keep templates carrying any of these tags (OR, not AND)."
@@ -14607,6 +14682,7 @@
             "description": "Free-text search over name, description, use case, category, and tags.",
             "schema": {
               "title": "Q",
+              "maxLength": 2000,
               "type": [
                 "null",
                 "string"
@@ -14719,6 +14795,7 @@
             "description": "Exact category match.",
             "schema": {
               "title": "Category",
+              "maxLength": 200,
               "type": [
                 "null",
                 "string"
@@ -14750,6 +14827,7 @@
                 "array"
               ],
               "items": {
+                "maxLength": 200,
                 "type": "string"
               },
               "description": "Keep templates carrying any of these tags."
@@ -14761,6 +14839,7 @@
             "description": "Free-text search.",
             "schema": {
               "title": "Q",
+              "maxLength": 2000,
               "type": [
                 "null",
                 "string"
@@ -15265,6 +15344,7 @@
             "description": "Cursor from a previous page\u0027s \u0060next_cursor\u0060.",
             "schema": {
               "title": "After",
+              "maxLength": 2048,
               "type": [
                 "null",
                 "string"
@@ -16489,7 +16569,7 @@
           "Atlas"
         ],
         "summary": "Generate the intelligence report",
-        "description": "Start durable report generation for the current workspace, or reuse the run already covering it.\nIdempotent: repeat calls return the same job; an up-to-date report returns \u0060completed\u0060 with \u0060cached: true\u0060.\nPoll \u0060GET \u2026/report\u0060 (or the PDF endpoint) until \u0060completed\u0060, then download \u0060\u2026/report.pdf\u0060.",
+        "description": "Start durable report generation for the current workspace, or join the one already running.\nOne report is written at a time: while research is still adding findings, a call during a build returns that\nbuild, and one more starts from the newest findings when it ends. An up-to-date report returns \u0060completed\u0060 with\n\u0060cached: true\u0060. Poll \u0060GET \u2026/report\u0060 (or the PDF endpoint) until \u0060completed\u0060, then download \u0060\u2026/report.pdf\u0060.",
         "operationId": "GenerateReportV1AtlasInvestigationsInvestigationIdReportPost",
         "parameters": [
           {
@@ -16734,7 +16814,7 @@
           "Atlas"
         ],
         "summary": "Intelligence report PDF",
-        "description": "The generated report. 200 with the PDF when ready; 202 with the job (and \u0060Retry-After\u0060) while generation\nis in progress; 404 if generation has not been requested \u2014 \u0060POST \u2026/report\u0060 starts it.",
+        "description": "The latest report. 200 with the PDF whenever one is published: \u0060X-Report-As-Of\u0060 says when the findings it\ncovers were read and \u0060X-Report-Current\u0060 whether the investigation has changed since. While research runs it\nusually has, and asking again (\u0060POST \u2026/report\u0060) writes a newer one. 202 with the job (and \u0060Retry-After\u0060) when\nnone can be served yet and one is being written, as after a finding was removed; 404 if generation has not\nbeen requested, or the build that would write it failed \u2014 \u0060POST \u2026/report\u0060 starts it (\u0060retry_failed\u0060 after a\nfailure).",
         "operationId": "GetReportPdfV1AtlasInvestigationsInvestigationIdReportPdfGet",
         "parameters": [
           {
@@ -16760,10 +16840,29 @@
         ],
         "responses": {
           "200": {
-            "description": "The report.",
+            "description": "The latest report.",
+            "headers": {
+              "X-Report-As-Of": {
+                "description": "When the findings it covers were read.",
+                "schema": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              },
+              "X-Report-Current": {
+                "description": "false once the investigation has changed since: a newer report follows a \u0060POST \u2026/report\u0060.",
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            },
             "content": {
               "application/pdf": {
                 "schema": {
+                  "type": "string",
+                  "format": "binary"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/GetReportPdfV1AtlasInvestigationsInvestigationIdReportPdfGet200PdfResponseSchema"
                 }
               }
@@ -16845,7 +16944,7 @@
             }
           },
           "202": {
-            "description": "Generation is in progress; poll again after \u0060Retry-After\u0060 seconds.",
+            "description": "No report can be served yet and one is being written; poll again after \u0060Retry-After\u0060 seconds.",
             "headers": {
               "Retry-After": {
                 "description": "Seconds to wait before retrying.",
@@ -16857,6 +16956,10 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "type": "string",
+                  "format": "binary"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/ReportJob"
                 }
               }
@@ -17011,6 +17114,7 @@
             "description": "Cursor from a previous page\u0027s \u0060next_cursor\u0060.",
             "schema": {
               "title": "After",
+              "maxLength": 2048,
               "type": [
                 "null",
                 "string"
@@ -17271,6 +17375,7 @@
             "description": "Resume after this event cursor (an \u0060id:\u0060 from this stream, or \u0060next_cursor\u0060 from \u0060GET \u2026/events\u0060). Omit to replay from the start. Reconnecting SSE clients send \u0060Last-Event-ID\u0060, which is used when this is absent.",
             "schema": {
               "title": "After",
+              "maxLength": 2048,
               "type": [
                 "null",
                 "string"
@@ -18911,11 +19016,13 @@
           },
           "block_type": {
             "title": "Block Type",
+            "maxLength": 100000,
             "type": "string",
             "description": "Category of block (e.g. \u0027source\u0027, \u0027enrich\u0027, \u0027output\u0027)."
           },
           "block_name": {
             "title": "Block Name",
+            "maxLength": 100000,
             "type": "string",
             "description": "Registered block type name (e.g. \u0027enrich_lead\u0027, \u0027find_email\u0027)."
           },
@@ -18924,6 +19031,7 @@
           },
           "block_id": {
             "title": "Block Id",
+            "maxLength": 200,
             "type": [
               "null",
               "string"
@@ -19226,6 +19334,7 @@
                   "title": "People Focus Prompt",
                   "anyOf": [
                     {
+                      "maxLength": 10000,
                       "type": "string"
                     },
                     {
@@ -19252,6 +19361,7 @@
                   "title": "Research Plan",
                   "anyOf": [
                     {
+                      "maxLength": 100000,
                       "type": "string"
                     },
                     {
@@ -19312,7 +19422,7 @@
                   "title": "Webhook Url",
                   "anyOf": [
                     {
-                      "maxLength": 2083,
+                      "maxLength": 2048,
                       "minLength": 1,
                       "type": "string",
                       "format": "uri"
@@ -19343,6 +19453,7 @@
                     {
                       "type": "array",
                       "items": {
+                        "maxLength": 100000,
                         "type": "string"
                       }
                     },
@@ -19359,6 +19470,7 @@
                     {
                       "type": "array",
                       "items": {
+                        "maxLength": 200,
                         "type": "string"
                       }
                     },
@@ -19380,8 +19492,9 @@
               "description": "JSON config for POST /bulk-intelligence/company."
             },
             "title": "Config",
+            "maxLength": 1000000,
             "type": "string",
-            "description": "JSON-encoded company enrichment config (CompanyBulkIntelligenceConfig schema; max 300000 characters)."
+            "description": "JSON-encoded company enrichment config (CompanyBulkIntelligenceConfig schema; max 1000000 characters)."
           }
         }
       },
@@ -19422,6 +19535,7 @@
                   "title": "Research Plan",
                   "anyOf": [
                     {
+                      "maxLength": 100000,
                       "type": "string"
                     },
                     {
@@ -19486,7 +19600,7 @@
                   "title": "Webhook Url",
                   "anyOf": [
                     {
-                      "maxLength": 2083,
+                      "maxLength": 2048,
                       "minLength": 1,
                       "type": "string",
                       "format": "uri"
@@ -19517,6 +19631,7 @@
                     {
                       "type": "array",
                       "items": {
+                        "maxLength": 100000,
                         "type": "string"
                       }
                     },
@@ -19533,6 +19648,7 @@
                     {
                       "type": "array",
                       "items": {
+                        "maxLength": 200,
                         "type": "string"
                       }
                     },
@@ -19554,8 +19670,9 @@
               "description": "JSON config for POST /bulk-intelligence/people."
             },
             "title": "Config",
+            "maxLength": 1000000,
             "type": "string",
-            "description": "JSON-encoded people enrichment config (PeopleBulkIntelligenceConfig schema; max 300000 characters)."
+            "description": "JSON-encoded people enrichment config (PeopleBulkIntelligenceConfig schema; max 1000000 characters)."
           }
         }
       },
@@ -19575,8 +19692,9 @@
           },
           "config": {
             "title": "Config",
+            "maxLength": 1000000,
             "type": "string",
-            "description": "JSON-encoded monitor settings (UploadMonitorConfig schema; max 300000 characters)."
+            "description": "JSON-encoded monitor settings (UploadMonitorConfig schema; max 1000000 characters)."
           }
         }
       },
@@ -19640,6 +19758,7 @@
         "properties": {
           "job_id": {
             "title": "Job Id",
+            "maxLength": 200,
             "type": [
               "null",
               "string"
@@ -20203,7 +20322,7 @@
         "properties": {
           "name": {
             "title": "Name",
-            "maxLength": 120,
+            "maxLength": 200,
             "minLength": 1,
             "type": [
               "null",
@@ -20259,6 +20378,7 @@
         "properties": {
           "linkedin_url": {
             "title": "Linkedin Url",
+            "maxLength": 2048,
             "type": "string"
           },
           "fields": {
@@ -20266,6 +20386,7 @@
             "minItems": 1,
             "type": "array",
             "items": {
+              "maxLength": 200,
               "type": "string"
             }
           },
@@ -20278,6 +20399,7 @@
           },
           "frequency": {
             "title": "Frequency",
+            "maxLength": 200,
             "type": "string",
             "default": "1w"
           },
@@ -20286,6 +20408,7 @@
           },
           "webhook_url": {
             "title": "Webhook Url",
+            "maxLength": 2048,
             "type": [
               "null",
               "string"
@@ -20298,6 +20421,7 @@
               "array"
             ],
             "items": {
+              "maxLength": 200,
               "type": "string"
             }
           },
@@ -20311,7 +20435,7 @@
           },
           "idempotency_key": {
             "title": "Idempotency Key",
-            "maxLength": 200,
+            "maxLength": 255,
             "type": [
               "null",
               "string"
@@ -20363,6 +20487,7 @@
             "minItems": 1,
             "type": "array",
             "items": {
+              "maxLength": 100000,
               "type": "string"
             }
           },
@@ -20371,22 +20496,26 @@
           },
           "frequency": {
             "title": "Frequency",
+            "maxLength": 200,
             "type": "string",
             "default": "1d"
           },
           "tier": {
             "title": "Tier",
+            "maxLength": 200,
             "type": "string",
             "default": "low"
           },
           "subject_type": {
             "title": "Subject Type",
+            "maxLength": 200,
             "type": "string",
             "description": "Which enrichment re-derives the fields: \u0027company\u0027 or \u0027lead\u0027.",
             "default": "company"
           },
           "research_plan": {
             "title": "Research Plan",
+            "maxLength": 100000,
             "type": [
               "null",
               "string"
@@ -20394,6 +20523,7 @@
           },
           "webhook_url": {
             "title": "Webhook Url",
+            "maxLength": 2048,
             "type": [
               "null",
               "string"
@@ -20406,6 +20536,7 @@
               "array"
             ],
             "items": {
+              "maxLength": 200,
               "type": "string"
             },
             "description": "Which events POST to webhook_url: any of \u0027monitor.field.changed\u0027, \u0027monitor.execution.completed\u0027, \u0027monitor.execution.failed\u0027, \u0027monitor.run.completed\u0027. Defaults to [\u0027monitor.field.changed\u0027]. A monitor\u0027s first check records starting values rather than changes, so subscribe to \u0027monitor.execution.completed\u0027 to hear about every finished check."
@@ -20423,7 +20554,7 @@
           },
           "idempotency_key": {
             "title": "Idempotency Key",
-            "maxLength": 200,
+            "maxLength": 255,
             "type": [
               "null",
               "string"
@@ -20467,22 +20598,25 @@
         "properties": {
           "workflow_id": {
             "title": "Workflow Id",
+            "maxLength": 200,
             "type": "string"
           },
           "name": {
             "title": "Name",
-            "maxLength": 120,
+            "maxLength": 200,
             "minLength": 1,
             "type": "string"
           },
           "cron_expression": {
             "title": "Cron Expression",
+            "maxLength": 1000,
             "minLength": 1,
             "type": "string",
             "description": "Standard 5-field cron expression."
           },
           "timezone": {
             "title": "Timezone",
+            "maxLength": 200,
             "type": "string",
             "description": "IANA timezone, e.g. America/Los_Angeles.",
             "default": "UTC"
@@ -20576,11 +20710,13 @@
         "properties": {
           "workflow_name": {
             "title": "Workflow Name",
+            "maxLength": 200,
             "type": "string",
             "description": "Human-readable workflow name."
           },
           "workflow_description": {
             "title": "Workflow Description",
+            "maxLength": 2000,
             "type": "string",
             "description": "Human-readable workflow description."
           },
@@ -20590,6 +20726,7 @@
           },
           "id": {
             "title": "Id",
+            "maxLength": 200,
             "type": [
               "null",
               "string"
@@ -20672,6 +20809,7 @@
           },
           "people_focus_prompt": {
             "title": "People Focus Prompt",
+            "maxLength": 10000,
             "type": [
               "null",
               "string"
@@ -20683,6 +20821,7 @@
           },
           "research_plan": {
             "title": "Research Plan",
+            "maxLength": 100000,
             "type": [
               "null",
               "string"
@@ -20700,7 +20839,7 @@
           },
           "webhook_url": {
             "title": "Webhook Url",
-            "maxLength": 2083,
+            "maxLength": 2048,
             "minLength": 1,
             "type": [
               "null",
@@ -20734,6 +20873,7 @@
           },
           "research_plan": {
             "title": "Research Plan",
+            "maxLength": 100000,
             "type": [
               "null",
               "string"
@@ -20745,7 +20885,7 @@
           },
           "webhook_url": {
             "title": "Webhook Url",
-            "maxLength": 2083,
+            "maxLength": 2048,
             "minLength": 1,
             "type": [
               "null",
@@ -20783,6 +20923,7 @@
           },
           "investigation_id": {
             "title": "Investigation Id",
+            "maxLength": 200,
             "type": [
               "null",
               "string"
@@ -20791,6 +20932,7 @@
           },
           "investigation_name": {
             "title": "Investigation Name",
+            "maxLength": 1000,
             "type": [
               "null",
               "string"
@@ -20800,7 +20942,7 @@
           "private": {
             "title": "Private",
             "type": "boolean",
-            "description": "For Atlas runs (xhigh, or scout with graph) started on the async endpoint: make the new investigation visible only to you, not your team. With an API key, the run is private to the person who created the key. Your team must allow private runs. Rejected on other tiers, on the sync endpoint, and with \u0060investigation_id\u0060.",
+            "description": "Make the run visible only to you, not your team: its result, status and usage log. With an API key, the run is private to the person who created the key. Your team must allow private runs. Supported on every tier; Atlas runs (xhigh, or scout with graph) must use the async endpoint and can\u0027t combine it with \u0060investigation_id\u0060.",
             "default": false
           },
           "relentless": {
@@ -21034,6 +21176,7 @@
           },
           "field": {
             "title": "Field",
+            "maxLength": 200,
             "type": "string",
             "description": "Canonical field path to aggregate values for."
           },
@@ -21558,7 +21701,7 @@
           },
           "webhook_url": {
             "title": "Webhook Url",
-            "maxLength": 2083,
+            "maxLength": 2048,
             "minLength": 1,
             "type": [
               "null",
@@ -21590,7 +21733,7 @@
           },
           "webhook_url": {
             "title": "Webhook Url",
-            "maxLength": 2083,
+            "maxLength": 2048,
             "minLength": 1,
             "type": [
               "null",
@@ -21635,7 +21778,7 @@
           },
           "webhook_url": {
             "title": "Webhook Url",
-            "maxLength": 2083,
+            "maxLength": 2048,
             "minLength": 1,
             "type": [
               "null",
@@ -21675,7 +21818,7 @@
           },
           "webhook_url": {
             "title": "Webhook Url",
-            "maxLength": 2083,
+            "maxLength": 2048,
             "minLength": 1,
             "type": [
               "null",
@@ -21702,7 +21845,7 @@
           },
           "webhook_url": {
             "title": "Webhook Url",
-            "maxLength": 2083,
+            "maxLength": 2048,
             "minLength": 1,
             "type": [
               "null",
@@ -21725,7 +21868,7 @@
           },
           "webhook_url": {
             "title": "Webhook Url",
-            "maxLength": 2083,
+            "maxLength": 2048,
             "minLength": 1,
             "type": [
               "null",
@@ -21762,7 +21905,7 @@
           },
           "webhook_url": {
             "title": "Webhook Url",
-            "maxLength": 2083,
+            "maxLength": 2048,
             "minLength": 1,
             "type": [
               "null",
@@ -21794,7 +21937,7 @@
           },
           "webhook_url": {
             "title": "Webhook Url",
-            "maxLength": 2083,
+            "maxLength": 2048,
             "minLength": 1,
             "type": [
               "null",
@@ -21826,6 +21969,7 @@
         "properties": {
           "linkedin_url": {
             "title": "Linkedin Url",
+            "maxLength": 2048,
             "type": "string"
           },
           "include_fresh": {
@@ -21949,6 +22093,7 @@
             "minItems": 1,
             "type": "array",
             "items": {
+              "maxLength": 2048,
               "type": "string"
             }
           }
@@ -22162,6 +22307,7 @@
         "properties": {
           "linkedin_url": {
             "title": "Linkedin Url",
+            "maxLength": 2048,
             "type": "string",
             "description": "Full LinkedIn profile or company URL to enrich."
           },
@@ -22912,14 +23058,17 @@
         "properties": {
           "run_id": {
             "title": "Run Id",
+            "maxLength": 200,
             "type": "string"
           },
           "storage_url": {
             "title": "Storage Url",
+            "maxLength": 2048,
             "type": "string"
           },
           "sha256": {
             "title": "Sha256",
+            "maxLength": 200,
             "type": "string"
           },
           "row_indices": {
@@ -23259,7 +23408,7 @@
             "default": []
           },
           "struct": {
-            "$ref": "#/components/schemas/QaAgentRequestStructProperty"
+            "$ref": "#/components/schemas/QaAgentRequestStruct"
           },
           "max_tool_calls": {
             "title": "Max Tool Calls",
@@ -23274,7 +23423,7 @@
           },
           "webhook_url": {
             "title": "Webhook Url",
-            "maxLength": 2083,
+            "maxLength": 2048,
             "minLength": 1,
             "type": [
               "null",
@@ -23304,11 +23453,13 @@
         "properties": {
           "url": {
             "title": "Url",
+            "maxLength": 2048,
             "type": "string",
             "description": "Reference URL the agent may use as evidence."
           },
           "description": {
             "title": "Description",
+            "maxLength": 10000,
             "type": [
               "null",
               "string"
@@ -23327,11 +23478,13 @@
         "properties": {
           "criteria_name": {
             "title": "Criteria Name",
+            "maxLength": 200,
             "type": "string",
             "description": "Short name for the criterion shown in results."
           },
           "description": {
             "title": "Description",
+            "maxLength": 10000,
             "type": "string",
             "description": "Natural-language description of what qualifies a lead."
           },
@@ -23372,7 +23525,7 @@
               "null",
               "string"
             ],
-            "description": "The workspace snapshot this report covers."
+            "description": "The workspace snapshot this report covers. Research that is still running moves on from it; the next report covers what it added."
           },
           "requested_at": {
             "title": "Requested At",
@@ -23405,6 +23558,12 @@
             "title": "Byte Size",
             "type": "integer",
             "default": 0
+          },
+          "follow_up": {
+            "title": "Follow Up",
+            "type": "boolean",
+            "description": "True when this build covers findings from before your request: one more build, from the newest findings, starts when it ends.",
+            "default": false
           }
         }
       },
@@ -23435,6 +23594,7 @@
           },
           "research_plan": {
             "title": "Research Plan",
+            "maxLength": 100000,
             "type": [
               "null",
               "string"
@@ -23442,7 +23602,7 @@
           },
           "webhook_url": {
             "title": "Webhook Url",
-            "maxLength": 2083,
+            "maxLength": 2048,
             "minLength": 1,
             "type": [
               "null",
@@ -23465,10 +23625,12 @@
           },
           "resource_handle_id": {
             "title": "Resource Handle Id",
+            "maxLength": 200,
             "type": "string"
           },
           "id_column": {
             "title": "Id Column",
+            "maxLength": 100000,
             "type": [
               "null",
               "string"
@@ -23495,7 +23657,7 @@
           },
           "webhook_url": {
             "title": "Webhook Url",
-            "maxLength": 2083,
+            "maxLength": 2048,
             "minLength": 1,
             "type": [
               "null",
@@ -23518,7 +23680,7 @@
           },
           "webhook_url": {
             "title": "Webhook Url",
-            "maxLength": 2083,
+            "maxLength": 2048,
             "minLength": 1,
             "type": [
               "null",
@@ -23546,7 +23708,7 @@
           },
           "webhook_url": {
             "title": "Webhook Url",
-            "maxLength": 2083,
+            "maxLength": 2048,
             "minLength": 1,
             "type": [
               "null",
@@ -23569,7 +23731,7 @@
           },
           "webhook_url": {
             "title": "Webhook Url",
-            "maxLength": 2083,
+            "maxLength": 2048,
             "minLength": 1,
             "type": [
               "null",
@@ -23620,6 +23782,7 @@
           },
           "research_plan": {
             "title": "Research Plan",
+            "maxLength": 100000,
             "type": [
               "null",
               "string"
@@ -23865,6 +24028,7 @@
         "properties": {
           "search_id": {
             "title": "Search Id",
+            "maxLength": 200,
             "type": [
               "null",
               "string"
@@ -23891,6 +24055,7 @@
               "array"
             ],
             "items": {
+              "maxLength": 2048,
               "type": "string"
             },
             "description": "People-mode inline identifiers to exclude from results, applied as a post-filter. Accepts LinkedIn public IDs or profile URLs. For company searches, use \u0060exclude_entity_ids\u0060. Max 1000."
@@ -23903,6 +24068,7 @@
               "array"
             ],
             "items": {
+              "maxLength": 2048,
               "type": "string"
             },
             "description": "Inline identifiers to exclude from results, applied as a post-filter. People mode: LinkedIn public IDs or profile URLs. Company mode: numeric LinkedIn company IDs, company URLs/slugs, or exact website domains (values that resolve to no or multiple companies are ignored). Max 1000."
@@ -23915,6 +24081,7 @@
               "array"
             ],
             "items": {
+              "maxLength": 200,
               "type": "string"
             },
             "description": "Saved exclusion-list IDs to apply as a post-filter. Each list\u0027s entity type must match the search mode (person lists for people searches, company lists for company searches). Max 5 (10 for organizations with extended exclusion limits)."
@@ -24210,6 +24377,7 @@
           },
           "search_id": {
             "title": "Search Id",
+            "maxLength": 200,
             "type": "string"
           },
           "max_results": {
@@ -24228,6 +24396,7 @@
               "array"
             ],
             "items": {
+              "maxLength": 2048,
               "type": "string"
             },
             "description": "Optional people-mode inline exclusions to re-apply while replaying the saved search. \u0060search_id\u0060 itself does not carry exclusions."
@@ -24240,6 +24409,7 @@
               "array"
             ],
             "items": {
+              "maxLength": 2048,
               "type": "string"
             },
             "description": "Optional inline exclusions to re-apply while replaying the saved search. People: LinkedIn public IDs/profile URLs. Companies: numeric company IDs, company URLs/slugs, or exact website domains."
@@ -24252,6 +24422,7 @@
               "array"
             ],
             "items": {
+              "maxLength": 200,
               "type": "string"
             },
             "description": "Optional saved exclusion lists to re-apply while replaying the saved search. \u0060search_id\u0060 itself does not carry exclusions."
@@ -24283,7 +24454,7 @@
         "properties": {
           "parent_search_id": {
             "title": "Parent Search Id",
-            "maxLength": 64,
+            "maxLength": 200,
             "minLength": 1,
             "type": "string"
           },
@@ -24309,6 +24480,7 @@
           },
           "search_id": {
             "title": "Search Id",
+            "maxLength": 200,
             "type": [
               "null",
               "string"
@@ -24317,6 +24489,7 @@
           },
           "query": {
             "title": "Query",
+            "maxLength": 10000,
             "type": [
               "null",
               "string"
@@ -24350,6 +24523,7 @@
           },
           "cursor": {
             "title": "Cursor",
+            "maxLength": 2048,
             "type": [
               "null",
               "string"
@@ -24403,6 +24577,7 @@
               "array"
             ],
             "items": {
+              "maxLength": 2048,
               "type": "string"
             },
             "description": "People-mode inline identifiers to exclude from results, applied as a post-filter. Accepts LinkedIn public IDs or profile URLs. For company searches, use \u0060exclude_entity_ids\u0060. Max 1000 for API requests, 50000 for platform requests."
@@ -24415,6 +24590,7 @@
               "array"
             ],
             "items": {
+              "maxLength": 2048,
               "type": "string"
             },
             "description": "Inline identifiers to exclude from results, applied as a post-filter. People mode: LinkedIn public IDs or profile URLs. Company mode: numeric LinkedIn company IDs, company URLs/slugs, or exact website domains (values that resolve to no or multiple companies are ignored). Max 1000 for API requests, 50000 for platform requests."
@@ -24427,6 +24603,7 @@
               "array"
             ],
             "items": {
+              "maxLength": 200,
               "type": "string"
             },
             "description": "Saved exclusion-list IDs to apply as a post-filter. Each list\u0027s entity type must match the search mode (person lists for people searches, company lists for company searches). Max 5 (10 for organizations with extended exclusion limits)."
@@ -24800,6 +24977,7 @@
         "properties": {
           "query": {
             "title": "Query",
+            "maxLength": 10000,
             "type": "string",
             "description": "Natural-language search query."
           },
@@ -24814,6 +24992,7 @@
           },
           "search_id": {
             "title": "Search Id",
+            "maxLength": 200,
             "type": [
               "null",
               "string"
@@ -24831,6 +25010,7 @@
               "array"
             ],
             "items": {
+              "maxLength": 2048,
               "type": "string"
             },
             "description": "People-mode inline identifiers to exclude from results, applied as a post-filter. Accepts LinkedIn public IDs or profile URLs. For company searches, use \u0060exclude_entity_ids\u0060. Max 1000."
@@ -24843,6 +25023,7 @@
               "array"
             ],
             "items": {
+              "maxLength": 2048,
               "type": "string"
             },
             "description": "Inline identifiers to exclude from results, applied as a post-filter. People mode: LinkedIn public IDs or profile URLs. Company mode: numeric LinkedIn company IDs, company URLs/slugs, or exact website domains (values that resolve to no or multiple companies are ignored). Max 1000."
@@ -24855,6 +25036,7 @@
               "array"
             ],
             "items": {
+              "maxLength": 200,
               "type": "string"
             },
             "description": "Saved exclusion-list IDs to apply as a post-filter. Each list\u0027s entity type must match the search mode (person lists for people searches, company lists for company searches). Max 5 (10 for organizations with extended exclusion limits)."
@@ -24924,6 +25106,7 @@
           },
           "cursor": {
             "title": "Cursor",
+            "maxLength": 2048,
             "type": [
               "null",
               "string"
@@ -25001,6 +25184,7 @@
           },
           "research_plan": {
             "title": "Research Plan",
+            "maxLength": 100000,
             "type": [
               "null",
               "string"
@@ -25049,6 +25233,7 @@
           },
           "name": {
             "title": "Name",
+            "maxLength": 1000,
             "type": [
               "null",
               "string"
@@ -25069,6 +25254,7 @@
         "properties": {
           "csv_resource_handle_id": {
             "title": "Csv Resource Handle Id",
+            "maxLength": 200,
             "type": [
               "null",
               "string"
@@ -25083,7 +25269,7 @@
               "array"
             ],
             "items": {
-              "maxLength": 500,
+              "maxLength": 2048,
               "type": "string"
             },
             "description": "LinkedIn profile URLs to seed from (max 1,000)."
@@ -25233,6 +25419,7 @@
         "properties": {
           "name": {
             "title": "Name",
+            "maxLength": 100000,
             "pattern": "^[a-zA-Z0-9_]\u002B$",
             "type": "string"
           },
@@ -25278,6 +25465,7 @@
         "properties": {
           "key": {
             "title": "Key",
+            "maxLength": 100000,
             "pattern": "^[a-zA-Z0-9_]\u002B$",
             "type": "string"
           },
@@ -25286,6 +25474,7 @@
           },
           "description": {
             "title": "Description",
+            "maxLength": 10000,
             "type": [
               "null",
               "string"
@@ -25348,7 +25537,7 @@
         "properties": {
           "event": {
             "title": "Event",
-            "maxLength": 100,
+            "maxLength": 200,
             "minLength": 1,
             "type": "string",
             "description": "An events[].type from GET /webhooks/test-events."
@@ -25451,6 +25640,7 @@
           },
           "frequency": {
             "title": "Frequency",
+            "maxLength": 200,
             "type": [
               "null",
               "string"
@@ -25458,6 +25648,7 @@
           },
           "tier": {
             "title": "Tier",
+            "maxLength": 200,
             "type": [
               "null",
               "string"
@@ -25465,6 +25656,7 @@
           },
           "webhook_url": {
             "title": "Webhook Url",
+            "maxLength": 2048,
             "type": [
               "null",
               "string"
@@ -25477,6 +25669,7 @@
               "array"
             ],
             "items": {
+              "maxLength": 200,
               "type": "string"
             },
             "description": "Replaces the subscription. Any of \u0027monitor.field.changed\u0027, \u0027monitor.execution.completed\u0027, \u0027monitor.execution.failed\u0027, \u0027monitor.run.completed\u0027; null resets it to [\u0027monitor.field.changed\u0027]."
@@ -25541,7 +25734,7 @@
         "properties": {
           "name": {
             "title": "Name",
-            "maxLength": 120,
+            "maxLength": 200,
             "minLength": 1,
             "type": [
               "null",
@@ -25550,6 +25743,7 @@
           },
           "cron_expression": {
             "title": "Cron Expression",
+            "maxLength": 1000,
             "minLength": 1,
             "type": [
               "null",
@@ -25558,6 +25752,7 @@
           },
           "timezone": {
             "title": "Timezone",
+            "maxLength": 200,
             "type": [
               "null",
               "string"
@@ -25608,6 +25803,7 @@
           },
           "workflow_name": {
             "title": "Workflow Name",
+            "maxLength": 200,
             "type": [
               "null",
               "string"
@@ -25616,6 +25812,7 @@
           },
           "workflow_description": {
             "title": "Workflow Description",
+            "maxLength": 2000,
             "type": [
               "null",
               "string"
@@ -25784,16 +25981,19 @@
         "properties": {
           "from_block_id": {
             "title": "From Block Id",
+            "maxLength": 200,
             "type": "string",
             "description": "Source block ID for this edge."
           },
           "to_block_id": {
             "title": "To Block Id",
+            "maxLength": 200,
             "type": "string",
             "description": "Destination block ID for this edge."
           },
           "condition": {
             "title": "Condition",
+            "maxLength": 100000,
             "type": [
               "null",
               "string"
@@ -26517,6 +26717,7 @@
               "array"
             ],
             "items": {
+              "maxLength": 200,
               "type": "string"
             }
           },
@@ -26608,6 +26809,7 @@
             "maxItems": 50,
             "type": "array",
             "items": {
+              "maxLength": 200,
               "type": "string"
             }
           },
@@ -26829,10 +27031,12 @@
         "properties": {
           "code": {
             "title": "Code",
+            "maxLength": 2048,
             "type": "string"
           },
           "redirect_uri": {
             "title": "Redirect Uri",
+            "maxLength": 2048,
             "type": "string"
           }
         }
@@ -26915,9 +27119,6 @@
       },
       "CreateExclusionListRequestSource": {
         "title": "Source",
-        "required": [
-          "type"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/ResourceHandleSource"
@@ -26929,12 +27130,7 @@
             "$ref": "#/components/schemas/SearchIdSource"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "entity_ids": "#/components/schemas/InlineEntityIdsSource",
@@ -27029,6 +27225,18 @@
             }
           }
         ]
+      },
+      "QaAgentRequestStruct": {
+        "title": "Struct",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/QaAgentRequestStructAnyOf1"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "Mapping of extra output fields and their descriptions."
       },
       "RunWorkflowBodyWebhookPayload": {
         "title": "Webhook Payload",
@@ -27473,17 +27681,6 @@
         "title": "Data",
         "type": "object",
         "description": "Lead or record to evaluate against the qualification criteria."
-      },
-      "QaAgentRequestStruct": {
-        "title": "Struct",
-        "type": [
-          "null",
-          "object"
-        ],
-        "additionalProperties": {
-          "type": "string"
-        },
-        "description": "Mapping of extra output fields and their descriptions."
       },
       "ResearchAgentRequestInputData": {
         "title": "Input Data",
@@ -32920,6 +33117,14 @@
           }
         }
       },
+      "ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost429Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
       "GetMonitorSnapshotEndpointMonitorsMonitorIdSnapshotsAsOfGet400Response": {
         "type": "object",
         "properties": {
@@ -35179,17 +35384,6 @@
         "type": "object",
         "description": "Lead or record to evaluate against the qualification criteria."
       },
-      "QaAgentRequestStructProperty": {
-        "title": "Struct",
-        "type": [
-          "null",
-          "object"
-        ],
-        "additionalProperties": {
-          "type": "string"
-        },
-        "description": "Mapping of extra output fields and their descriptions."
-      },
       "ResearchAgentRequestInputDataProperty": {
         "title": "Input Data",
         "type": "object"
@@ -36191,7 +36385,7 @@
           "superseded"
         ],
         "type": "string",
-        "description": "\u0060completed\u0060 means the PDF is downloadable; \u0060superseded\u0060 means the workspace changed and a newer job replaced this one.",
+        "description": "\u0060completed\u0060 means the PDF is downloadable; \u0060superseded\u0060 means a revision replaced this job before it finished.",
         "x-ms-enum": {
           "name": "ReportJobStatus",
           "modelAsString": false,
@@ -37303,6 +37497,16 @@
           ]
         }
       },
+      "QaAgentRequestStructAnyOf1": {
+        "propertyNames": {
+          "maxLength": 200
+        },
+        "type": "object",
+        "additionalProperties": {
+          "maxLength": 10000,
+          "type": "string"
+        }
+      },
       "SearchQueryRequestSelectedCompanyIdsAnyOf1": {
         "propertyNames": {
           "maxLength": 500,
@@ -37311,6 +37515,7 @@
         "maxProperties": 1000,
         "type": "object",
         "additionalProperties": {
+          "maxLength": 200,
           "type": "string"
         }
       }

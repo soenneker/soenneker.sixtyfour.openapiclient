@@ -63,6 +63,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Trigger
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorValidationErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.TriggerMonitorEndpointMonitorsMonitorIdTriggerPost500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.TriggerMonitorEndpointMonitorsMonitorIdTriggerPost503Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseTriggerMonitorEndpointMonitorsMonitorIdTriggerPostSchema>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseTriggerMonitorEndpointMonitorsMonitorIdTriggerPostSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

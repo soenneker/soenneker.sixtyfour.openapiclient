@@ -12,21 +12,40 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class IdentityResolutionDiagnostics : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("ambiguous_matches") is { } nullNodeAmbiguousMatches && nullNodeAmbiguousMatches.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AmbiguousMatches = null;
+            if (parseNode.GetChildNode("average_confidence") is { } nullNodeAverageConfidence && nullNodeAverageConfidence.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AverageConfidence = null;
+            if (parseNode.GetChildNode("dropped_below_threshold") is { } nullNodeDroppedBelowThreshold && nullNodeDroppedBelowThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DroppedBelowThreshold = null;
+            if (parseNode.GetChildNode("duplicates_removed") is { } nullNodeDuplicatesRemoved && nullNodeDuplicatesRemoved.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DuplicatesRemoved = null;
+            if (parseNode.GetChildNode("exact_matches") is { } nullNodeExactMatches && nullNodeExactMatches.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExactMatches = null;
+            if (parseNode.GetChildNode("similarity_matches") is { } nullNodeSimilarityMatches && nullNodeSimilarityMatches.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SimilarityMatches = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The ambiguous_matches property</summary>
-        public int? AmbiguousMatches { get; set; }
+        public int? AmbiguousMatches { get => _explicitNullValueAmbiguousMatches; set { _explicitNullValueAmbiguousMatches = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ambiguous_matches"); else _explicitNullProperties?.Remove("ambiguous_matches"); } }
+        private int? _explicitNullValueAmbiguousMatches = default!;
         /// <summary>Average accepted heuristic similarity-match score; 1.0 for an exact-only cohort.</summary>
-        public double? AverageConfidence { get; set; }
+        public double? AverageConfidence { get => _explicitNullValueAverageConfidence; set { _explicitNullValueAverageConfidence = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("average_confidence"); else _explicitNullProperties?.Remove("average_confidence"); } }
+        private double? _explicitNullValueAverageConfidence = default!;
         /// <summary>The dropped_below_threshold property</summary>
-        public int? DroppedBelowThreshold { get; set; }
+        public int? DroppedBelowThreshold { get => _explicitNullValueDroppedBelowThreshold; set { _explicitNullValueDroppedBelowThreshold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dropped_below_threshold"); else _explicitNullProperties?.Remove("dropped_below_threshold"); } }
+        private int? _explicitNullValueDroppedBelowThreshold = default!;
         /// <summary>The duplicates_removed property</summary>
-        public int? DuplicatesRemoved { get; set; }
+        public int? DuplicatesRemoved { get => _explicitNullValueDuplicatesRemoved; set { _explicitNullValueDuplicatesRemoved = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("duplicates_removed"); else _explicitNullProperties?.Remove("duplicates_removed"); } }
+        private int? _explicitNullValueDuplicatesRemoved = default!;
         /// <summary>The exact_matches property</summary>
-        public int? ExactMatches { get; set; }
+        public int? ExactMatches { get => _explicitNullValueExactMatches; set { _explicitNullValueExactMatches = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exact_matches"); else _explicitNullProperties?.Remove("exact_matches"); } }
+        private int? _explicitNullValueExactMatches = default!;
         /// <summary>The similarity_matches property</summary>
-        public int? SimilarityMatches { get; set; }
+        public int? SimilarityMatches { get => _explicitNullValueSimilarityMatches; set { _explicitNullValueSimilarityMatches = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("similarity_matches"); else _explicitNullProperties?.Remove("similarity_matches"); } }
+        private int? _explicitNullValueSimilarityMatches = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.IdentityResolutionDiagnostics"/> and sets the default values.
         /// </summary>
@@ -47,7 +66,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public static global::Soenneker.Sixtyfour.OpenApiClient.Models.IdentityResolutionDiagnostics CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.IdentityResolutionDiagnostics();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Sixtyfour.OpenApiClient.Models.IdentityResolutionDiagnostics(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,6 +97,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteIntValue("duplicates_removed", DuplicatesRemoved);
             writer.WriteIntValue("exact_matches", ExactMatches);
             writer.WriteIntValue("similarity_matches", SimilarityMatches);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

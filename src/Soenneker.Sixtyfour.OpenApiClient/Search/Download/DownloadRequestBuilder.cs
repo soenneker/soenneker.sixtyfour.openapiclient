@@ -75,6 +75,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Download
                 { "502", global::Soenneker.Sixtyfour.OpenApiClient.Models.DownloadSearchResultSearchDownloadGet502Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.DownloadSearchResultSearchDownloadGet503Response.CreateFromDiscriminatorValue },
                 { "504", global::Soenneker.Sixtyfour.OpenApiClient.Models.DownloadSearchResultSearchDownloadGet504Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.DownloadSignedUrlResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.DownloadSignedUrlResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

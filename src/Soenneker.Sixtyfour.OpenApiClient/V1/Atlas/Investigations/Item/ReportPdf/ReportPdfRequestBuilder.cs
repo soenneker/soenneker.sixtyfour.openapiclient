@@ -34,9 +34,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.ReportP
         {
         }
         /// <summary>
-        /// The generated report. 200 with the PDF when ready; 202 with the job (and `Retry-After`) while generationis in progress; 404 if generation has not been requested — `POST …/report` starts it.
+        /// The latest report. 200 with the PDF whenever one is published: `X-Report-As-Of` says when the findings itcovers were read and `X-Report-Current` whether the investigation has changed since. While research runs itusually has, and asking again (`POST …/report`) writes a newer one. 202 with the job (and `Retry-After`) whennone can be served yet and one is being written, as after a finding was removed; 404 if generation has notbeen requested, or the build that would write it failed — `POST …/report` starts it (`retry_failed` after afailure).
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ReportJob"/></returns>
+        /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetReportPdfV1AtlasInvestigationsInvestigationIdReportPdfGet400Response">When receiving a 400 status code</exception>
@@ -47,11 +47,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.ReportP
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetReportPdfV1AtlasInvestigationsInvestigationIdReportPdfGet503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ReportJob?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ReportJob> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -63,11 +63,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.ReportP
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetReportPdfV1AtlasInvestigationsInvestigationIdReportPdfGet500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetReportPdfV1AtlasInvestigationsInvestigationIdReportPdfGet503Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ReportJob>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ReportJob.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// The generated report. 200 with the PDF when ready; 202 with the job (and `Retry-After`) while generationis in progress; 404 if generation has not been requested — `POST …/report` starts it.
+        /// The latest report. 200 with the PDF whenever one is published: `X-Report-As-Of` says when the findings itcovers were read and `X-Report-Current` whether the investigation has changed since. While research runs itusually has, and asking again (`POST …/report`) writes a newer one. 202 with the job (and `Retry-After`) whennone can be served yet and one is being written, as after a finding was removed; 404 if generation has notbeen requested, or the build that would write it failed — `POST …/report` starts it (`retry_failed` after afailure).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

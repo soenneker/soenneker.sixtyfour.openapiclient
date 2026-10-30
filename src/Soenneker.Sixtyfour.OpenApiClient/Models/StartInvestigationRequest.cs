@@ -11,58 +11,90 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class StartInvestigationRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("dispatch_id") is { } nullNodeDispatchId && nullNodeDispatchId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DispatchId = null;
+            if (parseNode.GetChildNode("engine") is { } nullNodeEngine && nullNodeEngine.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Engine = null;
+            if (parseNode.GetChildNode("lead_info") is { } nullNodeLeadInfo && nullNodeLeadInfo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LeadInfo = null;
+            if (parseNode.GetChildNode("max_credits") is { } nullNodeMaxCredits && nullNodeMaxCredits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxCredits = null;
+            if (parseNode.GetChildNode("max_minutes") is { } nullNodeMaxMinutes && nullNodeMaxMinutes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxMinutes = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("private") is { } nullNodePrivate && nullNodePrivate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Private = null;
+            if (parseNode.GetChildNode("relentless") is { } nullNodeRelentless && nullNodeRelentless.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Relentless = null;
+            if (parseNode.GetChildNode("research_plan") is { } nullNodeResearchPlan && nullNodeResearchPlan.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResearchPlan = null;
+            if (parseNode.GetChildNode("struct") is { } nullNodeStruct && nullNodeStruct.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Struct = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Client-generated idempotency key. Reusing the same key for the same organization returns the existing run instead of starting and billing a duplicate, so a lost response is safe to retry.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DispatchId { get; set; }
+        public string? DispatchId { get => _explicitNullValueDispatchId; set { _explicitNullValueDispatchId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dispatch_id"); else _explicitNullProperties?.Remove("dispatch_id"); } }
+        private string? _explicitNullValueDispatchId = default!;
 #nullable restore
 #else
-        public string DispatchId { get; set; }
+        public string DispatchId { get => _explicitNullValueDispatchId; set { _explicitNullValueDispatchId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dispatch_id"); else _explicitNullProperties?.Remove("dispatch_id"); } }
+        private string _explicitNullValueDispatchId = default!;
 #endif
         /// <summary>Research engine. `GET /v1/atlas/access` reports which ones this organization may run, and what each costs.</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequestEngine? Engine { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequestEngine? Engine { get => _explicitNullValueEngine; set { _explicitNullValueEngine = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("engine"); else _explicitNullProperties?.Remove("engine"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequestEngine? _explicitNullValueEngine = default!;
         /// <summary>Who to investigate, e.g. {&quot;name&quot;: &quot;Jane Doe&quot;, &quot;company&quot;: &quot;Acme&quot;}.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequestLeadInfoProperty? LeadInfo { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequestLeadInfoProperty? LeadInfo { get => _explicitNullValueLeadInfo; set { _explicitNullValueLeadInfo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lead_info"); else _explicitNullProperties?.Remove("lead_info"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequestLeadInfoProperty? _explicitNullValueLeadInfo = default!;
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequestLeadInfoProperty LeadInfo { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequestLeadInfoProperty LeadInfo { get => _explicitNullValueLeadInfo; set { _explicitNullValueLeadInfo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lead_info"); else _explicitNullProperties?.Remove("lead_info"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequestLeadInfoProperty _explicitNullValueLeadInfo = default!;
 #endif
         /// <summary>How much research to buy, in credits (default: one unit of the engine price), up to 10 units. On xhigh every 250 credits buy 800 team turns, used in full unless the research stops yielding: 300 buys 960. Scout researches alone, and every 50 credits buy its 100 turns.</summary>
-        public int? MaxCredits { get; set; }
+        public int? MaxCredits { get => _explicitNullValueMaxCredits; set { _explicitNullValueMaxCredits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_credits"); else _explicitNullProperties?.Remove("max_credits"); } }
+        private int? _explicitNullValueMaxCredits = default!;
         /// <summary>The longest the run may research, in minutes of working time: waits to retry a model call or an attempt do not count. When it is reached the run writes up what it found and completes, charging the credits its turns used, rounded up to the next 50, instead of the whole budget. Writing up can take a few minutes past the limit. Default: no limit.</summary>
-        public int? MaxMinutes { get; set; }
+        public int? MaxMinutes { get => _explicitNullValueMaxMinutes; set { _explicitNullValueMaxMinutes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_minutes"); else _explicitNullProperties?.Remove("max_minutes"); } }
+        private int? _explicitNullValueMaxMinutes = default!;
         /// <summary>Title for the investigation. Derived from lead_info when unset.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>Visible only to you, not your team. With an API key, the run is private to the person who created the key. Your team must allow private runs.</summary>
-        public bool? Private { get; set; }
+        public bool? Private { get => _explicitNullValuePrivate; set { _explicitNullValuePrivate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("private"); else _explicitNullProperties?.Remove("private"); } }
+        private bool? _explicitNullValuePrivate = default!;
         /// <summary>Research until the budget runs out (the Atlas default). Set false to let a run with `struct` stop once every field is answered, charging the turns it used (at least one unit).</summary>
-        public bool? Relentless { get; set; }
+        public bool? Relentless { get => _explicitNullValueRelentless; set { _explicitNullValueRelentless = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relentless"); else _explicitNullProperties?.Remove("relentless"); } }
+        private bool? _explicitNullValueRelentless = default!;
         /// <summary>Direction for this run. On a continue, what to look into next.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ResearchPlan { get; set; }
+        public string? ResearchPlan { get => _explicitNullValueResearchPlan; set { _explicitNullValueResearchPlan = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("research_plan"); else _explicitNullProperties?.Remove("research_plan"); } }
+        private string? _explicitNullValueResearchPlan = default!;
 #nullable restore
 #else
-        public string ResearchPlan { get; set; }
+        public string ResearchPlan { get => _explicitNullValueResearchPlan; set { _explicitNullValueResearchPlan = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("research_plan"); else _explicitNullProperties?.Remove("research_plan"); } }
+        private string _explicitNullValueResearchPlan = default!;
 #endif
         /// <summary>Optional output schema. Atlas researches open-endedly into the workspace either way.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequestStructProperty? Struct { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequestStructProperty? Struct { get => _explicitNullValueStruct; set { _explicitNullValueStruct = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("struct"); else _explicitNullProperties?.Remove("struct"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequestStructProperty? _explicitNullValueStruct = default!;
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequestStructProperty Struct { get; set; }
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequestStructProperty Struct { get => _explicitNullValueStruct; set { _explicitNullValueStruct = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("struct"); else _explicitNullProperties?.Remove("struct"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequestStructProperty _explicitNullValueStruct = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequest"/> and sets the default values.
@@ -81,7 +113,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public static global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -120,6 +152,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteBoolValue("relentless", Relentless);
             writer.WriteStringValue("research_plan", ResearchPlan);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequestStructProperty>("struct", Struct);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

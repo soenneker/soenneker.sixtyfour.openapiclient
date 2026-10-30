@@ -75,6 +75,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.History.Volume
                 { "502", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetSearchHistoryVolumeEndpointSearchHistoryVolumeGet502Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetSearchHistoryVolumeEndpointSearchHistoryVolumeGet503Response.CreateFromDiscriminatorValue },
                 { "504", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetSearchHistoryVolumeEndpointSearchHistoryVolumeGet504Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseGetSearchHistoryVolumeEndpointSearchHistoryVolumeGetSchema>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseGetSearchHistoryVolumeEndpointSearchHistoryVolumeGetSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

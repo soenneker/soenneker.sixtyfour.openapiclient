@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Live_status
         {
         }
         /// <summary>
-        /// Read authorized run status and progress. Snapshots are cached for up to 10 seconds. Shares an organization polling budget of 300/minute with burst 15 with job status. Resource access is checked on every request.
+        /// Read authorized run status and progress. Resource access is checked on every request. API-key and OAuth machine callers share an organization polling budget of 300/minute with burst 15 with job status. Verified platform sessions bypass rate limits. Answers 503 with Retry-After when the status cannot be produced within 5 seconds.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -69,11 +69,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Live_status
                 { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet503Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Read authorized run status and progress. Snapshots are cached for up to 10 seconds. Shares an organization polling budget of 300/minute with burst 15 with job status. Resource access is checked on every request.
+        /// Read authorized run status and progress. Resource access is checked on every request. API-key and OAuth machine callers share an organization polling budget of 300/minute with burst 15 with job status. Verified platform sessions bypass rate limits. Answers 503 with Retry-After when the status cannot be produced within 5 seconds.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

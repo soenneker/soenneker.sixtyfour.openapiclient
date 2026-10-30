@@ -12,19 +12,36 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class FilterSearchLimits : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("max_clause_count") is { } nullNodeMaxClauseCount && nullNodeMaxClauseCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxClauseCount = null;
+            if (parseNode.GetChildNode("max_query_depth") is { } nullNodeMaxQueryDepth && nullNodeMaxQueryDepth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxQueryDepth = null;
+            if (parseNode.GetChildNode("max_sort_clauses") is { } nullNodeMaxSortClauses && nullNodeMaxSortClauses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxSortClauses = null;
+            if (parseNode.GetChildNode("max_string_length") is { } nullNodeMaxStringLength && nullNodeMaxStringLength.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxStringLength = null;
+            if (parseNode.GetChildNode("max_terms_per_clause") is { } nullNodeMaxTermsPerClause && nullNodeMaxTermsPerClause.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxTermsPerClause = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Maximum total query clauses.</summary>
-        public int? MaxClauseCount { get; set; }
+        public int? MaxClauseCount { get => _explicitNullValueMaxClauseCount; set { _explicitNullValueMaxClauseCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_clause_count"); else _explicitNullProperties?.Remove("max_clause_count"); } }
+        private int? _explicitNullValueMaxClauseCount = default!;
         /// <summary>Maximum recursive query depth.</summary>
-        public int? MaxQueryDepth { get; set; }
+        public int? MaxQueryDepth { get => _explicitNullValueMaxQueryDepth; set { _explicitNullValueMaxQueryDepth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_query_depth"); else _explicitNullProperties?.Remove("max_query_depth"); } }
+        private int? _explicitNullValueMaxQueryDepth = default!;
         /// <summary>Maximum sort clauses.</summary>
-        public int? MaxSortClauses { get; set; }
+        public int? MaxSortClauses { get => _explicitNullValueMaxSortClauses; set { _explicitNullValueMaxSortClauses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_sort_clauses"); else _explicitNullProperties?.Remove("max_sort_clauses"); } }
+        private int? _explicitNullValueMaxSortClauses = default!;
         /// <summary>Maximum string length in query values.</summary>
-        public int? MaxStringLength { get; set; }
+        public int? MaxStringLength { get => _explicitNullValueMaxStringLength; set { _explicitNullValueMaxStringLength = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_string_length"); else _explicitNullProperties?.Remove("max_string_length"); } }
+        private int? _explicitNullValueMaxStringLength = default!;
         /// <summary>Maximum values in terms/bool lists.</summary>
-        public int? MaxTermsPerClause { get; set; }
+        public int? MaxTermsPerClause { get => _explicitNullValueMaxTermsPerClause; set { _explicitNullValueMaxTermsPerClause = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_terms_per_clause"); else _explicitNullProperties?.Remove("max_terms_per_clause"); } }
+        private int? _explicitNullValueMaxTermsPerClause = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchLimits"/> and sets the default values.
         /// </summary>
@@ -40,7 +57,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public static global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchLimits CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchLimits();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchLimits(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,6 +86,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteIntValue("max_sort_clauses", MaxSortClauses);
             writer.WriteIntValue("max_string_length", MaxStringLength);
             writer.WriteIntValue("max_terms_per_clause", MaxTermsPerClause);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

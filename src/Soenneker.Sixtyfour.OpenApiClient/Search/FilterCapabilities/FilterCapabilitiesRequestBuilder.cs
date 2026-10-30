@@ -75,6 +75,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.FilterCapabilities
                 { "502", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetFilterCapabilitiesEndpointSearchFilterCapabilitiesGet502Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetFilterCapabilitiesEndpointSearchFilterCapabilitiesGet503Response.CreateFromDiscriminatorValue },
                 { "504", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetFilterCapabilitiesEndpointSearchFilterCapabilitiesGet504Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchCapabilitiesResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchCapabilitiesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
