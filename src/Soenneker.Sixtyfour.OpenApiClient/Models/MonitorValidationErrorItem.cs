@@ -31,8 +31,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         // Restore fields omitted by the generator's model-depth limit.
 #nullable enable
-        public global::System.Collections.Generic.List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>? Loc { get => _explicitNullValueLoc; set { _explicitNullValueLoc = value; AdditionalData?.Remove("loc"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("loc"); else _explicitNullProperties?.Remove("loc"); } }
-        private global::System.Collections.Generic.List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>? _explicitNullValueLoc = default!;
+        public List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>? Loc { get => _explicitNullValueLoc; set { _explicitNullValueLoc = value; AdditionalData?.Remove("loc"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("loc"); else _explicitNullProperties?.Remove("loc"); } }
+        private List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>? _explicitNullValueLoc = default!;
         public string? Msg { get => _explicitNullValueMsg; set { _explicitNullValueMsg = value; AdditionalData?.Remove("msg"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("msg"); else _explicitNullProperties?.Remove("msg"); } }
         private string? _explicitNullValueMsg = default!;
         public string? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
@@ -75,6 +75,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "type", n => { Type = n.GetStringValue(); } },
                 { "input", n => { Input = n.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue); } },
                 { "ctx", n => { Ctx = n.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue); } },
+
             };
         }
         /// <summary>

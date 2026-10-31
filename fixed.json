@@ -6515,6 +6515,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StartLookalikeSearchResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         }
       }
@@ -10558,6 +10569,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateExclusionListResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         }
       },
@@ -11142,6 +11164,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduleResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       },
@@ -11855,6 +11888,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MonitorResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -11989,6 +12033,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MonitorResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         }
       }
@@ -12245,6 +12300,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MonitorResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -13935,6 +14001,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseTriggerMonitorEndpointMonitorsMonitorIdTriggerPostSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         }
       }
@@ -15308,6 +15385,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RunStarted"
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         }
       },
@@ -15643,6 +15731,17 @@
           },
           "404": {
             "description": "No such investigation, or not one this caller may see."
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RunStarted"
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         }
       }
@@ -16687,6 +16786,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportJob"
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         }
       },
@@ -20649,6 +20759,14 @@
           },
           "folder_id": {
             "title": "Folder Id",
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uuid"
+          },
+          "atlas_investigation_id": {
+            "title": "Atlas Investigation Id",
             "type": [
               "null",
               "string"
@@ -26853,6 +26971,26 @@
               "string"
             ]
           },
+          "investigation_id": {
+            "title": "Investigation Id",
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uuid"
+          },
+          "path": {
+            "title": "Path",
+            "maxLength": 1024,
+            "minLength": 1,
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "view": {
+            "$ref": "#/components/schemas/WorkspaceActionRequestView"
+          },
           "run_id": {
             "title": "Run Id",
             "type": [
@@ -26883,7 +27021,7 @@
             ]
           }
         },
-        "description": "Focus a tab, open an artifact, or close the viewer.\n\nFocus-changing actions carry the counter the caller observed, so they land while\nthe viewer is still where they saw it and are refused once it has moved.\nIt counts focus changes only, so unrelated workspace writes -- registering\na workflow, renaming one -- do not reject a click that raced nothing. It\nremains optional for legacy callers.\n\u0060\u0060open_workflow\u0060\u0060 carries a workflow id rather than a handle, because an\ninline card can be older than the roster it is asking to move.\n\u0060\u0060open_run\u0060\u0060 carries both ids so the server can verify and focus the exact\nexecution represented by an inline run card. Workflow actions require the\nsession-pinned viewer capability; search actions do not."
+        "description": "Focus a tab, open an artifact, or close the viewer.\n\nFocus-changing actions carry the counter the caller observed, so they land while\nthe viewer is still where they saw it and are refused once it has moved.\nIt counts focus changes only, so unrelated workspace writes -- registering\na workflow, renaming one -- do not reject a click that raced nothing. It\nremains optional for legacy callers.\n\u0060\u0060open_workflow\u0060\u0060 carries a workflow id rather than a handle, because an\ninline card can be older than the roster it is asking to move.\n\u0060\u0060open_run\u0060\u0060 carries both ids so the server can verify and focus the exact\nexecution represented by an inline run card. Workflow actions require the\nsession-pinned viewer capability; search actions do not.\n\u0060\u0060open_investigation\u0060\u0060 opens an Atlas investigation the caller may view, or\nwith \u0060\u0060path\u0060\u0060 one of its files or with \u0060\u0060view\u0060\u0060 another of its pages in a\ntab of its own."
       },
       "WorkspaceFileEntriesPage": {
         "title": "WorkspaceFileEntriesPage",
@@ -37130,7 +37268,8 @@
           "open_workflow",
           "open_run",
           "open_search",
-          "rebind_search"
+          "rebind_search",
+          "open_investigation"
         ],
         "type": "string",
         "x-ms-enum": {
@@ -37160,6 +37299,46 @@
             {
               "value": "rebind_search",
               "name": "RebindSearch"
+            },
+            {
+              "value": "open_investigation",
+              "name": "OpenInvestigation"
+            }
+          ]
+        }
+      },
+      "WorkspaceActionRequestView": {
+        "title": "View",
+        "enum": [
+          "graph",
+          "sources",
+          "agents",
+          "activity",
+          null
+        ],
+        "type": [
+          "null",
+          "string"
+        ],
+        "x-ms-enum": {
+          "name": "WorkspaceActionRequestView",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "graph",
+              "name": "Graph"
+            },
+            {
+              "value": "sources",
+              "name": "Sources"
+            },
+            {
+              "value": "agents",
+              "name": "Agents"
+            },
+            {
+              "value": "activity",
+              "name": "Activity"
             }
           ]
         }
