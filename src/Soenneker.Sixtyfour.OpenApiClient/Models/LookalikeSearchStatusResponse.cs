@@ -122,15 +122,15 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string SearchId { get => _explicitNullValueSearchId; set { _explicitNullValueSearchId = value; AdditionalData?.Remove("search_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search_id"); else _explicitNullProperties?.Remove("search_id"); } }
         private string _explicitNullValueSearchId = default!;
 #endif
-        /// <summary>The seed_diagnostics property</summary>
+        /// <summary>Accounting for how an input seed set became analyzable profiles.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SeedDiagnostics? SeedDiagnostics { get => _explicitNullValueSeedDiagnostics; set { _explicitNullValueSeedDiagnostics = value; AdditionalData?.Remove("seed_diagnostics"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seed_diagnostics"); else _explicitNullProperties?.Remove("seed_diagnostics"); } }
-        private global::Soenneker.Sixtyfour.OpenApiClient.Models.SeedDiagnostics? _explicitNullValueSeedDiagnostics = default!;
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseSeedDiagnostics? SeedDiagnostics { get => _explicitNullValueSeedDiagnostics; set { _explicitNullValueSeedDiagnostics = value; AdditionalData?.Remove("seed_diagnostics"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seed_diagnostics"); else _explicitNullProperties?.Remove("seed_diagnostics"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseSeedDiagnostics? _explicitNullValueSeedDiagnostics = default!;
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SeedDiagnostics SeedDiagnostics { get => _explicitNullValueSeedDiagnostics; set { _explicitNullValueSeedDiagnostics = value; AdditionalData?.Remove("seed_diagnostics"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seed_diagnostics"); else _explicitNullProperties?.Remove("seed_diagnostics"); } }
-        private global::Soenneker.Sixtyfour.OpenApiClient.Models.SeedDiagnostics _explicitNullValueSeedDiagnostics = default!;
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseSeedDiagnostics SeedDiagnostics { get => _explicitNullValueSeedDiagnostics; set { _explicitNullValueSeedDiagnostics = value; AdditionalData?.Remove("seed_diagnostics"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seed_diagnostics"); else _explicitNullProperties?.Remove("seed_diagnostics"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseSeedDiagnostics _explicitNullValueSeedDiagnostics = default!;
 #endif
         /// <summary>The start_time property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -208,7 +208,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "filters", n => { Filters = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseFiltersProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseFiltersProperty.CreateFromDiscriminatorValue); } },
                 { "progress_message", n => { ProgressMessage = n.GetStringValue(); } },
                 { "search_id", n => { SearchId = n.GetStringValue(); } },
-                { "seed_diagnostics", n => { SeedDiagnostics = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SeedDiagnostics>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SeedDiagnostics.CreateFromDiscriminatorValue); } },
+                { "seed_diagnostics", n => { SeedDiagnostics = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseSeedDiagnostics>(global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseSeedDiagnostics.CreateFromDiscriminatorValue); } },
                 { "start_time", n => { StartTime = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "task_id", n => { TaskId = n.GetStringValue(); } },
@@ -231,7 +231,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseFiltersProperty>("filters", Filters);
             writer.WriteStringValue("progress_message", ProgressMessage);
             writer.WriteStringValue("search_id", SearchId);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SeedDiagnostics>("seed_diagnostics", SeedDiagnostics);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseSeedDiagnostics>("seed_diagnostics", SeedDiagnostics);
             writer.WriteStringValue("start_time", StartTime);
             writer.WriteStringValue("status", Status);
             writer.WriteStringValue("task_id", TaskId);

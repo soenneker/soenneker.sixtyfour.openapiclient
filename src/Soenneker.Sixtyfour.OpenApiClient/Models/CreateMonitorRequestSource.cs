@@ -9,7 +9,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class MonitorRunSource : IParsable
+    public partial class CreateMonitorRequestSource : IParsable
     #pragma warning restore CS1591
     , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
         // Track explicitly assigned nulls separately from absent properties.
@@ -70,12 +70,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRunSource"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestSource"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRunSource CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestSource CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRunSource(), parseNode);
+            // Preserve a nullable root response.
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestSource(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model

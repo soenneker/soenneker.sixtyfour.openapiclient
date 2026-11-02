@@ -138,8 +138,15 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty _explicitNullValueStruct = default!;
 #endif
         /// <summary>Quality and cost tier for the research agent.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoTier? Tier { get => _explicitNullValueTier; set { _explicitNullValueTier = value; AdditionalData?.Remove("tier"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tier"); else _explicitNullProperties?.Remove("tier"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoTier? _explicitNullValueTier = default!;
+#nullable restore
+#else
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoTier Tier { get => _explicitNullValueTier; set { _explicitNullValueTier = value; AdditionalData?.Remove("tier"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tier"); else _explicitNullProperties?.Remove("tier"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoTier _explicitNullValueTier = default!;
+#endif
         /// <summary>HTTPS URL that receives the result payload when the async job completes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -192,7 +199,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "relentless", n => { Relentless = n.GetBoolValue(); } },
                 { "research_plan", n => { ResearchPlan = n.GetStringValue(); } },
                 { "struct", n => { Struct = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty.CreateFromDiscriminatorValue); } },
-                { "tier", n => { var parsed = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoTier>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueTier = default; _explicitNullProperties?.Remove("tier"); AdditionalData["tier"] = unknown; } else { Tier = parsed; AdditionalData.Remove("tier"); } } },
+                { "tier", n => { Tier = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoTier>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoTier.CreateFromDiscriminatorValue); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
             };
         }
@@ -217,7 +224,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteBoolValue("relentless", Relentless);
             writer.WriteStringValue("research_plan", ResearchPlan);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty>("struct", Struct);
-            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoTier>("tier", Tier);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoTier>("tier", Tier);
             writer.WriteStringValue("webhook_url", WebhookUrl);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

@@ -139,12 +139,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>The source property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRunSource? Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
-        private global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRunSource? _explicitNullValueSource = default!;
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestSource? Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestSource? _explicitNullValueSource = default!;
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRunSource Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
-        private global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRunSource _explicitNullValueSource = default!;
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestSource Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestSource _explicitNullValueSource = default!;
 #endif
         /// <summary>Field name -&gt; what to find. The same shape enrichment takes: either a sentence, or an object with &apos;type&apos;, &apos;description&apos; and, for a nested field, &apos;subfields&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -235,7 +235,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "research_plan", n => { ResearchPlan = n.GetStringValue(); } },
                 { "rows", n => { Rows = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestRowsItemProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestRowsItemProperty.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "source", n => { Source = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRunSource>(global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRunSource.CreateFromDiscriminatorValue); } },
+                { "source", n => { Source = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestSource>(global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestSource.CreateFromDiscriminatorValue); } },
                 { "struct", n => { Struct = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestStructProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestStructProperty.CreateFromDiscriminatorValue); } },
                 { "subject_type", n => { SubjectType = n.GetStringValue(); } },
                 { "tier", n => { Tier = n.GetStringValue(); } },
@@ -261,7 +261,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("research_plan", ResearchPlan);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestRowsItemProperty>("rows", Rows);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRunSource>("source", Source);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestSource>("source", Source);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestStructProperty>("struct", Struct);
             writer.WriteStringValue("subject_type", SubjectType);
             writer.WriteStringValue("tier", Tier);

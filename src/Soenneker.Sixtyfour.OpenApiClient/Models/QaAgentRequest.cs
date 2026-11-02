@@ -81,12 +81,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Mapping of extra output fields and their descriptions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestStructAnyOf1? Struct { get => _explicitNullValueStruct; set { _explicitNullValueStruct = value; AdditionalData?.Remove("struct"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("struct"); else _explicitNullProperties?.Remove("struct"); } }
-        private global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestStructAnyOf1? _explicitNullValueStruct = default!;
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestStruct? Struct { get => _explicitNullValueStruct; set { _explicitNullValueStruct = value; AdditionalData?.Remove("struct"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("struct"); else _explicitNullProperties?.Remove("struct"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestStruct? _explicitNullValueStruct = default!;
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestStructAnyOf1 Struct { get => _explicitNullValueStruct; set { _explicitNullValueStruct = value; AdditionalData?.Remove("struct"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("struct"); else _explicitNullProperties?.Remove("struct"); } }
-        private global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestStructAnyOf1 _explicitNullValueStruct = default!;
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestStruct Struct { get => _explicitNullValueStruct; set { _explicitNullValueStruct = value; AdditionalData?.Remove("struct"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("struct"); else _explicitNullProperties?.Remove("struct"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestStruct _explicitNullValueStruct = default!;
 #endif
         /// <summary>HTTPS URL that receives the result payload when the async job completes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -129,7 +129,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "max_tool_calls", n => { MaxToolCalls = n.GetIntValue(); } },
                 { "qualification_criteria", n => { QualificationCriteria = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.QualificationCriteria>(global::Soenneker.Sixtyfour.OpenApiClient.Models.QualificationCriteria.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "references", n => { References = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.QaReference>(global::Soenneker.Sixtyfour.OpenApiClient.Models.QaReference.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "struct", n => { Struct = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestStructAnyOf1>(global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestStructAnyOf1.CreateFromDiscriminatorValue); } },
+                { "struct", n => { Struct = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestStruct>(global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestStruct.CreateFromDiscriminatorValue); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
             };
         }
@@ -145,7 +145,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteIntValue("max_tool_calls", MaxToolCalls);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.QualificationCriteria>("qualification_criteria", QualificationCriteria);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.QaReference>("references", References);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestStructAnyOf1>("struct", Struct);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestStruct>("struct", Struct);
             writer.WriteStringValue("webhook_url", WebhookUrl);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

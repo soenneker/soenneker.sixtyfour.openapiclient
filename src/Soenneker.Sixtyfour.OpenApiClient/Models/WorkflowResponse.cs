@@ -74,12 +74,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Resolved label and tone for `status` + `step`, so clients render rather than interpret them.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowDisplayStatus? DisplayStatus { get => _explicitNullValueDisplayStatus; set { _explicitNullValueDisplayStatus = value; AdditionalData?.Remove("display_status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_status"); else _explicitNullProperties?.Remove("display_status"); } }
-        private global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowDisplayStatus? _explicitNullValueDisplayStatus = default!;
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseDisplayStatus? DisplayStatus { get => _explicitNullValueDisplayStatus; set { _explicitNullValueDisplayStatus = value; AdditionalData?.Remove("display_status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_status"); else _explicitNullProperties?.Remove("display_status"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseDisplayStatus? _explicitNullValueDisplayStatus = default!;
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowDisplayStatus DisplayStatus { get => _explicitNullValueDisplayStatus; set { _explicitNullValueDisplayStatus = value; AdditionalData?.Remove("display_status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_status"); else _explicitNullProperties?.Remove("display_status"); } }
-        private global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowDisplayStatus _explicitNullValueDisplayStatus = default!;
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseDisplayStatus DisplayStatus { get => _explicitNullValueDisplayStatus; set { _explicitNullValueDisplayStatus = value; AdditionalData?.Remove("display_status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_status"); else _explicitNullProperties?.Remove("display_status"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseDisplayStatus _explicitNullValueDisplayStatus = default!;
 #endif
         /// <summary>Shared definition revision; unchanged by run progress or metadata flags.</summary>
         public int? EditRevision { get => _explicitNullValueEditRevision; set { _explicitNullValueEditRevision = value; AdditionalData?.Remove("edit_revision"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("edit_revision"); else _explicitNullProperties?.Remove("edit_revision"); } }
@@ -205,7 +205,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "block_count", n => { BlockCount = n.GetIntValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "display_status", n => { DisplayStatus = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowDisplayStatus>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowDisplayStatus.CreateFromDiscriminatorValue); } },
+                { "display_status", n => { DisplayStatus = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseDisplayStatus>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseDisplayStatus.CreateFromDiscriminatorValue); } },
                 { "edit_revision", n => { EditRevision = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "last_run_date", n => { LastRunDate = n.GetDateTimeOffsetValue(); } },
@@ -231,7 +231,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteIntValue("block_count", BlockCount);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("description", Description);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowDisplayStatus>("display_status", DisplayStatus);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseDisplayStatus>("display_status", DisplayStatus);
             writer.WriteIntValue("edit_revision", EditRevision);
             writer.WriteStringValue("id", Id);
             writer.WriteDateTimeOffsetValue("last_run_date", LastRunDate);

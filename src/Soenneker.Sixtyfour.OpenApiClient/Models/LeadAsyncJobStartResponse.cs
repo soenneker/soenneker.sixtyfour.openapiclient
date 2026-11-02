@@ -33,12 +33,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Atlas runs only: the investigation this job runs in.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationReference? Investigation { get => _explicitNullValueInvestigation; set { _explicitNullValueInvestigation = value; AdditionalData?.Remove("investigation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("investigation"); else _explicitNullProperties?.Remove("investigation"); } }
-        private global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationReference? _explicitNullValueInvestigation = default!;
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.LeadAsyncJobStartResponseInvestigation? Investigation { get => _explicitNullValueInvestigation; set { _explicitNullValueInvestigation = value; AdditionalData?.Remove("investigation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("investigation"); else _explicitNullProperties?.Remove("investigation"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.LeadAsyncJobStartResponseInvestigation? _explicitNullValueInvestigation = default!;
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationReference Investigation { get => _explicitNullValueInvestigation; set { _explicitNullValueInvestigation = value; AdditionalData?.Remove("investigation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("investigation"); else _explicitNullProperties?.Remove("investigation"); } }
-        private global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationReference _explicitNullValueInvestigation = default!;
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.LeadAsyncJobStartResponseInvestigation Investigation { get => _explicitNullValueInvestigation; set { _explicitNullValueInvestigation = value; AdditionalData?.Remove("investigation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("investigation"); else _explicitNullProperties?.Remove("investigation"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.LeadAsyncJobStartResponseInvestigation _explicitNullValueInvestigation = default!;
 #endif
         /// <summary>Initial job status.</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.LeadAsyncJobStartResponseStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
@@ -88,7 +88,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "investigation", n => { Investigation = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationReference>(global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationReference.CreateFromDiscriminatorValue); } },
+                { "investigation", n => { Investigation = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.LeadAsyncJobStartResponseInvestigation>(global::Soenneker.Sixtyfour.OpenApiClient.Models.LeadAsyncJobStartResponseInvestigation.CreateFromDiscriminatorValue); } },
                 { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.LeadAsyncJobStartResponseStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
                 { "task_id", n => { TaskId = n.GetStringValue(); } },
                 { "unrecognized_fields", n => { UnrecognizedFields = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -101,7 +101,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationReference>("investigation", Investigation);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.LeadAsyncJobStartResponseInvestigation>("investigation", Investigation);
             writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.LeadAsyncJobStartResponseStatus>("status", Status);
             writer.WriteStringValue("task_id", TaskId);
             writer.WriteCollectionOfPrimitiveValues<string>("unrecognized_fields", UnrecognizedFields);

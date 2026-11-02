@@ -33,8 +33,15 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public bool? AllowNested { get => _explicitNullValueAllowNested; set { _explicitNullValueAllowNested = value; AdditionalData?.Remove("allow_nested"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_nested"); else _explicitNullProperties?.Remove("allow_nested"); } }
         private bool? _explicitNullValueAllowNested = default!;
         /// <summary>The block_type property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequestBlockType? BlockType { get => _explicitNullValueBlockType; set { _explicitNullValueBlockType = value; AdditionalData?.Remove("block_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("block_type"); else _explicitNullProperties?.Remove("block_type"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequestBlockType? _explicitNullValueBlockType = default!;
+#nullable restore
+#else
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequestBlockType BlockType { get => _explicitNullValueBlockType; set { _explicitNullValueBlockType = value; AdditionalData?.Remove("block_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("block_type"); else _explicitNullProperties?.Remove("block_type"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequestBlockType _explicitNullValueBlockType = default!;
+#endif
         /// <summary>Natural language description of the fields to generate</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -82,7 +89,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "allow_nested", n => { AllowNested = n.GetBoolValue(); } },
-                { "block_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequestBlockType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueBlockType = default; _explicitNullProperties?.Remove("block_type"); AdditionalData["block_type"] = unknown; } else { BlockType = parsed; AdditionalData.Remove("block_type"); } } },
+                { "block_type", n => { BlockType = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequestBlockType>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequestBlockType.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "existing_struct", n => { ExistingStruct = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructField>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StructField.CreateFromDiscriminatorValue)?.AsList(); } },
             };
@@ -95,7 +102,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("allow_nested", AllowNested);
-            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequestBlockType>("block_type", BlockType);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructBuilderRequestBlockType>("block_type", BlockType);
             writer.WriteStringValue("description", Description);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.StructField>("existing_struct", ExistingStruct);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

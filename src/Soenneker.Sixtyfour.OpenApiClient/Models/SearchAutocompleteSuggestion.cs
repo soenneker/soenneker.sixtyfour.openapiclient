@@ -36,12 +36,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>The companyMeta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchAutocompleteCompanyMeta? CompanyMeta { get => _explicitNullValueCompanyMeta; set { _explicitNullValueCompanyMeta = value; AdditionalData?.Remove("companyMeta"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("companyMeta"); else _explicitNullProperties?.Remove("companyMeta"); } }
-        private global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchAutocompleteCompanyMeta? _explicitNullValueCompanyMeta = default!;
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchAutocompleteSuggestionCompanyMeta? CompanyMeta { get => _explicitNullValueCompanyMeta; set { _explicitNullValueCompanyMeta = value; AdditionalData?.Remove("companyMeta"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("companyMeta"); else _explicitNullProperties?.Remove("companyMeta"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchAutocompleteSuggestionCompanyMeta? _explicitNullValueCompanyMeta = default!;
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchAutocompleteCompanyMeta CompanyMeta { get => _explicitNullValueCompanyMeta; set { _explicitNullValueCompanyMeta = value; AdditionalData?.Remove("companyMeta"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("companyMeta"); else _explicitNullProperties?.Remove("companyMeta"); } }
-        private global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchAutocompleteCompanyMeta _explicitNullValueCompanyMeta = default!;
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchAutocompleteSuggestionCompanyMeta CompanyMeta { get => _explicitNullValueCompanyMeta; set { _explicitNullValueCompanyMeta = value; AdditionalData?.Remove("companyMeta"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("companyMeta"); else _explicitNullProperties?.Remove("companyMeta"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchAutocompleteSuggestionCompanyMeta _explicitNullValueCompanyMeta = default!;
 #endif
         /// <summary>The count property</summary>
         public int? Count { get => _explicitNullValueCount; set { _explicitNullValueCount = value; AdditionalData?.Remove("count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("count"); else _explicitNullProperties?.Remove("count"); } }
@@ -111,7 +111,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "companyMeta", n => { CompanyMeta = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchAutocompleteCompanyMeta>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchAutocompleteCompanyMeta.CreateFromDiscriminatorValue); } },
+                { "companyMeta", n => { CompanyMeta = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchAutocompleteSuggestionCompanyMeta>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchAutocompleteSuggestionCompanyMeta.CreateFromDiscriminatorValue); } },
                 { "count", n => { Count = n.GetIntValue(); } },
                 { "label", n => { Label = n.GetStringValue(); } },
                 { "publicId", n => { PublicId = n.GetStringValue(); } },
@@ -126,7 +126,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchAutocompleteCompanyMeta>("companyMeta", CompanyMeta);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchAutocompleteSuggestionCompanyMeta>("companyMeta", CompanyMeta);
             writer.WriteIntValue("count", Count);
             writer.WriteStringValue("label", Label);
             writer.WriteStringValue("publicId", PublicId);

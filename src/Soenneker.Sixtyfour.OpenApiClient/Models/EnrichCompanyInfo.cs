@@ -101,8 +101,15 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoTargetCompanyProperty _explicitNullValueTargetCompany = default!;
 #endif
         /// <summary>Quality and cost tier for the research agent.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoTier? Tier { get => _explicitNullValueTier; set { _explicitNullValueTier = value; AdditionalData?.Remove("tier"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tier"); else _explicitNullProperties?.Remove("tier"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoTier? _explicitNullValueTier = default!;
+#nullable restore
+#else
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoTier Tier { get => _explicitNullValueTier; set { _explicitNullValueTier = value; AdditionalData?.Remove("tier"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tier"); else _explicitNullProperties?.Remove("tier"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoTier _explicitNullValueTier = default!;
+#endif
         /// <summary>HTTPS URL that receives the result payload when the async job completes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -148,7 +155,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "research_plan", n => { ResearchPlan = n.GetStringValue(); } },
                 { "struct", n => { Struct = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoStructProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoStructProperty.CreateFromDiscriminatorValue); } },
                 { "target_company", n => { TargetCompany = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoTargetCompanyProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoTargetCompanyProperty.CreateFromDiscriminatorValue); } },
-                { "tier", n => { var parsed = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoTier>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueTier = default; _explicitNullProperties?.Remove("tier"); AdditionalData["tier"] = unknown; } else { Tier = parsed; AdditionalData.Remove("tier"); } } },
+                { "tier", n => { Tier = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoTier>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoTier.CreateFromDiscriminatorValue); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
             };
         }
@@ -167,7 +174,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteStringValue("research_plan", ResearchPlan);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoStructProperty>("struct", Struct);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoTargetCompanyProperty>("target_company", TargetCompany);
-            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoTier>("tier", Tier);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoTier>("tier", Tier);
             writer.WriteStringValue("webhook_url", WebhookUrl);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

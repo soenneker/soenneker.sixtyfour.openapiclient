@@ -119,8 +119,15 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public int? DownloadExpiresInSeconds { get => _explicitNullValueDownloadExpiresInSeconds; set { _explicitNullValueDownloadExpiresInSeconds = value; AdditionalData?.Remove("download_expires_in_seconds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("download_expires_in_seconds"); else _explicitNullProperties?.Remove("download_expires_in_seconds"); } }
         private int? _explicitNullValueDownloadExpiresInSeconds = default!;
         /// <summary>Search engine that served this page. Absent on legacy responses.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseEngine? Engine { get => _explicitNullValueEngine; set { _explicitNullValueEngine = value; AdditionalData?.Remove("engine"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("engine"); else _explicitNullProperties?.Remove("engine"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseEngine? _explicitNullValueEngine = default!;
+#nullable restore
+#else
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseEngine Engine { get => _explicitNullValueEngine; set { _explicitNullValueEngine = value; AdditionalData?.Remove("engine"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("engine"); else _explicitNullProperties?.Remove("engine"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseEngine _explicitNullValueEngine = default!;
+#endif
         /// <summary>Legacy export count; always 0 for company direct-filter mode.</summary>
         public int? ExportedCount { get => _explicitNullValueExportedCount; set { _explicitNullValueExportedCount = value; AdditionalData?.Remove("exported_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exported_count"); else _explicitNullProperties?.Remove("exported_count"); } }
         private int? _explicitNullValueExportedCount = default!;
@@ -306,7 +313,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "csv_download_url", n => { CsvDownloadUrl = n.GetStringValue(); } },
                 { "cursor_expires_in_seconds", n => { CursorExpiresInSeconds = n.GetIntValue(); } },
                 { "download_expires_in_seconds", n => { DownloadExpiresInSeconds = n.GetIntValue(); } },
-                { "engine", n => { var parsed = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseEngine>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueEngine = default; _explicitNullProperties?.Remove("engine"); AdditionalData["engine"] = unknown; } else { Engine = parsed; AdditionalData.Remove("engine"); } } },
+                { "engine", n => { Engine = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseEngine>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseEngine.CreateFromDiscriminatorValue); } },
                 { "exported_count", n => { ExportedCount = n.GetIntValue(); } },
                 { "has_more", n => { HasMore = n.GetBoolValue(); } },
                 { "json_download_url", n => { JsonDownloadUrl = n.GetStringValue(); } },
@@ -347,7 +354,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteStringValue("csv_download_url", CsvDownloadUrl);
             writer.WriteIntValue("cursor_expires_in_seconds", CursorExpiresInSeconds);
             writer.WriteIntValue("download_expires_in_seconds", DownloadExpiresInSeconds);
-            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseEngine>("engine", Engine);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseEngine>("engine", Engine);
             writer.WriteIntValue("exported_count", ExportedCount);
             writer.WriteBoolValue("has_more", HasMore);
             writer.WriteStringValue("json_download_url", JsonDownloadUrl);

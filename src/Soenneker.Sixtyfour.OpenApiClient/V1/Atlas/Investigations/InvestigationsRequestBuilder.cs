@@ -202,8 +202,15 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations
             [QueryParameter("shared")]
             public global::Soenneker.Sixtyfour.OpenApiClient.Models.ListInvestigationsV1AtlasInvestigationsGetSharedParameter? Shared { get; set; }
             /// <summary>Only investigations in this state.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
             [QueryParameter("status")]
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.ListInvestigationsV1AtlasInvestigationsGetStatusParameter? Status { get; set; }
+            public string? Status { get; set; }
+#nullable restore
+#else
+            [QueryParameter("status")]
+            public string Status { get; set; }
+#endif
         }
     }
 }
