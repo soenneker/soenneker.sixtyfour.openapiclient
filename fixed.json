@@ -4631,7 +4631,7 @@
           "Workflow"
         ],
         "summary": "Delete Workflow",
-        "description": "Permanently delete a workflow definition. Existing run history is preserved.",
+        "description": "Delete a definition and its runs; their stored inputs are queued for cleanup.",
         "operationId": "DeleteWorkflowWorkflowsDeleteWorkflowPost",
         "parameters": [
           {

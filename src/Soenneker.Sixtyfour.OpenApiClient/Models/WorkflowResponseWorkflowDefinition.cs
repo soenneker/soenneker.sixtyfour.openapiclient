@@ -62,6 +62,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             }
             
             var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool? matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject ? (bool?)null : (bool?)false;
+            bool? matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject ? (bool?)null : (bool?)false;
+            int matchingUnionBranches = 0;
+            if (matchesUnionBranch0 != false) matchingUnionBranches++;
+            if (matchesUnionBranch1 != false) matchingUnionBranches++;
+            bool noSelectedUnionBranch = result.WorkflowResponseWorkflowDefinitionMember1 == null && result.WorkflowResponseWorkflowDefinitionMember2 == null && result.WorkflowResponseWorkflowDefinitionMember3 == null;
+            if (noSelectedUnionBranch && matchesUnionBranch0 == true && matchingUnionBranches == 1) result.WorkflowResponseWorkflowDefinitionMember2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseWorkflowDefinitionMember2(), parseNode);
+            if (noSelectedUnionBranch && matchesUnionBranch1 == true && matchingUnionBranches == 1) result.WorkflowResponseWorkflowDefinitionMember3 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseWorkflowDefinitionMember3(), parseNode);
             if (result.WorkflowResponseWorkflowDefinitionMember1 == null && result.WorkflowResponseWorkflowDefinitionMember2 == null && result.WorkflowResponseWorkflowDefinitionMember3 == null) result.UnrecognizedValue = unionPayload;
 return result;
         }
