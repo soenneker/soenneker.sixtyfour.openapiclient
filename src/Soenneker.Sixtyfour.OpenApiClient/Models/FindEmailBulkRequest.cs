@@ -45,7 +45,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>SMTP-verify each discovered email before returning it.</summary>
         public bool? VerifyEmails { get => _explicitNullValueVerifyEmails; set { _explicitNullValueVerifyEmails = value; AdditionalData?.Remove("verify_emails"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verify_emails"); else _explicitNullProperties?.Remove("verify_emails"); } }
         private bool? _explicitNullValueVerifyEmails = default!;
-        /// <summary>HTTPS URL that receives the result payload when the async job completes.</summary>
+        /// <summary>Async endpoints only: HTTPS URL that receives the result payload when the job completes. The sync endpoints ignore it.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? WebhookUrl { get => _explicitNullValueWebhookUrl; set { _explicitNullValueWebhookUrl = value; AdditionalData?.Remove("webhook_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url"); else _explicitNullProperties?.Remove("webhook_url"); } }

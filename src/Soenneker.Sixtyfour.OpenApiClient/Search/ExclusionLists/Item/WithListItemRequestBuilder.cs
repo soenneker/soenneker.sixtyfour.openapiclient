@@ -36,7 +36,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.ExclusionLists.Item
         /// <summary>
         /// Soft-delete an exclusion list and evict its cached member set.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseDeleteExclusionListEndpointSearchExclusionListsListIdDeleteSchema"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ExclusionListDeleted"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteExclusionListEndpointSearchExclusionListsListIdDelete400Response">When receiving a 400 status code</exception>
@@ -47,11 +47,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.ExclusionLists.Item
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteExclusionListEndpointSearchExclusionListsListIdDelete503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseDeleteExclusionListEndpointSearchExclusionListsListIdDeleteSchema?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ExclusionListDeleted?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseDeleteExclusionListEndpointSearchExclusionListsListIdDeleteSchema> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ExclusionListDeleted> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -66,7 +66,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.ExclusionLists.Item
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseDeleteExclusionListEndpointSearchExclusionListsListIdDeleteSchema>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseDeleteExclusionListEndpointSearchExclusionListsListIdDeleteSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ExclusionListDeleted>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ExclusionListDeleted.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Fetch one exclusion list, including materialization status and size.

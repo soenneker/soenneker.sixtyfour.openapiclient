@@ -19,7 +19,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations
     public partial class InvestigationsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Sixtyfour.OpenApiClient.v1.atlas.investigations.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Investigation id, as returned by list or by an xhigh enrichment.</param>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.WithInvestigationItemRequestBuilder"/></returns>
         public global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.WithInvestigationItemRequestBuilder this[string position]
         {

@@ -44,13 +44,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.FilterCapabilities
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetFilterCapabilitiesEndpointSearchFilterCapabilitiesGet402Response">When receiving a 402 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetFilterCapabilitiesEndpointSearchFilterCapabilitiesGet403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetFilterCapabilitiesEndpointSearchFilterCapabilitiesGet404Response">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetFilterCapabilitiesEndpointSearchFilterCapabilitiesGet409Response">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetFilterCapabilitiesEndpointSearchFilterCapabilitiesGet429Response">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetFilterCapabilitiesEndpointSearchFilterCapabilitiesGet500Response">When receiving a 500 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetFilterCapabilitiesEndpointSearchFilterCapabilitiesGet502Response">When receiving a 502 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetFilterCapabilitiesEndpointSearchFilterCapabilitiesGet503Response">When receiving a 503 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetFilterCapabilitiesEndpointSearchFilterCapabilitiesGet504Response">When receiving a 504 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchCapabilitiesResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Search.FilterCapabilities.FilterCapabilitiesRequestBuilder.FilterCapabilitiesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -68,13 +65,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.FilterCapabilities
                 { "402", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetFilterCapabilitiesEndpointSearchFilterCapabilitiesGet402Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetFilterCapabilitiesEndpointSearchFilterCapabilitiesGet403Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetFilterCapabilitiesEndpointSearchFilterCapabilitiesGet404Response.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetFilterCapabilitiesEndpointSearchFilterCapabilitiesGet409Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetFilterCapabilitiesEndpointSearchFilterCapabilitiesGet429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetFilterCapabilitiesEndpointSearchFilterCapabilitiesGet500Response.CreateFromDiscriminatorValue },
-                { "502", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetFilterCapabilitiesEndpointSearchFilterCapabilitiesGet502Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetFilterCapabilitiesEndpointSearchFilterCapabilitiesGet503Response.CreateFromDiscriminatorValue },
-                { "504", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetFilterCapabilitiesEndpointSearchFilterCapabilitiesGet504Response.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };

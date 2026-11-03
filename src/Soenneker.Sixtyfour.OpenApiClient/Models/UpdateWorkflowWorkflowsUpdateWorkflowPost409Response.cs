@@ -27,12 +27,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>The detail property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Detail { get => _explicitNullValueDetail; set { _explicitNullValueDetail = value; AdditionalData?.Remove("detail"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("detail"); else _explicitNullProperties?.Remove("detail"); } }
-        private string? _explicitNullValueDetail = default!;
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateWorkflowWorkflowsUpdateWorkflowPost409ResponseDetail? Detail { get => _explicitNullValueDetail; set { _explicitNullValueDetail = value; AdditionalData?.Remove("detail"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("detail"); else _explicitNullProperties?.Remove("detail"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateWorkflowWorkflowsUpdateWorkflowPost409ResponseDetail? _explicitNullValueDetail = default!;
 #nullable restore
 #else
-        public string Detail { get => _explicitNullValueDetail; set { _explicitNullValueDetail = value; AdditionalData?.Remove("detail"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("detail"); else _explicitNullProperties?.Remove("detail"); } }
-        private string _explicitNullValueDetail = default!;
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateWorkflowWorkflowsUpdateWorkflowPost409ResponseDetail Detail { get => _explicitNullValueDetail; set { _explicitNullValueDetail = value; AdditionalData?.Remove("detail"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("detail"); else _explicitNullProperties?.Remove("detail"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateWorkflowWorkflowsUpdateWorkflowPost409ResponseDetail _explicitNullValueDetail = default!;
 #endif
         /// <summary>The primary error message.</summary>
         public override string Message { get => base.Message; }
@@ -61,7 +61,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "detail", n => { Detail = n.GetStringValue(); } },
+                { "detail", n => { Detail = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateWorkflowWorkflowsUpdateWorkflowPost409ResponseDetail>(global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateWorkflowWorkflowsUpdateWorkflowPost409ResponseDetail.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -71,7 +71,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("detail", Detail);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateWorkflowWorkflowsUpdateWorkflowPost409ResponseDetail>("detail", Detail);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

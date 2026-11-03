@@ -98,7 +98,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListWorkflowsWorkflowsGet401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListWorkflowsWorkflowsGet403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListWorkflowsWorkflowsGet404Response">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListWorkflowsWorkflowsGet409Response">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListWorkflowsWorkflowsGet500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListWorkflowsWorkflowsGet503Response">When receiving a 503 status code</exception>
@@ -118,7 +117,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListWorkflowsWorkflowsGet401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListWorkflowsWorkflowsGet403Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListWorkflowsWorkflowsGet404Response.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListWorkflowsWorkflowsGet409Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListWorkflowsWorkflowsGet500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListWorkflowsWorkflowsGet503Response.CreateFromDiscriminatorValue },

@@ -25,7 +25,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Full LinkedIn profile or company URL to enrich.</summary>
+        /// <summary>Full URL of a person&apos;s LinkedIn profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LinkedinUrl { get => _explicitNullValueLinkedinUrl; set { _explicitNullValueLinkedinUrl = value; AdditionalData?.Remove("linkedin_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("linkedin_url"); else _explicitNullProperties?.Remove("linkedin_url"); } }

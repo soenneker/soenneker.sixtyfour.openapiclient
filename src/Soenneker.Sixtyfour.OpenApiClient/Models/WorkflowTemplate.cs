@@ -189,7 +189,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>`global` for the curated catalog, `org` for a template owned by your organization.</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowTemplateScope? Scope { get => _explicitNullValueScope; set { _explicitNullValueScope = value; AdditionalData?.Remove("scope"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scope"); else _explicitNullProperties?.Remove("scope"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowTemplateScope? _explicitNullValueScope = default!;
-        /// <summary>Stable identity across environments, matching the catalog filename in WebApp/supabase/templates/. Prefer this over `id`, which is minted per environment and differs between local, staging, and prod.</summary>
+        /// <summary>Stable, readable identifier, such as `personal-email-enrichment`. Prefer it over `id` when you store a reference to a template.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Slug { get => _explicitNullValueSlug; set { _explicitNullValueSlug = value; AdditionalData?.Remove("slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slug"); else _explicitNullProperties?.Remove("slug"); } }

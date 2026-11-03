@@ -2,19 +2,15 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Sixtyfour.OpenApiClient.Search.Autocomplete;
-using Soenneker.Sixtyfour.OpenApiClient.Search.DeepSearchStatus;
 using Soenneker.Sixtyfour.OpenApiClient.Search.Download;
 using Soenneker.Sixtyfour.OpenApiClient.Search.ExclusionLists;
 using Soenneker.Sixtyfour.OpenApiClient.Search.Export;
 using Soenneker.Sixtyfour.OpenApiClient.Search.FilterCapabilities;
 using Soenneker.Sixtyfour.OpenApiClient.Search.FilterFieldValues;
-using Soenneker.Sixtyfour.OpenApiClient.Search.History;
 using Soenneker.Sixtyfour.OpenApiClient.Search.Limits;
 using Soenneker.Sixtyfour.OpenApiClient.Search.Lookalike;
 using Soenneker.Sixtyfour.OpenApiClient.Search.Query;
 using Soenneker.Sixtyfour.OpenApiClient.Search.StartDeepSearch;
-using Soenneker.Sixtyfour.OpenApiClient.Search.StartFilterSearch;
 using Soenneker.Sixtyfour.OpenApiClient.Search.Status;
 using System.Collections.Generic;
 using System.IO;
@@ -28,16 +24,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SearchRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>The autocomplete property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Search.Autocomplete.AutocompleteRequestBuilder Autocomplete
-        {
-            get => new global::Soenneker.Sixtyfour.OpenApiClient.Search.Autocomplete.AutocompleteRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The deepSearchStatus property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Search.DeepSearchStatus.DeepSearchStatusRequestBuilder DeepSearchStatus
-        {
-            get => new global::Soenneker.Sixtyfour.OpenApiClient.Search.DeepSearchStatus.DeepSearchStatusRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The download property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Search.Download.DownloadRequestBuilder Download
         {
@@ -63,11 +49,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.Search.FilterFieldValues.FilterFieldValuesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The history property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Search.History.HistoryRequestBuilder History
-        {
-            get => new global::Soenneker.Sixtyfour.OpenApiClient.Search.History.HistoryRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The limits property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Search.Limits.LimitsRequestBuilder Limits
         {
@@ -87,11 +68,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search
         public global::Soenneker.Sixtyfour.OpenApiClient.Search.StartDeepSearch.StartDeepSearchRequestBuilder StartDeepSearch
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.Search.StartDeepSearch.StartDeepSearchRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The startFilterSearch property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Search.StartFilterSearch.StartFilterSearchRequestBuilder StartFilterSearch
-        {
-            get => new global::Soenneker.Sixtyfour.OpenApiClient.Search.StartFilterSearch.StartFilterSearchRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The status property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Search.Status.StatusRequestBuilder Status

@@ -44,13 +44,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Status.Item
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchStatusEndpointSearchStatusTaskIdGet402Response">When receiving a 402 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchStatusEndpointSearchStatusTaskIdGet403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchStatusEndpointSearchStatusTaskIdGet404Response">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchStatusEndpointSearchStatusTaskIdGet409Response">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchStatusEndpointSearchStatusTaskIdGet429Response">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchStatusEndpointSearchStatusTaskIdGet500Response">When receiving a 500 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchStatusEndpointSearchStatusTaskIdGet502Response">When receiving a 502 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchStatusEndpointSearchStatusTaskIdGet503Response">When receiving a 503 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchStatusEndpointSearchStatusTaskIdGet504Response">When receiving a 504 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -68,13 +65,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Status.Item
                 { "402", global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchStatusEndpointSearchStatusTaskIdGet402Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchStatusEndpointSearchStatusTaskIdGet403Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchStatusEndpointSearchStatusTaskIdGet404Response.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchStatusEndpointSearchStatusTaskIdGet409Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchStatusEndpointSearchStatusTaskIdGet429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchStatusEndpointSearchStatusTaskIdGet500Response.CreateFromDiscriminatorValue },
-                { "502", global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchStatusEndpointSearchStatusTaskIdGet502Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchStatusEndpointSearchStatusTaskIdGet503Response.CreateFromDiscriminatorValue },
-                { "504", global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchStatusEndpointSearchStatusTaskIdGet504Response.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };

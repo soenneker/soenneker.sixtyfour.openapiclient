@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Templates.Item
         {
         }
         /// <summary>
-        /// Return one catalog template, e.g. ``/templates/personal-email-enrichment``.Accepts the slug or a uuid, so links minted before slug addressing keep resolving.A key carrying a namespace (``&lt;org_id&gt;:&lt;slug&gt;``) is a 404 rather than a redirect:this route serves the catalog, and an org&apos;s template is not reachable without acredential — including for an org whose id happens to look like ours.An internal-only template is a 404, not a 403, so this cannot enumerate them.
+        /// Return one catalog template, e.g. ``/templates/personal-email-enrichment``.Accepts the template&apos;s `slug` or its `id`. A key of one of your organization&apos;s owntemplates (``&lt;org_id&gt;:&lt;slug&gt;``) returns 404 here; those are listed by`GET /templates/available`.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowTemplate"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -69,7 +69,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Templates.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowTemplate>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowTemplate.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Return one catalog template, e.g. ``/templates/personal-email-enrichment``.Accepts the slug or a uuid, so links minted before slug addressing keep resolving.A key carrying a namespace (``&lt;org_id&gt;:&lt;slug&gt;``) is a 404 rather than a redirect:this route serves the catalog, and an org&apos;s template is not reachable without acredential — including for an org whose id happens to look like ours.An internal-only template is a 404, not a 403, so this cannot enumerate them.
+        /// Return one catalog template, e.g. ``/templates/personal-email-enrichment``.Accepts the template&apos;s `slug` or its `id`. A key of one of your organization&apos;s owntemplates (``&lt;org_id&gt;:&lt;slug&gt;``) returns 404 here; those are listed by`GET /templates/available`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

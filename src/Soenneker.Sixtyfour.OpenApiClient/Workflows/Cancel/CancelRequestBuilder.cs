@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Cancel
         {
         }
         /// <summary>
-        /// Request cancellation of an in-progress run.The response carries the actual durable status. When`cancellation_requested` is true, Temporal accepted the stop request;continue polling until a terminal status is returned. Results and chargesfor completed work remain. A terminal run keeps its original outcome.A 503 means confirmation failed: retry cancellation of the same job_id.
+        /// Request cancellation of an in-progress run.The response carries the run&apos;s current status. When`cancellation_requested` is true, the stop request was accepted;continue polling until a terminal status is returned. Results and chargesfor completed work remain. A terminal run keeps its original outcome.A 503 means confirmation failed: retry cancellation of the same job_id.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowCancelResponse"/></returns>
         /// <param name="body">JSON body for POST /workflows/cancel; job_id may also come from the query param.</param>
@@ -44,7 +44,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Cancel
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelWorkflowRunWorkflowsCancelPost401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelWorkflowRunWorkflowsCancelPost403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelWorkflowRunWorkflowsCancelPost404Response">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelWorkflowRunWorkflowsCancelPost409Response">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelWorkflowRunWorkflowsCancelPost500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelWorkflowRunWorkflowsCancelPost503Response">When receiving a 503 status code</exception>
@@ -65,7 +64,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Cancel
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelWorkflowRunWorkflowsCancelPost401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelWorkflowRunWorkflowsCancelPost403Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelWorkflowRunWorkflowsCancelPost404Response.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelWorkflowRunWorkflowsCancelPost409Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelWorkflowRunWorkflowsCancelPost500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelWorkflowRunWorkflowsCancelPost503Response.CreateFromDiscriminatorValue },
@@ -75,7 +73,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Cancel
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowCancelResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowCancelResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Request cancellation of an in-progress run.The response carries the actual durable status. When`cancellation_requested` is true, Temporal accepted the stop request;continue polling until a terminal status is returned. Results and chargesfor completed work remain. A terminal run keeps its original outcome.A 503 means confirmation failed: retry cancellation of the same job_id.
+        /// Request cancellation of an in-progress run.The response carries the run&apos;s current status. When`cancellation_requested` is true, the stop request was accepted;continue polling until a terminal status is returned. Results and chargesfor completed work remain. A terminal run keeps its original outcome.A 503 means confirmation failed: retry cancellation of the same job_id.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">JSON body for POST /workflows/cancel; job_id may also come from the query param.</param>
@@ -106,7 +104,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Cancel
             return new global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Cancel.CancelRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Request cancellation of an in-progress run.The response carries the actual durable status. When`cancellation_requested` is true, Temporal accepted the stop request;continue polling until a terminal status is returned. Results and chargesfor completed work remain. A terminal run keeps its original outcome.A 503 means confirmation failed: retry cancellation of the same job_id.
+        /// Request cancellation of an in-progress run.The response carries the run&apos;s current status. When`cancellation_requested` is true, the stop request was accepted;continue polling until a terminal status is returned. Results and chargesfor completed work remain. A terminal run keeps its original outcome.A 503 means confirmation failed: retry cancellation of the same job_id.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class CancelRequestBuilderPostQueryParameters 

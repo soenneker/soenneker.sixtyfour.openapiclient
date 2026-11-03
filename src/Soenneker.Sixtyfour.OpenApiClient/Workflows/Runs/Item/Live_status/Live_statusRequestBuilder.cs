@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Live_status
         {
         }
         /// <summary>
-        /// Read authorized run status and progress. Resource access is checked on every request. API-key and OAuth machine callers share an organization polling budget of 300/minute with burst 15 with job status. Verified platform sessions bypass rate limits. Answers 503 with Retry-After when the status cannot be produced within 5 seconds.
+        /// Read authorized run status and progress. Resource access is checked on every request. API-key and OAuth machine callers share one budget with job status: 300 requests per 60 second(s) per organization, with a burst of 15, shared across API servers. Verified platform sessions bypass rate limits. Answers 503 with Retry-After when the status cannot be produced within 5 seconds.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -43,7 +43,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Live_status
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet404Response">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet409Response">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet429Response">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet500Response">When receiving a 500 status code</exception>
@@ -64,7 +63,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Live_status
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet403Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet404Response.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet409Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetWorkflowRunLiveStatusWorkflowsRunsRunIdLiveStatusGet500Response.CreateFromDiscriminatorValue },
@@ -75,7 +73,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Live_status
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowLiveStatusResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Read authorized run status and progress. Resource access is checked on every request. API-key and OAuth machine callers share an organization polling budget of 300/minute with burst 15 with job status. Verified platform sessions bypass rate limits. Answers 503 with Retry-After when the status cannot be produced within 5 seconds.
+        /// Read authorized run status and progress. Resource access is checked on every request. API-key and OAuth machine callers share one budget with job status: 300 requests per 60 second(s) per organization, with a burst of 15, shared across API servers. Verified platform sessions bypass rate limits. Answers 503 with Retry-After when the status cannot be produced within 5 seconds.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

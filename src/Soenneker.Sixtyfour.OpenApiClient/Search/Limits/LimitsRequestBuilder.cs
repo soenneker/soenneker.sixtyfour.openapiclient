@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Limits
         {
         }
         /// <summary>
-        /// Search Limits
+        /// The most rows one search may return or save for the credential you call with.`POST /search/query`, `POST /search/export` and deep search stop at `max_results`. API keys andOAuth clients have a fixed limit; signed-in users get their plan&apos;s limit.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchLimitsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -44,13 +44,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Limits
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetSearchLimitsEndpointSearchLimitsGet402Response">When receiving a 402 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetSearchLimitsEndpointSearchLimitsGet403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetSearchLimitsEndpointSearchLimitsGet404Response">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetSearchLimitsEndpointSearchLimitsGet409Response">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetSearchLimitsEndpointSearchLimitsGet429Response">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetSearchLimitsEndpointSearchLimitsGet500Response">When receiving a 500 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetSearchLimitsEndpointSearchLimitsGet502Response">When receiving a 502 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetSearchLimitsEndpointSearchLimitsGet503Response">When receiving a 503 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetSearchLimitsEndpointSearchLimitsGet504Response">When receiving a 504 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchLimitsResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -68,20 +65,17 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Limits
                 { "402", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetSearchLimitsEndpointSearchLimitsGet402Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetSearchLimitsEndpointSearchLimitsGet403Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetSearchLimitsEndpointSearchLimitsGet404Response.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetSearchLimitsEndpointSearchLimitsGet409Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetSearchLimitsEndpointSearchLimitsGet429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetSearchLimitsEndpointSearchLimitsGet500Response.CreateFromDiscriminatorValue },
-                { "502", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetSearchLimitsEndpointSearchLimitsGet502Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetSearchLimitsEndpointSearchLimitsGet503Response.CreateFromDiscriminatorValue },
-                { "504", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetSearchLimitsEndpointSearchLimitsGet504Response.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchLimitsResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchLimitsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Search Limits
+        /// The most rows one search may return or save for the credential you call with.`POST /search/query`, `POST /search/export` and deep search stop at `max_results`. API keys andOAuth clients have a fixed limit; signed-in users get their plan&apos;s limit.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

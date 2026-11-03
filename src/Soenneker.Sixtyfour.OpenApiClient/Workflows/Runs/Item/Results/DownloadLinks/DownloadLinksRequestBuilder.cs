@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Results.Download
         {
         }
         /// <summary>
-        /// List signed result download links. API-key and OAuth machine callers share an organization budget of 5 requests/second with burst 15. Verified platform sessions bypass rate limits; resource export permissions still apply.
+        /// List signed result download links. API-key and OAuth machine callers share one budget: 5 requests per 1 second(s) per organization, with a burst of 15, shared across API servers. Verified platform sessions bypass rate limits; resource export permissions still apply.
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -43,7 +43,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Results.Download
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet404Response">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet409Response">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet429Response">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet500Response">When receiving a 500 status code</exception>
@@ -64,7 +63,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Results.Download
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet403Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet404Response.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet409Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet500Response.CreateFromDiscriminatorValue },
@@ -76,7 +74,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Results.Download
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// List signed result download links. API-key and OAuth machine callers share an organization budget of 5 requests/second with burst 15. Verified platform sessions bypass rate limits; resource export permissions still apply.
+        /// List signed result download links. API-key and OAuth machine callers share one budget: 5 requests per 1 second(s) per organization, with a burst of 15, shared across API servers. Verified platform sessions bypass rate limits; resource export permissions still apply.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -104,7 +102,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Results.Download
             return new global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Results.DownloadLinks.DownloadLinksRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List signed result download links. API-key and OAuth machine callers share an organization budget of 5 requests/second with burst 15. Verified platform sessions bypass rate limits; resource export permissions still apply.
+        /// List signed result download links. API-key and OAuth machine callers share one budget: 5 requests per 1 second(s) per organization, with a burst of 15, shared across API servers. Verified platform sessions bypass rate limits; resource export permissions still apply.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class DownloadLinksRequestBuilderGetQueryParameters 

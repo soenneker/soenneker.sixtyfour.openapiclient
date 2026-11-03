@@ -42,7 +42,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string BlockId { get => _explicitNullValueBlockId; set { _explicitNullValueBlockId = value; AdditionalData?.Remove("block_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("block_id"); else _explicitNullProperties?.Remove("block_id"); } }
         private string _explicitNullValueBlockId = default!;
 #endif
-        /// <summary>Registered block type name (e.g. &apos;enrich_lead&apos;, &apos;find_email&apos;).</summary>
+        /// <summary>Registered block type name (e.g. &apos;lead_enrichment&apos;, &apos;find_email&apos;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? BlockName { get => _explicitNullValueBlockName; set { _explicitNullValueBlockName = value; AdditionalData?.Remove("block_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("block_name"); else _explicitNullProperties?.Remove("block_name"); } }

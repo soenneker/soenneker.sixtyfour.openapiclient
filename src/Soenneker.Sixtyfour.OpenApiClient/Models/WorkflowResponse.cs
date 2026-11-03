@@ -123,7 +123,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Whether the caller&apos;s organization has starred the workflow.</summary>
         public bool? Starred { get => _explicitNullValueStarred; set { _explicitNullValueStarred = value; AdditionalData?.Remove("starred"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("starred"); else _explicitNullProperties?.Remove("starred"); } }
         private bool? _explicitNullValueStarred = default!;
-        /// <summary>Lifecycle status of the workflow definition (e.g. draft, ready).</summary>
+        /// <summary>`created` for a saved workflow that can run, `draft` for one saved before it validates. After a run starts it holds the latest run&apos;s status, such as `running`, `completed` or `failed`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }

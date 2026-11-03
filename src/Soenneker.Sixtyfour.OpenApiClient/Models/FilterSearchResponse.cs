@@ -160,7 +160,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string NaturalLanguageQuery { get => _explicitNullValueNaturalLanguageQuery; set { _explicitNullValueNaturalLanguageQuery = value; AdditionalData?.Remove("natural_language_query"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("natural_language_query"); else _explicitNullProperties?.Remove("natural_language_query"); } }
         private string _explicitNullValueNaturalLanguageQuery = default!;
 #endif
-        /// <summary>Cursor to fetch the next page; null when exhausted.</summary>
+        /// <summary>Cursor to fetch the next page; omitted when there are no more results.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? NextCursor { get => _explicitNullValueNextCursor; set { _explicitNullValueNextCursor = value; AdditionalData?.Remove("next_cursor"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_cursor"); else _explicitNullProperties?.Remove("next_cursor"); } }
@@ -258,10 +258,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string SearchId { get => _explicitNullValueSearchId; set { _explicitNullValueSearchId = value; AdditionalData?.Remove("search_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search_id"); else _explicitNullProperties?.Remove("search_id"); } }
         private string _explicitNullValueSearchId = default!;
 #endif
-        /// <summary>Exact total matches across pages; people-mode only. Null when unknown — including when exclusions are applied by post-filter scan rather than in the query, where the match count would overstate the eligible results. Never a capped or approximate figure.</summary>
+        /// <summary>Exact total matches across pages; people-mode only. Omitted when unknown — including when exclusions are applied by post-filter scan rather than in the query, where the match count would overstate the eligible results. Never a capped or approximate figure.</summary>
         public int? TotalAvailable { get => _explicitNullValueTotalAvailable; set { _explicitNullValueTotalAvailable = value; AdditionalData?.Remove("total_available"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_available"); else _explicitNullProperties?.Remove("total_available"); } }
         private int? _explicitNullValueTotalAvailable = default!;
-        /// <summary>Minimum total matches when the search stopped counting at its cap (50,000), so total_available is null. Null when the total is exact or no reliable lower bound is available.</summary>
+        /// <summary>Minimum total matches when the search stopped counting at its cap (50,000), so total_available is omitted. Omitted when the total is exact or no reliable lower bound is available.</summary>
         public int? TotalAvailableLowerBound { get => _explicitNullValueTotalAvailableLowerBound; set { _explicitNullValueTotalAvailableLowerBound = value; AdditionalData?.Remove("total_available_lower_bound"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_available_lower_bound"); else _explicitNullProperties?.Remove("total_available_lower_bound"); } }
         private int? _explicitNullValueTotalAvailableLowerBound = default!;
         /// <summary>Final total page count; omitted while `has_more` is true.</summary>

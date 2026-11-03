@@ -44,13 +44,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Lookalike.Item
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet402Response">When receiving a 402 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet404Response">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet409Response">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet429Response">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet500Response">When receiving a 500 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet502Response">When receiving a 502 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet503Response">When receiving a 503 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet504Response">When receiving a 504 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Search.Lookalike.Item.WithTaskItemRequestBuilder.WithTaskItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -68,13 +65,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Lookalike.Item
                 { "402", global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet402Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet403Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet404Response.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet409Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet500Response.CreateFromDiscriminatorValue },
-                { "502", global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet502Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet503Response.CreateFromDiscriminatorValue },
-                { "504", global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet504Response.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };

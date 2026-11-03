@@ -83,7 +83,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// Create a schedule and register its Temporal Schedule. Bound to the caller.The schedule lives in its WORKFLOW&apos;s team (runs bill + attributethere), so automating a workflow is decided like any other action on it:another team&apos;s or another org&apos;s workflow answers 404, as a missing one.
+        /// Create a schedule that runs a workflow on a cron expression.The schedule belongs to the workflow&apos;s team, and its runs are attributedto that team. It keeps running if the person who created it leaves. Aworkflow in another team or organization returns 404, as a missing one does.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ScheduleResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -92,6 +92,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateScheduleEndpointSchedulesPost400Response">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateScheduleEndpointSchedulesPost401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateScheduleEndpointSchedulesPost403Response">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateScheduleEndpointSchedulesPost404Response">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateScheduleEndpointSchedulesPost500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateScheduleEndpointSchedulesPost503Response">When receiving a 503 status code</exception>
@@ -111,6 +112,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules
                 { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateScheduleEndpointSchedulesPost400Response.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateScheduleEndpointSchedulesPost401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateScheduleEndpointSchedulesPost403Response.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateScheduleEndpointSchedulesPost404Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateScheduleEndpointSchedulesPost500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateScheduleEndpointSchedulesPost503Response.CreateFromDiscriminatorValue },
@@ -139,7 +141,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules
             return requestInfo;
         }
         /// <summary>
-        /// Create a schedule and register its Temporal Schedule. Bound to the caller.The schedule lives in its WORKFLOW&apos;s team (runs bill + attributethere), so automating a workflow is decided like any other action on it:another team&apos;s or another org&apos;s workflow answers 404, as a missing one.
+        /// Create a schedule that runs a workflow on a cron expression.The schedule belongs to the workflow&apos;s team, and its runs are attributedto that team. It keeps running if the person who created it leaves. Aworkflow in another team or organization returns 404, as a missing one does.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

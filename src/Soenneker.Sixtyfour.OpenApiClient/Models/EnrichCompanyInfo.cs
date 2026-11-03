@@ -100,7 +100,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoTargetCompanyProperty TargetCompany { get => _explicitNullValueTargetCompany; set { _explicitNullValueTargetCompany = value; AdditionalData?.Remove("target_company"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_company"); else _explicitNullProperties?.Remove("target_company"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoTargetCompanyProperty _explicitNullValueTargetCompany = default!;
 #endif
-        /// <summary>Quality and cost tier for the research agent.</summary>
+        /// <summary>Quality and cost tier for the research agent. Defaults to `low`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoTier? Tier { get => _explicitNullValueTier; set { _explicitNullValueTier = value; AdditionalData?.Remove("tier"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tier"); else _explicitNullProperties?.Remove("tier"); } }

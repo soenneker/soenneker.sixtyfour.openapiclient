@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.QaAgentAsync
         {
         }
         /// <summary>
-        /// Run a research agent that answers a question about a person or company; returns a job ID to poll.
+        /// Research a record (a lead, a seller, a company) against your qualification criteria; returns a job ID to poll.The finished job&apos;s result is the same as `POST /qa-agent`: the agent&apos;s assessment in `notes` and thefields you define in `struct`, such as a score or a YES/NO verdict, in `structured_data`.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.AsyncJobStartResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -44,7 +44,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.QaAgentAsync
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentAsyncEndpointQaAgentAsyncPost401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentAsyncEndpointQaAgentAsyncPost402Response">When receiving a 402 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentAsyncEndpointQaAgentAsyncPost403Response">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentAsyncEndpointQaAgentAsyncPost404Response">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentAsyncEndpointQaAgentAsyncPost429Response">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentAsyncEndpointQaAgentAsyncPost500Response">When receiving a 500 status code</exception>
@@ -66,7 +65,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.QaAgentAsync
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentAsyncEndpointQaAgentAsyncPost401Response.CreateFromDiscriminatorValue },
                 { "402", global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentAsyncEndpointQaAgentAsyncPost402Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentAsyncEndpointQaAgentAsyncPost403Response.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentAsyncEndpointQaAgentAsyncPost404Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentAsyncEndpointQaAgentAsyncPost429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentAsyncEndpointQaAgentAsyncPost500Response.CreateFromDiscriminatorValue },
@@ -77,7 +75,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.QaAgentAsync
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.AsyncJobStartResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.AsyncJobStartResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Run a research agent that answers a question about a person or company; returns a job ID to poll.
+        /// Research a record (a lead, a seller, a company) against your qualification criteria; returns a job ID to poll.The finished job&apos;s result is the same as `POST /qa-agent`: the agent&apos;s assessment in `notes` and thefields you define in `struct`, such as a score or a YES/NO verdict, in `structured_data`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

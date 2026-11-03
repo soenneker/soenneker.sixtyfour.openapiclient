@@ -42,6 +42,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Report
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetReportStatusV1AtlasInvestigationsInvestigationIdReportGet400Response">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetReportStatusV1AtlasInvestigationsInvestigationIdReportGet401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetReportStatusV1AtlasInvestigationsInvestigationIdReportGet403Response">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetReportStatusV1AtlasInvestigationsInvestigationIdReportGet404Response">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetReportStatusV1AtlasInvestigationsInvestigationIdReportGet500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetReportStatusV1AtlasInvestigationsInvestigationIdReportGet503Response">When receiving a 503 status code</exception>
@@ -60,6 +61,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Report
                 { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetReportStatusV1AtlasInvestigationsInvestigationIdReportGet400Response.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetReportStatusV1AtlasInvestigationsInvestigationIdReportGet401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetReportStatusV1AtlasInvestigationsInvestigationIdReportGet403Response.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetReportStatusV1AtlasInvestigationsInvestigationIdReportGet404Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetReportStatusV1AtlasInvestigationsInvestigationIdReportGet500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetReportStatusV1AtlasInvestigationsInvestigationIdReportGet503Response.CreateFromDiscriminatorValue },
@@ -78,6 +80,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Report
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateReportV1AtlasInvestigationsInvestigationIdReportPost400Response">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateReportV1AtlasInvestigationsInvestigationIdReportPost401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateReportV1AtlasInvestigationsInvestigationIdReportPost403Response">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateReportV1AtlasInvestigationsInvestigationIdReportPost404Response">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateReportV1AtlasInvestigationsInvestigationIdReportPost409Response">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateReportV1AtlasInvestigationsInvestigationIdReportPost500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateReportV1AtlasInvestigationsInvestigationIdReportPost503Response">When receiving a 503 status code</exception>
@@ -97,6 +101,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Report
                 { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateReportV1AtlasInvestigationsInvestigationIdReportPost400Response.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateReportV1AtlasInvestigationsInvestigationIdReportPost401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateReportV1AtlasInvestigationsInvestigationIdReportPost403Response.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateReportV1AtlasInvestigationsInvestigationIdReportPost404Response.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateReportV1AtlasInvestigationsInvestigationIdReportPost409Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateReportV1AtlasInvestigationsInvestigationIdReportPost500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateReportV1AtlasInvestigationsInvestigationIdReportPost503Response.CreateFromDiscriminatorValue },

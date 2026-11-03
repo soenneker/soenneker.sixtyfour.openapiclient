@@ -84,7 +84,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Snapshots.Item
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "application/json");
+            requestInfo.Headers.TryAdd("Accept", "text/csv, application/json");
             return requestInfo;
         }
         /// <summary>

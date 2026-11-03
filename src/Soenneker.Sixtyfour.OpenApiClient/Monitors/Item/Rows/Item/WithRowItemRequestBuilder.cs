@@ -75,7 +75,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Rows.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRowResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRowResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Include or exclude one row from the monitor&apos;s checks.A switched-off row is skipped by the fan-out, so it costs nothing, and itsbaseline and history are kept.
+        /// Include or exclude one row from the monitor&apos;s checks.A switched-off row is skipped when the monitor runs, so it costs nothing, andits baseline and history are kept.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRowResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -131,7 +131,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Rows.Item
             return requestInfo;
         }
         /// <summary>
-        /// Include or exclude one row from the monitor&apos;s checks.A switched-off row is skipped by the fan-out, so it costs nothing, and itsbaseline and history are kept.
+        /// Include or exclude one row from the monitor&apos;s checks.A switched-off row is skipped when the monitor runs, so it costs nothing, andits baseline and history are kept.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

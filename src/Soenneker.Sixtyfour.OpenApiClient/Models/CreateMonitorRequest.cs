@@ -40,8 +40,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             else if (parseNode.GetChildNode("research_plan") is { } nullNodeResearchPlan && nullNodeResearchPlan.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResearchPlan = null;
             if (parseNode.GetChildNode("rows") is null) { _explicitNullValueRows = default!; _explicitNullProperties?.Remove("rows"); }
             else if (parseNode.GetChildNode("rows") is { } nullNodeRows && nullNodeRows.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Rows = null;
-            if (parseNode.GetChildNode("source") is null) { _explicitNullValueSource = default!; _explicitNullProperties?.Remove("source"); }
-            else if (parseNode.GetChildNode("source") is { } nullNodeSource && nullNodeSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Source = null;
             if (parseNode.GetChildNode("struct") is null) { _explicitNullValueStruct = default!; _explicitNullProperties?.Remove("struct"); }
             else if (parseNode.GetChildNode("struct") is { } nullNodeStruct && nullNodeStruct.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Struct = null;
             if (parseNode.GetChildNode("subject_type") is null) { _explicitNullValueSubjectType = default!; _explicitNullProperties?.Remove("subject_type"); }
@@ -67,7 +65,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string Frequency { get => _explicitNullValueFrequency; set { _explicitNullValueFrequency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("frequency"); else _explicitNullProperties?.Remove("frequency"); } }
         private string _explicitNullValueFrequency = default!;
 #endif
-        /// <summary>Upload handle returned by /storage/csv/upload. Use instead of rows or source.</summary>
+        /// <summary>Upload handle returned by /storage/csv/upload. Use instead of rows.</summary>
         public Guid? HandleId { get => _explicitNullValueHandleId; set { _explicitNullValueHandleId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("handle_id"); else _explicitNullProperties?.Remove("handle_id"); } }
         private Guid? _explicitNullValueHandleId = default!;
         /// <summary>Optional. Resending a request with the same key returns what the first attempt created instead of creating the batch twice. Reusing a key with different content returns 409. Omitted, a key is derived from the request&apos;s own content, so an identical resend replays by default.</summary>
@@ -135,16 +133,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestRowsItemProperty> Rows { get => _explicitNullValueRows; set { _explicitNullValueRows = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rows"); else _explicitNullProperties?.Remove("rows"); } }
         private List<global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestRowsItemProperty> _explicitNullValueRows = default!;
-#endif
-        /// <summary>The source property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestSource? Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
-        private global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestSource? _explicitNullValueSource = default!;
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestSource Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
-        private global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestSource _explicitNullValueSource = default!;
 #endif
         /// <summary>Field name -&gt; what to find. The same shape enrichment takes: either a sentence, or an object with &apos;type&apos;, &apos;description&apos; and, for a nested field, &apos;subfields&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -235,7 +223,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "research_plan", n => { ResearchPlan = n.GetStringValue(); } },
                 { "rows", n => { Rows = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestRowsItemProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestRowsItemProperty.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "source", n => { Source = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestSource>(global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestSource.CreateFromDiscriminatorValue); } },
                 { "struct", n => { Struct = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestStructProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestStructProperty.CreateFromDiscriminatorValue); } },
                 { "subject_type", n => { SubjectType = n.GetStringValue(); } },
                 { "tier", n => { Tier = n.GetStringValue(); } },
@@ -261,7 +248,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("research_plan", ResearchPlan);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestRowsItemProperty>("rows", Rows);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestSource>("source", Source);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestStructProperty>("struct", Struct);
             writer.WriteStringValue("subject_type", SubjectType);
             writer.WriteStringValue("tier", Tier);

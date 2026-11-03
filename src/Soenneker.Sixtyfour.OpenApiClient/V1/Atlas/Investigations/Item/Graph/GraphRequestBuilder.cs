@@ -36,22 +36,23 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Graph
         /// <summary>
         /// The attribution graph: `nodes` (findings with source URLs and quotes) and `edges` (confidence-weighted links).
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseGetGraphV1AtlasInvestigationsInvestigationIdGraphGetSchema"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.AttributionGraph"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetGraphV1AtlasInvestigationsInvestigationIdGraphGet400Response">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetGraphV1AtlasInvestigationsInvestigationIdGraphGet401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetGraphV1AtlasInvestigationsInvestigationIdGraphGet403Response">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetGraphV1AtlasInvestigationsInvestigationIdGraphGet404Response">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetGraphV1AtlasInvestigationsInvestigationIdGraphGet500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetGraphV1AtlasInvestigationsInvestigationIdGraphGet503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseGetGraphV1AtlasInvestigationsInvestigationIdGraphGetSchema?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.AttributionGraph?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseGetGraphV1AtlasInvestigationsInvestigationIdGraphGetSchema> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.AttributionGraph> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -60,13 +61,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Graph
                 { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetGraphV1AtlasInvestigationsInvestigationIdGraphGet400Response.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetGraphV1AtlasInvestigationsInvestigationIdGraphGet401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetGraphV1AtlasInvestigationsInvestigationIdGraphGet403Response.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetGraphV1AtlasInvestigationsInvestigationIdGraphGet404Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetGraphV1AtlasInvestigationsInvestigationIdGraphGet500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetGraphV1AtlasInvestigationsInvestigationIdGraphGet503Response.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseGetGraphV1AtlasInvestigationsInvestigationIdGraphGetSchema>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseGetGraphV1AtlasInvestigationsInvestigationIdGraphGetSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.AttributionGraph>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.AttributionGraph.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// The attribution graph: `nodes` (findings with source URLs and quotes) and `edges` (confidence-weighted links).

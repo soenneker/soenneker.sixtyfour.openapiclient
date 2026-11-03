@@ -94,7 +94,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item
         {
         }
         /// <summary>
-        /// Get an investigation
+        /// One investigation, in the shape `GET /v1/atlas/investigations` lists: its name, status, subject(`lead_info`), cost and, when another team shared it with yours, who shared it.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummary"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -102,6 +102,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetInvestigationV1AtlasInvestigationsInvestigationIdGet400Response">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetInvestigationV1AtlasInvestigationsInvestigationIdGet401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetInvestigationV1AtlasInvestigationsInvestigationIdGet403Response">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetInvestigationV1AtlasInvestigationsInvestigationIdGet404Response">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetInvestigationV1AtlasInvestigationsInvestigationIdGet500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetInvestigationV1AtlasInvestigationsInvestigationIdGet503Response">When receiving a 503 status code</exception>
@@ -120,6 +121,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item
                 { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetInvestigationV1AtlasInvestigationsInvestigationIdGet400Response.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetInvestigationV1AtlasInvestigationsInvestigationIdGet401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetInvestigationV1AtlasInvestigationsInvestigationIdGet403Response.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetInvestigationV1AtlasInvestigationsInvestigationIdGet404Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetInvestigationV1AtlasInvestigationsInvestigationIdGet500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetInvestigationV1AtlasInvestigationsInvestigationIdGet503Response.CreateFromDiscriminatorValue },
@@ -129,7 +131,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummary>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummary.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get an investigation
+        /// One investigation, in the shape `GET /v1/atlas/investigations` lists: its name, status, subject(`lead_info`), cost and, when another team shared it with yours, who shared it.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

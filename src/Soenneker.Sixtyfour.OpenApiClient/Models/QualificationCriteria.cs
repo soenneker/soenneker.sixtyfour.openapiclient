@@ -49,7 +49,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; AdditionalData?.Remove("description"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
         private string _explicitNullValueDescription = default!;
 #endif
-        /// <summary>Minimum score (0-1) required to pass this criterion.</summary>
+        /// <summary>Optional threshold for this criterion, given to the agent with its description. It has no fixed scale.</summary>
         public double? Threshold { get => _explicitNullValueThreshold; set { _explicitNullValueThreshold = value; AdditionalData?.Remove("threshold"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("threshold"); else _explicitNullProperties?.Remove("threshold"); } }
         private double? _explicitNullValueThreshold = default!;
         /// <summary>Relative weight of this criterion in the final score.</summary>

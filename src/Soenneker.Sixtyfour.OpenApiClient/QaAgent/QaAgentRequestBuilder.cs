@@ -34,9 +34,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.QaAgent
         {
         }
         /// <summary>
-        /// Run a research agent that answers a question about a person or company.
+        /// Research a record (a lead, a seller, a company) against your qualification criteria.Returns the agent&apos;s assessment in `notes` and the fields you define in `struct`, such as a score or aYES/NO verdict, in `structured_data`.
         /// </summary>
-        /// <returns>A <see cref="UntypedNode"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentResult"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -44,18 +44,17 @@ namespace Soenneker.Sixtyfour.OpenApiClient.QaAgent
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentEndpointQaAgentPost401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentEndpointQaAgentPost402Response">When receiving a 402 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentEndpointQaAgentPost403Response">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentEndpointQaAgentPost404Response">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentEndpointQaAgentPost429Response">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentEndpointQaAgentPost500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentEndpointQaAgentPost503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<UntypedNode?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentResult?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<UntypedNode> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentResult> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -66,7 +65,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.QaAgent
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentEndpointQaAgentPost401Response.CreateFromDiscriminatorValue },
                 { "402", global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentEndpointQaAgentPost402Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentEndpointQaAgentPost403Response.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentEndpointQaAgentPost404Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentEndpointQaAgentPost429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentEndpointQaAgentPost500Response.CreateFromDiscriminatorValue },
@@ -74,10 +72,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.QaAgent
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentResult>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentResult.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Run a research agent that answers a question about a person or company.
+        /// Research a record (a lead, a seller, a company) against your qualification criteria.Returns the agent&apos;s assessment in `notes` and the fields you define in `struct`, such as a score or aYES/NO verdict, in `structured_data`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -87,7 +87,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string Query { get => _explicitNullValueQuery; set { _explicitNullValueQuery = value; AdditionalData?.Remove("query"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query"); else _explicitNullProperties?.Remove("query"); } }
         private string _explicitNullValueQuery = default!;
 #endif
-        /// <summary>Optional client-supplied search ID for idempotent retries.</summary>
+        /// <summary>Optional client-supplied UUID for the search; it must be new.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SearchId { get => _explicitNullValueSearchId; set { _explicitNullValueSearchId = value; AdditionalData?.Remove("search_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search_id"); else _explicitNullProperties?.Remove("search_id"); } }

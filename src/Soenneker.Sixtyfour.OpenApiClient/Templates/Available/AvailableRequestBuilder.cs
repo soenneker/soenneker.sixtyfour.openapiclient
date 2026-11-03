@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Templates.Available
         {
         }
         /// <summary>
-        /// Return the catalog plus your organization&apos;s own templates, in one list.A read-only view over two resources, not a resource itself: create and edit through`/orgs/{org_id}/templates`. The body depends on the caller&apos;s org, so unlike thecatalog it is never shared-cacheable.
+        /// Return the catalog plus your organization&apos;s own templates, in one list.Read-only: this endpoint does not create or change templates. The list depends onyour organization, so unlike the catalog it is never served from a shared cache.
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowTemplate&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Templates.Available
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// Return the catalog plus your organization&apos;s own templates, in one list.A read-only view over two resources, not a resource itself: create and edit through`/orgs/{org_id}/templates`. The body depends on the caller&apos;s org, so unlike thecatalog it is never shared-cacheable.
+        /// Return the catalog plus your organization&apos;s own templates, in one list.Read-only: this endpoint does not create or change templates. The list depends onyour organization, so unlike the catalog it is never served from a shared cache.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -98,7 +98,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Templates.Available
             return new global::Soenneker.Sixtyfour.OpenApiClient.Templates.Available.AvailableRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Return the catalog plus your organization&apos;s own templates, in one list.A read-only view over two resources, not a resource itself: create and edit through`/orgs/{org_id}/templates`. The body depends on the caller&apos;s org, so unlike thecatalog it is never shared-cacheable.
+        /// Return the catalog plus your organization&apos;s own templates, in one list.Read-only: this endpoint does not create or change templates. The list depends onyour organization, so unlike the catalog it is never served from a shared cache.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class AvailableRequestBuilderGetQueryParameters 

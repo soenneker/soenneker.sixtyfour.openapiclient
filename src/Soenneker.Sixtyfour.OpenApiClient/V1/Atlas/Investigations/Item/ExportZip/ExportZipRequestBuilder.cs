@@ -36,22 +36,23 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.ExportZ
         /// <summary>
         /// Everything visible in the app, in one archive: files, attachments with `&lt;path&gt;.json` metadata sidecars,the attribution graph, `investigation.json`, and — with agent-stream access — `agents/`.
         /// </summary>
-        /// <returns>A <see cref="UntypedNode"/></returns>
+        /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ExportZipV1AtlasInvestigationsInvestigationIdExportZipGet400Response">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ExportZipV1AtlasInvestigationsInvestigationIdExportZipGet401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ExportZipV1AtlasInvestigationsInvestigationIdExportZipGet403Response">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ExportZipV1AtlasInvestigationsInvestigationIdExportZipGet404Response">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ExportZipV1AtlasInvestigationsInvestigationIdExportZipGet500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ExportZipV1AtlasInvestigationsInvestigationIdExportZipGet503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<UntypedNode?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<UntypedNode> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -60,13 +61,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.ExportZ
                 { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.ExportZipV1AtlasInvestigationsInvestigationIdExportZipGet400Response.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.ExportZipV1AtlasInvestigationsInvestigationIdExportZipGet401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.ExportZipV1AtlasInvestigationsInvestigationIdExportZipGet403Response.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.ExportZipV1AtlasInvestigationsInvestigationIdExportZipGet404Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.ExportZipV1AtlasInvestigationsInvestigationIdExportZipGet500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.ExportZipV1AtlasInvestigationsInvestigationIdExportZipGet503Response.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Everything visible in the app, in one archive: files, attachments with `&lt;path&gt;.json` metadata sidecars,the attribution graph, `investigation.json`, and — with agent-stream access — `agents/`.
@@ -84,7 +86,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.ExportZ
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "application/json");
+            requestInfo.Headers.TryAdd("Accept", "application/zip, application/json");
             return requestInfo;
         }
         /// <summary>

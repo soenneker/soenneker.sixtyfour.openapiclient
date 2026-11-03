@@ -42,6 +42,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Events.
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StreamEventsV1AtlasInvestigationsInvestigationIdEventsStreamGet400Response">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StreamEventsV1AtlasInvestigationsInvestigationIdEventsStreamGet401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StreamEventsV1AtlasInvestigationsInvestigationIdEventsStreamGet403Response">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StreamEventsV1AtlasInvestigationsInvestigationIdEventsStreamGet404Response">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StreamEventsV1AtlasInvestigationsInvestigationIdEventsStreamGet500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StreamEventsV1AtlasInvestigationsInvestigationIdEventsStreamGet503Response">When receiving a 503 status code</exception>
@@ -60,6 +61,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Events.
                 { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.StreamEventsV1AtlasInvestigationsInvestigationIdEventsStreamGet400Response.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.StreamEventsV1AtlasInvestigationsInvestigationIdEventsStreamGet401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.StreamEventsV1AtlasInvestigationsInvestigationIdEventsStreamGet403Response.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.StreamEventsV1AtlasInvestigationsInvestigationIdEventsStreamGet404Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.StreamEventsV1AtlasInvestigationsInvestigationIdEventsStreamGet500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.StreamEventsV1AtlasInvestigationsInvestigationIdEventsStreamGet503Response.CreateFromDiscriminatorValue },

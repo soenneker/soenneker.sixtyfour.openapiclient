@@ -34,24 +34,25 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Events.
         {
         }
         /// <summary>
-        /// Full agent event I/O
+        /// One event&apos;s full arguments, result and reasoning. Use the event&apos;s `id` from `GET …/events`when `payload.storage_ref` is present. Requires activity access to the investigation.
         /// </summary>
-        /// <returns>A <see cref="UntypedNode"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.AgentEventPayload"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetEventPayloadV1AtlasInvestigationsInvestigationIdEventsEventIdPayloadGet400Response">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetEventPayloadV1AtlasInvestigationsInvestigationIdEventsEventIdPayloadGet401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetEventPayloadV1AtlasInvestigationsInvestigationIdEventsEventIdPayloadGet403Response">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetEventPayloadV1AtlasInvestigationsInvestigationIdEventsEventIdPayloadGet404Response">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetEventPayloadV1AtlasInvestigationsInvestigationIdEventsEventIdPayloadGet500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetEventPayloadV1AtlasInvestigationsInvestigationIdEventsEventIdPayloadGet503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<UntypedNode?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgentEventPayload?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<UntypedNode> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgentEventPayload> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -60,16 +61,17 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Events.
                 { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetEventPayloadV1AtlasInvestigationsInvestigationIdEventsEventIdPayloadGet400Response.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetEventPayloadV1AtlasInvestigationsInvestigationIdEventsEventIdPayloadGet401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetEventPayloadV1AtlasInvestigationsInvestigationIdEventsEventIdPayloadGet403Response.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetEventPayloadV1AtlasInvestigationsInvestigationIdEventsEventIdPayloadGet404Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetEventPayloadV1AtlasInvestigationsInvestigationIdEventsEventIdPayloadGet500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetEventPayloadV1AtlasInvestigationsInvestigationIdEventsEventIdPayloadGet503Response.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgentEventPayload>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.AgentEventPayload.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Full agent event I/O
+        /// One event&apos;s full arguments, result and reasoning. Use the event&apos;s `id` from `GET …/events`when `payload.storage_ref` is present. Requires activity access to the investigation.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

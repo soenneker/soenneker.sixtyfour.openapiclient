@@ -35,9 +35,16 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Overall confidence score for the enrichment result.</summary>
-        public double? ConfidenceScore { get => _explicitNullValueConfidenceScore; set { _explicitNullValueConfidenceScore = value; AdditionalData?.Remove("confidence_score"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("confidence_score"); else _explicitNullProperties?.Remove("confidence_score"); } }
-        private double? _explicitNullValueConfidenceScore = default!;
+        /// <summary>Overall confidence in the result, from 0 (nothing useful found) to 10 (every field filled and cross-checked).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultConfidenceScore? ConfidenceScore { get => _explicitNullValueConfidenceScore; set { _explicitNullValueConfidenceScore = value; AdditionalData?.Remove("confidence_score"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("confidence_score"); else _explicitNullProperties?.Remove("confidence_score"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultConfidenceScore? _explicitNullValueConfidenceScore = default!;
+#nullable restore
+#else
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultConfidenceScore ConfidenceScore { get => _explicitNullValueConfidenceScore; set { _explicitNullValueConfidenceScore = value; AdditionalData?.Remove("confidence_score"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("confidence_score"); else _explicitNullProperties?.Remove("confidence_score"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultConfidenceScore _explicitNullValueConfidenceScore = default!;
+#endif
         /// <summary>Per requested field, nested like the request: its confidence (0-100), justification and sources. xHigh also names the research graph nodes the value rests on.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -124,7 +131,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "confidence_score", n => { ConfidenceScore = n.GetDoubleValue(); } },
+                { "confidence_score", n => { ConfidenceScore = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultConfidenceScore>(global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultConfidenceScore.CreateFromDiscriminatorValue); } },
                 { "field_confidence", n => { FieldConfidence = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultFieldConfidence>(global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultFieldConfidence.CreateFromDiscriminatorValue); } },
                 { "findings", n => { Findings = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "investigation_id", n => { InvestigationId = n.GetStringValue(); } },
@@ -140,7 +147,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteDoubleValue("confidence_score", ConfidenceScore);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultConfidenceScore>("confidence_score", ConfidenceScore);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2ResultEnrichmentJobResultFieldConfidence>("field_confidence", FieldConfidence);
             writer.WriteObjectValue<UntypedNode>("findings", Findings);
             writer.WriteStringValue("investigation_id", InvestigationId);

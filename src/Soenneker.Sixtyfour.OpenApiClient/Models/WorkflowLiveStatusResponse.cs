@@ -107,7 +107,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Overall run progress (0-100).</summary>
         public double? OverallProgressPercentage { get => _explicitNullValueOverallProgressPercentage; set { _explicitNullValueOverallProgressPercentage = value; AdditionalData?.Remove("overall_progress_percentage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("overall_progress_percentage"); else _explicitNullProperties?.Remove("overall_progress_percentage"); } }
         private double? _explicitNullValueOverallProgressPercentage = default!;
-        /// <summary>Overall run status: queued, running, completed, or failed.</summary>
+        /// <summary>Overall run status: `queued`, `running`, `finalizing`, `completed`, `failed`, `cancelled`, `timeout` or `terminated`. The run is still in progress while it is `queued`, `running` or `finalizing`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OverallStatus { get => _explicitNullValueOverallStatus; set { _explicitNullValueOverallStatus = value; AdditionalData?.Remove("overall_status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("overall_status"); else _explicitNullProperties?.Remove("overall_status"); } }

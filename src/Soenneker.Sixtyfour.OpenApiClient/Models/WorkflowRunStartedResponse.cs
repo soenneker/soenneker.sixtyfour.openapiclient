@@ -32,7 +32,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>True when the request was deduplicated via Idempotency-Key header.</summary>
+        /// <summary>True when the request returned a run already started: one under the same Idempotency-Key header, or, without a header, one started with the same webhook_payload in the last two minutes.</summary>
         public bool? AlreadyStarted { get => _explicitNullValueAlreadyStarted; set { _explicitNullValueAlreadyStarted = value; AdditionalData?.Remove("already_started"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("already_started"); else _explicitNullProperties?.Remove("already_started"); } }
         private bool? _explicitNullValueAlreadyStarted = default!;
         /// <summary>Cache configuration; only set by the custom-cache endpoint.</summary>
@@ -55,7 +55,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string JobId { get => _explicitNullValueJobId; set { _explicitNullValueJobId = value; AdditionalData?.Remove("job_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_id"); else _explicitNullProperties?.Remove("job_id"); } }
         private string _explicitNullValueJobId = default!;
 #endif
-        /// <summary>Run status, typically &apos;queued&apos;.</summary>
+        /// <summary>`RUNNING` once the run is admitted; `queued` only when the start is not yet confirmed. An Idempotency-Key replay returns the run&apos;s current status.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }

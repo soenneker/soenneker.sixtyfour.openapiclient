@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Export
         {
         }
         /// <summary>
-        /// Export search results as a CSV file. Poll /search/status/{task_id} for a presigned download URL when complete.
+        /// Export search results as a CSV file. Poll `GET /search/status/{task_id}` until it completes, then passits `resource_handle_id` to `GET /search/download` for a download URL.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SaveSearchResponse"/></returns>
         /// <param name="body">Request to export search results as CSV.</param>
@@ -49,9 +49,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Export
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchExportEndpointSearchExportPost429Response">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchExportEndpointSearchExportPost500Response">When receiving a 500 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchExportEndpointSearchExportPost502Response">When receiving a 502 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchExportEndpointSearchExportPost503Response">When receiving a 503 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchExportEndpointSearchExportPost504Response">When receiving a 504 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.SaveSearchResponse?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.SaveSearchRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -74,16 +72,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Export
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchExportEndpointSearchExportPost429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchExportEndpointSearchExportPost500Response.CreateFromDiscriminatorValue },
-                { "502", global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchExportEndpointSearchExportPost502Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchExportEndpointSearchExportPost503Response.CreateFromDiscriminatorValue },
-                { "504", global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchExportEndpointSearchExportPost504Response.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.SaveSearchResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.SaveSearchResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Export search results as a CSV file. Poll /search/status/{task_id} for a presigned download URL when complete.
+        /// Export search results as a CSV file. Poll `GET /search/status/{task_id}` until it completes, then passits `resource_handle_id` to `GET /search/download` for a download URL.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Request to export search results as CSV.</param>

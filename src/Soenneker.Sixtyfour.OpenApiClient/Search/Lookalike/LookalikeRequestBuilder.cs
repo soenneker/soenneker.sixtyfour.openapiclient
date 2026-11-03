@@ -58,13 +58,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Lookalike
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartLookalikeSearchEndpointSearchLookalikePost402Response">When receiving a 402 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartLookalikeSearchEndpointSearchLookalikePost403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartLookalikeSearchEndpointSearchLookalikePost404Response">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartLookalikeSearchEndpointSearchLookalikePost409Response">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartLookalikeSearchEndpointSearchLookalikePost429Response">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartLookalikeSearchEndpointSearchLookalikePost500Response">When receiving a 500 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartLookalikeSearchEndpointSearchLookalikePost502Response">When receiving a 502 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartLookalikeSearchEndpointSearchLookalikePost503Response">When receiving a 503 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartLookalikeSearchEndpointSearchLookalikePost504Response">When receiving a 504 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartLookalikeSearchResponse?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.StartLookalikeSearchRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -83,13 +80,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Lookalike
                 { "402", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartLookalikeSearchEndpointSearchLookalikePost402Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartLookalikeSearchEndpointSearchLookalikePost403Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartLookalikeSearchEndpointSearchLookalikePost404Response.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartLookalikeSearchEndpointSearchLookalikePost409Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartLookalikeSearchEndpointSearchLookalikePost429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartLookalikeSearchEndpointSearchLookalikePost500Response.CreateFromDiscriminatorValue },
-                { "502", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartLookalikeSearchEndpointSearchLookalikePost502Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartLookalikeSearchEndpointSearchLookalikePost503Response.CreateFromDiscriminatorValue },
-                { "504", global::Soenneker.Sixtyfour.OpenApiClient.Models.StartLookalikeSearchEndpointSearchLookalikePost504Response.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };

@@ -43,7 +43,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.CheckBalance
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CheckBalanceEndpointCheckBalanceGet401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CheckBalanceEndpointCheckBalanceGet402Response">When receiving a 402 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CheckBalanceEndpointCheckBalanceGet403Response">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CheckBalanceEndpointCheckBalanceGet404Response">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CheckBalanceEndpointCheckBalanceGet429Response">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CheckBalanceEndpointCheckBalanceGet500Response">When receiving a 500 status code</exception>
@@ -64,7 +63,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.CheckBalance
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.CheckBalanceEndpointCheckBalanceGet401Response.CreateFromDiscriminatorValue },
                 { "402", global::Soenneker.Sixtyfour.OpenApiClient.Models.CheckBalanceEndpointCheckBalanceGet402Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.CheckBalanceEndpointCheckBalanceGet403Response.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.CheckBalanceEndpointCheckBalanceGet404Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.CheckBalanceEndpointCheckBalanceGet429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.CheckBalanceEndpointCheckBalanceGet500Response.CreateFromDiscriminatorValue },

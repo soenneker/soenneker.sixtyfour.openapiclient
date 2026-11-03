@@ -7,7 +7,6 @@ using Soenneker.Sixtyfour.OpenApiClient.Models;
 using Soenneker.Sixtyfour.OpenApiClient.Monitors.ForRun;
 using Soenneker.Sixtyfour.OpenApiClient.Monitors.Item;
 using Soenneker.Sixtyfour.OpenApiClient.Monitors.Linkedin;
-using Soenneker.Sixtyfour.OpenApiClient.Monitors.RunSource;
 using Soenneker.Sixtyfour.OpenApiClient.Monitors.Upload;
 using System.Collections.Generic;
 using System.IO;
@@ -31,11 +30,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors
         public global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Linkedin.LinkedinRequestBuilder Linkedin
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Linkedin.LinkedinRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The runSource property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Monitors.RunSource.RunSourceRequestBuilder RunSource
-        {
-            get => new global::Soenneker.Sixtyfour.OpenApiClient.Monitors.RunSource.RunSourceRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The upload property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Upload.UploadRequestBuilder Upload

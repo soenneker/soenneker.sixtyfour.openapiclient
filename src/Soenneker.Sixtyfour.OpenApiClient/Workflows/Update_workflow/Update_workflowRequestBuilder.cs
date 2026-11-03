@@ -46,6 +46,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Update_workflow
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateWorkflowWorkflowsUpdateWorkflowPost404Response">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateWorkflowWorkflowsUpdateWorkflowPost409Response">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateWorkflowWorkflowsUpdateWorkflowPost428Response">When receiving a 428 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateWorkflowWorkflowsUpdateWorkflowPost500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateWorkflowWorkflowsUpdateWorkflowPost503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -67,6 +68,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Update_workflow
                 { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateWorkflowWorkflowsUpdateWorkflowPost404Response.CreateFromDiscriminatorValue },
                 { "409", global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateWorkflowWorkflowsUpdateWorkflowPost409Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "428", global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateWorkflowWorkflowsUpdateWorkflowPost428Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateWorkflowWorkflowsUpdateWorkflowPost500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateWorkflowWorkflowsUpdateWorkflowPost503Response.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },

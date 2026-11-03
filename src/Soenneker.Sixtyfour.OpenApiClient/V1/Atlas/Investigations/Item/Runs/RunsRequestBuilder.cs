@@ -43,7 +43,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Runs
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ContinueInvestigationV1AtlasInvestigationsInvestigationIdRunsPost400Response">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ContinueInvestigationV1AtlasInvestigationsInvestigationIdRunsPost401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ContinueInvestigationV1AtlasInvestigationsInvestigationIdRunsPost402Response">When receiving a 402 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ContinueInvestigationV1AtlasInvestigationsInvestigationIdRunsPost403Response">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ContinueInvestigationV1AtlasInvestigationsInvestigationIdRunsPost409Response">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ContinueInvestigationV1AtlasInvestigationsInvestigationIdRunsPost429Response">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ContinueInvestigationV1AtlasInvestigationsInvestigationIdRunsPost500Response">When receiving a 500 status code</exception>
@@ -64,7 +64,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Runs
                 { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.ContinueInvestigationV1AtlasInvestigationsInvestigationIdRunsPost400Response.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.ContinueInvestigationV1AtlasInvestigationsInvestigationIdRunsPost401Response.CreateFromDiscriminatorValue },
                 { "402", global::Soenneker.Sixtyfour.OpenApiClient.Models.ContinueInvestigationV1AtlasInvestigationsInvestigationIdRunsPost402Response.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.ContinueInvestigationV1AtlasInvestigationsInvestigationIdRunsPost403Response.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Sixtyfour.OpenApiClient.Models.ContinueInvestigationV1AtlasInvestigationsInvestigationIdRunsPost409Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.ContinueInvestigationV1AtlasInvestigationsInvestigationIdRunsPost429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.ContinueInvestigationV1AtlasInvestigationsInvestigationIdRunsPost500Response.CreateFromDiscriminatorValue },

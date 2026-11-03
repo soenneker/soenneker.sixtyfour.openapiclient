@@ -44,7 +44,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.CompanyIntelligenceAsync
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CompanyIntelligenceAsyncEndpointCompanyIntelligenceAsyncPost401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CompanyIntelligenceAsyncEndpointCompanyIntelligenceAsyncPost402Response">When receiving a 402 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CompanyIntelligenceAsyncEndpointCompanyIntelligenceAsyncPost403Response">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CompanyIntelligenceAsyncEndpointCompanyIntelligenceAsyncPost404Response">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CompanyIntelligenceAsyncEndpointCompanyIntelligenceAsyncPost429Response">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CompanyIntelligenceAsyncEndpointCompanyIntelligenceAsyncPost500Response">When receiving a 500 status code</exception>
@@ -66,7 +65,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.CompanyIntelligenceAsync
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.CompanyIntelligenceAsyncEndpointCompanyIntelligenceAsyncPost401Response.CreateFromDiscriminatorValue },
                 { "402", global::Soenneker.Sixtyfour.OpenApiClient.Models.CompanyIntelligenceAsyncEndpointCompanyIntelligenceAsyncPost402Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.CompanyIntelligenceAsyncEndpointCompanyIntelligenceAsyncPost403Response.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.CompanyIntelligenceAsyncEndpointCompanyIntelligenceAsyncPost404Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.CompanyIntelligenceAsyncEndpointCompanyIntelligenceAsyncPost429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.CompanyIntelligenceAsyncEndpointCompanyIntelligenceAsyncPost500Response.CreateFromDiscriminatorValue },

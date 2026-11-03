@@ -22,7 +22,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.HistoryExport
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public HistoryExportRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/monitors/{monitorId}/history-export{?spreadsheet_safe*}", pathParameters)
+        public HistoryExportRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/monitors/{monitorId}/history-export", pathParameters)
         {
         }
         /// <summary>
@@ -30,13 +30,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.HistoryExport
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public HistoryExportRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/monitors/{monitorId}/history-export{?spreadsheet_safe*}", rawUrl)
+        public HistoryExportRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/monitors/{monitorId}/history-export", rawUrl)
         {
         }
         /// <summary>
-        /// API-key and OAuth callers share 300 requests/minute with burst 15. All callers share five concurrent archive builds per organization. Capacity refusals return 429 with Retry-After; unavailable capacity returns 503.
+        /// Full CSVs in one ZIP. Omit timestamps for all snapshots in the date range.Bounds: 5,000 snapshots, 50 MiB CSV data, 100 MiB event data, 120 seconds. An oversized request returns 413 before any ZIP is sent; select fewer dates. All timestamps use UTC; start and end are inclusive.API-key and OAuth callers share one budget: 300 requests per 60 second(s) per organization, with a burst of 15, shared across API servers. All callers share five concurrent archive builds per organization. Capacity refusals return 429 with Retry-After; unavailable capacity returns 503.
         /// </summary>
-        /// <returns>A <see cref="UntypedNode"/></returns>
+        /// <returns>A <see cref="Stream"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -49,11 +49,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.HistoryExport
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ExportMonitorHistoryEndpointMonitorsMonitorIdHistoryExportPost503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<UntypedNode?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorHistoryExportRequest body, Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.HistoryExport.HistoryExportRequestBuilder.HistoryExportRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorHistoryExportRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<UntypedNode> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorHistoryExportRequest body, Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.HistoryExport.HistoryExportRequestBuilder.HistoryExportRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorHistoryExportRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -70,27 +70,27 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.HistoryExport
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// API-key and OAuth callers share 300 requests/minute with burst 15. All callers share five concurrent archive builds per organization. Capacity refusals return 429 with Retry-After; unavailable capacity returns 503.
+        /// Full CSVs in one ZIP. Omit timestamps for all snapshots in the date range.Bounds: 5,000 snapshots, 50 MiB CSV data, 100 MiB event data, 120 seconds. An oversized request returns 413 before any ZIP is sent; select fewer dates. All timestamps use UTC; start and end are inclusive.API-key and OAuth callers share one budget: 300 requests per 60 second(s) per organization, with a burst of 15, shared across API servers. All callers share five concurrent archive builds per organization. Capacity refusals return 429 with Retry-After; unavailable capacity returns 503.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorHistoryExportRequest body, Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.HistoryExport.HistoryExportRequestBuilder.HistoryExportRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorHistoryExportRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorHistoryExportRequest body, Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.HistoryExport.HistoryExportRequestBuilder.HistoryExportRequestBuilderPostQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorHistoryExportRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "application/json");
+            requestInfo.Headers.TryAdd("Accept", "application/zip, application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             return requestInfo;
         }
@@ -102,16 +102,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.HistoryExport
         public global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.HistoryExport.HistoryExportRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.HistoryExport.HistoryExportRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// API-key and OAuth callers share 300 requests/minute with burst 15. All callers share five concurrent archive builds per organization. Capacity refusals return 429 with Retry-After; unavailable capacity returns 503.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class HistoryExportRequestBuilderPostQueryParameters 
-        {
-            /// <summary>Escape formula-prefixed CSV cells; off so machine callers keep canonical bytes</summary>
-            [QueryParameter("spreadsheet_safe")]
-            public bool? SpreadsheetSafe { get; set; }
         }
     }
 }

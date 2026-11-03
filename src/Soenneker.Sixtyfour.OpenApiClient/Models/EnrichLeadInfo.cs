@@ -139,7 +139,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public List<string> Skills { get => _explicitNullValueSkills; set { _explicitNullValueSkills = value; AdditionalData?.Remove("skills"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skills"); else _explicitNullProperties?.Remove("skills"); } }
         private List<string> _explicitNullValueSkills = default!;
 #endif
-        /// <summary>Mapping of output field name to natural-language description of what to extract. A field that asks for an image (a headshot, a logo, a screenshot of a page) is returned as an image URL on api.sixtyfour.ai/v1/media, hosted by Sixtyfour; embed it directly. It works until the investigation that saved the image, or the organization, is permanently deleted.</summary>
+        /// <summary>Required except on Atlas runs (`xhigh`, or `scout` with `graph`); other tiers answer 400 `Struct is required` without it. Mapping of output field name to natural-language description of what to extract. A field that asks for an image (a headshot, a logo, a screenshot of a page) is returned as an image URL on api.sixtyfour.ai/v1/media, hosted by Sixtyfour; embed it directly. It works until the investigation that saved the image, or the organization, is permanently deleted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty? Struct { get => _explicitNullValueStruct; set { _explicitNullValueStruct = value; AdditionalData?.Remove("struct"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("struct"); else _explicitNullProperties?.Remove("struct"); } }
@@ -149,7 +149,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty Struct { get => _explicitNullValueStruct; set { _explicitNullValueStruct = value; AdditionalData?.Remove("struct"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("struct"); else _explicitNullProperties?.Remove("struct"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty _explicitNullValueStruct = default!;
 #endif
-        /// <summary>Quality and cost tier for the research agent.</summary>
+        /// <summary>Quality and cost tier for the research agent. Defaults to `low`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoTier? Tier { get => _explicitNullValueTier; set { _explicitNullValueTier = value; AdditionalData?.Remove("tier"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tier"); else _explicitNullProperties?.Remove("tier"); } }

@@ -32,8 +32,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             else if (parseNode.GetChildNode("filters") is { } nullNodeFilters && nullNodeFilters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Filters = null;
             if (parseNode.GetChildNode("from_offset") is null) { _explicitNullValueFromOffset = default!; _explicitNullProperties?.Remove("from_offset"); }
             else if (parseNode.GetChildNode("from_offset") is { } nullNodeFromOffset && nullNodeFromOffset.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FromOffset = null;
-            if (parseNode.GetChildNode("lineage") is null) { _explicitNullValueLineage = default!; _explicitNullProperties?.Remove("lineage"); }
-            else if (parseNode.GetChildNode("lineage") is { } nullNodeLineage && nullNodeLineage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Lineage = null;
             if (parseNode.GetChildNode("location_expansion_enabled") is null) { _explicitNullValueLocationExpansionEnabled = default!; _explicitNullProperties?.Remove("location_expansion_enabled"); }
             else if (parseNode.GetChildNode("location_expansion_enabled") is { } nullNodeLocationExpansionEnabled && nullNodeLocationExpansionEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LocationExpansionEnabled = null;
             if (parseNode.GetChildNode("location_expansion_radius_miles") is null) { _explicitNullValueLocationExpansionRadiusMiles = default!; _explicitNullProperties?.Remove("location_expansion_radius_miles"); }
@@ -56,10 +54,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             else if (parseNode.GetChildNode("query_label") is { } nullNodeQueryLabel && nullNodeQueryLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) QueryLabel = null;
             if (parseNode.GetChildNode("search_id") is null) { _explicitNullValueSearchId = default!; _explicitNullProperties?.Remove("search_id"); }
             else if (parseNode.GetChildNode("search_id") is { } nullNodeSearchId && nullNodeSearchId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SearchId = null;
-            if (parseNode.GetChildNode("selected_company_ids") is null) { _explicitNullValueSelectedCompanyIds = default!; _explicitNullProperties?.Remove("selected_company_ids"); }
-            else if (parseNode.GetChildNode("selected_company_ids") is { } nullNodeSelectedCompanyIds && nullNodeSelectedCompanyIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelectedCompanyIds = null;
-            if (parseNode.GetChildNode("selected_company_names") is null) { _explicitNullValueSelectedCompanyNames = default!; _explicitNullProperties?.Remove("selected_company_names"); }
-            else if (parseNode.GetChildNode("selected_company_names") is { } nullNodeSelectedCompanyNames && nullNodeSelectedCompanyNames.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelectedCompanyNames = null;
             if (parseNode.GetChildNode("simple_filters") is null) { _explicitNullValueSimpleFilters = default!; _explicitNullProperties?.Remove("simple_filters"); }
             else if (parseNode.GetChildNode("simple_filters") is { } nullNodeSimpleFilters && nullNodeSimpleFilters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SimpleFilters = null;
         }
@@ -122,16 +116,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Company-mode page offset for page-numbered navigation (mirrors OpenSearch `from`). Offset pages return no cursor and are not persisted to history; page one (offset 0 or omitted) behaves exactly as before. People mode rejects this field.</summary>
         public int? FromOffset { get => _explicitNullValueFromOffset; set { _explicitNullValueFromOffset = value; AdditionalData?.Remove("from_offset"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from_offset"); else _explicitNullProperties?.Remove("from_offset"); } }
         private int? _explicitNullValueFromOffset = default!;
-        /// <summary>Platform-only. The saved search this one was derived from. Stored with the new search so the agent can see the chain behind a live view; ignored on cursor and search_id replays.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestLineage? Lineage { get => _explicitNullValueLineage; set { _explicitNullValueLineage = value; AdditionalData?.Remove("lineage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lineage"); else _explicitNullProperties?.Remove("lineage"); } }
-        private global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestLineage? _explicitNullValueLineage = default!;
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestLineage Lineage { get => _explicitNullValueLineage; set { _explicitNullValueLineage = value; AdditionalData?.Remove("lineage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lineage"); else _explicitNullProperties?.Remove("lineage"); } }
-        private global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestLineage _explicitNullValueLineage = default!;
-#endif
         /// <summary>Expand the location filter to nearby areas via PostGIS radius on the `query` (NL) branch. For `parsed_query`, use `expand_structured_location`.</summary>
         public bool? LocationExpansionEnabled { get => _explicitNullValueLocationExpansionEnabled; set { _explicitNullValueLocationExpansionEnabled = value; AdditionalData?.Remove("location_expansion_enabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location_expansion_enabled"); else _explicitNullProperties?.Remove("location_expansion_enabled"); } }
         private bool? _explicitNullValueLocationExpansionEnabled = default!;
@@ -193,26 +177,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string SearchId { get => _explicitNullValueSearchId; set { _explicitNullValueSearchId = value; AdditionalData?.Remove("search_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search_id"); else _explicitNullProperties?.Remove("search_id"); } }
         private string _explicitNullValueSearchId = default!;
 #endif
-        /// <summary>Platform-only name -&gt; company ID map from autocomplete. Each pair is verified against the company index before use; unverified pairs fall back to name resolution. Disambiguates companies sharing a name. Excess hints are ignored; parsed-query name matching still applies.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSelectedCompanyIds? SelectedCompanyIds { get => _explicitNullValueSelectedCompanyIds; set { _explicitNullValueSelectedCompanyIds = value; AdditionalData?.Remove("selected_company_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_company_ids"); else _explicitNullProperties?.Remove("selected_company_ids"); } }
-        private global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSelectedCompanyIds? _explicitNullValueSelectedCompanyIds = default!;
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSelectedCompanyIds SelectedCompanyIds { get => _explicitNullValueSelectedCompanyIds; set { _explicitNullValueSelectedCompanyIds = value; AdditionalData?.Remove("selected_company_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_company_ids"); else _explicitNullProperties?.Remove("selected_company_ids"); } }
-        private global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSelectedCompanyIds _explicitNullValueSelectedCompanyIds = default!;
-#endif
-        /// <summary>Platform-only exact company selections. The backend resolves names to company IDs instead of trusting client-supplied OpenSearch IDs. Excess hints are ignored; parsed-query name matching still applies.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<string>? SelectedCompanyNames { get => _explicitNullValueSelectedCompanyNames; set { _explicitNullValueSelectedCompanyNames = value; AdditionalData?.Remove("selected_company_names"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_company_names"); else _explicitNullProperties?.Remove("selected_company_names"); } }
-        private List<string>? _explicitNullValueSelectedCompanyNames = default!;
-#nullable restore
-#else
-        public List<string> SelectedCompanyNames { get => _explicitNullValueSelectedCompanyNames; set { _explicitNullValueSelectedCompanyNames = value; AdditionalData?.Remove("selected_company_names"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_company_names"); else _explicitNullProperties?.Remove("selected_company_names"); } }
-        private List<string> _explicitNullValueSelectedCompanyNames = default!;
-#endif
         /// <summary>MongoDB-style filters; the API translates them to DSL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -260,7 +224,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "expand_structured_location", n => { ExpandStructuredLocation = n.GetBoolValue(); } },
                 { "filters", n => { Filters = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestFiltersProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestFiltersProperty.CreateFromDiscriminatorValue); } },
                 { "from_offset", n => { FromOffset = n.GetIntValue(); } },
-                { "lineage", n => { Lineage = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestLineage>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestLineage.CreateFromDiscriminatorValue); } },
                 { "location_expansion_enabled", n => { LocationExpansionEnabled = n.GetBoolValue(); } },
                 { "location_expansion_radius_miles", n => { LocationExpansionRadiusMiles = n.GetIntValue(); } },
                 { "max_results", n => { MaxResults = n.GetIntValue(); } },
@@ -272,8 +235,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "query", n => { Query = n.GetStringValue(); } },
                 { "query_label", n => { QueryLabel = n.GetStringValue(); } },
                 { "search_id", n => { SearchId = n.GetStringValue(); } },
-                { "selected_company_ids", n => { SelectedCompanyIds = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSelectedCompanyIds>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSelectedCompanyIds.CreateFromDiscriminatorValue); } },
-                { "selected_company_names", n => { SelectedCompanyNames = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "simple_filters", n => { SimpleFilters = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSimpleFiltersProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSimpleFiltersProperty.CreateFromDiscriminatorValue); } },
             };
         }
@@ -291,7 +252,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteBoolValue("expand_structured_location", ExpandStructuredLocation);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestFiltersProperty>("filters", Filters);
             writer.WriteIntValue("from_offset", FromOffset);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestLineage>("lineage", Lineage);
             writer.WriteBoolValue("location_expansion_enabled", LocationExpansionEnabled);
             writer.WriteIntValue("location_expansion_radius_miles", LocationExpansionRadiusMiles);
             writer.WriteIntValue("max_results", MaxResults);
@@ -303,8 +263,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteStringValue("query", Query);
             writer.WriteStringValue("query_label", QueryLabel);
             writer.WriteStringValue("search_id", SearchId);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSelectedCompanyIds>("selected_company_ids", SelectedCompanyIds);
-            writer.WriteCollectionOfPrimitiveValues<string>("selected_company_names", SelectedCompanyNames);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryRequestSimpleFiltersProperty>("simple_filters", SimpleFilters);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

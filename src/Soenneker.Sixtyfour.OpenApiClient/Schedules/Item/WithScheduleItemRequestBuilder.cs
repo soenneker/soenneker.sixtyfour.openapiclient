@@ -36,22 +36,23 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules.Item
         /// <summary>
         /// Delete a schedule.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseDeleteScheduleEndpointSchedulesScheduleIdDeleteSchema"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ScheduleDeleted"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteScheduleEndpointSchedulesScheduleIdDelete400Response">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteScheduleEndpointSchedulesScheduleIdDelete401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteScheduleEndpointSchedulesScheduleIdDelete403Response">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteScheduleEndpointSchedulesScheduleIdDelete404Response">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteScheduleEndpointSchedulesScheduleIdDelete500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteScheduleEndpointSchedulesScheduleIdDelete503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseDeleteScheduleEndpointSchedulesScheduleIdDeleteSchema?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ScheduleDeleted?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseDeleteScheduleEndpointSchedulesScheduleIdDeleteSchema> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ScheduleDeleted> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -60,13 +61,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules.Item
                 { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteScheduleEndpointSchedulesScheduleIdDelete400Response.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteScheduleEndpointSchedulesScheduleIdDelete401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteScheduleEndpointSchedulesScheduleIdDelete403Response.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteScheduleEndpointSchedulesScheduleIdDelete404Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteScheduleEndpointSchedulesScheduleIdDelete500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteScheduleEndpointSchedulesScheduleIdDelete503Response.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseDeleteScheduleEndpointSchedulesScheduleIdDeleteSchema>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseDeleteScheduleEndpointSchedulesScheduleIdDeleteSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ScheduleDeleted>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ScheduleDeleted.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get a schedule.
@@ -77,6 +79,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules.Item
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetScheduleEndpointSchedulesScheduleIdGet400Response">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetScheduleEndpointSchedulesScheduleIdGet401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetScheduleEndpointSchedulesScheduleIdGet403Response">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetScheduleEndpointSchedulesScheduleIdGet404Response">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetScheduleEndpointSchedulesScheduleIdGet500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetScheduleEndpointSchedulesScheduleIdGet503Response">When receiving a 503 status code</exception>
@@ -95,6 +98,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules.Item
                 { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetScheduleEndpointSchedulesScheduleIdGet400Response.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetScheduleEndpointSchedulesScheduleIdGet401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetScheduleEndpointSchedulesScheduleIdGet403Response.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetScheduleEndpointSchedulesScheduleIdGet404Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetScheduleEndpointSchedulesScheduleIdGet500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetScheduleEndpointSchedulesScheduleIdGet503Response.CreateFromDiscriminatorValue },
@@ -104,7 +108,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ScheduleResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ScheduleResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update a schedule. Reactivating a revoked schedule re-binds it to thecurrent caller (the &apos;re-own&apos; / &apos;re-bind&apos; action) and clears disabled_reason.The schedule keeps its team across a re-bind — the fire-time checkpauses it again if the new owner can&apos;t act there.
+        /// Update a schedule. Send only the fields to change.Setting `is_active` to true makes you, or the API key you call with, theschedule&apos;s owner and clears `disabled_reason`. The schedule stays in itsteam; if you cannot run the workflow there, it pauses again when it next fires.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ScheduleResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -113,6 +117,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules.Item
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateScheduleEndpointSchedulesScheduleIdPatch400Response">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateScheduleEndpointSchedulesScheduleIdPatch401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateScheduleEndpointSchedulesScheduleIdPatch403Response">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateScheduleEndpointSchedulesScheduleIdPatch404Response">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateScheduleEndpointSchedulesScheduleIdPatch500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateScheduleEndpointSchedulesScheduleIdPatch503Response">When receiving a 503 status code</exception>
@@ -132,6 +137,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules.Item
                 { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateScheduleEndpointSchedulesScheduleIdPatch400Response.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateScheduleEndpointSchedulesScheduleIdPatch401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateScheduleEndpointSchedulesScheduleIdPatch403Response.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateScheduleEndpointSchedulesScheduleIdPatch404Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateScheduleEndpointSchedulesScheduleIdPatch500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateScheduleEndpointSchedulesScheduleIdPatch503Response.CreateFromDiscriminatorValue },
@@ -179,7 +185,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules.Item
             return requestInfo;
         }
         /// <summary>
-        /// Update a schedule. Reactivating a revoked schedule re-binds it to thecurrent caller (the &apos;re-own&apos; / &apos;re-bind&apos; action) and clears disabled_reason.The schedule keeps its team across a re-bind — the fire-time checkpauses it again if the new owner can&apos;t act there.
+        /// Update a schedule. Send only the fields to change.Setting `is_active` to true makes you, or the API key you call with, theschedule&apos;s owner and clears `disabled_reason`. The schedule stays in itsteam; if you cannot run the workflow there, it pauses again when it next fires.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

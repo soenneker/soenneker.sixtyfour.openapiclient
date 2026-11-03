@@ -28,7 +28,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Temporal accepted a request to stop; final cleanup may still be running.</summary>
+        /// <summary>True when the stop request was accepted; the run can take a moment to reach its final status. False when the run had already ended.</summary>
         public bool? CancellationRequested { get => _explicitNullValueCancellationRequested; set { _explicitNullValueCancellationRequested = value; AdditionalData?.Remove("cancellation_requested"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cancellation_requested"); else _explicitNullProperties?.Remove("cancellation_requested"); } }
         private bool? _explicitNullValueCancellationRequested = default!;
         /// <summary>Job (run) identifier.</summary>
