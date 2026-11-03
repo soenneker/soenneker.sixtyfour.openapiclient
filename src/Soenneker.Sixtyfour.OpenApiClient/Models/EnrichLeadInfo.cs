@@ -43,6 +43,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             else if (parseNode.GetChildNode("relentless") is { } nullNodeRelentless && nullNodeRelentless.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Relentless = null;
             if (parseNode.GetChildNode("research_plan") is null) { _explicitNullValueResearchPlan = default!; _explicitNullProperties?.Remove("research_plan"); }
             else if (parseNode.GetChildNode("research_plan") is { } nullNodeResearchPlan && nullNodeResearchPlan.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResearchPlan = null;
+            if (parseNode.GetChildNode("skills") is null) { _explicitNullValueSkills = default!; _explicitNullProperties?.Remove("skills"); }
+            else if (parseNode.GetChildNode("skills") is { } nullNodeSkills && nullNodeSkills.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Skills = null;
             if (parseNode.GetChildNode("struct") is null) { _explicitNullValueStruct = default!; _explicitNullProperties?.Remove("struct"); }
             else if (parseNode.GetChildNode("struct") is { } nullNodeStruct && nullNodeStruct.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Struct = null;
             if (parseNode.GetChildNode("tier") is null) { _explicitNullValueTier = default!; _explicitNullProperties?.Remove("tier"); }
@@ -127,6 +129,16 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string ResearchPlan { get => _explicitNullValueResearchPlan; set { _explicitNullValueResearchPlan = value; AdditionalData?.Remove("research_plan"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("research_plan"); else _explicitNullProperties?.Remove("research_plan"); } }
         private string _explicitNullValueResearchPlan = default!;
 #endif
+        /// <summary>For xhigh, scout with graph, and high for organizations on the new high: skills the run attaches, by name, `team/&lt;name&gt;` for one of your team&apos;s skills or `sixtyfour/&lt;name&gt;` for one of ours. Every agent of the run holds their whole text, as it was when the run started, from its first turn to its last. The run&apos;s agents can read every skill it lists whenever one fits, so attach only those this research must follow. Together they may take up to 25,000 tokens, about 100,000 characters. Refused on other tiers, and for a name the run does not list.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Skills { get => _explicitNullValueSkills; set { _explicitNullValueSkills = value; AdditionalData?.Remove("skills"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skills"); else _explicitNullProperties?.Remove("skills"); } }
+        private List<string>? _explicitNullValueSkills = default!;
+#nullable restore
+#else
+        public List<string> Skills { get => _explicitNullValueSkills; set { _explicitNullValueSkills = value; AdditionalData?.Remove("skills"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skills"); else _explicitNullProperties?.Remove("skills"); } }
+        private List<string> _explicitNullValueSkills = default!;
+#endif
         /// <summary>Mapping of output field name to natural-language description of what to extract. A field that asks for an image (a headshot, a logo, a screenshot of a page) is returned as an image URL on api.sixtyfour.ai/v1/media, hosted by Sixtyfour; embed it directly. It works until the investigation that saved the image, or the organization, is permanently deleted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -198,6 +210,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "private", n => { Private = n.GetBoolValue(); } },
                 { "relentless", n => { Relentless = n.GetBoolValue(); } },
                 { "research_plan", n => { ResearchPlan = n.GetStringValue(); } },
+                { "skills", n => { Skills = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "struct", n => { Struct = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty.CreateFromDiscriminatorValue); } },
                 { "tier", n => { Tier = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoTier>(global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoTier.CreateFromDiscriminatorValue); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
@@ -223,6 +236,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteBoolValue("private", Private);
             writer.WriteBoolValue("relentless", Relentless);
             writer.WriteStringValue("research_plan", ResearchPlan);
+            writer.WriteCollectionOfPrimitiveValues<string>("skills", Skills);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty>("struct", Struct);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoTier>("tier", Tier);
             writer.WriteStringValue("webhook_url", WebhookUrl);

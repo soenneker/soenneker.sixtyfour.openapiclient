@@ -36,6 +36,7 @@ using Soenneker.Sixtyfour.OpenApiClient.ReversePhoneBulk;
 using Soenneker.Sixtyfour.OpenApiClient.ReversePhoneBulkAsync;
 using Soenneker.Sixtyfour.OpenApiClient.Schedules;
 using Soenneker.Sixtyfour.OpenApiClient.Search;
+using Soenneker.Sixtyfour.OpenApiClient.Skills;
 using Soenneker.Sixtyfour.OpenApiClient.StructBuilder;
 using Soenneker.Sixtyfour.OpenApiClient.Templates;
 using Soenneker.Sixtyfour.OpenApiClient.V1;
@@ -204,6 +205,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient
         public global::Soenneker.Sixtyfour.OpenApiClient.Search.SearchRequestBuilder Search
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.Search.SearchRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The skills property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.Skills.SkillsRequestBuilder Skills
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.Skills.SkillsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The structBuilder property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.StructBuilder.StructBuilderRequestBuilder StructBuilder

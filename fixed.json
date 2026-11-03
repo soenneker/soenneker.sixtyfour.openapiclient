@@ -18649,6 +18649,489 @@
           }
         }
       }
+    },
+    "/skills": {
+      "get": {
+        "tags": [
+          "Skills"
+        ],
+        "summary": "List Team Skills",
+        "description": "List your team\u0027s skills. Every member of the team can read them; with an API key, the key\u0027s team.",
+        "operationId": "ListTeamSkillsSkillsGet",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TeamSkills"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListTeamSkillsSkillsGet400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListTeamSkillsSkillsGet401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListTeamSkillsSkillsGet403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListTeamSkillsSkillsGet500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "The API key could not be checked, or the request could not be started, because a backing service is briefly unavailable or at capacity. Nothing was charged. Retry after the \u0060Retry-After\u0060 header.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListTeamSkillsSkillsGet503Response"
+                },
+                "example": {
+                  "detail": "Could not verify the API key right now. Retry shortly."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/skills/{name}": {
+      "get": {
+        "tags": [
+          "Skills"
+        ],
+        "summary": "Read Team Skill",
+        "description": "Read one of your team\u0027s skills, with the version a replace or delete names.",
+        "operationId": "ReadTeamSkillSkillsNameGet",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Name",
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TeamSkill"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadTeamSkillSkillsNameGet400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadTeamSkillSkillsNameGet401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadTeamSkillSkillsNameGet403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadTeamSkillSkillsNameGet500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "The API key could not be checked, or the request could not be started, because a backing service is briefly unavailable or at capacity. Nothing was charged. Retry after the \u0060Retry-After\u0060 header.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadTeamSkillSkillsNameGet503Response"
+                },
+                "example": {
+                  "detail": "Could not verify the API key right now. Retry shortly."
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Skills"
+        ],
+        "summary": "Put Team Skill",
+        "description": "Create one of your team\u0027s skills (no \u0060version\u0060), or replace it at the \u0060version\u0060 a read returned. A team owner\nor an organization admin can; an API key can when the person who created it can, as they stand now.",
+        "operationId": "PutTeamSkillSkillsNamePut",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Name",
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SkillPut"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TeamSkill"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PutTeamSkillSkillsNamePut400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PutTeamSkillSkillsNamePut401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PutTeamSkillSkillsNamePut403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PutTeamSkillSkillsNamePut500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "The API key could not be checked, or the request could not be started, because a backing service is briefly unavailable or at capacity. Nothing was charged. Retry after the \u0060Retry-After\u0060 header.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PutTeamSkillSkillsNamePut503Response"
+                },
+                "example": {
+                  "detail": "Could not verify the API key right now. Retry shortly."
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Skills"
+        ],
+        "summary": "Delete Team Skill",
+        "description": "Delete one of your team\u0027s skills at the \u0060version\u0060 a read returned. Who may is as for a save.",
+        "operationId": "DeleteTeamSkillSkillsNameDelete",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Name",
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "title": "Version",
+              "maxLength": 200,
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Api-Key",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseDeleteTeamSkillSkillsNameDeleteSchema"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request was rejected by the route\u0027s validation rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteTeamSkillSkillsNameDelete400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteTeamSkillSkillsNameDelete401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteTeamSkillSkillsNameDelete403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteTeamSkillSkillsNameDelete500Response"
+                },
+                "example": {
+                  "detail": "Internal server error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "The API key could not be checked, or the request could not be started, because a backing service is briefly unavailable or at capacity. Nothing was charged. Retry after the \u0060Retry-After\u0060 header.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteTeamSkillSkillsNameDelete503Response"
+                },
+                "example": {
+                  "detail": "Could not verify the API key right now. Retry shortly."
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -20293,6 +20776,19 @@
               "integer"
             ],
             "description": "For Atlas runs, the longest the run may research, in minutes of working time: time spent waiting to retry after a temporary failure does not count. When it is reached the run writes up what it found and completes, and is charged for the research it used, rounded up to the next 50 credits, instead of the whole budget. Writing up can take a few minutes past the limit. Default: no limit."
+          },
+          "skills": {
+            "title": "Skills",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "maxLength": 74,
+              "minLength": 1,
+              "type": "string"
+            },
+            "description": "For xhigh, scout with graph, and high for organizations on the new high: skills the run attaches, by name, \u0060team/\u003Cname\u003E\u0060 for one of your team\u0027s skills or \u0060sixtyfour/\u003Cname\u003E\u0060 for one of ours. Every agent of the run holds their whole text, as it was when the run started, from its first turn to its last. The run\u0027s agents can read every skill it lists whenever one fits, so attach only those this research must follow. Together they may take up to 25,000 tokens, about 100,000 characters. Refused on other tiers, and for a name the run does not list."
           },
           "dispatch_id": {
             "title": "Dispatch Id",
@@ -23120,6 +23616,31 @@
         },
         "description": "Accounting for how an input seed set became analyzable profiles."
       },
+      "SkillPut": {
+        "title": "SkillPut",
+        "required": [
+          "markdown"
+        ],
+        "type": "object",
+        "properties": {
+          "markdown": {
+            "title": "Markdown",
+            "maxLength": 24000,
+            "type": "string",
+            "description": "The whole skill: YAML frontmatter with \u0060name\u0060 (the name in the path) and \u0060description\u0060 (when an agent should read it, at most 500 characters), then its instructions. At most 24,000 characters."
+          },
+          "version": {
+            "title": "Version",
+            "maxLength": 200,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The version this replaces, as a read returned it. Leave it out to create the skill."
+          }
+        },
+        "additionalProperties": false
+      },
       "StartAgenticSearchRequest": {
         "title": "StartAgenticSearchRequest",
         "required": [
@@ -23562,6 +24083,58 @@
               "null",
               "string"
             ]
+          }
+        }
+      },
+      "TeamSkill": {
+        "title": "TeamSkill",
+        "required": [
+          "name",
+          "description",
+          "markdown",
+          "version"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": "string",
+            "description": "The skill\u0027s name. A run names it as \u0060team/\u003Cname\u003E\u0060."
+          },
+          "description": {
+            "title": "Description",
+            "type": "string",
+            "description": "When an agent should read it: the line every run of the team lists."
+          },
+          "markdown": {
+            "title": "Markdown",
+            "type": "string",
+            "description": "The whole skill as saved: its frontmatter, then its instructions."
+          },
+          "version": {
+            "title": "Version",
+            "type": "string",
+            "description": "Its current version. A replace or delete names it, and is refused once it changed."
+          }
+        }
+      },
+      "TeamSkills": {
+        "title": "TeamSkills",
+        "required": [
+          "skills",
+          "actions"
+        ],
+        "type": "object",
+        "properties": {
+          "skills": {
+            "title": "Skills",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TeamSkill"
+            }
+          },
+          "actions": {
+            "$ref": "#/components/schemas/TeamSkillsActionsProperty"
           }
         }
       },
@@ -31968,6 +32541,166 @@
           }
         }
       },
+      "ListTeamSkillsSkillsGet400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ListTeamSkillsSkillsGet401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ListTeamSkillsSkillsGet403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ListTeamSkillsSkillsGet500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ListTeamSkillsSkillsGet503Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ReadTeamSkillSkillsNameGet400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ReadTeamSkillSkillsNameGet401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ReadTeamSkillSkillsNameGet403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ReadTeamSkillSkillsNameGet500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "ReadTeamSkillSkillsNameGet503Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "PutTeamSkillSkillsNamePut400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "PutTeamSkillSkillsNamePut401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "PutTeamSkillSkillsNamePut403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "PutTeamSkillSkillsNamePut500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "PutTeamSkillSkillsNamePut503Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "DeleteTeamSkillSkillsNameDelete400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "DeleteTeamSkillSkillsNameDelete401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "DeleteTeamSkillSkillsNameDelete403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "DeleteTeamSkillSkillsNameDelete500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "DeleteTeamSkillSkillsNameDelete503Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
       "FindEmailBulkAsyncEndpointFindEmailBulkAsyncPost200ResponseSchema": {},
       "FindEmailBulkEndpointFindEmailBulkPost200ResponseSchema": {},
       "FindEmailAsyncEndpointFindEmailAsyncPost200ResponseSchema": {},
@@ -32143,6 +32876,13 @@
       "ExportZipV1AtlasInvestigationsInvestigationIdExportZipGet200ResponseSchema": {},
       "GetEventPayloadV1AtlasInvestigationsInvestigationIdEventsEventIdPayloadGet200ResponseSchema": {},
       "VerifyAgeStatusVerifyAgeTaskIdGet200ResponseSchema": {},
+      "ResponseDeleteTeamSkillSkillsNameDeleteSchema": {
+        "title": "Response Delete Team Skill Skills  Name  Delete",
+        "type": "object",
+        "additionalProperties": {
+          "type": "boolean"
+        }
+      },
       "JobStatusJobStatusJobIdGet200ResponseOneOf1": {
         "required": [
           "status",
@@ -32656,6 +33396,11 @@
         "title": "Lead Info",
         "type": "object",
         "description": "Who to investigate, e.g. {\u0022name\u0022: \u0022Jane Doe\u0022, \u0022company\u0022: \u0022Acme\u0022}."
+      },
+      "TeamSkillsActionsProperty": {
+        "title": "Actions",
+        "type": "object",
+        "description": "Whether the caller may change the team\u0027s skills (\u0060team.manage_skills\u0060), and if not, why."
       },
       "UpdateMonitorRequestMetadataProperty": {
         "title": "Metadata",
@@ -37606,6 +38351,11 @@
       "type": "object",
       "description": "Who to investigate, e.g. {\u0022name\u0022: \u0022Jane Doe\u0022, \u0022company\u0022: \u0022Acme\u0022}."
     },
+    "TeamSkillsActions": {
+      "title": "Actions",
+      "type": "object",
+      "description": "Whether the caller may change the team\u0027s skills (\u0060team.manage_skills\u0060), and if not, why."
+    },
     "TestEventExampleExample": {
       "title": "Example",
       "type": "object"
@@ -37832,6 +38582,13 @@
     "ExportZipV1AtlasInvestigationsInvestigationIdExportZipGet200Response": {},
     "GetEventPayloadV1AtlasInvestigationsInvestigationIdEventsEventIdPayloadGet200Response": {},
     "VerifyAgeStatusVerifyAgeTaskIdGet200Response": {},
+    "ResponseDeleteTeamSkillSkillsNameDelete": {
+      "title": "Response Delete Team Skill Skills  Name  Delete",
+      "type": "object",
+      "additionalProperties": {
+        "type": "boolean"
+      }
+    },
     "ExamplePayload": {
       "type": "object",
       "description": "Placeholder schema for path example refs"
