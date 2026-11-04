@@ -39,7 +39,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Legacy total cents charged; preserved for compatibility. Prefer charge_credits.</summary>
+        /// <summary>Deprecated. Use `charge_credits`. The same amount in tenths of a credit.</summary>
         [Obsolete("")]
         public double? ChargeAmount { get => _explicitNullValueChargeAmount; set { _explicitNullValueChargeAmount = value; AdditionalData?.Remove("charge_amount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("charge_amount"); else _explicitNullProperties?.Remove("charge_amount"); } }
         private double? _explicitNullValueChargeAmount = default!;
@@ -79,7 +79,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string ResultsUrl { get => _explicitNullValueResultsUrl; set { _explicitNullValueResultsUrl = value; AdditionalData?.Remove("results_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("results_url"); else _explicitNullProperties?.Remove("results_url"); } }
         private string _explicitNullValueResultsUrl = default!;
 #endif
-        /// <summary>The run_id property</summary>
+        /// <summary>The ID of this execution of the job. Refer to the job by `id`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RunId { get => _explicitNullValueRunId; set { _explicitNullValueRunId = value; AdditionalData?.Remove("run_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_id"); else _explicitNullProperties?.Remove("run_id"); } }

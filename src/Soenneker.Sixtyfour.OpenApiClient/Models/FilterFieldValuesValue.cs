@@ -46,7 +46,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Share (0-1) of scoped documents matching this value.</summary>
         public double? PercentOfScope { get => _explicitNullValuePercentOfScope; set { _explicitNullValuePercentOfScope = value; AdditionalData?.Remove("percent_of_scope"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("percent_of_scope"); else _explicitNullProperties?.Remove("percent_of_scope"); } }
         private double? _explicitNullValuePercentOfScope = default!;
-        /// <summary>Field value; null bucket represents missing values.</summary>
+        /// <summary>The value; `null` counts records without one.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesValueValue? Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; AdditionalData?.Remove("value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// MongoDB-style filters; the API translates them to DSL.
+    /// Filters with Mongo-style operators (`$eq`, `$in`, `$gte`, `$match`, `$and`). The primary query format.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SearchQueryRequestSimpleFiltersProperty : IAdditionalDataHolder, IParsable

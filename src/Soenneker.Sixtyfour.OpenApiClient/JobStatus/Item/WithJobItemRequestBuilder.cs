@@ -22,7 +22,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.JobStatus.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithJobItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/job-status/{jobId}{?cost_units*}", pathParameters)
+        public WithJobItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/job-status/{jobId}", pathParameters)
         {
         }
         /// <summary>
@@ -30,11 +30,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.JobStatus.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithJobItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/job-status/{jobId}{?cost_units*}", rawUrl)
+        public WithJobItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/job-status/{jobId}", rawUrl)
         {
         }
         /// <summary>
-        /// Poll an async job and retrieve results when complete. Authorized snapshots are cached for up to 10 seconds. API-key and OAuth machine callers share one budget with workflow live status: 300 requests per 60 second(s) per organization, with a burst of 15, shared across API servers. Verified platform sessions bypass rate limits. Credit and legacy cost fields are returned for either cost_units value.
+        /// Poll an async job and read its result once it completes. See [Rate Limits](/api-reference/rate-limits#status-polling) for the polling budget.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -50,11 +50,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.JobStatus.Item
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.JobStatus.Item.WithJobItemRequestBuilder.WithJobItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200Response?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.JobStatus.Item.WithJobItemRequestBuilder.WithJobItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200Response> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -75,17 +75,17 @@ namespace Soenneker.Sixtyfour.OpenApiClient.JobStatus.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200Response>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Poll an async job and retrieve results when complete. Authorized snapshots are cached for up to 10 seconds. API-key and OAuth machine callers share one budget with workflow live status: 300 requests per 60 second(s) per organization, with a burst of 15, shared across API servers. Verified platform sessions bypass rate limits. Credit and legacy cost fields are returned for either cost_units value.
+        /// Poll an async job and read its result once it completes. See [Rate Limits](/api-reference/rate-limits#status-polling) for the polling budget.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.JobStatus.Item.WithJobItemRequestBuilder.WithJobItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.JobStatus.Item.WithJobItemRequestBuilder.WithJobItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -101,17 +101,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.JobStatus.Item
         public global::Soenneker.Sixtyfour.OpenApiClient.JobStatus.Item.WithJobItemRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Sixtyfour.OpenApiClient.JobStatus.Item.WithJobItemRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Poll an async job and retrieve results when complete. Authorized snapshots are cached for up to 10 seconds. API-key and OAuth machine callers share one budget with workflow live status: 300 requests per 60 second(s) per organization, with a burst of 15, shared across API servers. Verified platform sessions bypass rate limits. Credit and legacy cost fields are returned for either cost_units value.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WithJobItemRequestBuilderGetQueryParameters 
-        {
-            /// <summary>Compatibility option. Both legacy cost fields and credit fields are returned for either value.</summary>
-            [Obsolete("")]
-            [QueryParameter("cost_units")]
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGetCostUnitsParameter? CostUnits { get; set; }
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
-    /// <summary>Auto matches production: sign if configured. Required refuses unsigned delivery.</summary>
+    /// <summary>`auto` signs when your organization has a signing secret, as real deliveries do; `required` refuses to send unsigned.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum TestEventRequestSigning
     {

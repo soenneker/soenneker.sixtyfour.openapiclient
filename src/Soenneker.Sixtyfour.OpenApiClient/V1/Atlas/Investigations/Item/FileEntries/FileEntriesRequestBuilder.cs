@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.FileEnt
         {
         }
         /// <summary>
-        /// A bounded, stable page of workspace metadata; file contents are never serialized.
+        /// A page of workspace file metadata, without file contents.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceFileEntriesPage"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -44,6 +44,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.FileEnt
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListFileEntriesV1AtlasInvestigationsInvestigationIdFileEntriesGet403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListFileEntriesV1AtlasInvestigationsInvestigationIdFileEntriesGet404Response">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListFileEntriesV1AtlasInvestigationsInvestigationIdFileEntriesGet429Response">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListFileEntriesV1AtlasInvestigationsInvestigationIdFileEntriesGet500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListFileEntriesV1AtlasInvestigationsInvestigationIdFileEntriesGet503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,6 +64,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.FileEnt
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListFileEntriesV1AtlasInvestigationsInvestigationIdFileEntriesGet403Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListFileEntriesV1AtlasInvestigationsInvestigationIdFileEntriesGet404Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListFileEntriesV1AtlasInvestigationsInvestigationIdFileEntriesGet429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListFileEntriesV1AtlasInvestigationsInvestigationIdFileEntriesGet500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListFileEntriesV1AtlasInvestigationsInvestigationIdFileEntriesGet503Response.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
@@ -71,7 +73,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.FileEnt
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceFileEntriesPage>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkspaceFileEntriesPage.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// A bounded, stable page of workspace metadata; file contents are never serialized.
+        /// A page of workspace file metadata, without file contents.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -99,7 +101,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.FileEnt
             return new global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.FileEntries.FileEntriesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// A bounded, stable page of workspace metadata; file contents are never serialized.
+        /// A page of workspace file metadata, without file contents.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class FileEntriesRequestBuilderGetQueryParameters 

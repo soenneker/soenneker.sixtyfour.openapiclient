@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Templates.Available
         {
         }
         /// <summary>
-        /// Return the catalog plus your organization&apos;s own templates, in one list.Read-only: this endpoint does not create or change templates. The list depends onyour organization, so unlike the catalog it is never served from a shared cache.
+        /// The catalog plus your organization&apos;s own templates, in one list.
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowTemplate&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -43,6 +43,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Templates.Available
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListAvailableTemplatesTemplatesAvailableGet401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListAvailableTemplatesTemplatesAvailableGet403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListAvailableTemplatesTemplatesAvailableGet429Response">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListAvailableTemplatesTemplatesAvailableGet500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListAvailableTemplatesTemplatesAvailableGet503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -61,6 +62,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Templates.Available
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListAvailableTemplatesTemplatesAvailableGet401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListAvailableTemplatesTemplatesAvailableGet403Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListAvailableTemplatesTemplatesAvailableGet429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListAvailableTemplatesTemplatesAvailableGet500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListAvailableTemplatesTemplatesAvailableGet503Response.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
@@ -70,7 +72,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Templates.Available
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// Return the catalog plus your organization&apos;s own templates, in one list.Read-only: this endpoint does not create or change templates. The list depends onyour organization, so unlike the catalog it is never served from a shared cache.
+        /// The catalog plus your organization&apos;s own templates, in one list.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -98,7 +100,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Templates.Available
             return new global::Soenneker.Sixtyfour.OpenApiClient.Templates.Available.AvailableRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Return the catalog plus your organization&apos;s own templates, in one list.Read-only: this endpoint does not create or change templates. The list depends onyour organization, so unlike the catalog it is never served from a shared cache.
+        /// The catalog plus your organization&apos;s own templates, in one list.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class AvailableRequestBuilderGetQueryParameters 

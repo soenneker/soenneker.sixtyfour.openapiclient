@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Limits
         {
         }
         /// <summary>
-        /// The most rows one search may return or save for the credential you call with.`POST /search/query`, `POST /search/export` and deep search stop at `max_results`. API keys andOAuth clients have a fixed limit; signed-in users get their plan&apos;s limit.
+        /// The most rows one search may return or save for the credential you call with.`POST /search/query`, `POST /search/export` and deep search stop at `max_results`.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchLimitsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -75,7 +75,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Limits
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchLimitsResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchLimitsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// The most rows one search may return or save for the credential you call with.`POST /search/query`, `POST /search/export` and deep search stop at `max_results`. API keys andOAuth clients have a fixed limit; signed-in users get their plan&apos;s limit.
+        /// The most rows one search may return or save for the credential you call with.`POST /search/query`, `POST /search/export` and deep search stop at `max_results`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

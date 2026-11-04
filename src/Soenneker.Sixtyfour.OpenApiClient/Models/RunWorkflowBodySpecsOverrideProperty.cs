@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// Optional specs to override first block specs
+    /// Overrides for the source block&apos;s `specs` on this run, such as `resource_handle_id` for a `read_csv` source.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RunWorkflowBodySpecsOverrideProperty : IAdditionalDataHolder, IParsable

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// MongoDB-style filters that scope the aggregation.
+    /// Filters with Mongo-style operators that scope the counts.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class FilterFieldValuesRequestSimpleFiltersProperty : IAdditionalDataHolder, IParsable

@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Media.Profiles.Item
         {
         }
         /// <summary>
-        /// Serve a profile photo returned by people search.Permanent and credential-free; embed or link directly. Photos may be cachedfor a day. Limited to 600 requests per minute per client IP.
+        /// Serve a profile photo returned by people search.Permanent and credential-free; embed or link directly. Photos may be cached for a day.
         /// </summary>
         /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -43,6 +43,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Media.Profiles.Item
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetProfilePhotoV1MediaProfilesKeyGet401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetProfilePhotoV1MediaProfilesKeyGet403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetProfilePhotoV1MediaProfilesKeyGet429Response">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetProfilePhotoV1MediaProfilesKeyGet500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetProfilePhotoV1MediaProfilesKeyGet503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -61,6 +62,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Media.Profiles.Item
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetProfilePhotoV1MediaProfilesKeyGet401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetProfilePhotoV1MediaProfilesKeyGet403Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetProfilePhotoV1MediaProfilesKeyGet429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetProfilePhotoV1MediaProfilesKeyGet500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetProfilePhotoV1MediaProfilesKeyGet503Response.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
@@ -69,7 +71,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Media.Profiles.Item
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Serve a profile photo returned by people search.Permanent and credential-free; embed or link directly. Photos may be cachedfor a day. Limited to 600 requests per minute per client IP.
+        /// Serve a profile photo returned by people search.Permanent and credential-free; embed or link directly. Photos may be cached for a day.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

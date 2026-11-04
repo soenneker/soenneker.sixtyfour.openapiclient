@@ -42,7 +42,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string Field { get => _explicitNullValueField; set { _explicitNullValueField = value; AdditionalData?.Remove("field"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field"); else _explicitNullProperties?.Remove("field"); } }
         private string _explicitNullValueField = default!;
 #endif
-        /// <summary>Raw OpenSearch DSL filters that scope the aggregation.</summary>
+        /// <summary>JSON query DSL that scopes the counts.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesRequestFiltersProperty? Filters { get => _explicitNullValueFilters; set { _explicitNullValueFilters = value; AdditionalData?.Remove("filters"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filters"); else _explicitNullProperties?.Remove("filters"); } }
@@ -52,10 +52,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesRequestFiltersProperty Filters { get => _explicitNullValueFilters; set { _explicitNullValueFilters = value; AdditionalData?.Remove("filters"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filters"); else _explicitNullProperties?.Remove("filters"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesRequestFiltersProperty _explicitNullValueFilters = default!;
 #endif
-        /// <summary>Search mode: &apos;people&apos; or &apos;company&apos;.</summary>
+        /// <summary>`people` or `company`.</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesRequestMode? Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; AdditionalData?.Remove("mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesRequestMode? _explicitNullValueMode = default!;
-        /// <summary>MongoDB-style filters that scope the aggregation.</summary>
+        /// <summary>Filters with Mongo-style operators that scope the counts.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesRequestSimpleFiltersProperty? SimpleFilters { get => _explicitNullValueSimpleFilters; set { _explicitNullValueSimpleFilters = value; AdditionalData?.Remove("simple_filters"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("simple_filters"); else _explicitNullProperties?.Remove("simple_filters"); } }

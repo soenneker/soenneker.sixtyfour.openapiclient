@@ -22,7 +22,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.FilterCapabilities
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public FilterCapabilitiesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/search/filter-capabilities{?mode*,refresh*}", pathParameters)
+        public FilterCapabilitiesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/search/filter-capabilities{?mode*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.FilterCapabilities
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public FilterCapabilitiesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/search/filter-capabilities{?mode*,refresh*}", rawUrl)
+        public FilterCapabilitiesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/search/filter-capabilities{?mode*}", rawUrl)
         {
         }
         /// <summary>
@@ -118,9 +118,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.FilterCapabilities
             [QueryParameter("mode")]
             public string Mode { get; set; }
 #endif
-            /// <summary>Force a mapping refresh instead of using cached capabilities.</summary>
-            [QueryParameter("refresh")]
-            public bool? Refresh { get; set; }
         }
     }
 }

@@ -42,8 +42,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
             if (parseNode.GetChildNode("status_reason") is null) { _explicitNullValueStatusReason = default!; _explicitNullProperties?.Remove("status_reason"); }
             else if (parseNode.GetChildNode("status_reason") is { } nullNodeStatusReason && nullNodeStatusReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StatusReason = null;
-            if (parseNode.GetChildNode("step") is null) { _explicitNullValueStep = default!; _explicitNullProperties?.Remove("step"); }
-            else if (parseNode.GetChildNode("step") is { } nullNodeStep && nullNodeStep.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Step = null;
             if (parseNode.GetChildNode("updated_at") is null) { _explicitNullValueUpdatedAt = default!; _explicitNullProperties?.Remove("updated_at"); }
             else if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
             if (parseNode.GetChildNode("user_id") is null) { _explicitNullValueUserId = default!; _explicitNullProperties?.Remove("user_id"); }
@@ -56,7 +54,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Per-block detail; usually null in list responses.</summary>
+        /// <summary>Per-block detail; null in list responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UntypedNode? Blocks { get => _explicitNullValueBlocks; set { _explicitNullValueBlocks = value; AdditionalData?.Remove("blocks"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blocks"); else _explicitNullProperties?.Remove("blocks"); } }
@@ -98,7 +96,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string JobId { get => _explicitNullValueJobId; set { _explicitNullValueJobId = value; AdditionalData?.Remove("job_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_id"); else _explicitNullProperties?.Remove("job_id"); } }
         private string _explicitNullValueJobId = default!;
 #endif
-        /// <summary>Aggregate run metrics; workflow_cost_credits is the total cost in credits. Legacy workflow_cost retains its existing units.</summary>
+        /// <summary>Run totals. `workflow_cost_credits` is the run&apos;s cost in credits; `workflow_cost` is deprecated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponseMetricsProperty? Metrics { get => _explicitNullValueMetrics; set { _explicitNullValueMetrics = value; AdditionalData?.Remove("metrics"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metrics"); else _explicitNullProperties?.Remove("metrics"); } }
@@ -133,16 +131,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public string StatusReason { get => _explicitNullValueStatusReason; set { _explicitNullValueStatusReason = value; AdditionalData?.Remove("status_reason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status_reason"); else _explicitNullProperties?.Remove("status_reason"); } }
         private string _explicitNullValueStatusReason = default!;
-#endif
-        /// <summary>Current authoring step from the workflow.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Step { get => _explicitNullValueStep; set { _explicitNullValueStep = value; AdditionalData?.Remove("step"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("step"); else _explicitNullProperties?.Remove("step"); } }
-        private string? _explicitNullValueStep = default!;
-#nullable restore
-#else
-        public string Step { get => _explicitNullValueStep; set { _explicitNullValueStep = value; AdditionalData?.Remove("step"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("step"); else _explicitNullProperties?.Remove("step"); } }
-        private string _explicitNullValueStep = default!;
 #endif
         /// <summary>Timestamp when the record was last updated.</summary>
         public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; AdditionalData?.Remove("updated_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
@@ -216,7 +204,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "started_at", n => { StartedAt = n.GetDateTimeOffsetValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "status_reason", n => { StatusReason = n.GetStringValue(); } },
-                { "step", n => { Step = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "user_id", n => { UserId = n.GetStringValue(); } },
                 { "workflow_id", n => { WorkflowId = n.GetStringValue(); } },
@@ -242,7 +229,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("started_at", StartedAt);
             writer.WriteStringValue("status", Status);
             writer.WriteStringValue("status_reason", StatusReason);
-            writer.WriteStringValue("step", Step);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("user_id", UserId);
             writer.WriteStringValue("workflow_id", WorkflowId);

@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Results.Download
         {
         }
         /// <summary>
-        /// List signed result download links. API-key and OAuth machine callers share one budget: 5 requests per 1 second(s) per organization, with a burst of 15, shared across API servers. Verified platform sessions bypass rate limits; resource export permissions still apply.
+        /// Signed download links for a run&apos;s result files. Each link works for 15 minutes.
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResultItemWithDownload&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -74,7 +74,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Results.Download
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// List signed result download links. API-key and OAuth machine callers share one budget: 5 requests per 1 second(s) per organization, with a burst of 15, shared across API servers. Verified platform sessions bypass rate limits; resource export permissions still apply.
+        /// Signed download links for a run&apos;s result files. Each link works for 15 minutes.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -102,7 +102,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Results.Download
             return new global::Soenneker.Sixtyfour.OpenApiClient.Workflows.Runs.Item.Results.DownloadLinks.DownloadLinksRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List signed result download links. API-key and OAuth machine callers share one budget: 5 requests per 1 second(s) per organization, with a burst of 15, shared across API servers. Verified platform sessions bypass rate limits; resource export permissions still apply.
+        /// Signed download links for a run&apos;s result files. Each link works for 15 minutes.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class DownloadLinksRequestBuilderGetQueryParameters 

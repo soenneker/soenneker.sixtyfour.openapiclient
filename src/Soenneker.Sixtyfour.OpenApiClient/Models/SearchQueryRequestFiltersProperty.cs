@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// Raw OpenSearch DSL filters.
+    /// JSON query DSL, for queries `simple_filters` cannot express, within the limits `GET /search/filter-capabilities` returns.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SearchQueryRequestFiltersProperty : IAdditionalDataHolder, IParsable

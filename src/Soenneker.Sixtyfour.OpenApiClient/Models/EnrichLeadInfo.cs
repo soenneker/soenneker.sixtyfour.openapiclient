@@ -55,7 +55,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Async endpoints only: a client-generated idempotency key for the dispatch. Reusing the same key for the same organization returns the existing job instead of starting and billing a duplicate.</summary>
+        /// <summary>An idempotency key you generate. A retry with the same key returns the job already started instead of starting and charging a second one.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DispatchId { get => _explicitNullValueDispatchId; set { _explicitNullValueDispatchId = value; AdditionalData?.Remove("dispatch_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dispatch_id"); else _explicitNullProperties?.Remove("dispatch_id"); } }
@@ -65,19 +65,19 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string DispatchId { get => _explicitNullValueDispatchId; set { _explicitNullValueDispatchId = value; AdditionalData?.Remove("dispatch_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dispatch_id"); else _explicitNullProperties?.Remove("dispatch_id"); } }
         private string _explicitNullValueDispatchId = default!;
 #endif
-        /// <summary>Atlas runs on an existing investigation only: refuse with 409 while that investigation already has a run starting or running, instead of starting and billing a second one.</summary>
+        /// <summary>Atlas runs on an existing investigation only. If true, returns 409 while that investigation has a run starting or running, instead of starting and charging a second one. Default: false.</summary>
         public bool? ExclusiveRun { get => _explicitNullValueExclusiveRun; set { _explicitNullValueExclusiveRun = value; AdditionalData?.Remove("exclusive_run"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclusive_run"); else _explicitNullProperties?.Remove("exclusive_run"); } }
         private bool? _explicitNullValueExclusiveRun = default!;
-        /// <summary>If true, return each requested field&apos;s confidence (0-100), justification and source URLs, nested like the request.</summary>
+        /// <summary>If true, returns each requested field&apos;s confidence (0-100), justification and source URLs, nested like the request. Default: false.</summary>
         public bool? FieldConfidence { get => _explicitNullValueFieldConfidence; set { _explicitNullValueFieldConfidence = value; AdditionalData?.Remove("field_confidence"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field_confidence"); else _explicitNullProperties?.Remove("field_confidence"); } }
         private bool? _explicitNullValueFieldConfidence = default!;
-        /// <summary>Only with tier &quot;scout&quot;: set true to run Scout as an Atlas run. The run is saved as an Atlas investigation you can open in the Sixtyfour app, export, and continue later with `investigation_id`; the async response returns it under `investigation`. It takes the Atlas run options (`max_credits`, `max_minutes`, `relentless`, `investigation_id`, `investigation_name`, `include_workspace`), and `struct` becomes optional. It is billed per unit of research instead of Scout&apos;s standard price: 50 credits a unit. It must be enabled for your organization, and true with any other tier is rejected. Omitted or false, Scout runs as usual.</summary>
+        /// <summary>`scout` only. If true, runs Scout as an Atlas investigation, billed per unit of research. It enables the Atlas run options (`max_credits`, `max_minutes`, `relentless`, `investigation_id`, `investigation_name`, `include_workspace`), makes `struct` optional, and the async response returns the `investigation`. Requires Scout in Atlas for your organization. If false or omitted, Scout runs as usual.</summary>
         public bool? Graph { get => _explicitNullValueGraph; set { _explicitNullValueGraph = value; AdditionalData?.Remove("graph"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("graph"); else _explicitNullProperties?.Remove("graph"); } }
         private bool? _explicitNullValueGraph = default!;
-        /// <summary>For Atlas runs (xhigh, or scout with graph), include workspace files alongside structured output (default: true). Set false to omit them. Job status reads them from the investigation, so it shows the investigation&apos;s current workspace, including what a later run on it changed. Saved images appear as attachment records; requested image fields carry their /v1/media URL, and the investigation&apos;s /v1/atlas file API serves any attachment. Ignored by other tiers.</summary>
+        /// <summary>Atlas runs only. If true, includes the investigation&apos;s workspace files in the result; they are read from the investigation, so they include later runs&apos; changes. Default: true.</summary>
         public bool? IncludeWorkspace { get => _explicitNullValueIncludeWorkspace; set { _explicitNullValueIncludeWorkspace = value; AdditionalData?.Remove("include_workspace"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_workspace"); else _explicitNullProperties?.Remove("include_workspace"); } }
         private bool? _explicitNullValueIncludeWorkspace = default!;
-        /// <summary>For Atlas runs (xhigh, or scout with graph), continue an existing investigation instead of creating one. The run reuses that investigation&apos;s graph and workspace, so a follow-up builds on the earlier research rather than starting over. Ignored by other tiers.</summary>
+        /// <summary>Atlas runs only: continues this investigation, reusing its graph and workspace, instead of creating one. Default: creates one.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? InvestigationId { get => _explicitNullValueInvestigationId; set { _explicitNullValueInvestigationId = value; AdditionalData?.Remove("investigation_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("investigation_id"); else _explicitNullProperties?.Remove("investigation_id"); } }
@@ -87,7 +87,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string InvestigationId { get => _explicitNullValueInvestigationId; set { _explicitNullValueInvestigationId = value; AdditionalData?.Remove("investigation_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("investigation_id"); else _explicitNullProperties?.Remove("investigation_id"); } }
         private string _explicitNullValueInvestigationId = default!;
 #endif
-        /// <summary>For Atlas runs, the title of a newly created investigation. Ignored when resuming via investigation_id; when unset the title is derived from lead_info.</summary>
+        /// <summary>Atlas runs only: the title of a new investigation. Ignored with `investigation_id`. Default: taken from `lead_info`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? InvestigationName { get => _explicitNullValueInvestigationName; set { _explicitNullValueInvestigationName = value; AdditionalData?.Remove("investigation_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("investigation_name"); else _explicitNullProperties?.Remove("investigation_name"); } }
@@ -97,7 +97,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string InvestigationName { get => _explicitNullValueInvestigationName; set { _explicitNullValueInvestigationName = value; AdditionalData?.Remove("investigation_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("investigation_name"); else _explicitNullProperties?.Remove("investigation_name"); } }
         private string _explicitNullValueInvestigationName = default!;
 #endif
-        /// <summary>Single lead to process. Provide any combination of name, email, company, linkedin, etc.</summary>
+        /// <summary>The person to look up: any combination of `name`, `email`, `company`, `linkedin` and other known details.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoLeadInfoProperty? LeadInfo { get => _explicitNullValueLeadInfo; set { _explicitNullValueLeadInfo = value; AdditionalData?.Remove("lead_info"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lead_info"); else _explicitNullProperties?.Remove("lead_info"); } }
@@ -107,19 +107,19 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoLeadInfoProperty LeadInfo { get => _explicitNullValueLeadInfo; set { _explicitNullValueLeadInfo = value; AdditionalData?.Remove("lead_info"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lead_info"); else _explicitNullProperties?.Remove("lead_info"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoLeadInfoProperty _explicitNullValueLeadInfo = default!;
 #endif
-        /// <summary>For Atlas runs, how much research to buy, in credits: one unit of the tier price by default, up to 10 units. A unit is 250 credits on xhigh and 50 on scout with graph. Research scales with the credits bought, and the whole budget is used and charged unless the run stops early; see `relentless` and `max_minutes`.</summary>
+        /// <summary>Atlas runs only: research budget in credits, from one to 10 units of the tier price. Default: one unit. The whole budget is used and charged unless the run stops early (see `relentless` and `max_minutes`).</summary>
         public int? MaxCredits { get => _explicitNullValueMaxCredits; set { _explicitNullValueMaxCredits = value; AdditionalData?.Remove("max_credits"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_credits"); else _explicitNullProperties?.Remove("max_credits"); } }
         private int? _explicitNullValueMaxCredits = default!;
-        /// <summary>For Atlas runs, the longest the run may research, in minutes of working time: time spent waiting to retry after a temporary failure does not count. When it is reached the run writes up what it found and completes, and is charged for the research it used, rounded up to the next 50 credits, instead of the whole budget. Writing up can take a few minutes past the limit. Default: no limit.</summary>
+        /// <summary>Atlas runs only: the most minutes of research time; waiting to retry does not count. When reached, the run writes up its findings, which can take a few minutes, and is charged only for the research it used. Default: no limit.</summary>
         public int? MaxMinutes { get => _explicitNullValueMaxMinutes; set { _explicitNullValueMaxMinutes = value; AdditionalData?.Remove("max_minutes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_minutes"); else _explicitNullProperties?.Remove("max_minutes"); } }
         private int? _explicitNullValueMaxMinutes = default!;
-        /// <summary>Make the run visible only to you, not your team: its result, status and usage log. With an API key, the run is private to the person who created the key. Your team must allow private runs. Supported on every tier; Atlas runs (xhigh, or scout with graph) must use the async endpoint and can&apos;t combine it with `investigation_id`.</summary>
+        /// <summary>If true, shows the run&apos;s result, status and usage log only to you (with an API key, to the key&apos;s creator). Your team must allow private runs. Atlas runs need the async endpoint and a new investigation.</summary>
         public bool? Private { get => _explicitNullValuePrivate; set { _explicitNullValuePrivate = value; AdditionalData?.Remove("private"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("private"); else _explicitNullProperties?.Remove("private"); } }
         private bool? _explicitNullValuePrivate = default!;
-        /// <summary>For Atlas runs with `struct`: research until the budget runs out. By default a run may stop once every requested field is answered, and is then charged for the research it used (at least one unit).</summary>
+        /// <summary>Atlas runs with `struct` only. If true, researches until the budget runs out. If false, a run may stop once every requested field is answered, and is charged for the research it used (at least one unit). Default: false.</summary>
         public bool? Relentless { get => _explicitNullValueRelentless; set { _explicitNullValueRelentless = value; AdditionalData?.Remove("relentless"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relentless"); else _explicitNullProperties?.Remove("relentless"); } }
         private bool? _explicitNullValueRelentless = default!;
-        /// <summary>Optional natural-language plan that guides the research agent.</summary>
+        /// <summary>A plan, in plain language, that guides the research. Default: none.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ResearchPlan { get => _explicitNullValueResearchPlan; set { _explicitNullValueResearchPlan = value; AdditionalData?.Remove("research_plan"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("research_plan"); else _explicitNullProperties?.Remove("research_plan"); } }
@@ -129,7 +129,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string ResearchPlan { get => _explicitNullValueResearchPlan; set { _explicitNullValueResearchPlan = value; AdditionalData?.Remove("research_plan"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("research_plan"); else _explicitNullProperties?.Remove("research_plan"); } }
         private string _explicitNullValueResearchPlan = default!;
 #endif
-        /// <summary>For xhigh, scout with graph, and high for organizations on the new high: skills the run attaches, by name, `team/&lt;name&gt;` for one of your team&apos;s skills or `sixtyfour/&lt;name&gt;` for one of ours. Every agent of the run holds their whole text, as it was when the run started, from its first turn to its last. The run&apos;s agents can read every skill it lists whenever one fits, so attach only those this research must follow. Together they may take up to 25,000 tokens, about 100,000 characters. Refused on other tiers, and for a name the run does not list.</summary>
+        /// <summary>Skills the run&apos;s agents follow, by name: `team/&lt;name&gt;` for one of your team&apos;s skills, `sixtyfour/&lt;name&gt;` for one of ours. Up to 25,000 tokens in total. Taken by `xhigh`, by `scout` with `graph`, and by `high` when enabled for your organization; refused on other tiers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Skills { get => _explicitNullValueSkills; set { _explicitNullValueSkills = value; AdditionalData?.Remove("skills"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skills"); else _explicitNullProperties?.Remove("skills"); } }
@@ -139,7 +139,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public List<string> Skills { get => _explicitNullValueSkills; set { _explicitNullValueSkills = value; AdditionalData?.Remove("skills"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skills"); else _explicitNullProperties?.Remove("skills"); } }
         private List<string> _explicitNullValueSkills = default!;
 #endif
-        /// <summary>Required except on Atlas runs (`xhigh`, or `scout` with `graph`); other tiers answer 400 `Struct is required` without it. Mapping of output field name to natural-language description of what to extract. A field that asks for an image (a headshot, a logo, a screenshot of a page) is returned as an image URL on api.sixtyfour.ai/v1/media, hosted by Sixtyfour; embed it directly. It works until the investigation that saved the image, or the organization, is permanently deleted.</summary>
+        /// <summary>Fields to return: output field name to a description of what to find. An image field returns a `https://api.sixtyfour.ai/v1/media/...` URL you can embed. Required except on Atlas runs (`xhigh`, or `scout` with `graph`).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty? Struct { get => _explicitNullValueStruct; set { _explicitNullValueStruct = value; AdditionalData?.Remove("struct"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("struct"); else _explicitNullProperties?.Remove("struct"); } }
@@ -149,7 +149,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty Struct { get => _explicitNullValueStruct; set { _explicitNullValueStruct = value; AdditionalData?.Remove("struct"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("struct"); else _explicitNullProperties?.Remove("struct"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoStructProperty _explicitNullValueStruct = default!;
 #endif
-        /// <summary>Quality and cost tier for the research agent. Defaults to `low`.</summary>
+        /// <summary>Research depth and price. See [Credits &amp; Pricing](/guides/credits-and-pricing). Default: `low`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoTier? Tier { get => _explicitNullValueTier; set { _explicitNullValueTier = value; AdditionalData?.Remove("tier"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tier"); else _explicitNullProperties?.Remove("tier"); } }
@@ -159,7 +159,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoTier Tier { get => _explicitNullValueTier; set { _explicitNullValueTier = value; AdditionalData?.Remove("tier"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tier"); else _explicitNullProperties?.Remove("tier"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichLeadInfoTier _explicitNullValueTier = default!;
 #endif
-        /// <summary>HTTPS URL that receives the result payload when the async job completes.</summary>
+        /// <summary>HTTPS URL that receives the result when the job completes. Default: none.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? WebhookUrl { get => _explicitNullValueWebhookUrl; set { _explicitNullValueWebhookUrl = value; AdditionalData?.Remove("webhook_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url"); else _explicitNullProperties?.Remove("webhook_url"); } }

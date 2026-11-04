@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Legacy cost in cents; preserved for compatibility. Prefer cost_credits.</summary>
+        /// <summary>Deprecated. Use `cost_credits`. The same amount in tenths of a credit.</summary>
         [Obsolete("")]
         public int? CostCents { get => _explicitNullValueCostCents; set { _explicitNullValueCostCents = value; AdditionalData?.Remove("cost_cents"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cost_cents"); else _explicitNullProperties?.Remove("cost_cents"); } }
         private int? _explicitNullValueCostCents = default!;

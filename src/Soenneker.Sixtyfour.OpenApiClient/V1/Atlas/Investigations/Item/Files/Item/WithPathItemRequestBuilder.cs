@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Files.I
         {
         }
         /// <summary>
-        /// A workspace file&apos;s bytes: text as stored, attachments decrypted and served with their content type.
+        /// A workspace file: text as stored, or an attachment with its own content type.
         /// </summary>
         /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -44,6 +44,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Files.I
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetFileV1AtlasInvestigationsInvestigationIdFilesPathGet403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetFileV1AtlasInvestigationsInvestigationIdFilesPathGet404Response">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetFileV1AtlasInvestigationsInvestigationIdFilesPathGet429Response">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetFileV1AtlasInvestigationsInvestigationIdFilesPathGet500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetFileV1AtlasInvestigationsInvestigationIdFilesPathGet503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,6 +64,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Files.I
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetFileV1AtlasInvestigationsInvestigationIdFilesPathGet403Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetFileV1AtlasInvestigationsInvestigationIdFilesPathGet404Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetFileV1AtlasInvestigationsInvestigationIdFilesPathGet429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetFileV1AtlasInvestigationsInvestigationIdFilesPathGet500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetFileV1AtlasInvestigationsInvestigationIdFilesPathGet503Response.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
@@ -71,7 +73,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Files.I
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// A workspace file&apos;s bytes: text as stored, attachments decrypted and served with their content type.
+        /// A workspace file: text as stored, or an attachment with its own content type.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

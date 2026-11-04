@@ -27,7 +27,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The investigation this run writes into. Readable through the routes below while the run is still going.</summary>
+        /// <summary>The investigation this run writes into; readable while the run works.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationReference? Investigation { get => _explicitNullValueInvestigation; set { _explicitNullValueInvestigation = value; AdditionalData?.Remove("investigation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("investigation"); else _explicitNullProperties?.Remove("investigation"); } }

@@ -37,7 +37,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string Notes { get => _explicitNullValueNotes; set { _explicitNullValueNotes = value; AdditionalData?.Remove("notes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notes"); else _explicitNullProperties?.Remove("notes"); } }
         private string _explicitNullValueNotes = default!;
 #endif
-        /// <summary>Currently always empty; the agent cites its sources in `notes`.</summary>
+        /// <summary>Deprecated. Always empty; sources are cited in `notes`.</summary>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentResultReferencesProperty? References { get => _explicitNullValueReferences; set { _explicitNullValueReferences = value; AdditionalData?.Remove("references"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("references"); else _explicitNullProperties?.Remove("references"); } }

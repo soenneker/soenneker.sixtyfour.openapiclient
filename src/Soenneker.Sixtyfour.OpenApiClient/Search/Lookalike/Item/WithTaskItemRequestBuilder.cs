@@ -22,7 +22,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Lookalike.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithTaskItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/search/lookalike/{taskId}{?include_analysis*,include_filters*}", pathParameters)
+        public WithTaskItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/search/lookalike/{taskId}{?include_filters*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,11 +30,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Lookalike.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithTaskItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/search/lookalike/{taskId}{?include_analysis*,include_filters*}", rawUrl)
+        public WithTaskItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/search/lookalike/{taskId}{?include_filters*}", rawUrl)
         {
         }
         /// <summary>
-        /// Poll lookalike progress and return generated filters on completion.
+        /// Poll a lookalike search, and read its generated filters once it completes.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -75,7 +75,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Lookalike.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Poll lookalike progress and return generated filters on completion.
+        /// Poll a lookalike search, and read its generated filters once it completes.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -103,15 +103,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Lookalike.Item
             return new global::Soenneker.Sixtyfour.OpenApiClient.Search.Lookalike.Item.WithTaskItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Poll lookalike progress and return generated filters on completion.
+        /// Poll a lookalike search, and read its generated filters once it completes.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithTaskItemRequestBuilderGetQueryParameters 
         {
-            #pragma warning disable CS1591
-            [QueryParameter("include_analysis")]
-            public bool? IncludeAnalysis { get; set; }
-            #pragma warning restore CS1591
             #pragma warning disable CS1591
             [QueryParameter("include_filters")]
             public bool? IncludeFilters { get; set; }

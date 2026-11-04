@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
-    /// <summary>Email type to discover: &apos;PROFESSIONAL&apos; (work) or &apos;PERSONAL&apos;.</summary>
+    /// <summary>The kind of email to find: `PROFESSIONAL` (work) or `PERSONAL`. Default: `PROFESSIONAL`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum FindEmailRequestMode
     {

@@ -37,7 +37,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Query
         /// Run a search query. Provide exactly one query source: query, simple_filters, filters, parsed_query, or search_id. For pagination, pass cursor alone.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponse"/></returns>
-        /// <param name="body">Unified search query request — replaces both /start-filter-search and /browse.</param>
+        /// <param name="body">A search: one query source, or a `cursor` for the next page.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchQueryEndpointSearchQueryPost400Response">When receiving a 400 status code</exception>
@@ -80,7 +80,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Query
         /// Run a search query. Provide exactly one query source: query, simple_filters, filters, parsed_query, or search_id. For pagination, pass cursor alone.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">Unified search query request — replaces both /start-filter-search and /browse.</param>
+        /// <param name="body">A search: one query source, or a `cursor` for the next page.</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

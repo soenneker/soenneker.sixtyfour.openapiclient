@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// One curated workflow template.Carries the full block graph rather than metadata alone: every consumer of thelist (preview modal, tier gating, search-to-workflow) reads ``blocks``, and thecatalog is small enough that splitting it into a second round-trip per cardwould cost more than it saves.
+    /// A workflow template, with its full block graph.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WorkflowTemplate : IAdditionalDataHolder, IParsable
@@ -38,8 +38,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             else if (parseNode.GetChildNode("featured") is { } nullNodeFeatured && nullNodeFeatured.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Featured = null;
             if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
             else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
-            if (parseNode.GetChildNode("internal") is null) { _explicitNullValueInternal = default!; _explicitNullProperties?.Remove("internal"); }
-            else if (parseNode.GetChildNode("internal") is { } nullNodeInternal && nullNodeInternal.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Internal = null;
             if (parseNode.GetChildNode("key") is null) { _explicitNullValueKey = default!; _explicitNullProperties?.Remove("key"); }
             else if (parseNode.GetChildNode("key") is { } nullNodeKey && nullNodeKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Key = null;
             if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
@@ -153,10 +151,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string _explicitNullValueId = default!;
 #endif
-        /// <summary>True for Sixtyfour-only templates. Only ever true in a response to an internal caller — non-internal callers never see these rows at all.</summary>
-        public bool? Internal { get => _explicitNullValueInternal; set { _explicitNullValueInternal = value; AdditionalData?.Remove("internal"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("internal"); else _explicitNullProperties?.Remove("internal"); } }
-        private bool? _explicitNullValueInternal = default!;
-        /// <summary>Stable identity across both namespaces: the slug alone for a catalog template, `&lt;org_id&gt;:&lt;slug&gt;` for one your organization owns. Unique table-wide, so it means the same template for every caller.</summary>
+        /// <summary>The template&apos;s key: its `slug` for a catalog template, `&lt;org_id&gt;:&lt;slug&gt;` for one your organization owns.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Key { get => _explicitNullValueKey; set { _explicitNullValueKey = value; AdditionalData?.Remove("key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("key"); else _explicitNullProperties?.Remove("key"); } }
@@ -176,7 +171,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
-        /// <summary>Block types rendered on the template card, in order.</summary>
+        /// <summary>Block types in the template, in order, for a preview.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? PreviewBlocks { get => _explicitNullValuePreviewBlocks; set { _explicitNullValuePreviewBlocks = value; AdditionalData?.Remove("preview_blocks"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preview_blocks"); else _explicitNullProperties?.Remove("preview_blocks"); } }
@@ -264,7 +259,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "estimated_time", n => { EstimatedTime = n.GetStringValue(); } },
                 { "featured", n => { Featured = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "internal", n => { Internal = n.GetBoolValue(); } },
                 { "key", n => { Key = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "preview_blocks", n => { PreviewBlocks = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -292,7 +286,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteStringValue("estimated_time", EstimatedTime);
             writer.WriteBoolValue("featured", Featured);
             writer.WriteStringValue("id", Id);
-            writer.WriteBoolValue("internal", Internal);
             writer.WriteStringValue("key", Key);
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfPrimitiveValues<string>("preview_blocks", PreviewBlocks);

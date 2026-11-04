@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.ExclusionLists.Item
         {
         }
         /// <summary>
-        /// Soft-delete an exclusion list and evict its cached member set.
+        /// Delete an exclusion list.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ExclusionListDeleted"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -69,7 +69,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.ExclusionLists.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ExclusionListDeleted>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ExclusionListDeleted.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Fetch one exclusion list, including materialization status and size.
+        /// Fetch one exclusion list, including its build status and size.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ExclusionListResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -104,7 +104,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.ExclusionLists.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ExclusionListResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ExclusionListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Soft-delete an exclusion list and evict its cached member set.
+        /// Delete an exclusion list.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -123,7 +123,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.ExclusionLists.Item
             return requestInfo;
         }
         /// <summary>
-        /// Fetch one exclusion list, including materialization status and size.
+        /// Fetch one exclusion list, including its build status and size.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

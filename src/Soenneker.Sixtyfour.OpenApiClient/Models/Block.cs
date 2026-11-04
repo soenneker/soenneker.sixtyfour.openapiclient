@@ -22,17 +22,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             else if (parseNode.GetChildNode("block_id") is { } nullNodeBlockId && nullNodeBlockId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockId = null;
             if (parseNode.GetChildNode("block_name") is null) { _explicitNullValueBlockName = default!; _explicitNullProperties?.Remove("block_name"); }
             else if (parseNode.GetChildNode("block_name") is { } nullNodeBlockName && nullNodeBlockName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockName = null;
-            if (parseNode.GetChildNode("block_type") is null) { _explicitNullValueBlockType = default!; _explicitNullProperties?.Remove("block_type"); }
-            else if (parseNode.GetChildNode("block_type") is { } nullNodeBlockType && nullNodeBlockType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockType = null;
-            if (parseNode.GetChildNode("sequence_number") is null) { _explicitNullValueSequenceNumber = default!; _explicitNullProperties?.Remove("sequence_number"); }
-            else if (parseNode.GetChildNode("sequence_number") is { } nullNodeSequenceNumber && nullNodeSequenceNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SequenceNumber = null;
             if (parseNode.GetChildNode("specs") is null) { _explicitNullValueSpecs = default!; _explicitNullProperties?.Remove("specs"); }
             else if (parseNode.GetChildNode("specs") is { } nullNodeSpecs && nullNodeSpecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Specs = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Stable block identifier; non-UUID values are normalized server-side.</summary>
+        /// <summary>Block ID. A missing or non-UUID value is replaced with a new UUID on save.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? BlockId { get => _explicitNullValueBlockId; set { _explicitNullValueBlockId = value; AdditionalData?.Remove("block_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("block_id"); else _explicitNullProperties?.Remove("block_id"); } }
@@ -52,19 +48,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string BlockName { get => _explicitNullValueBlockName; set { _explicitNullValueBlockName = value; AdditionalData?.Remove("block_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("block_name"); else _explicitNullProperties?.Remove("block_name"); } }
         private string _explicitNullValueBlockName = default!;
 #endif
-        /// <summary>Category of block (e.g. &apos;source&apos;, &apos;enrich&apos;, &apos;output&apos;).</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? BlockType { get => _explicitNullValueBlockType; set { _explicitNullValueBlockType = value; AdditionalData?.Remove("block_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("block_type"); else _explicitNullProperties?.Remove("block_type"); } }
-        private string? _explicitNullValueBlockType = default!;
-#nullable restore
-#else
-        public string BlockType { get => _explicitNullValueBlockType; set { _explicitNullValueBlockType = value; AdditionalData?.Remove("block_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("block_type"); else _explicitNullProperties?.Remove("block_type"); } }
-        private string _explicitNullValueBlockType = default!;
-#endif
-        /// <summary>Position of the block in the workflow execution order.</summary>
-        public int? SequenceNumber { get => _explicitNullValueSequenceNumber; set { _explicitNullValueSequenceNumber = value; AdditionalData?.Remove("sequence_number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sequence_number"); else _explicitNullProperties?.Remove("sequence_number"); } }
-        private int? _explicitNullValueSequenceNumber = default!;
         /// <summary>Block-specific configuration; shape depends on `block_name`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -102,8 +85,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             {
                 { "block_id", n => { BlockId = n.GetStringValue(); } },
                 { "block_name", n => { BlockName = n.GetStringValue(); } },
-                { "block_type", n => { BlockType = n.GetStringValue(); } },
-                { "sequence_number", n => { SequenceNumber = n.GetIntValue(); } },
                 { "specs", n => { Specs = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockSpecsProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockSpecsProperty.CreateFromDiscriminatorValue); } },
             };
         }
@@ -116,8 +97,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("block_id", BlockId);
             writer.WriteStringValue("block_name", BlockName);
-            writer.WriteStringValue("block_type", BlockType);
-            writer.WriteIntValue("sequence_number", SequenceNumber);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.BlockSpecsProperty>("specs", Specs);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

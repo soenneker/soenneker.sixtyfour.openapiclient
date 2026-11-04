@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
-    /// <summary>Return raw OpenSearch rows or canonical workflow LEAD/COMPANY rows. The selected shape is retained by cursor continuations.</summary>
+    /// <summary>`raw` returns each record as stored (`raw_document_id`, `raw_source`, `raw_score`); `workflow` returns LEAD or COMPANY rows in the shape workflow blocks use. Cursor pages keep the first page&apos;s shape.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum SearchQueryRequestOutputShape
     {

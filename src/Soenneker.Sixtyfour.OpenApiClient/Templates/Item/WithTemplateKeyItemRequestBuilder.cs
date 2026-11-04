@@ -43,6 +43,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Templates.Item
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetTemplateTemplatesTemplateKeyGet401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetTemplateTemplatesTemplateKeyGet403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetTemplateTemplatesTemplateKeyGet429Response">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetTemplateTemplatesTemplateKeyGet500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetTemplateTemplatesTemplateKeyGet503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -61,6 +62,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Templates.Item
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetTemplateTemplatesTemplateKeyGet401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetTemplateTemplatesTemplateKeyGet403Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetTemplateTemplatesTemplateKeyGet429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetTemplateTemplatesTemplateKeyGet500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetTemplateTemplatesTemplateKeyGet503Response.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },

@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Changes
         {
         }
         /// <summary>
-        /// Return `{row_id: {field_name: latest_change_timestamp}}` (ISO 8601).Includes only actual change events for currently watched fields; establishment,quiet checks, retired fields and future timestamps are excluded. Rows/fieldswithout recorded changes are omitted; an empty history returns `{}`. This islatest-change metadata, not a full audit log or a snapshot of current values.Requires the same authenticated org/team access as monitor detail (404 forinaccessible groups). Query failures return an error, never partial history.
+        /// Each row&apos;s latest change time per watched field, as `{row_id: {field: timestamp}}` (ISO 8601).Only `change` events count; rows and fields with no change are left out, and an empty history returns `{}`.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseMonitorChangesEndpointMonitorsMonitorIdChangesGetSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -69,7 +69,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Changes
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseMonitorChangesEndpointMonitorsMonitorIdChangesGetSchema>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseMonitorChangesEndpointMonitorsMonitorIdChangesGetSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Return `{row_id: {field_name: latest_change_timestamp}}` (ISO 8601).Includes only actual change events for currently watched fields; establishment,quiet checks, retired fields and future timestamps are excluded. Rows/fieldswithout recorded changes are omitted; an empty history returns `{}`. This islatest-change metadata, not a full audit log or a snapshot of current values.Requires the same authenticated org/team access as monitor detail (404 forinaccessible groups). Query failures return an error, never partial history.
+        /// Each row&apos;s latest change time per watched field, as `{row_id: {field: timestamp}}` (ISO 8601).Only `change` events count; rows and fields with no change are left out, and an empty history returns `{}`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

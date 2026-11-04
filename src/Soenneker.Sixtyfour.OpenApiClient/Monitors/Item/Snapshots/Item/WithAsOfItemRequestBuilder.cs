@@ -22,7 +22,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Snapshots.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithAsOfItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/monitors/{monitorId}/snapshots/{asOf}{?limit*,spreadsheet_safe*}", pathParameters)
+        public WithAsOfItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/monitors/{monitorId}/snapshots/{asOf}{?limit*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Snapshots.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithAsOfItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/monitors/{monitorId}/snapshots/{asOf}{?limit*,spreadsheet_safe*}", rawUrl)
+        public WithAsOfItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/monitors/{monitorId}/snapshots/{asOf}{?limit*}", rawUrl)
         {
         }
         /// <summary>
@@ -105,9 +105,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Snapshots.Item
             /// <summary>Only the first rows, for a preview. Omitted, the whole table.</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }
-            /// <summary>Escape formula-prefixed CSV cells; off so machine callers keep canonical bytes</summary>
-            [QueryParameter("spreadsheet_safe")]
-            public bool? SpreadsheetSafe { get; set; }
         }
     }
 }

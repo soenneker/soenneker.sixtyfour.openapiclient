@@ -41,7 +41,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Client-generated idempotency key. Reusing the same key for the same organization returns the existing run instead of starting and billing a duplicate, so a lost response is safe to retry.</summary>
+        /// <summary>An idempotency key you generate. A retry with the same key returns the run already started instead of starting and charging a second one.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DispatchId { get => _explicitNullValueDispatchId; set { _explicitNullValueDispatchId = value; AdditionalData?.Remove("dispatch_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dispatch_id"); else _explicitNullProperties?.Remove("dispatch_id"); } }
@@ -64,10 +64,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequestLeadInfoProperty LeadInfo { get => _explicitNullValueLeadInfo; set { _explicitNullValueLeadInfo = value; AdditionalData?.Remove("lead_info"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lead_info"); else _explicitNullProperties?.Remove("lead_info"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequestLeadInfoProperty _explicitNullValueLeadInfo = default!;
 #endif
-        /// <summary>How much research to buy, in credits (default: one unit of the engine price), up to 10 units. On xhigh every 250 credits buy 800 team turns, used in full unless the research stops yielding: 300 buys 960. Scout researches alone, and every 50 credits buy its 100 turns.</summary>
+        /// <summary>How much research to buy, in credits (default: one unit of the engine price), up to 10 units. See [Credits &amp; Pricing](/guides/credits-and-pricing).</summary>
         public int? MaxCredits { get => _explicitNullValueMaxCredits; set { _explicitNullValueMaxCredits = value; AdditionalData?.Remove("max_credits"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_credits"); else _explicitNullProperties?.Remove("max_credits"); } }
         private int? _explicitNullValueMaxCredits = default!;
-        /// <summary>The longest the run may research, in minutes of working time: waits to retry a model call or an attempt do not count. When it is reached the run writes up what it found and completes, charging the credits its turns used, rounded up to the next 50, instead of the whole budget. Writing up can take a few minutes past the limit. Default: no limit.</summary>
+        /// <summary>The most minutes of research time; waiting to retry does not count. When reached, the run writes up its findings, which can take a few minutes, and is charged only for the research it used. Default: no limit.</summary>
         public int? MaxMinutes { get => _explicitNullValueMaxMinutes; set { _explicitNullValueMaxMinutes = value; AdditionalData?.Remove("max_minutes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_minutes"); else _explicitNullProperties?.Remove("max_minutes"); } }
         private int? _explicitNullValueMaxMinutes = default!;
         /// <summary>Title for the investigation. Derived from lead_info when unset.</summary>

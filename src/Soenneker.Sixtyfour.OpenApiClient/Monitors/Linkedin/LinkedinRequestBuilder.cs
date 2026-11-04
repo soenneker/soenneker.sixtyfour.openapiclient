@@ -40,7 +40,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Linkedin
         {
         }
         /// <summary>
-        /// Watch one LinkedIn profile. First check establishes its values;subsequent checks report exact changes to selected fields, without research.Each profile check with one or more changed fields costs 0.1 credits by default,subject to organization pricing. Initial baselines and unchanged checks are free.Insufficient balance leaves the baseline unchanged and reports a failed check.
+        /// Watch one LinkedIn profile for changes to the fields you select.The first check records its values; later checks report exact changes, without research. A check your balancecannot cover leaves the values unchanged and is reported as failed.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -77,7 +77,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Linkedin
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Watch one LinkedIn profile. First check establishes its values;subsequent checks report exact changes to selected fields, without research.Each profile check with one or more changed fields costs 0.1 credits by default,subject to organization pricing. Initial baselines and unchanged checks are free.Insufficient balance leaves the baseline unchanged and reports a failed check.
+        /// Watch one LinkedIn profile for changes to the fields you select.The first check records its values; later checks report exact changes, without research. A check your balancecannot cover leaves the values unchanged and is reported as failed.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

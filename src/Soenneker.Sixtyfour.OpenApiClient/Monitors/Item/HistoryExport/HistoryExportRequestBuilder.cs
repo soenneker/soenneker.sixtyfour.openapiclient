@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.HistoryExport
         {
         }
         /// <summary>
-        /// Full CSVs in one ZIP. Omit timestamps for all snapshots in the date range.Bounds: 5,000 snapshots, 50 MiB CSV data, 100 MiB event data, 120 seconds. An oversized request returns 413 before any ZIP is sent; select fewer dates. All timestamps use UTC; start and end are inclusive.API-key and OAuth callers share one budget: 300 requests per 60 second(s) per organization, with a burst of 15, shared across API servers. All callers share five concurrent archive builds per organization. Capacity refusals return 429 with Retry-After; unavailable capacity returns 503.
+        /// The CSVs of the selected snapshots in one ZIP. Omit `timestamps` to include every snapshot from `start` to `end` (UTC, inclusive). Up to 5,000 snapshots and 50 MiB of CSV per export.
         /// </summary>
         /// <returns>A <see cref="Stream"/></returns>
         /// <param name="body">The request body</param>
@@ -73,7 +73,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.HistoryExport
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Full CSVs in one ZIP. Omit timestamps for all snapshots in the date range.Bounds: 5,000 snapshots, 50 MiB CSV data, 100 MiB event data, 120 seconds. An oversized request returns 413 before any ZIP is sent; select fewer dates. All timestamps use UTC; start and end are inclusive.API-key and OAuth callers share one budget: 300 requests per 60 second(s) per organization, with a burst of 15, shared across API servers. All callers share five concurrent archive builds per organization. Capacity refusals return 429 with Retry-After; unavailable capacity returns 503.
+        /// The CSVs of the selected snapshots in one ZIP. Omit `timestamps` to include every snapshot from `start` to `end` (UTC, inclusive). Up to 5,000 snapshots and 50 MiB of CSV per export.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

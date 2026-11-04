@@ -26,8 +26,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             else if (parseNode.GetChildNode("error") is { } nullNodeError && nullNodeError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Error = null;
             if (parseNode.GetChildNode("exported_count") is null) { _explicitNullValueExportedCount = default!; _explicitNullProperties?.Remove("exported_count"); }
             else if (parseNode.GetChildNode("exported_count") is { } nullNodeExportedCount && nullNodeExportedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExportedCount = null;
-            if (parseNode.GetChildNode("iterations") is null) { _explicitNullValueIterations = default!; _explicitNullProperties?.Remove("iterations"); }
-            else if (parseNode.GetChildNode("iterations") is { } nullNodeIterations && nullNodeIterations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Iterations = null;
             if (parseNode.GetChildNode("progress_message") is null) { _explicitNullValueProgressMessage = default!; _explicitNullProperties?.Remove("progress_message"); }
             else if (parseNode.GetChildNode("progress_message") is { } nullNodeProgressMessage && nullNodeProgressMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProgressMessage = null;
             if (parseNode.GetChildNode("resource_handle_id") is null) { _explicitNullValueResourceHandleId = default!; _explicitNullProperties?.Remove("resource_handle_id"); }
@@ -56,7 +54,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string CloseTime { get => _explicitNullValueCloseTime; set { _explicitNullValueCloseTime = value; AdditionalData?.Remove("close_time"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("close_time"); else _explicitNullProperties?.Remove("close_time"); } }
         private string _explicitNullValueCloseTime = default!;
 #endif
-        /// <summary>Current pipeline phase index.</summary>
+        /// <summary>Number of the search&apos;s current step.</summary>
         public int? CurrentPhase { get => _explicitNullValueCurrentPhase; set { _explicitNullValueCurrentPhase = value; AdditionalData?.Remove("current_phase"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_phase"); else _explicitNullProperties?.Remove("current_phase"); } }
         private int? _explicitNullValueCurrentPhase = default!;
         /// <summary>Error message if the operation failed.</summary>
@@ -72,16 +70,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Number of results actually exported.</summary>
         public int? ExportedCount { get => _explicitNullValueExportedCount; set { _explicitNullValueExportedCount = value; AdditionalData?.Remove("exported_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exported_count"); else _explicitNullProperties?.Remove("exported_count"); } }
         private int? _explicitNullValueExportedCount = default!;
-        /// <summary>Per-iteration debug data emitted by the agent.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponseIterationsItemProperty>? Iterations { get => _explicitNullValueIterations; set { _explicitNullValueIterations = value; AdditionalData?.Remove("iterations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("iterations"); else _explicitNullProperties?.Remove("iterations"); } }
-        private List<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponseIterationsItemProperty>? _explicitNullValueIterations = default!;
-#nullable restore
-#else
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponseIterationsItemProperty> Iterations { get => _explicitNullValueIterations; set { _explicitNullValueIterations = value; AdditionalData?.Remove("iterations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("iterations"); else _explicitNullProperties?.Remove("iterations"); } }
-        private List<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponseIterationsItemProperty> _explicitNullValueIterations = default!;
-#endif
         /// <summary>Human-readable progress message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -174,7 +162,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "current_phase", n => { CurrentPhase = n.GetIntValue(); } },
                 { "error", n => { Error = n.GetStringValue(); } },
                 { "exported_count", n => { ExportedCount = n.GetIntValue(); } },
-                { "iterations", n => { Iterations = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponseIterationsItemProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponseIterationsItemProperty.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "progress_message", n => { ProgressMessage = n.GetStringValue(); } },
                 { "resource_handle_id", n => { ResourceHandleId = n.GetStringValue(); } },
                 { "search_id", n => { SearchId = n.GetStringValue(); } },
@@ -195,7 +182,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteIntValue("current_phase", CurrentPhase);
             writer.WriteStringValue("error", Error);
             writer.WriteIntValue("exported_count", ExportedCount);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgenticSearchStatusResponseIterationsItemProperty>("iterations", Iterations);
             writer.WriteStringValue("progress_message", ProgressMessage);
             writer.WriteStringValue("resource_handle_id", ResourceHandleId);
             writer.WriteStringValue("search_id", SearchId);

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// Accounting for how an input seed set became analyzable profiles.
+    /// How the seeds resolved to profiles.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SeedDiagnostics : IAdditionalDataHolder, IParsable
@@ -53,7 +53,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public List<string> Errors { get => _explicitNullValueErrors; set { _explicitNullValueErrors = value; AdditionalData?.Remove("errors"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errors"); else _explicitNullProperties?.Remove("errors"); } }
         private List<string> _explicitNullValueErrors = default!;
 #endif
-        /// <summary>Aggregate identity-resolution outcomes without retaining seed PII.</summary>
+        /// <summary>Seed matching counts.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.IdentityResolutionDiagnostics? IdentityResolution { get => _explicitNullValueIdentityResolution; set { _explicitNullValueIdentityResolution = value; AdditionalData?.Remove("identity_resolution"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("identity_resolution"); else _explicitNullProperties?.Remove("identity_resolution"); } }

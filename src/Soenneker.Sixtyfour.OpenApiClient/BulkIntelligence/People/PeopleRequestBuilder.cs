@@ -22,7 +22,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.BulkIntelligence.People
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PeopleRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/bulk-intelligence/people{?cost_units*}", pathParameters)
+        public PeopleRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/bulk-intelligence/people", pathParameters)
         {
         }
         /// <summary>
@@ -30,11 +30,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.BulkIntelligence.People
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PeopleRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/bulk-intelligence/people{?cost_units*}", rawUrl)
+        public PeopleRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/bulk-intelligence/people", rawUrl)
         {
         }
         /// <summary>
-        /// Upload a CSV/JSON/NDJSON file and start a background bulk intelligence run.Poll `GET /job-status/{task_id}`; while running the response includes`progress` with the rows enriched so far out of the total, and on completion itincludes signed download links, `results_url` (the run in the Sixtyfour app,where a signed-in user can download the full files), and `charge_credits`(total credits charged).Row-level failures pass through un-enriched; source-block failures fail the run.
+        /// Upload a CSV, JSON, JSONL or NDJSON file and enrich every row in the background.Poll `GET /job-status/{task_id}`: `progress` counts rows while it runs, and a completed job carries `results`(download links), `results_url` and `charge_credits`. A row that fails comes back un-enriched.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.BulkIntelligenceStartedResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -50,11 +50,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.BulkIntelligence.People
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartPeopleBulkIntelligenceWorkflowBulkIntelligencePeoplePost503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.BulkIntelligenceStartedResponse?> PostAsync(global::Microsoft.Kiota.Abstractions.MultipartBody body, Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.BulkIntelligence.People.PeopleRequestBuilder.PeopleRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.BulkIntelligenceStartedResponse?> PostAsync(global::Microsoft.Kiota.Abstractions.MultipartBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.BulkIntelligenceStartedResponse> PostAsync(global::Microsoft.Kiota.Abstractions.MultipartBody body, Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.BulkIntelligence.People.PeopleRequestBuilder.PeopleRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.BulkIntelligenceStartedResponse> PostAsync(global::Microsoft.Kiota.Abstractions.MultipartBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -75,18 +75,18 @@ namespace Soenneker.Sixtyfour.OpenApiClient.BulkIntelligence.People
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.BulkIntelligenceStartedResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.BulkIntelligenceStartedResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Upload a CSV/JSON/NDJSON file and start a background bulk intelligence run.Poll `GET /job-status/{task_id}`; while running the response includes`progress` with the rows enriched so far out of the total, and on completion itincludes signed download links, `results_url` (the run in the Sixtyfour app,where a signed-in user can download the full files), and `charge_credits`(total credits charged).Row-level failures pass through un-enriched; source-block failures fail the run.
+        /// Upload a CSV, JSON, JSONL or NDJSON file and enrich every row in the background.Poll `GET /job-status/{task_id}`: `progress` counts rows while it runs, and a completed job carries `results`(download links), `results_url` and `charge_credits`. A row that fails comes back un-enriched.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Microsoft.Kiota.Abstractions.MultipartBody body, Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.BulkIntelligence.People.PeopleRequestBuilder.PeopleRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Microsoft.Kiota.Abstractions.MultipartBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Microsoft.Kiota.Abstractions.MultipartBody body, Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.BulkIntelligence.People.PeopleRequestBuilder.PeopleRequestBuilderPostQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Microsoft.Kiota.Abstractions.MultipartBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -104,17 +104,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.BulkIntelligence.People
         public global::Soenneker.Sixtyfour.OpenApiClient.BulkIntelligence.People.PeopleRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Sixtyfour.OpenApiClient.BulkIntelligence.People.PeopleRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Upload a CSV/JSON/NDJSON file and start a background bulk intelligence run.Poll `GET /job-status/{task_id}`; while running the response includes`progress` with the rows enriched so far out of the total, and on completion itincludes signed download links, `results_url` (the run in the Sixtyfour app,where a signed-in user can download the full files), and `charge_credits`(total credits charged).Row-level failures pass through un-enriched; source-block failures fail the run.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class PeopleRequestBuilderPostQueryParameters 
-        {
-            /// <summary>Compatibility option. Both legacy cost fields and credit fields are returned for either value.</summary>
-            [Obsolete("")]
-            [QueryParameter("cost_units")]
-            public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartPeopleBulkIntelligenceWorkflowBulkIntelligencePeoplePostCostUnitsParameter? CostUnits { get; set; }
         }
     }
 }

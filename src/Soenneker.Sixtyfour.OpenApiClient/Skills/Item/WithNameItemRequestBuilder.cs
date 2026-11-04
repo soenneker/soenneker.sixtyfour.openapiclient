@@ -43,6 +43,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Skills.Item
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteTeamSkillSkillsNameDelete401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteTeamSkillSkillsNameDelete403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteTeamSkillSkillsNameDelete429Response">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteTeamSkillSkillsNameDelete500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteTeamSkillSkillsNameDelete503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -61,6 +62,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Skills.Item
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteTeamSkillSkillsNameDelete401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteTeamSkillSkillsNameDelete403Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteTeamSkillSkillsNameDelete429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteTeamSkillSkillsNameDelete500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.DeleteTeamSkillSkillsNameDelete503Response.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
@@ -78,6 +80,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Skills.Item
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ReadTeamSkillSkillsNameGet401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ReadTeamSkillSkillsNameGet403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ReadTeamSkillSkillsNameGet429Response">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ReadTeamSkillSkillsNameGet500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ReadTeamSkillSkillsNameGet503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -96,6 +99,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Skills.Item
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.ReadTeamSkillSkillsNameGet401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.ReadTeamSkillSkillsNameGet403Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.ReadTeamSkillSkillsNameGet429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.ReadTeamSkillSkillsNameGet500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.ReadTeamSkillSkillsNameGet503Response.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
@@ -114,6 +118,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Skills.Item
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.PutTeamSkillSkillsNamePut401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.PutTeamSkillSkillsNamePut403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.PutTeamSkillSkillsNamePut429Response">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.PutTeamSkillSkillsNamePut500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.PutTeamSkillSkillsNamePut503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -133,6 +138,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Skills.Item
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.PutTeamSkillSkillsNamePut401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.PutTeamSkillSkillsNamePut403Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.PutTeamSkillSkillsNamePut429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.PutTeamSkillSkillsNamePut500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.PutTeamSkillSkillsNamePut503Response.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },

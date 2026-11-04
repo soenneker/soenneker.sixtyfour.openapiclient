@@ -37,7 +37,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>True when the request was deduplicated via Idempotency-Key header.</summary>
         public bool? AlreadyStarted { get => _explicitNullValueAlreadyStarted; set { _explicitNullValueAlreadyStarted = value; AdditionalData?.Remove("already_started"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("already_started"); else _explicitNullProperties?.Remove("already_started"); } }
         private bool? _explicitNullValueAlreadyStarted = default!;
-        /// <summary>Legacy estimated job cost in cents; preserved for compatibility. Omitted on idempotent replays. Prefer estimated_cost_credits.</summary>
+        /// <summary>Deprecated. Use `estimated_cost_credits`. The same amount in tenths of a credit.</summary>
         [Obsolete("")]
         public int? EstimatedCostCents { get => _explicitNullValueEstimatedCostCents; set { _explicitNullValueEstimatedCostCents = value; AdditionalData?.Remove("estimated_cost_cents"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("estimated_cost_cents"); else _explicitNullProperties?.Remove("estimated_cost_cents"); } }
         private int? _explicitNullValueEstimatedCostCents = default!;
@@ -47,7 +47,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Number of parsed input rows; omitted on idempotent replays.</summary>
         public int? RowCount { get => _explicitNullValueRowCount; set { _explicitNullValueRowCount = value; AdditionalData?.Remove("row_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("row_count"); else _explicitNullProperties?.Remove("row_count"); } }
         private int? _explicitNullValueRowCount = default!;
-        /// <summary>Job status, typically &apos;RUNNING&apos;.</summary>
+        /// <summary>`RUNNING`. An `Idempotency-Key` replay returns the run&apos;s current status in capitals, such as `COMPLETED`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }

@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Events.
         {
         }
         /// <summary>
-        /// Server-Sent Events: the agents&apos; and subagents&apos; turn summaries as they are written, in order.New durable summaries are checked every two seconds while the stream is open.Frames:- `sessions` — every agent session, sent first and again whenever one starts, finishes or changes.- `event` — one turn summary; its `id:` is the cursor to resume from.- `status` — the investigation&apos;s status when the stream opens and whenever it changes.- `end` — the run reached `completed` or `failed`, every event has been sent, and the `sessions` frame before it  carries the run&apos;s recorded cost (null only if settlement did not record it in time); the stream closes.- `access_lost` — you may no longer see this investigation; the stream closes.A stream closes after about five minutes so access is checked again; reconnect (SSE clients do thisthemselves) and it resumes from the last event id. Comment lines are heartbeats.
+        /// Server-Sent Events: the agents&apos; turn summaries as they are written.Frames:- `sessions`: every agent session; sent first and on each change.- `event`: one turn summary; its `id:` is the resume cursor.- `status`: the investigation&apos;s status, on open and on each change.- `end`: the run finished and every event was sent. The `sessions` frame before it carries the run&apos;s cost,  `null` until the charge is recorded.- `access_lost`: you can no longer see the investigation.The stream closes after about five minutes; reconnect with `Last-Event-ID` or `after` to resume. Comment lineskeep the connection open.
         /// </summary>
         /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -44,6 +44,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Events.
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StreamEventsV1AtlasInvestigationsInvestigationIdEventsStreamGet403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StreamEventsV1AtlasInvestigationsInvestigationIdEventsStreamGet404Response">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StreamEventsV1AtlasInvestigationsInvestigationIdEventsStreamGet429Response">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StreamEventsV1AtlasInvestigationsInvestigationIdEventsStreamGet500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StreamEventsV1AtlasInvestigationsInvestigationIdEventsStreamGet503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,6 +64,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Events.
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.StreamEventsV1AtlasInvestigationsInvestigationIdEventsStreamGet403Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.StreamEventsV1AtlasInvestigationsInvestigationIdEventsStreamGet404Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.StreamEventsV1AtlasInvestigationsInvestigationIdEventsStreamGet429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.StreamEventsV1AtlasInvestigationsInvestigationIdEventsStreamGet500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.StreamEventsV1AtlasInvestigationsInvestigationIdEventsStreamGet503Response.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
@@ -71,7 +73,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Events.
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Server-Sent Events: the agents&apos; and subagents&apos; turn summaries as they are written, in order.New durable summaries are checked every two seconds while the stream is open.Frames:- `sessions` — every agent session, sent first and again whenever one starts, finishes or changes.- `event` — one turn summary; its `id:` is the cursor to resume from.- `status` — the investigation&apos;s status when the stream opens and whenever it changes.- `end` — the run reached `completed` or `failed`, every event has been sent, and the `sessions` frame before it  carries the run&apos;s recorded cost (null only if settlement did not record it in time); the stream closes.- `access_lost` — you may no longer see this investigation; the stream closes.A stream closes after about five minutes so access is checked again; reconnect (SSE clients do thisthemselves) and it resumes from the last event id. Comment lines are heartbeats.
+        /// Server-Sent Events: the agents&apos; turn summaries as they are written.Frames:- `sessions`: every agent session; sent first and on each change.- `event`: one turn summary; its `id:` is the resume cursor.- `status`: the investigation&apos;s status, on open and on each change.- `end`: the run finished and every event was sent. The `sessions` frame before it carries the run&apos;s cost,  `null` until the charge is recorded.- `access_lost`: you can no longer see the investigation.The stream closes after about five minutes; reconnect with `Last-Event-ID` or `after` to resume. Comment lineskeep the connection open.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -99,7 +101,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Events.
             return new global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Events.StreamNamespace.StreamRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Server-Sent Events: the agents&apos; and subagents&apos; turn summaries as they are written, in order.New durable summaries are checked every two seconds while the stream is open.Frames:- `sessions` — every agent session, sent first and again whenever one starts, finishes or changes.- `event` — one turn summary; its `id:` is the cursor to resume from.- `status` — the investigation&apos;s status when the stream opens and whenever it changes.- `end` — the run reached `completed` or `failed`, every event has been sent, and the `sessions` frame before it  carries the run&apos;s recorded cost (null only if settlement did not record it in time); the stream closes.- `access_lost` — you may no longer see this investigation; the stream closes.A stream closes after about five minutes so access is checked again; reconnect (SSE clients do thisthemselves) and it resumes from the last event id. Comment lines are heartbeats.
+        /// Server-Sent Events: the agents&apos; turn summaries as they are written.Frames:- `sessions`: every agent session; sent first and on each change.- `event`: one turn summary; its `id:` is the resume cursor.- `status`: the investigation&apos;s status, on open and on each change.- `end`: the run finished and every event was sent. The `sessions` frame before it carries the run&apos;s cost,  `null` until the charge is recorded.- `access_lost`: you can no longer see the investigation.The stream closes after about five minutes; reconnect with `Last-Event-ID` or `after` to resume. Comment lineskeep the connection open.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class StreamRequestBuilderGetQueryParameters 

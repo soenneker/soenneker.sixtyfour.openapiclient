@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// Mapping of output field name to natural-language description of what to extract. A field that asks for an image (a headshot, a logo, a screenshot of a page) is returned as an image URL on api.sixtyfour.ai/v1/media, hosted by Sixtyfour; embed it directly. It works until the investigation that saved the image, or the organization, is permanently deleted.
+    /// Fields to return: output field name to a description of what to find. An image field returns a `https://api.sixtyfour.ai/v1/media/...` URL you can embed.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LinkedInEnrichRequestStructProperty : IAdditionalDataHolder, IParsable

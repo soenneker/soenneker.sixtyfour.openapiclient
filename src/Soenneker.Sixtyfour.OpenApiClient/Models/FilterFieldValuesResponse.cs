@@ -18,8 +18,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("aggregation_field") is null) { _explicitNullValueAggregationField = default!; _explicitNullProperties?.Remove("aggregation_field"); }
-            else if (parseNode.GetChildNode("aggregation_field") is { } nullNodeAggregationField && nullNodeAggregationField.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AggregationField = null;
             if (parseNode.GetChildNode("canonical_field") is null) { _explicitNullValueCanonicalField = default!; _explicitNullProperties?.Remove("canonical_field"); }
             else if (parseNode.GetChildNode("canonical_field") is { } nullNodeCanonicalField && nullNodeCanonicalField.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CanonicalField = null;
             if (parseNode.GetChildNode("field") is null) { _explicitNullValueField = default!; _explicitNullProperties?.Remove("field"); }
@@ -32,8 +30,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             else if (parseNode.GetChildNode("preferred_for_exact_match") is { } nullNodePreferredForExactMatch && nullNodePreferredForExactMatch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreferredForExactMatch = null;
             if (parseNode.GetChildNode("related_fields") is null) { _explicitNullValueRelatedFields = default!; _explicitNullProperties?.Remove("related_fields"); }
             else if (parseNode.GetChildNode("related_fields") is { } nullNodeRelatedFields && nullNodeRelatedFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RelatedFields = null;
-            if (parseNode.GetChildNode("request_duration_ms") is null) { _explicitNullValueRequestDurationMs = default!; _explicitNullProperties?.Remove("request_duration_ms"); }
-            else if (parseNode.GetChildNode("request_duration_ms") is { } nullNodeRequestDurationMs && nullNodeRequestDurationMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequestDurationMs = null;
             if (parseNode.GetChildNode("supports_exact_filter_snippet") is null) { _explicitNullValueSupportsExactFilterSnippet = default!; _explicitNullProperties?.Remove("supports_exact_filter_snippet"); }
             else if (parseNode.GetChildNode("supports_exact_filter_snippet") is { } nullNodeSupportsExactFilterSnippet && nullNodeSupportsExactFilterSnippet.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SupportsExactFilterSnippet = null;
             if (parseNode.GetChildNode("supports_top_values") is null) { _explicitNullValueSupportsTopValues = default!; _explicitNullProperties?.Remove("supports_top_values"); }
@@ -48,16 +44,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Underlying field used for the terms aggregation.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? AggregationField { get => _explicitNullValueAggregationField; set { _explicitNullValueAggregationField = value; AdditionalData?.Remove("aggregation_field"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aggregation_field"); else _explicitNullProperties?.Remove("aggregation_field"); } }
-        private string? _explicitNullValueAggregationField = default!;
-#nullable restore
-#else
-        public string AggregationField { get => _explicitNullValueAggregationField; set { _explicitNullValueAggregationField = value; AdditionalData?.Remove("aggregation_field"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aggregation_field"); else _explicitNullProperties?.Remove("aggregation_field"); } }
-        private string _explicitNullValueAggregationField = default!;
-#endif
         /// <summary>Canonical field path used for aggregation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -78,7 +64,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string Field { get => _explicitNullValueField; set { _explicitNullValueField = value; AdditionalData?.Remove("field"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field"); else _explicitNullProperties?.Remove("field"); } }
         private string _explicitNullValueField = default!;
 #endif
-        /// <summary>Search mode: &apos;people&apos; or &apos;company&apos;.</summary>
+        /// <summary>`people` or `company`.</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesResponseMode? Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; AdditionalData?.Remove("mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesResponseMode? _explicitNullValueMode = default!;
         /// <summary>Nested path, if any.</summary>
@@ -104,9 +90,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public List<string> RelatedFields { get => _explicitNullValueRelatedFields; set { _explicitNullValueRelatedFields = value; AdditionalData?.Remove("related_fields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("related_fields"); else _explicitNullProperties?.Remove("related_fields"); } }
         private List<string> _explicitNullValueRelatedFields = default!;
 #endif
-        /// <summary>Server-side request duration in milliseconds.</summary>
-        public int? RequestDurationMs { get => _explicitNullValueRequestDurationMs; set { _explicitNullValueRequestDurationMs = value; AdditionalData?.Remove("request_duration_ms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("request_duration_ms"); else _explicitNullProperties?.Remove("request_duration_ms"); } }
-        private int? _explicitNullValueRequestDurationMs = default!;
         /// <summary>Whether the response includes deterministic filter snippets.</summary>
         public bool? SupportsExactFilterSnippet { get => _explicitNullValueSupportsExactFilterSnippet; set { _explicitNullValueSupportsExactFilterSnippet = value; AdditionalData?.Remove("supports_exact_filter_snippet"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supports_exact_filter_snippet"); else _explicitNullProperties?.Remove("supports_exact_filter_snippet"); } }
         private bool? _explicitNullValueSupportsExactFilterSnippet = default!;
@@ -162,14 +145,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "aggregation_field", n => { AggregationField = n.GetStringValue(); } },
                 { "canonical_field", n => { CanonicalField = n.GetStringValue(); } },
                 { "field", n => { Field = n.GetStringValue(); } },
                 { "mode", n => { var parsed = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesResponseMode>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueMode = default; _explicitNullProperties?.Remove("mode"); AdditionalData["mode"] = unknown; } else { Mode = parsed; AdditionalData.Remove("mode"); } } },
                 { "nested_path", n => { NestedPath = n.GetStringValue(); } },
                 { "preferred_for_exact_match", n => { PreferredForExactMatch = n.GetBoolValue(); } },
                 { "related_fields", n => { RelatedFields = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "request_duration_ms", n => { RequestDurationMs = n.GetIntValue(); } },
                 { "supports_exact_filter_snippet", n => { SupportsExactFilterSnippet = n.GetBoolValue(); } },
                 { "supports_top_values", n => { SupportsTopValues = n.GetBoolValue(); } },
                 { "total_scoped_documents", n => { TotalScopedDocuments = n.GetIntValue(); } },
@@ -184,14 +165,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("aggregation_field", AggregationField);
             writer.WriteStringValue("canonical_field", CanonicalField);
             writer.WriteStringValue("field", Field);
             writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldValuesResponseMode>("mode", Mode);
             writer.WriteStringValue("nested_path", NestedPath);
             writer.WriteBoolValue("preferred_for_exact_match", PreferredForExactMatch);
             writer.WriteCollectionOfPrimitiveValues<string>("related_fields", RelatedFields);
-            writer.WriteIntValue("request_duration_ms", RequestDurationMs);
             writer.WriteBoolValue("supports_exact_filter_snippet", SupportsExactFilterSnippet);
             writer.WriteBoolValue("supports_top_values", SupportsTopValues);
             writer.WriteIntValue("total_scoped_documents", TotalScopedDocuments);

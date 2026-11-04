@@ -24,10 +24,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         #pragma warning disable CS1591
         Terminated,
         #pragma warning restore CS1591
-        [EnumMember(Value = "continued_as_new")]
-        #pragma warning disable CS1591
-        ContinuedAsNew,
-        #pragma warning restore CS1591
         [EnumMember(Value = "timed_out")]
         #pragma warning disable CS1591
         TimedOut,

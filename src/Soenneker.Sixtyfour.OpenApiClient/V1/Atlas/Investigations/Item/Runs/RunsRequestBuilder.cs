@@ -34,10 +34,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Runs
         {
         }
         /// <summary>
-        /// Run again into an investigation you already have.The run reuses that investigation&apos;s graph and workspace, so a follow-upbuilds on the earlier research instead of starting over. Resolved throughthe same scope as every other by-id route, so an investigation the callermay not see answers 404.
+        /// Run again in an investigation you have, building on its graph and workspace.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RunStarted"/></returns>
-        /// <param name="body">What a start or a continue may vary. Everything else about a run (theorg it bills, the team it is stamped with, the identity that started it)comes from the credential, never the body.</param>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ContinueInvestigationV1AtlasInvestigationsInvestigationIdRunsPost400Response">When receiving a 400 status code</exception>
@@ -75,10 +75,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Runs
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunStarted>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.RunStarted.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Run again into an investigation you already have.The run reuses that investigation&apos;s graph and workspace, so a follow-upbuilds on the earlier research instead of starting over. Resolved throughthe same scope as every other by-id route, so an investigation the callermay not see answers 404.
+        /// Run again in an investigation you have, building on its graph and workspace.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">What a start or a continue may vary. Everything else about a run (theorg it bills, the team it is stamped with, the identity that started it)comes from the credential, never the body.</param>
+        /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

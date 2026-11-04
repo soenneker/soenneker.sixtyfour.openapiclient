@@ -41,7 +41,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Legacy total cents charged; preserved for compatibility. Prefer charge_credits.</summary>
+        /// <summary>Deprecated. Use `charge_credits`. The same amount in tenths of a credit.</summary>
         [Obsolete("")]
         public double? ChargeAmount { get => _explicitNullValueChargeAmount; set { _explicitNullValueChargeAmount = value; AdditionalData?.Remove("charge_amount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("charge_amount"); else _explicitNullProperties?.Remove("charge_amount"); } }
         private double? _explicitNullValueChargeAmount = default!;
@@ -74,14 +74,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Completed job result. Shape depends on task_type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2Result? Result { get => _explicitNullValueResult; set { _explicitNullValueResult = value; AdditionalData?.Remove("result"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result"); else _explicitNullProperties?.Remove("result"); } }
-        private global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2Result? _explicitNullValueResult = default!;
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.WithJob>? Result { get => _explicitNullValueResult; set { _explicitNullValueResult = value; AdditionalData?.Remove("result"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result"); else _explicitNullProperties?.Remove("result"); } }
+        private List<global::Soenneker.Sixtyfour.OpenApiClient.Models.WithJob>? _explicitNullValueResult = default!;
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2Result Result { get => _explicitNullValueResult; set { _explicitNullValueResult = value; AdditionalData?.Remove("result"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result"); else _explicitNullProperties?.Remove("result"); } }
-        private global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2Result _explicitNullValueResult = default!;
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.WithJob> Result { get => _explicitNullValueResult; set { _explicitNullValueResult = value; AdditionalData?.Remove("result"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result"); else _explicitNullProperties?.Remove("result"); } }
+        private List<global::Soenneker.Sixtyfour.OpenApiClient.Models.WithJob> _explicitNullValueResult = default!;
 #endif
-        /// <summary>The run_id property</summary>
+        /// <summary>The ID of this execution of the job. Refer to the job by `id`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RunId { get => _explicitNullValueRunId; set { _explicitNullValueRunId = value; AdditionalData?.Remove("run_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_id"); else _explicitNullProperties?.Remove("run_id"); } }
@@ -137,7 +137,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "close_time", n => { CloseTime = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "investigation", n => { Investigation = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2Investigation>(global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2Investigation.CreateFromDiscriminatorValue); } },
-                { "result", n => { Result = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2Result>(global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2Result.CreateFromDiscriminatorValue); } },
+                { "result", n => { Result = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.WithJob>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WithJob.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "run_id", n => { RunId = n.GetStringValue(); } },
                 { "start_time", n => { StartTime = n.GetDateTimeOffsetValue(); } },
                 { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.CompletedStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
@@ -156,7 +156,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("close_time", CloseTime);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2Investigation>("investigation", Investigation);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf2Result>("result", Result);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.WithJob>("result", Result);
             writer.WriteStringValue("run_id", RunId);
             writer.WriteDateTimeOffsetValue("start_time", StartTime);
             writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.CompletedStatus>("status", Status);

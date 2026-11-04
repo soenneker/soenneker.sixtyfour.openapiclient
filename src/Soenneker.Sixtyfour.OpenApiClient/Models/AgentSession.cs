@@ -65,11 +65,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string AgentType { get => _explicitNullValueAgentType; set { _explicitNullValueAgentType = value; AdditionalData?.Remove("agent_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_type"); else _explicitNullProperties?.Remove("agent_type"); } }
         private string _explicitNullValueAgentType = default!;
 #endif
-        /// <summary>Legacy session spend in cents; preserved for compatibility. Prefer cost_credits. Null when cost_credits is.</summary>
+        /// <summary>Deprecated. Use `cost_credits`. The same amount in tenths of a credit.</summary>
         [Obsolete("")]
         public int? CostCents { get => _explicitNullValueCostCents; set { _explicitNullValueCostCents = value; AdditionalData?.Remove("cost_cents"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cost_cents"); else _explicitNullProperties?.Remove("cost_cents"); } }
         private int? _explicitNullValueCostCents = default!;
-        /// <summary>Session spend in credits. Null until the run&apos;s charge is recorded: briefly after the run closes, before its settlement records the charge, and for good if settlement fails.</summary>
+        /// <summary>Session spend in credits; `null` until the charge is recorded, shortly after the run ends.</summary>
         public double? CostCredits { get => _explicitNullValueCostCredits; set { _explicitNullValueCostCredits = value; AdditionalData?.Remove("cost_credits"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cost_credits"); else _explicitNullProperties?.Remove("cost_credits"); } }
         private double? _explicitNullValueCostCredits = default!;
         /// <summary>The display_name property</summary>

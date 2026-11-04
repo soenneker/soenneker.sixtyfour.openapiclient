@@ -100,10 +100,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.PaginatedMonitorResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.PaginatedMonitorResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create one monitor from a table, with a row per subject.Supplied watched cells become the baseline. Complete rows skip setup;incomplete rows need an initial enrichment before recurring checks.
+        /// Create one monitor from a table, with a row per subject.Cells you supply for watched fields become their starting values. A row missing any is enriched oncebefore its recurring checks start.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponse"/></returns>
-        /// <param name="body">Start one monitor per row of a table.A row column named after a struct field seeds that field&apos;s starting value;a field with no matching column is established by the first check.</param>
+        /// <param name="body">Create one monitor from a table, one row per subject.A column named after a `struct` field seeds that field&apos;s starting value; other fields are set by thefirst check.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorEndpointMonitorsPost400Response">When receiving a 400 status code</exception>
@@ -156,10 +156,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors
             return requestInfo;
         }
         /// <summary>
-        /// Create one monitor from a table, with a row per subject.Supplied watched cells become the baseline. Complete rows skip setup;incomplete rows need an initial enrichment before recurring checks.
+        /// Create one monitor from a table, with a row per subject.Cells you supply for watched fields become their starting values. A row missing any is enriched oncebefore its recurring checks start.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">Start one monitor per row of a table.A row column named after a struct field seeds that field&apos;s starting value;a field with no matching column is established by the first check.</param>
+        /// <param name="body">Create one monitor from a table, one row per subject.A column named after a `struct` field seeds that field&apos;s starting value; other fields are set by thefirst check.</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

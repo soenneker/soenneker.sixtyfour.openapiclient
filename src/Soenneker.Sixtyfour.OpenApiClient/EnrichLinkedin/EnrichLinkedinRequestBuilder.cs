@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.EnrichLinkedin
         {
         }
         /// <summary>
-        /// Fetch a LinkedIn profile and extract structured fields in a single LLM call.
+        /// Read a LinkedIn profile and return the fields you name in `struct`.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.LinkedInEnrichResult"/></returns>
         /// <param name="body">The request body</param>
@@ -75,7 +75,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.EnrichLinkedin
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.LinkedInEnrichResult>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.LinkedInEnrichResult.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Fetch a LinkedIn profile and extract structured fields in a single LLM call.
+        /// Read a LinkedIn profile and return the fields you name in `struct`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

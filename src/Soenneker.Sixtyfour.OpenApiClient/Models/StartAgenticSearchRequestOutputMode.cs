@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
-    /// <summary>Output mode: &apos;csv&apos; to export, &apos;query_only&apos; to return parsed query only.</summary>
+    /// <summary>`csv` exports the results; `query_only` returns only the parsed query.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum StartAgenticSearchRequestOutputMode
     {

@@ -47,7 +47,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Runs
         {
         }
         /// <summary>
-        /// Check runs, newest first. Recover missed webhook run IDs here.Checks from before run tracking began are not listed. `rows_checked` countssuccessful checks, including quiet ones; failed/skipped rows are reportedseparately. Counts are final once the run finishes. `failed` means therun could not produce a complete result (for example, a batch failed).Use `next_cursor` as `cursor` on the next request.Example: `{&quot;runs&quot;: [], &quot;next_cursor&quot;: null}` for a monitor without tracked runs.
+        /// The monitor&apos;s check runs, newest first.`rows_checked` counts successful checks, including ones with no change; failed and skipped rows are countedseparately. Counts are final when the run ends. A run is `failed` when it could not produce a complete result.Send `next_cursor` as `cursor` for the next page.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRunPage"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -82,7 +82,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Runs
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRunPage>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRunPage.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Check runs, newest first. Recover missed webhook run IDs here.Checks from before run tracking began are not listed. `rows_checked` countssuccessful checks, including quiet ones; failed/skipped rows are reportedseparately. Counts are final once the run finishes. `failed` means therun could not produce a complete result (for example, a batch failed).Use `next_cursor` as `cursor` on the next request.Example: `{&quot;runs&quot;: [], &quot;next_cursor&quot;: null}` for a monitor without tracked runs.
+        /// The monitor&apos;s check runs, newest first.`rows_checked` counts successful checks, including ones with no change; failed and skipped rows are countedseparately. Counts are final when the run ends. A run is `failed` when it could not produce a complete result.Send `next_cursor` as `cursor` for the next page.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -110,7 +110,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Runs
             return new global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Runs.RunsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Check runs, newest first. Recover missed webhook run IDs here.Checks from before run tracking began are not listed. `rows_checked` countssuccessful checks, including quiet ones; failed/skipped rows are reportedseparately. Counts are final once the run finishes. `failed` means therun could not produce a complete result (for example, a batch failed).Use `next_cursor` as `cursor` on the next request.Example: `{&quot;runs&quot;: [], &quot;next_cursor&quot;: null}` for a monitor without tracked runs.
+        /// The monitor&apos;s check runs, newest first.`rows_checked` counts successful checks, including ones with no change; failed and skipped rows are countedseparately. Counts are final when the run ends. A run is `failed` when it could not produce a complete result.Send `next_cursor` as `cursor` for the next page.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class RunsRequestBuilderGetQueryParameters 

@@ -68,13 +68,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public List<string> ExcludePublicIds { get => _explicitNullValueExcludePublicIds; set { _explicitNullValueExcludePublicIds = value; AdditionalData?.Remove("exclude_public_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude_public_ids"); else _explicitNullProperties?.Remove("exclude_public_ids"); } }
         private List<string> _explicitNullValueExcludePublicIds = default!;
 #endif
-        /// <summary>Maximum number of results to return across pages.</summary>
+        /// <summary>Maximum results across all pages.</summary>
         public int? MaxResults { get => _explicitNullValueMaxResults; set { _explicitNullValueMaxResults = value; AdditionalData?.Remove("max_results"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_results"); else _explicitNullProperties?.Remove("max_results"); } }
         private int? _explicitNullValueMaxResults = default!;
-        /// <summary>Search mode: &apos;people&apos; or &apos;company&apos;.</summary>
+        /// <summary>`people` or `company`.</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequestMode? Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; AdditionalData?.Remove("mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequestMode? _explicitNullValueMode = default!;
-        /// <summary>Output mode: &apos;csv&apos; to export, &apos;query_only&apos; to return parsed query only.</summary>
+        /// <summary>`csv` exports the results; `query_only` returns only the parsed query.</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequestOutputMode? OutputMode { get => _explicitNullValueOutputMode; set { _explicitNullValueOutputMode = value; AdditionalData?.Remove("output_mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_mode"); else _explicitNullProperties?.Remove("output_mode"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.StartAgenticSearchRequestOutputMode? _explicitNullValueOutputMode = default!;
         /// <summary>Natural-language search query.</summary>
@@ -87,7 +87,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string Query { get => _explicitNullValueQuery; set { _explicitNullValueQuery = value; AdditionalData?.Remove("query"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query"); else _explicitNullProperties?.Remove("query"); } }
         private string _explicitNullValueQuery = default!;
 #endif
-        /// <summary>Optional client-supplied UUID for the search; it must be new.</summary>
+        /// <summary>A new UUID you generate for the search. Default: one is assigned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SearchId { get => _explicitNullValueSearchId; set { _explicitNullValueSearchId = value; AdditionalData?.Remove("search_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search_id"); else _explicitNullProperties?.Remove("search_id"); } }

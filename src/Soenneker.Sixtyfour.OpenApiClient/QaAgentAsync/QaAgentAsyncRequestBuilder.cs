@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.QaAgentAsync
         {
         }
         /// <summary>
-        /// Research a record (a lead, a seller, a company) against your qualification criteria; returns a job ID to poll.The finished job&apos;s result is the same as `POST /qa-agent`: the agent&apos;s assessment in `notes` and thefields you define in `struct`, such as a score or a YES/NO verdict, in `structured_data`.
+        /// Research a record against your qualification criteria; returns a job ID to poll.The finished job&apos;s `result` matches `POST /qa-agent`.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.AsyncJobStartResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -75,7 +75,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.QaAgentAsync
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.AsyncJobStartResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.AsyncJobStartResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Research a record (a lead, a seller, a company) against your qualification criteria; returns a job ID to poll.The finished job&apos;s result is the same as `POST /qa-agent`: the agent&apos;s assessment in `notes` and thefields you define in `struct`, such as a score or a YES/NO verdict, in `structured_data`.
+        /// Research a record against your qualification criteria; returns a job ID to poll.The finished job&apos;s `result` matches `POST /qa-agent`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

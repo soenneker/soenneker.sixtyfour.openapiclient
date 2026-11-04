@@ -47,7 +47,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations
         {
         }
         /// <summary>
-        /// Your team&apos;s Atlas investigations and the ones other teams shared with it, newest first. Each carries `shared`:null when your team owns it, otherwise who shared it and how. Follow `next_cursor`(pass it as `after`) until it is null; the cursor is a keyset, so pages stay stable while investigations arecreated or deleted. With a `status` filter a page can come back short (the filter is applied while scanning), so`next_cursor` — not page size — is the end-of-listing signal.
+        /// Your team&apos;s Atlas investigations and the ones shared with it, newest first.`shared` is `null` for your team&apos;s own. Page with `next_cursor` (send it as `after`) until it is `null`; a page can beshort before the end.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationList"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -56,6 +56,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListInvestigationsV1AtlasInvestigationsGet401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListInvestigationsV1AtlasInvestigationsGet403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListInvestigationsV1AtlasInvestigationsGet429Response">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListInvestigationsV1AtlasInvestigationsGet500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListInvestigationsV1AtlasInvestigationsGet503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -74,6 +75,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListInvestigationsV1AtlasInvestigationsGet401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListInvestigationsV1AtlasInvestigationsGet403Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListInvestigationsV1AtlasInvestigationsGet429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListInvestigationsV1AtlasInvestigationsGet500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.ListInvestigationsV1AtlasInvestigationsGet503Response.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
@@ -82,7 +84,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationList>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationList.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Research a subject into a new Atlas investigation.The investigation is created and returned immediately, so its workspace andgraph can be read while the run is still going. It is stamped with thecalling credential&apos;s team, which is what decides who else can see it.
+        /// Start researching a subject in a new Atlas investigation.The investigation is returned at once, so its workspace and graph can be read while the run works. It belongsto your credential&apos;s team, which decides who else can see it.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RunStarted"/></returns>
         /// <param name="body">The request body</param>
@@ -123,7 +125,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunStarted>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.RunStarted.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Your team&apos;s Atlas investigations and the ones other teams shared with it, newest first. Each carries `shared`:null when your team owns it, otherwise who shared it and how. Follow `next_cursor`(pass it as `after`) until it is null; the cursor is a keyset, so pages stay stable while investigations arecreated or deleted. With a `status` filter a page can come back short (the filter is applied while scanning), so`next_cursor` — not page size — is the end-of-listing signal.
+        /// Your team&apos;s Atlas investigations and the ones shared with it, newest first.`shared` is `null` for your team&apos;s own. Page with `next_cursor` (send it as `after`) until it is `null`; a page can beshort before the end.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -142,7 +144,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations
             return requestInfo;
         }
         /// <summary>
-        /// Research a subject into a new Atlas investigation.The investigation is created and returned immediately, so its workspace andgraph can be read while the run is still going. It is stamped with thecalling credential&apos;s team, which is what decides who else can see it.
+        /// Start researching a subject in a new Atlas investigation.The investigation is returned at once, so its workspace and graph can be read while the run works. It belongsto your credential&apos;s team, which decides who else can see it.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -173,7 +175,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations
             return new global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.InvestigationsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Your team&apos;s Atlas investigations and the ones other teams shared with it, newest first. Each carries `shared`:null when your team owns it, otherwise who shared it and how. Follow `next_cursor`(pass it as `after`) until it is null; the cursor is a keyset, so pages stay stable while investigations arecreated or deleted. With a `status` filter a page can come back short (the filter is applied while scanning), so`next_cursor` — not page size — is the end-of-listing signal.
+        /// Your team&apos;s Atlas investigations and the ones shared with it, newest first.`shared` is `null` for your team&apos;s own. Page with `next_cursor` (send it as `after`) until it is `null`; a page can beshort before the end.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class InvestigationsRequestBuilderGetQueryParameters 

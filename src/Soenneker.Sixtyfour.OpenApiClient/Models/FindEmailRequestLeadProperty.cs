@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// Single lead to process. Provide any combination of name, email, company, linkedin, etc.
+    /// The person to look up: any combination of `name`, `email`, `company`, `linkedin` and other known details.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class FindEmailRequestLeadProperty : IAdditionalDataHolder, IParsable

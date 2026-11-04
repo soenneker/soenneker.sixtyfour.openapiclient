@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
-    /// <summary>Shape of the rows in `results`. Echoed because cursor continuations reject `output_shape` on the request.</summary>
+    /// <summary>Shape of the rows in `results`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum FilterSearchResponseOutputShape
     {

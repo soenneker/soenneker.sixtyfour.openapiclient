@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// Aggregate identity-resolution outcomes without retaining seed PII.
+    /// Seed matching counts.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class IdentityResolutionDiagnostics : IAdditionalDataHolder, IParsable
@@ -37,7 +37,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>The ambiguous_matches property</summary>
         public int? AmbiguousMatches { get => _explicitNullValueAmbiguousMatches; set { _explicitNullValueAmbiguousMatches = value; AdditionalData?.Remove("ambiguous_matches"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ambiguous_matches"); else _explicitNullProperties?.Remove("ambiguous_matches"); } }
         private int? _explicitNullValueAmbiguousMatches = default!;
-        /// <summary>Average accepted heuristic similarity-match score; 1.0 for an exact-only cohort.</summary>
+        /// <summary>Average match confidence of the resolved seeds; 1.0 when every seed matched exactly.</summary>
         public double? AverageConfidence { get => _explicitNullValueAverageConfidence; set { _explicitNullValueAverageConfidence = value; AdditionalData?.Remove("average_confidence"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("average_confidence"); else _explicitNullProperties?.Remove("average_confidence"); } }
         private double? _explicitNullValueAverageConfidence = default!;
         /// <summary>The dropped_below_threshold property</summary>

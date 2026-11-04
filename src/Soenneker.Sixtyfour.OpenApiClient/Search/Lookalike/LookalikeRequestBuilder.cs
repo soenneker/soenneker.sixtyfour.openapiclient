@@ -47,7 +47,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Lookalike
         {
         }
         /// <summary>
-        /// Resolve seeds and start the async lookalike workflow.
+        /// Resolve the seed profiles and start a lookalike search. Poll `GET /search/lookalike/{task_id}`.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartLookalikeSearchResponse"/></returns>
         /// <param name="body">Start a lookalike audience search from exactly one seed source.</param>
@@ -90,7 +90,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Search.Lookalike
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartLookalikeSearchResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.StartLookalikeSearchResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Resolve seeds and start the async lookalike workflow.
+        /// Resolve the seed profiles and start a lookalike search. Poll `GET /search/lookalike/{task_id}`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Start a lookalike audience search from exactly one seed source.</param>

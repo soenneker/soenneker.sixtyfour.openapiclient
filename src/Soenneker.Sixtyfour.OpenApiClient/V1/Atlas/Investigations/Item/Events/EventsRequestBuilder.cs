@@ -53,7 +53,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Events
         {
         }
         /// <summary>
-        /// The agents&apos; sessions and event stream, oldest first: each agent&apos;s and subagent&apos;s turn summaries.With activity access, also includes tool events. When an event&apos;s `payload.storage_ref` is present,fetch its full payload from `GET /v1/atlas/investigations/{investigation_id}/events/{event_id}/payload`.For a live feed of the same events, use `GET …/events/stream`.
+        /// The agents&apos; sessions and turn summaries, oldest first.With activity access, also includes tool events; when an event&apos;s `payload.storage_ref` is present, read its fullpayload from `GET …/events/{event_id}/payload`. For a live feed, use `GET …/events/stream`.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.AgentEventStreamPage"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -63,6 +63,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Events
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetEventsV1AtlasInvestigationsInvestigationIdEventsGet403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetEventsV1AtlasInvestigationsInvestigationIdEventsGet404Response">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetEventsV1AtlasInvestigationsInvestigationIdEventsGet429Response">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetEventsV1AtlasInvestigationsInvestigationIdEventsGet500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetEventsV1AtlasInvestigationsInvestigationIdEventsGet503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -82,6 +83,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Events
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetEventsV1AtlasInvestigationsInvestigationIdEventsGet403Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetEventsV1AtlasInvestigationsInvestigationIdEventsGet404Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetEventsV1AtlasInvestigationsInvestigationIdEventsGet429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetEventsV1AtlasInvestigationsInvestigationIdEventsGet500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetEventsV1AtlasInvestigationsInvestigationIdEventsGet503Response.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
@@ -90,7 +92,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Events
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgentEventStreamPage>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.AgentEventStreamPage.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// The agents&apos; sessions and event stream, oldest first: each agent&apos;s and subagent&apos;s turn summaries.With activity access, also includes tool events. When an event&apos;s `payload.storage_ref` is present,fetch its full payload from `GET /v1/atlas/investigations/{investigation_id}/events/{event_id}/payload`.For a live feed of the same events, use `GET …/events/stream`.
+        /// The agents&apos; sessions and turn summaries, oldest first.With activity access, also includes tool events; when an event&apos;s `payload.storage_ref` is present, read its fullpayload from `GET …/events/{event_id}/payload`. For a live feed, use `GET …/events/stream`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -118,7 +120,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Events
             return new global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Events.EventsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// The agents&apos; sessions and event stream, oldest first: each agent&apos;s and subagent&apos;s turn summaries.With activity access, also includes tool events. When an event&apos;s `payload.storage_ref` is present,fetch its full payload from `GET /v1/atlas/investigations/{investigation_id}/events/{event_id}/payload`.For a live feed of the same events, use `GET …/events/stream`.
+        /// The agents&apos; sessions and turn summaries, oldest first.With activity access, also includes tool events; when an event&apos;s `payload.storage_ref` is present, read its fullpayload from `GET …/events/{event_id}/payload`. For a live feed, use `GET …/events/stream`.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class EventsRequestBuilderGetQueryParameters 

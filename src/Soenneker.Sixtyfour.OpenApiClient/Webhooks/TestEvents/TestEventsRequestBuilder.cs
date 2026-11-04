@@ -69,7 +69,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Webhooks.TestEvents
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseListTestEventsWebhooksTestEventsGet>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseListTestEventsWebhooksTestEventsGet.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Send a catalog sample with production retry/signing behavior. Up to 100 seconds.Limited to 10 sends/minute per organization across all cases. A 200 responsereports delivery via delivered/status_code; it does not imply the receiver accepted it.Do not automatically retry this POST: each call sends a new event.
+        /// Send a sample event to your HTTPS receiver, signed and retried as real deliveries are.A call can take up to 100 seconds. `delivered` is true only when the receiver returned 2xx. Each call sends a newevent, so don&apos;t retry it automatically.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.TestEventResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -79,6 +79,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Webhooks.TestEvents
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SendTestEventWebhooksTestEventsPost401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SendTestEventWebhooksTestEventsPost403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SendTestEventWebhooksTestEventsPost429Response">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SendTestEventWebhooksTestEventsPost500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SendTestEventWebhooksTestEventsPost503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -98,6 +99,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Webhooks.TestEvents
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.SendTestEventWebhooksTestEventsPost401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.SendTestEventWebhooksTestEventsPost403Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.SendTestEventWebhooksTestEventsPost429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.SendTestEventWebhooksTestEventsPost500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.SendTestEventWebhooksTestEventsPost503Response.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
@@ -125,7 +127,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Webhooks.TestEvents
             return requestInfo;
         }
         /// <summary>
-        /// Send a catalog sample with production retry/signing behavior. Up to 100 seconds.Limited to 10 sends/minute per organization across all cases. A 200 responsereports delivery via delivered/status_code; it does not imply the receiver accepted it.Do not automatically retry this POST: each call sends a new event.
+        /// Send a sample event to your HTTPS receiver, signed and retried as real deliveries are.A call can take up to 100 seconds. `delivered` is true only when the receiver returned 2xx. Each call sends a newevent, so don&apos;t retry it automatically.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

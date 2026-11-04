@@ -35,7 +35,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string Event { get => _explicitNullValueEvent; set { _explicitNullValueEvent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("event"); else _explicitNullProperties?.Remove("event"); } }
         private string _explicitNullValueEvent = default!;
 #endif
-        /// <summary>Auto matches production: sign if configured. Required refuses unsigned delivery.</summary>
+        /// <summary>`auto` signs when your organization has a signing secret, as real deliveries do; `required` refuses to send unsigned.</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.TestEventRequestSigning? Signing { get => _explicitNullValueSigning; set { _explicitNullValueSigning = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signing"); else _explicitNullProperties?.Remove("signing"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.TestEventRequestSigning? _explicitNullValueSigning = default!;
         /// <summary>Your public HTTPS receiver URL.</summary>

@@ -21,8 +21,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             else if (parseNode.GetChildNode("expected_revision") is { } nullNodeExpectedRevision && nullNodeExpectedRevision.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpectedRevision = null;
             if (parseNode.GetChildNode("locked") is null) { _explicitNullValueLocked = default!; _explicitNullProperties?.Remove("locked"); }
             else if (parseNode.GetChildNode("locked") is { } nullNodeLocked && nullNodeLocked.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Locked = null;
-            if (parseNode.GetChildNode("starred") is null) { _explicitNullValueStarred = default!; _explicitNullProperties?.Remove("starred"); }
-            else if (parseNode.GetChildNode("starred") is { } nullNodeStarred && nullNodeStarred.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Starred = null;
             if (parseNode.GetChildNode("workflow_definition") is null) { _explicitNullValueWorkflowDefinition = default!; _explicitNullProperties?.Remove("workflow_definition"); }
             else if (parseNode.GetChildNode("workflow_definition") is { } nullNodeWorkflowDefinition && nullNodeWorkflowDefinition.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkflowDefinition = null;
             if (parseNode.GetChildNode("workflow_description") is null) { _explicitNullValueWorkflowDescription = default!; _explicitNullProperties?.Remove("workflow_description"); }
@@ -39,9 +37,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Whether the workflow is locked.</summary>
         public bool? Locked { get => _explicitNullValueLocked; set { _explicitNullValueLocked = value; AdditionalData?.Remove("locked"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("locked"); else _explicitNullProperties?.Remove("locked"); } }
         private bool? _explicitNullValueLocked = default!;
-        /// <summary>Whether the workflow is starred.</summary>
-        public bool? Starred { get => _explicitNullValueStarred; set { _explicitNullValueStarred = value; AdditionalData?.Remove("starred"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("starred"); else _explicitNullProperties?.Remove("starred"); } }
-        private bool? _explicitNullValueStarred = default!;
         /// <summary>Replacement workflow graph.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -99,7 +94,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             {
                 { "expected_revision", n => { ExpectedRevision = n.GetIntValue(); } },
                 { "locked", n => { Locked = n.GetBoolValue(); } },
-                { "starred", n => { Starred = n.GetBoolValue(); } },
                 { "workflow_definition", n => { WorkflowDefinition = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateWorkflowRequestWorkflowDefinition>(global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateWorkflowRequestWorkflowDefinition.CreateFromDiscriminatorValue); } },
                 { "workflow_description", n => { WorkflowDescription = n.GetStringValue(); } },
                 { "workflow_name", n => { WorkflowName = n.GetStringValue(); } },
@@ -114,7 +108,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("expected_revision", ExpectedRevision);
             writer.WriteBoolValue("locked", Locked);
-            writer.WriteBoolValue("starred", Starred);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.UpdateWorkflowRequestWorkflowDefinition>("workflow_definition", WorkflowDefinition);
             writer.WriteStringValue("workflow_description", WorkflowDescription);
             writer.WriteStringValue("workflow_name", WorkflowName);

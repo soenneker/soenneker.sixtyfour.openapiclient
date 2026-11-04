@@ -18,8 +18,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("analysis_sample_size") is null) { _explicitNullValueAnalysisSampleSize = default!; _explicitNullProperties?.Remove("analysis_sample_size"); }
-            else if (parseNode.GetChildNode("analysis_sample_size") is { } nullNodeAnalysisSampleSize && nullNodeAnalysisSampleSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AnalysisSampleSize = null;
             if (parseNode.GetChildNode("csv_resource_handle_id") is null) { _explicitNullValueCsvResourceHandleId = default!; _explicitNullProperties?.Remove("csv_resource_handle_id"); }
             else if (parseNode.GetChildNode("csv_resource_handle_id") is { } nullNodeCsvResourceHandleId && nullNodeCsvResourceHandleId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CsvResourceHandleId = null;
             if (parseNode.GetChildNode("guidance") is null) { _explicitNullValueGuidance = default!; _explicitNullProperties?.Remove("guidance"); }
@@ -30,9 +28,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>How many representative resolved profiles to analyze.</summary>
-        public int? AnalysisSampleSize { get => _explicitNullValueAnalysisSampleSize; set { _explicitNullValueAnalysisSampleSize = value; AdditionalData?.Remove("analysis_sample_size"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("analysis_sample_size"); else _explicitNullProperties?.Remove("analysis_sample_size"); } }
-        private int? _explicitNullValueAnalysisSampleSize = default!;
         /// <summary>Resource handle returned by POST /storage/csv/upload.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -69,7 +64,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public StartLookalikeSearchRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            AnalysisSampleSize = 100;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -89,7 +83,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "analysis_sample_size", n => { AnalysisSampleSize = n.GetIntValue(); } },
                 { "csv_resource_handle_id", n => { CsvResourceHandleId = n.GetStringValue(); } },
                 { "guidance", n => { Guidance = n.GetStringValue(); } },
                 { "linkedin_urls", n => { LinkedinUrls = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -102,7 +95,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("analysis_sample_size", AnalysisSampleSize);
             writer.WriteStringValue("csv_resource_handle_id", CsvResourceHandleId);
             writer.WriteStringValue("guidance", Guidance);
             writer.WriteCollectionOfPrimitiveValues<string>("linkedin_urls", LinkedinUrls);

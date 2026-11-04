@@ -37,12 +37,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
             if (parseNode.GetChildNode("org_id") is null) { _explicitNullValueOrgId = default!; _explicitNullProperties?.Remove("org_id"); }
             else if (parseNode.GetChildNode("org_id") is { } nullNodeOrgId && nullNodeOrgId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrgId = null;
-            if (parseNode.GetChildNode("starred") is null) { _explicitNullValueStarred = default!; _explicitNullProperties?.Remove("starred"); }
-            else if (parseNode.GetChildNode("starred") is { } nullNodeStarred && nullNodeStarred.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Starred = null;
             if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
             else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
-            if (parseNode.GetChildNode("step") is null) { _explicitNullValueStep = default!; _explicitNullProperties?.Remove("step"); }
-            else if (parseNode.GetChildNode("step") is { } nullNodeStep && nullNodeStep.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Step = null;
             if (parseNode.GetChildNode("team_id") is null) { _explicitNullValueTeamId = default!; _explicitNullProperties?.Remove("team_id"); }
             else if (parseNode.GetChildNode("team_id") is { } nullNodeTeamId && nullNodeTeamId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TeamId = null;
             if (parseNode.GetChildNode("updated_at") is null) { _explicitNullValueUpdatedAt = default!; _explicitNullProperties?.Remove("updated_at"); }
@@ -55,7 +51,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Number of blocks in the workflow. Present on list responses, where the graph itself is omitted, so a caller can tell an empty workflow from a populated one without fetching every definition.</summary>
+        /// <summary>Number of blocks. List responses only.</summary>
         public int? BlockCount { get => _explicitNullValueBlockCount; set { _explicitNullValueBlockCount = value; AdditionalData?.Remove("block_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("block_count"); else _explicitNullProperties?.Remove("block_count"); } }
         private int? _explicitNullValueBlockCount = default!;
         /// <summary>Timestamp when the record was created.</summary>
@@ -71,7 +67,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; AdditionalData?.Remove("description"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
         private string _explicitNullValueDescription = default!;
 #endif
-        /// <summary>Resolved label and tone for `status` + `step`, so clients render rather than interpret them.</summary>
+        /// <summary>A label for the workflow&apos;s status.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseDisplayStatus? DisplayStatus { get => _explicitNullValueDisplayStatus; set { _explicitNullValueDisplayStatus = value; AdditionalData?.Remove("display_status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_status"); else _explicitNullProperties?.Remove("display_status"); } }
@@ -120,9 +116,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string OrgId { get => _explicitNullValueOrgId; set { _explicitNullValueOrgId = value; AdditionalData?.Remove("org_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("org_id"); else _explicitNullProperties?.Remove("org_id"); } }
         private string _explicitNullValueOrgId = default!;
 #endif
-        /// <summary>Whether the caller&apos;s organization has starred the workflow.</summary>
-        public bool? Starred { get => _explicitNullValueStarred; set { _explicitNullValueStarred = value; AdditionalData?.Remove("starred"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("starred"); else _explicitNullProperties?.Remove("starred"); } }
-        private bool? _explicitNullValueStarred = default!;
         /// <summary>`created` for a saved workflow that can run, `draft` for one saved before it validates. After a run starts it holds the latest run&apos;s status, such as `running`, `completed` or `failed`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -133,17 +126,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private string _explicitNullValueStatus = default!;
 #endif
-        /// <summary>Current authoring step in the builder UI.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Step { get => _explicitNullValueStep; set { _explicitNullValueStep = value; AdditionalData?.Remove("step"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("step"); else _explicitNullProperties?.Remove("step"); } }
-        private string? _explicitNullValueStep = default!;
-#nullable restore
-#else
-        public string Step { get => _explicitNullValueStep; set { _explicitNullValueStep = value; AdditionalData?.Remove("step"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("step"); else _explicitNullProperties?.Remove("step"); } }
-        private string _explicitNullValueStep = default!;
-#endif
-        /// <summary>Team that owns the workflow; null for org-pool workflows.</summary>
+        /// <summary>Team that owns the workflow; null when it belongs to the organization rather than a team.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TeamId { get => _explicitNullValueTeamId; set { _explicitNullValueTeamId = value; AdditionalData?.Remove("team_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("team_id"); else _explicitNullProperties?.Remove("team_id"); } }
@@ -166,7 +149,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string UserUuid { get => _explicitNullValueUserUuid; set { _explicitNullValueUserUuid = value; AdditionalData?.Remove("user_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_uuid"); else _explicitNullProperties?.Remove("user_uuid"); } }
         private string _explicitNullValueUserUuid = default!;
 #endif
-        /// <summary>Workflow graph or legacy block list; included on detail responses.</summary>
+        /// <summary>The workflow&apos;s block graph. Detail responses only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowResponseWorkflowDefinition? WorkflowDefinition { get => _explicitNullValueWorkflowDefinition; set { _explicitNullValueWorkflowDefinition = value; AdditionalData?.Remove("workflow_definition"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workflow_definition"); else _explicitNullProperties?.Remove("workflow_definition"); } }
@@ -212,9 +195,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "locked", n => { Locked = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "org_id", n => { OrgId = n.GetStringValue(); } },
-                { "starred", n => { Starred = n.GetBoolValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
-                { "step", n => { Step = n.GetStringValue(); } },
                 { "team_id", n => { TeamId = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "user_uuid", n => { UserUuid = n.GetStringValue(); } },
@@ -238,9 +219,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteBoolValue("locked", Locked);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("org_id", OrgId);
-            writer.WriteBoolValue("starred", Starred);
             writer.WriteStringValue("status", Status);
-            writer.WriteStringValue("step", Step);
             writer.WriteStringValue("team_id", TeamId);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("user_uuid", UserUuid);

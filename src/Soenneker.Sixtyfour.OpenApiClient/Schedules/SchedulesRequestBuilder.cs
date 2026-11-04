@@ -83,7 +83,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// Create a schedule that runs a workflow on a cron expression.The schedule belongs to the workflow&apos;s team, and its runs are attributedto that team. It keeps running if the person who created it leaves. Aworkflow in another team or organization returns 404, as a missing one does.
+        /// Create a schedule that runs a workflow on a cron expression.The schedule belongs to the workflow&apos;s team, and its runs are attributed to that team. It keeps running if theperson who created it leaves.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ScheduleResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -141,7 +141,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Schedules
             return requestInfo;
         }
         /// <summary>
-        /// Create a schedule that runs a workflow on a cron expression.The schedule belongs to the workflow&apos;s team, and its runs are attributedto that team. It keeps running if the person who created it leaves. Aworkflow in another team or organization returns 404, as a missing one does.
+        /// Create a schedule that runs a workflow on a cron expression.The schedule belongs to the workflow&apos;s team, and its runs are attributed to that team. It keeps running if theperson who created it leaves.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

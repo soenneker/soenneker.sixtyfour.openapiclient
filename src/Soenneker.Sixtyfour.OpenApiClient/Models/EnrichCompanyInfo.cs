@@ -41,16 +41,16 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>If true, return each requested field&apos;s confidence (0-100), justification and source URLs, nested like the request.</summary>
+        /// <summary>If true, returns each requested field&apos;s confidence (0-100), justification and source URLs, nested like the request. Default: false.</summary>
         public bool? FieldConfidence { get => _explicitNullValueFieldConfidence; set { _explicitNullValueFieldConfidence = value; AdditionalData?.Remove("field_confidence"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field_confidence"); else _explicitNullProperties?.Remove("field_confidence"); } }
         private bool? _explicitNullValueFieldConfidence = default!;
-        /// <summary>If true, also discover key people at the company.</summary>
+        /// <summary>If true, also finds key people at the company. Default: false.</summary>
         public bool? FindPeople { get => _explicitNullValueFindPeople; set { _explicitNullValueFindPeople = value; AdditionalData?.Remove("find_people"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("find_people"); else _explicitNullProperties?.Remove("find_people"); } }
         private bool? _explicitNullValueFindPeople = default!;
-        /// <summary>If true, return the full org chart instead of a focused list.</summary>
+        /// <summary>If true, returns the full org chart instead of a focused list. Default: false.</summary>
         public bool? FullOrgChart { get => _explicitNullValueFullOrgChart; set { _explicitNullValueFullOrgChart = value; AdditionalData?.Remove("full_org_chart"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("full_org_chart"); else _explicitNullProperties?.Remove("full_org_chart"); } }
         private bool? _explicitNullValueFullOrgChart = default!;
-        /// <summary>Output schema for each discovered person when find_people=true.</summary>
+        /// <summary>With `find_people`: fields to return for each person.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoLeadStructProperty? LeadStruct { get => _explicitNullValueLeadStruct; set { _explicitNullValueLeadStruct = value; AdditionalData?.Remove("lead_struct"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lead_struct"); else _explicitNullProperties?.Remove("lead_struct"); } }
@@ -60,7 +60,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoLeadStructProperty LeadStruct { get => _explicitNullValueLeadStruct; set { _explicitNullValueLeadStruct = value; AdditionalData?.Remove("lead_struct"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lead_struct"); else _explicitNullProperties?.Remove("lead_struct"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoLeadStructProperty _explicitNullValueLeadStruct = default!;
 #endif
-        /// <summary>Natural-language description of which people to surface when find_people=true.</summary>
+        /// <summary>With `find_people`: which people to find, in plain language.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PeopleFocusPrompt { get => _explicitNullValuePeopleFocusPrompt; set { _explicitNullValuePeopleFocusPrompt = value; AdditionalData?.Remove("people_focus_prompt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("people_focus_prompt"); else _explicitNullProperties?.Remove("people_focus_prompt"); } }
@@ -70,7 +70,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string PeopleFocusPrompt { get => _explicitNullValuePeopleFocusPrompt; set { _explicitNullValuePeopleFocusPrompt = value; AdditionalData?.Remove("people_focus_prompt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("people_focus_prompt"); else _explicitNullProperties?.Remove("people_focus_prompt"); } }
         private string _explicitNullValuePeopleFocusPrompt = default!;
 #endif
-        /// <summary>Optional natural-language plan that guides the research agent.</summary>
+        /// <summary>A plan, in plain language, that guides the research. Default: none.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ResearchPlan { get => _explicitNullValueResearchPlan; set { _explicitNullValueResearchPlan = value; AdditionalData?.Remove("research_plan"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("research_plan"); else _explicitNullProperties?.Remove("research_plan"); } }
@@ -80,7 +80,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string ResearchPlan { get => _explicitNullValueResearchPlan; set { _explicitNullValueResearchPlan = value; AdditionalData?.Remove("research_plan"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("research_plan"); else _explicitNullProperties?.Remove("research_plan"); } }
         private string _explicitNullValueResearchPlan = default!;
 #endif
-        /// <summary>Mapping of output field name to natural-language description of what to extract. A field that asks for an image (a headshot, a logo, a screenshot of a page) is returned as an image URL on api.sixtyfour.ai/v1/media, hosted by Sixtyfour; embed it directly. It works until the investigation that saved the image, or the organization, is permanently deleted.</summary>
+        /// <summary>Fields to return: output field name to a description of what to find. An image field returns a `https://api.sixtyfour.ai/v1/media/...` URL you can embed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoStructProperty? Struct { get => _explicitNullValueStruct; set { _explicitNullValueStruct = value; AdditionalData?.Remove("struct"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("struct"); else _explicitNullProperties?.Remove("struct"); } }
@@ -90,7 +90,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoStructProperty Struct { get => _explicitNullValueStruct; set { _explicitNullValueStruct = value; AdditionalData?.Remove("struct"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("struct"); else _explicitNullProperties?.Remove("struct"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoStructProperty _explicitNullValueStruct = default!;
 #endif
-        /// <summary>Company identifiers (e.g. company_name, domain, linkedin).</summary>
+        /// <summary>The company to research: any of `company_name`, `domain`, `linkedin` and other known details.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoTargetCompanyProperty? TargetCompany { get => _explicitNullValueTargetCompany; set { _explicitNullValueTargetCompany = value; AdditionalData?.Remove("target_company"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_company"); else _explicitNullProperties?.Remove("target_company"); } }
@@ -100,7 +100,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoTargetCompanyProperty TargetCompany { get => _explicitNullValueTargetCompany; set { _explicitNullValueTargetCompany = value; AdditionalData?.Remove("target_company"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_company"); else _explicitNullProperties?.Remove("target_company"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoTargetCompanyProperty _explicitNullValueTargetCompany = default!;
 #endif
-        /// <summary>Quality and cost tier for the research agent. Defaults to `low`.</summary>
+        /// <summary>Research depth and price. See [Credits &amp; Pricing](/guides/credits-and-pricing). Default: `low`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoTier? Tier { get => _explicitNullValueTier; set { _explicitNullValueTier = value; AdditionalData?.Remove("tier"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tier"); else _explicitNullProperties?.Remove("tier"); } }
@@ -110,7 +110,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoTier Tier { get => _explicitNullValueTier; set { _explicitNullValueTier = value; AdditionalData?.Remove("tier"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tier"); else _explicitNullProperties?.Remove("tier"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.EnrichCompanyInfoTier _explicitNullValueTier = default!;
 #endif
-        /// <summary>HTTPS URL that receives the result payload when the async job completes.</summary>
+        /// <summary>HTTPS URL that receives the result when the job completes. Default: none.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? WebhookUrl { get => _explicitNullValueWebhookUrl; set { _explicitNullValueWebhookUrl = value; AdditionalData?.Remove("webhook_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url"); else _explicitNullProperties?.Remove("webhook_url"); } }

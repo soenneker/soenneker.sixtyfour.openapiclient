@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// JSON body for POST /workflows/run (workflow_id/save_json/etc. stay query params).
+    /// Run options. `workflow_id`, `save_json` and `result_formats` are query parameters.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RunWorkflowBody : IAdditionalDataHolder, IParsable
@@ -28,10 +28,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Run the acknowledged shared definition revision; refuse unfinished edits or a different revision.</summary>
+        /// <summary>Run only if the workflow&apos;s `edit_revision` still equals this value.</summary>
         public int? ExpectedRevision { get => _explicitNullValueExpectedRevision; set { _explicitNullValueExpectedRevision = value; AdditionalData?.Remove("expected_revision"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expected_revision"); else _explicitNullProperties?.Remove("expected_revision"); } }
         private int? _explicitNullValueExpectedRevision = default!;
-        /// <summary>Optional specs to override first block specs</summary>
+        /// <summary>Overrides for the source block&apos;s `specs` on this run, such as `resource_handle_id` for a `read_csv` source.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodySpecsOverrideProperty? SpecsOverride { get => _explicitNullValueSpecsOverride; set { _explicitNullValueSpecsOverride = value; AdditionalData?.Remove("specs_override"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("specs_override"); else _explicitNullProperties?.Remove("specs_override"); } }
@@ -41,7 +41,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodySpecsOverrideProperty SpecsOverride { get => _explicitNullValueSpecsOverride; set { _explicitNullValueSpecsOverride = value; AdditionalData?.Remove("specs_override"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("specs_override"); else _explicitNullProperties?.Remove("specs_override"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodySpecsOverrideProperty _explicitNullValueSpecsOverride = default!;
 #endif
-        /// <summary>For API key auth only - can be a list or dict</summary>
+        /// <summary>Rows for a workflow whose source block is Incoming Webhooks: a list of objects, one per row, or one object.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowBodyWebhookPayload? WebhookPayload { get => _explicitNullValueWebhookPayload; set { _explicitNullValueWebhookPayload = value; AdditionalData?.Remove("webhook_payload"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_payload"); else _explicitNullProperties?.Remove("webhook_payload"); } }

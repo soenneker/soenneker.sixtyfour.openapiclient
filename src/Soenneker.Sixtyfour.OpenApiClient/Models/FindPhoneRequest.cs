@@ -25,7 +25,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Single lead to process. Provide any combination of name, email, company, linkedin, etc.</summary>
+        /// <summary>The person to look up: any combination of `name`, `email`, `company`, `linkedin` and other known details.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FindPhoneRequestLeadProperty? Lead { get => _explicitNullValueLead; set { _explicitNullValueLead = value; AdditionalData?.Remove("lead"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lead"); else _explicitNullProperties?.Remove("lead"); } }
@@ -35,7 +35,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FindPhoneRequestLeadProperty Lead { get => _explicitNullValueLead; set { _explicitNullValueLead = value; AdditionalData?.Remove("lead"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lead"); else _explicitNullProperties?.Remove("lead"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.FindPhoneRequestLeadProperty _explicitNullValueLead = default!;
 #endif
-        /// <summary>Async endpoints only: HTTPS URL that receives the result payload when the job completes. The sync endpoints ignore it.</summary>
+        /// <summary>HTTPS URL that receives the result when the job completes. Default: none.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? WebhookUrl { get => _explicitNullValueWebhookUrl; set { _explicitNullValueWebhookUrl = value; AdditionalData?.Remove("webhook_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url"); else _explicitNullProperties?.Remove("webhook_url"); } }

@@ -35,7 +35,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string LinkedinUrl { get => _explicitNullValueLinkedinUrl; set { _explicitNullValueLinkedinUrl = value; AdditionalData?.Remove("linkedin_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("linkedin_url"); else _explicitNullProperties?.Remove("linkedin_url"); } }
         private string _explicitNullValueLinkedinUrl = default!;
 #endif
-        /// <summary>Mapping of output field name to natural-language description of what to extract. A field that asks for an image (a headshot, a logo, a screenshot of a page) is returned as an image URL on api.sixtyfour.ai/v1/media, hosted by Sixtyfour; embed it directly. It works until the investigation that saved the image, or the organization, is permanently deleted.</summary>
+        /// <summary>Fields to return: output field name to a description of what to find. An image field returns a `https://api.sixtyfour.ai/v1/media/...` URL you can embed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.LinkedInEnrichRequestStructProperty? Struct { get => _explicitNullValueStruct; set { _explicitNullValueStruct = value; AdditionalData?.Remove("struct"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("struct"); else _explicitNullProperties?.Remove("struct"); } }

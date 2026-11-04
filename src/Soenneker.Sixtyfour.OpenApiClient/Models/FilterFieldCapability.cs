@@ -18,8 +18,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("aggregation_field") is null) { _explicitNullValueAggregationField = default!; _explicitNullProperties?.Remove("aggregation_field"); }
-            else if (parseNode.GetChildNode("aggregation_field") is { } nullNodeAggregationField && nullNodeAggregationField.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AggregationField = null;
             if (parseNode.GetChildNode("field") is null) { _explicitNullValueField = default!; _explicitNullProperties?.Remove("field"); }
             else if (parseNode.GetChildNode("field") is { } nullNodeField && nullNodeField.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Field = null;
             if (parseNode.GetChildNode("field_type") is null) { _explicitNullValueFieldType = default!; _explicitNullProperties?.Remove("field_type"); }
@@ -48,16 +46,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Field used for terms aggregation when supports_top_values is true.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? AggregationField { get => _explicitNullValueAggregationField; set { _explicitNullValueAggregationField = value; AdditionalData?.Remove("aggregation_field"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aggregation_field"); else _explicitNullProperties?.Remove("aggregation_field"); } }
-        private string? _explicitNullValueAggregationField = default!;
-#nullable restore
-#else
-        public string AggregationField { get => _explicitNullValueAggregationField; set { _explicitNullValueAggregationField = value; AdditionalData?.Remove("aggregation_field"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aggregation_field"); else _explicitNullProperties?.Remove("aggregation_field"); } }
-        private string _explicitNullValueAggregationField = default!;
-#endif
         /// <summary>Canonical field path.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -68,7 +56,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string Field { get => _explicitNullValueField; set { _explicitNullValueField = value; AdditionalData?.Remove("field"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field"); else _explicitNullProperties?.Remove("field"); } }
         private string _explicitNullValueField = default!;
 #endif
-        /// <summary>Source ES mapping type (e.g. text, keyword, long).</summary>
+        /// <summary>The field&apos;s data type, such as `keyword`, `text` or `long`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? FieldType { get => _explicitNullValueFieldType; set { _explicitNullValueFieldType = value; AdditionalData?.Remove("field_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field_type"); else _explicitNullProperties?.Remove("field_type"); } }
@@ -110,7 +98,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Allowed in sort clauses.</summary>
         public bool? Sortable { get => _explicitNullValueSortable; set { _explicitNullValueSortable = value; AdditionalData?.Remove("sortable"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sortable"); else _explicitNullProperties?.Remove("sortable"); } }
         private bool? _explicitNullValueSortable = default!;
-        /// <summary>Sort target when it differs from field (e.g. text fields sort via .keyword).</summary>
+        /// <summary>The path to sort on when it differs from `field`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SortField { get => _explicitNullValueSortField; set { _explicitNullValueSortField = value; AdditionalData?.Remove("sort_field"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sort_field"); else _explicitNullProperties?.Remove("sort_field"); } }
@@ -162,7 +150,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "aggregation_field", n => { AggregationField = n.GetStringValue(); } },
                 { "field", n => { Field = n.GetStringValue(); } },
                 { "field_type", n => { FieldType = n.GetStringValue(); } },
                 { "nested_path", n => { NestedPath = n.GetStringValue(); } },
@@ -184,7 +171,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("aggregation_field", AggregationField);
             writer.WriteStringValue("field", Field);
             writer.WriteStringValue("field_type", FieldType);
             writer.WriteStringValue("nested_path", NestedPath);

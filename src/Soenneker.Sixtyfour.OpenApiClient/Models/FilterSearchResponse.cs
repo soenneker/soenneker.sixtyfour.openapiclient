@@ -20,18 +20,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if (parseNode.GetChildNode("charge_credits") is null) { _explicitNullValueChargeCredits = default!; _explicitNullProperties?.Remove("charge_credits"); }
             else if (parseNode.GetChildNode("charge_credits") is { } nullNodeChargeCredits && nullNodeChargeCredits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChargeCredits = null;
-            if (parseNode.GetChildNode("cohort_size") is null) { _explicitNullValueCohortSize = default!; _explicitNullProperties?.Remove("cohort_size"); }
-            else if (parseNode.GetChildNode("cohort_size") is { } nullNodeCohortSize && nullNodeCohortSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CohortSize = null;
-            if (parseNode.GetChildNode("company_filter_truncated") is null) { _explicitNullValueCompanyFilterTruncated = default!; _explicitNullProperties?.Remove("company_filter_truncated"); }
-            else if (parseNode.GetChildNode("company_filter_truncated") is { } nullNodeCompanyFilterTruncated && nullNodeCompanyFilterTruncated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompanyFilterTruncated = null;
             if (parseNode.GetChildNode("csv_download_url") is null) { _explicitNullValueCsvDownloadUrl = default!; _explicitNullProperties?.Remove("csv_download_url"); }
             else if (parseNode.GetChildNode("csv_download_url") is { } nullNodeCsvDownloadUrl && nullNodeCsvDownloadUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CsvDownloadUrl = null;
             if (parseNode.GetChildNode("cursor_expires_in_seconds") is null) { _explicitNullValueCursorExpiresInSeconds = default!; _explicitNullProperties?.Remove("cursor_expires_in_seconds"); }
             else if (parseNode.GetChildNode("cursor_expires_in_seconds") is { } nullNodeCursorExpiresInSeconds && nullNodeCursorExpiresInSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CursorExpiresInSeconds = null;
             if (parseNode.GetChildNode("download_expires_in_seconds") is null) { _explicitNullValueDownloadExpiresInSeconds = default!; _explicitNullProperties?.Remove("download_expires_in_seconds"); }
             else if (parseNode.GetChildNode("download_expires_in_seconds") is { } nullNodeDownloadExpiresInSeconds && nullNodeDownloadExpiresInSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DownloadExpiresInSeconds = null;
-            if (parseNode.GetChildNode("engine") is null) { _explicitNullValueEngine = default!; _explicitNullProperties?.Remove("engine"); }
-            else if (parseNode.GetChildNode("engine") is { } nullNodeEngine && nullNodeEngine.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Engine = null;
             if (parseNode.GetChildNode("exported_count") is null) { _explicitNullValueExportedCount = default!; _explicitNullProperties?.Remove("exported_count"); }
             else if (parseNode.GetChildNode("exported_count") is { } nullNodeExportedCount && nullNodeExportedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExportedCount = null;
             if (parseNode.GetChildNode("has_more") is null) { _explicitNullValueHasMore = default!; _explicitNullProperties?.Remove("has_more"); }
@@ -56,16 +50,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             else if (parseNode.GetChildNode("page_size") is { } nullNodePageSize && nullNodePageSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PageSize = null;
             if (parseNode.GetChildNode("parsed_query") is null) { _explicitNullValueParsedQuery = default!; _explicitNullProperties?.Remove("parsed_query"); }
             else if (parseNode.GetChildNode("parsed_query") is { } nullNodeParsedQuery && nullNodeParsedQuery.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ParsedQuery = null;
-            if (parseNode.GetChildNode("plan") is null) { _explicitNullValuePlan = default!; _explicitNullProperties?.Remove("plan"); }
-            else if (parseNode.GetChildNode("plan") is { } nullNodePlan && nullNodePlan.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Plan = null;
-            if (parseNode.GetChildNode("ranking_policy") is null) { _explicitNullValueRankingPolicy = default!; _explicitNullProperties?.Remove("ranking_policy"); }
-            else if (parseNode.GetChildNode("ranking_policy") is { } nullNodeRankingPolicy && nullNodeRankingPolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RankingPolicy = null;
-            if (parseNode.GetChildNode("ranking_strategy") is null) { _explicitNullValueRankingStrategy = default!; _explicitNullProperties?.Remove("ranking_strategy"); }
-            else if (parseNode.GetChildNode("ranking_strategy") is { } nullNodeRankingStrategy && nullNodeRankingStrategy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RankingStrategy = null;
             if (parseNode.GetChildNode("remaining_results") is null) { _explicitNullValueRemainingResults = default!; _explicitNullProperties?.Remove("remaining_results"); }
             else if (parseNode.GetChildNode("remaining_results") is { } nullNodeRemainingResults && nullNodeRemainingResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RemainingResults = null;
-            if (parseNode.GetChildNode("request_duration_ms") is null) { _explicitNullValueRequestDurationMs = default!; _explicitNullProperties?.Remove("request_duration_ms"); }
-            else if (parseNode.GetChildNode("request_duration_ms") is { } nullNodeRequestDurationMs && nullNodeRequestDurationMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequestDurationMs = null;
             if (parseNode.GetChildNode("resource_handle_id") is null) { _explicitNullValueResourceHandleId = default!; _explicitNullProperties?.Remove("resource_handle_id"); }
             else if (parseNode.GetChildNode("resource_handle_id") is { } nullNodeResourceHandleId && nullNodeResourceHandleId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResourceHandleId = null;
             if (parseNode.GetChildNode("results") is null) { _explicitNullValueResults = default!; _explicitNullProperties?.Remove("results"); }
@@ -86,22 +72,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Credits charged for this page: 0.1 credit per result returned for billed callers, 0 when this call was not billed.</summary>
+        /// <summary>Credits this page charged.</summary>
         public double? ChargeCredits { get => _explicitNullValueChargeCredits; set { _explicitNullValueChargeCredits = value; AdditionalData?.Remove("charge_credits"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("charge_credits"); else _explicitNullProperties?.Remove("charge_credits"); } }
         private double? _explicitNullValueChargeCredits = default!;
-        /// <summary>Exact number of rows the filters matched before ranking. ClickHouse only.</summary>
-        public int? CohortSize { get => _explicitNullValueCohortSize; set { _explicitNullValueCohortSize = value; AdditionalData?.Remove("cohort_size"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cohort_size"); else _explicitNullProperties?.Remove("cohort_size"); } }
-        private int? _explicitNullValueCohortSize = default!;
-        /// <summary>Present when company filters matched more companies than the resolver expansion cap. &quot;total_matched&quot;: positive filters truncated — results cover people at the largest matching employers only. &quot;excluded_total_matched&quot;: a not-filter truncated — only the largest matching employers are excluded, so people at smaller excluded companies may still appear.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseCompanyFilterTruncatedProperty? CompanyFilterTruncated { get => _explicitNullValueCompanyFilterTruncated; set { _explicitNullValueCompanyFilterTruncated = value; AdditionalData?.Remove("company_filter_truncated"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("company_filter_truncated"); else _explicitNullProperties?.Remove("company_filter_truncated"); } }
-        private global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseCompanyFilterTruncatedProperty? _explicitNullValueCompanyFilterTruncated = default!;
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseCompanyFilterTruncatedProperty CompanyFilterTruncated { get => _explicitNullValueCompanyFilterTruncated; set { _explicitNullValueCompanyFilterTruncated = value; AdditionalData?.Remove("company_filter_truncated"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("company_filter_truncated"); else _explicitNullProperties?.Remove("company_filter_truncated"); } }
-        private global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseCompanyFilterTruncatedProperty _explicitNullValueCompanyFilterTruncated = default!;
-#endif
         /// <summary>Signed URL to download results as CSV.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -118,17 +91,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Seconds until the download URLs expire.</summary>
         public int? DownloadExpiresInSeconds { get => _explicitNullValueDownloadExpiresInSeconds; set { _explicitNullValueDownloadExpiresInSeconds = value; AdditionalData?.Remove("download_expires_in_seconds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("download_expires_in_seconds"); else _explicitNullProperties?.Remove("download_expires_in_seconds"); } }
         private int? _explicitNullValueDownloadExpiresInSeconds = default!;
-        /// <summary>Search engine that served this page. Absent on legacy responses.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseEngine? Engine { get => _explicitNullValueEngine; set { _explicitNullValueEngine = value; AdditionalData?.Remove("engine"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("engine"); else _explicitNullProperties?.Remove("engine"); } }
-        private global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseEngine? _explicitNullValueEngine = default!;
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseEngine Engine { get => _explicitNullValueEngine; set { _explicitNullValueEngine = value; AdditionalData?.Remove("engine"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("engine"); else _explicitNullProperties?.Remove("engine"); } }
-        private global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseEngine _explicitNullValueEngine = default!;
-#endif
-        /// <summary>Legacy export count; always 0 for company direct-filter mode.</summary>
+        /// <summary>Deprecated. Always 0.</summary>
+        [Obsolete("")]
         public int? ExportedCount { get => _explicitNullValueExportedCount; set { _explicitNullValueExportedCount = value; AdditionalData?.Remove("exported_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exported_count"); else _explicitNullProperties?.Remove("exported_count"); } }
         private int? _explicitNullValueExportedCount = default!;
         /// <summary>True when another page is available via `next_cursor`. Always continue via the cursor; a short or empty page does NOT mean the results are exhausted.</summary>
@@ -170,7 +134,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string NextCursor { get => _explicitNullValueNextCursor; set { _explicitNullValueNextCursor = value; AdditionalData?.Remove("next_cursor"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_cursor"); else _explicitNullProperties?.Remove("next_cursor"); } }
         private string _explicitNullValueNextCursor = default!;
 #endif
-        /// <summary>Shape of the rows in `results`. Echoed because cursor continuations reject `output_shape` on the request.</summary>
+        /// <summary>Shape of the rows in `results`.</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseOutputShape? OutputShape { get => _explicitNullValueOutputShape; set { _explicitNullValueOutputShape = value; AdditionalData?.Remove("output_shape"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_shape"); else _explicitNullProperties?.Remove("output_shape"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseOutputShape? _explicitNullValueOutputShape = default!;
         /// <summary>Number of results in this response page. May be less than `page_size` (down to 0) while `has_more` is true, e.g. when exclusion filtering is active.</summary>
@@ -179,7 +143,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>1-based page number (company pagination).</summary>
         public int? PageNumber { get => _explicitNullValuePageNumber; set { _explicitNullValuePageNumber = value; AdditionalData?.Remove("page_number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("page_number"); else _explicitNullProperties?.Remove("page_number"); } }
         private int? _explicitNullValuePageNumber = default!;
-        /// <summary>Maximum number of results per page (1-100). Pages may contain fewer rows while more results remain (e.g. with exclusion filtering); rely on `has_more`/`next_cursor`, never on page fullness.</summary>
+        /// <summary>Maximum results per page, 1 to 100. A page can be shorter while more results remain; rely on `has_more` and `next_cursor`.</summary>
         public int? PageSize { get => _explicitNullValuePageSize; set { _explicitNullValuePageSize = value; AdditionalData?.Remove("page_size"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("page_size"); else _explicitNullProperties?.Remove("page_size"); } }
         private int? _explicitNullValuePageSize = default!;
         /// <summary>Structured filter set echoed back; round-trippable into a follow-up request.</summary>
@@ -192,43 +156,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseParsedQueryProperty ParsedQuery { get => _explicitNullValueParsedQuery; set { _explicitNullValueParsedQuery = value; AdditionalData?.Remove("parsed_query"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parsed_query"); else _explicitNullProperties?.Remove("parsed_query"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseParsedQueryProperty _explicitNullValueParsedQuery = default!;
 #endif
-        /// <summary>Retrieval plan the engine ran: exact, structured, filtered_semantic, semantic or lookalike. ClickHouse only.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Plan { get => _explicitNullValuePlan; set { _explicitNullValuePlan = value; AdditionalData?.Remove("plan"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan"); else _explicitNullProperties?.Remove("plan"); } }
-        private string? _explicitNullValuePlan = default!;
-#nullable restore
-#else
-        public string Plan { get => _explicitNullValuePlan; set { _explicitNullValuePlan = value; AdditionalData?.Remove("plan"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan"); else _explicitNullProperties?.Remove("plan"); } }
-        private string _explicitNullValuePlan = default!;
-#endif
-        /// <summary>Version of the ranking policy the page was ranked with. ClickHouse only.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? RankingPolicy { get => _explicitNullValueRankingPolicy; set { _explicitNullValueRankingPolicy = value; AdditionalData?.Remove("ranking_policy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ranking_policy"); else _explicitNullProperties?.Remove("ranking_policy"); } }
-        private string? _explicitNullValueRankingPolicy = default!;
-#nullable restore
-#else
-        public string RankingPolicy { get => _explicitNullValueRankingPolicy; set { _explicitNullValueRankingPolicy = value; AdditionalData?.Remove("ranking_policy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ranking_policy"); else _explicitNullProperties?.Remove("ranking_policy"); } }
-        private string _explicitNullValueRankingPolicy = default!;
-#endif
-        /// <summary>Execution strategy the ranked plan chose from the scan estimate and cohort size: range_exact, range_two_stage, vectors_in or vectors_open. ClickHouse ranked plans only.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? RankingStrategy { get => _explicitNullValueRankingStrategy; set { _explicitNullValueRankingStrategy = value; AdditionalData?.Remove("ranking_strategy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ranking_strategy"); else _explicitNullProperties?.Remove("ranking_strategy"); } }
-        private string? _explicitNullValueRankingStrategy = default!;
-#nullable restore
-#else
-        public string RankingStrategy { get => _explicitNullValueRankingStrategy; set { _explicitNullValueRankingStrategy = value; AdditionalData?.Remove("ranking_strategy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ranking_strategy"); else _explicitNullProperties?.Remove("ranking_strategy"); } }
-        private string _explicitNullValueRankingStrategy = default!;
-#endif
         /// <summary>Rows still available under max_results after this page.</summary>
         public int? RemainingResults { get => _explicitNullValueRemainingResults; set { _explicitNullValueRemainingResults = value; AdditionalData?.Remove("remaining_results"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("remaining_results"); else _explicitNullProperties?.Remove("remaining_results"); } }
         private int? _explicitNullValueRemainingResults = default!;
-        /// <summary>Server-side request duration in milliseconds.</summary>
-        public int? RequestDurationMs { get => _explicitNullValueRequestDurationMs; set { _explicitNullValueRequestDurationMs = value; AdditionalData?.Remove("request_duration_ms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("request_duration_ms"); else _explicitNullProperties?.Remove("request_duration_ms"); } }
-        private int? _explicitNullValueRequestDurationMs = default!;
-        /// <summary>Legacy export handle. Empty for company direct-filter mode.</summary>
+        /// <summary>Deprecated. Always empty.</summary>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ResourceHandleId { get => _explicitNullValueResourceHandleId; set { _explicitNullValueResourceHandleId = value; AdditionalData?.Remove("resource_handle_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_handle_id"); else _explicitNullProperties?.Remove("resource_handle_id"); } }
@@ -258,7 +190,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string SearchId { get => _explicitNullValueSearchId; set { _explicitNullValueSearchId = value; AdditionalData?.Remove("search_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search_id"); else _explicitNullProperties?.Remove("search_id"); } }
         private string _explicitNullValueSearchId = default!;
 #endif
-        /// <summary>Exact total matches across pages; people-mode only. Omitted when unknown — including when exclusions are applied by post-filter scan rather than in the query, where the match count would overstate the eligible results. Never a capped or approximate figure.</summary>
+        /// <summary>Exact number of matches across pages, people mode only. Omitted when the exact count is unknown, for example when exclusions apply.</summary>
         public int? TotalAvailable { get => _explicitNullValueTotalAvailable; set { _explicitNullValueTotalAvailable = value; AdditionalData?.Remove("total_available"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_available"); else _explicitNullProperties?.Remove("total_available"); } }
         private int? _explicitNullValueTotalAvailable = default!;
         /// <summary>Minimum total matches when the search stopped counting at its cap (50,000), so total_available is omitted. Omitted when the total is exact or no reliable lower bound is available.</summary>
@@ -270,7 +202,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Rows returned so far (cumulative for company pagination).</summary>
         public int? TotalResults { get => _explicitNullValueTotalResults; set { _explicitNullValueTotalResults = value; AdditionalData?.Remove("total_results"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_results"); else _explicitNullProperties?.Remove("total_results"); } }
         private int? _explicitNullValueTotalResults = default!;
-        /// <summary>Parsed-query fields the engine had no column for and did not apply. ClickHouse only.</summary>
+        /// <summary>Parsed-query fields this search could not apply.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? UnmetConstraints { get => _explicitNullValueUnmetConstraints; set { _explicitNullValueUnmetConstraints = value; AdditionalData?.Remove("unmet_constraints"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unmet_constraints"); else _explicitNullProperties?.Remove("unmet_constraints"); } }
@@ -308,12 +240,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "charge_credits", n => { ChargeCredits = n.GetDoubleValue(); } },
-                { "cohort_size", n => { CohortSize = n.GetIntValue(); } },
-                { "company_filter_truncated", n => { CompanyFilterTruncated = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseCompanyFilterTruncatedProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseCompanyFilterTruncatedProperty.CreateFromDiscriminatorValue); } },
                 { "csv_download_url", n => { CsvDownloadUrl = n.GetStringValue(); } },
                 { "cursor_expires_in_seconds", n => { CursorExpiresInSeconds = n.GetIntValue(); } },
                 { "download_expires_in_seconds", n => { DownloadExpiresInSeconds = n.GetIntValue(); } },
-                { "engine", n => { Engine = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseEngine>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseEngine.CreateFromDiscriminatorValue); } },
                 { "exported_count", n => { ExportedCount = n.GetIntValue(); } },
                 { "has_more", n => { HasMore = n.GetBoolValue(); } },
                 { "json_download_url", n => { JsonDownloadUrl = n.GetStringValue(); } },
@@ -326,11 +255,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "page_number", n => { PageNumber = n.GetIntValue(); } },
                 { "page_size", n => { PageSize = n.GetIntValue(); } },
                 { "parsed_query", n => { ParsedQuery = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseParsedQueryProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseParsedQueryProperty.CreateFromDiscriminatorValue); } },
-                { "plan", n => { Plan = n.GetStringValue(); } },
-                { "ranking_policy", n => { RankingPolicy = n.GetStringValue(); } },
-                { "ranking_strategy", n => { RankingStrategy = n.GetStringValue(); } },
                 { "remaining_results", n => { RemainingResults = n.GetIntValue(); } },
-                { "request_duration_ms", n => { RequestDurationMs = n.GetIntValue(); } },
                 { "resource_handle_id", n => { ResourceHandleId = n.GetStringValue(); } },
                 { "results", n => { Results = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseResultsItemProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseResultsItemProperty.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "search_id", n => { SearchId = n.GetStringValue(); } },
@@ -349,12 +274,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("charge_credits", ChargeCredits);
-            writer.WriteIntValue("cohort_size", CohortSize);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseCompanyFilterTruncatedProperty>("company_filter_truncated", CompanyFilterTruncated);
             writer.WriteStringValue("csv_download_url", CsvDownloadUrl);
             writer.WriteIntValue("cursor_expires_in_seconds", CursorExpiresInSeconds);
             writer.WriteIntValue("download_expires_in_seconds", DownloadExpiresInSeconds);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseEngine>("engine", Engine);
             writer.WriteIntValue("exported_count", ExportedCount);
             writer.WriteBoolValue("has_more", HasMore);
             writer.WriteStringValue("json_download_url", JsonDownloadUrl);
@@ -367,11 +289,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteIntValue("page_number", PageNumber);
             writer.WriteIntValue("page_size", PageSize);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseParsedQueryProperty>("parsed_query", ParsedQuery);
-            writer.WriteStringValue("plan", Plan);
-            writer.WriteStringValue("ranking_policy", RankingPolicy);
-            writer.WriteStringValue("ranking_strategy", RankingStrategy);
             writer.WriteIntValue("remaining_results", RemainingResults);
-            writer.WriteIntValue("request_duration_ms", RequestDurationMs);
             writer.WriteStringValue("resource_handle_id", ResourceHandleId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchResponseResultsItemProperty>("results", Results);
             writer.WriteStringValue("search_id", SearchId);

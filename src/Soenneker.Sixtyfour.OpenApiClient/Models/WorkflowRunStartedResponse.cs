@@ -20,8 +20,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if (parseNode.GetChildNode("already_started") is null) { _explicitNullValueAlreadyStarted = default!; _explicitNullProperties?.Remove("already_started"); }
             else if (parseNode.GetChildNode("already_started") is { } nullNodeAlreadyStarted && nullNodeAlreadyStarted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AlreadyStarted = null;
-            if (parseNode.GetChildNode("cache_config") is null) { _explicitNullValueCacheConfig = default!; _explicitNullProperties?.Remove("cache_config"); }
-            else if (parseNode.GetChildNode("cache_config") is { } nullNodeCacheConfig && nullNodeCacheConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CacheConfig = null;
             if (parseNode.GetChildNode("job_id") is null) { _explicitNullValueJobId = default!; _explicitNullProperties?.Remove("job_id"); }
             else if (parseNode.GetChildNode("job_id") is { } nullNodeJobId && nullNodeJobId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobId = null;
             if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
@@ -32,19 +30,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>True when the request returned a run already started: one under the same Idempotency-Key header, or, without a header, one started with the same webhook_payload in the last two minutes.</summary>
+        /// <summary>True when the request was deduplicated via Idempotency-Key header.</summary>
         public bool? AlreadyStarted { get => _explicitNullValueAlreadyStarted; set { _explicitNullValueAlreadyStarted = value; AdditionalData?.Remove("already_started"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("already_started"); else _explicitNullProperties?.Remove("already_started"); } }
         private bool? _explicitNullValueAlreadyStarted = default!;
-        /// <summary>Cache configuration; only set by the custom-cache endpoint.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunStartedResponseCacheConfigProperty? CacheConfig { get => _explicitNullValueCacheConfig; set { _explicitNullValueCacheConfig = value; AdditionalData?.Remove("cache_config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cache_config"); else _explicitNullProperties?.Remove("cache_config"); } }
-        private global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunStartedResponseCacheConfigProperty? _explicitNullValueCacheConfig = default!;
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunStartedResponseCacheConfigProperty CacheConfig { get => _explicitNullValueCacheConfig; set { _explicitNullValueCacheConfig = value; AdditionalData?.Remove("cache_config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cache_config"); else _explicitNullProperties?.Remove("cache_config"); } }
-        private global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunStartedResponseCacheConfigProperty _explicitNullValueCacheConfig = default!;
-#endif
         /// <summary>Job (run) identifier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -55,7 +43,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string JobId { get => _explicitNullValueJobId; set { _explicitNullValueJobId = value; AdditionalData?.Remove("job_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_id"); else _explicitNullProperties?.Remove("job_id"); } }
         private string _explicitNullValueJobId = default!;
 #endif
-        /// <summary>`RUNNING` once the run is admitted; `queued` only when the start is not yet confirmed. An Idempotency-Key replay returns the run&apos;s current status.</summary>
+        /// <summary>`RUNNING`, or `queued` while the start is still being confirmed. An `Idempotency-Key` replay returns the run&apos;s current status.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
@@ -101,7 +89,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "already_started", n => { AlreadyStarted = n.GetBoolValue(); } },
-                { "cache_config", n => { CacheConfig = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunStartedResponseCacheConfigProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunStartedResponseCacheConfigProperty.CreateFromDiscriminatorValue); } },
                 { "job_id", n => { JobId = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "workflow_id", n => { WorkflowId = n.GetStringValue(); } },
@@ -115,7 +102,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("already_started", AlreadyStarted);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunStartedResponseCacheConfigProperty>("cache_config", CacheConfig);
             writer.WriteStringValue("job_id", JobId);
             writer.WriteStringValue("status", Status);
             writer.WriteStringValue("workflow_id", WorkflowId);

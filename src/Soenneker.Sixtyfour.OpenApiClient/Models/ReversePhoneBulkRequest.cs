@@ -35,7 +35,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkRequestLeadsItemProperty> Leads { get => _explicitNullValueLeads; set { _explicitNullValueLeads = value; AdditionalData?.Remove("leads"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("leads"); else _explicitNullProperties?.Remove("leads"); } }
         private List<global::Soenneker.Sixtyfour.OpenApiClient.Models.ReversePhoneBulkRequestLeadsItemProperty> _explicitNullValueLeads = default!;
 #endif
-        /// <summary>Async endpoints only: HTTPS URL that receives the result payload when the job completes. The sync endpoints ignore it.</summary>
+        /// <summary>HTTPS URL that receives the result when the job completes. Default: none.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? WebhookUrl { get => _explicitNullValueWebhookUrl; set { _explicitNullValueWebhookUrl = value; AdditionalData?.Remove("webhook_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url"); else _explicitNullProperties?.Remove("webhook_url"); } }

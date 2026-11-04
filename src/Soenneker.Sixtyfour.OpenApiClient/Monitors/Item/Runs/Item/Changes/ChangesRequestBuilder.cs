@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Runs.Item.Changes
         {
         }
         /// <summary>
-        /// One JSON entry per changed row, with previous/current values per field.Only actual changes count, not initial establishment or quiet checks.Returns 409 until a complete result is available, never a misleading emptyresult for an in-progress or untracked run. A completed run with no changesreturns `changes: []`. Failed row checks are counted on the run separately;a completed run means all row outcomes are settled, not that all succeeded.Page with `next_cursor`; each page contains whole rows, including all theirchanged fields. Subject identifiers are read from the monitor&apos;s stored row.Example change: `{&quot;row_id&quot;: &quot;&lt;uuid&gt;&quot;, &quot;subject&quot;: {&quot;name&quot;: &quot;Example Person&quot;},&quot;fields&quot;: {&quot;title&quot;: {&quot;previous&quot;: &quot;Manager&quot;, &quot;current&quot;: &quot;Director&quot;}}}`.
+        /// One entry per changed row, with each changed field&apos;s `previous` and `current` value.Starting values and checks with no change are left out. A completed run with no changes returns `changes: []`;a run that has not completed returns 409. Failed row checks are counted on the run, not listed here. Page with`next_cursor`; a page never splits a row.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRunChangesPage"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -69,7 +69,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Runs.Item.Changes
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRunChangesPage>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRunChangesPage.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// One JSON entry per changed row, with previous/current values per field.Only actual changes count, not initial establishment or quiet checks.Returns 409 until a complete result is available, never a misleading emptyresult for an in-progress or untracked run. A completed run with no changesreturns `changes: []`. Failed row checks are counted on the run separately;a completed run means all row outcomes are settled, not that all succeeded.Page with `next_cursor`; each page contains whole rows, including all theirchanged fields. Subject identifiers are read from the monitor&apos;s stored row.Example change: `{&quot;row_id&quot;: &quot;&lt;uuid&gt;&quot;, &quot;subject&quot;: {&quot;name&quot;: &quot;Example Person&quot;},&quot;fields&quot;: {&quot;title&quot;: {&quot;previous&quot;: &quot;Manager&quot;, &quot;current&quot;: &quot;Director&quot;}}}`.
+        /// One entry per changed row, with each changed field&apos;s `previous` and `current` value.Starting values and checks with no change are left out. A completed run with no changes returns `changes: []`;a run that has not completed returns 409. Failed row checks are counted on the run, not listed here. Page with`next_cursor`; a page never splits a row.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -97,7 +97,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Runs.Item.Changes
             return new global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Runs.Item.Changes.ChangesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// One JSON entry per changed row, with previous/current values per field.Only actual changes count, not initial establishment or quiet checks.Returns 409 until a complete result is available, never a misleading emptyresult for an in-progress or untracked run. A completed run with no changesreturns `changes: []`. Failed row checks are counted on the run separately;a completed run means all row outcomes are settled, not that all succeeded.Page with `next_cursor`; each page contains whole rows, including all theirchanged fields. Subject identifiers are read from the monitor&apos;s stored row.Example change: `{&quot;row_id&quot;: &quot;&lt;uuid&gt;&quot;, &quot;subject&quot;: {&quot;name&quot;: &quot;Example Person&quot;},&quot;fields&quot;: {&quot;title&quot;: {&quot;previous&quot;: &quot;Manager&quot;, &quot;current&quot;: &quot;Director&quot;}}}`.
+        /// One entry per changed row, with each changed field&apos;s `previous` and `current` value.Starting values and checks with no change are left out. A completed run with no changes returns `changes: []`;a run that has not completed returns 409. Failed row checks are counted on the run, not listed here. Page with`next_cursor`; a page never splits a row.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ChangesRequestBuilderGetQueryParameters 

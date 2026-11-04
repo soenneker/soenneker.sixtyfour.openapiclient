@@ -57,11 +57,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string CompletedAt { get => _explicitNullValueCompletedAt; set { _explicitNullValueCompletedAt = value; AdditionalData?.Remove("completed_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed_at"); else _explicitNullProperties?.Remove("completed_at"); } }
         private string _explicitNullValueCompletedAt = default!;
 #endif
-        /// <summary>Legacy total spend in cents; preserved for compatibility. Prefer cost_credits. Null when cost_credits is.</summary>
+        /// <summary>Deprecated. Use `cost_credits`. The same amount in tenths of a credit.</summary>
         [Obsolete("")]
         public int? CostCents { get => _explicitNullValueCostCents; set { _explicitNullValueCostCents = value; AdditionalData?.Remove("cost_cents"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cost_cents"); else _explicitNullProperties?.Remove("cost_cents"); } }
         private int? _explicitNullValueCostCents = default!;
-        /// <summary>Total spend across every agent run of this investigation, in credits. Null until every run&apos;s charge is recorded: briefly after a run closes, before its settlement records the charge, and for good if settlement fails.</summary>
+        /// <summary>Spend across every run of this investigation, in credits; `null` until the charges are recorded, shortly after a run ends.</summary>
         public double? CostCredits { get => _explicitNullValueCostCredits; set { _explicitNullValueCostCredits = value; AdditionalData?.Remove("cost_credits"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cost_credits"); else _explicitNullProperties?.Remove("cost_credits"); } }
         private double? _explicitNullValueCostCredits = default!;
         /// <summary>The created_at property</summary>
@@ -117,7 +117,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummaryShared Shared { get => _explicitNullValueShared; set { _explicitNullValueShared = value; AdditionalData?.Remove("shared"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("shared"); else _explicitNullProperties?.Remove("shared"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummaryShared _explicitNullValueShared = default!;
 #endif
-        /// <summary>Maintained by the database from the investigation&apos;s agent runs.</summary>
+        /// <summary>`created`, `running`, `stalled`, `completed` or `failed`, from the state of its runs.</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummaryStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummaryStatus? _explicitNullValueStatus = default!;
         /// <summary>The updated_at property</summary>

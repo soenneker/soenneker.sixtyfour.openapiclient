@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Update
         {
         }
         /// <summary>
-        /// Change monitor settings. Watched fields are fixed at creation.Applied to every row as well as the monitor, because the rows are what run.`is_active` is not pushed down: a row switched off by hand stays off.
+        /// Change monitor settings; changes apply to every row. Watched fields are fixed at creation.Setting `is_active` does not turn back on rows you switched off.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -71,7 +71,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Update
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Change monitor settings. Watched fields are fixed at creation.Applied to every row as well as the monitor, because the rows are what run.`is_active` is not pushed down: a row switched off by hand stays off.
+        /// Change monitor settings; changes apply to every row. Watched fields are fixed at creation.Setting `is_active` does not turn back on rows you switched off.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

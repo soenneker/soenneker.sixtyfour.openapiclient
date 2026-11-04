@@ -17,8 +17,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("analysis") is null) { _explicitNullValueAnalysis = default!; _explicitNullProperties?.Remove("analysis"); }
-            else if (parseNode.GetChildNode("analysis") is { } nullNodeAnalysis && nullNodeAnalysis.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Analysis = null;
             if (parseNode.GetChildNode("close_time") is null) { _explicitNullValueCloseTime = default!; _explicitNullProperties?.Remove("close_time"); }
             else if (parseNode.GetChildNode("close_time") is { } nullNodeCloseTime && nullNodeCloseTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CloseTime = null;
             if (parseNode.GetChildNode("current_phase") is null) { _explicitNullValueCurrentPhase = default!; _explicitNullProperties?.Remove("current_phase"); }
@@ -49,16 +47,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The analysis property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseAnalysisProperty? Analysis { get => _explicitNullValueAnalysis; set { _explicitNullValueAnalysis = value; AdditionalData?.Remove("analysis"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("analysis"); else _explicitNullProperties?.Remove("analysis"); } }
-        private global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseAnalysisProperty? _explicitNullValueAnalysis = default!;
-#nullable restore
-#else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseAnalysisProperty Analysis { get => _explicitNullValueAnalysis; set { _explicitNullValueAnalysis = value; AdditionalData?.Remove("analysis"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("analysis"); else _explicitNullProperties?.Remove("analysis"); } }
-        private global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseAnalysisProperty _explicitNullValueAnalysis = default!;
-#endif
         /// <summary>The close_time property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -122,7 +110,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string SearchId { get => _explicitNullValueSearchId; set { _explicitNullValueSearchId = value; AdditionalData?.Remove("search_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search_id"); else _explicitNullProperties?.Remove("search_id"); } }
         private string _explicitNullValueSearchId = default!;
 #endif
-        /// <summary>Accounting for how an input seed set became analyzable profiles.</summary>
+        /// <summary>How the seeds resolved to profiles.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseSeedDiagnostics? SeedDiagnostics { get => _explicitNullValueSeedDiagnostics; set { _explicitNullValueSeedDiagnostics = value; AdditionalData?.Remove("seed_diagnostics"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seed_diagnostics"); else _explicitNullProperties?.Remove("seed_diagnostics"); } }
@@ -200,7 +188,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "analysis", n => { Analysis = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseAnalysisProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseAnalysisProperty.CreateFromDiscriminatorValue); } },
                 { "close_time", n => { CloseTime = n.GetStringValue(); } },
                 { "current_phase", n => { CurrentPhase = n.GetIntValue(); } },
                 { "error", n => { Error = n.GetStringValue(); } },
@@ -223,7 +210,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.LookalikeSearchStatusResponseAnalysisProperty>("analysis", Analysis);
             writer.WriteStringValue("close_time", CloseTime);
             writer.WriteIntValue("current_phase", CurrentPhase);
             writer.WriteStringValue("error", Error);

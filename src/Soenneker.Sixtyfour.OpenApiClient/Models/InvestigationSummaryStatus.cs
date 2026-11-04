@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
-    /// <summary>Maintained by the database from the investigation&apos;s agent runs.</summary>
+    /// <summary>`created`, `running`, `stalled`, `completed` or `failed`, from the state of its runs.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum InvestigationSummaryStatus
     {

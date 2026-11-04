@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// Async people-intelligence kickoff.Atlas runs (tier xhigh, or tier scout with graph) return their investigationimmediately. The field is optional because other tiers do not create one.
+    /// Async People Intelligence start. Atlas runs (`xhigh`, or `scout` with `graph`) also return `investigation`.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LeadAsyncJobStartResponse : IAdditionalDataHolder, IParsable
@@ -53,7 +53,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string TaskId { get => _explicitNullValueTaskId; set { _explicitNullValueTaskId = value; AdditionalData?.Remove("task_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("task_id"); else _explicitNullProperties?.Remove("task_id"); } }
         private string _explicitNullValueTaskId = default!;
 #endif
-        /// <summary>Request fields we do not recognize and therefore ignored, so an instruction that silently did nothing is visible rather than assumed to have applied. Absent when every field was understood.</summary>
+        /// <summary>Request fields that were not recognized and were ignored. Absent when every field was recognized.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? UnrecognizedFields { get => _explicitNullValueUnrecognizedFields; set { _explicitNullValueUnrecognizedFields = value; AdditionalData?.Remove("unrecognized_fields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unrecognized_fields"); else _explicitNullProperties?.Remove("unrecognized_fields"); } }

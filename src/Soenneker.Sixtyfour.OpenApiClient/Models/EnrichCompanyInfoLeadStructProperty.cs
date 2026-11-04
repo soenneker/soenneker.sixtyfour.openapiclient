@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// Output schema for each discovered person when find_people=true.
+    /// With `find_people`: fields to return for each person.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EnrichCompanyInfoLeadStructProperty : IAdditionalDataHolder, IParsable

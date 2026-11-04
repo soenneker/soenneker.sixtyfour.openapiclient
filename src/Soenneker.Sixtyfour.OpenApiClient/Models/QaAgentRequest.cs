@@ -45,7 +45,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestDataProperty Data { get => _explicitNullValueData; set { _explicitNullValueData = value; AdditionalData?.Remove("data"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data"); else _explicitNullProperties?.Remove("data"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestDataProperty _explicitNullValueData = default!;
 #endif
-        /// <summary>Async endpoints only: a client-generated idempotency key for the dispatch. Reusing the same key for the same organization returns the existing job instead of starting and billing a duplicate.</summary>
+        /// <summary>An idempotency key you generate. A retry with the same key returns the job already started instead of starting and charging a second one.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DispatchId { get => _explicitNullValueDispatchId; set { _explicitNullValueDispatchId = value; AdditionalData?.Remove("dispatch_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dispatch_id"); else _explicitNullProperties?.Remove("dispatch_id"); } }
@@ -88,7 +88,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestStruct Struct { get => _explicitNullValueStruct; set { _explicitNullValueStruct = value; AdditionalData?.Remove("struct"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("struct"); else _explicitNullProperties?.Remove("struct"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.QaAgentRequestStruct _explicitNullValueStruct = default!;
 #endif
-        /// <summary>HTTPS URL that receives the result payload when the async job completes.</summary>
+        /// <summary>HTTPS URL that receives the result when the job completes. Default: none.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? WebhookUrl { get => _explicitNullValueWebhookUrl; set { _explicitNullValueWebhookUrl = value; AdditionalData?.Remove("webhook_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url"); else _explicitNullProperties?.Remove("webhook_url"); } }

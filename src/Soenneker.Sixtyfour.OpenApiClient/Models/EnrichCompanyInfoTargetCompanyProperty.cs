@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// Company identifiers (e.g. company_name, domain, linkedin).
+    /// The company to research: any of `company_name`, `domain`, `linkedin` and other known details.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EnrichCompanyInfoTargetCompanyProperty : IAdditionalDataHolder, IParsable

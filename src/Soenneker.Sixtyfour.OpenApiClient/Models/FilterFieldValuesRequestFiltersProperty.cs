@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// Raw OpenSearch DSL filters that scope the aggregation.
+    /// JSON query DSL that scopes the counts.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class FilterFieldValuesRequestFiltersProperty : IAdditionalDataHolder, IParsable

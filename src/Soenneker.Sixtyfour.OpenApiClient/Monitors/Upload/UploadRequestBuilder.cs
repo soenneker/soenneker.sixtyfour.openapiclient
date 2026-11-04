@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Upload
         {
         }
         /// <summary>
-        /// Create one monitor from a file, with a row per subject.Answers as soon as the file has been checked and the monitor exists, with a`status` of `starting`. Its rows are added afterwards; read the monitoragain to see `row_count` climb and `status` become `active`. Sending thesame request again returns the same monitor, and finishes it if the firstattempt was interrupted.
+        /// Create one monitor from a file, one row per subject.Returns `202` with `status: starting` once the file is checked. Rows are then added in the background, and`status` becomes `active` when all are in. Resending the same request returns the same monitor and finishesan interrupted upload.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -44,6 +44,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Upload
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.UploadMonitorEndpointMonitorsUploadPost401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.UploadMonitorEndpointMonitorsUploadPost403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorValidationErrorResponse">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.UploadMonitorEndpointMonitorsUploadPost429Response">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.UploadMonitorEndpointMonitorsUploadPost500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.UploadMonitorEndpointMonitorsUploadPost503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,6 +64,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Upload
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.UploadMonitorEndpointMonitorsUploadPost401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.UploadMonitorEndpointMonitorsUploadPost403Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorValidationErrorResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.UploadMonitorEndpointMonitorsUploadPost429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.UploadMonitorEndpointMonitorsUploadPost500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.UploadMonitorEndpointMonitorsUploadPost503Response.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
@@ -71,7 +73,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Upload
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create one monitor from a file, with a row per subject.Answers as soon as the file has been checked and the monitor exists, with a`status` of `starting`. Its rows are added afterwards; read the monitoragain to see `row_count` climb and `status` become `active`. Sending thesame request again returns the same monitor, and finishes it if the firstattempt was interrupted.
+        /// Create one monitor from a file, one row per subject.Returns `202` with `status: starting` once the file is checked. Rows are then added in the background, and`status` becomes `active` when all are in. Resending the same request returns the same monitor and finishesan interrupted upload.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

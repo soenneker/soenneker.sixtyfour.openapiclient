@@ -66,10 +66,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public List<string> ExcludePublicIds { get => _explicitNullValueExcludePublicIds; set { _explicitNullValueExcludePublicIds = value; AdditionalData?.Remove("exclude_public_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude_public_ids"); else _explicitNullProperties?.Remove("exclude_public_ids"); } }
         private List<string> _explicitNullValueExcludePublicIds = default!;
 #endif
-        /// <summary>Maximum number of results to return across pages.</summary>
+        /// <summary>Maximum results across all pages.</summary>
         public int? MaxResults { get => _explicitNullValueMaxResults; set { _explicitNullValueMaxResults = value; AdditionalData?.Remove("max_results"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_results"); else _explicitNullProperties?.Remove("max_results"); } }
         private int? _explicitNullValueMaxResults = default!;
-        /// <summary>Search mode; inferred from DB when not set.</summary>
+        /// <summary>`people` or `company`. Taken from the saved search when you send `search_id`.</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.SaveSearchRequestMode? Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; AdditionalData?.Remove("mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.SaveSearchRequestMode? _explicitNullValueMode = default!;
         /// <summary>Structured filter set returned by a previous search.</summary>

@@ -29,7 +29,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>List of leads to process in one bulk request.</summary>
+        /// <summary>The people to look up, up to 100, each with any combination of `name`, `email`, `company`, `linkedin` and other known details.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailBulkRequestLeadsItemProperty>? Leads { get => _explicitNullValueLeads; set { _explicitNullValueLeads = value; AdditionalData?.Remove("leads"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("leads"); else _explicitNullProperties?.Remove("leads"); } }
@@ -39,13 +39,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailBulkRequestLeadsItemProperty> Leads { get => _explicitNullValueLeads; set { _explicitNullValueLeads = value; AdditionalData?.Remove("leads"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("leads"); else _explicitNullProperties?.Remove("leads"); } }
         private List<global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailBulkRequestLeadsItemProperty> _explicitNullValueLeads = default!;
 #endif
-        /// <summary>Email type to discover: &apos;PROFESSIONAL&apos; (work) or &apos;PERSONAL&apos;.</summary>
+        /// <summary>The kind of email to find: `PROFESSIONAL` (work) or `PERSONAL`. Default: `PROFESSIONAL`.</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailBulkRequestMode? Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; AdditionalData?.Remove("mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.FindEmailBulkRequestMode? _explicitNullValueMode = default!;
-        /// <summary>SMTP-verify each discovered email before returning it.</summary>
+        /// <summary>If true, verifies each email it finds before returning it. Default: true.</summary>
         public bool? VerifyEmails { get => _explicitNullValueVerifyEmails; set { _explicitNullValueVerifyEmails = value; AdditionalData?.Remove("verify_emails"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verify_emails"); else _explicitNullProperties?.Remove("verify_emails"); } }
         private bool? _explicitNullValueVerifyEmails = default!;
-        /// <summary>Async endpoints only: HTTPS URL that receives the result payload when the job completes. The sync endpoints ignore it.</summary>
+        /// <summary>HTTPS URL that receives the result when the job completes. Default: none.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? WebhookUrl { get => _explicitNullValueWebhookUrl; set { _explicitNullValueWebhookUrl = value; AdditionalData?.Remove("webhook_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url"); else _explicitNullProperties?.Remove("webhook_url"); } }

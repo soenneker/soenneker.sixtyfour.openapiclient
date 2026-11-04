@@ -40,7 +40,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>The limit property</summary>
         public int? Limit { get => _explicitNullValueLimit; set { _explicitNullValueLimit = value; AdditionalData?.Remove("limit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limit"); else _explicitNullProperties?.Remove("limit"); } }
         private int? _explicitNullValueLimit = default!;
-        /// <summary>Pass as `after` for the next page; null when there is nothing further. A short or empty page with a non-null next_cursor means the scan stopped early (status filtering), not that the listing ended.</summary>
+        /// <summary>Pass as `after` for the next page; `null` at the end. A short page does not mean the end.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? NextCursor { get => _explicitNullValueNextCursor; set { _explicitNullValueNextCursor = value; AdditionalData?.Remove("next_cursor"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_cursor"); else _explicitNullProperties?.Remove("next_cursor"); } }

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// Start one monitor per row of a table.A row column named after a struct field seeds that field&apos;s starting value;a field with no matching column is established by the first check.
+    /// Create one monitor from a table, one row per subject.A column named after a `struct` field seeds that field&apos;s starting value; other fields are set by thefirst check.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateMonitorRequest : IParsable
@@ -68,7 +68,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Upload handle returned by /storage/csv/upload. Use instead of rows.</summary>
         public Guid? HandleId { get => _explicitNullValueHandleId; set { _explicitNullValueHandleId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("handle_id"); else _explicitNullProperties?.Remove("handle_id"); } }
         private Guid? _explicitNullValueHandleId = default!;
-        /// <summary>Optional. Resending a request with the same key returns what the first attempt created instead of creating the batch twice. Reusing a key with different content returns 409. Omitted, a key is derived from the request&apos;s own content, so an identical resend replays by default.</summary>
+        /// <summary>Optional. Resending a request with the same key returns what the first attempt created instead of creating the monitor twice. Reusing a key with different content returns 409. Omitted, a key is derived from the request&apos;s own content, so an identical resend replays by default.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? IdempotencyKey { get => _explicitNullValueIdempotencyKey; set { _explicitNullValueIdempotencyKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idempotency_key"); else _explicitNullProperties?.Remove("idempotency_key"); } }
@@ -104,7 +104,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>The monitor_type property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestMonitorType? MonitorType { get => _explicitNullValueMonitorType; set { _explicitNullValueMonitorType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("monitor_type"); else _explicitNullProperties?.Remove("monitor_type"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestMonitorType? _explicitNullValueMonitorType = default!;
-        /// <summary>Base name; the row&apos;s key values are appended.</summary>
+        /// <summary>Monitor name. Each row is named `&lt;name&gt; — &lt;key values&gt;`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }

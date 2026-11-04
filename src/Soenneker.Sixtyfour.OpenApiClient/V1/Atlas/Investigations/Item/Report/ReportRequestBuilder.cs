@@ -44,6 +44,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Report
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetReportStatusV1AtlasInvestigationsInvestigationIdReportGet403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetReportStatusV1AtlasInvestigationsInvestigationIdReportGet404Response">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetReportStatusV1AtlasInvestigationsInvestigationIdReportGet429Response">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetReportStatusV1AtlasInvestigationsInvestigationIdReportGet500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetReportStatusV1AtlasInvestigationsInvestigationIdReportGet503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,6 +64,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Report
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetReportStatusV1AtlasInvestigationsInvestigationIdReportGet403Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetReportStatusV1AtlasInvestigationsInvestigationIdReportGet404Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetReportStatusV1AtlasInvestigationsInvestigationIdReportGet429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetReportStatusV1AtlasInvestigationsInvestigationIdReportGet500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetReportStatusV1AtlasInvestigationsInvestigationIdReportGet503Response.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
@@ -71,7 +73,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Report
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ReportJob>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ReportJob.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Start durable report generation for the current workspace, or join the one already running.One report is written at a time: while research is still adding findings, a call during a build returns thatbuild, and one more starts from the newest findings when it ends. An up-to-date report returns `completed` with`cached: true`. Poll `GET …/report` (or the PDF endpoint) until `completed`, then download `…/report.pdf`.
+        /// Start writing a PDF report from the current findings, or join the build already running.An up-to-date report returns `completed` with `cached: true`. Poll `GET …/report` until it is `completed` and`follow_up` is `false`, then download `…/report.pdf`.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ReportJob"/></returns>
         /// <param name="body">The request body</param>
@@ -83,6 +85,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Report
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateReportV1AtlasInvestigationsInvestigationIdReportPost404Response">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateReportV1AtlasInvestigationsInvestigationIdReportPost409Response">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateReportV1AtlasInvestigationsInvestigationIdReportPost429Response">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateReportV1AtlasInvestigationsInvestigationIdReportPost500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateReportV1AtlasInvestigationsInvestigationIdReportPost503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -104,6 +107,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Report
                 { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateReportV1AtlasInvestigationsInvestigationIdReportPost404Response.CreateFromDiscriminatorValue },
                 { "409", global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateReportV1AtlasInvestigationsInvestigationIdReportPost409Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateReportV1AtlasInvestigationsInvestigationIdReportPost429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateReportV1AtlasInvestigationsInvestigationIdReportPost500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.GenerateReportV1AtlasInvestigationsInvestigationIdReportPost503Response.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
@@ -131,7 +135,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Report
             return requestInfo;
         }
         /// <summary>
-        /// Start durable report generation for the current workspace, or join the one already running.One report is written at a time: while research is still adding findings, a call during a build returns thatbuild, and one more starts from the newest findings when it ends. An up-to-date report returns `completed` with`cached: true`. Poll `GET …/report` (or the PDF endpoint) until `completed`, then download `…/report.pdf`.
+        /// Start writing a PDF report from the current findings, or join the build already running.An up-to-date report returns `completed` with `cached: true`. Poll `GET …/report` until it is `completed` and`follow_up` is `false`, then download `…/report.pdf`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

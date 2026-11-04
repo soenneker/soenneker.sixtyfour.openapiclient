@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.ReportP
         {
         }
         /// <summary>
-        /// The latest report. 200 with the PDF whenever one is published: `X-Report-As-Of` says when the findings itcovers were read and `X-Report-Current` whether the investigation has changed since. While research runs itusually has, and asking again (`POST …/report`) writes a newer one. 202 with the job (and `Retry-After`) whennone can be served yet and one is being written, as after a finding was removed; 404 if generation has notbeen requested, or the build that would write it failed — `POST …/report` starts it (`retry_failed` after afailure).
+        /// The latest report PDF.`X-Report-As-Of` is when its findings were read; `X-Report-Current` is `false` once the investigation has changed.Returns 202 with `Retry-After` while the first report, or a replacement, is being written, and 404 until a reportis requested or after its build failed. `POST …/report` starts one.
         /// </summary>
         /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -43,6 +43,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.ReportP
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetReportPdfV1AtlasInvestigationsInvestigationIdReportPdfGet401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetReportPdfV1AtlasInvestigationsInvestigationIdReportPdfGet403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetReportPdfV1AtlasInvestigationsInvestigationIdReportPdfGet429Response">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetReportPdfV1AtlasInvestigationsInvestigationIdReportPdfGet500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetReportPdfV1AtlasInvestigationsInvestigationIdReportPdfGet503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -61,6 +62,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.ReportP
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetReportPdfV1AtlasInvestigationsInvestigationIdReportPdfGet401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetReportPdfV1AtlasInvestigationsInvestigationIdReportPdfGet403Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetReportPdfV1AtlasInvestigationsInvestigationIdReportPdfGet429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetReportPdfV1AtlasInvestigationsInvestigationIdReportPdfGet500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetReportPdfV1AtlasInvestigationsInvestigationIdReportPdfGet503Response.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
@@ -69,7 +71,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.ReportP
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// The latest report. 200 with the PDF whenever one is published: `X-Report-As-Of` says when the findings itcovers were read and `X-Report-Current` whether the investigation has changed since. While research runs itusually has, and asking again (`POST …/report`) writes a newer one. 202 with the job (and `Retry-After`) whennone can be served yet and one is being written, as after a finding was removed; 404 if generation has notbeen requested, or the build that would write it failed — `POST …/report` starts it (`retry_failed` after afailure).
+        /// The latest report PDF.`X-Report-As-Of` is when its findings were read; `X-Report-Current` is `false` once the investigation has changed.Returns 202 with `Retry-After` while the first report, or a replacement, is being written, and 404 until a reportis requested or after its build failed. `POST …/report` starts one.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

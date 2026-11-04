@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// Build the list from inline identifiers (entity-generic).Person lists: LinkedIn public IDs or profile URLs. Company lists: numericcompany IDs, LinkedIn company URLs/slugs, or exact website domains.
+    /// Build the list from identifiers sent in the request.Person lists: LinkedIn public IDs or profile URLs. Company lists: numericcompany IDs, LinkedIn company URLs/slugs, or exact website domains.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateExclusionListRequestSourceInlineEntityIdsSource : global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateExclusionListRequestSource, IParsable

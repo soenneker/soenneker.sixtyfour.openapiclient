@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// Response describing supported filter-search DSL capabilities.
+    /// The fields, operators and limits filter search supports.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class FilterSearchCapabilitiesResponse : IAdditionalDataHolder, IParsable
@@ -22,14 +22,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             else if (parseNode.GetChildNode("cache_ttl_seconds") is { } nullNodeCacheTtlSeconds && nullNodeCacheTtlSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CacheTtlSeconds = null;
             if (parseNode.GetChildNode("fields") is null) { _explicitNullValueFields = default!; _explicitNullProperties?.Remove("fields"); }
             else if (parseNode.GetChildNode("fields") is { } nullNodeFields && nullNodeFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Fields = null;
-            if (parseNode.GetChildNode("generated_at_epoch_ms") is null) { _explicitNullValueGeneratedAtEpochMs = default!; _explicitNullProperties?.Remove("generated_at_epoch_ms"); }
-            else if (parseNode.GetChildNode("generated_at_epoch_ms") is { } nullNodeGeneratedAtEpochMs && nullNodeGeneratedAtEpochMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GeneratedAtEpochMs = null;
-            if (parseNode.GetChildNode("index_name") is null) { _explicitNullValueIndexName = default!; _explicitNullProperties?.Remove("index_name"); }
-            else if (parseNode.GetChildNode("index_name") is { } nullNodeIndexName && nullNodeIndexName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IndexName = null;
             if (parseNode.GetChildNode("limits") is null) { _explicitNullValueLimits = default!; _explicitNullProperties?.Remove("limits"); }
             else if (parseNode.GetChildNode("limits") is { } nullNodeLimits && nullNodeLimits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Limits = null;
-            if (parseNode.GetChildNode("mapping_hash") is null) { _explicitNullValueMappingHash = default!; _explicitNullProperties?.Remove("mapping_hash"); }
-            else if (parseNode.GetChildNode("mapping_hash") is { } nullNodeMappingHash && nullNodeMappingHash.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MappingHash = null;
             if (parseNode.GetChildNode("mode") is null) { _explicitNullValueMode = default!; _explicitNullProperties?.Remove("mode"); }
             else if (parseNode.GetChildNode("mode") is { } nullNodeMode && nullNodeMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mode = null;
             if (parseNode.GetChildNode("nested_paths") is null) { _explicitNullValueNestedPaths = default!; _explicitNullProperties?.Remove("nested_paths"); }
@@ -42,7 +36,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Server cache TTL for mapping-derived capabilities.</summary>
+        /// <summary>Seconds this response may be cached.</summary>
         public int? CacheTtlSeconds { get => _explicitNullValueCacheTtlSeconds; set { _explicitNullValueCacheTtlSeconds = value; AdditionalData?.Remove("cache_ttl_seconds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cache_ttl_seconds"); else _explicitNullProperties?.Remove("cache_ttl_seconds"); } }
         private int? _explicitNullValueCacheTtlSeconds = default!;
         /// <summary>Unified per-field capabilities sorted alphabetically.</summary>
@@ -55,20 +49,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability> Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; AdditionalData?.Remove("fields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
         private List<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability> _explicitNullValueFields = default!;
 #endif
-        /// <summary>Epoch timestamp (ms) when these capabilities were derived.</summary>
-        public int? GeneratedAtEpochMs { get => _explicitNullValueGeneratedAtEpochMs; set { _explicitNullValueGeneratedAtEpochMs = value; AdditionalData?.Remove("generated_at_epoch_ms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("generated_at_epoch_ms"); else _explicitNullProperties?.Remove("generated_at_epoch_ms"); } }
-        private int? _explicitNullValueGeneratedAtEpochMs = default!;
-        /// <summary>Public dataset identifier for company direct-filter queries.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? IndexName { get => _explicitNullValueIndexName; set { _explicitNullValueIndexName = value; AdditionalData?.Remove("index_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("index_name"); else _explicitNullProperties?.Remove("index_name"); } }
-        private string? _explicitNullValueIndexName = default!;
-#nullable restore
-#else
-        public string IndexName { get => _explicitNullValueIndexName; set { _explicitNullValueIndexName = value; AdditionalData?.Remove("index_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("index_name"); else _explicitNullProperties?.Remove("index_name"); } }
-        private string _explicitNullValueIndexName = default!;
-#endif
-        /// <summary>Constraint values for guarded DSL validation.</summary>
+        /// <summary>Limits on a `filters` query.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchLimits? Limits { get => _explicitNullValueLimits; set { _explicitNullValueLimits = value; AdditionalData?.Remove("limits"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limits"); else _explicitNullProperties?.Remove("limits"); } }
@@ -77,16 +58,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchLimits Limits { get => _explicitNullValueLimits; set { _explicitNullValueLimits = value; AdditionalData?.Remove("limits"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limits"); else _explicitNullProperties?.Remove("limits"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchLimits _explicitNullValueLimits = default!;
-#endif
-        /// <summary>Hash of mapping metadata used to derive this capability snapshot.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? MappingHash { get => _explicitNullValueMappingHash; set { _explicitNullValueMappingHash = value; AdditionalData?.Remove("mapping_hash"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mapping_hash"); else _explicitNullProperties?.Remove("mapping_hash"); } }
-        private string? _explicitNullValueMappingHash = default!;
-#nullable restore
-#else
-        public string MappingHash { get => _explicitNullValueMappingHash; set { _explicitNullValueMappingHash = value; AdditionalData?.Remove("mapping_hash"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mapping_hash"); else _explicitNullProperties?.Remove("mapping_hash"); } }
-        private string _explicitNullValueMappingHash = default!;
 #endif
         /// <summary>Search mode these capabilities apply to.</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchCapabilitiesResponseMode? Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; AdditionalData?.Remove("mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
@@ -104,7 +75,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Credits charged per result returned by /search/query for this caller.</summary>
         public double? PricePerResultCredits { get => _explicitNullValuePricePerResultCredits; set { _explicitNullValuePricePerResultCredits = value; AdditionalData?.Remove("price_per_result_credits"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("price_per_result_credits"); else _explicitNullProperties?.Remove("price_per_result_credits"); } }
         private double? _explicitNullValuePricePerResultCredits = default!;
-        /// <summary>Supported MongoDB-style operators for simple_filters input.</summary>
+        /// <summary>Mongo-style operators `simple_filters` takes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? SimpleQueryOperators { get => _explicitNullValueSimpleQueryOperators; set { _explicitNullValueSimpleQueryOperators = value; AdditionalData?.Remove("simple_query_operators"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("simple_query_operators"); else _explicitNullProperties?.Remove("simple_query_operators"); } }
@@ -141,10 +112,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             {
                 { "cache_ttl_seconds", n => { CacheTtlSeconds = n.GetIntValue(); } },
                 { "fields", n => { Fields = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "generated_at_epoch_ms", n => { GeneratedAtEpochMs = n.GetIntValue(); } },
-                { "index_name", n => { IndexName = n.GetStringValue(); } },
                 { "limits", n => { Limits = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchLimits>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchLimits.CreateFromDiscriminatorValue); } },
-                { "mapping_hash", n => { MappingHash = n.GetStringValue(); } },
                 { "mode", n => { var parsed = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchCapabilitiesResponseMode>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueMode = default; _explicitNullProperties?.Remove("mode"); AdditionalData["mode"] = unknown; } else { Mode = parsed; AdditionalData.Remove("mode"); } } },
                 { "nested_paths", n => { NestedPaths = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "price_per_result_credits", n => { PricePerResultCredits = n.GetDoubleValue(); } },
@@ -160,10 +128,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("cache_ttl_seconds", CacheTtlSeconds);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterFieldCapability>("fields", Fields);
-            writer.WriteIntValue("generated_at_epoch_ms", GeneratedAtEpochMs);
-            writer.WriteStringValue("index_name", IndexName);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchLimits>("limits", Limits);
-            writer.WriteStringValue("mapping_hash", MappingHash);
             writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FilterSearchCapabilitiesResponseMode>("mode", Mode);
             writer.WriteCollectionOfPrimitiveValues<string>("nested_paths", NestedPaths);
             writer.WriteDoubleValue("price_per_result_credits", PricePerResultCredits);

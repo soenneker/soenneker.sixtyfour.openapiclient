@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// Constraint values for guarded DSL validation.
+    /// Limits on a `filters` query.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class FilterSearchLimits : IAdditionalDataHolder, IParsable
