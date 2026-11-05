@@ -35,6 +35,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             else if (parseNode.GetChildNode("private") is { } nullNodePrivate && nullNodePrivate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Private = null;
             if (parseNode.GetChildNode("shared") is null) { _explicitNullValueShared = default!; _explicitNullProperties?.Remove("shared"); }
             else if (parseNode.GetChildNode("shared") is { } nullNodeShared && nullNodeShared.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Shared = null;
+            if (parseNode.GetChildNode("spend_access") is null) { _explicitNullValueSpendAccess = default!; _explicitNullProperties?.Remove("spend_access"); }
+            else if (parseNode.GetChildNode("spend_access") is { } nullNodeSpendAccess && nullNodeSpendAccess.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpendAccess = null;
             if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
             else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
             if (parseNode.GetChildNode("updated_at") is null) { _explicitNullValueUpdatedAt = default!; _explicitNullProperties?.Remove("updated_at"); }
@@ -117,6 +119,16 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummaryShared Shared { get => _explicitNullValueShared; set { _explicitNullValueShared = value; AdditionalData?.Remove("shared"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("shared"); else _explicitNullProperties?.Remove("shared"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummaryShared _explicitNullValueShared = default!;
 #endif
+        /// <summary>Set when the cost is withheld from the caller, who may not see what the investigation&apos;s creator spent: why, as `state`, `reason` and `message`. `cost_cents` and `cost_credits` are then null.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummarySpendAccessProperty? SpendAccess { get => _explicitNullValueSpendAccess; set { _explicitNullValueSpendAccess = value; AdditionalData?.Remove("spend_access"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spend_access"); else _explicitNullProperties?.Remove("spend_access"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummarySpendAccessProperty? _explicitNullValueSpendAccess = default!;
+#nullable restore
+#else
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummarySpendAccessProperty SpendAccess { get => _explicitNullValueSpendAccess; set { _explicitNullValueSpendAccess = value; AdditionalData?.Remove("spend_access"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spend_access"); else _explicitNullProperties?.Remove("spend_access"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummarySpendAccessProperty _explicitNullValueSpendAccess = default!;
+#endif
         /// <summary>`created`, `running`, `stalled`, `completed` or `failed`, from the state of its runs.</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummaryStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummaryStatus? _explicitNullValueStatus = default!;
@@ -185,6 +197,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "private", n => { Private = n.GetBoolValue(); } },
                 { "shared", n => { Shared = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummaryShared>(global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummaryShared.CreateFromDiscriminatorValue); } },
+                { "spend_access", n => { SpendAccess = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummarySpendAccessProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummarySpendAccessProperty.CreateFromDiscriminatorValue); } },
                 { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummaryStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
                 { "visibility", n => { Visibility = n.GetStringValue(); } },
@@ -207,6 +220,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteBoolValue("private", Private);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummaryShared>("shared", Shared);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummarySpendAccessProperty>("spend_access", SpendAccess);
             writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummaryStatus>("status", Status);
             writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteStringValue("visibility", Visibility);

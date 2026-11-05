@@ -4906,7 +4906,7 @@
             }
           },
           "503": {
-            "description": "The run\u0027s webhook_payload could not be stored within 15 seconds (code workflow_input_unavailable). No run was started and nothing was charged. Retry after Retry-After with the same body.",
+            "description": "The run\u0027s input could not be kept or read within the 15-second limit for preparing the run\u0027s input (code workflow_input_unavailable). No run was started and nothing was charged. Retry after Retry-After with the same body. If the message says saved rows failed their integrity check, replace the input rows or contact support. While saving input is only slow, the run still starts, as long as the input is kept within that limit.",
             "headers": {
               "Retry-After": {
                 "description": "Seconds to wait before retrying.",
@@ -17347,6 +17347,705 @@
           }
         }
       }
+    },
+    "/connections": {
+      "get": {
+        "tags": [
+          "Connections"
+        ],
+        "summary": "List the team\u0027s connected sources",
+        "description": "The active team\u0027s connections, and whether the caller may change them. Secrets never come back, only their\nlast four characters.",
+        "operationId": "ListConnectionsConnectionsGet",
+        "parameters": [
+          {
+            "name": "team_id",
+            "in": "query",
+            "description": "The team the request is for; refused when the caller\u0027s active team is another",
+            "schema": {
+              "title": "Team Id",
+              "maxLength": 200,
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "The team the request is for; refused when the caller\u0027s active team is another"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TeamConnections"
+                },
+                "example": {
+                  "connections": [
+                    {
+                      "id": "6f1c2a9e-4b7d-4e3a-9c5f-2d8e1b0a7c43",
+                      "name": "crm",
+                      "description": "Our CRM: accounts, contacts and deal notes",
+                      "base_url": "https://api.crm.example.com/v2",
+                      "sign_in": {
+                        "type": "bearer",
+                        "name": null
+                      },
+                      "allowed_requests": [
+                        "POST /search"
+                      ],
+                      "secret_last4": "_KEY",
+                      "created_at": "2026-11-05T03:40:00Z",
+                      "updated_at": "2026-11-05T03:40:00Z"
+                    }
+                  ],
+                  "actions": {
+                    "team.manage_connections": {
+                      "state": "enabled",
+                      "reason": null,
+                      "message": null,
+                      "confirm": null
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListConnectionsConnectionsGet400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body",
+                  "code": "bad_request",
+                  "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListConnectionsConnectionsGet401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key",
+                  "code": "unauthenticated",
+                  "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListConnectionsConnectionsGet403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour.",
+                  "code": "forbidden",
+                  "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListConnectionsConnectionsGet500Response"
+                },
+                "example": {
+                  "detail": "Internal server error",
+                  "code": "internal_error",
+                  "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Temporarily unavailable. Nothing was charged; retry after the \u0060Retry-After\u0060 header.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListConnectionsConnectionsGet503Response"
+                },
+                "example": {
+                  "detail": "Could not verify the API key right now. Retry shortly.",
+                  "code": "unavailable",
+                  "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "More than 60 requests per minute per API key, signed-in person or OAuth client. Retry after the delay in Retry-After.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds before retrying",
+                "schema": {
+                  "type": "string",
+                  "example": "1"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListConnectionsConnectionsGet429Response"
+                },
+                "example": {
+                  "detail": "Rate limit exceeded: 60 requests per minute. Retry after 1 second.",
+                  "code": "rate_limited",
+                  "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21"
+                }
+              }
+            },
+            "x-rate-limit": {
+              "requests": 60,
+              "period_seconds": 60,
+              "scope": "API key, signed-in person or OAuth client"
+            }
+          }
+        }
+      }
+    },
+    "/connections/{name}": {
+      "get": {
+        "tags": [
+          "Connections"
+        ],
+        "summary": "Read one connected source",
+        "description": "One of the active team\u0027s connections, by name. Its secret never comes back, only its last four characters.",
+        "operationId": "ReadConnectionConnectionsNameGet",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Name",
+              "type": "string"
+            }
+          },
+          {
+            "name": "team_id",
+            "in": "query",
+            "description": "The team the request is for; refused when the caller\u0027s active team is another",
+            "schema": {
+              "title": "Team Id",
+              "maxLength": 200,
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "The team the request is for; refused when the caller\u0027s active team is another"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Connection"
+                },
+                "example": {
+                  "id": "6f1c2a9e-4b7d-4e3a-9c5f-2d8e1b0a7c43",
+                  "name": "crm",
+                  "description": "Our CRM: accounts, contacts and deal notes",
+                  "base_url": "https://api.crm.example.com/v2",
+                  "sign_in": {
+                    "type": "bearer",
+                    "name": null
+                  },
+                  "allowed_requests": [
+                    "POST /search"
+                  ],
+                  "secret_last4": "_KEY",
+                  "created_at": "2026-11-05T03:40:00Z",
+                  "updated_at": "2026-11-05T03:40:00Z"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadConnectionConnectionsNameGet400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body",
+                  "code": "bad_request",
+                  "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadConnectionConnectionsNameGet401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key",
+                  "code": "unauthenticated",
+                  "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadConnectionConnectionsNameGet403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour.",
+                  "code": "forbidden",
+                  "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadConnectionConnectionsNameGet500Response"
+                },
+                "example": {
+                  "detail": "Internal server error",
+                  "code": "internal_error",
+                  "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Temporarily unavailable. Nothing was charged; retry after the \u0060Retry-After\u0060 header.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadConnectionConnectionsNameGet503Response"
+                },
+                "example": {
+                  "detail": "Could not verify the API key right now. Retry shortly.",
+                  "code": "unavailable",
+                  "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "More than 60 requests per minute per API key, signed-in person or OAuth client. Retry after the delay in Retry-After.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds before retrying",
+                "schema": {
+                  "type": "string",
+                  "example": "1"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadConnectionConnectionsNameGet429Response"
+                },
+                "example": {
+                  "detail": "Rate limit exceeded: 60 requests per minute. Retry after 1 second.",
+                  "code": "rate_limited",
+                  "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21"
+                }
+              }
+            },
+            "x-rate-limit": {
+              "requests": 60,
+              "period_seconds": 60,
+              "scope": "API key, signed-in person or OAuth client"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Connections"
+        ],
+        "summary": "Create or replace a connected source",
+        "description": "Create the connection \u0060\u0060name\u0060\u0060, or replace its settings and, when \u0060\u0060secret\u0060\u0060 is given, its secret. Only\n\u0060\u0060base_url\u0060\u0060 and \u0060\u0060secret\u0060\u0060 are required. Runs already going read the change at their next call.",
+        "operationId": "PutConnectionConnectionsNamePut",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Name",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PutConnectionRequest"
+              },
+              "example": {
+                "base_url": "https://api.crm.example.com/v2",
+                "secret": "YOUR_READ_ONLY_KEY",
+                "description": "Our CRM: accounts, contacts and deal notes",
+                "allowed_requests": [
+                  "POST /search"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SavedConnection"
+                },
+                "example": {
+                  "id": "6f1c2a9e-4b7d-4e3a-9c5f-2d8e1b0a7c43",
+                  "name": "crm",
+                  "description": "Our CRM: accounts, contacts and deal notes",
+                  "base_url": "https://api.crm.example.com/v2",
+                  "sign_in": {
+                    "type": "bearer",
+                    "name": null
+                  },
+                  "allowed_requests": [
+                    "POST /search"
+                  ],
+                  "secret_last4": "_KEY",
+                  "created_at": "2026-11-05T03:40:00Z",
+                  "updated_at": "2026-11-05T03:40:00Z",
+                  "created": true
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PutConnectionConnectionsNamePut400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body",
+                  "code": "bad_request",
+                  "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PutConnectionConnectionsNamePut401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key",
+                  "code": "unauthenticated",
+                  "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PutConnectionConnectionsNamePut403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour.",
+                  "code": "forbidden",
+                  "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PutConnectionConnectionsNamePut500Response"
+                },
+                "example": {
+                  "detail": "Internal server error",
+                  "code": "internal_error",
+                  "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Temporarily unavailable. Nothing was charged; retry after the \u0060Retry-After\u0060 header.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PutConnectionConnectionsNamePut503Response"
+                },
+                "example": {
+                  "detail": "Could not verify the API key right now. Retry shortly.",
+                  "code": "unavailable",
+                  "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "More than 60 requests per minute per API key, signed-in person or OAuth client. Retry after the delay in Retry-After.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds before retrying",
+                "schema": {
+                  "type": "string",
+                  "example": "1"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PutConnectionConnectionsNamePut429Response"
+                },
+                "example": {
+                  "detail": "Rate limit exceeded: 60 requests per minute. Retry after 1 second.",
+                  "code": "rate_limited",
+                  "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21"
+                }
+              }
+            },
+            "x-rate-limit": {
+              "requests": 60,
+              "period_seconds": 60,
+              "scope": "API key, signed-in person or OAuth client"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Connections"
+        ],
+        "summary": "Delete a connected source",
+        "description": "Delete the connection \u0060\u0060name\u0060\u0060. A run already going is refused its next call to it.",
+        "operationId": "DeleteConnectionConnectionsNameDelete",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Name",
+              "type": "string"
+            }
+          },
+          {
+            "name": "team_id",
+            "in": "query",
+            "description": "The team the request is for; refused when the caller\u0027s active team is another",
+            "schema": {
+              "title": "Team Id",
+              "maxLength": 200,
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "The team the request is for; refused when the caller\u0027s active team is another"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseDeleteConnectionConnectionsNameDeleteSchema"
+                },
+                "example": {
+                  "success": true
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteConnectionConnectionsNameDelete400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body",
+                  "code": "bad_request",
+                  "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteConnectionConnectionsNameDelete401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key",
+                  "code": "unauthenticated",
+                  "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteConnectionConnectionsNameDelete403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour.",
+                  "code": "forbidden",
+                  "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteConnectionConnectionsNameDelete500Response"
+                },
+                "example": {
+                  "detail": "Internal server error",
+                  "code": "internal_error",
+                  "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Temporarily unavailable. Nothing was charged; retry after the \u0060Retry-After\u0060 header.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteConnectionConnectionsNameDelete503Response"
+                },
+                "example": {
+                  "detail": "Could not verify the API key right now. Retry shortly.",
+                  "code": "unavailable",
+                  "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "More than 60 requests per minute per API key, signed-in person or OAuth client. Retry after the delay in Retry-After.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds before retrying",
+                "schema": {
+                  "type": "string",
+                  "example": "1"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteConnectionConnectionsNameDelete429Response"
+                },
+                "example": {
+                  "detail": "Rate limit exceeded: 60 requests per minute. Retry after 1 second.",
+                  "code": "rate_limited",
+                  "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21"
+                }
+              }
+            },
+            "x-rate-limit": {
+              "requests": 60,
+              "period_seconds": 60,
+              "scope": "API key, signed-in person or OAuth client"
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -17642,6 +18341,9 @@
               "number"
             ],
             "description": "Session spend in credits; \u0060null\u0060 until the charge is recorded, shortly after the run ends."
+          },
+          "spend_access": {
+            "$ref": "#/components/schemas/AgentSessionSpendAccessProperty"
           }
         }
       },
@@ -18601,6 +19303,75 @@
           }
         }
       },
+      "Connection": {
+        "title": "Connection",
+        "required": [
+          "id",
+          "name",
+          "description",
+          "base_url",
+          "sign_in",
+          "allowed_requests",
+          "secret_last4"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string",
+            "description": "How a run and its agents name the connection"
+          },
+          "description": {
+            "title": "Description",
+            "type": "string",
+            "description": "What it\u0027s for, as the agents read it; empty for none"
+          },
+          "base_url": {
+            "title": "Base Url",
+            "type": "string",
+            "description": "Where the API lives: calls go to this https URL and paths under it"
+          },
+          "sign_in": {
+            "$ref": "#/components/schemas/SignIn"
+          },
+          "allowed_requests": {
+            "title": "Allowed Requests",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "The requests a call may make, a method and a path under the base URL each; null for read-only (GET and HEAD anywhere under it)"
+          },
+          "secret_last4": {
+            "title": "Secret Last4",
+            "type": "string",
+            "description": "The last four characters of the secret; the secret itself is never returned"
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "updated_at": {
+            "title": "Updated At",
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          }
+        }
+      },
       "ContactJobStarted": {
         "examples": [
           {
@@ -19206,10 +19977,35 @@
             "description": "If true, shows the run\u0027s result, status and usage log only to you (with an API key, to the key\u0027s creator). Your team must allow private runs. Atlas runs need the async endpoint and a new investigation.",
             "default": false
           },
+          "connections": {
+            "title": "Connections",
+            "maxItems": 10,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "maxLength": 63,
+              "type": "string"
+            },
+            "description": "Your team\u0027s connected APIs the run\u0027s agents may call, by name. Leave it out to allow all of them; an empty list allows none. Taken by \u0060xhigh\u0060, by \u0060scout\u0060 with \u0060graph\u0060, and by \u0060high\u0060 when enabled for your organization; refused on other tiers."
+          },
           "relentless": {
             "title": "Relentless",
             "type": "boolean",
             "description": "Atlas runs with \u0060struct\u0060 only. If true, researches until the budget runs out. If false, a run may stop once every requested field is answered, and is charged for the research it used (at least one unit). Default: false.",
+            "default": false
+          },
+          "agent_trace": {
+            "title": "Agent Trace",
+            "type": "boolean",
+            "description": "Atlas runs only. If true, the investigation\u0027s Agents tab in Atlas shows a short, readable summary of each agent\u0027s reasoning and actions as it works. The trace is for people reading along: it does not change the research or the results. Leave it off when you only read results through the API. Default: false.",
+            "default": false
+          },
+          "generate_report": {
+            "title": "Generate Report",
+            "type": "boolean",
+            "description": "Atlas runs only. If true, starts the investigation\u0027s PDF intelligence report when research completes. You can also generate one at any time with \u0060POST /investigations/{investigation_id}/report\u0060 or from the Report tab in Atlas. Default: false.",
             "default": false
           },
           "max_credits": {
@@ -20842,6 +21638,9 @@
             ],
             "description": "Spend across every run of this investigation, in credits; \u0060null\u0060 until the charges are recorded, shortly after a run ends."
           },
+          "spend_access": {
+            "$ref": "#/components/schemas/InvestigationSummarySpendAccessProperty"
+          },
           "shared": {
             "$ref": "#/components/schemas/InvestigationSummaryShared"
           },
@@ -21854,10 +22653,35 @@
             "description": "If true, shows the run\u0027s result, status and usage log only to you (with an API key, to the key\u0027s creator). Your team must allow private runs. Atlas runs need the async endpoint and a new investigation.",
             "default": false
           },
+          "connections": {
+            "title": "Connections",
+            "maxItems": 10,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "maxLength": 63,
+              "type": "string"
+            },
+            "description": "Your team\u0027s connected APIs the run\u0027s agents may call, by name. Leave it out to allow all of them; an empty list allows none. Taken by \u0060xhigh\u0060, by \u0060scout\u0060 with \u0060graph\u0060, and by \u0060high\u0060 when enabled for your organization; refused on other tiers."
+          },
           "relentless": {
             "title": "Relentless",
             "type": "boolean",
             "description": "Atlas runs with \u0060struct\u0060 only. If true, researches until the budget runs out. If false, a run may stop once every requested field is answered, and is charged for the research it used (at least one unit). Default: false.",
+            "default": false
+          },
+          "agent_trace": {
+            "title": "Agent Trace",
+            "type": "boolean",
+            "description": "Atlas runs only. If true, the investigation\u0027s Agents tab in Atlas shows a short, readable summary of each agent\u0027s reasoning and actions as it works. The trace is for people reading along: it does not change the research or the results. Leave it off when you only read results through the API. Default: false.",
+            "default": false
+          },
+          "generate_report": {
+            "title": "Generate Report",
+            "type": "boolean",
+            "description": "Atlas runs only. If true, starts the investigation\u0027s PDF intelligence report when research completes. You can also generate one at any time with \u0060POST /investigations/{investigation_id}/report\u0060 or from the Report tab in Atlas. Default: false.",
             "default": false
           },
           "max_credits": {
@@ -21893,6 +22717,68 @@
           }
         },
         "description": "\u0060dispatch_id\u0060 and \u0060exclusive_run\u0060 act only on async runs; sent to the sync route, they are ignored."
+      },
+      "PutConnectionRequest": {
+        "title": "PutConnectionRequest",
+        "type": "object",
+        "properties": {
+          "base_url": {
+            "title": "Base Url",
+            "maxLength": 2048,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Required. An https URL, such as https://api.example.com/v2"
+          },
+          "secret": {
+            "title": "Secret",
+            "description": "The API key, token or password, best a read-only one. Required to create; leave it out to keep the saved one"
+          },
+          "description": {
+            "title": "Description",
+            "maxLength": 2000,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "One line: what it\u0027s for"
+          },
+          "sign_in": {
+            "$ref": "#/components/schemas/PutConnectionRequestSignIn"
+          },
+          "username": {
+            "title": "Username",
+            "description": "For a basic sign-in, sent with the secret as its password"
+          },
+          "allowed_requests": {
+            "title": "Allowed Requests",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "maxLength": 2048,
+              "type": "string"
+            },
+            "description": "A method and a path under the base URL each, such as \u0027POST /search\u0027; left out, calls may GET and HEAD anywhere under it"
+          },
+          "team_id": {
+            "title": "Team Id",
+            "maxLength": 200,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The team the change was made for; refused when the caller\u0027s active team is another"
+          },
+          "create_only": {
+            "title": "Create Only",
+            "type": "boolean",
+            "description": "Only create: refused when the team already has a connection by this name",
+            "default": false
+          }
+        }
       },
       "QaAgentRequest": {
         "examples": [
@@ -22945,6 +23831,81 @@
         },
         "description": "Response for an async save/export request."
       },
+      "SavedConnection": {
+        "title": "SavedConnection",
+        "required": [
+          "id",
+          "name",
+          "description",
+          "base_url",
+          "sign_in",
+          "allowed_requests",
+          "secret_last4",
+          "created"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string",
+            "description": "How a run and its agents name the connection"
+          },
+          "description": {
+            "title": "Description",
+            "type": "string",
+            "description": "What it\u0027s for, as the agents read it; empty for none"
+          },
+          "base_url": {
+            "title": "Base Url",
+            "type": "string",
+            "description": "Where the API lives: calls go to this https URL and paths under it"
+          },
+          "sign_in": {
+            "$ref": "#/components/schemas/SignIn"
+          },
+          "allowed_requests": {
+            "title": "Allowed Requests",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "The requests a call may make, a method and a path under the base URL each; null for read-only (GET and HEAD anywhere under it)"
+          },
+          "secret_last4": {
+            "title": "Secret Last4",
+            "type": "string",
+            "description": "The last four characters of the secret; the secret itself is never returned"
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "updated_at": {
+            "title": "Updated At",
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "created": {
+            "title": "Created",
+            "type": "boolean",
+            "description": "True when this write created the connection, false when it replaced one"
+          }
+        }
+      },
       "ScheduleDeleted": {
         "title": "ScheduleDeleted",
         "required": [
@@ -23298,6 +24259,28 @@
         },
         "description": "How the seeds resolved to profiles."
       },
+      "SignIn": {
+        "title": "SignIn",
+        "type": "object",
+        "properties": {
+          "type": {
+            "title": "Type",
+            "maxLength": 200,
+            "type": "string",
+            "description": "How the secret is sent: bearer (Authorization: Bearer), header, query, or basic (HTTP Basic)",
+            "default": "bearer"
+          },
+          "name": {
+            "title": "Name",
+            "maxLength": 200,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The header or query parameter the secret goes in, for header and query"
+          }
+        }
+      },
       "SkillPut": {
         "title": "SkillPut",
         "required": [
@@ -23568,6 +24551,26 @@
           "seed_diagnostics": {
             "description": "How the seeds resolved to profiles.",
             "$ref": "#/components/schemas/SeedDiagnostics"
+          }
+        }
+      },
+      "TeamConnections": {
+        "title": "TeamConnections",
+        "required": [
+          "connections",
+          "actions"
+        ],
+        "type": "object",
+        "properties": {
+          "connections": {
+            "title": "Connections",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Connection"
+            }
+          },
+          "actions": {
+            "$ref": "#/components/schemas/TeamConnectionsActionsProperty"
           }
         }
       },
@@ -24425,6 +25428,9 @@
             "type": "integer",
             "description": "Number of blocks in the workflow at run time.",
             "default": 0
+          },
+          "spend_access": {
+            "$ref": "#/components/schemas/WorkflowRunResponseSpendAccessProperty"
           }
         },
         "description": "Response model for workflow run list items."
@@ -25148,6 +26154,43 @@
             }
           }
         ]
+      },
+      "PutConnectionRequestSignIn": {
+        "title": "SignIn",
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "type": {
+            "title": "Type",
+            "maxLength": 200,
+            "type": "string",
+            "description": "How the secret is sent: bearer (Authorization: Bearer), header, query, or basic (HTTP Basic)",
+            "default": "bearer"
+          },
+          "name": {
+            "title": "Name",
+            "maxLength": 200,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The header or query parameter the secret goes in, for header and query"
+          }
+        },
+        "description": "How the secret is sent; bearer when left out",
+        "x-client-original-nullable-union": {
+          "anyOf": [
+            {
+              "$ref": "#/components/schemas/SignIn"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "How the secret is sent; bearer when left out"
+        }
       },
       "QaAgentRequestStruct": {
         "propertyNames": {
@@ -36715,6 +37758,390 @@
           }
         }
       },
+      "ListConnectionsConnectionsGet400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string",
+            "description": "Stable error code, for programs."
+          },
+          "correlation_id": {
+            "type": "string",
+            "description": "This request\u0027s ID, also in \u0060X-Correlation-ID\u0060. Quote it to support."
+          }
+        }
+      },
+      "ListConnectionsConnectionsGet401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string",
+            "description": "Stable error code, for programs."
+          },
+          "correlation_id": {
+            "type": "string",
+            "description": "This request\u0027s ID, also in \u0060X-Correlation-ID\u0060. Quote it to support."
+          }
+        }
+      },
+      "ListConnectionsConnectionsGet403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string",
+            "description": "Stable error code, for programs."
+          },
+          "correlation_id": {
+            "type": "string",
+            "description": "This request\u0027s ID, also in \u0060X-Correlation-ID\u0060. Quote it to support."
+          }
+        }
+      },
+      "ListConnectionsConnectionsGet500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string",
+            "description": "Stable error code, for programs."
+          },
+          "correlation_id": {
+            "type": "string",
+            "description": "This request\u0027s ID, also in \u0060X-Correlation-ID\u0060. Quote it to support."
+          }
+        }
+      },
+      "ListConnectionsConnectionsGet503Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string",
+            "description": "Stable error code, for programs."
+          },
+          "correlation_id": {
+            "type": "string",
+            "description": "This request\u0027s ID, also in \u0060X-Correlation-ID\u0060. Quote it to support."
+          }
+        }
+      },
+      "ListConnectionsConnectionsGet429Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string",
+            "description": "Stable error code, for programs."
+          },
+          "correlation_id": {
+            "type": "string",
+            "description": "This request\u0027s ID, also in \u0060X-Correlation-ID\u0060. Quote it to support."
+          }
+        }
+      },
+      "ReadConnectionConnectionsNameGet400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string",
+            "description": "Stable error code, for programs."
+          },
+          "correlation_id": {
+            "type": "string",
+            "description": "This request\u0027s ID, also in \u0060X-Correlation-ID\u0060. Quote it to support."
+          }
+        }
+      },
+      "ReadConnectionConnectionsNameGet401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string",
+            "description": "Stable error code, for programs."
+          },
+          "correlation_id": {
+            "type": "string",
+            "description": "This request\u0027s ID, also in \u0060X-Correlation-ID\u0060. Quote it to support."
+          }
+        }
+      },
+      "ReadConnectionConnectionsNameGet403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string",
+            "description": "Stable error code, for programs."
+          },
+          "correlation_id": {
+            "type": "string",
+            "description": "This request\u0027s ID, also in \u0060X-Correlation-ID\u0060. Quote it to support."
+          }
+        }
+      },
+      "ReadConnectionConnectionsNameGet500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string",
+            "description": "Stable error code, for programs."
+          },
+          "correlation_id": {
+            "type": "string",
+            "description": "This request\u0027s ID, also in \u0060X-Correlation-ID\u0060. Quote it to support."
+          }
+        }
+      },
+      "ReadConnectionConnectionsNameGet503Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string",
+            "description": "Stable error code, for programs."
+          },
+          "correlation_id": {
+            "type": "string",
+            "description": "This request\u0027s ID, also in \u0060X-Correlation-ID\u0060. Quote it to support."
+          }
+        }
+      },
+      "ReadConnectionConnectionsNameGet429Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string",
+            "description": "Stable error code, for programs."
+          },
+          "correlation_id": {
+            "type": "string",
+            "description": "This request\u0027s ID, also in \u0060X-Correlation-ID\u0060. Quote it to support."
+          }
+        }
+      },
+      "PutConnectionConnectionsNamePut400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string",
+            "description": "Stable error code, for programs."
+          },
+          "correlation_id": {
+            "type": "string",
+            "description": "This request\u0027s ID, also in \u0060X-Correlation-ID\u0060. Quote it to support."
+          }
+        }
+      },
+      "PutConnectionConnectionsNamePut401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string",
+            "description": "Stable error code, for programs."
+          },
+          "correlation_id": {
+            "type": "string",
+            "description": "This request\u0027s ID, also in \u0060X-Correlation-ID\u0060. Quote it to support."
+          }
+        }
+      },
+      "PutConnectionConnectionsNamePut403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string",
+            "description": "Stable error code, for programs."
+          },
+          "correlation_id": {
+            "type": "string",
+            "description": "This request\u0027s ID, also in \u0060X-Correlation-ID\u0060. Quote it to support."
+          }
+        }
+      },
+      "PutConnectionConnectionsNamePut500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string",
+            "description": "Stable error code, for programs."
+          },
+          "correlation_id": {
+            "type": "string",
+            "description": "This request\u0027s ID, also in \u0060X-Correlation-ID\u0060. Quote it to support."
+          }
+        }
+      },
+      "PutConnectionConnectionsNamePut503Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string",
+            "description": "Stable error code, for programs."
+          },
+          "correlation_id": {
+            "type": "string",
+            "description": "This request\u0027s ID, also in \u0060X-Correlation-ID\u0060. Quote it to support."
+          }
+        }
+      },
+      "PutConnectionConnectionsNamePut429Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string",
+            "description": "Stable error code, for programs."
+          },
+          "correlation_id": {
+            "type": "string",
+            "description": "This request\u0027s ID, also in \u0060X-Correlation-ID\u0060. Quote it to support."
+          }
+        }
+      },
+      "DeleteConnectionConnectionsNameDelete400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string",
+            "description": "Stable error code, for programs."
+          },
+          "correlation_id": {
+            "type": "string",
+            "description": "This request\u0027s ID, also in \u0060X-Correlation-ID\u0060. Quote it to support."
+          }
+        }
+      },
+      "DeleteConnectionConnectionsNameDelete401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string",
+            "description": "Stable error code, for programs."
+          },
+          "correlation_id": {
+            "type": "string",
+            "description": "This request\u0027s ID, also in \u0060X-Correlation-ID\u0060. Quote it to support."
+          }
+        }
+      },
+      "DeleteConnectionConnectionsNameDelete403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string",
+            "description": "Stable error code, for programs."
+          },
+          "correlation_id": {
+            "type": "string",
+            "description": "This request\u0027s ID, also in \u0060X-Correlation-ID\u0060. Quote it to support."
+          }
+        }
+      },
+      "DeleteConnectionConnectionsNameDelete500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string",
+            "description": "Stable error code, for programs."
+          },
+          "correlation_id": {
+            "type": "string",
+            "description": "This request\u0027s ID, also in \u0060X-Correlation-ID\u0060. Quote it to support."
+          }
+        }
+      },
+      "DeleteConnectionConnectionsNameDelete503Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string",
+            "description": "Stable error code, for programs."
+          },
+          "correlation_id": {
+            "type": "string",
+            "description": "This request\u0027s ID, also in \u0060X-Correlation-ID\u0060. Quote it to support."
+          }
+        }
+      },
+      "DeleteConnectionConnectionsNameDelete429Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string",
+            "description": "Stable error code, for programs."
+          },
+          "correlation_id": {
+            "type": "string",
+            "description": "This request\u0027s ID, also in \u0060X-Correlation-ID\u0060. Quote it to support."
+          }
+        }
+      },
       "ResponseListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGetSchema": {
         "title": "Response List Run Results With Download Links Workflows Runs  Run Id  Results Download Links Get",
         "type": "array",
@@ -36830,6 +38257,13 @@
       },
       "ResponseDeleteTeamSkillSkillsNameDeleteSchema": {
         "title": "Response Delete Team Skill Skills  Name  Delete",
+        "type": "object",
+        "additionalProperties": {
+          "type": "boolean"
+        }
+      },
+      "ResponseDeleteConnectionConnectionsNameDeleteSchema": {
+        "title": "Response Delete Connection Connections  Name  Delete",
         "type": "object",
         "additionalProperties": {
           "type": "boolean"
@@ -37025,6 +38459,14 @@
         ],
         "additionalProperties": {},
         "description": "When present, fetch the full payload from GET /v1/atlas/investigations/{investigation_id}/events/{event_id}/payload using the event\u0027s id. Treat this reference as opaque."
+      },
+      "AgentSessionSpendAccessProperty": {
+        "title": "Spend Access",
+        "type": [
+          "null",
+          "object"
+        ],
+        "description": "Set when the cost is withheld from the caller, who may not see what the investigation\u0027s creator spent: why, as \u0060state\u0060, \u0060reason\u0060 and \u0060message\u0060. \u0060cost_cents\u0060 and \u0060cost_credits\u0060 are then null."
       },
       "BlockSpecsProperty": {
         "title": "Specs",
@@ -37228,6 +38670,14 @@
         "title": "Lead Info",
         "type": "object",
         "description": "The original input the investigation was started from."
+      },
+      "InvestigationSummarySpendAccessProperty": {
+        "title": "Spend Access",
+        "type": [
+          "null",
+          "object"
+        ],
+        "description": "Set when the cost is withheld from the caller, who may not see what the investigation\u0027s creator spent: why, as \u0060state\u0060, \u0060reason\u0060 and \u0060message\u0060. \u0060cost_cents\u0060 and \u0060cost_credits\u0060 are then null."
       },
       "LinkedInEnrichRequestStructProperty": {
         "title": "Struct",
@@ -37434,6 +38884,14 @@
         "type": "object",
         "description": "Who to investigate, e.g. {\u0022name\u0022: \u0022Jane Doe\u0022, \u0022company\u0022: \u0022Acme\u0022}."
       },
+      "TeamConnectionsActionsProperty": {
+        "title": "Actions",
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/TeamConnectionsActionsPropertyAdditionalProperties"
+        },
+        "description": "Whether the caller may change the team\u0027s connections: team.manage_connections, with its state (enabled, disabled or hidden) and the reason it is not enabled"
+      },
       "TeamSkillsActionsProperty": {
         "title": "Actions",
         "type": "object",
@@ -37461,6 +38919,14 @@
           "object"
         ],
         "description": "Run totals. \u0060workflow_cost_credits\u0060 is the run\u0027s cost in credits; \u0060workflow_cost\u0060 is deprecated."
+      },
+      "WorkflowRunResponseSpendAccessProperty": {
+        "title": "Spend Access",
+        "type": [
+          "null",
+          "object"
+        ],
+        "description": "Set when the run\u0027s cost is withheld from the caller, who may not see what this person spent: why, as \u0060state\u0060, \u0060reason\u0060 and \u0060message\u0060. The cost fields in \u0060metrics\u0060 are then null."
       },
       "WorkspaceFileEntryAttachmentProperty": {
         "title": "Attachment",
@@ -37580,6 +39046,9 @@
       "UpdateWorkflowWorkflowsUpdateWorkflowPost409ResponseDetailOneOf1CurrentWorkflow": {
         "type": "object",
         "description": "The workflow as it is now, in this endpoint\u0027s response shape."
+      },
+      "TeamConnectionsActionsPropertyAdditionalProperties": {
+        "type": "object"
       },
       "AgeVerificationStatusStatus": {
         "title": "Status",
@@ -39428,6 +40897,14 @@
       "additionalProperties": {},
       "description": "When present, fetch the full payload from GET /v1/atlas/investigations/{investigation_id}/events/{event_id}/payload using the event\u0027s id. Treat this reference as opaque."
     },
+    "AgentSessionSpendAccess": {
+      "title": "Spend Access",
+      "type": [
+        "null",
+        "object"
+      ],
+      "description": "Set when the cost is withheld from the caller, who may not see what the investigation\u0027s creator spent: why, as \u0060state\u0060, \u0060reason\u0060 and \u0060message\u0060. \u0060cost_cents\u0060 and \u0060cost_credits\u0060 are then null."
+    },
     "BlockSpecs": {
       "title": "Specs",
       "type": "object",
@@ -39630,6 +41107,14 @@
       "title": "Lead Info",
       "type": "object",
       "description": "The original input the investigation was started from."
+    },
+    "InvestigationSummarySpendAccess": {
+      "title": "Spend Access",
+      "type": [
+        "null",
+        "object"
+      ],
+      "description": "Set when the cost is withheld from the caller, who may not see what the investigation\u0027s creator spent: why, as \u0060state\u0060, \u0060reason\u0060 and \u0060message\u0060. \u0060cost_cents\u0060 and \u0060cost_credits\u0060 are then null."
     },
     "LinkedInEnrichRequestStruct": {
       "title": "Struct",
@@ -39841,6 +41326,14 @@
       "type": "object",
       "description": "Block-specific configuration; shape depends on \u0060block_name\u0060."
     },
+    "TeamConnectionsActions": {
+      "title": "Actions",
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/TeamConnectionsActionsAdditionalPropertiesProperty"
+      },
+      "description": "Whether the caller may change the team\u0027s connections: team.manage_connections, with its state (enabled, disabled or hidden) and the reason it is not enabled"
+    },
     "TeamSkillsActions": {
       "title": "Actions",
       "type": "object",
@@ -39873,6 +41366,14 @@
       ],
       "description": "Run totals. \u0060workflow_cost_credits\u0060 is the run\u0027s cost in credits; \u0060workflow_cost\u0060 is deprecated."
     },
+    "WorkflowRunResponseSpendAccess": {
+      "title": "Spend Access",
+      "type": [
+        "null",
+        "object"
+      ],
+      "description": "Set when the run\u0027s cost is withheld from the caller, who may not see what this person spent: why, as \u0060state\u0060, \u0060reason\u0060 and \u0060message\u0060. The cost fields in \u0060metrics\u0060 are then null."
+    },
     "WorkspaceFileEntryAttachment": {
       "title": "Attachment",
       "type": [
@@ -39884,6 +41385,9 @@
     "ValidationErrorCtx": {
       "type": "object",
       "description": "Optional error context."
+    },
+    "TeamConnectionsActionsAdditionalProperties": {
+      "type": "object"
     },
     "ResponseListRunResultsWithDownloadLinksWorkflowsRunsRunIdResultsDownloadLinksGet": {
       "title": "Response List Run Results With Download Links Workflows Runs  Run Id  Results Download Links Get",
@@ -40020,6 +41524,13 @@
         "type": "boolean"
       }
     },
+    "ResponseDeleteConnectionConnectionsNameDelete": {
+      "title": "Response Delete Connection Connections  Name  Delete",
+      "type": "object",
+      "additionalProperties": {
+        "type": "boolean"
+      }
+    },
     "ExamplePayload": {
       "type": "object",
       "description": "Placeholder schema for path example refs"
@@ -40111,6 +41622,9 @@
     },
     "TestEventExampleExampleProperty": {
       "title": "Example",
+      "type": "object"
+    },
+    "TeamConnectionsActionsAdditionalPropertiesProperty": {
       "type": "object"
     },
     "ResponseMonitorChangesEndpointMonitorsMonitorIdChangesGetAdditionalProperties": {

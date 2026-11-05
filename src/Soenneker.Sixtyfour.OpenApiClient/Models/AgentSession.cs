@@ -33,6 +33,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
             if (parseNode.GetChildNode("parent_session_id") is null) { _explicitNullValueParentSessionId = default!; _explicitNullProperties?.Remove("parent_session_id"); }
             else if (parseNode.GetChildNode("parent_session_id") is { } nullNodeParentSessionId && nullNodeParentSessionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ParentSessionId = null;
+            if (parseNode.GetChildNode("spend_access") is null) { _explicitNullValueSpendAccess = default!; _explicitNullProperties?.Remove("spend_access"); }
+            else if (parseNode.GetChildNode("spend_access") is { } nullNodeSpendAccess && nullNodeSpendAccess.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpendAccess = null;
             if (parseNode.GetChildNode("started_at") is null) { _explicitNullValueStartedAt = default!; _explicitNullProperties?.Remove("started_at"); }
             else if (parseNode.GetChildNode("started_at") is { } nullNodeStartedAt && nullNodeStartedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartedAt = null;
             if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
@@ -112,6 +114,16 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string ParentSessionId { get => _explicitNullValueParentSessionId; set { _explicitNullValueParentSessionId = value; AdditionalData?.Remove("parent_session_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_session_id"); else _explicitNullProperties?.Remove("parent_session_id"); } }
         private string _explicitNullValueParentSessionId = default!;
 #endif
+        /// <summary>Set when the cost is withheld from the caller, who may not see what the investigation&apos;s creator spent: why, as `state`, `reason` and `message`. `cost_cents` and `cost_credits` are then null.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgentSessionSpendAccessProperty? SpendAccess { get => _explicitNullValueSpendAccess; set { _explicitNullValueSpendAccess = value; AdditionalData?.Remove("spend_access"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spend_access"); else _explicitNullProperties?.Remove("spend_access"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.AgentSessionSpendAccessProperty? _explicitNullValueSpendAccess = default!;
+#nullable restore
+#else
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.AgentSessionSpendAccessProperty SpendAccess { get => _explicitNullValueSpendAccess; set { _explicitNullValueSpendAccess = value; AdditionalData?.Remove("spend_access"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spend_access"); else _explicitNullProperties?.Remove("spend_access"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.AgentSessionSpendAccessProperty _explicitNullValueSpendAccess = default!;
+#endif
         /// <summary>The started_at property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -178,6 +190,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "ended_at", n => { EndedAt = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "parent_session_id", n => { ParentSessionId = n.GetStringValue(); } },
+                { "spend_access", n => { SpendAccess = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgentSessionSpendAccessProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.AgentSessionSpendAccessProperty.CreateFromDiscriminatorValue); } },
                 { "started_at", n => { StartedAt = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "task", n => { Task = n.GetStringValue(); } },
@@ -199,6 +212,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteStringValue("ended_at", EndedAt);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("parent_session_id", ParentSessionId);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgentSessionSpendAccessProperty>("spend_access", SpendAccess);
             writer.WriteStringValue("started_at", StartedAt);
             writer.WriteStringValue("status", Status);
             writer.WriteStringValue("task", Task);

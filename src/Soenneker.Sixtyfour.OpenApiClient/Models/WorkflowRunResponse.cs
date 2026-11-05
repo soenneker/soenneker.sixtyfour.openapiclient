@@ -36,6 +36,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             else if (parseNode.GetChildNode("metrics") is { } nullNodeMetrics && nullNodeMetrics.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Metrics = null;
             if (parseNode.GetChildNode("queued_at") is null) { _explicitNullValueQueuedAt = default!; _explicitNullProperties?.Remove("queued_at"); }
             else if (parseNode.GetChildNode("queued_at") is { } nullNodeQueuedAt && nullNodeQueuedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) QueuedAt = null;
+            if (parseNode.GetChildNode("spend_access") is null) { _explicitNullValueSpendAccess = default!; _explicitNullProperties?.Remove("spend_access"); }
+            else if (parseNode.GetChildNode("spend_access") is { } nullNodeSpendAccess && nullNodeSpendAccess.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpendAccess = null;
             if (parseNode.GetChildNode("started_at") is null) { _explicitNullValueStartedAt = default!; _explicitNullProperties?.Remove("started_at"); }
             else if (parseNode.GetChildNode("started_at") is { } nullNodeStartedAt && nullNodeStartedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartedAt = null;
             if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
@@ -109,6 +111,16 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Timestamp when the run was enqueued.</summary>
         public DateTimeOffset? QueuedAt { get => _explicitNullValueQueuedAt; set { _explicitNullValueQueuedAt = value; AdditionalData?.Remove("queued_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("queued_at"); else _explicitNullProperties?.Remove("queued_at"); } }
         private DateTimeOffset? _explicitNullValueQueuedAt = default!;
+        /// <summary>Set when the run&apos;s cost is withheld from the caller, who may not see what this person spent: why, as `state`, `reason` and `message`. The cost fields in `metrics` are then null.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponseSpendAccessProperty? SpendAccess { get => _explicitNullValueSpendAccess; set { _explicitNullValueSpendAccess = value; AdditionalData?.Remove("spend_access"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spend_access"); else _explicitNullProperties?.Remove("spend_access"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponseSpendAccessProperty? _explicitNullValueSpendAccess = default!;
+#nullable restore
+#else
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponseSpendAccessProperty SpendAccess { get => _explicitNullValueSpendAccess; set { _explicitNullValueSpendAccess = value; AdditionalData?.Remove("spend_access"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spend_access"); else _explicitNullProperties?.Remove("spend_access"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponseSpendAccessProperty _explicitNullValueSpendAccess = default!;
+#endif
         /// <summary>Timestamp when execution started.</summary>
         public DateTimeOffset? StartedAt { get => _explicitNullValueStartedAt; set { _explicitNullValueStartedAt = value; AdditionalData?.Remove("started_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("started_at"); else _explicitNullProperties?.Remove("started_at"); } }
         private DateTimeOffset? _explicitNullValueStartedAt = default!;
@@ -201,6 +213,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "job_id", n => { JobId = n.GetStringValue(); } },
                 { "metrics", n => { Metrics = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponseMetricsProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponseMetricsProperty.CreateFromDiscriminatorValue); } },
                 { "queued_at", n => { QueuedAt = n.GetDateTimeOffsetValue(); } },
+                { "spend_access", n => { SpendAccess = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponseSpendAccessProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponseSpendAccessProperty.CreateFromDiscriminatorValue); } },
                 { "started_at", n => { StartedAt = n.GetDateTimeOffsetValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "status_reason", n => { StatusReason = n.GetStringValue(); } },
@@ -226,6 +239,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteStringValue("job_id", JobId);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponseMetricsProperty>("metrics", Metrics);
             writer.WriteDateTimeOffsetValue("queued_at", QueuedAt);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.WorkflowRunResponseSpendAccessProperty>("spend_access", SpendAccess);
             writer.WriteDateTimeOffsetValue("started_at", StartedAt);
             writer.WriteStringValue("status", Status);
             writer.WriteStringValue("status_reason", StatusReason);

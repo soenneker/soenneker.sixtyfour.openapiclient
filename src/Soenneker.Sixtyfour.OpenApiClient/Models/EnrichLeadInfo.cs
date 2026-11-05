@@ -17,12 +17,18 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
+            if (parseNode.GetChildNode("agent_trace") is null) { _explicitNullValueAgentTrace = default!; _explicitNullProperties?.Remove("agent_trace"); }
+            else if (parseNode.GetChildNode("agent_trace") is { } nullNodeAgentTrace && nullNodeAgentTrace.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentTrace = null;
+            if (parseNode.GetChildNode("connections") is null) { _explicitNullValueConnections = default!; _explicitNullProperties?.Remove("connections"); }
+            else if (parseNode.GetChildNode("connections") is { } nullNodeConnections && nullNodeConnections.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Connections = null;
             if (parseNode.GetChildNode("dispatch_id") is null) { _explicitNullValueDispatchId = default!; _explicitNullProperties?.Remove("dispatch_id"); }
             else if (parseNode.GetChildNode("dispatch_id") is { } nullNodeDispatchId && nullNodeDispatchId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DispatchId = null;
             if (parseNode.GetChildNode("exclusive_run") is null) { _explicitNullValueExclusiveRun = default!; _explicitNullProperties?.Remove("exclusive_run"); }
             else if (parseNode.GetChildNode("exclusive_run") is { } nullNodeExclusiveRun && nullNodeExclusiveRun.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExclusiveRun = null;
             if (parseNode.GetChildNode("field_confidence") is null) { _explicitNullValueFieldConfidence = default!; _explicitNullProperties?.Remove("field_confidence"); }
             else if (parseNode.GetChildNode("field_confidence") is { } nullNodeFieldConfidence && nullNodeFieldConfidence.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FieldConfidence = null;
+            if (parseNode.GetChildNode("generate_report") is null) { _explicitNullValueGenerateReport = default!; _explicitNullProperties?.Remove("generate_report"); }
+            else if (parseNode.GetChildNode("generate_report") is { } nullNodeGenerateReport && nullNodeGenerateReport.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GenerateReport = null;
             if (parseNode.GetChildNode("graph") is null) { _explicitNullValueGraph = default!; _explicitNullProperties?.Remove("graph"); }
             else if (parseNode.GetChildNode("graph") is { } nullNodeGraph && nullNodeGraph.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Graph = null;
             if (parseNode.GetChildNode("include_workspace") is null) { _explicitNullValueIncludeWorkspace = default!; _explicitNullProperties?.Remove("include_workspace"); }
@@ -55,6 +61,19 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Atlas runs only. If true, the investigation&apos;s Agents tab in Atlas shows a short, readable summary of each agent&apos;s reasoning and actions as it works. The trace is for people reading along: it does not change the research or the results. Leave it off when you only read results through the API. Default: false.</summary>
+        public bool? AgentTrace { get => _explicitNullValueAgentTrace; set { _explicitNullValueAgentTrace = value; AdditionalData?.Remove("agent_trace"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_trace"); else _explicitNullProperties?.Remove("agent_trace"); } }
+        private bool? _explicitNullValueAgentTrace = default!;
+        /// <summary>Your team&apos;s connected APIs the run&apos;s agents may call, by name. Leave it out to allow all of them; an empty list allows none. Taken by `xhigh`, by `scout` with `graph`, and by `high` when enabled for your organization; refused on other tiers.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Connections { get => _explicitNullValueConnections; set { _explicitNullValueConnections = value; AdditionalData?.Remove("connections"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connections"); else _explicitNullProperties?.Remove("connections"); } }
+        private List<string>? _explicitNullValueConnections = default!;
+#nullable restore
+#else
+        public List<string> Connections { get => _explicitNullValueConnections; set { _explicitNullValueConnections = value; AdditionalData?.Remove("connections"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connections"); else _explicitNullProperties?.Remove("connections"); } }
+        private List<string> _explicitNullValueConnections = default!;
+#endif
         /// <summary>An idempotency key you generate. A retry with the same key returns the job already started instead of starting and charging a second one.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -71,6 +90,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>If true, returns each requested field&apos;s confidence (0-100), justification and source URLs, nested like the request. Default: false.</summary>
         public bool? FieldConfidence { get => _explicitNullValueFieldConfidence; set { _explicitNullValueFieldConfidence = value; AdditionalData?.Remove("field_confidence"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field_confidence"); else _explicitNullProperties?.Remove("field_confidence"); } }
         private bool? _explicitNullValueFieldConfidence = default!;
+        /// <summary>Atlas runs only. If true, starts the investigation&apos;s PDF intelligence report when research completes. You can also generate one at any time with `POST /investigations/{investigation_id}/report` or from the Report tab in Atlas. Default: false.</summary>
+        public bool? GenerateReport { get => _explicitNullValueGenerateReport; set { _explicitNullValueGenerateReport = value; AdditionalData?.Remove("generate_report"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("generate_report"); else _explicitNullProperties?.Remove("generate_report"); } }
+        private bool? _explicitNullValueGenerateReport = default!;
         /// <summary>`scout` only. If true, runs Scout as an Atlas investigation, billed per unit of research. It enables the Atlas run options (`max_credits`, `max_minutes`, `relentless`, `investigation_id`, `investigation_name`, `include_workspace`), makes `struct` optional, and the async response returns the `investigation`. Requires Scout in Atlas for your organization. If false or omitted, Scout runs as usual.</summary>
         public bool? Graph { get => _explicitNullValueGraph; set { _explicitNullValueGraph = value; AdditionalData?.Remove("graph"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("graph"); else _explicitNullProperties?.Remove("graph"); } }
         private bool? _explicitNullValueGraph = default!;
@@ -175,7 +197,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public EnrichLeadInfo()
         {
             AdditionalData = new Dictionary<string, object>();
+            AgentTrace = false;
             ExclusiveRun = false;
+            GenerateReport = false;
             Private = false;
             Relentless = false;
         }
@@ -197,9 +221,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "agent_trace", n => { AgentTrace = n.GetBoolValue(); } },
+                { "connections", n => { Connections = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "dispatch_id", n => { DispatchId = n.GetStringValue(); } },
                 { "exclusive_run", n => { ExclusiveRun = n.GetBoolValue(); } },
                 { "field_confidence", n => { FieldConfidence = n.GetBoolValue(); } },
+                { "generate_report", n => { GenerateReport = n.GetBoolValue(); } },
                 { "graph", n => { Graph = n.GetBoolValue(); } },
                 { "include_workspace", n => { IncludeWorkspace = n.GetBoolValue(); } },
                 { "investigation_id", n => { InvestigationId = n.GetStringValue(); } },
@@ -223,9 +250,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("agent_trace", AgentTrace);
+            writer.WriteCollectionOfPrimitiveValues<string>("connections", Connections);
             writer.WriteStringValue("dispatch_id", DispatchId);
             writer.WriteBoolValue("exclusive_run", ExclusiveRun);
             writer.WriteBoolValue("field_confidence", FieldConfidence);
+            writer.WriteBoolValue("generate_report", GenerateReport);
             writer.WriteBoolValue("graph", Graph);
             writer.WriteBoolValue("include_workspace", IncludeWorkspace);
             writer.WriteStringValue("investigation_id", InvestigationId);
