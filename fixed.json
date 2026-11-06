@@ -6252,7 +6252,7 @@
                   "$ref": "#/components/schemas/StartLookalikeSearchEndpointSearchLookalikePost503Response"
                 },
                 "example": {
-                  "detail": "Company search is unavailable right now.",
+                  "detail": "Search is at capacity. Retry shortly.",
                   "code": "unavailable",
                   "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21"
                 }
@@ -6449,7 +6449,7 @@
                   "$ref": "#/components/schemas/LookalikeSearchStatusEndpointSearchLookalikeTaskIdGet503Response"
                 },
                 "example": {
-                  "detail": "Company search is unavailable right now.",
+                  "detail": "Search is at capacity. Retry shortly.",
                   "code": "unavailable",
                   "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21"
                 }
@@ -6621,7 +6621,7 @@
                   "$ref": "#/components/schemas/StartAgenticSearchEndpointSearchStartDeepSearchPost503Response"
                 },
                 "example": {
-                  "detail": "Company search is unavailable right now.",
+                  "detail": "Search is at capacity. Retry shortly.",
                   "code": "unavailable",
                   "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21"
                 }
@@ -6798,7 +6798,7 @@
                   "$ref": "#/components/schemas/SearchStatusEndpointSearchStatusTaskIdGet503Response"
                 },
                 "example": {
-                  "detail": "Company search is unavailable right now.",
+                  "detail": "Search is at capacity. Retry shortly.",
                   "code": "unavailable",
                   "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21"
                 }
@@ -6964,7 +6964,7 @@
                   "$ref": "#/components/schemas/DownloadSearchResultSearchDownloadGet503Response"
                 },
                 "example": {
-                  "detail": "Company search is unavailable right now.",
+                  "detail": "Search is at capacity. Retry shortly.",
                   "code": "unavailable",
                   "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21"
                 }
@@ -7116,7 +7116,7 @@
                   "$ref": "#/components/schemas/GetSearchLimitsEndpointSearchLimitsGet503Response"
                 },
                 "example": {
-                  "detail": "Company search is unavailable right now.",
+                  "detail": "Search is at capacity. Retry shortly.",
                   "code": "unavailable",
                   "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21"
                 }
@@ -7282,7 +7282,7 @@
                   "$ref": "#/components/schemas/GetFilterCapabilitiesEndpointSearchFilterCapabilitiesGet503Response"
                 },
                 "example": {
-                  "detail": "Company search is unavailable right now.",
+                  "detail": "Search is at capacity. Retry shortly.",
                   "code": "unavailable",
                   "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21"
                 }
@@ -7686,7 +7686,7 @@
                   "$ref": "#/components/schemas/SearchQueryEndpointSearchQueryPost503Response"
                 },
                 "example": {
-                  "detail": "Company search is unavailable right now.",
+                  "detail": "Search is at capacity. Retry shortly.",
                   "code": "unavailable",
                   "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21"
                 }
@@ -7862,7 +7862,7 @@
                   "$ref": "#/components/schemas/SearchExportEndpointSearchExportPost503Response"
                 },
                 "example": {
-                  "detail": "Company search is unavailable right now.",
+                  "detail": "Search is at capacity. Retry shortly.",
                   "code": "unavailable",
                   "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21"
                 }
