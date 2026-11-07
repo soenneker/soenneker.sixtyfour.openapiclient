@@ -24,6 +24,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             else if (parseNode.GetChildNode("correlation_id") is { } nullNodeCorrelationId && nullNodeCorrelationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CorrelationId = null;
             if (parseNode.GetChildNode("detail") is null) { _explicitNullValueDetail = default!; _explicitNullProperties?.Remove("detail"); }
             else if (parseNode.GetChildNode("detail") is { } nullNodeDetail && nullNodeDetail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Detail = null;
+            if (parseNode.GetChildNode("feedback") is null) { _explicitNullValueFeedback = default!; _explicitNullProperties?.Remove("feedback"); }
+            else if (parseNode.GetChildNode("feedback") is { } nullNodeFeedback && nullNodeFeedback.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Feedback = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -58,6 +60,16 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowWorkflowsRunPost503ResponseDetail Detail { get => _explicitNullValueDetail; set { _explicitNullValueDetail = value; AdditionalData?.Remove("detail"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("detail"); else _explicitNullProperties?.Remove("detail"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowWorkflowsRunPost503ResponseDetail _explicitNullValueDetail = default!;
 #endif
+        /// <summary>How to report a problem with this response.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Feedback { get => _explicitNullValueFeedback; set { _explicitNullValueFeedback = value; AdditionalData?.Remove("feedback"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("feedback"); else _explicitNullProperties?.Remove("feedback"); } }
+        private string? _explicitNullValueFeedback = default!;
+#nullable restore
+#else
+        public string Feedback { get => _explicitNullValueFeedback; set { _explicitNullValueFeedback = value; AdditionalData?.Remove("feedback"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("feedback"); else _explicitNullProperties?.Remove("feedback"); } }
+        private string _explicitNullValueFeedback = default!;
+#endif
         /// <summary>The primary error message.</summary>
         public override string Message { get => base.Message; }
         /// <summary>
@@ -88,6 +100,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "code", n => { Code = n.GetStringValue(); } },
                 { "correlation_id", n => { CorrelationId = n.GetStringValue(); } },
                 { "detail", n => { Detail = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowWorkflowsRunPost503ResponseDetail>(global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowWorkflowsRunPost503ResponseDetail.CreateFromDiscriminatorValue); } },
+                { "feedback", n => { Feedback = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -100,6 +113,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteStringValue("code", Code);
             writer.WriteStringValue("correlation_id", CorrelationId);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunWorkflowWorkflowsRunPost503ResponseDetail>("detail", Detail);
+            writer.WriteStringValue("feedback", Feedback);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

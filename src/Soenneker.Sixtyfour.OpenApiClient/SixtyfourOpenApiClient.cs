@@ -12,6 +12,7 @@ using Soenneker.Sixtyfour.OpenApiClient.CompanyIntelligence;
 using Soenneker.Sixtyfour.OpenApiClient.CompanyIntelligenceAsync;
 using Soenneker.Sixtyfour.OpenApiClient.Connections;
 using Soenneker.Sixtyfour.OpenApiClient.EnrichLinkedin;
+using Soenneker.Sixtyfour.OpenApiClient.Feedback;
 using Soenneker.Sixtyfour.OpenApiClient.FindEmail;
 using Soenneker.Sixtyfour.OpenApiClient.FindEmailAsync;
 using Soenneker.Sixtyfour.OpenApiClient.FindEmailBulk;
@@ -84,6 +85,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient
         public global::Soenneker.Sixtyfour.OpenApiClient.EnrichLinkedin.EnrichLinkedinRequestBuilder EnrichLinkedin
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.EnrichLinkedin.EnrichLinkedinRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The feedback property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.Feedback.FeedbackRequestBuilder Feedback
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.Feedback.FeedbackRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The findEmail property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.FindEmail.FindEmailRequestBuilder FindEmail

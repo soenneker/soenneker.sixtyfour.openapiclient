@@ -23,6 +23,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             else if (parseNode.GetChildNode("charge_credits") is { } nullNodeChargeCredits && nullNodeChargeCredits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChargeCredits = null;
             if (parseNode.GetChildNode("close_time") is null) { _explicitNullValueCloseTime = default!; _explicitNullProperties?.Remove("close_time"); }
             else if (parseNode.GetChildNode("close_time") is { } nullNodeCloseTime && nullNodeCloseTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CloseTime = null;
+            if (parseNode.GetChildNode("feedback") is null) { _explicitNullValueFeedback = default!; _explicitNullProperties?.Remove("feedback"); }
+            else if (parseNode.GetChildNode("feedback") is { } nullNodeFeedback && nullNodeFeedback.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Feedback = null;
             if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
             else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
             if (parseNode.GetChildNode("results") is null) { _explicitNullValueResults = default!; _explicitNullProperties?.Remove("results"); }
@@ -49,6 +51,16 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>The close_time property</summary>
         public DateTimeOffset? CloseTime { get => _explicitNullValueCloseTime; set { _explicitNullValueCloseTime = value; AdditionalData?.Remove("close_time"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("close_time"); else _explicitNullProperties?.Remove("close_time"); } }
         private DateTimeOffset? _explicitNullValueCloseTime = default!;
+        /// <summary>How to report a wrong result.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Feedback { get => _explicitNullValueFeedback; set { _explicitNullValueFeedback = value; AdditionalData?.Remove("feedback"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("feedback"); else _explicitNullProperties?.Remove("feedback"); } }
+        private string? _explicitNullValueFeedback = default!;
+#nullable restore
+#else
+        public string Feedback { get => _explicitNullValueFeedback; set { _explicitNullValueFeedback = value; AdditionalData?.Remove("feedback"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("feedback"); else _explicitNullProperties?.Remove("feedback"); } }
+        private string _explicitNullValueFeedback = default!;
+#endif
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -123,6 +135,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "charge_amount", n => { ChargeAmount = n.GetDoubleValue(); } },
                 { "charge_credits", n => { ChargeCredits = n.GetDoubleValue(); } },
                 { "close_time", n => { CloseTime = n.GetDateTimeOffsetValue(); } },
+                { "feedback", n => { Feedback = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "results", n => { Results = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf3ResultsItem>(global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf3ResultsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "results_url", n => { ResultsUrl = n.GetStringValue(); } },
@@ -141,6 +154,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteDoubleValue("charge_amount", ChargeAmount);
             writer.WriteDoubleValue("charge_credits", ChargeCredits);
             writer.WriteDateTimeOffsetValue("close_time", CloseTime);
+            writer.WriteStringValue("feedback", Feedback);
             writer.WriteStringValue("id", Id);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf3ResultsItem>("results", Results);
             writer.WriteStringValue("results_url", ResultsUrl);
