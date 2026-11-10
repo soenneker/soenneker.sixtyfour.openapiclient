@@ -19,29 +19,31 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if (parseNode.GetChildNode("category") is null) { _explicitNullValueCategory = default!; _explicitNullProperties?.Remove("category"); }
             else if (parseNode.GetChildNode("category") is { } nullNodeCategory && nullNodeCategory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Category = null;
-            if (parseNode.GetChildNode("fields") is null) { _explicitNullValueFields = default!; _explicitNullProperties?.Remove("fields"); }
-            else if (parseNode.GetChildNode("fields") is { } nullNodeFields && nullNodeFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Fields = null;
+            if (parseNode.GetChildNode("comment") is null) { _explicitNullValueComment = default!; _explicitNullProperties?.Remove("comment"); }
+            else if (parseNode.GetChildNode("comment") is { } nullNodeComment && nullNodeComment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Comment = null;
+            if (parseNode.GetChildNode("corrections") is null) { _explicitNullValueCorrections = default!; _explicitNullProperties?.Remove("corrections"); }
+            else if (parseNode.GetChildNode("corrections") is { } nullNodeCorrections && nullNodeCorrections.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Corrections = null;
+            if (parseNode.GetChildNode("dispatch_id") is null) { _explicitNullValueDispatchId = default!; _explicitNullProperties?.Remove("dispatch_id"); }
+            else if (parseNode.GetChildNode("dispatch_id") is { } nullNodeDispatchId && nullNodeDispatchId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DispatchId = null;
             if (parseNode.GetChildNode("goal") is null) { _explicitNullValueGoal = default!; _explicitNullProperties?.Remove("goal"); }
             else if (parseNode.GetChildNode("goal") is { } nullNodeGoal && nullNodeGoal.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Goal = null;
             if (parseNode.GetChildNode("impact") is null) { _explicitNullValueImpact = default!; _explicitNullProperties?.Remove("impact"); }
             else if (parseNode.GetChildNode("impact") is { } nullNodeImpact && nullNodeImpact.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Impact = null;
-            if (parseNode.GetChildNode("message") is null) { _explicitNullValueMessage = default!; _explicitNullProperties?.Remove("message"); }
-            else if (parseNode.GetChildNode("message") is { } nullNodeMessage && nullNodeMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Message = null;
             if (parseNode.GetChildNode("operation") is null) { _explicitNullValueOperation = default!; _explicitNullProperties?.Remove("operation"); }
             else if (parseNode.GetChildNode("operation") is { } nullNodeOperation && nullNodeOperation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Operation = null;
             if (parseNode.GetChildNode("rating") is null) { _explicitNullValueRating = default!; _explicitNullProperties?.Remove("rating"); }
             else if (parseNode.GetChildNode("rating") is { } nullNodeRating && nullNodeRating.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Rating = null;
-            if (parseNode.GetChildNode("replay_url") is null) { _explicitNullValueReplayUrl = default!; _explicitNullProperties?.Remove("replay_url"); }
-            else if (parseNode.GetChildNode("replay_url") is { } nullNodeReplayUrl && nullNodeReplayUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReplayUrl = null;
             if (parseNode.GetChildNode("reply_to") is null) { _explicitNullValueReplyTo = default!; _explicitNullProperties?.Remove("reply_to"); }
             else if (parseNode.GetChildNode("reply_to") is { } nullNodeReplyTo && nullNodeReplyTo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReplyTo = null;
             if (parseNode.GetChildNode("source") is null) { _explicitNullValueSource = default!; _explicitNullProperties?.Remove("source"); }
             else if (parseNode.GetChildNode("source") is { } nullNodeSource && nullNodeSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Source = null;
-            if (parseNode.GetChildNode("target") is null) { _explicitNullValueTarget = default!; _explicitNullProperties?.Remove("target"); }
-            else if (parseNode.GetChildNode("target") is { } nullNodeTarget && nullNodeTarget.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Target = null;
+            if (parseNode.GetChildNode("task_id") is null) { _explicitNullValueTaskId = default!; _explicitNullProperties?.Remove("task_id"); }
+            else if (parseNode.GetChildNode("task_id") is { } nullNodeTaskId && nullNodeTaskId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TaskId = null;
+            if (parseNode.GetChildNode("workflow_row") is null) { _explicitNullValueWorkflowRow = default!; _explicitNullProperties?.Remove("workflow_row"); }
+            else if (parseNode.GetChildNode("workflow_row") is { } nullNodeWorkflowRow && nullNodeWorkflowRow.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkflowRow = null;
         }
 
-        /// <summary>What kind of feedback: `incorrect_data`, `outdated_data` (true once, not now), `missing_data`, `wrong_match` (the wrong person or company, or a result that does not fit the request), `error`, `slow`, `confusing` (docs, a parameter or a message), `missing_feature`, `billing`, `privacy` (something that should not be shared) or `other`. Default: none.</summary>
+        /// <summary>One of `incorrect_data`, `outdated_data`, `missing_data`, `wrong_match`, `error`, `slow`, `confusing`, `missing_feature`, `billing`, `privacy`, or `other`. Default: none.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRequestCategory? Category { get => _explicitNullValueCategory; set { _explicitNullValueCategory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("category"); else _explicitNullProperties?.Remove("category"); } }
@@ -51,17 +53,37 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRequestCategory Category { get => _explicitNullValueCategory; set { _explicitNullValueCategory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("category"); else _explicitNullProperties?.Remove("category"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRequestCategory _explicitNullValueCategory = default!;
 #endif
-        /// <summary>Verdicts on single fields of the target, up to 200, each field once. Needs `target`. A field left out counts as not reviewed. Default: none.</summary>
+        /// <summary>What happened, in your own words. Default: none.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.FieldVerdict>? Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
-        private List<global::Soenneker.Sixtyfour.OpenApiClient.Models.FieldVerdict>? _explicitNullValueFields = default!;
+        public string? Comment { get => _explicitNullValueComment; set { _explicitNullValueComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("comment"); else _explicitNullProperties?.Remove("comment"); } }
+        private string? _explicitNullValueComment = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.FieldVerdict> Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
-        private List<global::Soenneker.Sixtyfour.OpenApiClient.Models.FieldVerdict> _explicitNullValueFields = default!;
+        public string Comment { get => _explicitNullValueComment; set { _explicitNullValueComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("comment"); else _explicitNullProperties?.Remove("comment"); } }
+        private string _explicitNullValueComment = default!;
 #endif
-        /// <summary>What you were trying to do, in general terms, without names or private details. Default: none.</summary>
+        /// <summary>Fields that were wrong, outdated, or missed, up to 200. Default: none.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.Correction>? Corrections { get => _explicitNullValueCorrections; set { _explicitNullValueCorrections = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("corrections"); else _explicitNullProperties?.Remove("corrections"); } }
+        private List<global::Soenneker.Sixtyfour.OpenApiClient.Models.Correction>? _explicitNullValueCorrections = default!;
+#nullable restore
+#else
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.Correction> Corrections { get => _explicitNullValueCorrections; set { _explicitNullValueCorrections = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("corrections"); else _explicitNullProperties?.Remove("corrections"); } }
+        private List<global::Soenneker.Sixtyfour.OpenApiClient.Models.Correction> _explicitNullValueCorrections = default!;
+#endif
+        /// <summary>The `dispatch_id` you sent to start an async People Intelligence or QA Agent job. Default: none.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DispatchId { get => _explicitNullValueDispatchId; set { _explicitNullValueDispatchId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dispatch_id"); else _explicitNullProperties?.Remove("dispatch_id"); } }
+        private string? _explicitNullValueDispatchId = default!;
+#nullable restore
+#else
+        public string DispatchId { get => _explicitNullValueDispatchId; set { _explicitNullValueDispatchId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dispatch_id"); else _explicitNullProperties?.Remove("dispatch_id"); } }
+        private string _explicitNullValueDispatchId = default!;
+#endif
+        /// <summary>What you were trying to do. Default: none.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Goal { get => _explicitNullValueGoal; set { _explicitNullValueGoal = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("goal"); else _explicitNullProperties?.Remove("goal"); } }
@@ -71,7 +93,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string Goal { get => _explicitNullValueGoal; set { _explicitNullValueGoal = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("goal"); else _explicitNullProperties?.Remove("goal"); } }
         private string _explicitNullValueGoal = default!;
 #endif
-        /// <summary>What the problem did to your work: it `blocked` it, you `worked_around` it, or it was `minor`. Default: none.</summary>
+        /// <summary>`blocked`, `worked_around`, or `minor`. Default: none.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRequestImpact? Impact { get => _explicitNullValueImpact; set { _explicitNullValueImpact = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("impact"); else _explicitNullProperties?.Remove("impact"); } }
@@ -81,17 +103,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRequestImpact Impact { get => _explicitNullValueImpact; set { _explicitNullValueImpact = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("impact"); else _explicitNullProperties?.Remove("impact"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRequestImpact _explicitNullValueImpact = default!;
 #endif
-        /// <summary>What happened, and what would have helped. Leave out secrets and personal details the target does not already hold. Default: none.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Message { get => _explicitNullValueMessage; set { _explicitNullValueMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
-        private string? _explicitNullValueMessage = default!;
-#nullable restore
-#else
-        public string Message { get => _explicitNullValueMessage; set { _explicitNullValueMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
-        private string _explicitNullValueMessage = default!;
-#endif
-        /// <summary>The endpoint or tool the feedback is about, such as `POST /search/query`, when there is no `target`. Default: none.</summary>
+        /// <summary>The endpoint or tool, such as `POST /search/query`. Default: none.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Operation { get => _explicitNullValueOperation; set { _explicitNullValueOperation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("operation"); else _explicitNullProperties?.Remove("operation"); } }
@@ -101,7 +113,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string Operation { get => _explicitNullValueOperation; set { _explicitNullValueOperation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("operation"); else _explicitNullProperties?.Remove("operation"); } }
         private string _explicitNullValueOperation = default!;
 #endif
-        /// <summary>Your overall verdict on the target. Default: none.</summary>
+        /// <summary>`positive` or `negative`. Default: none.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRequestRating? Rating { get => _explicitNullValueRating; set { _explicitNullValueRating = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rating"); else _explicitNullProperties?.Remove("rating"); } }
@@ -111,17 +123,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRequestRating Rating { get => _explicitNullValueRating; set { _explicitNullValueRating = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rating"); else _explicitNullProperties?.Remove("rating"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRequestRating _explicitNullValueRating = default!;
 #endif
-        /// <summary>Optional session replay for support; only approved replay hosts are linked.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ReplayUrl { get => _explicitNullValueReplayUrl; set { _explicitNullValueReplayUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("replay_url"); else _explicitNullProperties?.Remove("replay_url"); } }
-        private string? _explicitNullValueReplayUrl = default!;
-#nullable restore
-#else
-        public string ReplayUrl { get => _explicitNullValueReplayUrl; set { _explicitNullValueReplayUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("replay_url"); else _explicitNullProperties?.Remove("replay_url"); } }
-        private string _explicitNullValueReplayUrl = default!;
-#endif
-        /// <summary>Where we may reply. Visible only to Sixtyfour support.</summary>
+        /// <summary>An email address where Sixtyfour may reply. Default: none.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ReplyTo { get => _explicitNullValueReplyTo; set { _explicitNullValueReplyTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reply_to"); else _explicitNullProperties?.Remove("reply_to"); } }
@@ -131,7 +133,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string ReplyTo { get => _explicitNullValueReplyTo; set { _explicitNullValueReplyTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reply_to"); else _explicitNullProperties?.Remove("reply_to"); } }
         private string _explicitNullValueReplyTo = default!;
 #endif
-        /// <summary>Who wrote the feedback. Default: none.</summary>
+        /// <summary>Who wrote it. Default: none.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRequestSource? Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
@@ -141,15 +143,25 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRequestSource Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRequestSource _explicitNullValueSource = default!;
 #endif
-        /// <summary>What the feedback is about: a task, workflow row, chat session/message, or Atlas report. Default: none, for feedback on the API, the docs or a tool in general.</summary>
+        /// <summary>The job&apos;s `task_id`, or a sync call&apos;s `X-Correlation-ID`. Default: none.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRequestTargetAnyOf1? Target { get => _explicitNullValueTarget; set { _explicitNullValueTarget = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target"); else _explicitNullProperties?.Remove("target"); } }
-        private global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRequestTargetAnyOf1? _explicitNullValueTarget = default!;
+        public string? TaskId { get => _explicitNullValueTaskId; set { _explicitNullValueTaskId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("task_id"); else _explicitNullProperties?.Remove("task_id"); } }
+        private string? _explicitNullValueTaskId = default!;
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRequestTargetAnyOf1 Target { get => _explicitNullValueTarget; set { _explicitNullValueTarget = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target"); else _explicitNullProperties?.Remove("target"); } }
-        private global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRequestTargetAnyOf1 _explicitNullValueTarget = default!;
+        public string TaskId { get => _explicitNullValueTaskId; set { _explicitNullValueTaskId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("task_id"); else _explicitNullProperties?.Remove("task_id"); } }
+        private string _explicitNullValueTaskId = default!;
+#endif
+        /// <summary>One row of a workflow run, instead of a task. Default: none.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRequestWorkflowRow? WorkflowRow { get => _explicitNullValueWorkflowRow; set { _explicitNullValueWorkflowRow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workflow_row"); else _explicitNullProperties?.Remove("workflow_row"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRequestWorkflowRow? _explicitNullValueWorkflowRow = default!;
+#nullable restore
+#else
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRequestWorkflowRow WorkflowRow { get => _explicitNullValueWorkflowRow; set { _explicitNullValueWorkflowRow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workflow_row"); else _explicitNullProperties?.Remove("workflow_row"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRequestWorkflowRow _explicitNullValueWorkflowRow = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -170,16 +182,17 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "category", n => { Category = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRequestCategory>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRequestCategory.CreateFromDiscriminatorValue); } },
-                { "fields", n => { Fields = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.FieldVerdict>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FieldVerdict.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "comment", n => { Comment = n.GetStringValue(); } },
+                { "corrections", n => { Corrections = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.Correction>(global::Soenneker.Sixtyfour.OpenApiClient.Models.Correction.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "dispatch_id", n => { DispatchId = n.GetStringValue(); } },
                 { "goal", n => { Goal = n.GetStringValue(); } },
                 { "impact", n => { Impact = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRequestImpact>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRequestImpact.CreateFromDiscriminatorValue); } },
-                { "message", n => { Message = n.GetStringValue(); } },
                 { "operation", n => { Operation = n.GetStringValue(); } },
                 { "rating", n => { Rating = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRequestRating>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRequestRating.CreateFromDiscriminatorValue); } },
-                { "replay_url", n => { ReplayUrl = n.GetStringValue(); } },
                 { "reply_to", n => { ReplyTo = n.GetStringValue(); } },
                 { "source", n => { Source = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRequestSource>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRequestSource.CreateFromDiscriminatorValue); } },
-                { "target", n => { Target = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRequestTargetAnyOf1>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRequestTargetAnyOf1.CreateFromDiscriminatorValue); } },
+                { "task_id", n => { TaskId = n.GetStringValue(); } },
+                { "workflow_row", n => { WorkflowRow = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRequestWorkflowRow>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRequestWorkflowRow.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -190,16 +203,17 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRequestCategory>("category", Category);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.FieldVerdict>("fields", Fields);
+            writer.WriteStringValue("comment", Comment);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.Correction>("corrections", Corrections);
+            writer.WriteStringValue("dispatch_id", DispatchId);
             writer.WriteStringValue("goal", Goal);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRequestImpact>("impact", Impact);
-            writer.WriteStringValue("message", Message);
             writer.WriteStringValue("operation", Operation);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRequestRating>("rating", Rating);
-            writer.WriteStringValue("replay_url", ReplayUrl);
             writer.WriteStringValue("reply_to", ReplyTo);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRequestSource>("source", Source);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRequestTargetAnyOf1>("target", Target);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            writer.WriteStringValue("task_id", TaskId);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRequestWorkflowRow>("workflow_row", WorkflowRow);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }
     }

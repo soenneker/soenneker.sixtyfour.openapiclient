@@ -47,7 +47,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Feedback
         {
         }
         /// <summary>
-        /// Lists the feedback your team sent, newest first, with each submission&apos;s field verdicts.
+        /// Lists your team&apos;s feedback, newest first.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackPage"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -84,21 +84,21 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Feedback
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackPage>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackPage.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Records feedback on something Sixtyfour returned: a rating, verdicts on single fields, or a problem with the API, the docs or a tool.Send at least one of `rating`, `message` or `fields`. `target` names a task, or one row of a workflow run&apos;sresults. A field left out of `fields` counts as not reviewed, and a later verdict from the same submitterreplaces only their own earlier one. Free.
+        /// Records a comment, rating, or corrections on a result.Send at least one of `comment`, `rating`, or `corrections`. Name the result with `task_id`, `dispatch_id`, or `workflow_row`; corrections need one. Free.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackReceipt"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SendFeedbackFeedbackPost400Response">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SendFeedbackFeedbackPost401Response">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SendFeedbackFeedbackPost403Response">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SendFeedbackFeedbackPost404Response">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SendFeedbackFeedbackPost409Response">When receiving a 409 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SendFeedbackFeedbackPost429Response">When receiving a 429 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SendFeedbackFeedbackPost500Response">When receiving a 500 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.SendFeedbackFeedbackPost503Response">When receiving a 503 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RecordFeedbackFeedbackPost400Response">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RecordFeedbackFeedbackPost401Response">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RecordFeedbackFeedbackPost403Response">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RecordFeedbackFeedbackPost404Response">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RecordFeedbackFeedbackPost409Response">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RecordFeedbackFeedbackPost422Response">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RecordFeedbackFeedbackPost429Response">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RecordFeedbackFeedbackPost500Response">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RecordFeedbackFeedbackPost503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackReceipt?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -112,22 +112,22 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Feedback
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.SendFeedbackFeedbackPost400Response.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.SendFeedbackFeedbackPost401Response.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.SendFeedbackFeedbackPost403Response.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.SendFeedbackFeedbackPost404Response.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Sixtyfour.OpenApiClient.Models.SendFeedbackFeedbackPost409Response.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.SendFeedbackFeedbackPost429Response.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.SendFeedbackFeedbackPost500Response.CreateFromDiscriminatorValue },
-                { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.SendFeedbackFeedbackPost503Response.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.RecordFeedbackFeedbackPost400Response.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.RecordFeedbackFeedbackPost401Response.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.RecordFeedbackFeedbackPost403Response.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.RecordFeedbackFeedbackPost404Response.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Sixtyfour.OpenApiClient.Models.RecordFeedbackFeedbackPost409Response.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.RecordFeedbackFeedbackPost422Response.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.RecordFeedbackFeedbackPost429Response.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.RecordFeedbackFeedbackPost500Response.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.RecordFeedbackFeedbackPost503Response.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackReceipt>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackReceipt.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Lists the feedback your team sent, newest first, with each submission&apos;s field verdicts.
+        /// Lists your team&apos;s feedback, newest first.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -146,7 +146,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Feedback
             return requestInfo;
         }
         /// <summary>
-        /// Records feedback on something Sixtyfour returned: a rating, verdicts on single fields, or a problem with the API, the docs or a tool.Send at least one of `rating`, `message` or `fields`. `target` names a task, or one row of a workflow run&apos;sresults. A field left out of `fields` counts as not reviewed, and a later verdict from the same submitterreplaces only their own earlier one. Free.
+        /// Records a comment, rating, or corrections on a result.Send at least one of `comment`, `rating`, or `corrections`. Name the result with `task_id`, `dispatch_id`, or `workflow_row`; corrections need one. Free.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -177,7 +177,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Feedback
             return new global::Soenneker.Sixtyfour.OpenApiClient.Feedback.FeedbackRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Lists the feedback your team sent, newest first, with each submission&apos;s field verdicts.
+        /// Lists your team&apos;s feedback, newest first.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class FeedbackRequestBuilderGetQueryParameters 
@@ -195,7 +195,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Feedback
             /// <summary>Feedback per page, 1 to 100. Default: 50.</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }
-            /// <summary>Only feedback about this workflow run, any of its rows. Not with `task_id`. Default: all feedback.</summary>
+            /// <summary>Only this workflow run. Not with `task_id`. Default: all feedback.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("run_id")]
@@ -205,7 +205,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Feedback
             [QueryParameter("run_id")]
             public string RunId { get; set; }
 #endif
-            /// <summary>Only feedback about this task. Not with `run_id`. Default: all feedback.</summary>
+            /// <summary>Only this task. Not with `run_id`. Default: all feedback.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("task_id")]

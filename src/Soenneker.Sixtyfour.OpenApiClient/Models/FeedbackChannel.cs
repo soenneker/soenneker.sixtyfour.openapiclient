@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
-    /// <summary>Where feedback arrived: api, mcp, chat, app or atlas.</summary>
+    /// <summary>`api` or `mcp`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum FeedbackChannel
     {
@@ -14,18 +14,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         [EnumMember(Value = "mcp")]
         #pragma warning disable CS1591
         Mcp,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "chat")]
-        #pragma warning disable CS1591
-        Chat,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "app")]
-        #pragma warning disable CS1591
-        App,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "atlas")]
-        #pragma warning disable CS1591
-        Atlas,
         #pragma warning restore CS1591
     }
 }

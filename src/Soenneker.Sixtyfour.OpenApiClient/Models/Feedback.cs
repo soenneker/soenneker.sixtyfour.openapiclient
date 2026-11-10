@@ -21,30 +21,30 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             else if (parseNode.GetChildNode("category") is { } nullNodeCategory && nullNodeCategory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Category = null;
             if (parseNode.GetChildNode("channel") is null) { _explicitNullValueChannel = default!; _explicitNullProperties?.Remove("channel"); }
             else if (parseNode.GetChildNode("channel") is { } nullNodeChannel && nullNodeChannel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Channel = null;
+            if (parseNode.GetChildNode("comment") is null) { _explicitNullValueComment = default!; _explicitNullProperties?.Remove("comment"); }
+            else if (parseNode.GetChildNode("comment") is { } nullNodeComment && nullNodeComment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Comment = null;
+            if (parseNode.GetChildNode("corrections") is null) { _explicitNullValueCorrections = default!; _explicitNullProperties?.Remove("corrections"); }
+            else if (parseNode.GetChildNode("corrections") is { } nullNodeCorrections && nullNodeCorrections.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Corrections = null;
             if (parseNode.GetChildNode("created_at") is null) { _explicitNullValueCreatedAt = default!; _explicitNullProperties?.Remove("created_at"); }
             else if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
-            if (parseNode.GetChildNode("fields") is null) { _explicitNullValueFields = default!; _explicitNullProperties?.Remove("fields"); }
-            else if (parseNode.GetChildNode("fields") is { } nullNodeFields && nullNodeFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Fields = null;
+            if (parseNode.GetChildNode("dispatch_id") is null) { _explicitNullValueDispatchId = default!; _explicitNullProperties?.Remove("dispatch_id"); }
+            else if (parseNode.GetChildNode("dispatch_id") is { } nullNodeDispatchId && nullNodeDispatchId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DispatchId = null;
             if (parseNode.GetChildNode("goal") is null) { _explicitNullValueGoal = default!; _explicitNullProperties?.Remove("goal"); }
             else if (parseNode.GetChildNode("goal") is { } nullNodeGoal && nullNodeGoal.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Goal = null;
             if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
             else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
             if (parseNode.GetChildNode("impact") is null) { _explicitNullValueImpact = default!; _explicitNullProperties?.Remove("impact"); }
             else if (parseNode.GetChildNode("impact") is { } nullNodeImpact && nullNodeImpact.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Impact = null;
-            if (parseNode.GetChildNode("message") is null) { _explicitNullValueMessage = default!; _explicitNullProperties?.Remove("message"); }
-            else if (parseNode.GetChildNode("message") is { } nullNodeMessage && nullNodeMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Message = null;
             if (parseNode.GetChildNode("operation") is null) { _explicitNullValueOperation = default!; _explicitNullProperties?.Remove("operation"); }
             else if (parseNode.GetChildNode("operation") is { } nullNodeOperation && nullNodeOperation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Operation = null;
             if (parseNode.GetChildNode("rating") is null) { _explicitNullValueRating = default!; _explicitNullProperties?.Remove("rating"); }
             else if (parseNode.GetChildNode("rating") is { } nullNodeRating && nullNodeRating.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Rating = null;
             if (parseNode.GetChildNode("source") is null) { _explicitNullValueSource = default!; _explicitNullProperties?.Remove("source"); }
             else if (parseNode.GetChildNode("source") is { } nullNodeSource && nullNodeSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Source = null;
-            if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
-            else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
-            if (parseNode.GetChildNode("status_updated_at") is null) { _explicitNullValueStatusUpdatedAt = default!; _explicitNullProperties?.Remove("status_updated_at"); }
-            else if (parseNode.GetChildNode("status_updated_at") is { } nullNodeStatusUpdatedAt && nullNodeStatusUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StatusUpdatedAt = null;
-            if (parseNode.GetChildNode("target") is null) { _explicitNullValueTarget = default!; _explicitNullProperties?.Remove("target"); }
-            else if (parseNode.GetChildNode("target") is { } nullNodeTarget && nullNodeTarget.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Target = null;
+            if (parseNode.GetChildNode("task_id") is null) { _explicitNullValueTaskId = default!; _explicitNullProperties?.Remove("task_id"); }
+            else if (parseNode.GetChildNode("task_id") is { } nullNodeTaskId && nullNodeTaskId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TaskId = null;
+            if (parseNode.GetChildNode("workflow_row") is null) { _explicitNullValueWorkflowRow = default!; _explicitNullProperties?.Remove("workflow_row"); }
+            else if (parseNode.GetChildNode("workflow_row") is { } nullNodeWorkflowRow && nullNodeWorkflowRow.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkflowRow = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -59,21 +59,41 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackCategory Category { get => _explicitNullValueCategory; set { _explicitNullValueCategory = value; AdditionalData?.Remove("category"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("category"); else _explicitNullProperties?.Remove("category"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackCategory _explicitNullValueCategory = default!;
 #endif
-        /// <summary>Where feedback arrived: api, mcp, chat, app or atlas.</summary>
+        /// <summary>`api` or `mcp`.</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackChannel? Channel { get => _explicitNullValueChannel; set { _explicitNullValueChannel = value; AdditionalData?.Remove("channel"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("channel"); else _explicitNullProperties?.Remove("channel"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackChannel? _explicitNullValueChannel = default!;
+        /// <summary>The comment property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Comment { get => _explicitNullValueComment; set { _explicitNullValueComment = value; AdditionalData?.Remove("comment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("comment"); else _explicitNullProperties?.Remove("comment"); } }
+        private string? _explicitNullValueComment = default!;
+#nullable restore
+#else
+        public string Comment { get => _explicitNullValueComment; set { _explicitNullValueComment = value; AdditionalData?.Remove("comment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("comment"); else _explicitNullProperties?.Remove("comment"); } }
+        private string _explicitNullValueComment = default!;
+#endif
+        /// <summary>The corrections you sent.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.SavedCorrection>? Corrections { get => _explicitNullValueCorrections; set { _explicitNullValueCorrections = value; AdditionalData?.Remove("corrections"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("corrections"); else _explicitNullProperties?.Remove("corrections"); } }
+        private List<global::Soenneker.Sixtyfour.OpenApiClient.Models.SavedCorrection>? _explicitNullValueCorrections = default!;
+#nullable restore
+#else
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.SavedCorrection> Corrections { get => _explicitNullValueCorrections; set { _explicitNullValueCorrections = value; AdditionalData?.Remove("corrections"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("corrections"); else _explicitNullProperties?.Remove("corrections"); } }
+        private List<global::Soenneker.Sixtyfour.OpenApiClient.Models.SavedCorrection> _explicitNullValueCorrections = default!;
+#endif
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
         private DateTimeOffset? _explicitNullValueCreatedAt = default!;
-        /// <summary>The field verdicts, by path.</summary>
+        /// <summary>The dispatch_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.SavedFieldVerdict>? Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; AdditionalData?.Remove("fields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
-        private List<global::Soenneker.Sixtyfour.OpenApiClient.Models.SavedFieldVerdict>? _explicitNullValueFields = default!;
+        public string? DispatchId { get => _explicitNullValueDispatchId; set { _explicitNullValueDispatchId = value; AdditionalData?.Remove("dispatch_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dispatch_id"); else _explicitNullProperties?.Remove("dispatch_id"); } }
+        private string? _explicitNullValueDispatchId = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.SavedFieldVerdict> Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; AdditionalData?.Remove("fields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
-        private List<global::Soenneker.Sixtyfour.OpenApiClient.Models.SavedFieldVerdict> _explicitNullValueFields = default!;
+        public string DispatchId { get => _explicitNullValueDispatchId; set { _explicitNullValueDispatchId = value; AdditionalData?.Remove("dispatch_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dispatch_id"); else _explicitNullProperties?.Remove("dispatch_id"); } }
+        private string _explicitNullValueDispatchId = default!;
 #endif
         /// <summary>The goal property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -105,16 +125,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackImpact Impact { get => _explicitNullValueImpact; set { _explicitNullValueImpact = value; AdditionalData?.Remove("impact"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("impact"); else _explicitNullProperties?.Remove("impact"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackImpact _explicitNullValueImpact = default!;
 #endif
-        /// <summary>The message property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Message { get => _explicitNullValueMessage; set { _explicitNullValueMessage = value; AdditionalData?.Remove("message"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
-        private string? _explicitNullValueMessage = default!;
-#nullable restore
-#else
-        public string Message { get => _explicitNullValueMessage; set { _explicitNullValueMessage = value; AdditionalData?.Remove("message"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
-        private string _explicitNullValueMessage = default!;
-#endif
         /// <summary>The operation property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -145,21 +155,25 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackSourceComposed Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; AdditionalData?.Remove("source"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackSourceComposed _explicitNullValueSource = default!;
 #endif
-        /// <summary>received: saved; reviewed: Sixtyfour has reviewed it; fixed: Sixtyfour marked the issue resolved.</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
-        private global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackStatus? _explicitNullValueStatus = default!;
-        /// <summary>The status_updated_at property</summary>
-        public DateTimeOffset? StatusUpdatedAt { get => _explicitNullValueStatusUpdatedAt; set { _explicitNullValueStatusUpdatedAt = value; AdditionalData?.Remove("status_updated_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status_updated_at"); else _explicitNullProperties?.Remove("status_updated_at"); } }
-        private DateTimeOffset? _explicitNullValueStatusUpdatedAt = default!;
-        /// <summary>The target property</summary>
+        /// <summary>The task_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackReceiptTargetAnyOf1? Target { get => _explicitNullValueTarget; set { _explicitNullValueTarget = value; AdditionalData?.Remove("target"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target"); else _explicitNullProperties?.Remove("target"); } }
-        private global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackReceiptTargetAnyOf1? _explicitNullValueTarget = default!;
+        public string? TaskId { get => _explicitNullValueTaskId; set { _explicitNullValueTaskId = value; AdditionalData?.Remove("task_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("task_id"); else _explicitNullProperties?.Remove("task_id"); } }
+        private string? _explicitNullValueTaskId = default!;
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackReceiptTargetAnyOf1 Target { get => _explicitNullValueTarget; set { _explicitNullValueTarget = value; AdditionalData?.Remove("target"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target"); else _explicitNullProperties?.Remove("target"); } }
-        private global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackReceiptTargetAnyOf1 _explicitNullValueTarget = default!;
+        public string TaskId { get => _explicitNullValueTaskId; set { _explicitNullValueTaskId = value; AdditionalData?.Remove("task_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("task_id"); else _explicitNullProperties?.Remove("task_id"); } }
+        private string _explicitNullValueTaskId = default!;
+#endif
+        /// <summary>The workflow_row property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackWorkflowRow? WorkflowRow { get => _explicitNullValueWorkflowRow; set { _explicitNullValueWorkflowRow = value; AdditionalData?.Remove("workflow_row"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workflow_row"); else _explicitNullProperties?.Remove("workflow_row"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackWorkflowRow? _explicitNullValueWorkflowRow = default!;
+#nullable restore
+#else
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackWorkflowRow WorkflowRow { get => _explicitNullValueWorkflowRow; set { _explicitNullValueWorkflowRow = value; AdditionalData?.Remove("workflow_row"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workflow_row"); else _explicitNullProperties?.Remove("workflow_row"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackWorkflowRow _explicitNullValueWorkflowRow = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.Feedback"/> and sets the default values.
@@ -188,18 +202,18 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             {
                 { "category", n => { Category = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackCategory>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackCategory.CreateFromDiscriminatorValue); } },
                 { "channel", n => { var parsed = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackChannel>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueChannel = default; _explicitNullProperties?.Remove("channel"); AdditionalData["channel"] = unknown; } else { Channel = parsed; AdditionalData.Remove("channel"); } } },
+                { "comment", n => { Comment = n.GetStringValue(); } },
+                { "corrections", n => { Corrections = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.SavedCorrection>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SavedCorrection.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "fields", n => { Fields = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.SavedFieldVerdict>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SavedFieldVerdict.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "dispatch_id", n => { DispatchId = n.GetStringValue(); } },
                 { "goal", n => { Goal = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "impact", n => { Impact = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackImpact>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackImpact.CreateFromDiscriminatorValue); } },
-                { "message", n => { Message = n.GetStringValue(); } },
                 { "operation", n => { Operation = n.GetStringValue(); } },
                 { "rating", n => { Rating = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRating>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRating.CreateFromDiscriminatorValue); } },
                 { "source", n => { Source = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackSourceComposed>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackSourceComposed.CreateFromDiscriminatorValue); } },
-                { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
-                { "status_updated_at", n => { StatusUpdatedAt = n.GetDateTimeOffsetValue(); } },
-                { "target", n => { Target = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackReceiptTargetAnyOf1>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackReceiptTargetAnyOf1.CreateFromDiscriminatorValue); } },
+                { "task_id", n => { TaskId = n.GetStringValue(); } },
+                { "workflow_row", n => { WorkflowRow = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackWorkflowRow>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackWorkflowRow.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -211,18 +225,18 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackCategory>("category", Category);
             writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackChannel>("channel", Channel);
+            writer.WriteStringValue("comment", Comment);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.SavedCorrection>("corrections", Corrections);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.SavedFieldVerdict>("fields", Fields);
+            writer.WriteStringValue("dispatch_id", DispatchId);
             writer.WriteStringValue("goal", Goal);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackImpact>("impact", Impact);
-            writer.WriteStringValue("message", Message);
             writer.WriteStringValue("operation", Operation);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackRating>("rating", Rating);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackSourceComposed>("source", Source);
-            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackStatus>("status", Status);
-            writer.WriteDateTimeOffsetValue("status_updated_at", StatusUpdatedAt);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackReceiptTargetAnyOf1>("target", Target);
+            writer.WriteStringValue("task_id", TaskId);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackWorkflowRow>("workflow_row", WorkflowRow);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -19,28 +19,42 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if (parseNode.GetChildNode("already_submitted") is null) { _explicitNullValueAlreadySubmitted = default!; _explicitNullProperties?.Remove("already_submitted"); }
             else if (parseNode.GetChildNode("already_submitted") is { } nullNodeAlreadySubmitted && nullNodeAlreadySubmitted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AlreadySubmitted = null;
+            if (parseNode.GetChildNode("corrections_recorded") is null) { _explicitNullValueCorrectionsRecorded = default!; _explicitNullProperties?.Remove("corrections_recorded"); }
+            else if (parseNode.GetChildNode("corrections_recorded") is { } nullNodeCorrectionsRecorded && nullNodeCorrectionsRecorded.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CorrectionsRecorded = null;
             if (parseNode.GetChildNode("created_at") is null) { _explicitNullValueCreatedAt = default!; _explicitNullProperties?.Remove("created_at"); }
             else if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
-            if (parseNode.GetChildNode("fields_recorded") is null) { _explicitNullValueFieldsRecorded = default!; _explicitNullProperties?.Remove("fields_recorded"); }
-            else if (parseNode.GetChildNode("fields_recorded") is { } nullNodeFieldsRecorded && nullNodeFieldsRecorded.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FieldsRecorded = null;
+            if (parseNode.GetChildNode("dispatch_id") is null) { _explicitNullValueDispatchId = default!; _explicitNullProperties?.Remove("dispatch_id"); }
+            else if (parseNode.GetChildNode("dispatch_id") is { } nullNodeDispatchId && nullNodeDispatchId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DispatchId = null;
             if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
             else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
-            if (parseNode.GetChildNode("target") is null) { _explicitNullValueTarget = default!; _explicitNullProperties?.Remove("target"); }
-            else if (parseNode.GetChildNode("target") is { } nullNodeTarget && nullNodeTarget.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Target = null;
+            if (parseNode.GetChildNode("task_id") is null) { _explicitNullValueTaskId = default!; _explicitNullProperties?.Remove("task_id"); }
+            else if (parseNode.GetChildNode("task_id") is { } nullNodeTaskId && nullNodeTaskId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TaskId = null;
+            if (parseNode.GetChildNode("workflow_row") is null) { _explicitNullValueWorkflowRow = default!; _explicitNullProperties?.Remove("workflow_row"); }
+            else if (parseNode.GetChildNode("workflow_row") is { } nullNodeWorkflowRow && nullNodeWorkflowRow.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkflowRow = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>True when this `Idempotency-Key` was already used for the same request: nothing new was saved, and `id` is the first submission&apos;s.</summary>
+        /// <summary>True when this `Idempotency-Key` already saved this body; `id` is the first submission.</summary>
         public bool? AlreadySubmitted { get => _explicitNullValueAlreadySubmitted; set { _explicitNullValueAlreadySubmitted = value; AdditionalData?.Remove("already_submitted"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("already_submitted"); else _explicitNullProperties?.Remove("already_submitted"); } }
         private bool? _explicitNullValueAlreadySubmitted = default!;
+        /// <summary>How many corrections were saved.</summary>
+        public int? CorrectionsRecorded { get => _explicitNullValueCorrectionsRecorded; set { _explicitNullValueCorrectionsRecorded = value; AdditionalData?.Remove("corrections_recorded"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("corrections_recorded"); else _explicitNullProperties?.Remove("corrections_recorded"); } }
+        private int? _explicitNullValueCorrectionsRecorded = default!;
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
         private DateTimeOffset? _explicitNullValueCreatedAt = default!;
-        /// <summary>How many field verdicts the submission holds.</summary>
-        public int? FieldsRecorded { get => _explicitNullValueFieldsRecorded; set { _explicitNullValueFieldsRecorded = value; AdditionalData?.Remove("fields_recorded"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields_recorded"); else _explicitNullProperties?.Remove("fields_recorded"); } }
-        private int? _explicitNullValueFieldsRecorded = default!;
-        /// <summary>The feedback&apos;s id. Read it back with `GET /feedback/{feedback_id}`.</summary>
+        /// <summary>Omitted on a receipt: a `dispatch_id` is stored as `task_id`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DispatchId { get => _explicitNullValueDispatchId; set { _explicitNullValueDispatchId = value; AdditionalData?.Remove("dispatch_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dispatch_id"); else _explicitNullProperties?.Remove("dispatch_id"); } }
+        private string? _explicitNullValueDispatchId = default!;
+#nullable restore
+#else
+        public string DispatchId { get => _explicitNullValueDispatchId; set { _explicitNullValueDispatchId = value; AdditionalData?.Remove("dispatch_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dispatch_id"); else _explicitNullProperties?.Remove("dispatch_id"); } }
+        private string _explicitNullValueDispatchId = default!;
+#endif
+        /// <summary>The feedback id. Read it with `GET /feedback/{feedback_id}`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
@@ -50,15 +64,25 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string _explicitNullValueId = default!;
 #endif
-        /// <summary>What the feedback is about, as saved.</summary>
+        /// <summary>The task this feedback is about, when named.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackReceiptTargetAnyOf1? Target { get => _explicitNullValueTarget; set { _explicitNullValueTarget = value; AdditionalData?.Remove("target"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target"); else _explicitNullProperties?.Remove("target"); } }
-        private global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackReceiptTargetAnyOf1? _explicitNullValueTarget = default!;
+        public string? TaskId { get => _explicitNullValueTaskId; set { _explicitNullValueTaskId = value; AdditionalData?.Remove("task_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("task_id"); else _explicitNullProperties?.Remove("task_id"); } }
+        private string? _explicitNullValueTaskId = default!;
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackReceiptTargetAnyOf1 Target { get => _explicitNullValueTarget; set { _explicitNullValueTarget = value; AdditionalData?.Remove("target"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target"); else _explicitNullProperties?.Remove("target"); } }
-        private global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackReceiptTargetAnyOf1 _explicitNullValueTarget = default!;
+        public string TaskId { get => _explicitNullValueTaskId; set { _explicitNullValueTaskId = value; AdditionalData?.Remove("task_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("task_id"); else _explicitNullProperties?.Remove("task_id"); } }
+        private string _explicitNullValueTaskId = default!;
+#endif
+        /// <summary>The workflow row this feedback is about, when named.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackReceiptWorkflowRow? WorkflowRow { get => _explicitNullValueWorkflowRow; set { _explicitNullValueWorkflowRow = value; AdditionalData?.Remove("workflow_row"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workflow_row"); else _explicitNullProperties?.Remove("workflow_row"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackReceiptWorkflowRow? _explicitNullValueWorkflowRow = default!;
+#nullable restore
+#else
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackReceiptWorkflowRow WorkflowRow { get => _explicitNullValueWorkflowRow; set { _explicitNullValueWorkflowRow = value; AdditionalData?.Remove("workflow_row"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workflow_row"); else _explicitNullProperties?.Remove("workflow_row"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackReceiptWorkflowRow _explicitNullValueWorkflowRow = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackReceipt"/> and sets the default values.
@@ -86,10 +110,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "already_submitted", n => { AlreadySubmitted = n.GetBoolValue(); } },
+                { "corrections_recorded", n => { CorrectionsRecorded = n.GetIntValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "fields_recorded", n => { FieldsRecorded = n.GetIntValue(); } },
+                { "dispatch_id", n => { DispatchId = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "target", n => { Target = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackReceiptTargetAnyOf1>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackReceiptTargetAnyOf1.CreateFromDiscriminatorValue); } },
+                { "task_id", n => { TaskId = n.GetStringValue(); } },
+                { "workflow_row", n => { WorkflowRow = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackReceiptWorkflowRow>(global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackReceiptWorkflowRow.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -100,10 +126,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("already_submitted", AlreadySubmitted);
+            writer.WriteIntValue("corrections_recorded", CorrectionsRecorded);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
-            writer.WriteIntValue("fields_recorded", FieldsRecorded);
+            writer.WriteStringValue("dispatch_id", DispatchId);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackReceiptTargetAnyOf1>("target", Target);
+            writer.WriteStringValue("task_id", TaskId);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackReceiptWorkflowRow>("workflow_row", WorkflowRow);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

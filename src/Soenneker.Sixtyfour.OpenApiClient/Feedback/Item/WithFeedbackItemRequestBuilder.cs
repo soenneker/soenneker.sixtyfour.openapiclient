@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Feedback.Item
         {
         }
         /// <summary>
-        /// Returns one feedback submission your team sent, with its field verdicts.
+        /// Returns one feedback submission your team sent.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.Feedback"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -73,7 +73,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Feedback.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.Feedback>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.Feedback.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns one feedback submission your team sent, with its field verdicts.
+        /// Returns one feedback submission your team sent.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

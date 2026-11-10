@@ -3,21 +3,21 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
-    /// <summary>received: saved; reviewed: Sixtyfour has reviewed it; fixed: Sixtyfour marked the issue resolved.</summary>
+    /// <summary>`wrong`, `outdated`, or `missed`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum FeedbackStatus
+    public enum SavedCorrectionKind
     {
-        [EnumMember(Value = "received")]
+        [EnumMember(Value = "wrong")]
         #pragma warning disable CS1591
-        Received,
+        Wrong,
         #pragma warning restore CS1591
-        [EnumMember(Value = "reviewed")]
+        [EnumMember(Value = "outdated")]
         #pragma warning disable CS1591
-        Reviewed,
+        Outdated,
         #pragma warning restore CS1591
-        [EnumMember(Value = "fixed")]
+        [EnumMember(Value = "missed")]
         #pragma warning disable CS1591
-        FixedValue,
+        Missed,
         #pragma warning restore CS1591
     }
 }

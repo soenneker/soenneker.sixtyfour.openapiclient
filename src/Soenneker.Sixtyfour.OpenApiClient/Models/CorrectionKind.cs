@@ -3,15 +3,10 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
+    /// <summary>`wrong`, `outdated`, or `missed`. Default: `wrong`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public enum SavedFieldVerdictVerdict
-    #pragma warning restore CS1591
+    public enum CorrectionKind
     {
-        [EnumMember(Value = "correct")]
-        #pragma warning disable CS1591
-        Correct,
-        #pragma warning restore CS1591
         [EnumMember(Value = "wrong")]
         #pragma warning disable CS1591
         Wrong,
