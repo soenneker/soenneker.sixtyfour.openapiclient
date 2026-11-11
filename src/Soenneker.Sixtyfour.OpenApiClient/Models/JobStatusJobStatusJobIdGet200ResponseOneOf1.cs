@@ -23,6 +23,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
             if (parseNode.GetChildNode("investigation") is null) { _explicitNullValueInvestigation = default!; _explicitNullProperties?.Remove("investigation"); }
             else if (parseNode.GetChildNode("investigation") is { } nullNodeInvestigation && nullNodeInvestigation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Investigation = null;
+            if (parseNode.GetChildNode("next_poll_after") is null) { _explicitNullValueNextPollAfter = default!; _explicitNullProperties?.Remove("next_poll_after"); }
+            else if (parseNode.GetChildNode("next_poll_after") is { } nullNodeNextPollAfter && nullNodeNextPollAfter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NextPollAfter = null;
             if (parseNode.GetChildNode("progress") is null) { _explicitNullValueProgress = default!; _explicitNullProperties?.Remove("progress"); }
             else if (parseNode.GetChildNode("progress") is { } nullNodeProgress && nullNodeProgress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Progress = null;
             if (parseNode.GetChildNode("run_id") is null) { _explicitNullValueRunId = default!; _explicitNullProperties?.Remove("run_id"); }
@@ -65,6 +67,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf1Investigation Investigation { get => _explicitNullValueInvestigation; set { _explicitNullValueInvestigation = value; AdditionalData?.Remove("investigation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("investigation"); else _explicitNullProperties?.Remove("investigation"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf1Investigation _explicitNullValueInvestigation = default!;
 #endif
+        /// <summary>Seconds before the next poll while running.</summary>
+        public int? NextPollAfter { get => _explicitNullValueNextPollAfter; set { _explicitNullValueNextPollAfter = value; AdditionalData?.Remove("next_poll_after"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_poll_after"); else _explicitNullProperties?.Remove("next_poll_after"); } }
+        private int? _explicitNullValueNextPollAfter = default!;
         /// <summary>Bulk runs only: rows enriched so far out of the total rows submitted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -119,6 +124,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "feedback", n => { Feedback = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "investigation", n => { Investigation = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf1Investigation>(global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf1Investigation.CreateFromDiscriminatorValue); } },
+                { "next_poll_after", n => { NextPollAfter = n.GetIntValue(); } },
                 { "progress", n => { Progress = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf1Progress>(global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf1Progress.CreateFromDiscriminatorValue); } },
                 { "run_id", n => { RunId = n.GetStringValue(); } },
                 { "start_time", n => { StartTime = n.GetDateTimeOffsetValue(); } },
@@ -135,6 +141,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteStringValue("feedback", Feedback);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf1Investigation>("investigation", Investigation);
+            writer.WriteIntValue("next_poll_after", NextPollAfter);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatusJobStatusJobIdGet200ResponseOneOf1Progress>("progress", Progress);
             writer.WriteStringValue("run_id", RunId);
             writer.WriteDateTimeOffsetValue("start_time", StartTime);

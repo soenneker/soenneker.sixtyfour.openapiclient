@@ -3474,6 +3474,14 @@
         "responses": {
           "200": {
             "description": "Current async job status. Completed enrichment jobs include the result under \u0060result\u0060.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds before polling again while running.",
+                "schema": {
+                  "type": "integer"
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -4107,6 +4115,2971 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/v1/jobs/{jobId}": {
+      "get": {
+        "tags": [
+          "Jobs"
+        ],
+        "summary": "Get Job",
+        "description": "The /v1 version of Job Status. Accepts IDs returned by versioned or unversioned routes. While queued or running, poll again after \u0060next_poll_after\u0060 seconds. Stop polling when the status is \u0060succeeded\u0060, \u0060failed\u0060, or \u0060canceled\u0060.",
+        "operationId": "GetJobV1JobsJobIdGet",
+        "parameters": [
+          {
+            "name": "jobId",
+            "in": "path",
+            "description": "Job identifier returned by a submit request. Pass it exactly as returned, including the \u0060job_\u0060 prefix. IDs returned by unversioned endpoints are also accepted.",
+            "required": true,
+            "schema": {
+              "examples": [
+                "job_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21"
+              ],
+              "title": "Job Id",
+              "type": "string",
+              "description": "Job identifier returned by a submit request. Pass it exactly as returned, including the \u0060job_\u0060 prefix. IDs returned by unversioned endpoints are also accepted."
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds before polling again while running.",
+                "schema": {
+                  "type": "integer"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Job"
+                },
+                "example": {
+                  "job_id": "job_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "status": "running",
+                  "created_at": "2026-11-03T18:04:12Z",
+                  "next_poll_after": 5
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds before retrying",
+                "schema": {
+                  "type": "string",
+                  "example": "15"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment Required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds before retrying",
+                "schema": {
+                  "type": "string",
+                  "example": "1"
+                }
+              },
+              "X-RateLimit-Requests": {
+                "description": "Requests replenished per period",
+                "schema": {
+                  "type": "string",
+                  "example": "300"
+                }
+              },
+              "X-RateLimit-Period": {
+                "description": "Replenishment period in seconds",
+                "schema": {
+                  "type": "string",
+                  "example": "60"
+                }
+              },
+              "X-RateLimit-Burst": {
+                "description": "Maximum requests available after idling",
+                "schema": {
+                  "type": "string",
+                  "example": "15"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            },
+            "x-rate-limit": {
+              "requests": 300,
+              "period_seconds": 60,
+              "burst": 15,
+              "scope": "organization"
+            }
+          }
+        },
+        "x-mint": {
+          "metadata": {
+            "tag": "v1"
+          }
+        }
+      }
+    },
+    "/v1/people-intelligence": {
+      "post": {
+        "tags": [
+          "Jobs"
+        ],
+        "summary": "Start People Intelligence",
+        "description": "Starts intelligence research on a person and returns a job to poll.",
+        "operationId": "StartPeopleIntelligenceV1PeopleIntelligencePost",
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "description": "- Scoped to organization \u002B operation.\n- Same key \u002B body: same job, no new charge, \u0060Idempotent-Replayed: true\u0060.\n- Different body: 409 \u0060idempotency_key_reused\u0060.\n- Uploads must match filename \u002B contents.\n- Omit for no replay protection.\n- JSON replay lasts through the workflow retention window; CSV replay lasts 24 hours.",
+            "schema": {
+              "title": "Idempotency-Key",
+              "maxLength": 255,
+              "minLength": 1,
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "- Scoped to organization \u002B operation.\n- Same key \u002B body: same job, no new charge, \u0060Idempotent-Replayed: true\u0060.\n- Different body: 409 \u0060idempotency_key_reused\u0060.\n- Uploads must match filename \u002B contents.\n- Omit for no replay protection.\n- JSON replay lasts through the workflow retention window; CSV replay lasts 24 hours."
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/V1EnrichLeadInfo"
+              },
+              "example": {
+                "lead_info": {
+                  "name": "Jane Doe",
+                  "company": "Acme Robotics"
+                },
+                "struct": {
+                  "title": "Current title"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "description": "Successful Response",
+            "headers": {
+              "Location": {
+                "description": "URL to poll for this job.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Retry-After": {
+                "description": "Seconds before polling again.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "Idempotent-Replayed": {
+                "description": "True when this submission replays an existing job.",
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Job"
+                },
+                "example": {
+                  "job_id": "job_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "status": "running",
+                  "created_at": "2026-11-03T18:04:12Z",
+                  "next_poll_after": 5
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment Required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                },
+                "example": {
+                  "detail": "This Idempotency-Key is already in use. Use a new key for a new request.",
+                  "error_code": "idempotency_key_reused",
+                  "request_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "retryable": false,
+                  "param": null
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successful Response",
+            "headers": {
+              "Location": {
+                "description": "URL to poll for this job.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Retry-After": {
+                "description": "Seconds before polling again.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "Idempotent-Replayed": {
+                "description": "True when this submission replays an existing job.",
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Job"
+                },
+                "example": {
+                  "job_id": "job_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "status": "running",
+                  "created_at": "2026-11-03T18:04:12Z",
+                  "next_poll_after": 5
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
+          }
+        },
+        "x-mint": {
+          "metadata": {
+            "tag": "v1"
+          }
+        }
+      }
+    },
+    "/v1/company-intelligence": {
+      "post": {
+        "tags": [
+          "Jobs"
+        ],
+        "summary": "Start Company Intelligence",
+        "description": "Starts intelligence research on a company and returns a job to poll.",
+        "operationId": "StartCompanyIntelligenceV1CompanyIntelligencePost",
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "description": "- Scoped to organization \u002B operation.\n- Same key \u002B body: same job, no new charge, \u0060Idempotent-Replayed: true\u0060.\n- Different body: 409 \u0060idempotency_key_reused\u0060.\n- Uploads must match filename \u002B contents.\n- Omit for no replay protection.\n- JSON replay lasts through the workflow retention window; CSV replay lasts 24 hours.",
+            "schema": {
+              "title": "Idempotency-Key",
+              "maxLength": 255,
+              "minLength": 1,
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "- Scoped to organization \u002B operation.\n- Same key \u002B body: same job, no new charge, \u0060Idempotent-Replayed: true\u0060.\n- Different body: 409 \u0060idempotency_key_reused\u0060.\n- Uploads must match filename \u002B contents.\n- Omit for no replay protection.\n- JSON replay lasts through the workflow retention window; CSV replay lasts 24 hours."
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EnrichCompanyInfo"
+              },
+              "example": {
+                "target_company": {
+                  "company_name": "Acme Robotics"
+                },
+                "struct": {
+                  "industry": "Industry"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "description": "Successful Response",
+            "headers": {
+              "Location": {
+                "description": "URL to poll for this job.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Retry-After": {
+                "description": "Seconds before polling again.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "Idempotent-Replayed": {
+                "description": "True when this submission replays an existing job.",
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Job"
+                },
+                "example": {
+                  "job_id": "job_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "status": "running",
+                  "created_at": "2026-11-03T18:04:12Z",
+                  "next_poll_after": 5
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment Required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                },
+                "example": {
+                  "detail": "This Idempotency-Key is already in use. Use a new key for a new request.",
+                  "error_code": "idempotency_key_reused",
+                  "request_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "retryable": false,
+                  "param": null
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successful Response",
+            "headers": {
+              "Location": {
+                "description": "URL to poll for this job.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Retry-After": {
+                "description": "Seconds before polling again.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "Idempotent-Replayed": {
+                "description": "True when this submission replays an existing job.",
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Job"
+                },
+                "example": {
+                  "job_id": "job_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "status": "running",
+                  "created_at": "2026-11-03T18:04:12Z",
+                  "next_poll_after": 5
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
+          }
+        },
+        "x-mint": {
+          "metadata": {
+            "tag": "v1"
+          }
+        }
+      }
+    },
+    "/v1/find-email": {
+      "post": {
+        "tags": [
+          "Jobs"
+        ],
+        "summary": "Start Find Email",
+        "description": "Starts an email lookup and returns a job to poll.",
+        "operationId": "StartFindEmailV1FindEmailPost",
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "description": "- Scoped to organization \u002B operation.\n- Same key \u002B body: same job, no new charge, \u0060Idempotent-Replayed: true\u0060.\n- Different body: 409 \u0060idempotency_key_reused\u0060.\n- Uploads must match filename \u002B contents.\n- Omit for no replay protection.\n- JSON replay lasts through the workflow retention window; CSV replay lasts 24 hours.",
+            "schema": {
+              "title": "Idempotency-Key",
+              "maxLength": 255,
+              "minLength": 1,
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "- Scoped to organization \u002B operation.\n- Same key \u002B body: same job, no new charge, \u0060Idempotent-Replayed: true\u0060.\n- Different body: 409 \u0060idempotency_key_reused\u0060.\n- Uploads must match filename \u002B contents.\n- Omit for no replay protection.\n- JSON replay lasts through the workflow retention window; CSV replay lasts 24 hours."
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FindEmailRequest"
+              },
+              "example": {
+                "lead": {
+                  "name": "Saarth Shah",
+                  "company": "Sixtyfour"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "description": "Successful Response",
+            "headers": {
+              "Location": {
+                "description": "URL to poll for this job.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Retry-After": {
+                "description": "Seconds before polling again.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "Idempotent-Replayed": {
+                "description": "True when this submission replays an existing job.",
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Job"
+                },
+                "example": {
+                  "job_id": "job_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "status": "running",
+                  "created_at": "2026-11-03T18:04:12Z",
+                  "next_poll_after": 5
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment Required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                },
+                "example": {
+                  "detail": "This Idempotency-Key is already in use. Use a new key for a new request.",
+                  "error_code": "idempotency_key_reused",
+                  "request_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "retryable": false,
+                  "param": null
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successful Response",
+            "headers": {
+              "Location": {
+                "description": "URL to poll for this job.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Retry-After": {
+                "description": "Seconds before polling again.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "Idempotent-Replayed": {
+                "description": "True when this submission replays an existing job.",
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Job"
+                },
+                "example": {
+                  "job_id": "job_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "status": "running",
+                  "created_at": "2026-11-03T18:04:12Z",
+                  "next_poll_after": 5
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
+          }
+        },
+        "x-mint": {
+          "metadata": {
+            "tag": "v1"
+          }
+        }
+      }
+    },
+    "/v1/find-email/bulk": {
+      "post": {
+        "tags": [
+          "Jobs"
+        ],
+        "summary": "Start Find Email Bulk",
+        "description": "Starts a batch of email lookups and returns a job to poll.",
+        "operationId": "StartFindEmailBulkV1FindEmailBulkPost",
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "description": "- Scoped to organization \u002B operation.\n- Same key \u002B body: same job, no new charge, \u0060Idempotent-Replayed: true\u0060.\n- Different body: 409 \u0060idempotency_key_reused\u0060.\n- Uploads must match filename \u002B contents.\n- Omit for no replay protection.\n- JSON replay lasts through the workflow retention window; CSV replay lasts 24 hours.",
+            "schema": {
+              "title": "Idempotency-Key",
+              "maxLength": 255,
+              "minLength": 1,
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "- Scoped to organization \u002B operation.\n- Same key \u002B body: same job, no new charge, \u0060Idempotent-Replayed: true\u0060.\n- Different body: 409 \u0060idempotency_key_reused\u0060.\n- Uploads must match filename \u002B contents.\n- Omit for no replay protection.\n- JSON replay lasts through the workflow retention window; CSV replay lasts 24 hours."
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FindEmailBulkRequest"
+              },
+              "example": {
+                "leads": [
+                  {
+                    "name": "Saarth Shah",
+                    "company": "Sixtyfour"
+                  },
+                  {
+                    "name": "Jane Doe",
+                    "company": "Acme Robotics"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "description": "Successful Response",
+            "headers": {
+              "Location": {
+                "description": "URL to poll for this job.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Retry-After": {
+                "description": "Seconds before polling again.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "Idempotent-Replayed": {
+                "description": "True when this submission replays an existing job.",
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Job"
+                },
+                "example": {
+                  "job_id": "job_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "status": "running",
+                  "created_at": "2026-11-03T18:04:12Z",
+                  "next_poll_after": 5
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment Required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                },
+                "example": {
+                  "detail": "This Idempotency-Key is already in use. Use a new key for a new request.",
+                  "error_code": "idempotency_key_reused",
+                  "request_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "retryable": false,
+                  "param": null
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successful Response",
+            "headers": {
+              "Location": {
+                "description": "URL to poll for this job.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Retry-After": {
+                "description": "Seconds before polling again.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "Idempotent-Replayed": {
+                "description": "True when this submission replays an existing job.",
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Job"
+                },
+                "example": {
+                  "job_id": "job_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "status": "running",
+                  "created_at": "2026-11-03T18:04:12Z",
+                  "next_poll_after": 5
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
+          }
+        },
+        "x-mint": {
+          "metadata": {
+            "tag": "v1"
+          }
+        }
+      }
+    },
+    "/v1/find-phone": {
+      "post": {
+        "tags": [
+          "Jobs"
+        ],
+        "summary": "Start Find Phone",
+        "description": "Starts a phone lookup and returns a job to poll.",
+        "operationId": "StartFindPhoneV1FindPhonePost",
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "description": "- Scoped to organization \u002B operation.\n- Same key \u002B body: same job, no new charge, \u0060Idempotent-Replayed: true\u0060.\n- Different body: 409 \u0060idempotency_key_reused\u0060.\n- Uploads must match filename \u002B contents.\n- Omit for no replay protection.\n- JSON replay lasts through the workflow retention window; CSV replay lasts 24 hours.",
+            "schema": {
+              "title": "Idempotency-Key",
+              "maxLength": 255,
+              "minLength": 1,
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "- Scoped to organization \u002B operation.\n- Same key \u002B body: same job, no new charge, \u0060Idempotent-Replayed: true\u0060.\n- Different body: 409 \u0060idempotency_key_reused\u0060.\n- Uploads must match filename \u002B contents.\n- Omit for no replay protection.\n- JSON replay lasts through the workflow retention window; CSV replay lasts 24 hours."
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FindPhoneRequest"
+              },
+              "example": {
+                "lead": {
+                  "name": "Saarth Shah",
+                  "company": "Sixtyfour"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "description": "Successful Response",
+            "headers": {
+              "Location": {
+                "description": "URL to poll for this job.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Retry-After": {
+                "description": "Seconds before polling again.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "Idempotent-Replayed": {
+                "description": "True when this submission replays an existing job.",
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Job"
+                },
+                "example": {
+                  "job_id": "job_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "status": "running",
+                  "created_at": "2026-11-03T18:04:12Z",
+                  "next_poll_after": 5
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment Required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                },
+                "example": {
+                  "detail": "This Idempotency-Key is already in use. Use a new key for a new request.",
+                  "error_code": "idempotency_key_reused",
+                  "request_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "retryable": false,
+                  "param": null
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successful Response",
+            "headers": {
+              "Location": {
+                "description": "URL to poll for this job.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Retry-After": {
+                "description": "Seconds before polling again.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "Idempotent-Replayed": {
+                "description": "True when this submission replays an existing job.",
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Job"
+                },
+                "example": {
+                  "job_id": "job_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "status": "running",
+                  "created_at": "2026-11-03T18:04:12Z",
+                  "next_poll_after": 5
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
+          }
+        },
+        "x-mint": {
+          "metadata": {
+            "tag": "v1"
+          }
+        }
+      }
+    },
+    "/v1/find-phone/bulk": {
+      "post": {
+        "tags": [
+          "Jobs"
+        ],
+        "summary": "Start Find Phone Bulk",
+        "description": "Starts a batch of phone lookups and returns a job to poll.",
+        "operationId": "StartFindPhoneBulkV1FindPhoneBulkPost",
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "description": "- Scoped to organization \u002B operation.\n- Same key \u002B body: same job, no new charge, \u0060Idempotent-Replayed: true\u0060.\n- Different body: 409 \u0060idempotency_key_reused\u0060.\n- Uploads must match filename \u002B contents.\n- Omit for no replay protection.\n- JSON replay lasts through the workflow retention window; CSV replay lasts 24 hours.",
+            "schema": {
+              "title": "Idempotency-Key",
+              "maxLength": 255,
+              "minLength": 1,
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "- Scoped to organization \u002B operation.\n- Same key \u002B body: same job, no new charge, \u0060Idempotent-Replayed: true\u0060.\n- Different body: 409 \u0060idempotency_key_reused\u0060.\n- Uploads must match filename \u002B contents.\n- Omit for no replay protection.\n- JSON replay lasts through the workflow retention window; CSV replay lasts 24 hours."
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FindPhoneBulkRequest"
+              },
+              "example": {
+                "leads": [
+                  {
+                    "name": "Saarth Shah",
+                    "company": "Sixtyfour"
+                  },
+                  {
+                    "name": "Jane Doe",
+                    "company": "Acme Robotics"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "description": "Successful Response",
+            "headers": {
+              "Location": {
+                "description": "URL to poll for this job.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Retry-After": {
+                "description": "Seconds before polling again.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "Idempotent-Replayed": {
+                "description": "True when this submission replays an existing job.",
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Job"
+                },
+                "example": {
+                  "job_id": "job_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "status": "running",
+                  "created_at": "2026-11-03T18:04:12Z",
+                  "next_poll_after": 5
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment Required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                },
+                "example": {
+                  "detail": "This Idempotency-Key is already in use. Use a new key for a new request.",
+                  "error_code": "idempotency_key_reused",
+                  "request_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "retryable": false,
+                  "param": null
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successful Response",
+            "headers": {
+              "Location": {
+                "description": "URL to poll for this job.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Retry-After": {
+                "description": "Seconds before polling again.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "Idempotent-Replayed": {
+                "description": "True when this submission replays an existing job.",
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Job"
+                },
+                "example": {
+                  "job_id": "job_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "status": "running",
+                  "created_at": "2026-11-03T18:04:12Z",
+                  "next_poll_after": 5
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
+          }
+        },
+        "x-mint": {
+          "metadata": {
+            "tag": "v1"
+          }
+        }
+      }
+    },
+    "/v1/reverse-email": {
+      "post": {
+        "tags": [
+          "Jobs"
+        ],
+        "summary": "Start Reverse Email",
+        "description": "Starts a person lookup from an email address and returns a job to poll.",
+        "operationId": "StartReverseEmailV1ReverseEmailPost",
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "description": "- Scoped to organization \u002B operation.\n- Same key \u002B body: same job, no new charge, \u0060Idempotent-Replayed: true\u0060.\n- Different body: 409 \u0060idempotency_key_reused\u0060.\n- Uploads must match filename \u002B contents.\n- Omit for no replay protection.\n- JSON replay lasts through the workflow retention window; CSV replay lasts 24 hours.",
+            "schema": {
+              "title": "Idempotency-Key",
+              "maxLength": 255,
+              "minLength": 1,
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "- Scoped to organization \u002B operation.\n- Same key \u002B body: same job, no new charge, \u0060Idempotent-Replayed: true\u0060.\n- Different body: 409 \u0060idempotency_key_reused\u0060.\n- Uploads must match filename \u002B contents.\n- Omit for no replay protection.\n- JSON replay lasts through the workflow retention window; CSV replay lasts 24 hours."
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReverseEmailRequest"
+              },
+              "example": {
+                "lead": {
+                  "email": "jane@example.com"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "description": "Successful Response",
+            "headers": {
+              "Location": {
+                "description": "URL to poll for this job.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Retry-After": {
+                "description": "Seconds before polling again.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "Idempotent-Replayed": {
+                "description": "True when this submission replays an existing job.",
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Job"
+                },
+                "example": {
+                  "job_id": "job_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "status": "running",
+                  "created_at": "2026-11-03T18:04:12Z",
+                  "next_poll_after": 5
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment Required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                },
+                "example": {
+                  "detail": "This Idempotency-Key is already in use. Use a new key for a new request.",
+                  "error_code": "idempotency_key_reused",
+                  "request_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "retryable": false,
+                  "param": null
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successful Response",
+            "headers": {
+              "Location": {
+                "description": "URL to poll for this job.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Retry-After": {
+                "description": "Seconds before polling again.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "Idempotent-Replayed": {
+                "description": "True when this submission replays an existing job.",
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Job"
+                },
+                "example": {
+                  "job_id": "job_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "status": "running",
+                  "created_at": "2026-11-03T18:04:12Z",
+                  "next_poll_after": 5
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
+          }
+        },
+        "x-mint": {
+          "metadata": {
+            "tag": "v1"
+          }
+        }
+      }
+    },
+    "/v1/reverse-email/bulk": {
+      "post": {
+        "tags": [
+          "Jobs"
+        ],
+        "summary": "Start Reverse Email Bulk",
+        "description": "Starts person lookups from email addresses and returns a job to poll.",
+        "operationId": "StartReverseEmailBulkV1ReverseEmailBulkPost",
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "description": "- Scoped to organization \u002B operation.\n- Same key \u002B body: same job, no new charge, \u0060Idempotent-Replayed: true\u0060.\n- Different body: 409 \u0060idempotency_key_reused\u0060.\n- Uploads must match filename \u002B contents.\n- Omit for no replay protection.\n- JSON replay lasts through the workflow retention window; CSV replay lasts 24 hours.",
+            "schema": {
+              "title": "Idempotency-Key",
+              "maxLength": 255,
+              "minLength": 1,
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "- Scoped to organization \u002B operation.\n- Same key \u002B body: same job, no new charge, \u0060Idempotent-Replayed: true\u0060.\n- Different body: 409 \u0060idempotency_key_reused\u0060.\n- Uploads must match filename \u002B contents.\n- Omit for no replay protection.\n- JSON replay lasts through the workflow retention window; CSV replay lasts 24 hours."
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReverseEmailBulkRequest"
+              },
+              "example": {
+                "leads": [
+                  {
+                    "email": "jane@example.com"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "description": "Successful Response",
+            "headers": {
+              "Location": {
+                "description": "URL to poll for this job.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Retry-After": {
+                "description": "Seconds before polling again.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "Idempotent-Replayed": {
+                "description": "True when this submission replays an existing job.",
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Job"
+                },
+                "example": {
+                  "job_id": "job_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "status": "running",
+                  "created_at": "2026-11-03T18:04:12Z",
+                  "next_poll_after": 5
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment Required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                },
+                "example": {
+                  "detail": "This Idempotency-Key is already in use. Use a new key for a new request.",
+                  "error_code": "idempotency_key_reused",
+                  "request_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "retryable": false,
+                  "param": null
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successful Response",
+            "headers": {
+              "Location": {
+                "description": "URL to poll for this job.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Retry-After": {
+                "description": "Seconds before polling again.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "Idempotent-Replayed": {
+                "description": "True when this submission replays an existing job.",
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Job"
+                },
+                "example": {
+                  "job_id": "job_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "status": "running",
+                  "created_at": "2026-11-03T18:04:12Z",
+                  "next_poll_after": 5
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
+          }
+        },
+        "x-mint": {
+          "metadata": {
+            "tag": "v1"
+          }
+        }
+      }
+    },
+    "/v1/reverse-phone": {
+      "post": {
+        "tags": [
+          "Jobs"
+        ],
+        "summary": "Start Reverse Phone",
+        "description": "Starts a person lookup from a phone number and returns a job to poll.",
+        "operationId": "StartReversePhoneV1ReversePhonePost",
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "description": "- Scoped to organization \u002B operation.\n- Same key \u002B body: same job, no new charge, \u0060Idempotent-Replayed: true\u0060.\n- Different body: 409 \u0060idempotency_key_reused\u0060.\n- Uploads must match filename \u002B contents.\n- Omit for no replay protection.\n- JSON replay lasts through the workflow retention window; CSV replay lasts 24 hours.",
+            "schema": {
+              "title": "Idempotency-Key",
+              "maxLength": 255,
+              "minLength": 1,
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "- Scoped to organization \u002B operation.\n- Same key \u002B body: same job, no new charge, \u0060Idempotent-Replayed: true\u0060.\n- Different body: 409 \u0060idempotency_key_reused\u0060.\n- Uploads must match filename \u002B contents.\n- Omit for no replay protection.\n- JSON replay lasts through the workflow retention window; CSV replay lasts 24 hours."
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReversePhoneRequest"
+              },
+              "example": {
+                "lead": {
+                  "phone": "\u002B14155550123"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "description": "Successful Response",
+            "headers": {
+              "Location": {
+                "description": "URL to poll for this job.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Retry-After": {
+                "description": "Seconds before polling again.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "Idempotent-Replayed": {
+                "description": "True when this submission replays an existing job.",
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Job"
+                },
+                "example": {
+                  "job_id": "job_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "status": "running",
+                  "created_at": "2026-11-03T18:04:12Z",
+                  "next_poll_after": 5
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment Required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                },
+                "example": {
+                  "detail": "This Idempotency-Key is already in use. Use a new key for a new request.",
+                  "error_code": "idempotency_key_reused",
+                  "request_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "retryable": false,
+                  "param": null
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successful Response",
+            "headers": {
+              "Location": {
+                "description": "URL to poll for this job.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Retry-After": {
+                "description": "Seconds before polling again.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "Idempotent-Replayed": {
+                "description": "True when this submission replays an existing job.",
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Job"
+                },
+                "example": {
+                  "job_id": "job_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "status": "running",
+                  "created_at": "2026-11-03T18:04:12Z",
+                  "next_poll_after": 5
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
+          }
+        },
+        "x-mint": {
+          "metadata": {
+            "tag": "v1"
+          }
+        }
+      }
+    },
+    "/v1/reverse-phone/bulk": {
+      "post": {
+        "tags": [
+          "Jobs"
+        ],
+        "summary": "Start Reverse Phone Bulk",
+        "description": "Starts person lookups from phone numbers and returns a job to poll.",
+        "operationId": "StartReversePhoneBulkV1ReversePhoneBulkPost",
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "description": "- Scoped to organization \u002B operation.\n- Same key \u002B body: same job, no new charge, \u0060Idempotent-Replayed: true\u0060.\n- Different body: 409 \u0060idempotency_key_reused\u0060.\n- Uploads must match filename \u002B contents.\n- Omit for no replay protection.\n- JSON replay lasts through the workflow retention window; CSV replay lasts 24 hours.",
+            "schema": {
+              "title": "Idempotency-Key",
+              "maxLength": 255,
+              "minLength": 1,
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "- Scoped to organization \u002B operation.\n- Same key \u002B body: same job, no new charge, \u0060Idempotent-Replayed: true\u0060.\n- Different body: 409 \u0060idempotency_key_reused\u0060.\n- Uploads must match filename \u002B contents.\n- Omit for no replay protection.\n- JSON replay lasts through the workflow retention window; CSV replay lasts 24 hours."
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReversePhoneBulkRequest"
+              },
+              "example": {
+                "leads": [
+                  {
+                    "phone": "\u002B14155550123"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "description": "Successful Response",
+            "headers": {
+              "Location": {
+                "description": "URL to poll for this job.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Retry-After": {
+                "description": "Seconds before polling again.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "Idempotent-Replayed": {
+                "description": "True when this submission replays an existing job.",
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Job"
+                },
+                "example": {
+                  "job_id": "job_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "status": "running",
+                  "created_at": "2026-11-03T18:04:12Z",
+                  "next_poll_after": 5
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment Required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                },
+                "example": {
+                  "detail": "This Idempotency-Key is already in use. Use a new key for a new request.",
+                  "error_code": "idempotency_key_reused",
+                  "request_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "retryable": false,
+                  "param": null
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successful Response",
+            "headers": {
+              "Location": {
+                "description": "URL to poll for this job.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Retry-After": {
+                "description": "Seconds before polling again.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "Idempotent-Replayed": {
+                "description": "True when this submission replays an existing job.",
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Job"
+                },
+                "example": {
+                  "job_id": "job_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "status": "running",
+                  "created_at": "2026-11-03T18:04:12Z",
+                  "next_poll_after": 5
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
+          }
+        },
+        "x-mint": {
+          "metadata": {
+            "tag": "v1"
+          }
+        }
+      }
+    },
+    "/v1/bulk-intelligence/people": {
+      "post": {
+        "tags": [
+          "Jobs"
+        ],
+        "summary": "Start Bulk People",
+        "description": "Starts people intelligence for an uploaded table and returns a job to poll.",
+        "operationId": "StartBulkPeopleV1BulkIntelligencePeoplePost",
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "description": "- Scoped to organization \u002B operation.\n- Same key \u002B body: same job, no new charge, \u0060Idempotent-Replayed: true\u0060.\n- Different body: 409 \u0060idempotency_key_reused\u0060.\n- Uploads must match filename \u002B contents.\n- Omit for no replay protection.\n- JSON replay lasts through the workflow retention window; CSV replay lasts 24 hours.",
+            "schema": {
+              "title": "Idempotency-Key",
+              "maxLength": 255,
+              "minLength": 1,
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "- Scoped to organization \u002B operation.\n- Same key \u002B body: same job, no new charge, \u0060Idempotent-Replayed: true\u0060.\n- Different body: 409 \u0060idempotency_key_reused\u0060.\n- Uploads must match filename \u002B contents.\n- Omit for no replay protection.\n- JSON replay lasts through the workflow retention window; CSV replay lasts 24 hours."
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/BodyStartBulkPeopleV1BulkIntelligencePeoplePost"
+              },
+              "example": {
+                "file": "name,company\nSaarth Shah,Sixtyfour\n",
+                "config": "{\u0022struct\u0022:{\u0022title\u0022:\u0022Current job title\u0022},\u0022tier\u0022:\u0022low\u0022}"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "description": "Successful Response",
+            "headers": {
+              "Location": {
+                "description": "URL to poll for this job.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Retry-After": {
+                "description": "Seconds before polling again.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "Idempotent-Replayed": {
+                "description": "True when this submission replays an existing job.",
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Job"
+                },
+                "example": {
+                  "job_id": "job_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "status": "running",
+                  "created_at": "2026-11-03T18:04:12Z",
+                  "next_poll_after": 5
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment Required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                },
+                "example": {
+                  "detail": "This Idempotency-Key is already in use. Use a new key for a new request.",
+                  "error_code": "idempotency_key_reused",
+                  "request_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "retryable": false,
+                  "param": null
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successful Response",
+            "headers": {
+              "Location": {
+                "description": "URL to poll for this job.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Retry-After": {
+                "description": "Seconds before polling again.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "Idempotent-Replayed": {
+                "description": "True when this submission replays an existing job.",
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Job"
+                },
+                "example": {
+                  "job_id": "job_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "status": "running",
+                  "created_at": "2026-11-03T18:04:12Z",
+                  "next_poll_after": 5
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
+          }
+        },
+        "x-mint": {
+          "metadata": {
+            "tag": "v1"
+          }
+        }
+      }
+    },
+    "/v1/bulk-intelligence/company": {
+      "post": {
+        "tags": [
+          "Jobs"
+        ],
+        "summary": "Start Bulk Company",
+        "description": "Starts company intelligence for an uploaded table and returns a job to poll.",
+        "operationId": "StartBulkCompanyV1BulkIntelligenceCompanyPost",
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "description": "- Scoped to organization \u002B operation.\n- Same key \u002B body: same job, no new charge, \u0060Idempotent-Replayed: true\u0060.\n- Different body: 409 \u0060idempotency_key_reused\u0060.\n- Uploads must match filename \u002B contents.\n- Omit for no replay protection.\n- JSON replay lasts through the workflow retention window; CSV replay lasts 24 hours.",
+            "schema": {
+              "title": "Idempotency-Key",
+              "maxLength": 255,
+              "minLength": 1,
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "- Scoped to organization \u002B operation.\n- Same key \u002B body: same job, no new charge, \u0060Idempotent-Replayed: true\u0060.\n- Different body: 409 \u0060idempotency_key_reused\u0060.\n- Uploads must match filename \u002B contents.\n- Omit for no replay protection.\n- JSON replay lasts through the workflow retention window; CSV replay lasts 24 hours."
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/BodyStartBulkCompanyV1BulkIntelligenceCompanyPost"
+              },
+              "example": {
+                "file": "company_name,domain\nSixtyfour,sixtyfour.ai\n",
+                "config": "{\u0022struct\u0022:{\u0022industry\u0022:\u0022Industry\u0022},\u0022tier\u0022:\u0022low\u0022}"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "description": "Successful Response",
+            "headers": {
+              "Location": {
+                "description": "URL to poll for this job.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Retry-After": {
+                "description": "Seconds before polling again.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "Idempotent-Replayed": {
+                "description": "True when this submission replays an existing job.",
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Job"
+                },
+                "example": {
+                  "job_id": "job_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "status": "running",
+                  "created_at": "2026-11-03T18:04:12Z",
+                  "next_poll_after": 5
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment Required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                },
+                "example": {
+                  "detail": "This Idempotency-Key is already in use. Use a new key for a new request.",
+                  "error_code": "idempotency_key_reused",
+                  "request_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "retryable": false,
+                  "param": null
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successful Response",
+            "headers": {
+              "Location": {
+                "description": "URL to poll for this job.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Retry-After": {
+                "description": "Seconds before polling again.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "Idempotent-Replayed": {
+                "description": "True when this submission replays an existing job.",
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Job"
+                },
+                "example": {
+                  "job_id": "job_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "status": "running",
+                  "created_at": "2026-11-03T18:04:12Z",
+                  "next_poll_after": 5
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
+          }
+        },
+        "x-mint": {
+          "metadata": {
+            "tag": "v1"
           }
         }
       }
@@ -20138,6 +23111,46 @@
         },
         "description": "Metrics for a block execution."
       },
+      "BodyStartBulkCompanyV1BulkIntelligenceCompanyPost": {
+        "title": "Body_start_bulk_company_v1_bulk_intelligence_company_post",
+        "required": [
+          "file",
+          "config"
+        ],
+        "type": "object",
+        "properties": {
+          "file": {
+            "contentMediaType": "application/octet-stream",
+            "title": "File",
+            "type": "string"
+          },
+          "config": {
+            "title": "Config",
+            "maxLength": 1000000,
+            "type": "string"
+          }
+        }
+      },
+      "BodyStartBulkPeopleV1BulkIntelligencePeoplePost": {
+        "title": "Body_start_bulk_people_v1_bulk_intelligence_people_post",
+        "required": [
+          "file",
+          "config"
+        ],
+        "type": "object",
+        "properties": {
+          "file": {
+            "contentMediaType": "application/octet-stream",
+            "title": "File",
+            "type": "string"
+          },
+          "config": {
+            "title": "Config",
+            "maxLength": 1000000,
+            "type": "string"
+          }
+        }
+      },
       "BodyStartCompanyBulkIntelligenceWorkflowBulkIntelligenceCompanyPost": {
         "title": "Body_start_company_bulk_intelligence_workflow_bulk_intelligence_company_post",
         "required": [
@@ -21428,7 +24441,7 @@
               "maxLength": 63,
               "type": "string"
             },
-            "description": "Your team\u0027s connected APIs the run\u0027s agents may call, by name. Leave it out to allow all of them; an empty list allows none. Taken by \u0060xhigh\u0060, by \u0060scout\u0060 with \u0060graph\u0060, and by \u0060high\u0060 when enabled for your organization; refused on other tiers."
+            "description": "Your team\u0027s connected APIs the run\u0027s agents may call, by name. Leave it out to allow all of them; an empty list allows none. Taken by \u0060xhigh\u0060, by \u0060scout\u0060 with \u0060graph\u0060, and by \u0060high\u0060; refused on other tiers."
           },
           "relentless": {
             "title": "Relentless",
@@ -21477,7 +24490,7 @@
               "minLength": 1,
               "type": "string"
             },
-            "description": "Skills the run\u0027s agents follow, by name: \u0060team/\u003Cname\u003E\u0060 for one of your team\u0027s skills, \u0060sixtyfour/\u003Cname\u003E\u0060 for one of ours. Up to 25,000 tokens in total. Taken by \u0060xhigh\u0060, by \u0060scout\u0060 with \u0060graph\u0060, and by \u0060high\u0060 when enabled for your organization; refused on other tiers."
+            "description": "Skills the run\u0027s agents follow, by name: \u0060team/\u003Cname\u003E\u0060 for one of your team\u0027s skills, \u0060sixtyfour/\u003Cname\u003E\u0060 for one of ours. Up to 25,000 tokens in total. Taken by \u0060xhigh\u0060, by \u0060scout\u0060 with \u0060graph\u0060, and by \u0060high\u0060; refused on other tiers."
           },
           "dispatch_id": {
             "title": "Dispatch Id",
@@ -23438,6 +26451,75 @@
           }
         }
       },
+      "Job": {
+        "examples": [
+          {
+            "job_id": "job_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+            "status": "running",
+            "created_at": "2026-11-03T18:04:12Z",
+            "next_poll_after": 5
+          },
+          {
+            "job_id": "job_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+            "status": "succeeded",
+            "created_at": "2026-11-03T18:04:12Z",
+            "result": {
+              "structured_data": {
+                "name": "Saarth Shah",
+                "title": "CEO \u0026 Co-Founder",
+                "company": "Sixtyfour",
+                "linkedin": "https://www.linkedin.com/in/saarthshah"
+              },
+              "notes": "Confirmed current role from the LinkedIn profile and the company site.",
+              "references": {
+                "https://www.linkedin.com/in/saarthshah": "LinkedIn profile with current title"
+              },
+              "confidence_score": 9
+            }
+          }
+        ],
+        "title": "Job",
+        "required": [
+          "job_id",
+          "status",
+          "created_at"
+        ],
+        "type": "object",
+        "properties": {
+          "job_id": {
+            "title": "Job Id",
+            "type": "string",
+            "description": "Job identifier, normally prefixed with \u0060job_\u0060. Store it exactly as returned. GET /v1/jobs/{job_id} also accepts IDs returned by unversioned endpoints."
+          },
+          "status": {
+            "$ref": "#/components/schemas/JobStatus"
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": "string",
+            "description": "UTC timestamp when the job was created, in ISO 8601 format.",
+            "format": "date-time"
+          },
+          "next_poll_after": {
+            "title": "Next Poll After",
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Seconds before polling again while queued or running; omitted for terminal states."
+          },
+          "progress": {
+            "$ref": "#/components/schemas/JobProgressProperty"
+          },
+          "result": {
+            "title": "Result",
+            "description": "Successful output when available; bulk jobs may return download links."
+          },
+          "error": {
+            "$ref": "#/components/schemas/JobErrorComposed"
+          }
+        }
+      },
       "LeadAsyncJobStartResponse": {
         "title": "LeadAsyncJobStartResponse",
         "required": [
@@ -24446,7 +27528,7 @@
               "maxLength": 63,
               "type": "string"
             },
-            "description": "Your team\u0027s connected APIs the run\u0027s agents may call, by name. Leave it out to allow all of them; an empty list allows none. Taken by \u0060xhigh\u0060, by \u0060scout\u0060 with \u0060graph\u0060, and by \u0060high\u0060 when enabled for your organization; refused on other tiers."
+            "description": "Your team\u0027s connected APIs the run\u0027s agents may call, by name. Leave it out to allow all of them; an empty list allows none. Taken by \u0060xhigh\u0060, by \u0060scout\u0060 with \u0060graph\u0060, and by \u0060high\u0060; refused on other tiers."
           },
           "relentless": {
             "title": "Relentless",
@@ -24495,10 +27577,99 @@
               "minLength": 1,
               "type": "string"
             },
-            "description": "Skills the run\u0027s agents follow, by name: \u0060team/\u003Cname\u003E\u0060 for one of your team\u0027s skills, \u0060sixtyfour/\u003Cname\u003E\u0060 for one of ours. Up to 25,000 tokens in total. Taken by \u0060xhigh\u0060, by \u0060scout\u0060 with \u0060graph\u0060, and by \u0060high\u0060 when enabled for your organization; refused on other tiers."
+            "description": "Skills the run\u0027s agents follow, by name: \u0060team/\u003Cname\u003E\u0060 for one of your team\u0027s skills, \u0060sixtyfour/\u003Cname\u003E\u0060 for one of ours. Up to 25,000 tokens in total. Taken by \u0060xhigh\u0060, by \u0060scout\u0060 with \u0060graph\u0060, and by \u0060high\u0060; refused on other tiers."
           }
         },
         "description": "\u0060dispatch_id\u0060 and \u0060exclusive_run\u0060 act only on async runs; sent to the sync route, they are ignored."
+      },
+      "PublicJobError": {
+        "title": "PublicJobError",
+        "required": [
+          "detail",
+          "error_code",
+          "request_id",
+          "retryable"
+        ],
+        "type": "object",
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "string",
+            "description": "Human-readable explanation of why the request failed."
+          },
+          "error_code": {
+            "title": "Error Code",
+            "type": "string",
+            "description": "Stable error code for handling the failure in code. Do not branch on the wording of \u0060detail\u0060."
+          },
+          "request_id": {
+            "title": "Request Id",
+            "type": "string",
+            "description": "Request identifier, equal to the X-Request-Id response header. Quote this value when contacting support."
+          },
+          "retryable": {
+            "title": "Retryable",
+            "type": "boolean",
+            "description": "If true, retrying the request can succeed without changing its inputs; respect Retry-After when present. If false, correct the request or resolve the reported condition before retrying."
+          },
+          "param": {
+            "title": "Param",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Dot-separated path to the parameter that caused the error, such as \u0060body.lead\u0060 or \u0060header.Idempotency-Key\u0060. Null when the error is not tied to a parameter."
+          }
+        }
+      },
+      "PublicJobValidationError": {
+        "title": "PublicJobValidationError",
+        "required": [
+          "detail",
+          "error_code",
+          "request_id",
+          "retryable",
+          "errors"
+        ],
+        "type": "object",
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "string",
+            "description": "Human-readable explanation of why the request failed."
+          },
+          "error_code": {
+            "title": "Error Code",
+            "type": "string",
+            "description": "Stable error code for handling the failure in code. Do not branch on the wording of \u0060detail\u0060."
+          },
+          "request_id": {
+            "title": "Request Id",
+            "type": "string",
+            "description": "Request identifier, equal to the X-Request-Id response header. Quote this value when contacting support."
+          },
+          "retryable": {
+            "title": "Retryable",
+            "type": "boolean",
+            "description": "If true, retrying the request can succeed without changing its inputs; respect Retry-After when present. If false, correct the request or resolve the reported condition before retrying."
+          },
+          "param": {
+            "title": "Param",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Dot-separated path to the parameter that caused the error, such as \u0060body.lead\u0060 or \u0060header.Idempotency-Key\u0060. Null when the error is not tied to a parameter."
+          },
+          "errors": {
+            "title": "Errors",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PublicJobValidationErrorErrorsItemProperty"
+            },
+            "description": "Individual validation failures, each with a parameter location (\u0060loc\u0060), message (\u0060msg\u0060), and error type (\u0060type\u0060)."
+          }
+        }
       },
       "PutConnectionRequest": {
         "title": "PutConnectionRequest",
@@ -26684,6 +29855,177 @@
           }
         }
       },
+      "V1EnrichLeadInfo": {
+        "examples": [
+          {
+            "lead_info": {
+              "company": "Sixtyfour",
+              "linkedin": "https://www.linkedin.com/in/saarthshah",
+              "name": "Saarth Shah"
+            },
+            "struct": {
+              "company": "The company the individual works at",
+              "linkedin": "LinkedIn URL for the person",
+              "name": "The individual\u0027s full name",
+              "title": "The individual\u0027s current job title",
+              "website": "Company website URL"
+            },
+            "tier": "medium"
+          }
+        ],
+        "title": "V1EnrichLeadInfo",
+        "required": [
+          "lead_info"
+        ],
+        "type": "object",
+        "properties": {
+          "struct": {
+            "$ref": "#/components/schemas/V1EnrichLeadInfoStructProperty"
+          },
+          "research_plan": {
+            "title": "Research Plan",
+            "maxLength": 100000,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "A plan, in plain language, that guides the research. Default: none."
+          },
+          "tier": {
+            "$ref": "#/components/schemas/V1EnrichLeadInfoTier"
+          },
+          "webhook_url": {
+            "title": "Webhook Url",
+            "maxLength": 2048,
+            "minLength": 1,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "HTTPS URL that receives the result when the job completes. Default: none.",
+            "x-client-original-format": "uri"
+          },
+          "field_confidence": {
+            "title": "Field Confidence",
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "If true, returns each requested field\u0027s confidence (0-100), justification and source URLs, nested like the request. Default: false."
+          },
+          "lead_info": {
+            "$ref": "#/components/schemas/V1EnrichLeadInfoLeadInfoProperty"
+          },
+          "graph": {
+            "title": "Graph",
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "\u0060scout\u0060 only. If true, runs Scout as an Atlas investigation, billed per unit of research. It enables the Atlas run options (\u0060max_credits\u0060, \u0060max_minutes\u0060, \u0060relentless\u0060, \u0060investigation_id\u0060, \u0060investigation_name\u0060, \u0060include_workspace\u0060), makes \u0060struct\u0060 optional, and the async response returns the \u0060investigation\u0060. Requires Scout in Atlas for your organization. If false or omitted, Scout runs as usual."
+          },
+          "include_workspace": {
+            "title": "Include Workspace",
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Atlas runs only. If true, includes the investigation\u0027s workspace files in the result; they are read from the investigation, so they include later runs\u0027 changes. Default: true."
+          },
+          "investigation_id": {
+            "title": "Investigation Id",
+            "maxLength": 200,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Atlas runs only: continues this investigation, reusing its graph and workspace, instead of creating one. Default: creates one."
+          },
+          "investigation_name": {
+            "title": "Investigation Name",
+            "maxLength": 1000,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Atlas runs only: the title of a new investigation. Ignored with \u0060investigation_id\u0060. Default: taken from \u0060lead_info\u0060."
+          },
+          "private": {
+            "title": "Private",
+            "type": "boolean",
+            "description": "If true, shows the run\u0027s result, status and usage log only to you (with an API key, to the key\u0027s creator). Your team must allow private runs. Atlas runs need the async endpoint and a new investigation.",
+            "default": false
+          },
+          "connections": {
+            "title": "Connections",
+            "maxItems": 10,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "maxLength": 63,
+              "type": "string"
+            },
+            "description": "Your team\u0027s connected APIs the run\u0027s agents may call, by name. Leave it out to allow all of them; an empty list allows none. Taken by \u0060xhigh\u0060, by \u0060scout\u0060 with \u0060graph\u0060, and by \u0060high\u0060; refused on other tiers."
+          },
+          "relentless": {
+            "title": "Relentless",
+            "type": "boolean",
+            "description": "Atlas runs with \u0060struct\u0060 only. If true, researches until the budget runs out. If false, a run may stop once every requested field is answered, and is charged for the research it used (at least one unit). Default: false.",
+            "default": false
+          },
+          "agent_trace": {
+            "title": "Agent Trace",
+            "type": "boolean",
+            "description": "Atlas runs only. If true, the investigation\u0027s Agents tab in Atlas shows a short, readable summary of each agent\u0027s reasoning and actions as it works. The trace is for people reading along: it does not change the research or the results. Leave it off when you only read results through the API. Default: false.",
+            "default": false
+          },
+          "generate_report": {
+            "title": "Generate Report",
+            "type": "boolean",
+            "description": "Atlas runs only. If true, starts the investigation\u0027s PDF intelligence report when research completes. You can also generate one at any time with \u0060POST /investigations/{investigation_id}/report\u0060 or from the Report tab in Atlas. Default: false.",
+            "default": false
+          },
+          "max_credits": {
+            "title": "Max Credits",
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Atlas runs only: research budget in credits, from one to 10 units of the tier price. Default: one unit. The whole budget is used and charged unless the run stops early (see \u0060relentless\u0060 and \u0060max_minutes\u0060)."
+          },
+          "max_minutes": {
+            "title": "Max Minutes",
+            "maximum": 1440.0,
+            "minimum": 10.0,
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Atlas runs only: the most minutes of research time; waiting to retry does not count. When reached, the run writes up its findings, which can take a few minutes, and is charged only for the research it used. Default: no limit."
+          },
+          "skills": {
+            "title": "Skills",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "maxLength": 74,
+              "minLength": 1,
+              "type": "string"
+            },
+            "description": "Skills the run\u0027s agents follow, by name: \u0060team/\u003Cname\u003E\u0060 for one of your team\u0027s skills, \u0060sixtyfour/\u003Cname\u003E\u0060 for one of ours. Up to 25,000 tokens in total. Taken by \u0060xhigh\u0060, by \u0060scout\u0060 with \u0060graph\u0060, and by \u0060high\u0060; refused on other tiers."
+          },
+          "exclusive_run": {
+            "title": "Exclusive Run",
+            "type": "boolean",
+            "description": "Atlas runs on an existing investigation only. If true, returns 409 while that investigation has a run starting or running, instead of starting and charging a second one. Default: false.",
+            "default": false
+          }
+        }
+      },
       "VerifyAgeRequest": {
         "title": "VerifyAgeRequest",
         "required": [
@@ -28090,6 +31432,41 @@
             }
           ],
           "description": "Null when your team owns this investigation; otherwise the team that shared it with yours, and how."
+        }
+      },
+      "JobErrorComposed": {
+        "title": "JobError",
+        "required": [
+          "error_code",
+          "detail"
+        ],
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "error_code": {
+            "title": "Error Code",
+            "type": "string",
+            "description": "Stable error code for identifying the job failure in code."
+          },
+          "detail": {
+            "title": "Detail",
+            "type": "string",
+            "description": "Human-readable explanation of the job failure."
+          }
+        },
+        "description": "Failure details when available; omitted otherwise.",
+        "x-client-original-nullable-union": {
+          "anyOf": [
+            {
+              "$ref": "#/components/schemas/JobError"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Failure details when available; omitted otherwise."
         }
       },
       "LeadAsyncJobStartResponseInvestigation": {
@@ -43759,6 +47136,10 @@
           "progress": {
             "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseOneOf1Progress"
           },
+          "next_poll_after": {
+            "type": "integer",
+            "description": "Seconds before the next poll while running."
+          },
           "investigation": {
             "$ref": "#/components/schemas/JobStatusJobStatusJobIdGet200ResponseOneOf1Investigation"
           }
@@ -44151,6 +47532,14 @@
         ],
         "description": "Set when the cost is withheld from the caller, who may not see what the investigation\u0027s creator spent: why, as \u0060state\u0060, \u0060reason\u0060 and \u0060message\u0060. \u0060cost_cents\u0060 and \u0060cost_credits\u0060 are then null."
       },
+      "JobProgressProperty": {
+        "title": "Progress",
+        "type": [
+          "null",
+          "object"
+        ],
+        "description": "Operation-specific progress while queued or running; omitted when unavailable."
+      },
       "LinkedInEnrichRequestStructProperty": {
         "title": "Struct",
         "type": [
@@ -44238,6 +47627,9 @@
         "title": "Lead Info",
         "type": "object",
         "description": "The person to look up: any combination of \u0060name\u0060, \u0060email\u0060, \u0060company\u0060, \u0060linkedin\u0060 and other known details."
+      },
+      "PublicJobValidationErrorErrorsItemProperty": {
+        "type": "object"
       },
       "QaAgentRequestDataProperty": {
         "title": "Data",
@@ -44375,6 +47767,19 @@
           "null",
           "object"
         ]
+      },
+      "V1EnrichLeadInfoStructProperty": {
+        "title": "Struct",
+        "type": [
+          "null",
+          "object"
+        ],
+        "description": "Fields to return: output field name to a description of what to find. An image field returns a \u0060https://api.sixtyfour.ai/v1/media/...\u0060 URL you can embed. Required except on Atlas runs (\u0060xhigh\u0060, or \u0060scout\u0060 with \u0060graph\u0060)."
+      },
+      "V1EnrichLeadInfoLeadInfoProperty": {
+        "title": "Lead Info",
+        "type": "object",
+        "description": "The person to look up: any combination of \u0060name\u0060, \u0060email\u0060, \u0060company\u0060, \u0060linkedin\u0060 and other known details."
       },
       "VerifyAgeRequestSubjectProperty": {
         "title": "Subject",
@@ -45506,6 +48911,44 @@
           ]
         }
       },
+      "JobStatus": {
+        "title": "Status",
+        "enum": [
+          "queued",
+          "running",
+          "succeeded",
+          "failed",
+          "canceled"
+        ],
+        "type": "string",
+        "description": "\u0060queued\u0060: accepted and waiting to start. \u0060running\u0060: work is in progress. \u0060succeeded\u0060: work finished successfully. \u0060failed\u0060: work ended with an error. \u0060canceled\u0060: work was canceled. The last three states are terminal; stop polling.",
+        "x-ms-enum": {
+          "name": "JobStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "queued",
+              "name": "Queued"
+            },
+            {
+              "value": "running",
+              "name": "Running"
+            },
+            {
+              "value": "succeeded",
+              "name": "Succeeded"
+            },
+            {
+              "value": "failed",
+              "name": "Failed"
+            },
+            {
+              "value": "canceled",
+              "name": "Canceled"
+            }
+          ]
+        }
+      },
       "LeadAsyncJobStartResponseStatus": {
         "title": "Status",
         "enum": [
@@ -46036,6 +49479,58 @@
           ]
         }
       },
+      "V1EnrichLeadInfoTier": {
+        "title": "Tier",
+        "description": "Research depth and price. See [Credits \u0026 Pricing](/guides/credits-and-pricing). Default: \u0060low\u0060.",
+        "anyOf": [
+          {
+            "title": "Tier",
+            "enum": [
+              "low",
+              "micro",
+              "medium",
+              "high",
+              "xhigh",
+              "scout"
+            ],
+            "type": "string",
+            "description": "Research depth and price. See [Credits \u0026 Pricing](/guides/credits-and-pricing). Default: \u0060low\u0060.",
+            "x-ms-enum": {
+              "name": "V1EnrichLeadInfoTier",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "low",
+                  "name": "Low"
+                },
+                {
+                  "value": "micro",
+                  "name": "Micro"
+                },
+                {
+                  "value": "medium",
+                  "name": "Medium"
+                },
+                {
+                  "value": "high",
+                  "name": "High"
+                },
+                {
+                  "value": "xhigh",
+                  "name": "Xhigh"
+                },
+                {
+                  "value": "scout",
+                  "name": "Scout"
+                }
+              ]
+            }
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
       "VerifyEmailResponseStatus": {
         "title": "Status",
         "enum": [
@@ -46555,6 +50050,26 @@
       },
       "description": "Build the list from identifiers sent in the request.\n\nPerson lists: LinkedIn public IDs or profile URLs. Company lists: numeric\ncompany IDs, LinkedIn company URLs/slugs, or exact website domains."
     },
+    "JobError": {
+      "title": "JobError",
+      "required": [
+        "error_code",
+        "detail"
+      ],
+      "type": "object",
+      "properties": {
+        "error_code": {
+          "title": "Error Code",
+          "type": "string",
+          "description": "Stable error code for identifying the job failure in code."
+        },
+        "detail": {
+          "title": "Detail",
+          "type": "string",
+          "description": "Human-readable explanation of the job failure."
+        }
+      }
+    },
     "JsonValue": {},
     "ResourceHandleSource": {
       "title": "ResourceHandleSource",
@@ -47067,6 +50582,14 @@
       ],
       "description": "Set when the cost is withheld from the caller, who may not see what the investigation\u0027s creator spent: why, as \u0060state\u0060, \u0060reason\u0060 and \u0060message\u0060. \u0060cost_cents\u0060 and \u0060cost_credits\u0060 are then null."
     },
+    "JobProgress": {
+      "title": "Progress",
+      "type": [
+        "null",
+        "object"
+      ],
+      "description": "Operation-specific progress while queued or running; omitted when unavailable."
+    },
     "LinkedInEnrichRequestStruct": {
       "title": "Struct",
       "type": [
@@ -47154,6 +50677,9 @@
       "title": "Lead Info",
       "type": "object",
       "description": "The person to look up: any combination of \u0060name\u0060, \u0060email\u0060, \u0060company\u0060, \u0060linkedin\u0060 and other known details."
+    },
+    "PublicJobValidationErrorErrorsItem": {
+      "type": "object"
     },
     "QaAgentRequestData": {
       "title": "Data",
@@ -47300,6 +50826,19 @@
         "null",
         "object"
       ]
+    },
+    "V1EnrichLeadInfoStruct": {
+      "title": "Struct",
+      "type": [
+        "null",
+        "object"
+      ],
+      "description": "Fields to return: output field name to a description of what to find. An image field returns a \u0060https://api.sixtyfour.ai/v1/media/...\u0060 URL you can embed. Required except on Atlas runs (\u0060xhigh\u0060, or \u0060scout\u0060 with \u0060graph\u0060)."
+    },
+    "V1EnrichLeadInfoLeadInfo": {
+      "title": "Lead Info",
+      "type": "object",
+      "description": "The person to look up: any combination of \u0060name\u0060, \u0060email\u0060, \u0060company\u0060, \u0060linkedin\u0060 and other known details."
     },
     "VerifyAgeRequestSubject": {
       "title": "Subject",

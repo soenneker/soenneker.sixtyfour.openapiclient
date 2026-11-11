@@ -61,7 +61,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Atlas runs only. If true, the investigation&apos;s Agents tab in Atlas shows a short, readable summary of each agent&apos;s reasoning and actions as it works. The trace is for people reading along: it does not change the research or the results. Leave it off when you only read results through the API. Default: false.</summary>
         public bool? AgentTrace { get => _explicitNullValueAgentTrace; set { _explicitNullValueAgentTrace = value; AdditionalData?.Remove("agent_trace"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_trace"); else _explicitNullProperties?.Remove("agent_trace"); } }
         private bool? _explicitNullValueAgentTrace = default!;
-        /// <summary>Your team&apos;s connected APIs the run&apos;s agents may call, by name. Leave it out to allow all of them; an empty list allows none. Taken by `xhigh`, by `scout` with `graph`, and by `high` when enabled for your organization; refused on other tiers.</summary>
+        /// <summary>Your team&apos;s connected APIs the run&apos;s agents may call, by name. Leave it out to allow all of them; an empty list allows none. Taken by `xhigh`, by `scout` with `graph`, and by `high`; refused on other tiers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Connections { get => _explicitNullValueConnections; set { _explicitNullValueConnections = value; AdditionalData?.Remove("connections"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connections"); else _explicitNullProperties?.Remove("connections"); } }
@@ -135,7 +135,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string ResearchPlan { get => _explicitNullValueResearchPlan; set { _explicitNullValueResearchPlan = value; AdditionalData?.Remove("research_plan"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("research_plan"); else _explicitNullProperties?.Remove("research_plan"); } }
         private string _explicitNullValueResearchPlan = default!;
 #endif
-        /// <summary>Skills the run&apos;s agents follow, by name: `team/&lt;name&gt;` for one of your team&apos;s skills, `sixtyfour/&lt;name&gt;` for one of ours. Up to 25,000 tokens in total. Taken by `xhigh`, by `scout` with `graph`, and by `high` when enabled for your organization; refused on other tiers.</summary>
+        /// <summary>Skills the run&apos;s agents follow, by name: `team/&lt;name&gt;` for one of your team&apos;s skills, `sixtyfour/&lt;name&gt;` for one of ours. Up to 25,000 tokens in total. Taken by `xhigh`, by `scout` with `graph`, and by `high`; refused on other tiers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Skills { get => _explicitNullValueSkills; set { _explicitNullValueSkills = value; AdditionalData?.Remove("skills"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skills"); else _explicitNullProperties?.Remove("skills"); } }

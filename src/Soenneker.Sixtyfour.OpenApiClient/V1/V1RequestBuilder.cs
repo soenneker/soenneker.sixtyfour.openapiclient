@@ -3,7 +3,15 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas;
+using Soenneker.Sixtyfour.OpenApiClient.V1.BulkIntelligence;
+using Soenneker.Sixtyfour.OpenApiClient.V1.CompanyIntelligence;
+using Soenneker.Sixtyfour.OpenApiClient.V1.FindEmail;
+using Soenneker.Sixtyfour.OpenApiClient.V1.FindPhone;
+using Soenneker.Sixtyfour.OpenApiClient.V1.Jobs;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Media;
+using Soenneker.Sixtyfour.OpenApiClient.V1.PeopleIntelligence;
+using Soenneker.Sixtyfour.OpenApiClient.V1.ReverseEmail;
+using Soenneker.Sixtyfour.OpenApiClient.V1.ReversePhone;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -21,10 +29,50 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.AtlasRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The bulkIntelligence property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.BulkIntelligence.BulkIntelligenceRequestBuilder BulkIntelligence
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.BulkIntelligence.BulkIntelligenceRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The companyIntelligence property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.CompanyIntelligence.CompanyIntelligenceRequestBuilder CompanyIntelligence
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.CompanyIntelligence.CompanyIntelligenceRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The findEmail property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.FindEmail.FindEmailRequestBuilder FindEmail
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.FindEmail.FindEmailRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The findPhone property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.FindPhone.FindPhoneRequestBuilder FindPhone
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.FindPhone.FindPhoneRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The jobs property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.Jobs.JobsRequestBuilder Jobs
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Jobs.JobsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The media property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.V1.Media.MediaRequestBuilder Media
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Media.MediaRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The peopleIntelligence property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.PeopleIntelligence.PeopleIntelligenceRequestBuilder PeopleIntelligence
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.PeopleIntelligence.PeopleIntelligenceRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The reverseEmail property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.ReverseEmail.ReverseEmailRequestBuilder ReverseEmail
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.ReverseEmail.ReverseEmailRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The reversePhone property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.ReversePhone.ReversePhoneRequestBuilder ReversePhone
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.ReversePhone.ReversePhoneRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.V1.V1RequestBuilder"/> and sets the default values.
