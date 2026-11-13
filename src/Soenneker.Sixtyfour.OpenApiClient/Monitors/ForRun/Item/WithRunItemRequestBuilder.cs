@@ -47,7 +47,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.ForRun.Item
         {
         }
         /// <summary>
-        /// The monitors a workflow run started in your team, newest first, at most 50 per page.For the next page, pass `cursor` as `&lt;created_at&gt;|&lt;id&gt;` of the last monitor on this page.LinkedIn monitors are listed only when your organization has them enabled.
+        /// The monitors a workflow run started in your team, newest first, at most 50 per page.For the next page, pass `cursor` as `&lt;created_at&gt;|&lt;id&gt;` of the last monitor on this page.Includes research and LinkedIn monitors.
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorResponse&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -83,7 +83,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.ForRun.Item
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// The monitors a workflow run started in your team, newest first, at most 50 per page.For the next page, pass `cursor` as `&lt;created_at&gt;|&lt;id&gt;` of the last monitor on this page.LinkedIn monitors are listed only when your organization has them enabled.
+        /// The monitors a workflow run started in your team, newest first, at most 50 per page.For the next page, pass `cursor` as `&lt;created_at&gt;|&lt;id&gt;` of the last monitor on this page.Includes research and LinkedIn monitors.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -111,7 +111,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.ForRun.Item
             return new global::Soenneker.Sixtyfour.OpenApiClient.Monitors.ForRun.Item.WithRunItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// The monitors a workflow run started in your team, newest first, at most 50 per page.For the next page, pass `cursor` as `&lt;created_at&gt;|&lt;id&gt;` of the last monitor on this page.LinkedIn monitors are listed only when your organization has them enabled.
+        /// The monitors a workflow run started in your team, newest first, at most 50 per page.For the next page, pass `cursor` as `&lt;created_at&gt;|&lt;id&gt;` of the last monitor on this page.Includes research and LinkedIn monitors.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithRunItemRequestBuilderGetQueryParameters 

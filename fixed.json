@@ -13444,7 +13444,7 @@
           "Monitors"
         ],
         "summary": "List Monitors For Run",
-        "description": "The monitors a workflow run started in your team, newest first, at most 50 per page.\n\nFor the next page, pass \u0060cursor\u0060 as \u0060\u003Ccreated_at\u003E|\u003Cid\u003E\u0060 of the last monitor on this page.\nLinkedIn monitors are listed only when your organization has them enabled.",
+        "description": "The monitors a workflow run started in your team, newest first, at most 50 per page.\n\nFor the next page, pass \u0060cursor\u0060 as \u0060\u003Ccreated_at\u003E|\u003Cid\u003E\u0060 of the last monitor on this page.\nIncludes research and LinkedIn monitors.",
         "operationId": "ListMonitorsForRunMonitorsForRunRunIdGet",
         "parameters": [
           {
