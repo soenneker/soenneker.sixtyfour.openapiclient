@@ -52,7 +52,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             else if (parseNode.GetChildNode("webhook_url") is { } nullNodeWebhookUrl && nullNodeWebhookUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookUrl = null;
         }
 
-        /// <summary>When setup runs for rows missing watched values. &apos;now&apos; triggers setup immediately; &apos;next_tick&apos; waits for the schedule. Fully supplied rows always start on the schedule: an hourly monitor first runs at the next :00 UTC, a daily one at the next 00:00 UTC. The response&apos;s next_run_times says exactly when.</summary>
+        /// <summary>When to run the first check. now starts it immediately when active; next_tick waits for the schedule. Sentinel checks all rows, including supplied values. Other research tiers initially enrich missing watched values; fully supplied rows wait for the schedule. next_run_times gives exact scheduled times.</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestFirstCheck? FirstCheck { get => _explicitNullValueFirstCheck; set { _explicitNullValueFirstCheck = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("first_check"); else _explicitNullProperties?.Remove("first_check"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRequestFirstCheck? _explicitNullValueFirstCheck = default!;
         /// <summary>The frequency property</summary>
@@ -164,7 +164,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string Tier { get => _explicitNullValueTier; set { _explicitNullValueTier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tier"); else _explicitNullProperties?.Remove("tier"); } }
         private string _explicitNullValueTier = default!;
 #endif
-        /// <summary>Which events POST to webhook_url: any of &apos;monitor.field.changed&apos;, &apos;monitor.execution.completed&apos;, &apos;monitor.execution.failed&apos;, &apos;monitor.run.completed&apos;. Defaults to [&apos;monitor.field.changed&apos;]. A monitor&apos;s first check records starting values rather than changes, so subscribe to &apos;monitor.execution.completed&apos; to hear about every finished check.</summary>
+        /// <summary>Which events POST to webhook_url: any of &apos;monitor.field.changed&apos;, &apos;monitor.execution.completed&apos;, &apos;monitor.execution.failed&apos;, &apos;monitor.run.completed&apos;. Defaults to [&apos;monitor.field.changed&apos;]. Initial enrichment can establish missing starting values; subscribe to &apos;monitor.execution.completed&apos; to hear about every finished check.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? WebhookEventTypes { get => _explicitNullValueWebhookEventTypes; set { _explicitNullValueWebhookEventTypes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_event_types"); else _explicitNullProperties?.Remove("webhook_event_types"); } }

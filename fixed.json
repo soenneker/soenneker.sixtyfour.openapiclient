@@ -23567,7 +23567,7 @@
             "title": "Config",
             "maxLength": 1000000,
             "type": "string",
-            "description": "The settings as a JSON string (fields below), up to 1,000,000 characters."
+            "description": "The settings as a JSON string, up to 1,000,000 characters. Uses the same creation settings as POST /monitors, except rows come from the file. first_check defaults to now; use next_tick to wait for the schedule."
           }
         }
       },
@@ -24034,6 +24034,9 @@
         ],
         "type": "object",
         "properties": {
+          "first_check": {
+            "$ref": "#/components/schemas/CreateMonitorRequestFirstCheck"
+          },
           "monitor_type": {
             "$ref": "#/components/schemas/CreateMonitorRequestMonitorType"
           },
@@ -24117,7 +24120,7 @@
               "maxLength": 200,
               "type": "string"
             },
-            "description": "Which events POST to webhook_url: any of \u0027monitor.field.changed\u0027, \u0027monitor.execution.completed\u0027, \u0027monitor.execution.failed\u0027, \u0027monitor.run.completed\u0027. Defaults to [\u0027monitor.field.changed\u0027]. A monitor\u0027s first check records starting values rather than changes, so subscribe to \u0027monitor.execution.completed\u0027 to hear about every finished check."
+            "description": "Which events POST to webhook_url: any of \u0027monitor.field.changed\u0027, \u0027monitor.execution.completed\u0027, \u0027monitor.execution.failed\u0027, \u0027monitor.run.completed\u0027. Defaults to [\u0027monitor.field.changed\u0027]. Initial enrichment can establish missing starting values; subscribe to \u0027monitor.execution.completed\u0027 to hear about every finished check."
           },
           "metadata": {
             "$ref": "#/components/schemas/CreateMonitorRequestMetadataProperty"
@@ -24126,9 +24129,6 @@
             "title": "Is Active",
             "type": "boolean",
             "default": true
-          },
-          "first_check": {
-            "$ref": "#/components/schemas/CreateMonitorRequestFirstCheck"
           },
           "idempotency_key": {
             "title": "Idempotency Key",
@@ -48121,6 +48121,29 @@
           ]
         }
       },
+      "CreateMonitorRequestFirstCheck": {
+        "title": "First Check",
+        "enum": [
+          "now",
+          "next_tick"
+        ],
+        "type": "string",
+        "description": "When to run the first check. now starts it immediately when active; next_tick waits for the schedule. Sentinel checks all rows, including supplied values. Other research tiers initially enrich missing watched values; fully supplied rows wait for the schedule. next_run_times gives exact scheduled times.",
+        "x-ms-enum": {
+          "name": "CreateMonitorRequestFirstCheck",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "now",
+              "name": "Now"
+            },
+            {
+              "value": "next_tick",
+              "name": "NextTick"
+            }
+          ]
+        }
+      },
       "CreateMonitorRequestMonitorType": {
         "title": "Monitor Type",
         "enum": [
@@ -48139,29 +48162,6 @@
             {
               "value": "linkedin",
               "name": "Linkedin"
-            }
-          ]
-        }
-      },
-      "CreateMonitorRequestFirstCheck": {
-        "title": "First Check",
-        "enum": [
-          "now",
-          "next_tick"
-        ],
-        "type": "string",
-        "description": "When setup runs for rows missing watched values. \u0027now\u0027 triggers setup immediately; \u0027next_tick\u0027 waits for the schedule. Fully supplied rows always start on the schedule: an hourly monitor first runs at the next :00 UTC, a daily one at the next 00:00 UTC. The response\u0027s next_run_times says exactly when.",
-        "x-ms-enum": {
-          "name": "CreateMonitorRequestFirstCheck",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "now",
-              "name": "Now"
-            },
-            {
-              "value": "next_tick",
-              "name": "NextTick"
             }
           ]
         }
