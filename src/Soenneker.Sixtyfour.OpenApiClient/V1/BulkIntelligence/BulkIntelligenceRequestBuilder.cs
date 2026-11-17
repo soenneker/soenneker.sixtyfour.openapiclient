@@ -17,11 +17,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.BulkIntelligence
     public partial class BulkIntelligenceRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The company property</summary>
+        [Obsolete("")]
         public global::Soenneker.Sixtyfour.OpenApiClient.V1.BulkIntelligence.Company.CompanyRequestBuilder Company
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.BulkIntelligence.Company.CompanyRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The people property</summary>
+        [Obsolete("")]
         public global::Soenneker.Sixtyfour.OpenApiClient.V1.BulkIntelligence.People.PeopleRequestBuilder People
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.BulkIntelligence.People.PeopleRequestBuilder(PathParameters, RequestAdapter);

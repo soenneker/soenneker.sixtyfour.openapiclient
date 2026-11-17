@@ -25,8 +25,6 @@ using Soenneker.Sixtyfour.OpenApiClient.JobStatus;
 using Soenneker.Sixtyfour.OpenApiClient.Monitors;
 using Soenneker.Sixtyfour.OpenApiClient.PeopleIntelligence;
 using Soenneker.Sixtyfour.OpenApiClient.PeopleIntelligenceAsync;
-using Soenneker.Sixtyfour.OpenApiClient.QaAgent;
-using Soenneker.Sixtyfour.OpenApiClient.QaAgentAsync;
 using Soenneker.Sixtyfour.OpenApiClient.ReverseEmail;
 using Soenneker.Sixtyfour.OpenApiClient.ReverseEmailAsync;
 using Soenneker.Sixtyfour.OpenApiClient.ReverseEmailBulk;
@@ -150,16 +148,6 @@ namespace Soenneker.Sixtyfour.OpenApiClient
         public global::Soenneker.Sixtyfour.OpenApiClient.PeopleIntelligenceAsync.PeopleIntelligenceAsyncRequestBuilder PeopleIntelligenceAsync
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.PeopleIntelligenceAsync.PeopleIntelligenceAsyncRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The qaAgent property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.QaAgent.QaAgentRequestBuilder QaAgent
-        {
-            get => new global::Soenneker.Sixtyfour.OpenApiClient.QaAgent.QaAgentRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The qaAgentAsync property</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.QaAgentAsync.QaAgentAsyncRequestBuilder QaAgentAsync
-        {
-            get => new global::Soenneker.Sixtyfour.OpenApiClient.QaAgentAsync.QaAgentAsyncRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The reverseEmail property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.ReverseEmail.ReverseEmailRequestBuilder ReverseEmail

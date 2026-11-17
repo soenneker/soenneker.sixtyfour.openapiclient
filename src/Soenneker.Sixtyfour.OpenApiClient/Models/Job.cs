@@ -17,6 +17,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
+            if (parseNode.GetChildNode("charge_credits") is null) { _explicitNullValueChargeCredits = default!; _explicitNullProperties?.Remove("charge_credits"); }
+            else if (parseNode.GetChildNode("charge_credits") is { } nullNodeChargeCredits && nullNodeChargeCredits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChargeCredits = null;
+            if (parseNode.GetChildNode("counts") is null) { _explicitNullValueCounts = default!; _explicitNullProperties?.Remove("counts"); }
+            else if (parseNode.GetChildNode("counts") is { } nullNodeCounts && nullNodeCounts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Counts = null;
             if (parseNode.GetChildNode("created_at") is null) { _explicitNullValueCreatedAt = default!; _explicitNullProperties?.Remove("created_at"); }
             else if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
             if (parseNode.GetChildNode("error") is null) { _explicitNullValueError = default!; _explicitNullProperties?.Remove("error"); }
@@ -25,6 +29,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             else if (parseNode.GetChildNode("job_id") is { } nullNodeJobId && nullNodeJobId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobId = null;
             if (parseNode.GetChildNode("next_poll_after") is null) { _explicitNullValueNextPollAfter = default!; _explicitNullProperties?.Remove("next_poll_after"); }
             else if (parseNode.GetChildNode("next_poll_after") is { } nullNodeNextPollAfter && nullNodeNextPollAfter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NextPollAfter = null;
+            if (parseNode.GetChildNode("operation") is null) { _explicitNullValueOperation = default!; _explicitNullProperties?.Remove("operation"); }
+            else if (parseNode.GetChildNode("operation") is { } nullNodeOperation && nullNodeOperation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Operation = null;
             if (parseNode.GetChildNode("progress") is null) { _explicitNullValueProgress = default!; _explicitNullProperties?.Remove("progress"); }
             else if (parseNode.GetChildNode("progress") is { } nullNodeProgress && nullNodeProgress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Progress = null;
             if (parseNode.GetChildNode("result") is null) { _explicitNullValueResult = default!; _explicitNullProperties?.Remove("result"); }
@@ -35,18 +41,31 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Net credits captured at retrieval, including refunds. May change after the Job finishes; null when unavailable, unknown, or withheld by spend permissions.</summary>
+        public double? ChargeCredits { get => _explicitNullValueChargeCredits; set { _explicitNullValueChargeCredits = value; AdditionalData?.Remove("charge_credits"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("charge_credits"); else _explicitNullProperties?.Remove("charge_credits"); } }
+        private double? _explicitNullValueChargeCredits = default!;
+        /// <summary>Input record counts, when available.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelledJobCounts? Counts { get => _explicitNullValueCounts; set { _explicitNullValueCounts = value; AdditionalData?.Remove("counts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("counts"); else _explicitNullProperties?.Remove("counts"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelledJobCounts? _explicitNullValueCounts = default!;
+#nullable restore
+#else
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelledJobCounts Counts { get => _explicitNullValueCounts; set { _explicitNullValueCounts = value; AdditionalData?.Remove("counts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("counts"); else _explicitNullProperties?.Remove("counts"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelledJobCounts _explicitNullValueCounts = default!;
+#endif
         /// <summary>UTC timestamp when the job was created, in ISO 8601 format.</summary>
         public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
         private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>Failure details when available; omitted otherwise.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.JobErrorComposed? Error { get => _explicitNullValueError; set { _explicitNullValueError = value; AdditionalData?.Remove("error"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
-        private global::Soenneker.Sixtyfour.OpenApiClient.Models.JobErrorComposed? _explicitNullValueError = default!;
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelledJobError? Error { get => _explicitNullValueError; set { _explicitNullValueError = value; AdditionalData?.Remove("error"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelledJobError? _explicitNullValueError = default!;
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.JobErrorComposed Error { get => _explicitNullValueError; set { _explicitNullValueError = value; AdditionalData?.Remove("error"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
-        private global::Soenneker.Sixtyfour.OpenApiClient.Models.JobErrorComposed _explicitNullValueError = default!;
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelledJobError Error { get => _explicitNullValueError; set { _explicitNullValueError = value; AdditionalData?.Remove("error"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelledJobError _explicitNullValueError = default!;
 #endif
         /// <summary>Job identifier, normally prefixed with `job_`. Store it exactly as returned. GET /v1/jobs/{job_id} also accepts IDs returned by unversioned endpoints.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -58,9 +77,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string JobId { get => _explicitNullValueJobId; set { _explicitNullValueJobId = value; AdditionalData?.Remove("job_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_id"); else _explicitNullProperties?.Remove("job_id"); } }
         private string _explicitNullValueJobId = default!;
 #endif
-        /// <summary>Seconds before polling again while queued or running; omitted for terminal states.</summary>
+        /// <summary>Seconds before the next poll. Present only while the Job is queued or running.</summary>
         public int? NextPollAfter { get => _explicitNullValueNextPollAfter; set { _explicitNullValueNextPollAfter = value; AdditionalData?.Remove("next_poll_after"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_poll_after"); else _explicitNullProperties?.Remove("next_poll_after"); } }
         private int? _explicitNullValueNextPollAfter = default!;
+        /// <summary>Action performed by the Job.</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.JobOperation? Operation { get => _explicitNullValueOperation; set { _explicitNullValueOperation = value; AdditionalData?.Remove("operation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("operation"); else _explicitNullProperties?.Remove("operation"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.JobOperation? _explicitNullValueOperation = default!;
         /// <summary>Operation-specific progress while queued or running; omitted when unavailable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -81,7 +103,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public UntypedNode Result { get => _explicitNullValueResult; set { _explicitNullValueResult = value; AdditionalData?.Remove("result"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result"); else _explicitNullProperties?.Remove("result"); } }
         private UntypedNode _explicitNullValueResult = default!;
 #endif
-        /// <summary>`queued`: accepted and waiting to start. `running`: work is in progress. `succeeded`: work finished successfully. `failed`: work ended with an error. `canceled`: work was canceled. The last three states are terminal; stop polling.</summary>
+        /// <summary>Current Job status. Stop polling on `succeeded`, `failed` or `canceled`.</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatus? _explicitNullValueStatus = default!;
         /// <summary>
@@ -109,10 +131,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "charge_credits", n => { ChargeCredits = n.GetDoubleValue(); } },
+                { "counts", n => { Counts = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelledJobCounts>(global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelledJobCounts.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "error", n => { Error = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobErrorComposed>(global::Soenneker.Sixtyfour.OpenApiClient.Models.JobErrorComposed.CreateFromDiscriminatorValue); } },
+                { "error", n => { Error = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelledJobError>(global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelledJobError.CreateFromDiscriminatorValue); } },
                 { "job_id", n => { JobId = n.GetStringValue(); } },
                 { "next_poll_after", n => { NextPollAfter = n.GetIntValue(); } },
+                { "operation", n => { var parsed = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobOperation>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueOperation = default; _explicitNullProperties?.Remove("operation"); AdditionalData["operation"] = unknown; } else { Operation = parsed; AdditionalData.Remove("operation"); } } },
                 { "progress", n => { Progress = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobProgressProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.JobProgressProperty.CreateFromDiscriminatorValue); } },
                 { "result", n => { Result = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
@@ -125,10 +150,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteDoubleValue("charge_credits", ChargeCredits);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelledJobCounts>("counts", Counts);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobErrorComposed>("error", Error);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.CancelledJobError>("error", Error);
             writer.WriteStringValue("job_id", JobId);
             writer.WriteIntValue("next_poll_after", NextPollAfter);
+            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobOperation>("operation", Operation);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobProgressProperty>("progress", Progress);
             writer.WriteObjectValue<UntypedNode>("result", Result);
             writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.JobStatus>("status", Status);

@@ -41,7 +41,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Credits this request charged.</summary>
         public double? CostCredits { get => _explicitNullValueCostCredits; set { _explicitNullValueCostCredits = value; AdditionalData?.Remove("cost_credits"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cost_credits"); else _explicitNullProperties?.Remove("cost_credits"); } }
         private double? _explicitNullValueCostCredits = default!;
-        /// <summary>`PROFESSIONAL` mode: the work address found, as one `[address, status, type]` entry such as `[&quot;saarth@sixtyfour.ai&quot;, &quot;OK&quot;, &quot;COMPANY&quot;]`. Status is `OK`, `RISKY` or `UNKNOWN`. Absent when no address was found.</summary>
+        /// <summary>`PROFESSIONAL` mode: the work address found, as one `[address, status, type]` entry such as `[&quot;saarth.work@example.com&quot;, &quot;OK&quot;, &quot;COMPANY&quot;]`. Status is `OK`, `RISKY` or `UNKNOWN`. Absent when no address was found.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UntypedNode? Email { get => _explicitNullValueEmail; set { _explicitNullValueEmail = value; AdditionalData?.Remove("email"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email"); else _explicitNullProperties?.Remove("email"); } }

@@ -4,6 +4,8 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Sixtyfour.OpenApiClient.Models;
+using Soenneker.Sixtyfour.OpenApiClient.V1.Jobs.Item.Cancel;
+using Soenneker.Sixtyfour.OpenApiClient.V1.Jobs.Item.Items;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -17,6 +19,16 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Jobs.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithJobItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The cancel property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.Jobs.Item.Cancel.CancelRequestBuilder Cancel
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Jobs.Item.Cancel.CancelRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The items property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.Jobs.Item.Items.ItemsRequestBuilder Items
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Jobs.Item.Items.ItemsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.V1.Jobs.Item.WithJobItemRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -34,7 +46,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Jobs.Item
         {
         }
         /// <summary>
-        /// The /v1 version of Job Status. Accepts IDs returned by versioned or unversioned routes. While queued or running, poll again after `next_poll_after` seconds. Stop polling when the status is `succeeded`, `failed`, or `canceled`.
+        /// Returns a Job with its current status and results. Poll again after `next_poll_after` seconds while it is queued or running.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.Job"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -75,7 +87,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Jobs.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.Job>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.Job.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// The /v1 version of Job Status. Accepts IDs returned by versioned or unversioned routes. While queued or running, poll again after `next_poll_after` seconds. Stop polling when the status is `succeeded`, `failed`, or `canceled`.
+        /// Returns a Job with its current status and results. Poll again after `next_poll_after` seconds while it is queued or running.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

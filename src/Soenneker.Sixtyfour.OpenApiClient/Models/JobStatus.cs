@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
-    /// <summary>`queued`: accepted and waiting to start. `running`: work is in progress. `succeeded`: work finished successfully. `failed`: work ended with an error. `canceled`: work was canceled. The last three states are terminal; stop polling.</summary>
+    /// <summary>Current Job status. Stop polling on `succeeded`, `failed` or `canceled`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum JobStatus
     {

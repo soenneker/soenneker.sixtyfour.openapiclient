@@ -45,15 +45,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         private string _explicitNullValueDetail = default!;
 #endif
         /// <summary>Stable error code for handling the failure in code. Do not branch on the wording of `detail`.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ErrorCode { get => _explicitNullValueErrorCode; set { _explicitNullValueErrorCode = value; AdditionalData?.Remove("error_code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_code"); else _explicitNullProperties?.Remove("error_code"); } }
-        private string? _explicitNullValueErrorCode = default!;
-#nullable restore
-#else
-        public string ErrorCode { get => _explicitNullValueErrorCode; set { _explicitNullValueErrorCode = value; AdditionalData?.Remove("error_code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_code"); else _explicitNullProperties?.Remove("error_code"); } }
-        private string _explicitNullValueErrorCode = default!;
-#endif
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.V1ErrorCode? ErrorCode { get => _explicitNullValueErrorCode; set { _explicitNullValueErrorCode = value; AdditionalData?.Remove("error_code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_code"); else _explicitNullProperties?.Remove("error_code"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.V1ErrorCode? _explicitNullValueErrorCode = default!;
         /// <summary>Individual validation failures, each with a parameter location (`loc`), message (`msg`), and error type (`type`).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -115,7 +108,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "detail", n => { Detail = n.GetStringValue(); } },
-                { "error_code", n => { ErrorCode = n.GetStringValue(); } },
+                { "error_code", n => { var parsed = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.V1ErrorCode>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueErrorCode = default; _explicitNullProperties?.Remove("error_code"); AdditionalData["error_code"] = unknown; } else { ErrorCode = parsed; AdditionalData.Remove("error_code"); } } },
                 { "errors", n => { Errors = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.PublicJobValidationErrorErrorsItemProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.PublicJobValidationErrorErrorsItemProperty.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "param", n => { Param = n.GetStringValue(); } },
                 { "request_id", n => { RequestId = n.GetStringValue(); } },
@@ -130,7 +123,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("detail", Detail);
-            writer.WriteStringValue("error_code", ErrorCode);
+            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.V1ErrorCode>("error_code", ErrorCode);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.PublicJobValidationErrorErrorsItemProperty>("errors", Errors);
             writer.WriteStringValue("param", Param);
             writer.WriteStringValue("request_id", RequestId);
