@@ -36,7 +36,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Runs
         /// <summary>
         /// Run again in an investigation you have, building on its graph and workspace.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.RunStarted"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersAtlasWorkspaceApiRunStarted"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -50,11 +50,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Runs
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ContinueInvestigationV1AtlasInvestigationsInvestigationIdRunsPost503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunStarted?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.RunOptions body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersAtlasWorkspaceApiRunStarted?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.RunOptions body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunStarted> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.RunOptions body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersAtlasWorkspaceApiRunStarted> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.RunOptions body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -72,7 +72,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Runs
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.RunStarted>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.RunStarted.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersAtlasWorkspaceApiRunStarted>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersAtlasWorkspaceApiRunStarted.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Run again in an investigation you have, building on its graph and workspace.

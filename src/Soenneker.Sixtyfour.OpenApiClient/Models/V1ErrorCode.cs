@@ -103,6 +103,18 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         #pragma warning disable CS1591
         Aborted,
         #pragma warning restore CS1591
+        [EnumMember(Value = "workflow_changed")]
+        #pragma warning disable CS1591
+        WorkflowChanged,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "workflow_locked")]
+        #pragma warning disable CS1591
+        WorkflowLocked,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "workflow_not_runnable")]
+        #pragma warning disable CS1591
+        WorkflowNotRunnable,
+        #pragma warning restore CS1591
         [EnumMember(Value = "timed_out")]
         #pragma warning disable CS1591
         TimedOut,

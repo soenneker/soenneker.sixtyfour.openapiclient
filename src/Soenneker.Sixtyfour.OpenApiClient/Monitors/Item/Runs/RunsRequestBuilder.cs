@@ -49,7 +49,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Runs
         /// <summary>
         /// The monitor&apos;s check runs, newest first.`rows_checked` counts successful checks, including ones with no change; failed and skipped rows are countedseparately. Counts are final when the run ends. A run is `failed` when it could not produce a complete result.Send `next_cursor` as `cursor` for the next page.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRunPage"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersMonitorsApiMonitorRunPage"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMonitorRunsEndpointMonitorsMonitorIdRunsGet400Response">When receiving a 400 status code</exception>
@@ -60,11 +60,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Runs
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMonitorRunsEndpointMonitorsMonitorIdRunsGet503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRunPage?> GetAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Runs.RunsRequestBuilder.RunsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersMonitorsApiMonitorRunPage?> GetAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Runs.RunsRequestBuilder.RunsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRunPage> GetAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Runs.RunsRequestBuilder.RunsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersMonitorsApiMonitorRunPage> GetAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Runs.RunsRequestBuilder.RunsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -79,7 +79,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Runs
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRunPage>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRunPage.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersMonitorsApiMonitorRunPage>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersMonitorsApiMonitorRunPage.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// The monitor&apos;s check runs, newest first.`rows_checked` counts successful checks, including ones with no change; failed and skipped rows are countedseparately. Counts are final when the run ends. A run is `failed` when it could not produce a complete result.Send `next_cursor` as `cursor` for the next page.

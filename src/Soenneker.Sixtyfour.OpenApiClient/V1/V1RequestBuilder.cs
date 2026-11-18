@@ -3,21 +3,30 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas;
+using Soenneker.Sixtyfour.OpenApiClient.V1.Balance;
 using Soenneker.Sixtyfour.OpenApiClient.V1.BulkIntelligence;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Companies;
 using Soenneker.Sixtyfour.OpenApiClient.V1.CompanyIntelligence;
+using Soenneker.Sixtyfour.OpenApiClient.V1.Connections;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Exports;
+using Soenneker.Sixtyfour.OpenApiClient.V1.Feedback;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Files;
 using Soenneker.Sixtyfour.OpenApiClient.V1.FindEmail;
 using Soenneker.Sixtyfour.OpenApiClient.V1.FindPhone;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Jobs;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Lists;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Media;
+using Soenneker.Sixtyfour.OpenApiClient.V1.Monitors;
 using Soenneker.Sixtyfour.OpenApiClient.V1.People;
 using Soenneker.Sixtyfour.OpenApiClient.V1.PeopleIntelligence;
 using Soenneker.Sixtyfour.OpenApiClient.V1.ReverseEmail;
 using Soenneker.Sixtyfour.OpenApiClient.V1.ReversePhone;
+using Soenneker.Sixtyfour.OpenApiClient.V1.Schedules;
+using Soenneker.Sixtyfour.OpenApiClient.V1.Skills;
+using Soenneker.Sixtyfour.OpenApiClient.V1.Templates;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Verify;
+using Soenneker.Sixtyfour.OpenApiClient.V1.Webhooks;
+using Soenneker.Sixtyfour.OpenApiClient.V1.Workflows;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -35,6 +44,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.AtlasRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The balance property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.Balance.BalanceRequestBuilder Balance
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Balance.BalanceRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The bulkIntelligence property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.V1.BulkIntelligence.BulkIntelligenceRequestBuilder BulkIntelligence
         {
@@ -51,10 +65,20 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.CompanyIntelligence.CompanyIntelligenceRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The connections property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.Connections.ConnectionsRequestBuilder Connections
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Connections.ConnectionsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The exports property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.V1.Exports.ExportsRequestBuilder Exports
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Exports.ExportsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The feedback property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.Feedback.FeedbackRequestBuilder Feedback
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Feedback.FeedbackRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The files property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.V1.Files.FilesRequestBuilder Files
@@ -88,6 +112,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Media.MediaRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The monitors property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.Monitors.MonitorsRequestBuilder Monitors
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Monitors.MonitorsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The people property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.V1.People.PeopleRequestBuilder People
         {
@@ -111,10 +140,35 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.ReversePhone.ReversePhoneRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The schedules property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.Schedules.SchedulesRequestBuilder Schedules
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Schedules.SchedulesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The skills property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.Skills.SkillsRequestBuilder Skills
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Skills.SkillsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The templates property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.Templates.TemplatesRequestBuilder Templates
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Templates.TemplatesRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The verify property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.V1.Verify.VerifyRequestBuilder Verify
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Verify.VerifyRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The webhooks property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.Webhooks.WebhooksRequestBuilder Webhooks
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Webhooks.WebhooksRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The workflows property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.Workflows.WorkflowsRequestBuilder Workflows
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Workflows.WorkflowsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.V1.V1RequestBuilder"/> and sets the default values.

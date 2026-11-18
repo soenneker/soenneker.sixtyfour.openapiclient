@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Sixtyfour.OpenApiClient.V1.People.AgeVerification;
 using Soenneker.Sixtyfour.OpenApiClient.V1.People.Contacts;
 using Soenneker.Sixtyfour.OpenApiClient.V1.People.Intelligence;
 using Soenneker.Sixtyfour.OpenApiClient.V1.People.Search;
@@ -17,6 +18,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.People
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PeopleRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The ageVerification property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.People.AgeVerification.AgeVerificationRequestBuilder AgeVerification
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.People.AgeVerification.AgeVerificationRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The contacts property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.V1.People.Contacts.ContactsRequestBuilder Contacts
         {

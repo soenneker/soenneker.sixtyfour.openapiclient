@@ -35,7 +35,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Jobs
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public JobsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v1/jobs{?cursor*,operation*,page_size*,status*}", pathParameters)
+        public JobsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v1/jobs{?cursor*,operation*,page_size*,status*,workflow_id*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Jobs
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public JobsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v1/jobs{?cursor*,operation*,page_size*,status*}", rawUrl)
+        public JobsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v1/jobs{?cursor*,operation*,page_size*,status*,workflow_id*}", rawUrl)
         {
         }
         /// <summary>
@@ -166,6 +166,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Jobs
             public string Status { get; set; }
             #pragma warning restore CS1591
 #endif
+            /// <summary>Only list runs of this workflow.</summary>
+            [QueryParameter("workflow_id")]
+            public Guid? WorkflowId { get; set; }
         }
     }
 }

@@ -17,6 +17,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
+            if (parseNode.GetChildNode("criteria") is null) { _explicitNullValueCriteria = default!; _explicitNullProperties?.Remove("criteria"); }
+            else if (parseNode.GetChildNode("criteria") is { } nullNodeCriteria && nullNodeCriteria.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Criteria = null;
             if (parseNode.GetChildNode("fields") is null) { _explicitNullValueFields = default!; _explicitNullProperties?.Remove("fields"); }
             else if (parseNode.GetChildNode("fields") is { } nullNodeFields && nullNodeFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Fields = null;
             if (parseNode.GetChildNode("first_check") is null) { _explicitNullValueFirstCheck = default!; _explicitNullProperties?.Remove("first_check"); }
@@ -39,6 +41,16 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             else if (parseNode.GetChildNode("webhook_url") is { } nullNodeWebhookUrl && nullNodeWebhookUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookUrl = null;
         }
 
+        /// <summary>Selected field key to alert criteria. Only significant changes satisfying the criteria are reported; missing evidence suppresses.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateLinkedInMonitorRequestCriteriaProperty? Criteria { get => _explicitNullValueCriteria; set { _explicitNullValueCriteria = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("criteria"); else _explicitNullProperties?.Remove("criteria"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateLinkedInMonitorRequestCriteriaProperty? _explicitNullValueCriteria = default!;
+#nullable restore
+#else
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateLinkedInMonitorRequestCriteriaProperty Criteria { get => _explicitNullValueCriteria; set { _explicitNullValueCriteria = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("criteria"); else _explicitNullProperties?.Remove("criteria"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateLinkedInMonitorRequestCriteriaProperty _explicitNullValueCriteria = default!;
+#endif
         /// <summary>The fields property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -152,6 +164,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "criteria", n => { Criteria = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateLinkedInMonitorRequestCriteriaProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateLinkedInMonitorRequestCriteriaProperty.CreateFromDiscriminatorValue); } },
                 { "fields", n => { Fields = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "first_check", n => { FirstCheck = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateLinkedInMonitorRequestFirstCheck>(); } },
                 { "frequency", n => { Frequency = n.GetStringValue(); } },
@@ -171,6 +184,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateLinkedInMonitorRequestCriteriaProperty>("criteria", Criteria);
             writer.WriteCollectionOfPrimitiveValues<string>("fields", Fields);
             writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateLinkedInMonitorRequestFirstCheck>("first_check", FirstCheck);
             writer.WriteStringValue("frequency", Frequency);
