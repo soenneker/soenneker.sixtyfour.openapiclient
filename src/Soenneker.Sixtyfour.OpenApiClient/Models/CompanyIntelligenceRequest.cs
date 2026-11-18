@@ -142,7 +142,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(10)
             {
                 { "companies", n => { Companies = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.CompanyIntelligenceRequestCompaniesItemProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.CompanyIntelligenceRequestCompaniesItemProperty.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "company", n => { Company = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.CompanyIntelligenceRequestCompanyProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.CompanyIntelligenceRequestCompanyProperty.CreateFromDiscriminatorValue); } },

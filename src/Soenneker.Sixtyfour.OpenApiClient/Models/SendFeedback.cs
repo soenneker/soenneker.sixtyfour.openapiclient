@@ -155,7 +155,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(10)
             {
                 { "category", n => { Category = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SendFeedbackCategory>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SendFeedbackCategory.CreateFromDiscriminatorValue); } },
                 { "comment", n => { Comment = n.GetStringValue(); } },

@@ -174,7 +174,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(12)
             {
                 { "category", n => { Category = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersV1FeedbackApiFeedbackCategory>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersV1FeedbackApiFeedbackCategory.CreateFromDiscriminatorValue); } },
                 { "channel", n => { var parsed = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersV1FeedbackApiFeedbackChannel>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueChannel = default; _explicitNullProperties?.Remove("channel"); AdditionalData["channel"] = unknown; } else { Channel = parsed; AdditionalData.Remove("channel"); } } },

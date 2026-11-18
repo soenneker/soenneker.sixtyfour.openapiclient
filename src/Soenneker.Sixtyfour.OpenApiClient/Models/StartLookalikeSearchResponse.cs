@@ -92,7 +92,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "search_id", n => { SearchId = n.GetStringValue(); } },
                 { "seed_diagnostics", n => { SeedDiagnostics = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SeedDiagnostics>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SeedDiagnostics.CreateFromDiscriminatorValue); } },

@@ -70,7 +70,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "max_clause_count", n => { MaxClauseCount = n.GetIntValue(); } },
                 { "max_query_depth", n => { MaxQueryDepth = n.GetIntValue(); } },

@@ -113,7 +113,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(7)
             {
                 { "find", n => { Find = n.GetCollectionOfEnumValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.ContactsRequestFindItem>()?.AsList(); } },
                 { "input_file_id", n => { InputFileId = n.GetStringValue(); } },
