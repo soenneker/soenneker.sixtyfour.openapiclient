@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Sixtyfour.OpenApiClient.Models;
+using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Batch;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item;
 using System.Collections.Generic;
 using System.IO;
@@ -18,6 +19,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class InvestigationsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The batch property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Batch.BatchRequestBuilder Batch
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Batch.BatchRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Gets an item from the Soenneker.Sixtyfour.OpenApiClient.v1.atlas.investigations.item collection</summary>
         /// <param name="position">Investigation id, as returned by list or by an xhigh enrichment.</param>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.WithInvestigationItemRequestBuilder"/></returns>

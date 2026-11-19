@@ -41,7 +41,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Events
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public EventsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v1/atlas/investigations/{investigationId}/events{?after*}", pathParameters)
+        public EventsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v1/atlas/investigations/{investigationId}/events{?after*,before*,node_id*}", pathParameters)
         {
         }
         /// <summary>
@@ -49,20 +49,20 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Events
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public EventsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v1/atlas/investigations/{investigationId}/events{?after*}", rawUrl)
+        public EventsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v1/atlas/investigations/{investigationId}/events{?after*,before*,node_id*}", rawUrl)
         {
         }
         /// <summary>
-        /// The agents&apos; sessions and turn summaries, oldest first.With activity access, also includes tool events; when an event&apos;s `payload.storage_ref` is present, read its fullpayload from `GET …/events/{event_id}/payload`. For a live feed, use `GET …/events/stream`.
+        /// The agents&apos; sessions and turn summaries, oldest first.With activity access, also includes tool events; when an event&apos;s `payload.storage_ref` is present, read its fullpayload from `GET …/events/{event_id}/payload`. For a live feed, use `GET …/events/stream`.Omit `before` to page forward from the start. Use `before=latest` to page backward; each window is oldest first.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.AgentEventStreamPage"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetEventsV1AtlasInvestigationsInvestigationIdEventsGet400Response">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.Response400GetEventsV1AtlasInvestigationsInvestigationIdEventsGetError">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetEventsV1AtlasInvestigationsInvestigationIdEventsGet401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetEventsV1AtlasInvestigationsInvestigationIdEventsGet403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetEventsV1AtlasInvestigationsInvestigationIdEventsGet404Response">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.Response422GetEventsV1AtlasInvestigationsInvestigationIdEventsGetError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetEventsV1AtlasInvestigationsInvestigationIdEventsGet429Response">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetEventsV1AtlasInvestigationsInvestigationIdEventsGet500Response">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetEventsV1AtlasInvestigationsInvestigationIdEventsGet503Response">When receiving a 503 status code</exception>
@@ -78,11 +78,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Events
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetEventsV1AtlasInvestigationsInvestigationIdEventsGet400Response.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Sixtyfour.OpenApiClient.Models.Response400GetEventsV1AtlasInvestigationsInvestigationIdEventsGetError.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetEventsV1AtlasInvestigationsInvestigationIdEventsGet401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetEventsV1AtlasInvestigationsInvestigationIdEventsGet403Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetEventsV1AtlasInvestigationsInvestigationIdEventsGet404Response.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Sixtyfour.OpenApiClient.Models.Response422GetEventsV1AtlasInvestigationsInvestigationIdEventsGetError.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetEventsV1AtlasInvestigationsInvestigationIdEventsGet429Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetEventsV1AtlasInvestigationsInvestigationIdEventsGet500Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Sixtyfour.OpenApiClient.Models.GetEventsV1AtlasInvestigationsInvestigationIdEventsGet503Response.CreateFromDiscriminatorValue },
@@ -92,7 +92,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Events
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.AgentEventStreamPage>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.AgentEventStreamPage.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// The agents&apos; sessions and turn summaries, oldest first.With activity access, also includes tool events; when an event&apos;s `payload.storage_ref` is present, read its fullpayload from `GET …/events/{event_id}/payload`. For a live feed, use `GET …/events/stream`.
+        /// The agents&apos; sessions and turn summaries, oldest first.With activity access, also includes tool events; when an event&apos;s `payload.storage_ref` is present, read its fullpayload from `GET …/events/{event_id}/payload`. For a live feed, use `GET …/events/stream`.Omit `before` to page forward from the start. Use `before=latest` to page backward; each window is oldest first.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -120,12 +120,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Events
             return new global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Events.EventsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// The agents&apos; sessions and turn summaries, oldest first.With activity access, also includes tool events; when an event&apos;s `payload.storage_ref` is present, read its fullpayload from `GET …/events/{event_id}/payload`. For a live feed, use `GET …/events/stream`.
+        /// The agents&apos; sessions and turn summaries, oldest first.With activity access, also includes tool events; when an event&apos;s `payload.storage_ref` is present, read its fullpayload from `GET …/events/{event_id}/payload`. For a live feed, use `GET …/events/stream`.Omit `before` to page forward from the start. Use `before=latest` to page backward; each window is oldest first.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class EventsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Cursor from a previous page&apos;s `next_cursor`.</summary>
+            /// <summary>Cursor from a previous forward page&apos;s `next_cursor`. Mutually exclusive with `before`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("after")]
@@ -134,6 +134,26 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Events
 #else
             [QueryParameter("after")]
             public string After { get; set; }
+#endif
+            /// <summary>`latest` for the newest window, then the opaque `next_cursor` for the next older window. Mutually exclusive with `after`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("before")]
+            public string? Before { get; set; }
+#nullable restore
+#else
+            [QueryParameter("before")]
+            public string Before { get; set; }
+#endif
+            /// <summary>Only this recursive node&apos;s passes. Requires activity access; keep unchanged when following a cursor.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("node_id")]
+            public string? NodeId { get; set; }
+#nullable restore
+#else
+            [QueryParameter("node_id")]
+            public string NodeId { get; set; }
 #endif
         }
     }

@@ -112,12 +112,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Null when your team owns this investigation; otherwise the team that shared it with yours, and how.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummaryShared? Shared { get => _explicitNullValueShared; set { _explicitNullValueShared = value; AdditionalData?.Remove("shared"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("shared"); else _explicitNullProperties?.Remove("shared"); } }
-        private global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummaryShared? _explicitNullValueShared = default!;
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationDetailShared? Shared { get => _explicitNullValueShared; set { _explicitNullValueShared = value; AdditionalData?.Remove("shared"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("shared"); else _explicitNullProperties?.Remove("shared"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationDetailShared? _explicitNullValueShared = default!;
 #nullable restore
 #else
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummaryShared Shared { get => _explicitNullValueShared; set { _explicitNullValueShared = value; AdditionalData?.Remove("shared"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("shared"); else _explicitNullProperties?.Remove("shared"); } }
-        private global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummaryShared _explicitNullValueShared = default!;
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationDetailShared Shared { get => _explicitNullValueShared; set { _explicitNullValueShared = value; AdditionalData?.Remove("shared"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("shared"); else _explicitNullProperties?.Remove("shared"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationDetailShared _explicitNullValueShared = default!;
 #endif
         /// <summary>Set when the cost is withheld from the caller, who may not see what the investigation&apos;s creator spent: why, as `state`, `reason` and `message`. `cost_cents` and `cost_credits` are then null.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -196,7 +196,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "lead_info", n => { LeadInfo = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummaryLeadInfoProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummaryLeadInfoProperty.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "private", n => { Private = n.GetBoolValue(); } },
-                { "shared", n => { Shared = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummaryShared>(global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummaryShared.CreateFromDiscriminatorValue); } },
+                { "shared", n => { Shared = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationDetailShared>(global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationDetailShared.CreateFromDiscriminatorValue); } },
                 { "spend_access", n => { SpendAccess = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummarySpendAccessProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummarySpendAccessProperty.CreateFromDiscriminatorValue); } },
                 { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummaryStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
@@ -219,7 +219,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummaryLeadInfoProperty>("lead_info", LeadInfo);
             writer.WriteStringValue("name", Name);
             writer.WriteBoolValue("private", Private);
-            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummaryShared>("shared", Shared);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationDetailShared>("shared", Shared);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummarySpendAccessProperty>("spend_access", SpendAccess);
             writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummaryStatus>("status", Status);
             writer.WriteStringValue("updated_at", UpdatedAt);

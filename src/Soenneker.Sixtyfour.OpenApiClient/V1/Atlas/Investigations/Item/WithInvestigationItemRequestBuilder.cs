@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Sixtyfour.OpenApiClient.Models;
+using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Continuations;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Events;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.ExportZip;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.FileEntries;
@@ -12,7 +13,11 @@ using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Findings;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Graph;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Links;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Report;
+using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.ReportHistory;
+using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.ReportJobs;
+using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.ReportJson;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.ReportPdf;
+using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.ReportRevisions;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Runs;
 using System.Collections.Generic;
 using System.IO;
@@ -27,6 +32,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithInvestigationItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The continuations property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Continuations.ContinuationsRequestBuilder Continuations
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Continuations.ContinuationsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The events property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Events.EventsRequestBuilder Events
         {
@@ -67,10 +77,30 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Report.ReportRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The reportHistory property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.ReportHistory.ReportHistoryRequestBuilder ReportHistory
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.ReportHistory.ReportHistoryRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The reportJobs property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.ReportJobs.ReportJobsRequestBuilder ReportJobs
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.ReportJobs.ReportJobsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The reportJson property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.ReportJson.ReportJsonRequestBuilder ReportJson
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.ReportJson.ReportJsonRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The reportPdf property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.ReportPdf.ReportPdfRequestBuilder ReportPdf
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.ReportPdf.ReportPdfRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The reportRevisions property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.ReportRevisions.ReportRevisionsRequestBuilder ReportRevisions
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.ReportRevisions.ReportRevisionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The runs property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Runs.RunsRequestBuilder Runs
@@ -96,7 +126,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item
         /// <summary>
         /// One investigation, in the shape `GET /v1/atlas/investigations` lists: its name, status, subject(`lead_info`), cost and, when another team shared it with yours, who shared it.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummary"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationDetail"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetInvestigationV1AtlasInvestigationsInvestigationIdGet400Response">When receiving a 400 status code</exception>
@@ -109,11 +139,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.GetInvestigationV1AtlasInvestigationsInvestigationIdGet503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummary?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationDetail?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummary> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationDetail> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -130,7 +160,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummary>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationSummary.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationDetail>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.InvestigationDetail.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// One investigation, in the shape `GET /v1/atlas/investigations` lists: its name, status, subject(`lead_info`), cost and, when another team shared it with yours, who shared it.
