@@ -37,6 +37,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             else if (parseNode.GetChildNode("research_plan") is { } nullNodeResearchPlan && nullNodeResearchPlan.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResearchPlan = null;
             if (parseNode.GetChildNode("struct") is null) { _explicitNullValueStruct = default!; _explicitNullProperties?.Remove("struct"); }
             else if (parseNode.GetChildNode("struct") is { } nullNodeStruct && nullNodeStruct.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Struct = null;
+            if (parseNode.GetChildNode("task") is null) { _explicitNullValueTask = default!; _explicitNullProperties?.Remove("task"); }
+            else if (parseNode.GetChildNode("task") is { } nullNodeTask && nullNodeTask.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Task = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -106,6 +108,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequestStructProperty Struct { get => _explicitNullValueStruct; set { _explicitNullValueStruct = value; AdditionalData?.Remove("struct"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("struct"); else _explicitNullProperties?.Remove("struct"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequestStructProperty _explicitNullValueStruct = default!;
 #endif
+        /// <summary>Build an org chart with the xHigh research harness.</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequestTaskAnyOf1? Task { get => _explicitNullValueTask; set { _explicitNullValueTask = value; AdditionalData?.Remove("task"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("task"); else _explicitNullProperties?.Remove("task"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequestTaskAnyOf1? _explicitNullValueTask = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequest"/> and sets the default values.
         /// </summary>
@@ -131,7 +136,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(10)
+            return new Dictionary<string, Action<IParseNode>>(11)
             {
                 { "dispatch_id", n => { DispatchId = n.GetStringValue(); } },
                 { "engine", n => { var parsed = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequestEngine>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueEngine = default; _explicitNullProperties?.Remove("engine"); AdditionalData["engine"] = unknown; } else { Engine = parsed; AdditionalData.Remove("engine"); } } },
@@ -143,6 +148,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "relentless", n => { Relentless = n.GetBoolValue(); } },
                 { "research_plan", n => { ResearchPlan = n.GetStringValue(); } },
                 { "struct", n => { Struct = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequestStructProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequestStructProperty.CreateFromDiscriminatorValue); } },
+                { "task", n => { var parsed = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequestTaskAnyOf1>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueTask = default; _explicitNullProperties?.Remove("task"); AdditionalData["task"] = unknown; } else { Task = parsed; AdditionalData.Remove("task"); } } },
             };
         }
         /// <summary>
@@ -162,6 +168,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteBoolValue("relentless", Relentless);
             writer.WriteStringValue("research_plan", ResearchPlan);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequestStructProperty>("struct", Struct);
+            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.StartInvestigationRequestTaskAnyOf1>("task", Task);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

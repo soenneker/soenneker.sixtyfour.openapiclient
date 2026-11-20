@@ -32248,6 +32248,189 @@
         }
       }
     },
+    "/v1/atlas/investigations/{investigationId}/identifiers.csv": {
+      "get": {
+        "tags": [
+          "Atlas"
+        ],
+        "summary": "Export identifiers as a CSV",
+        "description": "Every email address, phone number, IP address, name, organization, account and domain the investigation\u0027s\nlive findings name, one row each: its \u0060Type\u0060, \u0060Value\u0060 and \u0060Confidence\u0060, whom it is \u0060About\u0060 and how (\u0060Relation\u0060),\na \u0060Source URL\u0060, the \u0060Finding\u0060 that names it with its \u0060Finding ID\u0060, and when it was \u0060First Seen\u0060. Retired findings\nare left out. Emails and IP addresses are also read from findings about something else; those rows leave \u0060About\u0060\nand \u0060Relation\u0060 empty.",
+        "operationId": "ExportIdentifiersV1AtlasInvestigationsInvestigationIdIdentifiersCsvGet",
+        "parameters": [
+          {
+            "name": "investigationId",
+            "in": "path",
+            "description": "Investigation id, as returned by list or by an xhigh enrichment.",
+            "required": true,
+            "schema": {
+              "title": "Investigation Id",
+              "type": "string",
+              "description": "Investigation id, as returned by list or by an xhigh enrichment."
+            }
+          },
+          {
+            "name": "spreadsheet_safe",
+            "in": "query",
+            "description": "Escape cells a spreadsheet would run as formulas (on by default). Pass false to read the file as data.",
+            "schema": {
+              "title": "Spreadsheet Safe",
+              "type": "boolean",
+              "description": "Escape cells a spreadsheet would run as formulas (on by default). Pass false to read the file as data.",
+              "default": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "One row per identifier.",
+            "content": {
+              "text/csv": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExportIdentifiersV1AtlasInvestigationsInvestigationIdIdentifiersCsvGet200CsvResponseSchema"
+                },
+                "example": "\u0022Type\u0022,\u0022Value\u0022,\u0022Confidence\u0022,\u0022About\u0022,\u0022Relation\u0022,\u0022Source URL\u0022,\u0022Finding\u0022,\u0022Finding ID\u0022,\u0022First Seen\u0022\r\n\u0022email\u0022,\u0022jane@example.com\u0022,\u002292\u0022,\u0022Subject\u0022,\u0022has email\u0022,\u0022https://example.com/team\u0022,\u0022Work email jane@example.com on the Example team page\u0022,\u0022found.work_email\u0022,\u00222026-11-02 14:24 UTC\u0022\r\n"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExportIdentifiersV1AtlasInvestigationsInvestigationIdIdentifiersCsvGet400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body",
+                  "code": "bad_request",
+                  "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "feedback": "Problem with this response? POST /feedback with comment and operation; include correlation_id in your comment."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExportIdentifiersV1AtlasInvestigationsInvestigationIdIdentifiersCsvGet401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key",
+                  "code": "unauthenticated",
+                  "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "feedback": "Problem with this response? POST /feedback with comment and operation; include correlation_id in your comment."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExportIdentifiersV1AtlasInvestigationsInvestigationIdIdentifiersCsvGet403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour.",
+                  "code": "forbidden",
+                  "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "feedback": "Problem with this response? POST /feedback with comment and operation; include correlation_id in your comment."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExportIdentifiersV1AtlasInvestigationsInvestigationIdIdentifiersCsvGet500Response"
+                },
+                "example": {
+                  "detail": "Internal server error",
+                  "code": "internal_error",
+                  "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "feedback": "Problem with this response? POST /feedback with comment and operation; include correlation_id in your comment."
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Temporarily unavailable. Nothing was charged; retry after the \u0060Retry-After\u0060 header.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExportIdentifiersV1AtlasInvestigationsInvestigationIdIdentifiersCsvGet503Response"
+                },
+                "example": {
+                  "detail": "Could not verify the API key right now. Retry shortly.",
+                  "code": "unavailable",
+                  "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "feedback": "Problem with this response? POST /feedback with comment and operation; include correlation_id in your comment."
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "More than 120 requests per minute per organization. Retry after the delay in Retry-After.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds before retrying",
+                "schema": {
+                  "type": "string",
+                  "example": "1"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExportIdentifiersV1AtlasInvestigationsInvestigationIdIdentifiersCsvGet429Response"
+                },
+                "example": {
+                  "detail": "Rate limit exceeded: 120 requests per minute. Retry after 1 second.",
+                  "code": "rate_limited",
+                  "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "feedback": "Problem with this response? POST /feedback with comment and operation; include correlation_id in your comment."
+                }
+              }
+            },
+            "x-rate-limit": {
+              "requests": 120,
+              "period_seconds": 60,
+              "scope": "organization"
+            }
+          },
+          "404": {
+            "description": "No such investigation, or not one you may see.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExportIdentifiersV1AtlasInvestigationsInvestigationIdIdentifiersCsvGet404Response"
+                },
+                "example": {
+                  "detail": "Not found",
+                  "code": "not_found",
+                  "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "feedback": "Problem with this response? POST /feedback with comment and operation; include correlation_id in your comment."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/atlas/investigations/{investigationId}/events": {
       "get": {
         "tags": [
@@ -32808,6 +32991,185 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/StreamEventsV1AtlasInvestigationsInvestigationIdEventsStreamGet404Response"
+                },
+                "example": {
+                  "detail": "Not found",
+                  "code": "not_found",
+                  "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "feedback": "Problem with this response? POST /feedback with comment and operation; include correlation_id in your comment."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/atlas/investigations/{investigationId}/output": {
+      "get": {
+        "tags": [
+          "Atlas"
+        ],
+        "summary": "Read structured research output",
+        "description": "Read the latest structured output for the investigation, including org chart people, teams, and reporting relationships. Empty data means the current run has not published output yet.",
+        "operationId": "InvestigationOutputV1AtlasInvestigationsInvestigationIdOutputGet",
+        "parameters": [
+          {
+            "name": "investigationId",
+            "in": "path",
+            "description": "Investigation id, as returned by list or by an xhigh enrichment.",
+            "required": true,
+            "schema": {
+              "title": "Investigation Id",
+              "type": "string",
+              "description": "Investigation id, as returned by list or by an xhigh enrichment."
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseInvestigationOutputV1AtlasInvestigationsInvestigationIdOutputGetSchema"
+                },
+                "example": {
+                  "data": {
+                    "nodes": [],
+                    "relationships": [],
+                    "company_linkedin_id": ""
+                  },
+                  "confidence": {}
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvestigationOutputV1AtlasInvestigationsInvestigationIdOutputGet400Response"
+                },
+                "example": {
+                  "detail": "Invalid request body",
+                  "code": "bad_request",
+                  "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "feedback": "Problem with this response? POST /feedback with comment and operation; include correlation_id in your comment."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvestigationOutputV1AtlasInvestigationsInvestigationIdOutputGet401Response"
+                },
+                "example": {
+                  "detail": "Invalid API key",
+                  "code": "unauthenticated",
+                  "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "feedback": "Problem with this response? POST /feedback with comment and operation; include correlation_id in your comment."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access is locked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvestigationOutputV1AtlasInvestigationsInvestigationIdOutputGet403Response"
+                },
+                "example": {
+                  "detail": "This organization no longer has access to Sixtyfour. Contact your representative at Sixtyfour.",
+                  "code": "forbidden",
+                  "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "feedback": "Problem with this response? POST /feedback with comment and operation; include correlation_id in your comment."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request body failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error. Retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvestigationOutputV1AtlasInvestigationsInvestigationIdOutputGet500Response"
+                },
+                "example": {
+                  "detail": "Internal server error",
+                  "code": "internal_error",
+                  "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "feedback": "Problem with this response? POST /feedback with comment and operation; include correlation_id in your comment."
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Temporarily unavailable. Nothing was charged; retry after the \u0060Retry-After\u0060 header.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvestigationOutputV1AtlasInvestigationsInvestigationIdOutputGet503Response"
+                },
+                "example": {
+                  "detail": "Could not verify the API key right now. Retry shortly.",
+                  "code": "unavailable",
+                  "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "feedback": "Problem with this response? POST /feedback with comment and operation; include correlation_id in your comment."
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "More than 120 requests per minute per organization. Retry after the delay in Retry-After.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds before retrying",
+                "schema": {
+                  "type": "string",
+                  "example": "1"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvestigationOutputV1AtlasInvestigationsInvestigationIdOutputGet429Response"
+                },
+                "example": {
+                  "detail": "Rate limit exceeded: 120 requests per minute. Retry after 1 second.",
+                  "code": "rate_limited",
+                  "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "feedback": "Problem with this response? POST /feedback with comment and operation; include correlation_id in your comment."
+                }
+              }
+            },
+            "x-rate-limit": {
+              "requests": 120,
+              "period_seconds": 60,
+              "scope": "organization"
+            }
+          },
+          "404": {
+            "description": "No such investigation, or not one you may see.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvestigationOutputV1AtlasInvestigationsInvestigationIdOutputGet404Response"
                 },
                 "example": {
                   "detail": "Not found",
@@ -45402,6 +45764,9 @@
             ],
             "description": "An idempotency key you generate. A retry with the same key returns the run already started instead of starting and charging a second one."
           },
+          "task": {
+            "$ref": "#/components/schemas/StartInvestigationRequestTask"
+          },
           "lead_info": {
             "$ref": "#/components/schemas/StartInvestigationRequestLeadInfoProperty"
           },
@@ -49502,6 +49867,18 @@
             "type": "string"
           }
         ]
+      },
+      "StartInvestigationRequestTask": {
+        "title": "Task",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/StartInvestigationRequestTaskAnyOf1"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "Build an org chart with the xHigh research harness."
       },
       "UpdateWorkflowDefinition": {
         "title": "WorkflowGraph",
@@ -62300,6 +62677,146 @@
           }
         }
       },
+      "ExportIdentifiersV1AtlasInvestigationsInvestigationIdIdentifiersCsvGet400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          },
+          "feedback": {
+            "type": "string",
+            "description": "How to report a problem with this response."
+          },
+          "code": {
+            "type": "string",
+            "description": "Stable error code, for programs."
+          },
+          "correlation_id": {
+            "type": "string",
+            "description": "This request\u0027s ID, also in \u0060X-Correlation-ID\u0060. Quote it to support."
+          }
+        }
+      },
+      "ExportIdentifiersV1AtlasInvestigationsInvestigationIdIdentifiersCsvGet401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          },
+          "feedback": {
+            "type": "string",
+            "description": "How to report a problem with this response."
+          },
+          "code": {
+            "type": "string",
+            "description": "Stable error code, for programs."
+          },
+          "correlation_id": {
+            "type": "string",
+            "description": "This request\u0027s ID, also in \u0060X-Correlation-ID\u0060. Quote it to support."
+          }
+        }
+      },
+      "ExportIdentifiersV1AtlasInvestigationsInvestigationIdIdentifiersCsvGet403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          },
+          "feedback": {
+            "type": "string",
+            "description": "How to report a problem with this response."
+          },
+          "code": {
+            "type": "string",
+            "description": "Stable error code, for programs."
+          },
+          "correlation_id": {
+            "type": "string",
+            "description": "This request\u0027s ID, also in \u0060X-Correlation-ID\u0060. Quote it to support."
+          }
+        }
+      },
+      "ExportIdentifiersV1AtlasInvestigationsInvestigationIdIdentifiersCsvGet500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          },
+          "feedback": {
+            "type": "string",
+            "description": "How to report a problem with this response."
+          },
+          "code": {
+            "type": "string",
+            "description": "Stable error code, for programs."
+          },
+          "correlation_id": {
+            "type": "string",
+            "description": "This request\u0027s ID, also in \u0060X-Correlation-ID\u0060. Quote it to support."
+          }
+        }
+      },
+      "ExportIdentifiersV1AtlasInvestigationsInvestigationIdIdentifiersCsvGet503Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          },
+          "feedback": {
+            "type": "string",
+            "description": "How to report a problem with this response."
+          },
+          "code": {
+            "type": "string",
+            "description": "Stable error code, for programs."
+          },
+          "correlation_id": {
+            "type": "string",
+            "description": "This request\u0027s ID, also in \u0060X-Correlation-ID\u0060. Quote it to support."
+          }
+        }
+      },
+      "ExportIdentifiersV1AtlasInvestigationsInvestigationIdIdentifiersCsvGet429Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          },
+          "feedback": {
+            "type": "string",
+            "description": "How to report a problem with this response."
+          },
+          "code": {
+            "type": "string",
+            "description": "Stable error code, for programs."
+          },
+          "correlation_id": {
+            "type": "string",
+            "description": "This request\u0027s ID, also in \u0060X-Correlation-ID\u0060. Quote it to support."
+          }
+        }
+      },
+      "ExportIdentifiersV1AtlasInvestigationsInvestigationIdIdentifiersCsvGet404Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          },
+          "feedback": {
+            "type": "string",
+            "description": "How to report a problem with this response."
+          },
+          "code": {
+            "type": "string",
+            "description": "Stable error code, for programs."
+          },
+          "correlation_id": {
+            "type": "string",
+            "description": "This request\u0027s ID, also in \u0060X-Correlation-ID\u0060. Quote it to support."
+          }
+        }
+      },
       "Response400GetEventsV1AtlasInvestigationsInvestigationIdEventsGet": {
         "title": "Response 400 Get Events V1 Atlas Investigations  Investigation Id  Events Get",
         "anyOf": [
@@ -62703,6 +63220,146 @@
         }
       },
       "StreamEventsV1AtlasInvestigationsInvestigationIdEventsStreamGet404Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          },
+          "feedback": {
+            "type": "string",
+            "description": "How to report a problem with this response."
+          },
+          "code": {
+            "type": "string",
+            "description": "Stable error code, for programs."
+          },
+          "correlation_id": {
+            "type": "string",
+            "description": "This request\u0027s ID, also in \u0060X-Correlation-ID\u0060. Quote it to support."
+          }
+        }
+      },
+      "InvestigationOutputV1AtlasInvestigationsInvestigationIdOutputGet400Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          },
+          "feedback": {
+            "type": "string",
+            "description": "How to report a problem with this response."
+          },
+          "code": {
+            "type": "string",
+            "description": "Stable error code, for programs."
+          },
+          "correlation_id": {
+            "type": "string",
+            "description": "This request\u0027s ID, also in \u0060X-Correlation-ID\u0060. Quote it to support."
+          }
+        }
+      },
+      "InvestigationOutputV1AtlasInvestigationsInvestigationIdOutputGet401Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          },
+          "feedback": {
+            "type": "string",
+            "description": "How to report a problem with this response."
+          },
+          "code": {
+            "type": "string",
+            "description": "Stable error code, for programs."
+          },
+          "correlation_id": {
+            "type": "string",
+            "description": "This request\u0027s ID, also in \u0060X-Correlation-ID\u0060. Quote it to support."
+          }
+        }
+      },
+      "InvestigationOutputV1AtlasInvestigationsInvestigationIdOutputGet403Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          },
+          "feedback": {
+            "type": "string",
+            "description": "How to report a problem with this response."
+          },
+          "code": {
+            "type": "string",
+            "description": "Stable error code, for programs."
+          },
+          "correlation_id": {
+            "type": "string",
+            "description": "This request\u0027s ID, also in \u0060X-Correlation-ID\u0060. Quote it to support."
+          }
+        }
+      },
+      "InvestigationOutputV1AtlasInvestigationsInvestigationIdOutputGet500Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          },
+          "feedback": {
+            "type": "string",
+            "description": "How to report a problem with this response."
+          },
+          "code": {
+            "type": "string",
+            "description": "Stable error code, for programs."
+          },
+          "correlation_id": {
+            "type": "string",
+            "description": "This request\u0027s ID, also in \u0060X-Correlation-ID\u0060. Quote it to support."
+          }
+        }
+      },
+      "InvestigationOutputV1AtlasInvestigationsInvestigationIdOutputGet503Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          },
+          "feedback": {
+            "type": "string",
+            "description": "How to report a problem with this response."
+          },
+          "code": {
+            "type": "string",
+            "description": "Stable error code, for programs."
+          },
+          "correlation_id": {
+            "type": "string",
+            "description": "This request\u0027s ID, also in \u0060X-Correlation-ID\u0060. Quote it to support."
+          }
+        }
+      },
+      "InvestigationOutputV1AtlasInvestigationsInvestigationIdOutputGet429Response": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          },
+          "feedback": {
+            "type": "string",
+            "description": "How to report a problem with this response."
+          },
+          "code": {
+            "type": "string",
+            "description": "Stable error code, for programs."
+          },
+          "correlation_id": {
+            "type": "string",
+            "description": "This request\u0027s ID, also in \u0060X-Correlation-ID\u0060. Quote it to support."
+          }
+        }
+      },
+      "InvestigationOutputV1AtlasInvestigationsInvestigationIdOutputGet404Response": {
         "type": "object",
         "properties": {
           "detail": {
@@ -64858,8 +65515,15 @@
         "type": "string",
         "format": "binary"
       },
+      "ExportIdentifiersV1AtlasInvestigationsInvestigationIdIdentifiersCsvGet200CsvResponseSchema": {
+        "type": "string"
+      },
       "StreamEventsV1AtlasInvestigationsInvestigationIdEventsStreamGet200EventStreamResponseSchema": {
         "type": "string"
+      },
+      "ResponseInvestigationOutputV1AtlasInvestigationsInvestigationIdOutputGetSchema": {
+        "title": "Response Investigation Output V1 Atlas Investigations  Investigation Id  Output Get",
+        "type": "object"
       },
       "GetProfilePhotoV1MediaProfilesKeyGet200MediaResponseSchema": {
         "type": "string",
@@ -68814,6 +69478,23 @@
           ]
         }
       },
+      "StartInvestigationRequestTaskAnyOf1": {
+        "enum": [
+          "org_chart"
+        ],
+        "type": "string",
+        "x-client-original-const": "org_chart",
+        "x-ms-enum": {
+          "name": "StartInvestigationRequestTaskAnyOf1",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "org_chart",
+              "name": "OrgChart"
+            }
+          ]
+        }
+      },
       "JobStatusJobStatusJobIdGet200ResponseOneOf1Status": {
         "enum": [
           "running",
@@ -70922,8 +71603,15 @@
       "type": "string",
       "format": "binary"
     },
+    "ExportIdentifiersV1AtlasInvestigationsInvestigationIdIdentifiersCsvGet200CsvResponse": {
+      "type": "string"
+    },
     "StreamEventsV1AtlasInvestigationsInvestigationIdEventsStreamGet200EventStreamResponse": {
       "type": "string"
+    },
+    "ResponseInvestigationOutputV1AtlasInvestigationsInvestigationIdOutputGet": {
+      "title": "Response Investigation Output V1 Atlas Investigations  Investigation Id  Output Get",
+      "type": "object"
     },
     "GetMediaV1MediaTokenGet200MediaResponse": {
       "type": "string",

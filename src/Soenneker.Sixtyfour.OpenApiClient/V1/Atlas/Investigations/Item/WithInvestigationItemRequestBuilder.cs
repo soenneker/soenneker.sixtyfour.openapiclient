@@ -11,7 +11,9 @@ using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.FileEntries
 using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Files;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Findings;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Graph;
+using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.IdentifiersCsv;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Links;
+using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Output;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Report;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.ReportHistory;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.ReportJobs;
@@ -67,10 +69,20 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Graph.GraphRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The identifiersCsv property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.IdentifiersCsv.IdentifiersCsvRequestBuilder IdentifiersCsv
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.IdentifiersCsv.IdentifiersCsvRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The links property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Links.LinksRequestBuilder Links
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Links.LinksRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The output property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Output.OutputRequestBuilder Output
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Output.OutputRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The report property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Report.ReportRequestBuilder Report
