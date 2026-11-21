@@ -28,7 +28,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Workflows.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithWorkflowItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v1/workflows/{workflowId}", pathParameters)
+        public WithWorkflowItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v1/workflows/{workflowId}{?prefer_draft*}", pathParameters)
         {
         }
         /// <summary>
@@ -36,7 +36,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Workflows.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithWorkflowItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v1/workflows/{workflowId}", rawUrl)
+        public WithWorkflowItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v1/workflows/{workflowId}{?prefer_draft*}", rawUrl)
         {
         }
         /// <summary>
@@ -100,11 +100,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Workflows.Item
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.PublicJobError">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.Workflow?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.Workflow?> GetAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.V1.Workflows.Item.WithWorkflowItemRequestBuilder.WithWorkflowItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.Workflow> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.Workflow> GetAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.V1.Workflows.Item.WithWorkflowItemRequestBuilder.WithWorkflowItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -196,11 +196,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Workflows.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.V1.Workflows.Item.WithWorkflowItemRequestBuilder.WithWorkflowItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.V1.Workflows.Item.WithWorkflowItemRequestBuilder.WithWorkflowItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -238,6 +238,16 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Workflows.Item
         public global::Soenneker.Sixtyfour.OpenApiClient.V1.Workflows.Item.WithWorkflowItemRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Sixtyfour.OpenApiClient.V1.Workflows.Item.WithWorkflowItemRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// Returns a workflow and its definition.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class WithWorkflowItemRequestBuilderGetQueryParameters 
+        {
+            /// <summary>Return the editable draft when one exists. Default: true.</summary>
+            [QueryParameter("prefer_draft")]
+            public bool? PreferDraft { get; set; }
         }
     }
 }

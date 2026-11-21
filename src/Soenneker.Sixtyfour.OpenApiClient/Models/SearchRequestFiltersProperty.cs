@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
     /// <summary>
-    /// Filter query. Use instead of query, seeds or search_id.
+    /// Filter query. Use instead of query, simple_filters, parsed_query, seeds or search_id.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SearchRequestFiltersProperty : IAdditionalDataHolder, IParsable

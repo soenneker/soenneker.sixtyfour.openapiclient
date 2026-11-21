@@ -25,6 +25,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             else if (parseNode.GetChildNode("first_check") is { } nullNodeFirstCheck && nullNodeFirstCheck.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FirstCheck = null;
             if (parseNode.GetChildNode("frequency") is null) { _explicitNullValueFrequency = default!; _explicitNullProperties?.Remove("frequency"); }
             else if (parseNode.GetChildNode("frequency") is { } nullNodeFrequency && nullNodeFrequency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Frequency = null;
+            if (parseNode.GetChildNode("input_file_id") is null) { _explicitNullValueInputFileId = default!; _explicitNullProperties?.Remove("input_file_id"); }
+            else if (parseNode.GetChildNode("input_file_id") is { } nullNodeInputFileId && nullNodeInputFileId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InputFileId = null;
             if (parseNode.GetChildNode("is_active") is null) { _explicitNullValueIsActive = default!; _explicitNullProperties?.Remove("is_active"); }
             else if (parseNode.GetChildNode("is_active") is { } nullNodeIsActive && nullNodeIsActive.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsActive = null;
             if (parseNode.GetChildNode("key_columns") is null) { _explicitNullValueKeyColumns = default!; _explicitNullProperties?.Remove("key_columns"); }
@@ -82,6 +84,16 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string Frequency { get => _explicitNullValueFrequency; set { _explicitNullValueFrequency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("frequency"); else _explicitNullProperties?.Remove("frequency"); } }
         private string _explicitNullValueFrequency = default!;
 #endif
+        /// <summary>Uploaded tabular file from `POST /v1/files`. Use instead of `rows` or `source`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? InputFileId { get => _explicitNullValueInputFileId; set { _explicitNullValueInputFileId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_file_id"); else _explicitNullProperties?.Remove("input_file_id"); } }
+        private string? _explicitNullValueInputFileId = default!;
+#nullable restore
+#else
+        public string InputFileId { get => _explicitNullValueInputFileId; set { _explicitNullValueInputFileId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_file_id"); else _explicitNullProperties?.Remove("input_file_id"); } }
+        private string _explicitNullValueInputFileId = default!;
+#endif
         /// <summary>If true, the monitor runs on its schedule. If false, it is saved paused. Default: true.</summary>
         public bool? IsActive { get => _explicitNullValueIsActive; set { _explicitNullValueIsActive = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_active"); else _explicitNullProperties?.Remove("is_active"); } }
         private bool? _explicitNullValueIsActive = default!;
@@ -125,7 +137,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string ResearchPlan { get => _explicitNullValueResearchPlan; set { _explicitNullValueResearchPlan = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("research_plan"); else _explicitNullProperties?.Remove("research_plan"); } }
         private string _explicitNullValueResearchPlan = default!;
 #endif
-        /// <summary>The rows to watch, one object per company or person. To send a file instead, use `POST /v1/monitors/upload`.</summary>
+        /// <summary>The rows to watch, one object per company or person. Use instead of `input_file_id` or `source`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorRowsItemProperty>? Rows { get => _explicitNullValueRows; set { _explicitNullValueRows = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rows"); else _explicitNullProperties?.Remove("rows"); } }
@@ -187,12 +199,13 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(15)
+            return new Dictionary<string, Action<IParseNode>>(16)
             {
                 { "criteria", n => { Criteria = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorCriteriaProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorCriteriaProperty.CreateFromDiscriminatorValue); } },
                 { "fields", n => { Fields = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "first_check", n => { FirstCheck = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorFirstCheck>(); } },
                 { "frequency", n => { Frequency = n.GetStringValue(); } },
+                { "input_file_id", n => { InputFileId = n.GetStringValue(); } },
                 { "is_active", n => { IsActive = n.GetBoolValue(); } },
                 { "key_columns", n => { KeyColumns = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorMetadataProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorMetadataProperty.CreateFromDiscriminatorValue); } },
@@ -217,6 +230,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("fields", Fields);
             writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorFirstCheck>("first_check", FirstCheck);
             writer.WriteStringValue("frequency", Frequency);
+            writer.WriteStringValue("input_file_id", InputFileId);
             writer.WriteBoolValue("is_active", IsActive);
             writer.WriteCollectionOfPrimitiveValues<string>("key_columns", KeyColumns);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.CreateMonitorMetadataProperty>("metadata", Metadata);

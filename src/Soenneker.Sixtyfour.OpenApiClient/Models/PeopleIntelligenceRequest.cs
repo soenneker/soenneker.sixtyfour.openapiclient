@@ -17,6 +17,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
+            if (parseNode.GetChildNode("field_confidence") is null) { _explicitNullValueFieldConfidence = default!; _explicitNullProperties?.Remove("field_confidence"); }
+            else if (parseNode.GetChildNode("field_confidence") is { } nullNodeFieldConfidence && nullNodeFieldConfidence.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FieldConfidence = null;
             if (parseNode.GetChildNode("fields") is null) { _explicitNullValueFields = default!; _explicitNullProperties?.Remove("fields"); }
             else if (parseNode.GetChildNode("fields") is { } nullNodeFields && nullNodeFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Fields = null;
             if (parseNode.GetChildNode("input_file_id") is null) { _explicitNullValueInputFileId = default!; _explicitNullProperties?.Remove("input_file_id"); }
@@ -35,6 +37,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             else if (parseNode.GetChildNode("webhook_url") is { } nullNodeWebhookUrl && nullNodeWebhookUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookUrl = null;
         }
 
+        /// <summary>If true, returns each requested field&apos;s confidence (0-100), justification and source URLs, nested like the request. Default: false.</summary>
+        public bool? FieldConfidence { get => _explicitNullValueFieldConfidence; set { _explicitNullValueFieldConfidence = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field_confidence"); else _explicitNullProperties?.Remove("field_confidence"); } }
+        private bool? _explicitNullValueFieldConfidence = default!;
         /// <summary>Fields to research. Map each name to a prompt or a typed field definition.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -124,8 +129,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(8)
+            return new Dictionary<string, Action<IParseNode>>(9)
             {
+                { "field_confidence", n => { FieldConfidence = n.GetBoolValue(); } },
                 { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.PeopleIntelligenceRequestFieldsProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.PeopleIntelligenceRequestFieldsProperty.CreateFromDiscriminatorValue); } },
                 { "input_file_id", n => { InputFileId = n.GetStringValue(); } },
                 { "people", n => { People = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.PeopleIntelligenceRequestPeopleItemProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.PeopleIntelligenceRequestPeopleItemProperty.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -143,6 +149,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("field_confidence", FieldConfidence);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.PeopleIntelligenceRequestFieldsProperty>("fields", Fields);
             writer.WriteStringValue("input_file_id", InputFileId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.PeopleIntelligenceRequestPeopleItemProperty>("people", People);

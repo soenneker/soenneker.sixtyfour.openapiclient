@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Output
         {
         }
         /// <summary>
-        /// Read the latest structured output for the investigation, including org chart people, teams, and reporting relationships. Empty data means the current run has not published output yet.
+        /// Read the latest structured output for the investigation, including org chart people, teams, and reporting relationships. Org chart relationship certainty and its confidence entries are omitted. Empty data means the current run has not published output yet.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseInvestigationOutputV1AtlasInvestigationsInvestigationIdOutputGetSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -73,7 +73,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Atlas.Investigations.Item.Output
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseInvestigationOutputV1AtlasInvestigationsInvestigationIdOutputGetSchema>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ResponseInvestigationOutputV1AtlasInvestigationsInvestigationIdOutputGetSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Read the latest structured output for the investigation, including org chart people, teams, and reporting relationships. Empty data means the current run has not published output yet.
+        /// Read the latest structured output for the investigation, including org chart people, teams, and reporting relationships. Org chart relationship certainty and its confidence entries are omitted. Empty data means the current run has not published output yet.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -31,6 +31,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
             if (parseNode.GetChildNode("next_run_times") is null) { _explicitNullValueNextRunTimes = default!; _explicitNullProperties?.Remove("next_run_times"); }
             else if (parseNode.GetChildNode("next_run_times") is { } nullNodeNextRunTimes && nullNodeNextRunTimes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NextRunTimes = null;
+            if (parseNode.GetChildNode("owner_user_id") is null) { _explicitNullValueOwnerUserId = default!; _explicitNullProperties?.Remove("owner_user_id"); }
+            else if (parseNode.GetChildNode("owner_user_id") is { } nullNodeOwnerUserId && nullNodeOwnerUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OwnerUserId = null;
             if (parseNode.GetChildNode("schedule_id") is null) { _explicitNullValueScheduleId = default!; _explicitNullProperties?.Remove("schedule_id"); }
             else if (parseNode.GetChildNode("schedule_id") is { } nullNodeScheduleId && nullNodeScheduleId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScheduleId = null;
             if (parseNode.GetChildNode("timezone") is null) { _explicitNullValueTimezone = default!; _explicitNullProperties?.Remove("timezone"); }
@@ -106,6 +108,16 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public List<string> NextRunTimes { get => _explicitNullValueNextRunTimes; set { _explicitNullValueNextRunTimes = value; AdditionalData?.Remove("next_run_times"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_run_times"); else _explicitNullProperties?.Remove("next_run_times"); } }
         private List<string> _explicitNullValueNextRunTimes = default!;
 #endif
+        /// <summary>Current user owner. Null when created or resumed with an API key; resuming as a person rebinds ownership to that user.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OwnerUserId { get => _explicitNullValueOwnerUserId; set { _explicitNullValueOwnerUserId = value; AdditionalData?.Remove("owner_user_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("owner_user_id"); else _explicitNullProperties?.Remove("owner_user_id"); } }
+        private string? _explicitNullValueOwnerUserId = default!;
+#nullable restore
+#else
+        public string OwnerUserId { get => _explicitNullValueOwnerUserId; set { _explicitNullValueOwnerUserId = value; AdditionalData?.Remove("owner_user_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("owner_user_id"); else _explicitNullProperties?.Remove("owner_user_id"); } }
+        private string _explicitNullValueOwnerUserId = default!;
+#endif
         /// <summary>Schedule identifier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -169,7 +181,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(11)
+            return new Dictionary<string, Action<IParseNode>>(12)
             {
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "cron_expression", n => { CronExpression = n.GetStringValue(); } },
@@ -178,6 +190,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
                 { "is_active", n => { IsActive = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "next_run_times", n => { NextRunTimes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "owner_user_id", n => { OwnerUserId = n.GetStringValue(); } },
                 { "schedule_id", n => { ScheduleId = n.GetStringValue(); } },
                 { "timezone", n => { Timezone = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
@@ -198,6 +211,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             writer.WriteBoolValue("is_active", IsActive);
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfPrimitiveValues<string>("next_run_times", NextRunTimes);
+            writer.WriteStringValue("owner_user_id", OwnerUserId);
             writer.WriteStringValue("schedule_id", ScheduleId);
             writer.WriteStringValue("timezone", Timezone);
             writer.WriteStringValue("updated_at", UpdatedAt);

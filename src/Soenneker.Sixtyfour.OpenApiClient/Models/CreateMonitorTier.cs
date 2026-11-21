@@ -7,6 +7,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum CreateMonitorTier
     {
+        [EnumMember(Value = "micro")]
+        #pragma warning disable CS1591
+        Micro,
+        #pragma warning restore CS1591
         [EnumMember(Value = "low")]
         #pragma warning disable CS1591
         Low,

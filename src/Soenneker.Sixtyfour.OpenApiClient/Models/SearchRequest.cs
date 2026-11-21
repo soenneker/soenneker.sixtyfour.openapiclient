@@ -17,24 +17,64 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
+            if (parseNode.GetChildNode("cursor") is null) { _explicitNullValueCursor = default!; _explicitNullProperties?.Remove("cursor"); }
+            else if (parseNode.GetChildNode("cursor") is { } nullNodeCursor && nullNodeCursor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cursor = null;
+            if (parseNode.GetChildNode("exclude_entity_ids") is null) { _explicitNullValueExcludeEntityIds = default!; _explicitNullProperties?.Remove("exclude_entity_ids"); }
+            else if (parseNode.GetChildNode("exclude_entity_ids") is { } nullNodeExcludeEntityIds && nullNodeExcludeEntityIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExcludeEntityIds = null;
             if (parseNode.GetChildNode("exclude_list_ids") is null) { _explicitNullValueExcludeListIds = default!; _explicitNullProperties?.Remove("exclude_list_ids"); }
             else if (parseNode.GetChildNode("exclude_list_ids") is { } nullNodeExcludeListIds && nullNodeExcludeListIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExcludeListIds = null;
+            if (parseNode.GetChildNode("expand_structured_location") is null) { _explicitNullValueExpandStructuredLocation = default!; _explicitNullProperties?.Remove("expand_structured_location"); }
+            else if (parseNode.GetChildNode("expand_structured_location") is { } nullNodeExpandStructuredLocation && nullNodeExpandStructuredLocation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpandStructuredLocation = null;
             if (parseNode.GetChildNode("filters") is null) { _explicitNullValueFilters = default!; _explicitNullProperties?.Remove("filters"); }
             else if (parseNode.GetChildNode("filters") is { } nullNodeFilters && nullNodeFilters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Filters = null;
+            if (parseNode.GetChildNode("location_expansion_enabled") is null) { _explicitNullValueLocationExpansionEnabled = default!; _explicitNullProperties?.Remove("location_expansion_enabled"); }
+            else if (parseNode.GetChildNode("location_expansion_enabled") is { } nullNodeLocationExpansionEnabled && nullNodeLocationExpansionEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LocationExpansionEnabled = null;
+            if (parseNode.GetChildNode("location_expansion_radius_miles") is null) { _explicitNullValueLocationExpansionRadiusMiles = default!; _explicitNullProperties?.Remove("location_expansion_radius_miles"); }
+            else if (parseNode.GetChildNode("location_expansion_radius_miles") is { } nullNodeLocationExpansionRadiusMiles && nullNodeLocationExpansionRadiusMiles.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LocationExpansionRadiusMiles = null;
             if (parseNode.GetChildNode("max_results") is null) { _explicitNullValueMaxResults = default!; _explicitNullProperties?.Remove("max_results"); }
             else if (parseNode.GetChildNode("max_results") is { } nullNodeMaxResults && nullNodeMaxResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxResults = null;
+            if (parseNode.GetChildNode("output_shape") is null) { _explicitNullValueOutputShape = default!; _explicitNullProperties?.Remove("output_shape"); }
+            else if (parseNode.GetChildNode("output_shape") is { } nullNodeOutputShape && nullNodeOutputShape.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OutputShape = null;
+            if (parseNode.GetChildNode("page_size") is null) { _explicitNullValuePageSize = default!; _explicitNullProperties?.Remove("page_size"); }
+            else if (parseNode.GetChildNode("page_size") is { } nullNodePageSize && nullNodePageSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PageSize = null;
+            if (parseNode.GetChildNode("parsed_query") is null) { _explicitNullValueParsedQuery = default!; _explicitNullProperties?.Remove("parsed_query"); }
+            else if (parseNode.GetChildNode("parsed_query") is { } nullNodeParsedQuery && nullNodeParsedQuery.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ParsedQuery = null;
             if (parseNode.GetChildNode("query") is null) { _explicitNullValueQuery = default!; _explicitNullProperties?.Remove("query"); }
             else if (parseNode.GetChildNode("query") is { } nullNodeQuery && nullNodeQuery.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Query = null;
+            if (parseNode.GetChildNode("query_mode") is null) { _explicitNullValueQueryMode = default!; _explicitNullProperties?.Remove("query_mode"); }
+            else if (parseNode.GetChildNode("query_mode") is { } nullNodeQueryMode && nullNodeQueryMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) QueryMode = null;
             if (parseNode.GetChildNode("search_id") is null) { _explicitNullValueSearchId = default!; _explicitNullProperties?.Remove("search_id"); }
             else if (parseNode.GetChildNode("search_id") is { } nullNodeSearchId && nullNodeSearchId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SearchId = null;
             if (parseNode.GetChildNode("seeds") is null) { _explicitNullValueSeeds = default!; _explicitNullProperties?.Remove("seeds"); }
             else if (parseNode.GetChildNode("seeds") is { } nullNodeSeeds && nullNodeSeeds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Seeds = null;
+            if (parseNode.GetChildNode("simple_filters") is null) { _explicitNullValueSimpleFilters = default!; _explicitNullProperties?.Remove("simple_filters"); }
+            else if (parseNode.GetChildNode("simple_filters") is { } nullNodeSimpleFilters && nullNodeSimpleFilters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SimpleFilters = null;
             if (parseNode.GetChildNode("wait_seconds") is null) { _explicitNullValueWaitSeconds = default!; _explicitNullProperties?.Remove("wait_seconds"); }
             else if (parseNode.GetChildNode("wait_seconds") is { } nullNodeWaitSeconds && nullNodeWaitSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WaitSeconds = null;
             if (parseNode.GetChildNode("webhook_url") is null) { _explicitNullValueWebhookUrl = default!; _explicitNullProperties?.Remove("webhook_url"); }
             else if (parseNode.GetChildNode("webhook_url") is { } nullNodeWebhookUrl && nullNodeWebhookUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookUrl = null;
         }
 
+        /// <summary>Exclusive cursor returned by a previous paged Search result. Send it alone to continue that search.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Cursor { get => _explicitNullValueCursor; set { _explicitNullValueCursor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cursor"); else _explicitNullProperties?.Remove("cursor"); } }
+        private string? _explicitNullValueCursor = default!;
+#nullable restore
+#else
+        public string Cursor { get => _explicitNullValueCursor; set { _explicitNullValueCursor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cursor"); else _explicitNullProperties?.Remove("cursor"); } }
+        private string _explicitNullValueCursor = default!;
+#endif
+        /// <summary>Identifiers to exclude as a post-filter. People mode accepts LinkedIn public IDs or profile URLs; company mode accepts LinkedIn company IDs, company URLs or domains. Up to 1,000 values.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? ExcludeEntityIds { get => _explicitNullValueExcludeEntityIds; set { _explicitNullValueExcludeEntityIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude_entity_ids"); else _explicitNullProperties?.Remove("exclude_entity_ids"); } }
+        private List<string>? _explicitNullValueExcludeEntityIds = default!;
+#nullable restore
+#else
+        public List<string> ExcludeEntityIds { get => _explicitNullValueExcludeEntityIds; set { _explicitNullValueExcludeEntityIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude_entity_ids"); else _explicitNullProperties?.Remove("exclude_entity_ids"); } }
+        private List<string> _explicitNullValueExcludeEntityIds = default!;
+#endif
         /// <summary>Lists whose members to exclude. Omit to exclude none. Limit: 5 by default, up to 10 with a higher organization limit.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -45,7 +85,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public List<string> ExcludeListIds { get => _explicitNullValueExcludeListIds; set { _explicitNullValueExcludeListIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude_list_ids"); else _explicitNullProperties?.Remove("exclude_list_ids"); } }
         private List<string> _explicitNullValueExcludeListIds = default!;
 #endif
-        /// <summary>Filter query. Use instead of query, seeds or search_id.</summary>
+        /// <summary>Expand structured location filters before matching nearby places.</summary>
+        public bool? ExpandStructuredLocation { get => _explicitNullValueExpandStructuredLocation; set { _explicitNullValueExpandStructuredLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expand_structured_location"); else _explicitNullProperties?.Remove("expand_structured_location"); } }
+        private bool? _explicitNullValueExpandStructuredLocation = default!;
+        /// <summary>Filter query. Use instead of query, simple_filters, parsed_query, seeds or search_id.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRequestFiltersProperty? Filters { get => _explicitNullValueFilters; set { _explicitNullValueFilters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filters"); else _explicitNullProperties?.Remove("filters"); } }
@@ -55,10 +98,39 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRequestFiltersProperty Filters { get => _explicitNullValueFilters; set { _explicitNullValueFilters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filters"); else _explicitNullProperties?.Remove("filters"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRequestFiltersProperty _explicitNullValueFilters = default!;
 #endif
-        /// <summary>Maximum records to return. Default: 10. The fields endpoint reports the allowed maximum.</summary>
+        /// <summary>If true, also matches places near a location in `query`. If false, matches only the location given. Default: true.</summary>
+        public bool? LocationExpansionEnabled { get => _explicitNullValueLocationExpansionEnabled; set { _explicitNullValueLocationExpansionEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location_expansion_enabled"); else _explicitNullProperties?.Remove("location_expansion_enabled"); } }
+        private bool? _explicitNullValueLocationExpansionEnabled = default!;
+        /// <summary>Search radius for location expansion, in miles. Range: 5 to 200.</summary>
+        public int? LocationExpansionRadiusMiles { get => _explicitNullValueLocationExpansionRadiusMiles; set { _explicitNullValueLocationExpansionRadiusMiles = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location_expansion_radius_miles"); else _explicitNullProperties?.Remove("location_expansion_radius_miles"); } }
+        private int? _explicitNullValueLocationExpansionRadiusMiles = default!;
+        /// <summary>Maximum records across all pages. Bulk default: 10. For a paged Search, omission uses the caller&apos;s Search limit.</summary>
         public int? MaxResults { get => _explicitNullValueMaxResults; set { _explicitNullValueMaxResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_results"); else _explicitNullProperties?.Remove("max_results"); } }
         private int? _explicitNullValueMaxResults = default!;
-        /// <summary>Natural language description of the records to find. Use instead of filters, seeds or search_id.</summary>
+        /// <summary>Shape of returned rows. Paged Search defaults to `raw`; bulk Search retains `workflow` rows.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRequestOutputShape? OutputShape { get => _explicitNullValueOutputShape; set { _explicitNullValueOutputShape = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_shape"); else _explicitNullProperties?.Remove("output_shape"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRequestOutputShape? _explicitNullValueOutputShape = default!;
+#nullable restore
+#else
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRequestOutputShape OutputShape { get => _explicitNullValueOutputShape; set { _explicitNullValueOutputShape = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_shape"); else _explicitNullProperties?.Remove("output_shape"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRequestOutputShape _explicitNullValueOutputShape = default!;
+#endif
+        /// <summary>Return one page of this many records. Use instead of the bulk Job result. Range: 1 to 100.</summary>
+        public int? PageSize { get => _explicitNullValuePageSize; set { _explicitNullValuePageSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("page_size"); else _explicitNullProperties?.Remove("page_size"); } }
+        private int? _explicitNullValuePageSize = default!;
+        /// <summary>Structured filter set from a previous Search result. Use instead of query, filters, simple_filters, seeds or search_id.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRequestParsedQueryProperty? ParsedQuery { get => _explicitNullValueParsedQuery; set { _explicitNullValueParsedQuery = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parsed_query"); else _explicitNullProperties?.Remove("parsed_query"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRequestParsedQueryProperty? _explicitNullValueParsedQuery = default!;
+#nullable restore
+#else
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRequestParsedQueryProperty ParsedQuery { get => _explicitNullValueParsedQuery; set { _explicitNullValueParsedQuery = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parsed_query"); else _explicitNullProperties?.Remove("parsed_query"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRequestParsedQueryProperty _explicitNullValueParsedQuery = default!;
+#endif
+        /// <summary>Natural-language description of matching records. Use instead of filters, simple_filters, parsed_query, seeds or search_id.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Query { get => _explicitNullValueQuery; set { _explicitNullValueQuery = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query"); else _explicitNullProperties?.Remove("query"); } }
@@ -68,7 +140,17 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public string Query { get => _explicitNullValueQuery; set { _explicitNullValueQuery = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query"); else _explicitNullProperties?.Remove("query"); } }
         private string _explicitNullValueQuery = default!;
 #endif
-        /// <summary>Saved search to run. Use instead of filters, query or seeds.</summary>
+        /// <summary>For natural-language queries, `standard` uses the existing filter planner; `deep` uses deep research. Omission preserves the deep-search default.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRequestQueryMode? QueryMode { get => _explicitNullValueQueryMode; set { _explicitNullValueQueryMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query_mode"); else _explicitNullProperties?.Remove("query_mode"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRequestQueryMode? _explicitNullValueQueryMode = default!;
+#nullable restore
+#else
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRequestQueryMode QueryMode { get => _explicitNullValueQueryMode; set { _explicitNullValueQueryMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query_mode"); else _explicitNullProperties?.Remove("query_mode"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRequestQueryMode _explicitNullValueQueryMode = default!;
+#endif
+        /// <summary>Saved search to run. Use instead of filters, simple_filters, parsed_query, query or seeds.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SearchId { get => _explicitNullValueSearchId; set { _explicitNullValueSearchId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search_id"); else _explicitNullProperties?.Remove("search_id"); } }
@@ -88,6 +170,16 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode> Seeds { get => _explicitNullValueSeeds; set { _explicitNullValueSeeds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seeds"); else _explicitNullProperties?.Remove("seeds"); } }
         private List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode> _explicitNullValueSeeds = default!;
 #endif
+        /// <summary>Filters with Mongo-style operators. Use instead of query, filters, parsed_query, seeds or search_id.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRequestSimpleFiltersProperty? SimpleFilters { get => _explicitNullValueSimpleFilters; set { _explicitNullValueSimpleFilters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("simple_filters"); else _explicitNullProperties?.Remove("simple_filters"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRequestSimpleFiltersProperty? _explicitNullValueSimpleFilters = default!;
+#nullable restore
+#else
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRequestSimpleFiltersProperty SimpleFilters { get => _explicitNullValueSimpleFilters; set { _explicitNullValueSimpleFilters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("simple_filters"); else _explicitNullProperties?.Remove("simple_filters"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRequestSimpleFiltersProperty _explicitNullValueSimpleFilters = default!;
+#endif
         /// <summary>Seconds to wait for the Job to finish. Default: 5. Range: 0 to 20.</summary>
         public int? WaitSeconds { get => _explicitNullValueWaitSeconds; set { _explicitNullValueWaitSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("wait_seconds"); else _explicitNullProperties?.Remove("wait_seconds"); } }
         private int? _explicitNullValueWaitSeconds = default!;
@@ -106,6 +198,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// </summary>
         public SearchRequest()
         {
+            ExpandStructuredLocation = false;
+            LocationExpansionRadiusMiles = 10;
             MaxResults = 10;
             WaitSeconds = 5;
         }
@@ -125,14 +219,24 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(8)
+            return new Dictionary<string, Action<IParseNode>>(18)
             {
+                { "cursor", n => { Cursor = n.GetStringValue(); } },
+                { "exclude_entity_ids", n => { ExcludeEntityIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "exclude_list_ids", n => { ExcludeListIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "expand_structured_location", n => { ExpandStructuredLocation = n.GetBoolValue(); } },
                 { "filters", n => { Filters = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRequestFiltersProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRequestFiltersProperty.CreateFromDiscriminatorValue); } },
+                { "location_expansion_enabled", n => { LocationExpansionEnabled = n.GetBoolValue(); } },
+                { "location_expansion_radius_miles", n => { LocationExpansionRadiusMiles = n.GetIntValue(); } },
                 { "max_results", n => { MaxResults = n.GetIntValue(); } },
+                { "output_shape", n => { OutputShape = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRequestOutputShape>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRequestOutputShape.CreateFromDiscriminatorValue); } },
+                { "page_size", n => { PageSize = n.GetIntValue(); } },
+                { "parsed_query", n => { ParsedQuery = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRequestParsedQueryProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRequestParsedQueryProperty.CreateFromDiscriminatorValue); } },
                 { "query", n => { Query = n.GetStringValue(); } },
+                { "query_mode", n => { QueryMode = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRequestQueryMode>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRequestQueryMode.CreateFromDiscriminatorValue); } },
                 { "search_id", n => { SearchId = n.GetStringValue(); } },
                 { "seeds", n => { Seeds = n.GetCollectionOfObjectValues<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "simple_filters", n => { SimpleFilters = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRequestSimpleFiltersProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRequestSimpleFiltersProperty.CreateFromDiscriminatorValue); } },
                 { "wait_seconds", n => { WaitSeconds = n.GetIntValue(); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
             };
@@ -144,12 +248,22 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("cursor", Cursor);
+            writer.WriteCollectionOfPrimitiveValues<string>("exclude_entity_ids", ExcludeEntityIds);
             writer.WriteCollectionOfPrimitiveValues<string>("exclude_list_ids", ExcludeListIds);
+            writer.WriteBoolValue("expand_structured_location", ExpandStructuredLocation);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRequestFiltersProperty>("filters", Filters);
+            writer.WriteBoolValue("location_expansion_enabled", LocationExpansionEnabled);
+            writer.WriteIntValue("location_expansion_radius_miles", LocationExpansionRadiusMiles);
             writer.WriteIntValue("max_results", MaxResults);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRequestOutputShape>("output_shape", OutputShape);
+            writer.WriteIntValue("page_size", PageSize);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRequestParsedQueryProperty>("parsed_query", ParsedQuery);
             writer.WriteStringValue("query", Query);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRequestQueryMode>("query_mode", QueryMode);
             writer.WriteStringValue("search_id", SearchId);
             writer.WriteCollectionOfObjectValues<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>("seeds", Seeds);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.SearchRequestSimpleFiltersProperty>("simple_filters", SimpleFilters);
             writer.WriteIntValue("wait_seconds", WaitSeconds);
             writer.WriteStringValue("webhook_url", WebhookUrl);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             

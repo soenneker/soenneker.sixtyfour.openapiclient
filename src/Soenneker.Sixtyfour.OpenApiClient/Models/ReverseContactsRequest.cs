@@ -17,6 +17,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
+            if (parseNode.GetChildNode("by") is null) { _explicitNullValueBy = default!; _explicitNullProperties?.Remove("by"); }
+            else if (parseNode.GetChildNode("by") is { } nullNodeBy && nullNodeBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) By = null;
             if (parseNode.GetChildNode("custom_id") is null) { _explicitNullValueCustomId = default!; _explicitNullProperties?.Remove("custom_id"); }
             else if (parseNode.GetChildNode("custom_id") is { } nullNodeCustomId && nullNodeCustomId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomId = null;
             if (parseNode.GetChildNode("email") is null) { _explicitNullValueEmail = default!; _explicitNullProperties?.Remove("email"); }
@@ -25,6 +27,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             else if (parseNode.GetChildNode("input_file_id") is { } nullNodeInputFileId && nullNodeInputFileId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InputFileId = null;
             if (parseNode.GetChildNode("items") is null) { _explicitNullValueItems = default!; _explicitNullProperties?.Remove("items"); }
             else if (parseNode.GetChildNode("items") is { } nullNodeItems && nullNodeItems.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Items = null;
+            if (parseNode.GetChildNode("person") is null) { _explicitNullValuePerson = default!; _explicitNullProperties?.Remove("person"); }
+            else if (parseNode.GetChildNode("person") is { } nullNodePerson && nullNodePerson.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Person = null;
             if (parseNode.GetChildNode("phone") is null) { _explicitNullValuePhone = default!; _explicitNullProperties?.Remove("phone"); }
             else if (parseNode.GetChildNode("phone") is { } nullNodePhone && nullNodePhone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Phone = null;
             if (parseNode.GetChildNode("wait_seconds") is null) { _explicitNullValueWaitSeconds = default!; _explicitNullProperties?.Remove("wait_seconds"); }
@@ -33,6 +37,16 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             else if (parseNode.GetChildNode("webhook_url") is { } nullNodeWebhookUrl && nullNodeWebhookUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookUrl = null;
         }
 
+        /// <summary>Which contact in person to look up. This selects the operation when both contacts are present.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseContactsRequestBy? By { get => _explicitNullValueBy; set { _explicitNullValueBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("by"); else _explicitNullProperties?.Remove("by"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseContactsRequestBy? _explicitNullValueBy = default!;
+#nullable restore
+#else
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseContactsRequestBy By { get => _explicitNullValueBy; set { _explicitNullValueBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("by"); else _explicitNullProperties?.Remove("by"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseContactsRequestBy _explicitNullValueBy = default!;
+#endif
         /// <summary>Your identifier for matching this record to its result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -72,6 +86,16 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
 #else
         public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseItem> Items { get => _explicitNullValueItems; set { _explicitNullValueItems = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("items"); else _explicitNullProperties?.Remove("items"); } }
         private List<global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseItem> _explicitNullValueItems = default!;
+#endif
+        /// <summary>Person fields to retain as reverse-lookup context. Include the contact selected by by.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseContactsRequestPersonProperty? Person { get => _explicitNullValuePerson; set { _explicitNullValuePerson = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("person"); else _explicitNullProperties?.Remove("person"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseContactsRequestPersonProperty? _explicitNullValuePerson = default!;
+#nullable restore
+#else
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseContactsRequestPersonProperty Person { get => _explicitNullValuePerson; set { _explicitNullValuePerson = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("person"); else _explicitNullProperties?.Remove("person"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseContactsRequestPersonProperty _explicitNullValuePerson = default!;
 #endif
         /// <summary>Phone number to look up, for example +14155550123. Supply exactly one of phone or email.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -119,12 +143,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(7)
+            return new Dictionary<string, Action<IParseNode>>(9)
             {
+                { "by", n => { By = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseContactsRequestBy>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseContactsRequestBy.CreateFromDiscriminatorValue); } },
                 { "custom_id", n => { CustomId = n.GetStringValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "input_file_id", n => { InputFileId = n.GetStringValue(); } },
                 { "items", n => { Items = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseItem>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "person", n => { Person = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseContactsRequestPersonProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseContactsRequestPersonProperty.CreateFromDiscriminatorValue); } },
                 { "phone", n => { Phone = n.GetStringValue(); } },
                 { "wait_seconds", n => { WaitSeconds = n.GetIntValue(); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
@@ -137,10 +163,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseContactsRequestBy>("by", By);
             writer.WriteStringValue("custom_id", CustomId);
             writer.WriteStringValue("email", Email);
             writer.WriteStringValue("input_file_id", InputFileId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseItem>("items", Items);
+            writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.ReverseContactsRequestPersonProperty>("person", Person);
             writer.WriteStringValue("phone", Phone);
             writer.WriteIntValue("wait_seconds", WaitSeconds);
             writer.WriteStringValue("webhook_url", WebhookUrl);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

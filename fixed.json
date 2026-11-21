@@ -9341,19 +9341,9 @@
                 "$ref": "#/components/schemas/SearchRequest"
               },
               "example": {
-                "filters": {
-                  "query": {
-                    "nested": {
-                      "path": "currentCompanies",
-                      "query": {
-                        "match": {
-                          "currentCompanies.company.name": "Sixtyfour"
-                        }
-                      }
-                    }
-                  }
-                },
-                "max_results": 1,
+                "query": "Engineers at Sixtyfour in San Francisco",
+                "query_mode": "standard",
+                "page_size": 25,
                 "wait_seconds": 0
               }
             }
@@ -9366,7 +9356,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Job"
+                  "$ref": "#/components/schemas/SearchJob"
                 },
                 "example": {
                   "job_id": "job_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
@@ -9491,7 +9481,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Job"
+                  "$ref": "#/components/schemas/SearchJob"
                 },
                 "example": {
                   "job_id": "job_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
@@ -9555,7 +9545,7 @@
                     }
                   }
                 },
-                "max_results": 1,
+                "page_size": 25,
                 "wait_seconds": 0
               }
             }
@@ -9568,7 +9558,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Job"
+                  "$ref": "#/components/schemas/SearchJob"
                 },
                 "example": {
                   "job_id": "job_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
@@ -9693,7 +9683,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Job"
+                  "$ref": "#/components/schemas/SearchJob"
                 },
                 "example": {
                   "job_id": "job_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
@@ -10726,7 +10716,7 @@
           "Contacts"
         ],
         "summary": "Reverse Lookup",
-        "description": "Finds a person\u0027s name, employer and profile from an email address or phone number.\n\nUse only emails or only phone numbers in each request.",
+        "description": "Finds a person\u0027s name, employer and profile from an email address or phone number.\n\nUse one contact kind for email, phone, items or input_file_id requests. For a person record, set by to select the primary contact; other person fields remain available as context.",
         "operationId": "ReverseContactsV1PeopleContactsReversePost",
         "parameters": [
           {
@@ -11089,369 +11079,6 @@
         }
       }
     },
-    "/v1/monitors": {
-      "post": {
-        "tags": [
-          "Monitors V1"
-        ],
-        "summary": "Create Monitor",
-        "description": "Creates a monitor that checks a table of companies or people on a schedule and reports the fields that changed.\n\nEach check is charged per row at the monitor\u0027s \u0060tier\u0060. A check your balance cannot cover is reported as failed.",
-        "operationId": "CreateMonitorV1MonitorsPost",
-        "parameters": [
-          {
-            "name": "Idempotency-Key",
-            "in": "header",
-            "description": "Makes a retry safe. Sending the same request again with the same key returns the monitor the first request created.",
-            "schema": {
-              "title": "Idempotency-Key",
-              "maxLength": 255,
-              "type": [
-                "null",
-                "string"
-              ],
-              "description": "Makes a retry safe. Sending the same request again with the same key returns the monitor the first request created."
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateMonitor"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "201": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Monitor"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PublicJobError"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PublicJobError"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PublicJobError"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Unprocessable Entity",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PublicJobValidationError"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PublicJobError"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Service Unavailable",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PublicJobError"
-                }
-              }
-            }
-          },
-          "402": {
-            "description": "Payment Required",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PublicJobError"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PublicJobError"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PublicJobError"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too Many Requests",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PublicJobError"
-                }
-              }
-            }
-          },
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Monitor"
-                }
-              }
-            },
-            "x-client-success-response-status": "201"
-          }
-        }
-      },
-      "get": {
-        "tags": [
-          "Monitors V1"
-        ],
-        "summary": "List Monitors",
-        "description": "Lists your team\u0027s monitors, newest first.",
-        "operationId": "ListMonitorsV1MonitorsGet",
-        "parameters": [
-          {
-            "name": "active_only",
-            "in": "query",
-            "description": "If true, returns only monitors that are running. Default: false.",
-            "schema": {
-              "title": "Active Only",
-              "type": "boolean",
-              "description": "If true, returns only monitors that are running. Default: false.",
-              "default": false
-            }
-          },
-          {
-            "name": "include_canceled",
-            "in": "query",
-            "description": "If false, leaves out canceled monitors. Default: true.",
-            "schema": {
-              "title": "Include Canceled",
-              "type": "boolean",
-              "description": "If false, leaves out canceled monitors. Default: true.",
-              "default": true
-            }
-          },
-          {
-            "name": "page_size",
-            "in": "query",
-            "description": "Monitors per page. Default: 50. Range: 1 to 200.",
-            "schema": {
-              "title": "Page Size",
-              "maximum": 200,
-              "minimum": 1,
-              "type": "integer",
-              "description": "Monitors per page. Default: 50. Range: 1 to 200.",
-              "default": 50
-            }
-          },
-          {
-            "name": "cursor",
-            "in": "query",
-            "description": "\u0060next_cursor\u0060 from the previous page. Omit for the first page.",
-            "schema": {
-              "title": "Cursor",
-              "maxLength": 2048,
-              "type": [
-                "null",
-                "string"
-              ],
-              "description": "\u0060next_cursor\u0060 from the previous page. Omit for the first page."
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MonitorPage"
-                },
-                "example": {
-                  "items": [
-                    {
-                      "monitor_id": "9a4d2c1b-6e7f-4a8b-b3c2-1d0e9f8a7b6c",
-                      "type": "research",
-                      "name": "Target accounts",
-                      "status": "active",
-                      "subject_type": "company",
-                      "fields": {
-                        "headcount": "Number of employees"
-                      },
-                      "frequency": "1w",
-                      "tier": "low",
-                      "research_plan": null,
-                      "is_active": true,
-                      "disabled_reason": null,
-                      "webhook_url": "https://example.com/webhooks/sixtyfour",
-                      "webhook_event_types": [
-                        "monitor.field.changed"
-                      ],
-                      "metadata": null,
-                      "row_count": 1,
-                      "active_row_count": 1,
-                      "last_run_at": "2026-11-13T10:00:00Z",
-                      "next_run_times": [
-                        "2026-11-20T10:00:00Z"
-                      ],
-                      "created_at": "2026-11-06T10:00:00Z",
-                      "updated_at": "2026-11-13T10:00:00Z"
-                    }
-                  ],
-                  "next_cursor": null
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PublicJobError"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PublicJobError"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PublicJobError"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Unprocessable Entity",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PublicJobValidationError"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PublicJobError"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Service Unavailable",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PublicJobError"
-                }
-              }
-            }
-          },
-          "402": {
-            "description": "Payment Required",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PublicJobError"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PublicJobError"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PublicJobError"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too Many Requests",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PublicJobError"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/v1/monitors/upload": {
       "post": {
         "tags": [
@@ -11680,6 +11307,369 @@
               }
             },
             "x-client-success-response-status": "202"
+          }
+        }
+      }
+    },
+    "/v1/monitors": {
+      "get": {
+        "tags": [
+          "Monitors V1"
+        ],
+        "summary": "List Monitors",
+        "description": "Lists your team\u0027s monitors, newest first.",
+        "operationId": "ListMonitorsV1MonitorsGet",
+        "parameters": [
+          {
+            "name": "active_only",
+            "in": "query",
+            "description": "If true, returns only monitors that are running. Default: false.",
+            "schema": {
+              "title": "Active Only",
+              "type": "boolean",
+              "description": "If true, returns only monitors that are running. Default: false.",
+              "default": false
+            }
+          },
+          {
+            "name": "include_canceled",
+            "in": "query",
+            "description": "If false, leaves out canceled monitors. Default: true.",
+            "schema": {
+              "title": "Include Canceled",
+              "type": "boolean",
+              "description": "If false, leaves out canceled monitors. Default: true.",
+              "default": true
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "description": "Monitors per page. Default: 50. Range: 1 to 200.",
+            "schema": {
+              "title": "Page Size",
+              "maximum": 200,
+              "minimum": 1,
+              "type": "integer",
+              "description": "Monitors per page. Default: 50. Range: 1 to 200.",
+              "default": 50
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "description": "\u0060next_cursor\u0060 from the previous page. Omit for the first page.",
+            "schema": {
+              "title": "Cursor",
+              "maxLength": 2048,
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "\u0060next_cursor\u0060 from the previous page. Omit for the first page."
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MonitorPage"
+                },
+                "example": {
+                  "items": [
+                    {
+                      "monitor_id": "9a4d2c1b-6e7f-4a8b-b3c2-1d0e9f8a7b6c",
+                      "type": "research",
+                      "name": "Target accounts",
+                      "status": "active",
+                      "subject_type": "company",
+                      "fields": {
+                        "headcount": "Number of employees"
+                      },
+                      "frequency": "1w",
+                      "tier": "low",
+                      "research_plan": null,
+                      "is_active": true,
+                      "disabled_reason": null,
+                      "webhook_url": "https://example.com/webhooks/sixtyfour",
+                      "webhook_event_types": [
+                        "monitor.field.changed"
+                      ],
+                      "metadata": null,
+                      "row_count": 1,
+                      "active_row_count": 1,
+                      "last_run_at": "2026-11-13T10:00:00Z",
+                      "next_run_times": [
+                        "2026-11-20T10:00:00Z"
+                      ],
+                      "created_at": "2026-11-06T10:00:00Z",
+                      "updated_at": "2026-11-13T10:00:00Z"
+                    }
+                  ],
+                  "next_cursor": null
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment Required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Monitors V1"
+        ],
+        "summary": "Create Monitor",
+        "description": "Creates a monitor that checks a table of companies or people on a schedule and reports the fields that changed.\n\nEach check is charged per row at the monitor\u0027s \u0060tier\u0060. A check your balance cannot cover is reported as failed.",
+        "operationId": "CreateMonitorV1MonitorsPost",
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "description": "Makes a retry safe. Sending the same request again with the same key returns the monitor the first request created.",
+            "schema": {
+              "title": "Idempotency-Key",
+              "maxLength": 255,
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "Makes a retry safe. Sending the same request again with the same key returns the monitor the first request created."
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMonitor"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Monitor"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment Required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Monitor"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -14969,7 +14959,15 @@
                       "version": "2026-11-13T10:00:00.123456\u002B00:00"
                     }
                   ],
-                  "next_cursor": null
+                  "next_cursor": null,
+                  "actions": {
+                    "team.manage_skills": {
+                      "state": "enabled",
+                      "reason": null,
+                      "message": null,
+                      "confirm": null
+                    }
+                  }
                 }
               }
             }
@@ -16825,6 +16823,21 @@
         "summary": "Create Workflow",
         "description": "Creates a workflow from a graph of blocks.\n\nCreating a workflow does not run it. Start a run with \u0060POST /v1/workflows/{workflow_id}/runs\u0060.",
         "operationId": "CreateWorkflowV1WorkflowsPost",
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "schema": {
+              "title": "Idempotency-Key",
+              "maxLength": 255,
+              "minLength": 1,
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -17366,6 +17379,17 @@
               "title": "Workflow Id",
               "type": "string",
               "format": "uuid"
+            }
+          },
+          {
+            "name": "prefer_draft",
+            "in": "query",
+            "description": "Return the editable draft when one exists. Default: true.",
+            "schema": {
+              "title": "Prefer Draft",
+              "type": "boolean",
+              "description": "Return the editable draft when one exists. Default: true.",
+              "default": true
             }
           }
         ],
@@ -33010,7 +33034,7 @@
           "Atlas"
         ],
         "summary": "Read structured research output",
-        "description": "Read the latest structured output for the investigation, including org chart people, teams, and reporting relationships. Empty data means the current run has not published output yet.",
+        "description": "Read the latest structured output for the investigation, including org chart people, teams, and reporting relationships. Org chart relationship certainty and its confidence entries are omitted. Empty data means the current run has not published output yet.",
         "operationId": "InvestigationOutputV1AtlasInvestigationsInvestigationIdOutputGet",
         "parameters": [
           {
@@ -37624,6 +37648,14 @@
             "description": "HTTPS URL to notify when the Job finishes. Omit to use polling.",
             "x-client-original-format": "uri"
           },
+          "field_confidence": {
+            "title": "Field Confidence",
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "If true, returns each requested field\u0027s confidence (0-100), justification and source URLs, nested like the request. Default: false."
+          },
           "company": {
             "$ref": "#/components/schemas/CompanyIntelligenceRequestCompanyProperty"
           },
@@ -37654,6 +37686,12 @@
               "string"
             ],
             "description": "People to find at each company, such as founders or engineering leaders. Used when find_people is true."
+          },
+          "full_org_chart": {
+            "title": "Full Org Chart",
+            "type": "boolean",
+            "description": "If true, include the full company org chart in the result. Default: false.",
+            "default": false
           }
         },
         "additionalProperties": false
@@ -38205,8 +38243,7 @@
         "required": [
           "name",
           "key_columns",
-          "fields",
-          "rows"
+          "fields"
         ],
         "type": "object",
         "properties": {
@@ -38296,12 +38333,20 @@
           },
           "rows": {
             "title": "Rows",
-            "minItems": 1,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CreateMonitorRowsItemProperty"
             },
-            "description": "The rows to watch, one object per company or person. To send a file instead, use \u0060POST /v1/monitors/upload\u0060."
+            "description": "The rows to watch, one object per company or person. Use instead of \u0060input_file_id\u0060 or \u0060source\u0060."
+          },
+          "input_file_id": {
+            "title": "Input File Id",
+            "maxLength": 200,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Uploaded tabular file from \u0060POST /v1/files\u0060. Use instead of \u0060rows\u0060 or \u0060source\u0060."
           }
         },
         "additionalProperties": false
@@ -38577,7 +38622,6 @@
           "name": {
             "title": "Name",
             "maxLength": 200,
-            "minLength": 1,
             "type": "string",
             "description": "Name of the workflow."
           },
@@ -42817,6 +42861,14 @@
             "description": "HTTPS URL to notify when the Job finishes. Omit to use polling.",
             "x-client-original-format": "uri"
           },
+          "field_confidence": {
+            "title": "Field Confidence",
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "If true, returns each requested field\u0027s confidence (0-100), justification and source URLs, nested like the request. Default: false."
+          },
           "person": {
             "$ref": "#/components/schemas/PeopleIntelligenceRequestPersonProperty"
           },
@@ -43650,6 +43702,14 @@
         "examples": [
           {
             "email": "saarth.work@example.com"
+          },
+          {
+            "by": "email",
+            "person": {
+              "email": "ada@example.com",
+              "name": "Ada",
+              "phone": "\u002B14155550123"
+            }
           }
         ],
         "title": "ReverseContactsRequest",
@@ -43683,6 +43743,12 @@
               "string"
             ],
             "description": "Phone number to look up, for example \u002B14155550123. Supply exactly one of phone or email."
+          },
+          "person": {
+            "$ref": "#/components/schemas/ReverseContactsRequestPersonProperty"
+          },
+          "by": {
+            "$ref": "#/components/schemas/ReverseContactsRequestBy"
           },
           "items": {
             "title": "Items",
@@ -44749,6 +44815,7 @@
               "2026-01-12T17:00:00\u002B00:00",
               "2026-01-19T17:00:00\u002B00:00"
             ],
+            "owner_user_id": "4a5b6c7d-8e9f-4012-9345-6789abcdef01",
             "schedule_id": "7c1f0a52-3b6e-4d8a-9f21-5e0c4b7a9d13",
             "timezone": "America/Los_Angeles",
             "updated_at": "2025-12-30T18:04:11.482913\u002B00:00",
@@ -44814,6 +44881,14 @@
               "string"
             ],
             "description": "Why the schedule was paused automatically. Null when it was not."
+          },
+          "owner_user_id": {
+            "title": "Owner User Id",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Current user owner. Null when created or resumed with an API key; resuming as a person rebinds ownership to that user."
           },
           "next_run_times": {
             "title": "Next Run Times",
@@ -44999,6 +45074,64 @@
           }
         }
       },
+      "SearchJob": {
+        "title": "SearchJob",
+        "required": [
+          "job_id",
+          "status",
+          "created_at",
+          "operation"
+        ],
+        "type": "object",
+        "properties": {
+          "job_id": {
+            "title": "Job Id",
+            "type": "string",
+            "description": "Job identifier, normally prefixed with \u0060job_\u0060. Store it exactly as returned. GET /v1/jobs/{job_id} also accepts IDs returned by unversioned endpoints."
+          },
+          "status": {
+            "$ref": "#/components/schemas/SearchJobStatus"
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": "string",
+            "description": "UTC timestamp when the job was created, in ISO 8601 format.",
+            "format": "date-time"
+          },
+          "next_poll_after": {
+            "title": "Next Poll After",
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Seconds before the next poll. Present only while the Job is queued or running."
+          },
+          "progress": {
+            "$ref": "#/components/schemas/SearchJobProgressProperty"
+          },
+          "result": {
+            "$ref": "#/components/schemas/SearchJobResult"
+          },
+          "error": {
+            "$ref": "#/components/schemas/CancelledJobError"
+          },
+          "operation": {
+            "description": "Action performed by the Job.",
+            "$ref": "#/components/schemas/JobOperation"
+          },
+          "counts": {
+            "$ref": "#/components/schemas/CancelledJobCounts"
+          },
+          "charge_credits": {
+            "title": "Charge Credits",
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Net credits captured at retrieval, including refunds. May change after the Job finishes; null when unavailable, unknown, or withheld by spend permissions."
+          }
+        }
+      },
       "SearchLimitsResponse": {
         "title": "SearchLimitsResponse",
         "required": [
@@ -45146,6 +45279,11 @@
           {
             "max_results": 10,
             "query": "Engineers at Sixtyfour in San Francisco"
+          },
+          {
+            "page_size": 25,
+            "query": "Engineers at Sixtyfour in San Francisco",
+            "query_mode": "standard"
           }
         ],
         "title": "SearchRequest",
@@ -45153,6 +45291,12 @@
         "properties": {
           "filters": {
             "$ref": "#/components/schemas/SearchRequestFiltersProperty"
+          },
+          "simple_filters": {
+            "$ref": "#/components/schemas/SearchRequestSimpleFiltersProperty"
+          },
+          "parsed_query": {
+            "$ref": "#/components/schemas/SearchRequestParsedQueryProperty"
           },
           "query": {
             "title": "Query",
@@ -45162,7 +45306,7 @@
               "null",
               "string"
             ],
-            "description": "Natural language description of the records to find. Use instead of filters, seeds or search_id."
+            "description": "Natural-language description of matching records. Use instead of filters, simple_filters, parsed_query, seeds or search_id."
           },
           "seeds": {
             "title": "Seeds",
@@ -45185,14 +45329,43 @@
               "null",
               "string"
             ],
-            "description": "Saved search to run. Use instead of filters, query or seeds."
+            "description": "Saved search to run. Use instead of filters, simple_filters, parsed_query, query or seeds."
+          },
+          "cursor": {
+            "title": "Cursor",
+            "maxLength": 2048,
+            "minLength": 1,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Exclusive cursor returned by a previous paged Search result. Send it alone to continue that search."
+          },
+          "page_size": {
+            "title": "Page Size",
+            "maximum": 100.0,
+            "minimum": 1.0,
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Return one page of this many records. Use instead of the bulk Job result. Range: 1 to 100."
           },
           "max_results": {
             "title": "Max Results",
             "minimum": 1.0,
-            "type": "integer",
-            "description": "Maximum records to return. Default: 10. The fields endpoint reports the allowed maximum.",
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Maximum records across all pages. Bulk default: 10. For a paged Search, omission uses the caller\u0027s Search limit.",
             "default": 10
+          },
+          "query_mode": {
+            "$ref": "#/components/schemas/SearchRequestQueryMode"
+          },
+          "output_shape": {
+            "$ref": "#/components/schemas/SearchRequestOutputShape"
           },
           "exclude_list_ids": {
             "title": "Exclude List Ids",
@@ -45206,6 +45379,41 @@
               "type": "string"
             },
             "description": "Lists whose members to exclude. Omit to exclude none. Limit: 5 by default, up to 10 with a higher organization limit."
+          },
+          "exclude_entity_ids": {
+            "title": "Exclude Entity Ids",
+            "maxItems": 1000,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "maxLength": 2048,
+              "type": "string"
+            },
+            "description": "Identifiers to exclude as a post-filter. People mode accepts LinkedIn public IDs or profile URLs; company mode accepts LinkedIn company IDs, company URLs or domains. Up to 1,000 values."
+          },
+          "location_expansion_enabled": {
+            "title": "Location Expansion Enabled",
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "If true, also matches places near a location in \u0060query\u0060. If false, matches only the location given. Default: true."
+          },
+          "expand_structured_location": {
+            "title": "Expand Structured Location",
+            "type": "boolean",
+            "description": "Expand structured location filters before matching nearby places.",
+            "default": false
+          },
+          "location_expansion_radius_miles": {
+            "title": "Location Expansion Radius Miles",
+            "maximum": 200.0,
+            "minimum": 5.0,
+            "type": "integer",
+            "description": "Search radius for location expansion, in miles. Range: 5 to 200.",
+            "default": 10
           },
           "wait_seconds": {
             "title": "Wait Seconds",
@@ -45421,7 +45629,7 @@
             "title": "Type",
             "maxLength": 200,
             "type": "string",
-            "description": "How the secret is sent: bearer (Authorization: Bearer), header, query, or basic (HTTP Basic)",
+            "description": "How the secret is sent: bearer token, header parameter, query parameter, or HTTP Basic",
             "default": "bearer"
           },
           "name": {
@@ -45475,6 +45683,42 @@
           }
         }
       },
+      "SkillActionPresentation": {
+        "title": "SkillActionPresentation",
+        "required": [
+          "state"
+        ],
+        "type": "object",
+        "properties": {
+          "state": {
+            "$ref": "#/components/schemas/SkillActionPresentationState"
+          },
+          "reason": {
+            "title": "Reason",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Policy reason code, when one applies."
+          },
+          "message": {
+            "title": "Message",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Reason or confirmation message shown to the caller."
+          },
+          "confirm": {
+            "title": "Confirm",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Confirmation code required to perform a confirmation-gated action."
+          }
+        }
+      },
       "SkillDeleted": {
         "title": "SkillDeleted",
         "required": [
@@ -45498,7 +45742,8 @@
       "SkillPage": {
         "title": "SkillPage",
         "required": [
-          "items"
+          "items",
+          "actions"
         ],
         "type": "object",
         "properties": {
@@ -45517,6 +45762,9 @@
               "string"
             ],
             "description": "Pass as cursor to read the next page. Null when no more results remain."
+          },
+          "actions": {
+            "$ref": "#/components/schemas/SkillPageActionsProperty"
           }
         }
       },
@@ -46527,7 +46775,6 @@
           "name": {
             "title": "Name",
             "maxLength": 200,
-            "minLength": 1,
             "type": [
               "null",
               "string"
@@ -47097,6 +47344,30 @@
             ],
             "description": "Start time of the most recent run in UTC. Null when it has never run.",
             "format": "date-time"
+          },
+          "user_id": {
+            "title": "User Id",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "User who owns the workflow."
+          },
+          "org_id": {
+            "title": "Org Id",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Organization that owns the workflow."
+          },
+          "team_id": {
+            "title": "Team Id",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Team that owns the workflow."
           },
           "definition": {
             "$ref": "#/components/schemas/WorkflowDefinition"
@@ -49701,7 +49972,7 @@
             "title": "Type",
             "maxLength": 200,
             "type": "string",
-            "description": "How the secret is sent: bearer (Authorization: Bearer), header, query, or basic (HTTP Basic)",
+            "description": "How the secret is sent: bearer token, header parameter, query parameter, or HTTP Basic",
             "default": "bearer"
           },
           "name": {
@@ -49831,7 +50102,7 @@
             "title": "Type",
             "maxLength": 200,
             "type": "string",
-            "description": "How the secret is sent: bearer (Authorization: Bearer), header, query, or basic (HTTP Basic)",
+            "description": "How the secret is sent: bearer token, header parameter, query parameter, or HTTP Basic",
             "default": "bearer"
           },
           "name": {
@@ -49855,6 +50126,217 @@
             }
           ],
           "description": "How the secret is sent. Default: a bearer token in the Authorization header."
+        }
+      },
+      "SearchJobResult": {
+        "examples": [
+          {
+            "count": 25,
+            "cursor_expires_in_seconds": 600,
+            "items": [
+              {
+                "fullName": "Ada Lovelace",
+                "linkedinUrl": "https://linkedin.com/in/ada"
+              }
+            ],
+            "max_pages": 40,
+            "max_results": 1000,
+            "natural_language_query": "Engineers at Sixtyfour in San Francisco",
+            "next_cursor": "opaque-cursor",
+            "output_file_id": "file_a2acd368-c2f6-4f69-80e1-9276237d9665",
+            "output_shape": "raw",
+            "page_count": 25,
+            "page_number": 1,
+            "page_size": 25,
+            "parsed_query": {
+              "title": "engineer"
+            },
+            "query_mode": "standard",
+            "remaining_results": 975,
+            "search_id": "f753c8f6-9a44-5758-97dc-dd8029d69015",
+            "total_available_lower_bound": 1024,
+            "total_results": 25,
+            "unmet_constraints": []
+          }
+        ],
+        "title": "SearchResult",
+        "required": [
+          "count",
+          "output_file_id"
+        ],
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "search_id": {
+            "title": "Search Id",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Saved Search identifier, when available."
+          },
+          "count": {
+            "title": "Count",
+            "type": "integer",
+            "description": "Records stored for this Job\u0027s page or bulk result."
+          },
+          "output_file_id": {
+            "title": "Output File Id",
+            "type": "string",
+            "description": "File containing the result rows, also available through Job items."
+          },
+          "items": {
+            "title": "Items",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/SearchResultItemsItemProperty"
+            },
+            "description": "Raw rows in this Search page. Omitted for bulk Search results."
+          },
+          "next_cursor": {
+            "title": "Next Cursor",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Cursor for the next page. Null when no additional page remains."
+          },
+          "cursor_expires_in_seconds": {
+            "title": "Cursor Expires In Seconds",
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Seconds until the next-page cursor expires."
+          },
+          "page_size": {
+            "title": "Page Size",
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Requested result page size."
+          },
+          "page_count": {
+            "title": "Page Count",
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Rows returned in this page."
+          },
+          "page_number": {
+            "title": "Page Number",
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "One-based page number."
+          },
+          "total_pages": {
+            "title": "Total Pages",
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Final page count when known."
+          },
+          "max_pages": {
+            "title": "Max Pages",
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Upper bound on pages for this Search."
+          },
+          "max_results": {
+            "title": "Max Results",
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Maximum rows available for this Search."
+          },
+          "remaining_results": {
+            "title": "Remaining Results",
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Rows still available under the Search limit."
+          },
+          "total_results": {
+            "title": "Total Results",
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Rows returned across pages so far."
+          },
+          "total_available": {
+            "title": "Total Available",
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Exact number of matches when known."
+          },
+          "total_available_lower_bound": {
+            "title": "Total Available Lower Bound",
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Lower bound when the exact total is unknown."
+          },
+          "parsed_query": {
+            "$ref": "#/components/schemas/SearchResultParsedQueryProperty"
+          },
+          "natural_language_query": {
+            "title": "Natural Language Query",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Original natural-language query, when provided."
+          },
+          "output_shape": {
+            "$ref": "#/components/schemas/SearchResultOutputShape"
+          },
+          "unmet_constraints": {
+            "title": "Unmet Constraints",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "Constraints that could not be represented by the result query."
+          },
+          "company_filter_truncated": {
+            "$ref": "#/components/schemas/SearchResultCompanyFilterTruncatedProperty"
+          },
+          "query_mode": {
+            "$ref": "#/components/schemas/SearchResultQueryMode"
+          }
+        },
+        "description": "Native Search metadata and, for paged Search, the raw rows in \u0060items\u0060.",
+        "x-client-original-nullable-union": {
+          "anyOf": [
+            {
+              "$ref": "#/components/schemas/SearchResult"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Native Search metadata and, for paged Search, the raw rows in \u0060items\u0060."
         }
       },
       "SearchRequestSeedsItem": {
@@ -49963,24 +50445,22 @@
         }
       },
       "WorkflowDefinition": {
-        "type": [
-          "object",
-          "null"
-        ],
         "title": "Definition",
-        "description": "Blocks the workflow runs and the edges that order them.",
-        "x-client-original-nullable-union": {
-          "title": "Definition",
-          "anyOf": [
-            {
+        "anyOf": [
+          {
+            "type": "object"
+          },
+          {
+            "type": "array",
+            "items": {
               "type": "object"
-            },
-            {
-              "type": "null"
             }
-          ],
-          "description": "Blocks the workflow runs and the edges that order them."
-        }
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "Blocks the workflow runs and the edges that order them."
       },
       "WorkflowResponseDisplayStatus": {
         "title": "WorkflowDisplayStatus",
@@ -66261,6 +66741,14 @@
         "type": "object",
         "additionalProperties": {}
       },
+      "ReverseContactsRequestPersonProperty": {
+        "title": "Person",
+        "type": [
+          "null",
+          "object"
+        ],
+        "description": "Person fields to retain as reverse-lookup context. Include the contact selected by by."
+      },
       "ReverseEmailBulkRequestLeadsItemProperty": {
         "type": "object"
       },
@@ -66339,6 +66827,14 @@
         ],
         "description": "Structured filter set returned by a previous search."
       },
+      "SearchJobProgressProperty": {
+        "title": "Progress",
+        "type": [
+          "null",
+          "object"
+        ],
+        "description": "Operation-specific progress while queued or running; omitted when unavailable."
+      },
       "SearchQueryRequestSimpleFiltersProperty": {
         "title": "Simple Filters",
         "type": [
@@ -66369,7 +66865,53 @@
           "null",
           "object"
         ],
-        "description": "Filter query. Use instead of query, seeds or search_id."
+        "description": "Filter query. Use instead of query, simple_filters, parsed_query, seeds or search_id."
+      },
+      "SearchRequestSimpleFiltersProperty": {
+        "title": "Simple Filters",
+        "type": [
+          "null",
+          "object"
+        ],
+        "description": "Filters with Mongo-style operators. Use instead of query, filters, parsed_query, seeds or search_id."
+      },
+      "SearchRequestParsedQueryProperty": {
+        "title": "Parsed Query",
+        "type": [
+          "null",
+          "object"
+        ],
+        "description": "Structured filter set from a previous Search result. Use instead of query, filters, simple_filters, seeds or search_id."
+      },
+      "SearchResultItemsItemProperty": {
+        "type": "object"
+      },
+      "SearchResultParsedQueryProperty": {
+        "title": "Parsed Query",
+        "type": [
+          "null",
+          "object"
+        ],
+        "description": "Portable parsed filters used by Search."
+      },
+      "SearchResultCompanyFilterTruncatedProperty": {
+        "title": "Company Filter Truncated",
+        "type": [
+          "null",
+          "object"
+        ],
+        "additionalProperties": {
+          "type": "integer"
+        },
+        "description": "Company-filter values omitted because of supported limits."
+      },
+      "SkillPageActionsProperty": {
+        "title": "Actions",
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SkillActionPresentation"
+        },
+        "description": "Policy presentation for team skill actions."
       },
       "StartInvestigationRequestStructProperty": {
         "title": "Struct",
@@ -67057,6 +67599,7 @@
       "CreateMonitorTier": {
         "title": "Tier",
         "enum": [
+          "micro",
           "low",
           "medium",
           "high",
@@ -67068,6 +67611,10 @@
           "name": "CreateMonitorTier",
           "modelAsString": false,
           "values": [
+            {
+              "value": "micro",
+              "name": "Micro"
+            },
             {
               "value": "low",
               "name": "Low"
@@ -68510,6 +69057,38 @@
           ]
         }
       },
+      "ReverseContactsRequestBy": {
+        "title": "By",
+        "description": "Which contact in person to look up. This selects the operation when both contacts are present.",
+        "anyOf": [
+          {
+            "title": "By",
+            "enum": [
+              "email",
+              "phone"
+            ],
+            "type": "string",
+            "description": "Which contact in person to look up. This selects the operation when both contacts are present.",
+            "x-ms-enum": {
+              "name": "ReverseContactsRequestBy",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "email",
+                  "name": "Email"
+                },
+                {
+                  "value": "phone",
+                  "name": "Phone"
+                }
+              ]
+            }
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
       "RunOptionsEngine": {
         "title": "Engine",
         "enum": [
@@ -68602,6 +69181,44 @@
           ]
         }
       },
+      "SearchJobStatus": {
+        "title": "Status",
+        "enum": [
+          "queued",
+          "running",
+          "succeeded",
+          "failed",
+          "canceled"
+        ],
+        "type": "string",
+        "description": "Current Job status. Stop polling on \u0060succeeded\u0060, \u0060failed\u0060 or \u0060canceled\u0060.",
+        "x-ms-enum": {
+          "name": "SearchJobStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "queued",
+              "name": "Queued"
+            },
+            {
+              "value": "running",
+              "name": "Running"
+            },
+            {
+              "value": "succeeded",
+              "name": "Succeeded"
+            },
+            {
+              "value": "failed",
+              "name": "Failed"
+            },
+            {
+              "value": "canceled",
+              "name": "Canceled"
+            }
+          ]
+        }
+      },
       "SearchQueryRequestMode": {
         "title": "Mode",
         "enum": [
@@ -68647,6 +69264,134 @@
             }
           ]
         }
+      },
+      "SearchRequestQueryMode": {
+        "title": "Query Mode",
+        "description": "For natural-language queries, \u0060standard\u0060 uses the existing filter planner; \u0060deep\u0060 uses deep research. Omission preserves the deep-search default.",
+        "anyOf": [
+          {
+            "title": "Query Mode",
+            "enum": [
+              "standard",
+              "deep"
+            ],
+            "type": "string",
+            "description": "For natural-language queries, \u0060standard\u0060 uses the existing filter planner; \u0060deep\u0060 uses deep research. Omission preserves the deep-search default.",
+            "x-ms-enum": {
+              "name": "SearchRequestQueryMode",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "standard",
+                  "name": "Standard"
+                },
+                {
+                  "value": "deep",
+                  "name": "Deep"
+                }
+              ]
+            }
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "SearchRequestOutputShape": {
+        "title": "Output Shape",
+        "description": "Shape of returned rows. Paged Search defaults to \u0060raw\u0060; bulk Search retains \u0060workflow\u0060 rows.",
+        "anyOf": [
+          {
+            "title": "Output Shape",
+            "enum": [
+              "raw",
+              "workflow"
+            ],
+            "type": "string",
+            "description": "Shape of returned rows. Paged Search defaults to \u0060raw\u0060; bulk Search retains \u0060workflow\u0060 rows.",
+            "x-ms-enum": {
+              "name": "SearchRequestOutputShape",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "raw",
+                  "name": "Raw"
+                },
+                {
+                  "value": "workflow",
+                  "name": "Workflow"
+                }
+              ]
+            }
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "SearchResultOutputShape": {
+        "title": "Output Shape",
+        "description": "Shape used for the result rows.",
+        "anyOf": [
+          {
+            "title": "Output Shape",
+            "enum": [
+              "raw",
+              "workflow"
+            ],
+            "type": "string",
+            "description": "Shape used for the result rows.",
+            "x-ms-enum": {
+              "name": "SearchResultOutputShape",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "raw",
+                  "name": "Raw"
+                },
+                {
+                  "value": "workflow",
+                  "name": "Workflow"
+                }
+              ]
+            }
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "SearchResultQueryMode": {
+        "title": "Query Mode",
+        "description": "Natural-language execution mode, when a query was provided.",
+        "anyOf": [
+          {
+            "title": "Query Mode",
+            "enum": [
+              "standard",
+              "deep"
+            ],
+            "type": "string",
+            "description": "Natural-language execution mode, when a query was provided.",
+            "x-ms-enum": {
+              "name": "SearchResultQueryMode",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "standard",
+                  "name": "Standard"
+                },
+                {
+                  "value": "deep",
+                  "name": "Deep"
+                }
+              ]
+            }
+          },
+          {
+            "type": "null"
+          }
+        ]
       },
       "SeedDiagnosticsSeedType": {
         "title": "Seed Type",
@@ -68862,6 +69607,44 @@
           ]
         }
       },
+      "SkillActionPresentationState": {
+        "title": "State",
+        "enum": [
+          "enabled",
+          "hidden",
+          "disabled",
+          "confirm",
+          "refused"
+        ],
+        "type": "string",
+        "description": "Whether the action is enabled, hidden, disabled, confirmation-gated, or refused.",
+        "x-ms-enum": {
+          "name": "SkillActionPresentationState",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "enabled",
+              "name": "Enabled"
+            },
+            {
+              "value": "hidden",
+              "name": "Hidden"
+            },
+            {
+              "value": "disabled",
+              "name": "Disabled"
+            },
+            {
+              "value": "confirm",
+              "name": "Confirm"
+            },
+            {
+              "value": "refused",
+              "name": "Refused"
+            }
+          ]
+        }
+      },
       "StartAgenticSearchRequestMode": {
         "title": "Mode",
         "enum": [
@@ -68984,6 +69767,7 @@
           {
             "title": "Tier",
             "enum": [
+              "micro",
               "low",
               "medium",
               "high",
@@ -68995,6 +69779,10 @@
               "name": "UpdateMonitorTier",
               "modelAsString": false,
               "values": [
+                {
+                  "value": "micro",
+                  "name": "Micro"
+                },
                 {
                   "value": "low",
                   "name": "Low"
@@ -70201,6 +70989,202 @@
       },
       "description": "Build the list from the results of a saved search (mode must match entity_type)."
     },
+    "SearchResult": {
+      "examples": [
+        {
+          "count": 25,
+          "cursor_expires_in_seconds": 600,
+          "items": [
+            {
+              "fullName": "Ada Lovelace",
+              "linkedinUrl": "https://linkedin.com/in/ada"
+            }
+          ],
+          "max_pages": 40,
+          "max_results": 1000,
+          "natural_language_query": "Engineers at Sixtyfour in San Francisco",
+          "next_cursor": "opaque-cursor",
+          "output_file_id": "file_a2acd368-c2f6-4f69-80e1-9276237d9665",
+          "output_shape": "raw",
+          "page_count": 25,
+          "page_number": 1,
+          "page_size": 25,
+          "parsed_query": {
+            "title": "engineer"
+          },
+          "query_mode": "standard",
+          "remaining_results": 975,
+          "search_id": "f753c8f6-9a44-5758-97dc-dd8029d69015",
+          "total_available_lower_bound": 1024,
+          "total_results": 25,
+          "unmet_constraints": []
+        }
+      ],
+      "title": "SearchResult",
+      "required": [
+        "count",
+        "output_file_id"
+      ],
+      "type": "object",
+      "properties": {
+        "search_id": {
+          "title": "Search Id",
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "Saved Search identifier, when available."
+        },
+        "count": {
+          "title": "Count",
+          "type": "integer",
+          "description": "Records stored for this Job\u0027s page or bulk result."
+        },
+        "output_file_id": {
+          "title": "Output File Id",
+          "type": "string",
+          "description": "File containing the result rows, also available through Job items."
+        },
+        "items": {
+          "title": "Items",
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/components/schemas/SearchResultItemsItemProperty"
+          },
+          "description": "Raw rows in this Search page. Omitted for bulk Search results."
+        },
+        "next_cursor": {
+          "title": "Next Cursor",
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "Cursor for the next page. Null when no additional page remains."
+        },
+        "cursor_expires_in_seconds": {
+          "title": "Cursor Expires In Seconds",
+          "type": [
+            "null",
+            "integer"
+          ],
+          "description": "Seconds until the next-page cursor expires."
+        },
+        "page_size": {
+          "title": "Page Size",
+          "type": [
+            "null",
+            "integer"
+          ],
+          "description": "Requested result page size."
+        },
+        "page_count": {
+          "title": "Page Count",
+          "type": [
+            "null",
+            "integer"
+          ],
+          "description": "Rows returned in this page."
+        },
+        "page_number": {
+          "title": "Page Number",
+          "type": [
+            "null",
+            "integer"
+          ],
+          "description": "One-based page number."
+        },
+        "total_pages": {
+          "title": "Total Pages",
+          "type": [
+            "null",
+            "integer"
+          ],
+          "description": "Final page count when known."
+        },
+        "max_pages": {
+          "title": "Max Pages",
+          "type": [
+            "null",
+            "integer"
+          ],
+          "description": "Upper bound on pages for this Search."
+        },
+        "max_results": {
+          "title": "Max Results",
+          "type": [
+            "null",
+            "integer"
+          ],
+          "description": "Maximum rows available for this Search."
+        },
+        "remaining_results": {
+          "title": "Remaining Results",
+          "type": [
+            "null",
+            "integer"
+          ],
+          "description": "Rows still available under the Search limit."
+        },
+        "total_results": {
+          "title": "Total Results",
+          "type": [
+            "null",
+            "integer"
+          ],
+          "description": "Rows returned across pages so far."
+        },
+        "total_available": {
+          "title": "Total Available",
+          "type": [
+            "null",
+            "integer"
+          ],
+          "description": "Exact number of matches when known."
+        },
+        "total_available_lower_bound": {
+          "title": "Total Available Lower Bound",
+          "type": [
+            "null",
+            "integer"
+          ],
+          "description": "Lower bound when the exact total is unknown."
+        },
+        "parsed_query": {
+          "$ref": "#/components/schemas/SearchResultParsedQueryProperty"
+        },
+        "natural_language_query": {
+          "title": "Natural Language Query",
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "Original natural-language query, when provided."
+        },
+        "output_shape": {
+          "$ref": "#/components/schemas/SearchResultOutputShape"
+        },
+        "unmet_constraints": {
+          "title": "Unmet Constraints",
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "description": "Constraints that could not be represented by the result query."
+        },
+        "company_filter_truncated": {
+          "$ref": "#/components/schemas/SearchResultCompanyFilterTruncatedProperty"
+        },
+        "query_mode": {
+          "$ref": "#/components/schemas/SearchResultQueryMode"
+        }
+      }
+    },
     "SharedFrom": {
       "title": "SharedFrom",
       "required": [
@@ -70641,6 +71625,91 @@
           }
         ],
         "description": "Failure details when available; omitted otherwise."
+      }
+    },
+    "SearchJobError": {
+      "title": "JobError",
+      "required": [
+        "error_code",
+        "detail"
+      ],
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "error_code": {
+          "description": "Stable error code for identifying the job failure in code.",
+          "$ref": "#/components/schemas/V1ErrorCode"
+        },
+        "detail": {
+          "title": "Detail",
+          "type": "string",
+          "description": "Human-readable explanation of the job failure."
+        }
+      },
+      "description": "Failure details when available; omitted otherwise.",
+      "x-client-original-nullable-union": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/JobError"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "Failure details when available; omitted otherwise."
+      }
+    },
+    "SearchJobCounts": {
+      "title": "JobCounts",
+      "required": [
+        "total",
+        "succeeded",
+        "failed",
+        "pending"
+      ],
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "total": {
+          "title": "Total",
+          "minimum": 0.0,
+          "type": "integer",
+          "description": "Total items tracked for this Job, not its credit usage."
+        },
+        "succeeded": {
+          "title": "Succeeded",
+          "minimum": 0.0,
+          "type": "integer",
+          "description": "Tracked items that finished successfully."
+        },
+        "failed": {
+          "title": "Failed",
+          "minimum": 0.0,
+          "type": "integer",
+          "description": "Tracked items that failed or were canceled."
+        },
+        "pending": {
+          "title": "Pending",
+          "minimum": 0.0,
+          "type": "integer",
+          "description": "Tracked items still waiting or running."
+        }
+      },
+      "description": "Input record counts, when available.",
+      "x-client-original-nullable-union": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/JobCounts"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "Input record counts, when available."
       }
     },
     "SendFeedbackSource": {
@@ -71226,6 +72295,14 @@
       "type": "object",
       "additionalProperties": {}
     },
+    "ReverseContactsRequestPerson": {
+      "title": "Person",
+      "type": [
+        "null",
+        "object"
+      ],
+      "description": "Person fields to retain as reverse-lookup context. Include the contact selected by by."
+    },
     "ReverseEmailBulkRequestLeadsItem": {
       "type": "object"
     },
@@ -71304,6 +72381,14 @@
       ],
       "description": "Structured filter set returned by a previous search."
     },
+    "SearchJobProgress": {
+      "title": "Progress",
+      "type": [
+        "null",
+        "object"
+      ],
+      "description": "Operation-specific progress while queued or running; omitted when unavailable."
+    },
     "SearchQueryRequestSimpleFilters": {
       "title": "Simple Filters",
       "type": [
@@ -71334,7 +72419,53 @@
         "null",
         "object"
       ],
-      "description": "Filter query. Use instead of query, seeds or search_id."
+      "description": "Filter query. Use instead of query, simple_filters, parsed_query, seeds or search_id."
+    },
+    "SearchRequestSimpleFilters": {
+      "title": "Simple Filters",
+      "type": [
+        "null",
+        "object"
+      ],
+      "description": "Filters with Mongo-style operators. Use instead of query, filters, parsed_query, seeds or search_id."
+    },
+    "SearchRequestParsedQuery": {
+      "title": "Parsed Query",
+      "type": [
+        "null",
+        "object"
+      ],
+      "description": "Structured filter set from a previous Search result. Use instead of query, filters, simple_filters, seeds or search_id."
+    },
+    "SearchResultItemsItem": {
+      "type": "object"
+    },
+    "SearchResultParsedQuery": {
+      "title": "Parsed Query",
+      "type": [
+        "null",
+        "object"
+      ],
+      "description": "Portable parsed filters used by Search."
+    },
+    "SearchResultCompanyFilterTruncated": {
+      "title": "Company Filter Truncated",
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": {
+        "type": "integer"
+      },
+      "description": "Company-filter values omitted because of supported limits."
+    },
+    "SkillPageActions": {
+      "title": "Actions",
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/SkillActionPresentation"
+      },
+      "description": "Policy presentation for team skill actions."
     },
     "StartInvestigationRequestStruct": {
       "title": "Struct",

@@ -34,7 +34,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.People.Contacts.Reverse
         {
         }
         /// <summary>
-        /// Finds a person&apos;s name, employer and profile from an email address or phone number.Use only emails or only phone numbers in each request.
+        /// Finds a person&apos;s name, employer and profile from an email address or phone number.Use one contact kind for email, phone, items or input_file_id requests. For a person record, set by to select the primary contact; other person fields remain available as context.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.Job"/></returns>
         /// <param name="body">The request body</param>
@@ -79,7 +79,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.People.Contacts.Reverse
             return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.Job>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.Job.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Finds a person&apos;s name, employer and profile from an email address or phone number.Use only emails or only phone numbers in each request.
+        /// Finds a person&apos;s name, employer and profile from an email address or phone number.Use one contact kind for email, phone, items or input_file_id requests. For a person record, set by to select the primary contact; other person fields remain available as context.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

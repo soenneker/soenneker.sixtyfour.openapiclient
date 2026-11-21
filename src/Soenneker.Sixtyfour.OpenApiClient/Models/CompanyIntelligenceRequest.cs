@@ -21,10 +21,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             else if (parseNode.GetChildNode("companies") is { } nullNodeCompanies && nullNodeCompanies.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Companies = null;
             if (parseNode.GetChildNode("company") is null) { _explicitNullValueCompany = default!; _explicitNullProperties?.Remove("company"); }
             else if (parseNode.GetChildNode("company") is { } nullNodeCompany && nullNodeCompany.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Company = null;
+            if (parseNode.GetChildNode("field_confidence") is null) { _explicitNullValueFieldConfidence = default!; _explicitNullProperties?.Remove("field_confidence"); }
+            else if (parseNode.GetChildNode("field_confidence") is { } nullNodeFieldConfidence && nullNodeFieldConfidence.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FieldConfidence = null;
             if (parseNode.GetChildNode("fields") is null) { _explicitNullValueFields = default!; _explicitNullProperties?.Remove("fields"); }
             else if (parseNode.GetChildNode("fields") is { } nullNodeFields && nullNodeFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Fields = null;
             if (parseNode.GetChildNode("find_people") is null) { _explicitNullValueFindPeople = default!; _explicitNullProperties?.Remove("find_people"); }
             else if (parseNode.GetChildNode("find_people") is { } nullNodeFindPeople && nullNodeFindPeople.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FindPeople = null;
+            if (parseNode.GetChildNode("full_org_chart") is null) { _explicitNullValueFullOrgChart = default!; _explicitNullProperties?.Remove("full_org_chart"); }
+            else if (parseNode.GetChildNode("full_org_chart") is { } nullNodeFullOrgChart && nullNodeFullOrgChart.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FullOrgChart = null;
             if (parseNode.GetChildNode("input_file_id") is null) { _explicitNullValueInputFileId = default!; _explicitNullProperties?.Remove("input_file_id"); }
             else if (parseNode.GetChildNode("input_file_id") is { } nullNodeInputFileId && nullNodeInputFileId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InputFileId = null;
             if (parseNode.GetChildNode("people_focus_prompt") is null) { _explicitNullValuePeopleFocusPrompt = default!; _explicitNullProperties?.Remove("people_focus_prompt"); }
@@ -59,6 +63,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public global::Soenneker.Sixtyfour.OpenApiClient.Models.CompanyIntelligenceRequestCompanyProperty Company { get => _explicitNullValueCompany; set { _explicitNullValueCompany = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("company"); else _explicitNullProperties?.Remove("company"); } }
         private global::Soenneker.Sixtyfour.OpenApiClient.Models.CompanyIntelligenceRequestCompanyProperty _explicitNullValueCompany = default!;
 #endif
+        /// <summary>If true, returns each requested field&apos;s confidence (0-100), justification and source URLs, nested like the request. Default: false.</summary>
+        public bool? FieldConfidence { get => _explicitNullValueFieldConfidence; set { _explicitNullValueFieldConfidence = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field_confidence"); else _explicitNullProperties?.Remove("field_confidence"); } }
+        private bool? _explicitNullValueFieldConfidence = default!;
         /// <summary>Fields to research. Map each name to a prompt or a typed field definition.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -72,6 +79,9 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>If true, finds people who work at each company. If false, returns company research only. Default: false.</summary>
         public bool? FindPeople { get => _explicitNullValueFindPeople; set { _explicitNullValueFindPeople = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("find_people"); else _explicitNullProperties?.Remove("find_people"); } }
         private bool? _explicitNullValueFindPeople = default!;
+        /// <summary>If true, include the full company org chart in the result. Default: false.</summary>
+        public bool? FullOrgChart { get => _explicitNullValueFullOrgChart; set { _explicitNullValueFullOrgChart = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("full_org_chart"); else _explicitNullProperties?.Remove("full_org_chart"); } }
+        private bool? _explicitNullValueFullOrgChart = default!;
         /// <summary>Uploaded CSV, JSON or NDJSON file to process instead of inline records.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -124,6 +134,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public CompanyIntelligenceRequest()
         {
             FindPeople = false;
+            FullOrgChart = false;
             WaitSeconds = 5;
         }
         /// <summary>
@@ -142,12 +153,14 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(10)
+            return new Dictionary<string, Action<IParseNode>>(12)
             {
                 { "companies", n => { Companies = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.CompanyIntelligenceRequestCompaniesItemProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.CompanyIntelligenceRequestCompaniesItemProperty.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "company", n => { Company = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.CompanyIntelligenceRequestCompanyProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.CompanyIntelligenceRequestCompanyProperty.CreateFromDiscriminatorValue); } },
+                { "field_confidence", n => { FieldConfidence = n.GetBoolValue(); } },
                 { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.CompanyIntelligenceRequestFieldsProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.CompanyIntelligenceRequestFieldsProperty.CreateFromDiscriminatorValue); } },
                 { "find_people", n => { FindPeople = n.GetBoolValue(); } },
+                { "full_org_chart", n => { FullOrgChart = n.GetBoolValue(); } },
                 { "input_file_id", n => { InputFileId = n.GetStringValue(); } },
                 { "people_focus_prompt", n => { PeopleFocusPrompt = n.GetStringValue(); } },
                 { "research_plan", n => { ResearchPlan = n.GetStringValue(); } },
@@ -165,8 +178,10 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.CompanyIntelligenceRequestCompaniesItemProperty>("companies", Companies);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.CompanyIntelligenceRequestCompanyProperty>("company", Company);
+            writer.WriteBoolValue("field_confidence", FieldConfidence);
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.CompanyIntelligenceRequestFieldsProperty>("fields", Fields);
             writer.WriteBoolValue("find_people", FindPeople);
+            writer.WriteBoolValue("full_org_chart", FullOrgChart);
             writer.WriteStringValue("input_file_id", InputFileId);
             writer.WriteStringValue("people_focus_prompt", PeopleFocusPrompt);
             writer.WriteStringValue("research_plan", ResearchPlan);
