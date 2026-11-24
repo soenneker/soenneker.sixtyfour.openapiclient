@@ -5,6 +5,8 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Sixtyfour.OpenApiClient.Models;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Jobs.Item.Cancel;
+using Soenneker.Sixtyfour.OpenApiClient.V1.Jobs.Item.DownloadLinks;
+using Soenneker.Sixtyfour.OpenApiClient.V1.Jobs.Item.Events;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Jobs.Item.Items;
 using System.Collections.Generic;
 using System.IO;
@@ -23,6 +25,16 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Jobs.Item
         public global::Soenneker.Sixtyfour.OpenApiClient.V1.Jobs.Item.Cancel.CancelRequestBuilder Cancel
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Jobs.Item.Cancel.CancelRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The downloadLinks property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.Jobs.Item.DownloadLinks.DownloadLinksRequestBuilder DownloadLinks
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Jobs.Item.DownloadLinks.DownloadLinksRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The events property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.Jobs.Item.Events.EventsRequestBuilder Events
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Jobs.Item.Events.EventsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The items property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.V1.Jobs.Item.Items.ItemsRequestBuilder Items

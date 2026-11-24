@@ -7502,6 +7502,209 @@
         }
       }
     },
+    "/v1/jobs/{jobId}/download-links": {
+      "post": {
+        "tags": [
+          "Jobs"
+        ],
+        "summary": "Create Job Download Links",
+        "description": "Creates private download links valid for up to ten minutes for the highest result block\u0027s downloadable CSV and NDJSON files. Requires a signed-in person with export access to the Job. API keys and organization machine clients cannot mint these links; download the Job\u0027s existing \u0060download_url\u0060 with your own API key instead. Uses the file-download rate limit.",
+        "operationId": "CreateJobDownloadLinksV1JobsJobIdDownloadLinksPost",
+        "parameters": [
+          {
+            "name": "jobId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Job Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Private, non-cacheable links for the Job\u0027s final CSV and NDJSON result files.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Prevents caching of the response.",
+                "schema": {
+                  "type": "string",
+                  "example": "private, no-store"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobDownloadLinks"
+                },
+                "example": {
+                  "files": [
+                    {
+                      "filename": "results.csv",
+                      "content_type": "text/csv",
+                      "row_count": 42,
+                      "url": "https://api.sixtyfour.ai/v1/jobs/result-files/download#\u003Cshort-lived-link\u003E",
+                      "expires_at": "2026-11-22T20:10:00Z"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request capacity is temporarily unavailable. Retry after the delay in Retry-After.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds before retrying",
+                "schema": {
+                  "type": "string",
+                  "example": "15"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment Required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "60 requests per minute per organization, with bursts of up to 5. Retry after the delay in Retry-After.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds before retrying",
+                "schema": {
+                  "type": "string",
+                  "example": "1"
+                }
+              },
+              "X-RateLimit-Requests": {
+                "description": "Requests replenished per period",
+                "schema": {
+                  "type": "string",
+                  "example": "60"
+                }
+              },
+              "X-RateLimit-Period": {
+                "description": "Replenishment period in seconds",
+                "schema": {
+                  "type": "string",
+                  "example": "60"
+                }
+              },
+              "X-RateLimit-Burst": {
+                "description": "Maximum requests available after idling",
+                "schema": {
+                  "type": "string",
+                  "example": "5"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            },
+            "x-rate-limit": {
+              "requests": 60,
+              "period_seconds": 60,
+              "burst": 5,
+              "scope": "organization"
+            }
+          }
+        },
+        "x-mint": {
+          "metadata": {
+            "tag": "v1"
+          }
+        }
+      }
+    },
     "/v1/jobs": {
       "get": {
         "tags": [
@@ -12937,6 +13140,224 @@
                 }
               }
             }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Monitors V1"
+        ],
+        "summary": "Add Monitor Rows",
+        "description": "Adds up to 100 rows to an existing monitor. New rows inherit its fields, criteria and schedule. No check starts immediately. Missing starting values are established on the next check. Retries with the same Idempotency-Key return the same rows; a different body with that key is rejected. Existing rows and history stay unchanged.",
+        "operationId": "AddMonitorRowsV1MonitorsMonitorIdRowsPost",
+        "parameters": [
+          {
+            "name": "monitorId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Monitor Id",
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "description": "A stable key for this batch. Retrying the same body returns its existing rows; a different body is rejected.",
+            "schema": {
+              "title": "Idempotency-Key",
+              "maxLength": 255,
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "A stable key for this batch. Retrying the same body returns its existing rows; a different body is rejected."
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddMonitorRows"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiRoutersV1MonitorsApiMonitorRowPage"
+                },
+                "example": {
+                  "items": [
+                    {
+                      "row_id": "4e2a1b9c-7d3f-4c5a-8b6e-0f1a2b3c4d5e",
+                      "monitor_id": "9a4d2c1b-6e7f-4a8b-b3c2-1d0e9f8a7b6c",
+                      "name": "Sixtyfour",
+                      "subject": {
+                        "company_name": "Sixtyfour",
+                        "website": "sixtyfour.ai"
+                      },
+                      "values": {
+                        "headcount": "42"
+                      },
+                      "is_active": true,
+                      "disabled_reason": null,
+                      "last_run_at": "2026-11-13T10:00:00Z",
+                      "created_at": "2026-11-06T10:00:00Z",
+                      "updated_at": "2026-11-13T10:00:00Z"
+                    }
+                  ],
+                  "next_cursor": null
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment Required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                },
+                "example": {
+                  "detail": "This Idempotency-Key is already in use. Use a new key for a new request.",
+                  "error_code": "idempotency_key_reused",
+                  "request_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
+                  "retryable": false,
+                  "param": null
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiRoutersV1MonitorsApiMonitorRowPage"
+                },
+                "example": {
+                  "items": [
+                    {
+                      "row_id": "4e2a1b9c-7d3f-4c5a-8b6e-0f1a2b3c4d5e",
+                      "monitor_id": "9a4d2c1b-6e7f-4a8b-b3c2-1d0e9f8a7b6c",
+                      "name": "Sixtyfour",
+                      "subject": {
+                        "company_name": "Sixtyfour",
+                        "website": "sixtyfour.ai"
+                      },
+                      "values": {
+                        "headcount": "42"
+                      },
+                      "is_active": true,
+                      "disabled_reason": null,
+                      "last_run_at": "2026-11-13T10:00:00Z",
+                      "created_at": "2026-11-06T10:00:00Z",
+                      "updated_at": "2026-11-13T10:00:00Z"
+                    }
+                  ],
+                  "next_cursor": null
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -18413,6 +18834,142 @@
                   "$ref": "#/components/schemas/PublicJobError"
                 }
               }
+            }
+          }
+        }
+      }
+    },
+    "/v1/capabilities": {
+      "get": {
+        "tags": [
+          "Account"
+        ],
+        "summary": "Get Capabilities",
+        "description": "Returns available features and search pricing for this credential and active team. Free.\n\nAn unavailable feature check omits that feature. Each operation enforces its own permissions.",
+        "operationId": "GetCapabilitiesV1CapabilitiesGet",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountCapabilities"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment Required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "More than 300 requests per minute per organization. Retry after the delay in Retry-After.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds before retrying",
+                "schema": {
+                  "type": "string",
+                  "example": "1"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            },
+            "x-rate-limit": {
+              "requests": 300,
+              "period_seconds": 60,
+              "scope": "organization"
             }
           }
         }
@@ -35983,10 +36540,228 @@
           }
         }
       }
+    },
+    "/v1/jobs/{jobId}/events": {
+      "get": {
+        "tags": [
+          "Jobs"
+        ],
+        "summary": "Stream progress for a supported Job",
+        "description": "Available for native People Intelligence, Company Intelligence, and Age Verification Jobs. A \u0060stream.end\u0060 event ends observation only; poll \u0060GET /v1/jobs/{job_id}\u0060 for authoritative status and results. Event IDs are opaque and may be resumed with \u0060Last-Event-ID\u0060; bounded replay can emit \u0060stream.resync\u0060, which means the client should refetch the Job snapshot.",
+        "operationId": "StreamV1JobEvents",
+        "parameters": [
+          {
+            "name": "jobId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "pattern": "^job_[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "Last-Event-ID",
+            "in": "header",
+            "schema": {
+              "maxLength": 2048,
+              "type": "string"
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "schema": {
+              "maxLength": 2048,
+              "type": "string",
+              "description": "Opaque resume ID. Prefer Last-Event-ID."
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Server-sent progress events; terminal Job state remains available from the Job read endpoint.",
+            "content": {
+              "text/event-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/StreamV1JobEvents200EventStreamResponseSchema"
+                },
+                "example": "id: opaque-id\nevent: job.progress\ndata: {\u0022job_id\u0022:\u0022job_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21\u0022,\u0022events\u0022:[{\u0022type\u0022:\u0022tool\u0022,\u0022message\u0022:\u0022Searching the web\u0022,\u0022occurred_at\u0022:\u00222026-11-13T10:00:00Z\u0022}]}\n\n"
+              }
+            }
+          },
+          "400": {
+            "description": "The opaque resume ID is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid or expired credential.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Unsupported, missing, or inaccessible Job.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid path or query parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobValidationError"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Only GET is allowed. The response uses the validation_error V1 code and includes Allow: GET.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Open rate limit exceeded; retry after the Retry-After header.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Gateway or authorization dependency unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicJobError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          },
+          {
+            "BrowserSessionAuth": []
+          }
+        ],
+        "servers": [
+          {
+            "url": "https://stream.sixtyfour.ai"
+          }
+        ],
+        "x-mint": {
+          "metadata": {
+            "tag": "v1"
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
+      "AccountCapabilities": {
+        "examples": [
+          {
+            "features": [
+              "atlas"
+            ],
+            "search_price_per_result_credits": 0.1
+          }
+        ],
+        "title": "AccountCapabilities",
+        "required": [
+          "features",
+          "search_price_per_result_credits"
+        ],
+        "type": "object",
+        "properties": {
+          "features": {
+            "title": "Features",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Optional features available to the current caller, such as atlas."
+          },
+          "search_price_per_result_credits": {
+            "title": "Search Price Per Result Credits",
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Credits per search result for this caller. Zero means free. Null means the price is unavailable."
+          }
+        }
+      },
+      "AddMonitorRows": {
+        "examples": [
+          {
+            "key_columns": [
+              "domain"
+            ],
+            "rows": [
+              {
+                "domain": "example.com",
+                "headcount": 120
+              }
+            ]
+          }
+        ],
+        "title": "AddMonitorRows",
+        "required": [
+          "rows",
+          "key_columns"
+        ],
+        "type": "object",
+        "properties": {
+          "rows": {
+            "title": "Rows",
+            "maxItems": 100,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AddMonitorRowsRowsItemProperty"
+            },
+            "description": "Rows to add, from 1 to 100 per request. Supplied watched values become starting values. LinkedIn rows contain only linkedin_url."
+          },
+          "key_columns": {
+            "title": "Key Columns",
+            "maxItems": 50,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "maxLength": 100000,
+              "type": "string"
+            },
+            "description": "Columns identifying each new row, as when creating the monitor. LinkedIn monitors require [\u0022linkedin_url\u0022]."
+          }
+        },
+        "additionalProperties": false
+      },
       "AgeVerificationRequest": {
         "examples": [
           {
@@ -41185,6 +41960,62 @@
               "number"
             ],
             "description": "Net credits captured at retrieval, including refunds. May change after the Job finishes; null when unavailable, unknown, or withheld by spend permissions."
+          }
+        }
+      },
+      "JobDownloadLinkFile": {
+        "title": "JobDownloadLinkFile",
+        "required": [
+          "filename",
+          "content_type",
+          "row_count",
+          "url",
+          "expires_at"
+        ],
+        "type": "object",
+        "properties": {
+          "filename": {
+            "title": "Filename",
+            "type": "string",
+            "description": "Result file name."
+          },
+          "content_type": {
+            "title": "Content Type",
+            "type": "string",
+            "description": "MIME type of the CSV or NDJSON result file."
+          },
+          "row_count": {
+            "title": "Row Count",
+            "type": "integer",
+            "description": "Number of rows in the result file."
+          },
+          "url": {
+            "title": "Url",
+            "type": "string",
+            "description": "Private link for this one file. Open in a browser, or POST its fragment as a ticket form field to the URL before the #."
+          },
+          "expires_at": {
+            "title": "Expires At",
+            "type": "string",
+            "description": "UTC time when this link expires, at most ten minutes after issue.",
+            "format": "date-time"
+          }
+        }
+      },
+      "JobDownloadLinks": {
+        "title": "JobDownloadLinks",
+        "required": [
+          "files"
+        ],
+        "type": "object",
+        "properties": {
+          "files": {
+            "title": "Files",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/JobDownloadLinkFile"
+            },
+            "description": "Download links for the highest result block, in result order."
           }
         }
       },
@@ -49264,6 +50095,52 @@
           "correlation_id": "enrich_3f8b2c1e-9d4a-4c1b-8e2f-6a7b5c4d3e21",
           "feedback": "Problem with this response? POST /feedback with comment and operation; include correlation_id in your comment."
         }
+      },
+      "JobProgressEvent": {
+        "title": "JobProgressEvent",
+        "required": [
+          "type",
+          "message",
+          "occurred_at"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ToolType"
+          },
+          "message": {
+            "title": "Message",
+            "type": "string"
+          },
+          "occurred_at": {
+            "title": "Occurred At",
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "JobProgressData": {
+        "title": "JobProgressData",
+        "required": [
+          "job_id",
+          "events"
+        ],
+        "type": "object",
+        "properties": {
+          "job_id": {
+            "title": "Job Id",
+            "type": "string"
+          },
+          "events": {
+            "title": "Events",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/JobProgressEvent"
+            }
+          }
+        },
+        "additionalProperties": false
       },
       "CreateFileV1FilesPostFormDataRequest": {
         "required": [
@@ -66023,6 +66900,12 @@
           "type": "boolean"
         }
       },
+      "StreamV1JobEvents200EventStreamResponseSchema": {
+        "type": "string",
+        "x-event-data-schema": {
+          "$ref": "#/components/schemas/JobProgressData"
+        }
+      },
       "JobStatusJobStatusJobIdGet200ResponseOneOf1": {
         "required": [
           "status",
@@ -66213,6 +67096,9 @@
             "$ref": "#/components/schemas/UpdateWorkflowWorkflowsUpdateWorkflowPost409ResponseDetailOneOf1CurrentWorkflow"
           }
         }
+      },
+      "AddMonitorRowsRowsItemProperty": {
+        "type": "object"
       },
       "AgeVerificationRequestPersonProperty": {
         "title": "Person",
@@ -70266,6 +71152,24 @@
           ]
         }
       },
+      "ToolType": {
+        "title": "Type",
+        "enum": [
+          "tool"
+        ],
+        "type": "string",
+        "x-client-original-const": "tool",
+        "x-ms-enum": {
+          "name": "ToolType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "tool",
+              "name": "Tool"
+            }
+          ]
+        }
+      },
       "StartInvestigationRequestTaskAnyOf1": {
         "enum": [
           "org_chart"
@@ -70653,6 +71557,11 @@
       "BearerAuth": {
         "type": "http",
         "description": "An OAuth access token from \u0060POST /oauth/token\u0060, sent as \u0060Authorization: Bearer \u003Ctoken\u003E\u0060. An API key sent as a bearer token is refused with 401. When both headers are sent, the bearer token is used.",
+        "scheme": "bearer"
+      },
+      "BrowserSessionAuth": {
+        "type": "http",
+        "description": "Signed-in Sixtyfour browser session; OAuth and connector tokens are not accepted.",
         "scheme": "bearer"
       }
     }
@@ -71768,6 +72677,9 @@
         "description": "Who wrote it. Default: none."
       }
     },
+    "AddMonitorRowsRowsItem": {
+      "type": "object"
+    },
     "AgeVerificationRequestPerson": {
       "title": "Person",
       "minProperties": 1,
@@ -72768,6 +73680,12 @@
       "type": "object",
       "additionalProperties": {
         "type": "boolean"
+      }
+    },
+    "StreamV1JobEvents200EventStreamResponse": {
+      "type": "string",
+      "x-event-data-schema": {
+        "$ref": "#/components/schemas/JobProgressData"
       }
     },
     "ExamplePayload": {

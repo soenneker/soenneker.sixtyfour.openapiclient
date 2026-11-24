@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Atlas;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Balance;
 using Soenneker.Sixtyfour.OpenApiClient.V1.BulkIntelligence;
+using Soenneker.Sixtyfour.OpenApiClient.V1.Capabilities;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Companies;
 using Soenneker.Sixtyfour.OpenApiClient.V1.CompanyIntelligence;
 using Soenneker.Sixtyfour.OpenApiClient.V1.Connections;
@@ -53,6 +54,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1
         public global::Soenneker.Sixtyfour.OpenApiClient.V1.BulkIntelligence.BulkIntelligenceRequestBuilder BulkIntelligence
         {
             get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.BulkIntelligence.BulkIntelligenceRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The capabilities property</summary>
+        public global::Soenneker.Sixtyfour.OpenApiClient.V1.Capabilities.CapabilitiesRequestBuilder Capabilities
+        {
+            get => new global::Soenneker.Sixtyfour.OpenApiClient.V1.Capabilities.CapabilitiesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The companies property</summary>
         public global::Soenneker.Sixtyfour.OpenApiClient.V1.Companies.CompaniesRequestBuilder Companies
