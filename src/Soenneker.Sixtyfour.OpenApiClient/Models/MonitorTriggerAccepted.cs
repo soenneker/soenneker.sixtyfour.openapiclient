@@ -36,8 +36,8 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         private string _explicitNullValueMonitorId = default!;
 #endif
         /// <summary>Always `accepted`. When the monitor&apos;s previous run is still going, no new run starts.</summary>
-        public global::Soenneker.Sixtyfour.OpenApiClient.Models.AcceptedStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
-        private global::Soenneker.Sixtyfour.OpenApiClient.Models.AcceptedStatus? _explicitNullValueStatus = default!;
+        public global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorTriggerAcceptedStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorTriggerAcceptedStatus? _explicitNullValueStatus = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorTriggerAccepted"/> and sets the default values.
         /// </summary>
@@ -64,7 +64,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "monitor_id", n => { MonitorId = n.GetStringValue(); } },
-                { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.AcceptedStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
+                { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorTriggerAcceptedStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
             };
         }
         /// <summary>
@@ -75,7 +75,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("monitor_id", MonitorId);
-            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.AcceptedStatus>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorTriggerAcceptedStatus>("status", Status);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

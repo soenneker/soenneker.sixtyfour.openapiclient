@@ -38,12 +38,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>The connections property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersConnectionsApiConnection>? Connections { get => _explicitNullValueConnections; set { _explicitNullValueConnections = value; AdditionalData?.Remove("connections"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connections"); else _explicitNullProperties?.Remove("connections"); } }
-        private List<global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersConnectionsApiConnection>? _explicitNullValueConnections = default!;
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.TeamConnection>? Connections { get => _explicitNullValueConnections; set { _explicitNullValueConnections = value; AdditionalData?.Remove("connections"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connections"); else _explicitNullProperties?.Remove("connections"); } }
+        private List<global::Soenneker.Sixtyfour.OpenApiClient.Models.TeamConnection>? _explicitNullValueConnections = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersConnectionsApiConnection> Connections { get => _explicitNullValueConnections; set { _explicitNullValueConnections = value; AdditionalData?.Remove("connections"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connections"); else _explicitNullProperties?.Remove("connections"); } }
-        private List<global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersConnectionsApiConnection> _explicitNullValueConnections = default!;
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.TeamConnection> Connections { get => _explicitNullValueConnections; set { _explicitNullValueConnections = value; AdditionalData?.Remove("connections"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connections"); else _explicitNullProperties?.Remove("connections"); } }
+        private List<global::Soenneker.Sixtyfour.OpenApiClient.Models.TeamConnection> _explicitNullValueConnections = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.TeamConnections"/> and sets the default values.
@@ -71,7 +71,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "actions", n => { Actions = n.GetObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.TeamConnectionsActionsProperty>(global::Soenneker.Sixtyfour.OpenApiClient.Models.TeamConnectionsActionsProperty.CreateFromDiscriminatorValue); } },
-                { "connections", n => { Connections = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersConnectionsApiConnection>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersConnectionsApiConnection.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "connections", n => { Connections = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.TeamConnection>(global::Soenneker.Sixtyfour.OpenApiClient.Models.TeamConnection.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -82,7 +82,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Sixtyfour.OpenApiClient.Models.TeamConnectionsActionsProperty>("actions", Actions);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersConnectionsApiConnection>("connections", Connections);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.TeamConnection>("connections", Connections);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

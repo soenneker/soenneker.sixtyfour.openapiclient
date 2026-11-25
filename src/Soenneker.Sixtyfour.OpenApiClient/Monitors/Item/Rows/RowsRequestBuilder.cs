@@ -49,7 +49,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Rows
         /// <summary>
         /// A page of the monitor&apos;s rows, switched-off rows included, in the orderthey were added. A row has no schedule of its own, so its `next_run_times`are the monitor&apos;s.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersMonitorsApiMonitorRowPage"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRowPageResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMonitorRowsEndpointMonitorsMonitorIdRowsGet400Response">When receiving a 400 status code</exception>
@@ -60,11 +60,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Rows
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ListMonitorRowsEndpointMonitorsMonitorIdRowsGet503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersMonitorsApiMonitorRowPage?> GetAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Rows.RowsRequestBuilder.RowsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRowPageResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Rows.RowsRequestBuilder.RowsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersMonitorsApiMonitorRowPage> GetAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Rows.RowsRequestBuilder.RowsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRowPageResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Rows.RowsRequestBuilder.RowsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -79,7 +79,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Monitors.Item.Rows
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersMonitorsApiMonitorRowPage>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersMonitorsApiMonitorRowPage.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRowPageResponse>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRowPageResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// A page of the monitor&apos;s rows, switched-off rows included, in the orderthey were added. A row has no schedule of its own, so its `next_run_times`are the monitor&apos;s.

@@ -7937,6 +7937,52 @@
                 "string"
               ]
             }
+          },
+          {
+            "name": "start_index",
+            "in": "query",
+            "description": "Start at the item with this zero-based index instead of a cursor.",
+            "schema": {
+              "title": "Start Index",
+              "minimum": 0,
+              "type": [
+                "null",
+                "integer"
+              ],
+              "description": "Start at the item with this zero-based index instead of a cursor."
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Return only these top-level fields of each result.",
+            "schema": {
+              "title": "Fields",
+              "maxItems": 100,
+              "type": [
+                "null",
+                "array"
+              ],
+              "items": {
+                "maxLength": 100000,
+                "type": "string"
+              },
+              "description": "Return only these top-level fields of each result."
+            }
+          },
+          {
+            "name": "max_bytes",
+            "in": "query",
+            "description": "End the page before the item that would take its items past this many bytes of JSON. A page always has at least one item.",
+            "schema": {
+              "title": "Max Bytes",
+              "minimum": 1,
+              "type": [
+                "null",
+                "integer"
+              ],
+              "description": "End the page before the item that would take its items past this many bytes of JSON. A page always has at least one item."
+            }
           }
         ],
         "responses": {
@@ -12470,7 +12516,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiRoutersV1MonitorsApiRunStarted"
+                  "$ref": "#/components/schemas/MonitorRunStarted"
                 },
                 "example": {
                   "monitor_id": "9a4d2c1b-6e7f-4a8b-b3c2-1d0e9f8a7b6c",
@@ -12584,7 +12630,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiRoutersV1MonitorsApiRunStarted"
+                  "$ref": "#/components/schemas/MonitorRunStarted"
                 },
                 "example": {
                   "monitor_id": "9a4d2c1b-6e7f-4a8b-b3c2-1d0e9f8a7b6c",
@@ -12648,7 +12694,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiRoutersV1MonitorsApiMonitorRunPage"
+                  "$ref": "#/components/schemas/MonitorRunPage"
                 },
                 "example": {
                   "items": [
@@ -13014,7 +13060,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiRoutersV1MonitorsApiMonitorRowPage"
+                  "$ref": "#/components/schemas/MonitorRowPage"
                 },
                 "example": {
                   "items": [
@@ -13192,7 +13238,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiRoutersV1MonitorsApiMonitorRowPage"
+                  "$ref": "#/components/schemas/MonitorRowPage"
                 },
                 "example": {
                   "items": [
@@ -13331,7 +13377,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiRoutersV1MonitorsApiMonitorRowPage"
+                  "$ref": "#/components/schemas/MonitorRowPage"
                 },
                 "example": {
                   "items": [
@@ -15214,7 +15260,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiRoutersV1SchedulesApiScheduleDeleted"
+                  "$ref": "#/components/schemas/ScheduleDeleted"
                 },
                 "example": {
                   "schedule_id": "7c9e6679-7425-40de-944b-e07fc1f90ae7",
@@ -16113,7 +16159,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiRoutersV1ConnectionsApiConnection"
+                  "$ref": "#/components/schemas/Connection"
                 }
               }
             }
@@ -16254,7 +16300,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiRoutersV1ConnectionsApiSavedConnection"
+                  "$ref": "#/components/schemas/SavedConnection"
                 },
                 "example": {
                   "name": "crm",
@@ -16554,7 +16600,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiRoutersV1FeedbackApiFeedbackReceipt"
+                  "$ref": "#/components/schemas/FeedbackReceipt"
                 }
               }
             }
@@ -16720,7 +16766,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiRoutersV1FeedbackApiFeedbackPage"
+                  "$ref": "#/components/schemas/FeedbackPage"
                 },
                 "example": {
                   "items": [
@@ -16886,7 +16932,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiRoutersV1FeedbackApiFeedback"
+                  "$ref": "#/components/schemas/Feedback"
                 }
               }
             }
@@ -25096,7 +25142,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiRoutersSchedulesApiScheduleDeleted"
+                  "$ref": "#/components/schemas/ScheduleDeletedResponse"
                 }
               }
             }
@@ -26358,7 +26404,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiRoutersMonitorsApiMonitorRowPage"
+                  "$ref": "#/components/schemas/MonitorRowPageResponse"
                 }
               }
             }
@@ -26504,7 +26550,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiRoutersMonitorsApiMonitorRunPage"
+                  "$ref": "#/components/schemas/MonitorRunPageResponse"
                 }
               }
             }
@@ -28977,7 +29023,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiRoutersAtlasWorkspaceApiRunStarted"
+                  "$ref": "#/components/schemas/InvestigationRunStarted"
                 }
               }
             }
@@ -29123,7 +29169,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiRoutersAtlasWorkspaceApiRunStarted"
+                  "$ref": "#/components/schemas/InvestigationRunStarted"
                 }
               }
             },
@@ -29380,7 +29426,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiRoutersAtlasWorkspaceApiRunStarted"
+                  "$ref": "#/components/schemas/InvestigationRunStarted"
                 }
               }
             }
@@ -29532,7 +29578,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiRoutersAtlasWorkspaceApiRunStarted"
+                  "$ref": "#/components/schemas/InvestigationRunStarted"
                 }
               }
             },
@@ -35366,7 +35412,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiRoutersConnectionsApiConnection"
+                  "$ref": "#/components/schemas/TeamConnection"
                 },
                 "example": {
                   "id": "6f1c2a9e-4b7d-4e3a-9c5f-2d8e1b0a7c43",
@@ -35551,7 +35597,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiRoutersConnectionsApiSavedConnection"
+                  "$ref": "#/components/schemas/SavedTeamConnection"
                 },
                 "example": {
                   "id": "6f1c2a9e-4b7d-4e3a-9c5f-2d8e1b0a7c43",
@@ -35905,7 +35951,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiRoutersFeedbackApiModelFeedbackReceipt"
+                  "$ref": "#/components/schemas/TaskFeedbackReceipt"
                 }
               }
             }
@@ -36180,7 +36226,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiRoutersFeedbackApiModelFeedbackPage"
+                  "$ref": "#/components/schemas/TaskFeedbackPage"
                 }
               }
             }
@@ -36365,7 +36411,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiRoutersFeedbackApiModelFeedback"
+                  "$ref": "#/components/schemas/TaskFeedback"
                 }
               }
             }
@@ -38521,6 +38567,91 @@
           }
         }
       },
+      "Connection": {
+        "examples": [
+          {
+            "allowed_requests": [
+              "GET /accounts",
+              "POST /accounts/search"
+            ],
+            "base_url": "https://api.example.com/v2",
+            "created_at": "2026-01-05T17:00:00Z",
+            "description": "Our CRM. Look up accounts and their owners.",
+            "name": "crm",
+            "secret_last4": "9f2c",
+            "sign_in": {
+              "type": "bearer"
+            },
+            "updated_at": "2026-01-05T17:00:00Z"
+          }
+        ],
+        "title": "Connection",
+        "required": [
+          "name",
+          "description",
+          "base_url",
+          "sign_in",
+          "allowed_requests",
+          "secret_last4"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": "string",
+            "description": "Connection name. Agents and runs refer to the connection by this name."
+          },
+          "description": {
+            "title": "Description",
+            "type": "string",
+            "description": "What the connection is for. Empty when none was given."
+          },
+          "base_url": {
+            "title": "Base Url",
+            "type": "string",
+            "description": "HTTPS URL of the API."
+          },
+          "sign_in": {
+            "description": "How the secret is sent.",
+            "$ref": "#/components/schemas/SignIn"
+          },
+          "allowed_requests": {
+            "title": "Allowed Requests",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "maxLength": 2048,
+              "type": "string"
+            },
+            "description": "Requests agents may make. Null means GET and HEAD on any path under \u0060base_url\u0060."
+          },
+          "secret_last4": {
+            "title": "Secret Last4",
+            "type": "string",
+            "description": "Last four characters of the secret. The secret itself is never returned."
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Creation time in UTC.",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "title": "Updated At",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Last update time in UTC.",
+            "format": "date-time"
+          }
+        }
+      },
       "ConnectionDeleted": {
         "title": "ConnectionDeleted",
         "required": [
@@ -38552,7 +38683,7 @@
             "title": "Items",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ApiRoutersV1ConnectionsApiConnection"
+              "$ref": "#/components/schemas/Connection"
             },
             "description": "Connections in this page, ordered by name."
           },
@@ -40059,6 +40190,178 @@
           }
         },
         "additionalProperties": false
+      },
+      "Feedback": {
+        "examples": [
+          {
+            "channel": "api",
+            "comment": "The email bounces. Her LinkedIn shows she left Acme in March.",
+            "corrections": [
+              {
+                "field": "email",
+                "kind": "wrong",
+                "returned": "jane@acme.com",
+                "source_url": "https://www.linkedin.com/in/janedoe",
+                "value": "jane@newco.com"
+              }
+            ],
+            "created_at": "2026-05-01T12:00:00Z",
+            "feedback_id": "6a0b5d0e-8f1e-4c2a-b7d3-9e8f7a6b5c4d",
+            "job_id": "job_7d1c0e52-5b8f-4c1a-9f0e-3a2b1c4d5e6f",
+            "rating": "negative"
+          }
+        ],
+        "title": "Feedback",
+        "required": [
+          "feedback_id",
+          "created_at",
+          "channel",
+          "corrections"
+        ],
+        "type": "object",
+        "properties": {
+          "feedback_id": {
+            "title": "Feedback Id",
+            "type": "string",
+            "description": "Feedback ID."
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": "string",
+            "description": "When the feedback was saved.",
+            "format": "date-time"
+          },
+          "channel": {
+            "$ref": "#/components/schemas/FeedbackChannel"
+          },
+          "rating": {
+            "$ref": "#/components/schemas/FeedbackRating"
+          },
+          "category": {
+            "$ref": "#/components/schemas/FeedbackCategory"
+          },
+          "impact": {
+            "$ref": "#/components/schemas/FeedbackImpact"
+          },
+          "comment": {
+            "title": "Comment",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "What happened, in the sender\u0027s words."
+          },
+          "goal": {
+            "title": "Goal",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "What the sender was trying to do."
+          },
+          "operation": {
+            "title": "Operation",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The endpoint or tool the sender named."
+          },
+          "source": {
+            "$ref": "#/components/schemas/FeedbackSourceComposed"
+          },
+          "corrections": {
+            "title": "Corrections",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SavedCorrection"
+            },
+            "description": "The corrections sent."
+          },
+          "job_id": {
+            "title": "Job Id",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The Job this feedback is about. Null for general feedback."
+          }
+        }
+      },
+      "FeedbackPage": {
+        "title": "FeedbackPage",
+        "required": [
+          "items"
+        ],
+        "type": "object",
+        "properties": {
+          "items": {
+            "title": "Items",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Feedback"
+            },
+            "description": "Feedback in this page, newest first."
+          },
+          "next_cursor": {
+            "title": "Next Cursor",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Pass as cursor to read the next page. Null when no more results remain."
+          }
+        }
+      },
+      "FeedbackReceipt": {
+        "examples": [
+          {
+            "already_submitted": false,
+            "corrections_recorded": 1,
+            "created_at": "2026-05-01T12:00:00Z",
+            "feedback_id": "6a0b5d0e-8f1e-4c2a-b7d3-9e8f7a6b5c4d",
+            "job_id": "job_7d1c0e52-5b8f-4c1a-9f0e-3a2b1c4d5e6f"
+          }
+        ],
+        "title": "FeedbackReceipt",
+        "required": [
+          "feedback_id",
+          "already_submitted",
+          "created_at",
+          "corrections_recorded"
+        ],
+        "type": "object",
+        "properties": {
+          "feedback_id": {
+            "title": "Feedback Id",
+            "type": "string",
+            "description": "Feedback ID."
+          },
+          "already_submitted": {
+            "title": "Already Submitted",
+            "type": "boolean",
+            "description": "If true, this \u0060Idempotency-Key\u0060 was already used and nothing new was saved."
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": "string",
+            "description": "When the feedback was saved.",
+            "format": "date-time"
+          },
+          "corrections_recorded": {
+            "title": "Corrections Recorded",
+            "type": "integer",
+            "description": "Number of corrections saved."
+          },
+          "job_id": {
+            "title": "Job Id",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The Job this feedback is about. Null for general feedback."
+          }
+        }
       },
       "FeedbackRequest": {
         "examples": [
@@ -41774,6 +42077,30 @@
         },
         "description": "The Atlas investigation a run belongs to: its ID and a link to open it in\nthe Sixtyfour app. Its files, findings and graph are served by the /v1/atlas\nendpoints."
       },
+      "InvestigationRunStarted": {
+        "title": "InvestigationRunStarted",
+        "required": [
+          "task_id",
+          "status",
+          "investigation"
+        ],
+        "type": "object",
+        "properties": {
+          "task_id": {
+            "title": "Task Id",
+            "type": "string",
+            "description": "Poll with \u0060GET /job-status/{job_id}\u0060."
+          },
+          "status": {
+            "title": "Status",
+            "type": "string"
+          },
+          "investigation": {
+            "description": "The investigation this run writes into; readable while the run works.",
+            "$ref": "#/components/schemas/InvestigationReference"
+          }
+        }
+      },
       "InvestigationSummary": {
         "title": "InvestigationSummary",
         "required": [
@@ -43209,6 +43536,56 @@
           }
         }
       },
+      "MonitorRowPage": {
+        "title": "MonitorRowPage",
+        "required": [
+          "items"
+        ],
+        "type": "object",
+        "properties": {
+          "items": {
+            "title": "Items",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MonitorRow"
+            },
+            "description": "Rows in this page, in the order they were added."
+          },
+          "next_cursor": {
+            "title": "Next Cursor",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Pass as cursor to read the next page. Null when no more results remain."
+          }
+        }
+      },
+      "MonitorRowPageResponse": {
+        "title": "MonitorRowPageResponse",
+        "required": [
+          "rows"
+        ],
+        "type": "object",
+        "properties": {
+          "rows": {
+            "title": "Rows",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MonitorRowResponse"
+            }
+          },
+          "next_cursor": {
+            "title": "Next Cursor",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Pass back as \u0060cursor\u0060 for the next page. Absent on the last page."
+          }
+        },
+        "description": "One page of a monitor\u0027s rows, in the order they were added."
+      },
       "MonitorRowResponse": {
         "title": "MonitorRowResponse",
         "required": [
@@ -43427,6 +43804,54 @@
           }
         }
       },
+      "MonitorRunPage": {
+        "title": "MonitorRunPage",
+        "required": [
+          "items"
+        ],
+        "type": "object",
+        "properties": {
+          "items": {
+            "title": "Items",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MonitorRun"
+            },
+            "description": "Runs in this page, newest first."
+          },
+          "next_cursor": {
+            "title": "Next Cursor",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Pass as cursor to read the next page. Null when no more results remain."
+          }
+        }
+      },
+      "MonitorRunPageResponse": {
+        "title": "MonitorRunPageResponse",
+        "required": [
+          "runs"
+        ],
+        "type": "object",
+        "properties": {
+          "runs": {
+            "title": "Runs",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MonitorRunResponse"
+            }
+          },
+          "next_cursor": {
+            "title": "Next Cursor",
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
       "MonitorRunResponse": {
         "title": "MonitorRunResponse",
         "required": [
@@ -43481,6 +43906,24 @@
           }
         }
       },
+      "MonitorRunStarted": {
+        "title": "MonitorRunStarted",
+        "required": [
+          "monitor_id",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "monitor_id": {
+            "title": "Monitor Id",
+            "type": "string",
+            "description": "Monitor identifier."
+          },
+          "status": {
+            "$ref": "#/components/schemas/AcceptedStatus"
+          }
+        }
+      },
       "MonitorSnapshotResponse": {
         "title": "MonitorSnapshotResponse",
         "required": [
@@ -43522,7 +43965,7 @@
         "type": "object",
         "properties": {
           "status": {
-            "$ref": "#/components/schemas/AcceptedStatus"
+            "$ref": "#/components/schemas/MonitorTriggerAcceptedStatus"
           },
           "monitor_id": {
             "title": "Monitor Id",
@@ -45605,6 +46048,98 @@
         },
         "additionalProperties": false
       },
+      "SavedConnection": {
+        "examples": [
+          {
+            "allowed_requests": [
+              "GET /accounts",
+              "POST /accounts/search"
+            ],
+            "base_url": "https://api.example.com/v2",
+            "created": true,
+            "created_at": "2026-01-05T17:00:00Z",
+            "description": "Our CRM. Look up accounts and their owners.",
+            "name": "crm",
+            "secret_last4": "9f2c",
+            "sign_in": {
+              "type": "bearer"
+            },
+            "updated_at": "2026-01-05T17:00:00Z"
+          }
+        ],
+        "title": "SavedConnection",
+        "required": [
+          "name",
+          "description",
+          "base_url",
+          "sign_in",
+          "allowed_requests",
+          "secret_last4",
+          "created"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": "string",
+            "description": "Connection name. Agents and runs refer to the connection by this name."
+          },
+          "description": {
+            "title": "Description",
+            "type": "string",
+            "description": "What the connection is for. Empty when none was given."
+          },
+          "base_url": {
+            "title": "Base Url",
+            "type": "string",
+            "description": "HTTPS URL of the API."
+          },
+          "sign_in": {
+            "description": "How the secret is sent.",
+            "$ref": "#/components/schemas/SignIn"
+          },
+          "allowed_requests": {
+            "title": "Allowed Requests",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "maxLength": 2048,
+              "type": "string"
+            },
+            "description": "Requests agents may make. Null means GET and HEAD on any path under \u0060base_url\u0060."
+          },
+          "secret_last4": {
+            "title": "Secret Last4",
+            "type": "string",
+            "description": "Last four characters of the secret. The secret itself is never returned."
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Creation time in UTC.",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "title": "Updated At",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Last update time in UTC.",
+            "format": "date-time"
+          },
+          "created": {
+            "title": "Created",
+            "type": "boolean",
+            "description": "If true, this request created the connection. If false, it replaced one."
+          }
+        }
+      },
       "SavedCorrection": {
         "title": "SavedCorrection",
         "required": [
@@ -45630,6 +46165,81 @@
               "string"
             ],
             "description": "The public page you sent. Omitted if none."
+          }
+        }
+      },
+      "SavedTeamConnection": {
+        "title": "SavedTeamConnection",
+        "required": [
+          "id",
+          "name",
+          "description",
+          "base_url",
+          "sign_in",
+          "allowed_requests",
+          "secret_last4",
+          "created"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string",
+            "description": "How a run and its agents name the connection"
+          },
+          "description": {
+            "title": "Description",
+            "type": "string",
+            "description": "What it\u0027s for, as the agents read it; empty for none"
+          },
+          "base_url": {
+            "title": "Base Url",
+            "type": "string",
+            "description": "Where the API lives: calls go to this https URL and paths under it"
+          },
+          "sign_in": {
+            "$ref": "#/components/schemas/SignIn"
+          },
+          "allowed_requests": {
+            "title": "Allowed Requests",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "The requests a call may make, a method and a path under the base URL each; null for read-only (GET and HEAD anywhere under it)"
+          },
+          "secret_last4": {
+            "title": "Secret Last4",
+            "type": "string",
+            "description": "The last four characters of the secret; the secret itself is never returned"
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "updated_at": {
+            "title": "Updated At",
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "created": {
+            "title": "Created",
+            "type": "boolean",
+            "description": "True when this write created the connection, false when it replaced one"
           }
         }
       },
@@ -45738,6 +46348,46 @@
             "title": "Updated At",
             "type": "string",
             "description": "Last update time in UTC, in ISO 8601 format."
+          }
+        }
+      },
+      "ScheduleDeleted": {
+        "title": "ScheduleDeleted",
+        "required": [
+          "schedule_id",
+          "deleted"
+        ],
+        "type": "object",
+        "properties": {
+          "schedule_id": {
+            "title": "Schedule Id",
+            "type": "string",
+            "description": "Schedule identifier."
+          },
+          "deleted": {
+            "title": "Deleted",
+            "type": "boolean",
+            "description": "If true, the schedule is deleted and no longer runs."
+          }
+        }
+      },
+      "ScheduleDeletedResponse": {
+        "title": "ScheduleDeletedResponse",
+        "required": [
+          "success",
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "title": "Success",
+            "type": "boolean",
+            "description": "Always true."
+          },
+          "id": {
+            "title": "Id",
+            "type": "string",
+            "description": "The deleted schedule\u0027s ID."
           }
         }
       },
@@ -46935,6 +47585,306 @@
           }
         }
       },
+      "TaskFeedback": {
+        "examples": [
+          {
+            "category": "incorrect_data",
+            "channel": "api",
+            "corrections": [
+              {
+                "field": "phone",
+                "kind": "missed",
+                "value": "\u002B1 415 555 0100"
+              },
+              {
+                "field": "title",
+                "kind": "wrong",
+                "returned": "CTO",
+                "value": "VP Engineering"
+              }
+            ],
+            "created_at": "2026-11-05T18:22:11Z",
+            "id": "6a0b5d0e-8f1e-4c2a-b7d3-9e8f7a6b5c4d",
+            "source": {
+              "kind": "human",
+              "reviewer": "reviewer-17"
+            },
+            "workflow_row": {
+              "block": 2,
+              "row": 37,
+              "run_id": "0f9c2a8e-1b7d-4c8e-9a51-2d0f6b7e8c41"
+            }
+          }
+        ],
+        "title": "TaskFeedback",
+        "required": [
+          "id",
+          "created_at",
+          "channel",
+          "corrections"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": "string",
+            "format": "date-time"
+          },
+          "channel": {
+            "$ref": "#/components/schemas/TaskFeedbackChannel"
+          },
+          "rating": {
+            "$ref": "#/components/schemas/TaskFeedbackRating"
+          },
+          "category": {
+            "$ref": "#/components/schemas/TaskFeedbackCategory"
+          },
+          "impact": {
+            "$ref": "#/components/schemas/TaskFeedbackImpact"
+          },
+          "comment": {
+            "title": "Comment",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "goal": {
+            "title": "Goal",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "operation": {
+            "title": "Operation",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "source": {
+            "$ref": "#/components/schemas/TaskFeedbackSource"
+          },
+          "corrections": {
+            "title": "Corrections",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SavedCorrection"
+            },
+            "description": "The corrections you sent."
+          },
+          "task_id": {
+            "title": "Task Id",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "dispatch_id": {
+            "title": "Dispatch Id",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "workflow_row": {
+            "$ref": "#/components/schemas/TaskFeedbackWorkflowRow"
+          }
+        }
+      },
+      "TaskFeedbackPage": {
+        "examples": [
+          {
+            "data": [
+              {
+                "category": "incorrect_data",
+                "channel": "api",
+                "corrections": [
+                  {
+                    "field": "phone",
+                    "kind": "missed",
+                    "value": "\u002B1 415 555 0100"
+                  },
+                  {
+                    "field": "title",
+                    "kind": "wrong",
+                    "returned": "CTO",
+                    "value": "VP Engineering"
+                  }
+                ],
+                "created_at": "2026-11-05T18:22:11Z",
+                "id": "6a0b5d0e-8f1e-4c2a-b7d3-9e8f7a6b5c4d",
+                "source": {
+                  "kind": "human",
+                  "reviewer": "reviewer-17"
+                },
+                "workflow_row": {
+                  "block": 2,
+                  "row": 37,
+                  "run_id": "0f9c2a8e-1b7d-4c8e-9a51-2d0f6b7e8c41"
+                }
+              }
+            ]
+          }
+        ],
+        "title": "TaskFeedbackPage",
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "title": "Data",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TaskFeedback"
+            },
+            "description": "Feedback, newest first."
+          },
+          "next_cursor": {
+            "title": "Next Cursor",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Pass as \u0060cursor\u0060 for the next page. Null on the last page."
+          }
+        }
+      },
+      "TaskFeedbackReceipt": {
+        "examples": [
+          {
+            "already_submitted": false,
+            "corrections_recorded": 1,
+            "created_at": "2026-11-05T18:22:11Z",
+            "id": "6a0b5d0e-8f1e-4c2a-b7d3-9e8f7a6b5c4d",
+            "task_id": "enrich_7d1c0e52-5b8f-4c1a-9f0e-3a2b1c4d5e6f"
+          }
+        ],
+        "title": "TaskFeedbackReceipt",
+        "required": [
+          "id",
+          "already_submitted",
+          "created_at",
+          "corrections_recorded"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string",
+            "description": "The feedback id. Read it with \u0060GET /feedback/{feedback_id}\u0060."
+          },
+          "already_submitted": {
+            "title": "Already Submitted",
+            "type": "boolean",
+            "description": "True when this \u0060Idempotency-Key\u0060 already saved this body; \u0060id\u0060 is the first submission."
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": "string",
+            "format": "date-time"
+          },
+          "corrections_recorded": {
+            "title": "Corrections Recorded",
+            "type": "integer",
+            "description": "How many corrections were saved."
+          },
+          "task_id": {
+            "title": "Task Id",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The task this feedback is about, when named."
+          },
+          "dispatch_id": {
+            "title": "Dispatch Id",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Omitted on a receipt: a \u0060dispatch_id\u0060 is stored as \u0060task_id\u0060."
+          },
+          "workflow_row": {
+            "$ref": "#/components/schemas/TaskFeedbackReceiptWorkflowRow"
+          }
+        }
+      },
+      "TeamConnection": {
+        "title": "TeamConnection",
+        "required": [
+          "id",
+          "name",
+          "description",
+          "base_url",
+          "sign_in",
+          "allowed_requests",
+          "secret_last4"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string",
+            "description": "How a run and its agents name the connection"
+          },
+          "description": {
+            "title": "Description",
+            "type": "string",
+            "description": "What it\u0027s for, as the agents read it; empty for none"
+          },
+          "base_url": {
+            "title": "Base Url",
+            "type": "string",
+            "description": "Where the API lives: calls go to this https URL and paths under it"
+          },
+          "sign_in": {
+            "$ref": "#/components/schemas/SignIn"
+          },
+          "allowed_requests": {
+            "title": "Allowed Requests",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "The requests a call may make, a method and a path under the base URL each; null for read-only (GET and HEAD anywhere under it)"
+          },
+          "secret_last4": {
+            "title": "Secret Last4",
+            "type": "string",
+            "description": "The last four characters of the secret; the secret itself is never returned"
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "updated_at": {
+            "title": "Updated At",
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          }
+        }
+      },
       "TeamConnections": {
         "title": "TeamConnections",
         "required": [
@@ -46947,7 +47897,7 @@
             "title": "Connections",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ApiRoutersConnectionsApiConnection"
+              "$ref": "#/components/schemas/TeamConnection"
             }
           },
           "actions": {
@@ -49111,910 +50061,6 @@
           }
         }
       },
-      "ApiRoutersAtlasWorkspaceApiRunStarted": {
-        "title": "RunStarted",
-        "required": [
-          "task_id",
-          "status",
-          "investigation"
-        ],
-        "type": "object",
-        "properties": {
-          "task_id": {
-            "title": "Task Id",
-            "type": "string",
-            "description": "Poll with \u0060GET /job-status/{job_id}\u0060."
-          },
-          "status": {
-            "title": "Status",
-            "type": "string"
-          },
-          "investigation": {
-            "description": "The investigation this run writes into; readable while the run works.",
-            "$ref": "#/components/schemas/InvestigationReference"
-          }
-        }
-      },
-      "ApiRoutersConnectionsApiConnection": {
-        "title": "Connection",
-        "required": [
-          "id",
-          "name",
-          "description",
-          "base_url",
-          "sign_in",
-          "allowed_requests",
-          "secret_last4"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "title": "Id",
-            "type": "string"
-          },
-          "name": {
-            "title": "Name",
-            "type": "string",
-            "description": "How a run and its agents name the connection"
-          },
-          "description": {
-            "title": "Description",
-            "type": "string",
-            "description": "What it\u0027s for, as the agents read it; empty for none"
-          },
-          "base_url": {
-            "title": "Base Url",
-            "type": "string",
-            "description": "Where the API lives: calls go to this https URL and paths under it"
-          },
-          "sign_in": {
-            "$ref": "#/components/schemas/SignIn"
-          },
-          "allowed_requests": {
-            "title": "Allowed Requests",
-            "type": [
-              "null",
-              "array"
-            ],
-            "items": {
-              "type": "string"
-            },
-            "description": "The requests a call may make, a method and a path under the base URL each; null for read-only (GET and HEAD anywhere under it)"
-          },
-          "secret_last4": {
-            "title": "Secret Last4",
-            "type": "string",
-            "description": "The last four characters of the secret; the secret itself is never returned"
-          },
-          "created_at": {
-            "title": "Created At",
-            "type": [
-              "null",
-              "string"
-            ],
-            "format": "date-time"
-          },
-          "updated_at": {
-            "title": "Updated At",
-            "type": [
-              "null",
-              "string"
-            ],
-            "format": "date-time"
-          }
-        }
-      },
-      "ApiRoutersConnectionsApiSavedConnection": {
-        "title": "SavedConnection",
-        "required": [
-          "id",
-          "name",
-          "description",
-          "base_url",
-          "sign_in",
-          "allowed_requests",
-          "secret_last4",
-          "created"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "title": "Id",
-            "type": "string"
-          },
-          "name": {
-            "title": "Name",
-            "type": "string",
-            "description": "How a run and its agents name the connection"
-          },
-          "description": {
-            "title": "Description",
-            "type": "string",
-            "description": "What it\u0027s for, as the agents read it; empty for none"
-          },
-          "base_url": {
-            "title": "Base Url",
-            "type": "string",
-            "description": "Where the API lives: calls go to this https URL and paths under it"
-          },
-          "sign_in": {
-            "$ref": "#/components/schemas/SignIn"
-          },
-          "allowed_requests": {
-            "title": "Allowed Requests",
-            "type": [
-              "null",
-              "array"
-            ],
-            "items": {
-              "type": "string"
-            },
-            "description": "The requests a call may make, a method and a path under the base URL each; null for read-only (GET and HEAD anywhere under it)"
-          },
-          "secret_last4": {
-            "title": "Secret Last4",
-            "type": "string",
-            "description": "The last four characters of the secret; the secret itself is never returned"
-          },
-          "created_at": {
-            "title": "Created At",
-            "type": [
-              "null",
-              "string"
-            ],
-            "format": "date-time"
-          },
-          "updated_at": {
-            "title": "Updated At",
-            "type": [
-              "null",
-              "string"
-            ],
-            "format": "date-time"
-          },
-          "created": {
-            "title": "Created",
-            "type": "boolean",
-            "description": "True when this write created the connection, false when it replaced one"
-          }
-        }
-      },
-      "ApiRoutersFeedbackApiModelFeedback": {
-        "examples": [
-          {
-            "category": "incorrect_data",
-            "channel": "api",
-            "corrections": [
-              {
-                "field": "phone",
-                "kind": "missed",
-                "value": "\u002B1 415 555 0100"
-              },
-              {
-                "field": "title",
-                "kind": "wrong",
-                "returned": "CTO",
-                "value": "VP Engineering"
-              }
-            ],
-            "created_at": "2026-11-05T18:22:11Z",
-            "id": "6a0b5d0e-8f1e-4c2a-b7d3-9e8f7a6b5c4d",
-            "source": {
-              "kind": "human",
-              "reviewer": "reviewer-17"
-            },
-            "workflow_row": {
-              "block": 2,
-              "row": 37,
-              "run_id": "0f9c2a8e-1b7d-4c8e-9a51-2d0f6b7e8c41"
-            }
-          }
-        ],
-        "title": "Feedback",
-        "required": [
-          "id",
-          "created_at",
-          "channel",
-          "corrections"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "title": "Id",
-            "type": "string"
-          },
-          "created_at": {
-            "title": "Created At",
-            "type": "string",
-            "format": "date-time"
-          },
-          "channel": {
-            "$ref": "#/components/schemas/ApiRoutersFeedbackApiModelFeedbackChannel"
-          },
-          "rating": {
-            "$ref": "#/components/schemas/ApiRoutersFeedbackApiModelFeedbackRating"
-          },
-          "category": {
-            "$ref": "#/components/schemas/ApiRoutersFeedbackApiModelFeedbackCategory"
-          },
-          "impact": {
-            "$ref": "#/components/schemas/ApiRoutersFeedbackApiModelFeedbackImpact"
-          },
-          "comment": {
-            "title": "Comment",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "goal": {
-            "title": "Goal",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "operation": {
-            "title": "Operation",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "source": {
-            "$ref": "#/components/schemas/ApiRoutersFeedbackApiModelFeedbackSource"
-          },
-          "corrections": {
-            "title": "Corrections",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SavedCorrection"
-            },
-            "description": "The corrections you sent."
-          },
-          "task_id": {
-            "title": "Task Id",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "dispatch_id": {
-            "title": "Dispatch Id",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "workflow_row": {
-            "$ref": "#/components/schemas/ApiRoutersFeedbackApiModelFeedbackWorkflowRow"
-          }
-        }
-      },
-      "ApiRoutersFeedbackApiModelFeedbackPage": {
-        "examples": [
-          {
-            "data": [
-              {
-                "category": "incorrect_data",
-                "channel": "api",
-                "corrections": [
-                  {
-                    "field": "phone",
-                    "kind": "missed",
-                    "value": "\u002B1 415 555 0100"
-                  },
-                  {
-                    "field": "title",
-                    "kind": "wrong",
-                    "returned": "CTO",
-                    "value": "VP Engineering"
-                  }
-                ],
-                "created_at": "2026-11-05T18:22:11Z",
-                "id": "6a0b5d0e-8f1e-4c2a-b7d3-9e8f7a6b5c4d",
-                "source": {
-                  "kind": "human",
-                  "reviewer": "reviewer-17"
-                },
-                "workflow_row": {
-                  "block": 2,
-                  "row": 37,
-                  "run_id": "0f9c2a8e-1b7d-4c8e-9a51-2d0f6b7e8c41"
-                }
-              }
-            ]
-          }
-        ],
-        "title": "FeedbackPage",
-        "required": [
-          "data"
-        ],
-        "type": "object",
-        "properties": {
-          "data": {
-            "title": "Data",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ApiRoutersFeedbackApiModelFeedback"
-            },
-            "description": "Feedback, newest first."
-          },
-          "next_cursor": {
-            "title": "Next Cursor",
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "Pass as \u0060cursor\u0060 for the next page. Null on the last page."
-          }
-        }
-      },
-      "ApiRoutersFeedbackApiModelFeedbackReceipt": {
-        "examples": [
-          {
-            "already_submitted": false,
-            "corrections_recorded": 1,
-            "created_at": "2026-11-05T18:22:11Z",
-            "id": "6a0b5d0e-8f1e-4c2a-b7d3-9e8f7a6b5c4d",
-            "task_id": "enrich_7d1c0e52-5b8f-4c1a-9f0e-3a2b1c4d5e6f"
-          }
-        ],
-        "title": "FeedbackReceipt",
-        "required": [
-          "id",
-          "already_submitted",
-          "created_at",
-          "corrections_recorded"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "title": "Id",
-            "type": "string",
-            "description": "The feedback id. Read it with \u0060GET /feedback/{feedback_id}\u0060."
-          },
-          "already_submitted": {
-            "title": "Already Submitted",
-            "type": "boolean",
-            "description": "True when this \u0060Idempotency-Key\u0060 already saved this body; \u0060id\u0060 is the first submission."
-          },
-          "created_at": {
-            "title": "Created At",
-            "type": "string",
-            "format": "date-time"
-          },
-          "corrections_recorded": {
-            "title": "Corrections Recorded",
-            "type": "integer",
-            "description": "How many corrections were saved."
-          },
-          "task_id": {
-            "title": "Task Id",
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "The task this feedback is about, when named."
-          },
-          "dispatch_id": {
-            "title": "Dispatch Id",
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "Omitted on a receipt: a \u0060dispatch_id\u0060 is stored as \u0060task_id\u0060."
-          },
-          "workflow_row": {
-            "$ref": "#/components/schemas/ApiRoutersFeedbackApiModelFeedbackReceiptWorkflowRow"
-          }
-        }
-      },
-      "ApiRoutersMonitorsApiMonitorRowPage": {
-        "title": "MonitorRowPage",
-        "required": [
-          "rows"
-        ],
-        "type": "object",
-        "properties": {
-          "rows": {
-            "title": "Rows",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MonitorRowResponse"
-            }
-          },
-          "next_cursor": {
-            "title": "Next Cursor",
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "Pass back as \u0060cursor\u0060 for the next page. Absent on the last page."
-          }
-        },
-        "description": "One page of a monitor\u0027s rows, in the order they were added."
-      },
-      "ApiRoutersMonitorsApiMonitorRunPage": {
-        "title": "MonitorRunPage",
-        "required": [
-          "runs"
-        ],
-        "type": "object",
-        "properties": {
-          "runs": {
-            "title": "Runs",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MonitorRunResponse"
-            }
-          },
-          "next_cursor": {
-            "title": "Next Cursor",
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        }
-      },
-      "ApiRoutersSchedulesApiScheduleDeleted": {
-        "title": "ScheduleDeleted",
-        "required": [
-          "success",
-          "id"
-        ],
-        "type": "object",
-        "properties": {
-          "success": {
-            "title": "Success",
-            "type": "boolean",
-            "description": "Always true."
-          },
-          "id": {
-            "title": "Id",
-            "type": "string",
-            "description": "The deleted schedule\u0027s ID."
-          }
-        }
-      },
-      "ApiRoutersV1ConnectionsApiConnection": {
-        "examples": [
-          {
-            "allowed_requests": [
-              "GET /accounts",
-              "POST /accounts/search"
-            ],
-            "base_url": "https://api.example.com/v2",
-            "created_at": "2026-01-05T17:00:00Z",
-            "description": "Our CRM. Look up accounts and their owners.",
-            "name": "crm",
-            "secret_last4": "9f2c",
-            "sign_in": {
-              "type": "bearer"
-            },
-            "updated_at": "2026-01-05T17:00:00Z"
-          }
-        ],
-        "title": "Connection",
-        "required": [
-          "name",
-          "description",
-          "base_url",
-          "sign_in",
-          "allowed_requests",
-          "secret_last4"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "title": "Name",
-            "type": "string",
-            "description": "Connection name. Agents and runs refer to the connection by this name."
-          },
-          "description": {
-            "title": "Description",
-            "type": "string",
-            "description": "What the connection is for. Empty when none was given."
-          },
-          "base_url": {
-            "title": "Base Url",
-            "type": "string",
-            "description": "HTTPS URL of the API."
-          },
-          "sign_in": {
-            "description": "How the secret is sent.",
-            "$ref": "#/components/schemas/SignIn"
-          },
-          "allowed_requests": {
-            "title": "Allowed Requests",
-            "type": [
-              "null",
-              "array"
-            ],
-            "items": {
-              "maxLength": 2048,
-              "type": "string"
-            },
-            "description": "Requests agents may make. Null means GET and HEAD on any path under \u0060base_url\u0060."
-          },
-          "secret_last4": {
-            "title": "Secret Last4",
-            "type": "string",
-            "description": "Last four characters of the secret. The secret itself is never returned."
-          },
-          "created_at": {
-            "title": "Created At",
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "Creation time in UTC.",
-            "format": "date-time"
-          },
-          "updated_at": {
-            "title": "Updated At",
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "Last update time in UTC.",
-            "format": "date-time"
-          }
-        }
-      },
-      "ApiRoutersV1ConnectionsApiSavedConnection": {
-        "examples": [
-          {
-            "allowed_requests": [
-              "GET /accounts",
-              "POST /accounts/search"
-            ],
-            "base_url": "https://api.example.com/v2",
-            "created": true,
-            "created_at": "2026-01-05T17:00:00Z",
-            "description": "Our CRM. Look up accounts and their owners.",
-            "name": "crm",
-            "secret_last4": "9f2c",
-            "sign_in": {
-              "type": "bearer"
-            },
-            "updated_at": "2026-01-05T17:00:00Z"
-          }
-        ],
-        "title": "SavedConnection",
-        "required": [
-          "name",
-          "description",
-          "base_url",
-          "sign_in",
-          "allowed_requests",
-          "secret_last4",
-          "created"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "title": "Name",
-            "type": "string",
-            "description": "Connection name. Agents and runs refer to the connection by this name."
-          },
-          "description": {
-            "title": "Description",
-            "type": "string",
-            "description": "What the connection is for. Empty when none was given."
-          },
-          "base_url": {
-            "title": "Base Url",
-            "type": "string",
-            "description": "HTTPS URL of the API."
-          },
-          "sign_in": {
-            "description": "How the secret is sent.",
-            "$ref": "#/components/schemas/SignIn"
-          },
-          "allowed_requests": {
-            "title": "Allowed Requests",
-            "type": [
-              "null",
-              "array"
-            ],
-            "items": {
-              "maxLength": 2048,
-              "type": "string"
-            },
-            "description": "Requests agents may make. Null means GET and HEAD on any path under \u0060base_url\u0060."
-          },
-          "secret_last4": {
-            "title": "Secret Last4",
-            "type": "string",
-            "description": "Last four characters of the secret. The secret itself is never returned."
-          },
-          "created_at": {
-            "title": "Created At",
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "Creation time in UTC.",
-            "format": "date-time"
-          },
-          "updated_at": {
-            "title": "Updated At",
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "Last update time in UTC.",
-            "format": "date-time"
-          },
-          "created": {
-            "title": "Created",
-            "type": "boolean",
-            "description": "If true, this request created the connection. If false, it replaced one."
-          }
-        }
-      },
-      "ApiRoutersV1FeedbackApiFeedback": {
-        "examples": [
-          {
-            "channel": "api",
-            "comment": "The email bounces. Her LinkedIn shows she left Acme in March.",
-            "corrections": [
-              {
-                "field": "email",
-                "kind": "wrong",
-                "returned": "jane@acme.com",
-                "source_url": "https://www.linkedin.com/in/janedoe",
-                "value": "jane@newco.com"
-              }
-            ],
-            "created_at": "2026-05-01T12:00:00Z",
-            "feedback_id": "6a0b5d0e-8f1e-4c2a-b7d3-9e8f7a6b5c4d",
-            "job_id": "job_7d1c0e52-5b8f-4c1a-9f0e-3a2b1c4d5e6f",
-            "rating": "negative"
-          }
-        ],
-        "title": "Feedback",
-        "required": [
-          "feedback_id",
-          "created_at",
-          "channel",
-          "corrections"
-        ],
-        "type": "object",
-        "properties": {
-          "feedback_id": {
-            "title": "Feedback Id",
-            "type": "string",
-            "description": "Feedback ID."
-          },
-          "created_at": {
-            "title": "Created At",
-            "type": "string",
-            "description": "When the feedback was saved.",
-            "format": "date-time"
-          },
-          "channel": {
-            "$ref": "#/components/schemas/ApiRoutersV1FeedbackApiFeedbackChannel"
-          },
-          "rating": {
-            "$ref": "#/components/schemas/ApiRoutersV1FeedbackApiFeedbackRating"
-          },
-          "category": {
-            "$ref": "#/components/schemas/ApiRoutersV1FeedbackApiFeedbackCategory"
-          },
-          "impact": {
-            "$ref": "#/components/schemas/ApiRoutersV1FeedbackApiFeedbackImpact"
-          },
-          "comment": {
-            "title": "Comment",
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "What happened, in the sender\u0027s words."
-          },
-          "goal": {
-            "title": "Goal",
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "What the sender was trying to do."
-          },
-          "operation": {
-            "title": "Operation",
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "The endpoint or tool the sender named."
-          },
-          "source": {
-            "$ref": "#/components/schemas/ApiRoutersV1FeedbackApiFeedbackSource"
-          },
-          "corrections": {
-            "title": "Corrections",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SavedCorrection"
-            },
-            "description": "The corrections sent."
-          },
-          "job_id": {
-            "title": "Job Id",
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "The Job this feedback is about. Null for general feedback."
-          }
-        }
-      },
-      "ApiRoutersV1FeedbackApiFeedbackPage": {
-        "title": "FeedbackPage",
-        "required": [
-          "items"
-        ],
-        "type": "object",
-        "properties": {
-          "items": {
-            "title": "Items",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ApiRoutersV1FeedbackApiFeedback"
-            },
-            "description": "Feedback in this page, newest first."
-          },
-          "next_cursor": {
-            "title": "Next Cursor",
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "Pass as cursor to read the next page. Null when no more results remain."
-          }
-        }
-      },
-      "ApiRoutersV1FeedbackApiFeedbackReceipt": {
-        "examples": [
-          {
-            "already_submitted": false,
-            "corrections_recorded": 1,
-            "created_at": "2026-05-01T12:00:00Z",
-            "feedback_id": "6a0b5d0e-8f1e-4c2a-b7d3-9e8f7a6b5c4d",
-            "job_id": "job_7d1c0e52-5b8f-4c1a-9f0e-3a2b1c4d5e6f"
-          }
-        ],
-        "title": "FeedbackReceipt",
-        "required": [
-          "feedback_id",
-          "already_submitted",
-          "created_at",
-          "corrections_recorded"
-        ],
-        "type": "object",
-        "properties": {
-          "feedback_id": {
-            "title": "Feedback Id",
-            "type": "string",
-            "description": "Feedback ID."
-          },
-          "already_submitted": {
-            "title": "Already Submitted",
-            "type": "boolean",
-            "description": "If true, this \u0060Idempotency-Key\u0060 was already used and nothing new was saved."
-          },
-          "created_at": {
-            "title": "Created At",
-            "type": "string",
-            "description": "When the feedback was saved.",
-            "format": "date-time"
-          },
-          "corrections_recorded": {
-            "title": "Corrections Recorded",
-            "type": "integer",
-            "description": "Number of corrections saved."
-          },
-          "job_id": {
-            "title": "Job Id",
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "The Job this feedback is about. Null for general feedback."
-          }
-        }
-      },
-      "ApiRoutersV1MonitorsApiMonitorRowPage": {
-        "title": "MonitorRowPage",
-        "required": [
-          "items"
-        ],
-        "type": "object",
-        "properties": {
-          "items": {
-            "title": "Items",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MonitorRow"
-            },
-            "description": "Rows in this page, in the order they were added."
-          },
-          "next_cursor": {
-            "title": "Next Cursor",
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "Pass as cursor to read the next page. Null when no more results remain."
-          }
-        }
-      },
-      "ApiRoutersV1MonitorsApiMonitorRunPage": {
-        "title": "MonitorRunPage",
-        "required": [
-          "items"
-        ],
-        "type": "object",
-        "properties": {
-          "items": {
-            "title": "Items",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MonitorRun"
-            },
-            "description": "Runs in this page, newest first."
-          },
-          "next_cursor": {
-            "title": "Next Cursor",
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "Pass as cursor to read the next page. Null when no more results remain."
-          }
-        }
-      },
-      "ApiRoutersV1MonitorsApiRunStarted": {
-        "title": "RunStarted",
-        "required": [
-          "monitor_id",
-          "status"
-        ],
-        "type": "object",
-        "properties": {
-          "monitor_id": {
-            "title": "Monitor Id",
-            "type": "string",
-            "description": "Monitor identifier."
-          },
-          "status": {
-            "$ref": "#/components/schemas/ApiRoutersV1MonitorsApiRunStartedStatus"
-          }
-        }
-      },
-      "ApiRoutersV1SchedulesApiScheduleDeleted": {
-        "title": "ScheduleDeleted",
-        "required": [
-          "schedule_id",
-          "deleted"
-        ],
-        "type": "object",
-        "properties": {
-          "schedule_id": {
-            "title": "Schedule Id",
-            "type": "string",
-            "description": "Schedule identifier."
-          },
-          "deleted": {
-            "title": "Deleted",
-            "type": "boolean",
-            "description": "If true, the schedule is deleted and no longer runs."
-          }
-        }
-      },
       "ValidationError": {
         "title": "ValidationError",
         "required": [
@@ -50507,6 +50553,62 @@
           }
         ],
         "description": "What to watch. For research monitors, an object of field name to a sentence describing what to find. For LinkedIn monitors, a list of keys from \u0060GET /v1/monitors/linkedin-fields\u0060."
+      },
+      "FeedbackSourceComposed": {
+        "title": "FeedbackSource",
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "kind": {
+            "$ref": "#/components/schemas/FeedbackSourceKind"
+          },
+          "agent_name": {
+            "title": "Agent Name",
+            "maxLength": 200,
+            "minLength": 1,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The agent\u0027s name. Default: none."
+          },
+          "model": {
+            "title": "Model",
+            "maxLength": 200,
+            "minLength": 1,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The model the agent runs on. Default: none."
+          },
+          "reviewer": {
+            "title": "Reviewer",
+            "maxLength": 200,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9._:-]\u002B$",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Your opaque id for the reviewer, never a name or email. Default: none."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Who wrote it.",
+        "x-client-original-nullable-union": {
+          "anyOf": [
+            {
+              "$ref": "#/components/schemas/FeedbackSource"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Who wrote it."
+        }
       },
       "FeedbackRequestWorkflowRow": {
         "title": "WorkflowRow",
@@ -51239,6 +51341,152 @@
         ],
         "description": "Build an org chart with the xHigh research harness."
       },
+      "TaskFeedbackSource": {
+        "title": "FeedbackSource",
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "kind": {
+            "$ref": "#/components/schemas/FeedbackSourceKind"
+          },
+          "agent_name": {
+            "title": "Agent Name",
+            "maxLength": 200,
+            "minLength": 1,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The agent\u0027s name. Default: none."
+          },
+          "model": {
+            "title": "Model",
+            "maxLength": 200,
+            "minLength": 1,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The model the agent runs on. Default: none."
+          },
+          "reviewer": {
+            "title": "Reviewer",
+            "maxLength": 200,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9._:-]\u002B$",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Your opaque id for the reviewer, never a name or email. Default: none."
+          }
+        },
+        "additionalProperties": false,
+        "x-client-original-nullable-union": {
+          "anyOf": [
+            {
+              "$ref": "#/components/schemas/FeedbackSource"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "TaskFeedbackWorkflowRow": {
+        "title": "WorkflowRow",
+        "required": [
+          "run_id",
+          "block",
+          "row"
+        ],
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "run_id": {
+            "title": "Run Id",
+            "maxLength": 200,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9._-]\u002B$",
+            "type": "string",
+            "description": "The \u0060job_id\u0060 that \u0060POST /workflows/run\u0060 returned."
+          },
+          "block": {
+            "title": "Block",
+            "minimum": 1.0,
+            "type": "integer",
+            "description": "The results file\u0027s \u0060block_number\u0060."
+          },
+          "row": {
+            "title": "Row",
+            "minimum": 1.0,
+            "type": "integer",
+            "description": "The row\u0027s \u0060_row_id\u0060."
+          }
+        },
+        "additionalProperties": false,
+        "x-client-original-nullable-union": {
+          "anyOf": [
+            {
+              "$ref": "#/components/schemas/WorkflowRow"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "TaskFeedbackReceiptWorkflowRow": {
+        "title": "WorkflowRow",
+        "required": [
+          "run_id",
+          "block",
+          "row"
+        ],
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "run_id": {
+            "title": "Run Id",
+            "maxLength": 200,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9._-]\u002B$",
+            "type": "string",
+            "description": "The \u0060job_id\u0060 that \u0060POST /workflows/run\u0060 returned."
+          },
+          "block": {
+            "title": "Block",
+            "minimum": 1.0,
+            "type": "integer",
+            "description": "The results file\u0027s \u0060block_number\u0060."
+          },
+          "row": {
+            "title": "Row",
+            "minimum": 1.0,
+            "type": "integer",
+            "description": "The row\u0027s \u0060_row_id\u0060."
+          }
+        },
+        "additionalProperties": false,
+        "description": "The workflow row this feedback is about, when named.",
+        "x-client-original-nullable-union": {
+          "anyOf": [
+            {
+              "$ref": "#/components/schemas/WorkflowRow"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "The workflow row this feedback is about, when named."
+        }
+      },
       "UpdateWorkflowDefinition": {
         "title": "WorkflowGraph",
         "required": [
@@ -51389,208 +51637,6 @@
       "WorkflowRunResponseBlocks": {
         "title": "Blocks",
         "description": "Per-block detail; null in list responses."
-      },
-      "ApiRoutersFeedbackApiModelFeedbackSource": {
-        "title": "FeedbackSource",
-        "type": [
-          "object",
-          "null"
-        ],
-        "properties": {
-          "kind": {
-            "$ref": "#/components/schemas/FeedbackSourceKind"
-          },
-          "agent_name": {
-            "title": "Agent Name",
-            "maxLength": 200,
-            "minLength": 1,
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "The agent\u0027s name. Default: none."
-          },
-          "model": {
-            "title": "Model",
-            "maxLength": 200,
-            "minLength": 1,
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "The model the agent runs on. Default: none."
-          },
-          "reviewer": {
-            "title": "Reviewer",
-            "maxLength": 200,
-            "minLength": 1,
-            "pattern": "^[A-Za-z0-9._:-]\u002B$",
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "Your opaque id for the reviewer, never a name or email. Default: none."
-          }
-        },
-        "additionalProperties": false,
-        "x-client-original-nullable-union": {
-          "anyOf": [
-            {
-              "$ref": "#/components/schemas/FeedbackSource"
-            },
-            {
-              "type": "null"
-            }
-          ]
-        }
-      },
-      "ApiRoutersFeedbackApiModelFeedbackWorkflowRow": {
-        "title": "WorkflowRow",
-        "required": [
-          "run_id",
-          "block",
-          "row"
-        ],
-        "type": [
-          "object",
-          "null"
-        ],
-        "properties": {
-          "run_id": {
-            "title": "Run Id",
-            "maxLength": 200,
-            "minLength": 1,
-            "pattern": "^[A-Za-z0-9._-]\u002B$",
-            "type": "string",
-            "description": "The \u0060job_id\u0060 that \u0060POST /workflows/run\u0060 returned."
-          },
-          "block": {
-            "title": "Block",
-            "minimum": 1.0,
-            "type": "integer",
-            "description": "The results file\u0027s \u0060block_number\u0060."
-          },
-          "row": {
-            "title": "Row",
-            "minimum": 1.0,
-            "type": "integer",
-            "description": "The row\u0027s \u0060_row_id\u0060."
-          }
-        },
-        "additionalProperties": false,
-        "x-client-original-nullable-union": {
-          "anyOf": [
-            {
-              "$ref": "#/components/schemas/WorkflowRow"
-            },
-            {
-              "type": "null"
-            }
-          ]
-        }
-      },
-      "ApiRoutersFeedbackApiModelFeedbackReceiptWorkflowRow": {
-        "title": "WorkflowRow",
-        "required": [
-          "run_id",
-          "block",
-          "row"
-        ],
-        "type": [
-          "object",
-          "null"
-        ],
-        "properties": {
-          "run_id": {
-            "title": "Run Id",
-            "maxLength": 200,
-            "minLength": 1,
-            "pattern": "^[A-Za-z0-9._-]\u002B$",
-            "type": "string",
-            "description": "The \u0060job_id\u0060 that \u0060POST /workflows/run\u0060 returned."
-          },
-          "block": {
-            "title": "Block",
-            "minimum": 1.0,
-            "type": "integer",
-            "description": "The results file\u0027s \u0060block_number\u0060."
-          },
-          "row": {
-            "title": "Row",
-            "minimum": 1.0,
-            "type": "integer",
-            "description": "The row\u0027s \u0060_row_id\u0060."
-          }
-        },
-        "additionalProperties": false,
-        "description": "The workflow row this feedback is about, when named.",
-        "x-client-original-nullable-union": {
-          "anyOf": [
-            {
-              "$ref": "#/components/schemas/WorkflowRow"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "description": "The workflow row this feedback is about, when named."
-        }
-      },
-      "ApiRoutersV1FeedbackApiFeedbackSource": {
-        "title": "FeedbackSource",
-        "type": [
-          "object",
-          "null"
-        ],
-        "properties": {
-          "kind": {
-            "$ref": "#/components/schemas/FeedbackSourceKind"
-          },
-          "agent_name": {
-            "title": "Agent Name",
-            "maxLength": 200,
-            "minLength": 1,
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "The agent\u0027s name. Default: none."
-          },
-          "model": {
-            "title": "Model",
-            "maxLength": 200,
-            "minLength": 1,
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "The model the agent runs on. Default: none."
-          },
-          "reviewer": {
-            "title": "Reviewer",
-            "maxLength": 200,
-            "minLength": 1,
-            "pattern": "^[A-Za-z0-9._:-]\u002B$",
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "Your opaque id for the reviewer, never a name or email. Default: none."
-          }
-        },
-        "additionalProperties": false,
-        "description": "Who wrote it.",
-        "x-client-original-nullable-union": {
-          "anyOf": [
-            {
-              "$ref": "#/components/schemas/FeedbackSource"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "description": "Who wrote it."
-        }
       },
       "ValidationErrorLocItem": {
         "oneOf": [
@@ -68687,6 +68733,175 @@
           ]
         }
       },
+      "FeedbackChannel": {
+        "title": "Channel",
+        "enum": [
+          "api",
+          "mcp"
+        ],
+        "type": "string",
+        "description": "How it was sent: \u0060api\u0060 or \u0060mcp\u0060.",
+        "x-ms-enum": {
+          "name": "FeedbackChannel",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "api",
+              "name": "Api"
+            },
+            {
+              "value": "mcp",
+              "name": "Mcp"
+            }
+          ]
+        }
+      },
+      "FeedbackRating": {
+        "title": "Rating",
+        "description": "\u0060positive\u0060 or \u0060negative\u0060.",
+        "anyOf": [
+          {
+            "title": "Rating",
+            "enum": [
+              "positive",
+              "negative"
+            ],
+            "type": "string",
+            "description": "\u0060positive\u0060 or \u0060negative\u0060.",
+            "x-ms-enum": {
+              "name": "FeedbackRating",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "positive",
+                  "name": "Positive"
+                },
+                {
+                  "value": "negative",
+                  "name": "Negative"
+                }
+              ]
+            }
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "FeedbackCategory": {
+        "title": "Category",
+        "description": "The kind of problem reported.",
+        "anyOf": [
+          {
+            "title": "Category",
+            "enum": [
+              "incorrect_data",
+              "outdated_data",
+              "missing_data",
+              "wrong_match",
+              "error",
+              "slow",
+              "confusing",
+              "missing_feature",
+              "billing",
+              "privacy",
+              "other"
+            ],
+            "type": "string",
+            "description": "The kind of problem reported.",
+            "x-ms-enum": {
+              "name": "FeedbackCategory",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "incorrect_data",
+                  "name": "IncorrectData"
+                },
+                {
+                  "value": "outdated_data",
+                  "name": "OutdatedData"
+                },
+                {
+                  "value": "missing_data",
+                  "name": "MissingData"
+                },
+                {
+                  "value": "wrong_match",
+                  "name": "WrongMatch"
+                },
+                {
+                  "value": "error",
+                  "name": "Error"
+                },
+                {
+                  "value": "slow",
+                  "name": "Slow"
+                },
+                {
+                  "value": "confusing",
+                  "name": "Confusing"
+                },
+                {
+                  "value": "missing_feature",
+                  "name": "MissingFeature"
+                },
+                {
+                  "value": "billing",
+                  "name": "Billing"
+                },
+                {
+                  "value": "privacy",
+                  "name": "Privacy"
+                },
+                {
+                  "value": "other",
+                  "name": "Other"
+                }
+              ]
+            }
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "FeedbackImpact": {
+        "title": "Impact",
+        "description": "\u0060blocked\u0060, \u0060worked_around\u0060, or \u0060minor\u0060.",
+        "anyOf": [
+          {
+            "title": "Impact",
+            "enum": [
+              "blocked",
+              "worked_around",
+              "minor"
+            ],
+            "type": "string",
+            "description": "\u0060blocked\u0060, \u0060worked_around\u0060, or \u0060minor\u0060.",
+            "x-ms-enum": {
+              "name": "FeedbackImpact",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "blocked",
+                  "name": "Blocked"
+                },
+                {
+                  "value": "worked_around",
+                  "name": "WorkedAround"
+                },
+                {
+                  "value": "minor",
+                  "name": "Minor"
+                }
+              ]
+            }
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
       "FeedbackRequestRating": {
         "title": "Rating",
         "description": "\u0060positive\u0060 or \u0060negative\u0060. Default: none.",
@@ -69672,10 +69887,29 @@
           "accepted"
         ],
         "type": "string",
-        "description": "Always \u0060accepted\u0060. When the monitor\u0027s previous run is still going, no new run starts.",
+        "description": "Always \u0060accepted\u0060. If the previous run is still going, no new run starts.",
         "x-client-original-const": "accepted",
         "x-ms-enum": {
           "name": "AcceptedStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "accepted",
+              "name": "Accepted"
+            }
+          ]
+        }
+      },
+      "MonitorTriggerAcceptedStatus": {
+        "title": "Status",
+        "enum": [
+          "accepted"
+        ],
+        "type": "string",
+        "description": "Always \u0060accepted\u0060. When the monitor\u0027s previous run is still going, no new run starts.",
+        "x-client-original-const": "accepted",
+        "x-ms-enum": {
+          "name": "MonitorTriggerAcceptedStatus",
           "modelAsString": false,
           "values": [
             {
@@ -70600,6 +70834,169 @@
           ]
         }
       },
+      "TaskFeedbackChannel": {
+        "title": "Channel",
+        "enum": [
+          "api",
+          "mcp"
+        ],
+        "type": "string",
+        "description": "\u0060api\u0060 or \u0060mcp\u0060.",
+        "x-ms-enum": {
+          "name": "TaskFeedbackChannel",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "api",
+              "name": "Api"
+            },
+            {
+              "value": "mcp",
+              "name": "Mcp"
+            }
+          ]
+        }
+      },
+      "TaskFeedbackRating": {
+        "title": "Rating",
+        "anyOf": [
+          {
+            "title": "Rating",
+            "enum": [
+              "positive",
+              "negative"
+            ],
+            "type": "string",
+            "x-ms-enum": {
+              "name": "TaskFeedbackRating",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "positive",
+                  "name": "Positive"
+                },
+                {
+                  "value": "negative",
+                  "name": "Negative"
+                }
+              ]
+            }
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "TaskFeedbackCategory": {
+        "title": "Category",
+        "anyOf": [
+          {
+            "title": "Category",
+            "enum": [
+              "incorrect_data",
+              "outdated_data",
+              "missing_data",
+              "wrong_match",
+              "error",
+              "slow",
+              "confusing",
+              "missing_feature",
+              "billing",
+              "privacy",
+              "other"
+            ],
+            "type": "string",
+            "x-ms-enum": {
+              "name": "TaskFeedbackCategory",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "incorrect_data",
+                  "name": "IncorrectData"
+                },
+                {
+                  "value": "outdated_data",
+                  "name": "OutdatedData"
+                },
+                {
+                  "value": "missing_data",
+                  "name": "MissingData"
+                },
+                {
+                  "value": "wrong_match",
+                  "name": "WrongMatch"
+                },
+                {
+                  "value": "error",
+                  "name": "Error"
+                },
+                {
+                  "value": "slow",
+                  "name": "Slow"
+                },
+                {
+                  "value": "confusing",
+                  "name": "Confusing"
+                },
+                {
+                  "value": "missing_feature",
+                  "name": "MissingFeature"
+                },
+                {
+                  "value": "billing",
+                  "name": "Billing"
+                },
+                {
+                  "value": "privacy",
+                  "name": "Privacy"
+                },
+                {
+                  "value": "other",
+                  "name": "Other"
+                }
+              ]
+            }
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "TaskFeedbackImpact": {
+        "title": "Impact",
+        "anyOf": [
+          {
+            "title": "Impact",
+            "enum": [
+              "blocked",
+              "worked_around",
+              "minor"
+            ],
+            "type": "string",
+            "x-ms-enum": {
+              "name": "TaskFeedbackImpact",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "blocked",
+                  "name": "Blocked"
+                },
+                {
+                  "value": "worked_around",
+                  "name": "WorkedAround"
+                },
+                {
+                  "value": "minor",
+                  "name": "Minor"
+                }
+              ]
+            }
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
       "TemplateScope": {
         "title": "Scope",
         "enum": [
@@ -70797,357 +71194,6 @@
             {
               "value": "org",
               "name": "Org"
-            }
-          ]
-        }
-      },
-      "ApiRoutersFeedbackApiModelFeedbackChannel": {
-        "title": "Channel",
-        "enum": [
-          "api",
-          "mcp"
-        ],
-        "type": "string",
-        "description": "\u0060api\u0060 or \u0060mcp\u0060.",
-        "x-ms-enum": {
-          "name": "ApiRoutersFeedbackApiModelFeedbackChannel",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "api",
-              "name": "Api"
-            },
-            {
-              "value": "mcp",
-              "name": "Mcp"
-            }
-          ]
-        }
-      },
-      "ApiRoutersFeedbackApiModelFeedbackRating": {
-        "title": "Rating",
-        "anyOf": [
-          {
-            "title": "Rating",
-            "enum": [
-              "positive",
-              "negative"
-            ],
-            "type": "string",
-            "x-ms-enum": {
-              "name": "ApiRoutersFeedbackApiModelFeedbackRating",
-              "modelAsString": false,
-              "values": [
-                {
-                  "value": "positive",
-                  "name": "Positive"
-                },
-                {
-                  "value": "negative",
-                  "name": "Negative"
-                }
-              ]
-            }
-          },
-          {
-            "type": "null"
-          }
-        ]
-      },
-      "ApiRoutersFeedbackApiModelFeedbackCategory": {
-        "title": "Category",
-        "anyOf": [
-          {
-            "title": "Category",
-            "enum": [
-              "incorrect_data",
-              "outdated_data",
-              "missing_data",
-              "wrong_match",
-              "error",
-              "slow",
-              "confusing",
-              "missing_feature",
-              "billing",
-              "privacy",
-              "other"
-            ],
-            "type": "string",
-            "x-ms-enum": {
-              "name": "ApiRoutersFeedbackApiModelFeedbackCategory",
-              "modelAsString": false,
-              "values": [
-                {
-                  "value": "incorrect_data",
-                  "name": "IncorrectData"
-                },
-                {
-                  "value": "outdated_data",
-                  "name": "OutdatedData"
-                },
-                {
-                  "value": "missing_data",
-                  "name": "MissingData"
-                },
-                {
-                  "value": "wrong_match",
-                  "name": "WrongMatch"
-                },
-                {
-                  "value": "error",
-                  "name": "Error"
-                },
-                {
-                  "value": "slow",
-                  "name": "Slow"
-                },
-                {
-                  "value": "confusing",
-                  "name": "Confusing"
-                },
-                {
-                  "value": "missing_feature",
-                  "name": "MissingFeature"
-                },
-                {
-                  "value": "billing",
-                  "name": "Billing"
-                },
-                {
-                  "value": "privacy",
-                  "name": "Privacy"
-                },
-                {
-                  "value": "other",
-                  "name": "Other"
-                }
-              ]
-            }
-          },
-          {
-            "type": "null"
-          }
-        ]
-      },
-      "ApiRoutersFeedbackApiModelFeedbackImpact": {
-        "title": "Impact",
-        "anyOf": [
-          {
-            "title": "Impact",
-            "enum": [
-              "blocked",
-              "worked_around",
-              "minor"
-            ],
-            "type": "string",
-            "x-ms-enum": {
-              "name": "ApiRoutersFeedbackApiModelFeedbackImpact",
-              "modelAsString": false,
-              "values": [
-                {
-                  "value": "blocked",
-                  "name": "Blocked"
-                },
-                {
-                  "value": "worked_around",
-                  "name": "WorkedAround"
-                },
-                {
-                  "value": "minor",
-                  "name": "Minor"
-                }
-              ]
-            }
-          },
-          {
-            "type": "null"
-          }
-        ]
-      },
-      "ApiRoutersV1FeedbackApiFeedbackChannel": {
-        "title": "Channel",
-        "enum": [
-          "api",
-          "mcp"
-        ],
-        "type": "string",
-        "description": "How it was sent: \u0060api\u0060 or \u0060mcp\u0060.",
-        "x-ms-enum": {
-          "name": "ApiRoutersV1FeedbackApiFeedbackChannel",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "api",
-              "name": "Api"
-            },
-            {
-              "value": "mcp",
-              "name": "Mcp"
-            }
-          ]
-        }
-      },
-      "ApiRoutersV1FeedbackApiFeedbackRating": {
-        "title": "Rating",
-        "description": "\u0060positive\u0060 or \u0060negative\u0060.",
-        "anyOf": [
-          {
-            "title": "Rating",
-            "enum": [
-              "positive",
-              "negative"
-            ],
-            "type": "string",
-            "description": "\u0060positive\u0060 or \u0060negative\u0060.",
-            "x-ms-enum": {
-              "name": "ApiRoutersV1FeedbackApiFeedbackRating",
-              "modelAsString": false,
-              "values": [
-                {
-                  "value": "positive",
-                  "name": "Positive"
-                },
-                {
-                  "value": "negative",
-                  "name": "Negative"
-                }
-              ]
-            }
-          },
-          {
-            "type": "null"
-          }
-        ]
-      },
-      "ApiRoutersV1FeedbackApiFeedbackCategory": {
-        "title": "Category",
-        "description": "The kind of problem reported.",
-        "anyOf": [
-          {
-            "title": "Category",
-            "enum": [
-              "incorrect_data",
-              "outdated_data",
-              "missing_data",
-              "wrong_match",
-              "error",
-              "slow",
-              "confusing",
-              "missing_feature",
-              "billing",
-              "privacy",
-              "other"
-            ],
-            "type": "string",
-            "description": "The kind of problem reported.",
-            "x-ms-enum": {
-              "name": "ApiRoutersV1FeedbackApiFeedbackCategory",
-              "modelAsString": false,
-              "values": [
-                {
-                  "value": "incorrect_data",
-                  "name": "IncorrectData"
-                },
-                {
-                  "value": "outdated_data",
-                  "name": "OutdatedData"
-                },
-                {
-                  "value": "missing_data",
-                  "name": "MissingData"
-                },
-                {
-                  "value": "wrong_match",
-                  "name": "WrongMatch"
-                },
-                {
-                  "value": "error",
-                  "name": "Error"
-                },
-                {
-                  "value": "slow",
-                  "name": "Slow"
-                },
-                {
-                  "value": "confusing",
-                  "name": "Confusing"
-                },
-                {
-                  "value": "missing_feature",
-                  "name": "MissingFeature"
-                },
-                {
-                  "value": "billing",
-                  "name": "Billing"
-                },
-                {
-                  "value": "privacy",
-                  "name": "Privacy"
-                },
-                {
-                  "value": "other",
-                  "name": "Other"
-                }
-              ]
-            }
-          },
-          {
-            "type": "null"
-          }
-        ]
-      },
-      "ApiRoutersV1FeedbackApiFeedbackImpact": {
-        "title": "Impact",
-        "description": "\u0060blocked\u0060, \u0060worked_around\u0060, or \u0060minor\u0060.",
-        "anyOf": [
-          {
-            "title": "Impact",
-            "enum": [
-              "blocked",
-              "worked_around",
-              "minor"
-            ],
-            "type": "string",
-            "description": "\u0060blocked\u0060, \u0060worked_around\u0060, or \u0060minor\u0060.",
-            "x-ms-enum": {
-              "name": "ApiRoutersV1FeedbackApiFeedbackImpact",
-              "modelAsString": false,
-              "values": [
-                {
-                  "value": "blocked",
-                  "name": "Blocked"
-                },
-                {
-                  "value": "worked_around",
-                  "name": "WorkedAround"
-                },
-                {
-                  "value": "minor",
-                  "name": "Minor"
-                }
-              ]
-            }
-          },
-          {
-            "type": "null"
-          }
-        ]
-      },
-      "ApiRoutersV1MonitorsApiRunStartedStatus": {
-        "title": "Status",
-        "enum": [
-          "accepted"
-        ],
-        "type": "string",
-        "description": "Always \u0060accepted\u0060. If the previous run is still going, no new run starts.",
-        "x-client-original-const": "accepted",
-        "x-ms-enum": {
-          "name": "ApiRoutersV1MonitorsApiRunStartedStatus",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "accepted",
-              "name": "Accepted"
             }
           ]
         }

@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Sixtyfour.OpenApiClient.Models
 {
-    /// <summary>Always `accepted`. When the monitor&apos;s previous run is still going, no new run starts.</summary>
+    /// <summary>Always `accepted`. If the previous run is still going, no new run starts.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum AcceptedStatus
     {

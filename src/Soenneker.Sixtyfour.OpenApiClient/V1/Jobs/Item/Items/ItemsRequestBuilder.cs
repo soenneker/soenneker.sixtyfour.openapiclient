@@ -22,7 +22,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Jobs.Item.Items
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ItemsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v1/jobs/{jobId}/items{?cursor*,page_size*}", pathParameters)
+        public ItemsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v1/jobs/{jobId}/items{?cursor*,fields*,max_bytes*,page_size*,start_index*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Jobs.Item.Items
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ItemsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v1/jobs/{jobId}/items{?cursor*,page_size*}", rawUrl)
+        public ItemsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v1/jobs/{jobId}/items{?cursor*,fields*,max_bytes*,page_size*,start_index*}", rawUrl)
         {
         }
         /// <summary>
@@ -123,10 +123,26 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Jobs.Item.Items
             public string Cursor { get; set; }
             #pragma warning restore CS1591
 #endif
+            /// <summary>Return only these top-level fields of each result.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("fields")]
+            public string[]? Fields { get; set; }
+#nullable restore
+#else
+            [QueryParameter("fields")]
+            public string[] Fields { get; set; }
+#endif
+            /// <summary>End the page before the item that would take its items past this many bytes of JSON. A page always has at least one item.</summary>
+            [QueryParameter("max_bytes")]
+            public int? MaxBytes { get; set; }
             #pragma warning disable CS1591
             [QueryParameter("page_size")]
             public int? PageSize { get; set; }
             #pragma warning restore CS1591
+            /// <summary>Start at the item with this zero-based index instead of a cursor.</summary>
+            [QueryParameter("start_index")]
+            public int? StartIndex { get; set; }
         }
     }
 }

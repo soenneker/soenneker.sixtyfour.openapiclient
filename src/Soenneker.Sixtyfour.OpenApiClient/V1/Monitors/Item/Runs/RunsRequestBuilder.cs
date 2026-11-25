@@ -49,7 +49,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Monitors.Item.Runs
         /// <summary>
         /// Lists a monitor&apos;s checks, newest first.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersV1MonitorsApiMonitorRunPage"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRunPage"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.PublicJobError">When receiving a 400 status code</exception>
@@ -64,11 +64,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Monitors.Item.Runs
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.PublicJobError">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersV1MonitorsApiMonitorRunPage?> GetAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.V1.Monitors.Item.Runs.RunsRequestBuilder.RunsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRunPage?> GetAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.V1.Monitors.Item.Runs.RunsRequestBuilder.RunsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersV1MonitorsApiMonitorRunPage> GetAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.V1.Monitors.Item.Runs.RunsRequestBuilder.RunsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRunPage> GetAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.V1.Monitors.Item.Runs.RunsRequestBuilder.RunsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -87,12 +87,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Monitors.Item.Runs
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersV1MonitorsApiMonitorRunPage>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersV1MonitorsApiMonitorRunPage.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRunPage>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRunPage.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Checks every active row now, without waiting for the schedule. Charged like a scheduled check.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersV1MonitorsApiRunStarted"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRunStarted"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.PublicJobError">When receiving a 400 status code</exception>
@@ -107,11 +107,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Monitors.Item.Runs
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.PublicJobError">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersV1MonitorsApiRunStarted?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRunStarted?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersV1MonitorsApiRunStarted> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRunStarted> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
@@ -130,7 +130,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Monitors.Item.Runs
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersV1MonitorsApiRunStarted>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersV1MonitorsApiRunStarted.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRunStarted>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.MonitorRunStarted.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists a monitor&apos;s checks, newest first.

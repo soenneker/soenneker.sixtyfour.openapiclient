@@ -28,12 +28,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         /// <summary>Connections in this page, ordered by name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersV1ConnectionsApiConnection>? Items { get => _explicitNullValueItems; set { _explicitNullValueItems = value; AdditionalData?.Remove("items"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("items"); else _explicitNullProperties?.Remove("items"); } }
-        private List<global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersV1ConnectionsApiConnection>? _explicitNullValueItems = default!;
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.Connection>? Items { get => _explicitNullValueItems; set { _explicitNullValueItems = value; AdditionalData?.Remove("items"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("items"); else _explicitNullProperties?.Remove("items"); } }
+        private List<global::Soenneker.Sixtyfour.OpenApiClient.Models.Connection>? _explicitNullValueItems = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersV1ConnectionsApiConnection> Items { get => _explicitNullValueItems; set { _explicitNullValueItems = value; AdditionalData?.Remove("items"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("items"); else _explicitNullProperties?.Remove("items"); } }
-        private List<global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersV1ConnectionsApiConnection> _explicitNullValueItems = default!;
+        public List<global::Soenneker.Sixtyfour.OpenApiClient.Models.Connection> Items { get => _explicitNullValueItems; set { _explicitNullValueItems = value; AdditionalData?.Remove("items"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("items"); else _explicitNullProperties?.Remove("items"); } }
+        private List<global::Soenneker.Sixtyfour.OpenApiClient.Models.Connection> _explicitNullValueItems = default!;
 #endif
         /// <summary>Pass as cursor to read the next page. Null when no more results remain.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -70,7 +70,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "items", n => { Items = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersV1ConnectionsApiConnection>(global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersV1ConnectionsApiConnection.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "items", n => { Items = n.GetCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.Connection>(global::Soenneker.Sixtyfour.OpenApiClient.Models.Connection.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "next_cursor", n => { NextCursor = n.GetStringValue(); } },
             };
         }
@@ -81,7 +81,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersV1ConnectionsApiConnection>("items", Items);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Sixtyfour.OpenApiClient.Models.Connection>("items", Items);
             writer.WriteStringValue("next_cursor", NextCursor);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

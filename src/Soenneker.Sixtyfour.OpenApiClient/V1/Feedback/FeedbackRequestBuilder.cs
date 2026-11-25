@@ -49,7 +49,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Feedback
         /// <summary>
         /// Lists the feedback your team sent, newest first.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersV1FeedbackApiFeedbackPage"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackPage"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.PublicJobError">When receiving a 400 status code</exception>
@@ -64,11 +64,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Feedback
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.PublicJobError">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersV1FeedbackApiFeedbackPage?> GetAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.V1.Feedback.FeedbackRequestBuilder.FeedbackRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackPage?> GetAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.V1.Feedback.FeedbackRequestBuilder.FeedbackRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersV1FeedbackApiFeedbackPage> GetAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.V1.Feedback.FeedbackRequestBuilder.FeedbackRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackPage> GetAsync(Action<RequestConfiguration<global::Soenneker.Sixtyfour.OpenApiClient.V1.Feedback.FeedbackRequestBuilder.FeedbackRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -87,12 +87,12 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Feedback
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersV1FeedbackApiFeedbackPage>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersV1FeedbackApiFeedbackPage.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackPage>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackPage.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Tells Sixtyfour a result was right or wrong: a rating, a comment, or corrected field values.Send at least one of `comment`, `rating` or `corrections`. Name the Job with `job_id` so the feedbackreaches the result it is about. Free.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersV1FeedbackApiFeedbackReceipt"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackReceipt"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -108,11 +108,11 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Feedback
         /// <exception cref="global::Soenneker.Sixtyfour.OpenApiClient.Models.PublicJobError">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersV1FeedbackApiFeedbackReceipt?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.SendFeedback body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackReceipt?> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.SendFeedback body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersV1FeedbackApiFeedbackReceipt> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.SendFeedback body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackReceipt> PostAsync(global::Soenneker.Sixtyfour.OpenApiClient.Models.SendFeedback body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -132,7 +132,7 @@ namespace Soenneker.Sixtyfour.OpenApiClient.V1.Feedback
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersV1FeedbackApiFeedbackReceipt>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.ApiRoutersV1FeedbackApiFeedbackReceipt.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackReceipt>(requestInfo, global::Soenneker.Sixtyfour.OpenApiClient.Models.FeedbackReceipt.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists the feedback your team sent, newest first.
